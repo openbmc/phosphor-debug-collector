@@ -1,0 +1,2 @@
+- name: InvalidCorePath
+  description: Invalid core directory path
