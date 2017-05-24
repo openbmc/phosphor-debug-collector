@@ -31,5 +31,9 @@ AC_ARG_VAR(DUMP_OBJPATH, [The Dump manager Dbus root])
 AS_IF([test "x$DUMP_OBJPATH" == "x"], [DUMP_OBJPATH="/xyz/openbmc_project/dump"])
 AC_DEFINE_UNQUOTED([DUMP_OBJPATH], ["$DUMP_OBJPATH"], [The dump manager Dbus root])
 
+AC_ARG_VAR(CORE_FILE_DIR, [Directory where core dumps are placed])
+AS_IF([test "x$CORE_FILE_DIR" == "x"], [CORE_FILE_DIR="/var/lib/systemd/coredump"])
+AC_DEFINE_UNQUOTED([CORE_FILE_DIR], ["$CORE_FILE_DIR"], [Directory where core dumps are placed])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
