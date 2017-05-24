@@ -1,0 +1,5 @@
+- name: InternalFailure
+  description: The operation failed internally during core file monitoring.
+
+- name: InvalidCorePath
+  description: Invalid core directory path

@@ -1,0 +1,13 @@
+- name: InternalFailure
+  level: ERR
+  meta:
+    - str: "FAIL=%s"
+      type: string
+    - str: "ERRNO=%d"
+      type: int32
+
+- name: InvalidCorePath
+  level: ERR
+  meta:
+    - str: "PATH=%s"
+      type: string
