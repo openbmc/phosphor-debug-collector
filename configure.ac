@@ -9,12 +9,22 @@ AM_SILENT_RULES([yes])
 AC_PROG_CXX
 AC_PROG_INSTALL #Checks/sets the install variable to be used
 AC_PROG_MAKE_SET
+AC_PROG_MKDIR_P
 
 # Check for libraries
+PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221],,\
+    AC_MSG_ERROR(["systemd required and not found."]))
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces],,\
     AC_MSG_ERROR(["Requires phosphor-dbus-interfaces package."]))
-PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus],,
+PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus],,\
     AC_MSG_ERROR(["Requires sdbusplus package."]))
+PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging],,\
+    AC_MSG_ERROR(["Requires phosphor-logging package."]))
+
+# Check for sdbus++
+AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
+AS_IF([test "x$SDBUSPLUSPLUS" == "x"],
+    AC_MSG_ERROR(["Requires sdbus++"]))
 
 # Checks for library functions
 LT_INIT # Required for systemd linking
@@ -30,6 +40,10 @@ AC_DEFINE_UNQUOTED([DUMP_BUSNAME], ["$DUMP_BUSNAME"], [The DBus busname to own])
 AC_ARG_VAR(DUMP_OBJPATH, [The Dump manager Dbus root])
 AS_IF([test "x$DUMP_OBJPATH" == "x"], [DUMP_OBJPATH="/xyz/openbmc_project/dump"])
 AC_DEFINE_UNQUOTED([DUMP_OBJPATH], ["$DUMP_OBJPATH"], [The dump manager Dbus root])
+
+AC_ARG_VAR(CORE_FILE_DIR, [Directory where core dumps are placed])
+AS_IF([test "x$CORE_FILE_DIR" == "x"], [CORE_FILE_DIR="/var/lib/systemd/coredump"])
+AC_DEFINE_UNQUOTED([CORE_FILE_DIR], ["$CORE_FILE_DIR"], [Directory where core dumps are placed])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
