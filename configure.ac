@@ -51,5 +51,13 @@ AC_ARG_VAR(CORE_FILE_DIR, [Directory where core dumps are placed])
 AS_IF([test "x$CORE_FILE_DIR" == "x"], [CORE_FILE_DIR="/var/lib/systemd/coredump"])
 AC_DEFINE_UNQUOTED([CORE_FILE_DIR], ["$CORE_FILE_DIR"], [Directory where core dumps are placed])
 
+AC_ARG_VAR(OBJ_INTERNAL, [The private Dump create Dbus root])
+AS_IF([test "x$OBJ_INTERNAL" == "x"], [OBJ_INTERNAL="/xyz/openbmc_project/dump/internal/Create"])
+AC_DEFINE_UNQUOTED([OBJ_INTERNAL], ["$OBJ_INTERNAL"], [The private Dump create Dbus root])
+
+AC_ARG_VAR(OBJ_ENTRY, [The dump entry DBus object path.])
+AS_IF([test "x$OBJ_ENTRY" == "x"], [OBJ_ENTRY="/xyz/openbmc_project/dump/entry"])
+AC_DEFINE_UNQUOTED([OBJ_ENTRY], ["$OBJ_ENTRY"], [The dump entry DBus object path])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
