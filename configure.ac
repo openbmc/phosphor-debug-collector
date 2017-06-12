@@ -40,7 +40,7 @@ AX_CXX_COMPILE_STDCXX_14([noext])
 AX_APPEND_COMPILE_FLAGS([-Wall -Werror], [CXXFLAGS])
 
 AC_ARG_VAR(DUMP_BUSNAME, [The Dbus busname to own])
-AS_IF([test "x$DUMP_BUSNAME" == "x"], [DUMP_BUSNAME="xyz.openbmc_project.Dump"])
+AS_IF([test "x$DUMP_BUSNAME" == "x"], [DUMP_BUSNAME="xyz.openbmc_project.Dump.Manager"])
 AC_DEFINE_UNQUOTED([DUMP_BUSNAME], ["$DUMP_BUSNAME"], [The DBus busname to own])
 
 AC_ARG_VAR(DUMP_OBJPATH, [The Dump manager Dbus root])
