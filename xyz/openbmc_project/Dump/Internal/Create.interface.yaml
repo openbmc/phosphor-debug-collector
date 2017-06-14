@@ -29,6 +29,8 @@ enumerations:
         - name: ApplicationCored
           description: >
               Dump triggered due to application core.
-
+        - name: UserRequested
+          description: >
+              Dump triggered by the user.
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
