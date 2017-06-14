@@ -5,7 +5,8 @@ noinst_HEADERS = \
 	dump_entry.hpp \
 	dump_watch.hpp \
 	dump_create.hpp \
-	dump_manager.hpp
+	dump_manager.hpp \
+        dump_utils.hpp
 
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Monitor/error.hpp \
