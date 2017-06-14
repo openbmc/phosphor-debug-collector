@@ -36,12 +36,13 @@ class Manager : public CreateIface
 
         /** @brief Constructor to put object onto bus at a dbus path.
          *  @param[in] bus - Bus to attach to.
+         *  @param[in] loop - Dump manager sd_event loop.
          *  @param[in] path - Path to attach at.
          */
         Manager(sdbusplus::bus::bus& bus, sd_event* loop, const char* path) :
             CreateIface(bus, path),
             dumpbus(bus),
-            dumploop(loop),
+            eventLoop(loop),
             lastentryId(0) {};
 
         /** @brief Implementation for CreateDump
@@ -73,11 +74,26 @@ class Manager : public CreateIface
         void erase(uint32_t entryId);
 
     private:
+        /** @brief sd_event_add_child callback
+          *
+          *  @param[in] s - event source, floating (unused) in our case
+          *  @param[in] si - 
+          *  @param[in] userdata - pointer to Watch object
+          *  @returns 0 on success, -1 on fail
+          */
+        static int callback(sd_event_source* s,
+                            const siginfo_t *si,
+                            void* userdata)
+        {
+            //No specific action required in
+            //the sd_event_add_child callback.
+            return true;
+        };
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& dumpbus;
 
-        /** @brief sdbusplus DBus bus connection. */
-        sd_event* dumploop;
+        /** @brief Dump event loop. */
+        sd_event* eventLoop;
 
         /** @brief Dump Entry dbus objects map based on entry id */
         std::map<uint32_t, std::unique_ptr<Entry>> entries;
