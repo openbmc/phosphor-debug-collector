@@ -1,0 +1,5 @@
+- name: InvalidDumpPath
+  level: ERR
+  meta:
+    - str: "PATH=%s"
+      type: string
