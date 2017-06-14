@@ -81,7 +81,6 @@ uint32_t Manager:: captureDump(
 void Manager::createEntry(const fs::path& file)
 {
     // TODO openbmc/openbmc#1795
-    // Get Dump ID from Dump file name.
     // Validate the Dump file name.
     auto id = lastEntryId;
 
