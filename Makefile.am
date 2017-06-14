@@ -3,7 +3,11 @@ AM_DEFAULT_SOURCE_EXT = .cpp
 # Build these headers, don't install them
 noinst_HEADERS = \
 	dump_entry.hpp \
-	dump_watch.hpp
+	dump_watch.hpp \
+	dump_internal.hpp \
+	dump_manager.hpp
+	dump_manager.hpp \
+	dump_utils.hpp
 
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Monitor/error.hpp \
@@ -16,7 +20,9 @@ sbin_PROGRAMS = \
 phosphor_dump_manager_SOURCES = \
 	dump_manager_main.cpp \
 	dump_entry.cpp \
-	xyz/openbmc_project/Dump/Internal/Create/server.cpp
+	dump_manager.cpp \
+	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
+	xyz/openbmc_project/Dump/Monitor/error.cpp
 
 phosphor_dump_monitor_SOURCES = \
 	dump_watch_main.cpp \
@@ -35,7 +41,8 @@ phosphor_dump_monitor_CXXFLAGS = \
 phosphor_dump_manager_LDADD = \
 	$(PHOSPHOR_DBUS_INTERFACES_LIBS) \
 	$(SDBUSPLUS_LIBS) \
-	$(PHOSPHOR_LOGGING_LIBS)
+	$(PHOSPHOR_LOGGING_LIBS) \
+	-lstdc++fs
 
 phosphor_dump_monitor_LDADD = \
 	$(PHOSPHOR_DBUS_INTERFACES_LIBS) \

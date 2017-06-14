@@ -14,19 +14,12 @@
 #include "elog-errors.hpp"
 #include <xyz/openbmc_project/Dump/Monitor/error.hpp>
 #include "xyz/openbmc_project/Common/error.hpp"
+#include "dump_utils.hpp"
 
 namespace phosphor
 {
 namespace dump
 {
-
-CustomFd::~CustomFd()
-{
-    if (fd >= 0)
-    {
-        close(fd);
-    }
-}
 
 namespace inotify
 {
