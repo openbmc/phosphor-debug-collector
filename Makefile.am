@@ -6,11 +6,13 @@ noinst_HEADERS = \
 	dump_watch.hpp \
 	dump_internal.hpp \
 	dump_manager.hpp \
-	dump_utils.hpp
+	dump_utils.hpp \
+	watch.hpp
 
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Monitor/error.hpp \
-	xyz/openbmc_project/Dump/Internal/Create/server.hpp
+	xyz/openbmc_project/Dump/Internal/Create/server.hpp \
+	xyz/openbmc_project/Dump/Manager/error.hpp
 
 sbin_PROGRAMS = \
 	phosphor-dump-manager \
@@ -20,8 +22,9 @@ phosphor_dump_manager_SOURCES = \
 	dump_manager_main.cpp \
 	dump_entry.cpp \
 	dump_manager.cpp \
+	watch.cpp \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
-	xyz/openbmc_project/Dump/Monitor/error.cpp
+	xyz/openbmc_project/Dump/Manager/error.cpp
 
 phosphor_dump_monitor_SOURCES = \
 	dump_watch_main.cpp \
@@ -53,7 +56,7 @@ BUILT_SOURCES = \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
 	xyz/openbmc_project/Dump/Internal/Create/server.hpp \
 	xyz/openbmc_project/Dump/Monitor/error.cpp \
-	xyz/openbmc_project/Dump/Monitor/error.hpp
+	xyz/openbmc_project/Dump/Manager/error.hpp
 
 CLEANFILES=${BUILT_SOURCES}
 
@@ -78,3 +81,12 @@ ${top_srcdir}/xyz/openbmc_project/Dump/Monitor.errors.yaml
 xyz/openbmc_project/Dump/Monitor/error.cpp: ${top_srcdir}/xyz/openbmc_project/Dump/Monitor.errors.yaml
 	@mkdir -p `dirname $@`
 	$(SDBUSPLUSPLUS) -r $(srcdir) error exception-cpp xyz.openbmc_project.Dump.Monitor > $@
+
+xyz/openbmc_project/Dump/Manager/error.hpp: \
+${top_srcdir}/xyz/openbmc_project/Dump/Manager.errors.yaml
+	@mkdir -p `dirname $@`
+	$(SDBUSPLUSPLUS) -r $(srcdir) error exception-header xyz.openbmc_project.Dump.Manager > $@
+
+xyz/openbmc_project/Dump/Manager/error.cpp: ${top_srcdir}/xyz/openbmc_project/Dump/Manager.errors.yaml
+	@mkdir -p `dirname $@`
+	$(SDBUSPLUSPLUS) -r $(srcdir) error exception-cpp xyz.openbmc_project.Dump.Manager > $@

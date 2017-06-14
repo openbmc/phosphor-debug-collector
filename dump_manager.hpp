@@ -96,7 +96,7 @@ class Manager : public CreateIface
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;
 
-        /** @brief sdbusplus Dump event loopi */
+        /** @brief Dump event loop. */
         sd_event* eventLoop;
 
         /** @brief Dump Entry dbus objects map based on entry id */
