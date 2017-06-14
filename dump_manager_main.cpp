@@ -1,3 +1,4 @@
+#include <sdbusplus/bus.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -7,11 +8,11 @@
 
 int main(int argc, char* argv[])
 {
-    auto bus = sdbusplus::bus::new_default();
     using namespace phosphor::logging;
     using InternalFailure =
         sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
+    auto bus = sdbusplus::bus::new_default();
     sd_event* event = nullptr;
     auto rc = sd_event_default(&event);
     if (rc < 0)
@@ -41,7 +42,6 @@ int main(int argc, char* argv[])
             elog<InternalFailure>();
         }
     }
-
     catch (InternalFailure& e)
     {
         commit<InternalFailure>();
