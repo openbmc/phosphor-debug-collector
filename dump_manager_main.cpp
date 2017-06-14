@@ -1,4 +1,6 @@
+#include <sdbusplus/bus.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <xyz/openbmc_project/Dump/Manager/error.hpp>
 
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "config.h"
@@ -7,11 +9,11 @@
 
 int main(int argc, char* argv[])
 {
-    auto bus = sdbusplus::bus::new_default();
     using namespace phosphor::logging;
     using InternalFailure =
         sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
+    auto bus = sdbusplus::bus::new_default();
     sd_event* event = nullptr;
     auto rc = sd_event_default(&event);
     if (rc < 0)
@@ -19,7 +21,7 @@ int main(int argc, char* argv[])
         log<level::ERR>("Error occurred during the sd_event_default",
                         entry("rc=%d", rc));
         report<InternalFailure>();
-        return rc;
+        return -1;
     }
     phosphor::dump::EventPtr eventP{event};
     event = nullptr;
