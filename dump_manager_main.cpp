@@ -1,20 +1,51 @@
-#include <sdbusplus/bus.hpp>
-#include <sdbusplus/server/manager.hpp>
-#include "config.h"
+#include <phosphor-logging/elog-errors.hpp>
 
-int main(int argc, char *argv[])
+#include "xyz/openbmc_project/Common/error.hpp"
+#include "config.h"
+#include "dump_manager.hpp"
+#include "dump_internal.hpp"
+
+int main(int argc, char* argv[])
 {
     auto bus = sdbusplus::bus::new_default();
+    using namespace phosphor::logging;
+    using InternalFailure =
+        sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
+
+    sd_event* event = nullptr;
+    auto rc = sd_event_default(&event);
+    if (rc < 0)
+    {
+        log<level::ERR>("Error occurred during the sd_event_default",
+                        entry("rc=%d", rc));
+        report<InternalFailure>();
+        return rc;
+    }
+    phosphor::dump::EventPtr eventP{event};
+    event = nullptr;
 
     // Add sdbusplus ObjectManager for the 'root' path of the DUMP manager.
     sdbusplus::server::manager::manager objManager(bus, DUMP_OBJPATH);
-
     bus.request_name(DUMP_BUSNAME);
 
-    while(true)
+    try
     {
-        bus.process_discard();
-        bus.wait();
+        phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
+        phosphor::dump::internal::Manager mgr(bus, OBJ_INTERNAL);
+        bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
+        auto rc = sd_event_loop(eventP.get());
+        if (rc < 0)
+        {
+            log<level::ERR>("Error occurred during the sd_event_loop",
+                            entry("rc=%d", rc));
+            elog<InternalFailure>();
+        }
+    }
+
+    catch (InternalFailure& e)
+    {
+        commit<InternalFailure>();
+        return -1;
     }
 
     return 0;

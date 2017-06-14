@@ -1,33 +1,17 @@
-#include <stdexcept>
-#include <cstddef>
-#include <cstring>
-#include <string>
-#include <vector>
 #include <sys/inotify.h>
-#include <unistd.h>
+#include <experimental/filesystem>
+#include <phosphor-logging/elog-errors.hpp>
+#include <xyz/openbmc_project/Dump/Monitor/error.hpp>
+
 #include "config.h"
 #include "dump_watch.hpp"
-#include <experimental/filesystem>
-#include <phosphor-logging/log.hpp>
-#include <phosphor-logging/elog.hpp>
-#include <phosphor-logging/elog-errors.hpp>
 #include "elog-errors.hpp"
-#include <xyz/openbmc_project/Dump/Monitor/error.hpp>
 #include "xyz/openbmc_project/Common/error.hpp"
 
 namespace phosphor
 {
 namespace dump
 {
-
-CustomFd::~CustomFd()
-{
-    if (fd >= 0)
-    {
-        close(fd);
-    }
-}
-
 namespace inotify
 {
 
