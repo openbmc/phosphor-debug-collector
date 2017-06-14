@@ -6,7 +6,8 @@ noinst_HEADERS = \
 	dump_watch.hpp \
 	dump_create.hpp \
 	dump_manager.hpp \
-        dump_utils.hpp
+	dump_utils.hpp \
+	watch.hpp
 
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Monitor/error.hpp \
@@ -20,6 +21,7 @@ phosphor_dump_manager_SOURCES = \
 	dump_manager_main.cpp \
 	dump_entry.cpp \
 	dump_manager.cpp \
+	watch.cpp \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
 	xyz/openbmc_project/Dump/Monitor/error.cpp
 
