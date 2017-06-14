@@ -1,11 +1,11 @@
-#include <exception>
 #include "dump_watch.hpp"
+#include "elog-errors.hpp"
+#include "xyz/openbmc_project/Dump/Monitor/error.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
+
 #include <phosphor-logging/log.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/elog-errors.hpp>
-#include "elog-errors.hpp"
-#include <xyz/openbmc_project/Dump/Monitor/error.hpp>
-#include "xyz/openbmc_project/Common/error.hpp"
 
 int main(int argc, char* argv[])
 {
