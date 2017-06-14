@@ -3,10 +3,10 @@
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
-#include <experimental/filesystem>
 
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 #include "dump_entry.hpp"
+#include "dump_utils.hpp"
 
 namespace phosphor
 {
@@ -19,22 +19,11 @@ class Manager;
 
 } // namespace internal
 
-namespace fs = std::experimental::filesystem;
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
 
 using CreateIface = sdbusplus::server::object::object<
                     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
-
-/* Need a custom deleter for freeing up sd_event */
-struct EventDeleter
-{
-    void operator()(sd_event* event) const
-    {
-        event = sd_event_unref(event);
-    }
-};
-using EventPtr = std::unique_ptr<sd_event, EventDeleter>;
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.

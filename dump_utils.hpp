@@ -1,9 +1,24 @@
 #pragma once
 
+#include <experimental/filesystem>
+#include <unistd.h>
+
 namespace phosphor
 {
 namespace dump
 {
+
+namespace fs = std::experimental::filesystem;
+
+/* Need a custom deleter for freeing up sd_event */
+struct EventDeleter
+{
+    void operator()(sd_event* event) const
+    {
+        event = sd_event_unref(event);
+    }
+};
+using EventPtr = std::unique_ptr<sd_event, EventDeleter>;
 
 /** @struct CustomFd
  *
