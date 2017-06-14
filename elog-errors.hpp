@@ -29,6 +29,26 @@ namespace Error
 } // namespace xyz
 } // namespace sdbusplus
 
+namespace sdbusplus
+{
+namespace xyz
+{
+namespace openbmc_project
+{
+namespace Dump
+{
+namespace Manager
+{
+namespace Error
+{
+    struct InvalidDumpPath;
+} // namespace Error
+} // namespace Manager
+} // namespace Dump
+} // namespace openbmc_project
+} // namespace xyz
+} // namespace sdbusplus
+
 
 namespace phosphor
 {
@@ -79,6 +99,53 @@ template <>
 struct map_exception_type<sdbusplus::xyz::openbmc_project::Dump::Monitor::Error::InvalidCorePath>
 {
     using type = xyz::openbmc_project::Dump::Monitor::InvalidCorePath;
+};
+
+}
+
+namespace xyz
+{
+namespace openbmc_project
+{
+namespace Dump
+{
+namespace Manager
+{
+namespace _InvalidDumpPath
+{
+
+struct PATH
+{
+    static constexpr auto str = "PATH=%s";
+    static constexpr auto str_short = "PATH";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr PATH(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+
+}  // namespace _InvalidDumpPath
+
+struct InvalidDumpPath
+{
+    static constexpr auto L = level::ERR;
+    using PATH = _InvalidDumpPath::PATH;
+    using metadata_types = std::tuple<PATH>;
+
+};
+
+} // namespace Manager
+} // namespace Dump
+} // namespace openbmc_project
+} // namespace xyz
+
+
+namespace details
+{
+
+template <>
+struct map_exception_type<sdbusplus::xyz::openbmc_project::Dump::Manager::Error::InvalidDumpPath>
+{
+    using type = xyz::openbmc_project::Dump::Manager::InvalidDumpPath;
 };
 
 }
