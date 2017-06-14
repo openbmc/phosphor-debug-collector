@@ -46,18 +46,25 @@ uint32_t Manager:: captureDump(
     if (pid == 0)
     {
         execl("/usr/bin/ffdc", "ffdc", (char*)0);
+
+        //ffdc script execution is failed.
         log<level::ERR>("Error occurred during ffdc function execution");
         elog<InternalFailure>();
     }
     else if (pid > 0)
     {
-        auto rc = sd_event_add_child(dumploop, NULL, pid, WEXITED, NULL, NULL);
+        sd_event_source* source = nullptr;
+        auto rc = sd_event_add_child(eventLoop,
+                                     &source,
+                                     pid,
+                                     WSTOPPED,
+                                     callback,
+                                     nullptr);
         if (0 > rc)
         {
             // Failed to add to event loop
-            auto error = errno;
             log<level::ERR>("Error occurred during the sd_event_add_child call",
-                            entry("ERRNO=%s", strerror(error)));
+                           entry("rc=%d", rc));
             elog<InternalFailure>();
         }
     }
@@ -73,8 +80,8 @@ uint32_t Manager:: captureDump(
 void Manager::createEntry(const fs::path& file)
 {
     // TODO openbmc/openbmc#1795
-    // Get Dump ID from Dump file name.
     // Validate the Dump file name.
+    // Get Dump ID and Epoch time from Dump file name.
     auto id = lastentryId;
 
     //Get Epoch time.
