@@ -37,7 +37,7 @@ declare -a arr=(
 )
 
 dir=$"ffdc_$(date +"%Y-%m-%d_%H-%M-%S")"
-dest="/tmp"
+dest="/var/log/dumps"
 
 while [[ $# -gt 0 ]]; do
   key="$1"
