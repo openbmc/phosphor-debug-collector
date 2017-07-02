@@ -63,6 +63,11 @@ class Manager : public CreateIface
          */
         uint32_t createDump() override;
 
+        /** @brief Implementation of dump watch call back
+         *  @param [out] fileInfo - map of file info  name:event
+         */
+        void watchCallback(std::map<fs::path, uint32_t> fileInfo);
+
     private:
         /** @brief Create Dump entry d-bus object
          *  @param[in] fullPath - Full path of the Dump file name

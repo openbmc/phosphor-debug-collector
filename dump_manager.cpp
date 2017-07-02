@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <sys/inotify.h>
 
 #include <phosphor-logging/elog-errors.hpp>
 
@@ -110,6 +111,21 @@ void Manager::createEntry(const fs::path& file)
 void Manager::erase(uint32_t entryId)
 {
     entries.erase(entryId);
+}
+
+void Manager::watchCallback(std::map<fs::path, uint32_t> fileInfo)
+{
+    if (!fileInfo.empty())
+    {
+        for (auto& i : fileInfo)
+        {
+            // For any new dump file create dump entry object.
+            if (IN_CLOSE_WRITE == i.second)
+            {
+                createEntry(i.first);
+            }
+        }
+    }
 }
 
 } //namespace dump
