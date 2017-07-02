@@ -20,7 +20,7 @@ namespace fs = std::experimental::filesystem;
 using UserMap = std::map<fs::path, uint32_t>;
 
 //User specific callback function wrapper type.
-using UserType = std::function<void(const UserMap&)>;
+using UserType = std::function<void(const UserMap)>;
 
 /** @class Watch
  *
