@@ -5,6 +5,7 @@
 #include "config.h"
 #include "dump_manager.hpp"
 #include "dump_internal.hpp"
+#include "watch.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -34,6 +35,7 @@ int main(int argc, char* argv[])
         phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
         phosphor::dump::internal::Manager mgr(bus, OBJ_INTERNAL);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
+
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
         {
