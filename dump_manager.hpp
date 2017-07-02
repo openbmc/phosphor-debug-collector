@@ -9,6 +9,7 @@
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 #include "dump_entry.hpp"
 #include "dump_utils.hpp"
+#include "watch.hpp"
 
 namespace phosphor
 {
@@ -20,6 +21,8 @@ namespace internal
 class Manager;
 
 } // namespace internal
+
+using UserMap = phosphor::dump::inotify::UserMap;
 
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
@@ -66,6 +69,11 @@ class Manager : public CreateIface
          *  @return id - The Dump entry id number.
          */
         uint32_t createDump() override;
+
+        /** @brief Implementation of dump watch call back
+         *  @param [in] fileInfo - map of file info  path:event
+         */
+        void watchCallback(UserMap fileInfo);
 
     private:
         /** @brief Create Dump entry d-bus object
