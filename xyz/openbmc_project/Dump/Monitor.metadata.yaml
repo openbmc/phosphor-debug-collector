@@ -1,5 +1,0 @@
-- name: InvalidCorePath
-  level: ERR
-  meta:
-    - str: "PATH=%s"
-      type: string

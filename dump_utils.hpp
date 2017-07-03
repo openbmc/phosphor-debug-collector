@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <unistd.h>
+#include <systemd/sd-event.h>
 
 namespace phosphor
 {
