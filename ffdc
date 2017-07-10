@@ -43,10 +43,11 @@ while [[ $# -gt 0 ]]; do
   key="$1"
   case $key in
     -d|--dir)
-      if [ -d "$2" ]; then
+      mkdir -p "$2"
+      if [ $? -eq 0 ]; then
         dest="$2"
       else
-        echo "Invalid or no destination directory specified."
+        echo "Failed to create the destination directory specified."
         break
       fi
       shift 2
