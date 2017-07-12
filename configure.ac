@@ -59,11 +59,9 @@ AC_ARG_VAR(OBJ_ENTRY, [The dump entry DBus object path.])
 AS_IF([test "x$OBJ_ENTRY" == "x"], [OBJ_ENTRY="/xyz/openbmc_project/dump/entry"])
 AC_DEFINE_UNQUOTED([OBJ_ENTRY], ["$OBJ_ENTRY"], [The dump entry DBus object path])
 
-# TODO openbmc/openbmc#1795
-# Change the path to Dump Partition path.
-AC_ARG_VAR(BMC_DUMP_FILE_DIR, [Directory where bmc dumps are placed])
-AS_IF([test "x$BMC_DUMP_FILE_DIR" == "x"], [BMC_DUMP_FILE_DIR="/tmp"])
-AC_DEFINE_UNQUOTED([BMC_DUMP_FILE_DIR], ["$BMC_DUMP_FILE_DIR"], [Directory where bmc dumps are placed])
+AC_ARG_VAR(BMC_DUMP_PATH, [Directory where bmc dumps are placed])
+AS_IF([test "x$BMC_DUMP_PATH" == "x"], [BMC_DUMP_FILE_DIR="/tmp/dumps"])
+AC_DEFINE_UNQUOTED([BMC_DUMP_PATH], ["$BMC_DUMP_PATH"], [Directory where bmc dumps are placed])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

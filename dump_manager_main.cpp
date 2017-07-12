@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
                   IN_NONBLOCK,
                   IN_CLOSE_WRITE,
                   EPOLLIN,
-                  BMC_DUMP_FILE_DIR,
+                  BMC_DUMP_PATH,
                   std::bind(
                        std::mem_fn(
                             &phosphor::dump::Manager::watchCallback),
