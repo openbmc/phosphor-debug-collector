@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     try
     {
         phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
-        phosphor::dump::internal::Manager mgr(bus, OBJ_INTERNAL);
+        phosphor::dump::internal::Manager mgr(bus, manager, OBJ_INTERNAL);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
         auto rc = sd_event_loop(eventP.get());
