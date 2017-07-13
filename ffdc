@@ -34,9 +34,9 @@ declare -a arr=(
 # Copy all content from these directories into directories in the .tar
 # Format: "Directory name" "Directory to copy"
       "obmc"                      "/var/lib/obmc/"
+      "core"                      "/var/lib/systemd/coredump"
 )
 
-dir=$"ffdc_$(date +"%Y-%m-%d_%H-%M-%S")"
 dest="/tmp"
 
 while [[ $# -gt 0 ]]; do
@@ -64,6 +64,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo "Using destination directory $dest"
+
+id=$(basename $dest)
+printf -v f_id "%08d" $id
+dir=$"OBMCDUMP_"$f_id"_$(date +"%s")"
 
 mkdir -p "$dest/$dir"
 
