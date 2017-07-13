@@ -83,6 +83,9 @@ uint32_t Manager::captureDump(
 
 void Manager::createEntry(const fs::path& file)
 {
+    //Delete inotify watch object associated to this path
+    dumpWatch.erase(file.parent_path());
+
     // TODO openbmc/openbmc#1795
     // Get Dump ID and Epoch time from Dump file name.
     // Validate the Dump file name.
