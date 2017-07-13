@@ -33,6 +33,8 @@ using CreateIface = sdbusplus::server::object::object<
 
 namespace fs = std::experimental::filesystem;
 
+using Watch = phosphor::dump::inotify::Watch;
+
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
  *  @details A concrete implementation for the
@@ -123,6 +125,11 @@ class Manager : public CreateIface
             //the sd_event_add_child callback.
             return 0;
         }
+        /** @brief Remove specified watch object pointer from the
+          *        watch map and associated entry from the map.
+          *        @param[in] path - unique identifier of the map
+          */
+        void removeWatch(const fs::path& path);
 
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;
@@ -136,8 +143,13 @@ class Manager : public CreateIface
         /** @brief Id of the last Dump entry */
         uint32_t lastEntryId;
 
-        /** @brief Dump watch object */
-        phosphor::dump::inotify::Watch dumpWatch;
+        /** @brief Dump main watch object */
+        Watch dumpWatch;
+
+        /** @brief Child directory path and its associated watch object map
+          *        [path:watch object]
+          */
+        std::map<fs::path, std::unique_ptr<Watch>> childWatchMap;
 };
 
 } // namespace dump

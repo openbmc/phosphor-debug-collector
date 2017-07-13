@@ -87,7 +87,9 @@ int Watch::callback(sd_event_source* s,
                     uint32_t revents,
                     void* userdata)
 {
-    if (!(revents & static_cast<Watch*>(userdata)->events))
+    auto userData = static_cast<Watch*>(userdata);
+
+    if (!(revents & userData->events))
     {
         return 0;
     }
@@ -115,12 +117,12 @@ int Watch::callback(sd_event_source* s,
     while (offset < bytes)
     {
         auto event = reinterpret_cast<inotify_event*>(&buffer[offset]);
-        auto mask = event->mask & static_cast<Watch*>(userdata)->mask;
+        auto mask = event->mask & userData->mask;
 
-        if (mask && !(event->mask & IN_ISDIR))
+        if (mask)
         {
             userMap.emplace(
-                    (static_cast<Watch*>(userdata)->path / event->name), mask);
+                    (userData->path / event->name), mask);
         }
 
         offset += offsetof(inotify_event, name) + event->len;
@@ -129,7 +131,7 @@ int Watch::callback(sd_event_source* s,
     //Call user call back function incase valid data in the map
     if (!userMap.empty())
     {
-        static_cast<Watch*>(userdata)->userFunc(userMap);
+        userData->userFunc(userMap);
     }
 
     return 0;
