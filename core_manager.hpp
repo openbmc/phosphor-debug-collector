@@ -21,6 +21,12 @@ using UserMap = phosphor::dump::inotify::UserMap;
   */
 void watchCallback(UserMap fileInfo);
 
+/** @brief Helper function for initiating dump request using
+ *         D-bus internal create interface.
+ *  @param [in] files - Core files list
+ */
+void createHelper(std::vector<std::string>& files);
+
 } // namespace manager
 } // namepsace core
 } // namespace dump
