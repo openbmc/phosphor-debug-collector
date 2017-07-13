@@ -42,11 +42,12 @@ uint32_t Manager::captureDump(
 {
     pid_t pid = fork();
 
-    // TODO openbmc/openbmc#1795
-    // Add Dump location info.
     if (pid == 0)
     {
-        execl("/usr/bin/ffdc", "ffdc", nullptr);
+        fs::path dumpPath(BMC_DUMP_PATH);
+
+        dumpPath /= std::to_string(lastEntryId);
+        execl("/usr/bin/ffdc", "ffdc", "-d", dumpPath.c_str(), nullptr);
 
         //ffdc script execution is failed.
         auto error = errno;
