@@ -23,8 +23,7 @@ void Manager::create(
     Type type,
     std::vector<std::string> fullPaths)
 {
-    // TODO openbmc/openbmc#1795
-    // Add implementaion of internal create function.
+    dumpMgr->phosphor::dump::Manager::captureDump(type, fullPaths);
 }
 
 } //namepsace internal

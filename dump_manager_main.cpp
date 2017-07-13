@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     try
     {
         phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
-        phosphor::dump::internal::Manager mgr(bus, OBJ_INTERNAL);
+        phosphor::dump::internal::Manager mgr(bus, &manager, OBJ_INTERNAL);
         phosphor::dump::inotify::Watch watch(
                   eventP,
                   IN_NONBLOCK,
