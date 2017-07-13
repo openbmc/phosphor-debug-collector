@@ -70,7 +70,8 @@ class Manager : public CreateIface
                   std::bind(
                        std::mem_fn(
                             &phosphor::dump::Manager::watchCallback),
-                            this, std::placeholders::_1))
+                            this, std::placeholders::_1),
+                  IN_CREATE)
         {}
 
         /** @brief Implementation for CreateDump

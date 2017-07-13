@@ -27,13 +27,16 @@ Watch::Watch(const EventPtr& eventObj,
              const uint32_t mask,
              const uint32_t events,
              const fs::path& path,
-             UserType userFunc):
+             UserType userFunc,
+             const uint32_t childMask):
     flags(flags),
     mask(mask),
     events(events),
     path(path),
     fd(inotifyInit()),
-    userFunc(userFunc)
+    userFunc(userFunc),
+    eventObj(eventObj.get()),
+    childMask(childMask)
 {
     // Check if watch DIR exists.
     if (!fs::is_directory(path))
@@ -43,7 +46,9 @@ Watch::Watch(const EventPtr& eventObj,
         elog<InternalFailure>();
     }
 
-    wd = inotify_add_watch(fd(), path.c_str(), mask);
+    //Adding Child mask event to support child directory level
+    //file watch.
+    wd = inotify_add_watch(fd(), path.c_str(), childMask | mask);
     if (-1 == wd)
     {
         auto error = errno;
@@ -87,7 +92,9 @@ int Watch::callback(sd_event_source* s,
                     uint32_t revents,
                     void* userdata)
 {
-    if (!(revents & static_cast<Watch*>(userdata)->events))
+    auto userData = static_cast<Watch*>(userdata);
+
+    if (!(revents & userData->events))
     {
         return 0;
     }
@@ -115,24 +122,52 @@ int Watch::callback(sd_event_source* s,
     while (offset < bytes)
     {
         auto event = reinterpret_cast<inotify_event*>(&buffer[offset]);
-        auto mask = event->mask & static_cast<Watch*>(userdata)->mask;
+        auto mask = event->mask & userData->mask;
+        auto path = userData->path;
 
+        // Checking the event related to new file creation.
         if (mask && !(event->mask & IN_ISDIR))
         {
-            userMap.emplace(
-                    (static_cast<Watch*>(userdata)->path / event->name), mask);
+            userMap.emplace(userData->path / event->name, mask);
         }
 
+        // checking for event related to new directory creation
+        // in the watch path.
+        if ((event->mask & userData->childMask) &&
+            (event->mask & IN_ISDIR))
+        {
+            //Create new inotify watch on child directory
+            auto watchObj = std::make_unique<Watch>(
+                                userData->eventObj,
+                                userData->flags,
+                                userData->mask,
+                                userData->events,
+                                (path / event->name).c_str(),
+                                userData->userFunc);
+
+            userData->watchMap.emplace((path / event->name),
+                                       std::move(watchObj));
+        }
         offset += offsetof(inotify_event, name) + event->len;
     }
 
     //Call user call back function incase valid data in the map
     if (!userMap.empty())
     {
-        static_cast<Watch*>(userdata)->userFunc(userMap);
+        userData->userFunc(userMap);
     }
-
     return 0;
+}
+
+void Watch::erase(const fs::path& path)
+{
+    auto it = watchMap.find(path);
+    if (it != watchMap.end())
+    {
+        //Delete Watch object.
+        it->second.reset();
+        watchMap.erase(path);
+    }
 }
 
 } // namespace inotify

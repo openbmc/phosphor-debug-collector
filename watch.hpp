@@ -28,7 +28,11 @@ using UserType = std::function<void(const UserMap&)>;
  *
  *  The inotify watch is hooked up with sd-event, so that on call back,
  *  appropriate actions are taken to collect files from the directory
- *  initialized by the object.
+ *  initialized by the object. This also supports file watch on its
+ *  child directory based on user request. The watch is enabled only for
+ *  child directories which are created after the creation of this
+ *  particular object. Watching for the files in the child directory
+ *  will be stopped once the expected file operations are completed.
  */
 class Watch
 {
@@ -41,14 +45,17 @@ class Watch
          *  @param[in] events - Events to be watched
          *  @param[in] path - File path to be watched
          *  @param[in] userFunc - User specific callback fnction wrapper.
-         *
+         *  @param[in] childMask - Child directory create mask. This is an
+         *                         Optional parameter and it is set to no mask
+         *                         by default.
          */
         Watch(const EventPtr& eventObj,
               int flags,
               uint32_t mask,
               uint32_t events,
               const fs::path& path,
-              UserType userFunc);
+              UserType userFunc,
+              uint32_t childMask = 0);
 
         Watch(const Watch&) = delete;
         Watch& operator=(const Watch&) = delete;
@@ -57,6 +64,12 @@ class Watch
 
         /* @brief dtor - remove inotify watch and close fd's */
         ~Watch();
+
+        /** @brief Erase specified watch object pointer from the
+         *        watch map and associated entry from the map.
+         * @param[in] path - unique identifier of the map
+         */
+        void erase(const fs::path& path);
 
     private:
         /** @brief sd-event callback.
@@ -98,6 +111,17 @@ class Watch
 
         /** @brief The user level callback function wrapper */
         UserType userFunc;
+
+        /** @brief sdbusplus Dump event loop  object*/
+        EventPtr eventObj;
+
+        /** @brief inotify child directory and its associated watch
+          *  object map [path:watch object]
+          */
+        std::map<fs::path, std::unique_ptr<Watch>> watchMap;
+
+        /** @brief Mask for the child directory create events */
+        uint32_t childMask;
 };
 
 } // namespace inotify
