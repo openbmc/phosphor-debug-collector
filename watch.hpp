@@ -28,7 +28,11 @@ using UserType = std::function<void(const UserMap&)>;
  *
  *  The inotify watch is hooked up with sd-event, so that on call back,
  *  appropriate actions are taken to collect files from the directory
- *  initialized by the object.
+ *  initialized by the object. This also supports file watch on its one
+ *  level child directory by default. The watch is enabled only for
+ *  child directories which are created after the creation of this
+ *  particular object. Watching for the files in the child directory
+ *  will be stopped once the expected file operations are completed.
  */
 class Watch
 {
@@ -98,6 +102,11 @@ class Watch
 
         /** @brief The user level callback function wrapper */
         UserType userFunc;
+
+        /** @brief inotify watch descriptor and directory path
+          *        map [wd:path]
+          */
+        std::map<int32_t, fs::path> wdMap;
 };
 
 } // namespace inotify
