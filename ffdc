@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO openbmc/openbmc#1622 remove -e option related changes.
+
 help=$'FFDC File Collection Script
 
 Collects various FFDC files and system parameters and places them in a .tar
@@ -9,6 +11,7 @@ usage: ffdc [OPTION]
 Options:
    -d, --dir <directory>  Specify destination directory. Defaults to /tmp if
                           invalid or unspecified.
+   -e, --enable_dump      Enable BMC Dump specific features.
    -h, --help             Display this help text and exit.
 '
 
@@ -38,6 +41,7 @@ declare -a arr=(
 
 dir=$"ffdc_$(date +"%Y-%m-%d_%H-%M-%S")"
 dest="/tmp"
+enable_dump=false
 
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -52,6 +56,10 @@ while [[ $# -gt 0 ]]; do
       fi
       shift 2
       ;;
+    -e|--enable_dump)
+      enable_dump=true
+      shift
+      ;;
     -h|--help)
       echo "$help"
       exit
@@ -64,6 +72,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo "Using destination directory $dest"
+
+if [ $enable_dump = true ]; then
+  id=$(basename $dest)
+  printf -v f_id "%08d" $id
+  dir=$"obmcdump_"$f_id"_$(date +"%s")"
+fi
 
 mkdir -p "$dest/$dir"
 
