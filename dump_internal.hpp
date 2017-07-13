@@ -14,6 +14,7 @@ namespace internal
 
 using CreateIface = sdbusplus::server::object::object<
           sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create>;
+using Mgr = phosphor::dump::Manager;
 
 /** @class Manager
  *  @brief Implementation for the
@@ -31,10 +32,12 @@ class Manager : public CreateIface
 
         /** @brief Constructor to put object onto bus at a dbus path.
          *  @param[in] bus - Bus to attach to.
+         *  @param[in] dumpMgr - Dump Manager object
          *  @param[in] path - Path to attach at.
          */
-        Manager(sdbusplus::bus::bus& bus, const char* path) :
-            CreateIface(bus, path) {};
+        Manager(sdbusplus::bus::bus& bus, Mgr& dumpMgr, const char* path):
+            CreateIface(bus, path),
+            dumpMgr(dumpMgr) {};
 
         /**  @brief Implementation for Create
           *  Create BMC Dump based on the Dump type.
@@ -46,7 +49,9 @@ class Manager : public CreateIface
         void create(
             Type type,
             std::vector<std::string> fullPaths) override;
-
+    private:
+        /**  @brief Dump Manager object. */
+        Mgr& dumpMgr;
 };
 
 } // namespace internal
