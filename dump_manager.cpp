@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <sys/inotify.h>
+#include <regex>
 
 #include <phosphor-logging/elog-errors.hpp>
 
@@ -15,6 +16,7 @@ namespace dump
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using namespace std;
 
 namespace internal
 {
@@ -83,14 +85,11 @@ uint32_t Manager::captureDump(
 
 void Manager::createEntry(const fs::path& file)
 {
-    // TODO openbmc/openbmc#1795
-    // Get Dump ID and Epoch time from Dump file name.
-    // Validate the Dump file name.
-    auto id = lastEntryId;
+    //Extract Dump ID from file name.
+    auto id = stoi(getToken(file.filename(), ID_POS).c_str());
 
-    //Get Epoch time.
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                  std::chrono::system_clock::now().time_since_epoch()).count();
+    //Extract Epoch time from file name.
+    auto ms = stoi(getToken(file.filename(), EPOCHTIME_POS).c_str());
 
     // Entry Object path.
     auto objPath =  fs::path(OBJ_ENTRY) / std::to_string(id);
@@ -124,6 +123,26 @@ void Manager::watchCallback(const UserMap& fileInfo)
         }
     }
 }
+
+std::string Manager::getToken(const std::string& name, const int pos)
+{
+    std::string s = name;
+
+    //Delimiters used here are ". and _".
+    std::regex e("([^._]+)");
+
+    std::regex_iterator<std::string::iterator> rit
+    (s.begin(), s.end(), e);
+    std::regex_iterator<std::string::iterator> rend;
+
+    auto i = 0;
+    while ((++i != pos) && (++rit != rend)) {}
+
+    //Return empty string, incase string not found
+    auto token = (i == pos) ? rit->str() : "";
+    return token;
+}
+
 
 } //namespace dump
 } //namespace phosphor
