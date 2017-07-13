@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <sys/inotify.h>
+#include <regex>
 
 #include <phosphor-logging/elog-errors.hpp>
 
@@ -15,6 +16,7 @@ namespace dump
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using namespace std;
 
 namespace internal
 {
@@ -83,29 +85,46 @@ uint32_t Manager::captureDump(
 
 void Manager::createEntry(const fs::path& file)
 {
-    // TODO openbmc/openbmc#1795
-    // Get Dump ID and Epoch time from Dump file name.
-    // Validate the Dump file name.
-    auto id = lastEntryId;
+    //Dump File Name format obmcdump_ID_EPOCHTIME.EXT
+    static constexpr auto ID_POS         = 1;
+    static constexpr auto EPOCHTIME_POS  = 2;
+    std::regex file_regex("obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)");
 
-    //Get Epoch time.
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                  std::chrono::system_clock::now().time_since_epoch()).count();
+    std::smatch match;
+    std::string name = file.filename();
 
-    // Entry Object path.
-    auto objPath =  fs::path(OBJ_ENTRY) / std::to_string(id);
+    if (!((std::regex_search(name, match, file_regex)) &&
+          (match.size() > 0)))
+    {
+        log<level::ERR>("Invalid Dump file name",
+                        entry("Filename=%s", file.filename()));
+        return;
+    }
 
-    auto size = fs::file_size(file);
+    auto idString = match[ID_POS];
+    auto msString = match[EPOCHTIME_POS];
 
-    entries.insert(std::make_pair(id,
-                                  std::make_unique<Entry>(
-                                      bus,
-                                      objPath.c_str(),
-                                      id,
-                                      ms,
-                                      size,
-                                      file,
-                                      *this)));
+    try
+    {
+        auto id = stoul(idString);
+        // Entry Object path.
+        auto objPath =  fs::path(OBJ_ENTRY) / std::to_string(id);
+
+        entries.insert(std::make_pair(id,
+                                      std::make_unique<Entry>(
+                                          bus,
+                                          objPath.c_str(),
+                                          id,
+                                          stoull(msString),
+                                          fs::file_size(file),
+                                          file,
+                                          *this)));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        log<level::ERR>(e.what());
+        return;
+    }
 }
 
 void Manager::erase(uint32_t entryId)
