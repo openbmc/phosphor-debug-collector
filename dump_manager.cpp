@@ -117,11 +117,41 @@ void Manager::watchCallback(const UserMap& fileInfo)
 {
     for (const auto& i : fileInfo)
     {
-        // For any new dump file create dump entry object.
+        // For any new dump file create dump entry object
+        // and associated inotify watch.
         if (IN_CLOSE_WRITE == i.second)
         {
+            removeWatch(i.first);
+
             createEntry(i.first);
         }
+        // Start inotify watch on newly created directory.
+        else if ((IN_CREATE == i.second) && fs::is_directory(i.first))
+        {
+            auto watchObj = std::make_unique<Watch>(
+                                    eventLoop,
+                                    IN_NONBLOCK,
+                                    IN_CLOSE_WRITE,
+                                    EPOLLIN,
+                                    i.first,
+                                    std::bind(
+                                         std::mem_fn(
+                                      &phosphor::dump::Manager::watchCallback),
+                                         this, std::placeholders::_1));
+
+           childWatchMap.emplace(i.first, std::move(watchObj));
+        }
+
+    }
+}
+
+void Manager::removeWatch(const fs::path& path)
+{
+    auto it = childWatchMap.find(path);
+    if (it != childWatchMap.end())
+    {
+       //Delete Watch entry from map.
+       childWatchMap.erase(path);
     }
 }
 
