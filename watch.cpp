@@ -43,7 +43,9 @@ Watch::Watch(const EventPtr& eventObj,
         elog<InternalFailure>();
     }
 
-    wd = inotify_add_watch(fd(), path.c_str(), mask);
+    //Adding "IN_CREATE" event to support child directory level
+    //file watch.
+    wd = inotify_add_watch(fd(), path.c_str(), IN_CREATE | mask);
     if (-1 == wd)
     {
         auto error = errno;
@@ -116,13 +118,60 @@ int Watch::callback(sd_event_source* s,
     {
         auto event = reinterpret_cast<inotify_event*>(&buffer[offset]);
         auto mask = event->mask & static_cast<Watch*>(userdata)->mask;
+        auto path = static_cast<Watch*>(userdata)->path;
 
+        // Checking the event related to new file creation.
         if (mask && !(event->mask & IN_ISDIR))
         {
-            userMap.emplace(
-                    (static_cast<Watch*>(userdata)->path / event->name), mask);
+            fs::path p;
+            if (static_cast<Watch*>(userdata)->wd != event->wd)
+            {
+                //Get Directory path information based on wd
+                //for child directory level file watch.
+                auto wdMap = static_cast<Watch*>(userdata)->wdMap.
+                             find(event->wd);
+                if (wdMap != static_cast<Watch*>(userdata)->wdMap.end())
+                {
+                    p = wdMap->second / event->name;
+
+                    //Delete entry from the child directory level map.
+                    static_cast<Watch*>(userdata)->wdMap.erase(wdMap);
+                }
+            }
+            else
+            {
+                p = path / event->name;
+            }
+
+            userMap.emplace(p, mask);
         }
 
+        // checking for event related to new directory creation
+        // in the base watch path.
+        // Note:Child directory watch is limited one level from base.
+        if ((event->mask & IN_CREATE) &&
+            (event->mask & IN_ISDIR)  &&
+            (static_cast<Watch*>(userdata)->wd == event->wd))
+        {
+            //Create new inotify watch on child directory
+            //Assumption: Child directory level new file watch is limited
+            //for one time. This is based on existing dump use case.
+            auto wd = inotify_add_watch(static_cast<Watch*>(userdata)->fd(),
+                          (path / event->name).c_str(),
+                          ((static_cast<Watch*>(userdata)->mask) | IN_ONESHOT));
+            if (-1 == wd)
+            {
+                auto error = errno;
+                log<level::ERR>("Error occurred during the inotify_add_watch",
+                                entry("ERRNO=%d", error));
+                report<InternalFailure>();
+            }
+            else
+            {
+                static_cast<Watch*>(userdata)->wdMap.emplace(
+                   wd, (path / event->name));
+            }
+        }
         offset += offsetof(inotify_event, name) + event->len;
     }
 
@@ -131,7 +180,6 @@ int Watch::callback(sd_event_source* s,
     {
         static_cast<Watch*>(userdata)->userFunc(userMap);
     }
-
     return 0;
 }
 

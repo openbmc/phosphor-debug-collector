@@ -98,6 +98,11 @@ class Watch
 
         /** @brief The user level callback function wrapper */
         UserType userFunc;
+
+        /** @brief inotify watch descriptor and directory path
+          *        map [wd:path]
+          */
+        std::map<int32_t, fs::path> wdMap;
 };
 
 } // namespace inotify
