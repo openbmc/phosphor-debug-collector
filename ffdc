@@ -9,6 +9,7 @@ usage: ffdc [OPTION]
 Options:
    -d, --dir <directory>  Specify destination directory. Defaults to /tmp if
                           invalid or unspecified.
+   -b, --bmc              Enable BMC Dump specific features.
    -h, --help             Display this help text and exit.
 '
 
@@ -52,6 +53,10 @@ while [[ $# -gt 0 ]]; do
       fi
       shift 2
       ;;
+     -b|--bmc)
+      bmc_dump=true
+      shift
+      ;;
     -h|--help)
       echo "$help"
       exit
@@ -64,6 +69,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo "Using destination directory $dest"
+
+if [ $bmc_dump = true ]; then
+  id=$(basename $dest)
+  printf -v f_id "%08d" $id
+  dir=$"obmcdump_"$f_id"_$(date +"%s")"
+fi
 
 mkdir -p "$dest/$dir"
 
