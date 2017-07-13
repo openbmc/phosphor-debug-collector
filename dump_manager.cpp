@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <sys/inotify.h>
+#include <regex>
 
 #include <phosphor-logging/elog-errors.hpp>
 
@@ -15,6 +16,7 @@ namespace dump
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using namespace std;
 
 namespace internal
 {
@@ -83,14 +85,31 @@ uint32_t Manager::captureDump(
 
 void Manager::createEntry(const fs::path& file)
 {
-    // TODO openbmc/openbmc#1795
-    // Get Dump ID and Epoch time from Dump file name.
-    // Validate the Dump file name.
-    auto id = lastEntryId;
+    //Dump File Name format obmcdump_ID_EPOCHTIME.EXT
+    static constexpr auto ID_POS         = 1;
+    static constexpr auto EPOCHTIME_POS  = 2;
 
-    //Get Epoch time.
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                  std::chrono::system_clock::now().time_since_epoch()).count();
+    //Extract Dump ID from file name.
+    auto idString = getToken(file.filename(), ID_POS);
+
+    if (idString.empty())
+    {
+        log<level::ERR>("Invalid id info in the Dump file",
+                        entry("Filename=%s", file.filename()));
+        return;
+    }
+
+    //Extract Epoch time from file name.
+    auto ms = getToken(file.filename(), EPOCHTIME_POS);
+
+    if (ms.empty())
+    {
+        log<level::ERR>("Invalid epochtime info in the dump file",
+                        entry("Filename=%s", file.filename()));
+        return;
+    }
+
+    auto id = stoi(idString.c_str());
 
     // Entry Object path.
     auto objPath =  fs::path(OBJ_ENTRY) / std::to_string(id);
@@ -102,7 +121,7 @@ void Manager::createEntry(const fs::path& file)
                                       bus,
                                       objPath.c_str(),
                                       id,
-                                      ms,
+                                      stoi(ms.c_str()),
                                       size,
                                       file,
                                       *this)));
@@ -123,6 +142,33 @@ void Manager::watchCallback(const UserMap& fileInfo)
             createEntry(i.first);
         }
     }
+}
+
+std::string Manager::getToken(const std::string& name, const uint32_t pos)
+{
+    std::string s = name;
+
+    //returns empty string if operations fails.
+    auto token = std::string("");
+
+    try
+    {
+        //String name format obmcdump_[ID]_[epochtime].[EXT]
+        std::regex e("obmcdump_([0-9^_]+)_([0-9^_.]+)");
+        std::smatch match;
+
+        if ((std::regex_search(s, match, e)) &&
+            (match.size() > pos) &&
+            (pos != 0))
+        {
+            token =  match.str(pos);
+        }
+    }
+    catch (std::regex_error& e)
+    {
+        log<level::ERR>(e.what());
+    }
+    return token;
 }
 
 } //namespace dump

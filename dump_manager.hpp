@@ -124,6 +124,15 @@ class Manager : public CreateIface
             return 0;
         }
 
+        /** @brief Split string into tokens based on the delimiter "_"
+          *        and return the token based on the input position.
+          * @param[in] name - name of input string
+          * @param[in] pos  - position of the token
+          *
+          * @returns string token based on the position.
+          */
+        std::string getToken(const std::string& name, const uint32_t pos);
+
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;
 
