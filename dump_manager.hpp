@@ -32,6 +32,11 @@ using CreateIface = sdbusplus::server::object::object<
 
 namespace fs = std::experimental::filesystem;
 
+//Dump File Name format STRING_ID_EPOCHTIME.EXT
+static constexpr auto STRING_POS     = 1;
+static constexpr auto ID_POS         = 2;
+static constexpr auto EPOCHTIME_POS  = 3;
+
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
  *  @details A concrete implementation for the
@@ -113,6 +118,15 @@ class Manager : public CreateIface
             //the sd_event_add_child callback.
             return 0;
         }
+
+        /** @brief Split string into tokens based on the delimiter "_"
+          *        and return the token based on the input position.
+          * @param[in] name - name of input string
+          * @param[in] pos  - position of the token
+          *
+          * @returns string token based on the position.
+          */
+        std::string getToken(const std::string& name, const int pos);
 
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;

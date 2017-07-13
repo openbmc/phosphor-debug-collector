@@ -15,6 +15,7 @@ namespace dump
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using namespace std;
 
 namespace internal
 {
@@ -86,14 +87,11 @@ uint32_t Manager::captureDump(
 
 void Manager::createEntry(const fs::path& file)
 {
-    // TODO openbmc/openbmc#1795
-    // Get Dump ID and Epoch time from Dump file name.
-    // Validate the Dump file name.
-    auto id = lastEntryId;
+    //Extract Dump ID from file name.
+    auto id = stoi(getToken(file.filename(), ID_POS).c_str());
 
-    //Get Epoch time.
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                  std::chrono::system_clock::now().time_since_epoch()).count();
+    //Extract Epoch time from file name.
+    auto ms = stoi(getToken(file.filename(), EPOCHTIME_POS).c_str());
 
     // Entry Object path.
     auto objPath =  fs::path(OBJ_ENTRY) / std::to_string(id);
@@ -127,6 +125,29 @@ void Manager::watchCallback(UserMap fileInfo)
         }
     }
 }
+
+string Manager::getToken(const string& name, const int pos)
+{
+    //Remove extension if any.
+    auto dotPos = name.find(".");
+    auto s = (string::npos == dotPos) ?
+             name : name.substr(0, dotPos);
+
+    string delim = "_";
+    auto start = 0;
+    auto end   = s.find(delim);
+    auto i = 0;
+    while ((++i != pos) && (end != string::npos))
+    {
+        start = end + delim.length();
+        end = s.find(delim, start);
+    }
+
+    auto token = (i == pos) ?
+                 s.substr(start, end - start).c_str() : nullptr;
+    return token;
+}
+
 
 } //namespace dump
 } //namespace phosphor
