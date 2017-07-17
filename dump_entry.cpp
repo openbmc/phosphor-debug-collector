@@ -15,7 +15,7 @@ void Entry::delete_()
     //Delete Dump file from Permanent location
     try
     {
-        fs::remove(file);
+        fs::remove_all(file.parent_path());
     }
     catch (fs::filesystem_error& e)
     {
