@@ -33,6 +33,8 @@ int main(int argc, char* argv[])
     try
     {
         phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
+        //Restore dump d-bus objects.
+        manager.restore();
         phosphor::dump::internal::Manager mgr(bus, manager, OBJ_INTERNAL);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
