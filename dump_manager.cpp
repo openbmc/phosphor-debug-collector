@@ -144,5 +144,42 @@ void Manager::watchCallback(const UserMap& fileInfo)
     }
 }
 
+void Manager::restore()
+{
+    std::vector<uint32_t> dumpIds;
+
+    fs::path dir(BMC_DUMP_PATH);
+    if (!fs::exists(dir) || fs::is_empty(dir))
+    {
+        return;
+    }
+
+    //Dump file path: <BMC_DUMP_PATH>/<id>/<filename>
+    for (const auto& p : fs::directory_iterator(dir))
+    {
+        std::string idStr;
+
+        //Consider only directory's with dump id as name.
+        //Note: As per design one file per directory.
+        if ((fs::is_directory(p.path())) &&
+            std::all_of(idStr.begin(), idStr.end(), ::isdigit))
+        {
+            idStr = p.path().filename().string();
+            auto fileIt = fs::directory_iterator(p.path().c_str());
+            auto file = fileIt->path().c_str();
+            if (!(fs::is_directory(file)))
+            {
+                createEntry(file);
+            }
+            dumpIds.push_back(std::stoul(idStr));
+        }
+    }
+
+    if (!dumpIds.empty())
+    {
+        lastEntryId = *(std::max_element(dumpIds.begin(), dumpIds.end()));
+    }
+}
+
 } //namespace dump
 } //namespace phosphor

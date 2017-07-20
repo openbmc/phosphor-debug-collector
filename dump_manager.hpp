@@ -85,6 +85,11 @@ class Manager : public CreateIface
          */
         void watchCallback(const UserMap& fileInfo);
 
+        /** @brief Construct dump d-bus objects from their persisted
+          *        representations.
+          */
+        void restore();
+
     private:
         /** @brief Create Dump entry d-bus object
          *  @param[in] fullPath - Full path of the Dump file name
