@@ -16,7 +16,6 @@ namespace dump
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
-using namespace std;
 
 namespace internal
 {
@@ -144,6 +143,43 @@ void Manager::watchCallback(const UserMap& fileInfo)
         {
             createEntry(i.first);
         }
+    }
+}
+
+void Manager::restore()
+{
+    std::vector<uint32_t> dumpIds;
+
+    fs::path dir(BMC_DUMP_PATH);
+    if (!fs::exists(dir) || fs::is_empty(dir))
+    {
+        return;
+    }
+
+    //Dump file path: <BMC_DUMP_PATH>/<id>/<filename>
+    for (const auto& p : fs::directory_iterator(dir))
+    {
+        auto idStr = p.path().filename().string();
+
+        //Consider only directory's with dump id as name.
+        //Note: As per design one file per directory.
+        if ((fs::is_directory(p.path())) &&
+            std::all_of(idStr.begin(), idStr.end(), ::isdigit))
+        {
+            dumpIds.push_back(std::stoul(idStr));
+
+            auto fileIt = fs::directory_iterator(p.path());
+            //Create dump entry d-bus object.
+            if (fileIt != fs::end(fileIt))
+            {
+                createEntry(fileIt->path());
+            }
+        }
+    }
+
+    if (!dumpIds.empty())
+    {
+        lastEntryId = *(std::max_element(dumpIds.begin(), dumpIds.end()));
     }
 }
 
