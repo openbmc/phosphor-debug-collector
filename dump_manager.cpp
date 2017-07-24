@@ -48,7 +48,7 @@ uint32_t Manager::captureDump(
         fs::path dumpPath(BMC_DUMP_PATH);
 
         dumpPath /= std::to_string(lastEntryId + 1);
-        execl("/usr/bin/ffdc", "ffdc", "-d", dumpPath.c_str(), nullptr);
+        execl("/usr/bin/ffdc", "ffdc", "-d", dumpPath.c_str(), "-e", nullptr);
 
         //ffdc script execution is failed.
         auto error = errno;
