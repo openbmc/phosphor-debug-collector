@@ -46,17 +46,57 @@ declare -r TMP_DIR="/tmp/dreport"
 
 #VARIABLES
 declare -x name=$"obmcdump_00000000_$(date +"%s")"
-declare -x dump_dir=$TMP_DIR
+declare -x dump_dir="/tmp"
 declare -x dump_id=0
 declare -x dump_type=$USERINITIATED_TYPE
 declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size=$DUMP_MAX_SIZE
-declare -x name_dir="$TMP_DIR/$dump_id/$name"
+declare -x name_dir="$TMP_DIR/$name"
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
 
+# @brief Packaging the dump and transferring to dump location.
+function package()
+{
+    mkdir -p "$dump_dir"
+    if [ $? -ne 0 ]; then
+        log_error "Could not create the destination directory $dump_dir"
+        dest_dir=$TMP_DIR
+    fi
+
+    #TODO openbmc/openbmc#1506 Enable file level compression.
+    #tar and compress the files.
+    tar_file="$name_dir.tar.xz"
+    tar -Jcf "$tar_file" -C "$TMP_DIR" "$name"
+
+    #remove the temporary name specific directory
+    rm -r "$name_dir"
+
+    #check the file size is in the allowed limit
+    if [ $(stat -c%s "$tar_file") -gt $dump_size ]; then
+       echo "File size exceeds the limit allowed"
+       rm -rf "$TMP_DIR"
+       exit 1
+       #TODO openbmc/openbmc#1506 Revisit the error handling
+    fi
+
+    echo "Report is available in $dump_dir"
+
+    if [ "$TMP_DIR" == "$dump_dir" ]; then
+       return
+    fi
+
+    #copy the compressed tar file into the destination
+    cp "$tar_file" "$dump_dir"
+    if [ $? -ne 0 ]; then
+        echo "Failed to copy the $tar_file to $dump_dir"
+        return
+    else
+        rm -rf "$TMP_DIR"
+    fi
+}
 # @brief log the error message
 # @param error message
 function log_error()
@@ -104,13 +144,17 @@ function log_summary()
 # @brief Main function
 function main()
 {
-   mkdir -p "$TMP_DIR/$dump_id/$name"
+   mkdir -p "$TMP_DIR/$name"
    if [ $? -ne 0 ]; then
       log_error "Failed to create the temporary directory."
       exit;
    fi
 
    log_summary "Version: $PACKAGE_VERSION"
+
+   #TODO Add Dump report generating script.
+
+   package  #package the dump
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
@@ -125,7 +169,7 @@ while [[ $# -gt 1 ]]; do
             name=$2
             shift 2;;
         -d|--dir)
-            dir=$2
+            dump_dir=$2
             shift 2;;
         -i|--dumpid)
             dump_id=$2
