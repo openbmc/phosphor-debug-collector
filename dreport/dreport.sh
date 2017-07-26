@@ -40,23 +40,77 @@ declare -r FALSE=0
 declare -r USERINITIATED_TYPE=0
 declare -r APPLICATIONCORED_TYPE=1
 declare -r DUMP_MAX_SIZE=500 #in KB
+declare -r SUMMARY_LOG="summary.log"
+declare -r DREPORT_LOG="dreport.log"
+declare -r TMP_DIR="/tmp/dreport"
 
 #VARIABLES
 declare -x name=$"obmcdump_00000000_$(date +"%s")"
 declare -x dump_dir=$TMP_DIR
-declare -x dump_id=1
+declare -x dump_id=0
 declare -x dump_type=$USERINITIATED_TYPE
 declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size=$DUMP_MAX_SIZE
+declare -x name_dir="$TMP_DIR/$dump_id/$name"
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
 
+# @brief log the error message
+# @param error message
+function log_error()
+{
+   echo "ERROR: $@" >>"$name_dir/$DREPORT_LOG"
+   if ((quiet != TRUE)); then
+      echo "ERROR: $@" >&2
+   fi
+}
+
+# @brief log warning message
+# @param warning message
+function log_warning()
+{
+    if ((verbose == TRUE)); then
+        echo "WARNING: $@" >>"$name_dir/$DREPORT_LOG"
+        if ((quiet != TRUE)); then
+            echo "WARNING: $@" >&2
+        fi
+    fi
+}
+
+# @brief log info message
+# @param info message
+function log_info()
+{
+    if ((verbose == TRUE)); then
+        echo "INFO: $@" >>"$name_dir/$DREPORT_LOG"
+        if ((quiet != TRUE)); then
+            echo "INFO: $@" >&1
+        fi
+    fi
+}
+
+# @brief log summary message
+# @param message
+function log_summary()
+{
+   echo "$@" >> "$name_dir/$SUMMARY_LOG"
+   if ((quiet != TRUE)); then
+        echo "$@" >&1
+   fi
+}
+
 # @brief Main function
 function main()
 {
-   echo "Initial Version of dreport tool"
+   mkdir -p "$TMP_DIR/$dump_id/$name"
+   if [ $? -ne 0 ]; then
+      log_error "Failed to create the temporary directory."
+      exit;
+   fi
+
+   log_summary "Version: $PACKAGE_VERSION"
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
@@ -97,8 +151,8 @@ while [[ $# -gt 1 ]]; do
             echo "$help"
             exit;;
         *) # unknown option
-            echo "Unknown argument: $1"
-            echo "$help"
+            log_error "Unknown argument: $1"
+            log_info "$help"
             exit 1;;
     esac
 done
