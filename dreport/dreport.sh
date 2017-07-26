@@ -57,6 +57,32 @@ declare -x name_dir="$TMP_DIR/$dump_id/$name"
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
 
+# @brief Packaging the dump and transfering to dump location.
+function package()
+{
+    mkdir -p "$dump_dir"
+    if [ $? -ne 0 ]; then
+        log_error "Failed to create the destination directory specified."
+        dest_dir=$tmp_dir
+    fi
+
+    #tar the files.
+    tar_file="$name_dir.tar"
+    tar -cf "$tar_file" -C "$TMP_DIR/$dump_id" "$name"
+
+    #compress the file 
+    xz -z "$tar_file"
+
+    file_size=$(stat -c%s "$tar_file.xz")
+    log_summary "Dump file size: $file_size"
+
+    if [ $(stat -c%s "$tar_file.xz") -lt $dump_size ]; then
+        mv "$tar_file.xz" "$dump_dir"
+        rm -r "$TMP_DIR/$dump_id"
+    else
+        log_error "File size exceeds the allowed limit"
+    fi
+}
 # @brief log the error message
 # @param error message
 function log_error()
@@ -116,6 +142,10 @@ function main()
    fi
 
    log_summary "Version: $PACKAGE_VERSION"
+
+   #TODO Add Dump report generating script.
+
+   package  #package the dump
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
