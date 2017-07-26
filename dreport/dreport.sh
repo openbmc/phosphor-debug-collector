@@ -34,14 +34,74 @@ Options:
         -h, —-help            Display this help and exit.
 "
 
-while [[ $# -ge 1 ]]; do
-   key="$1"
-   case $key in
-      -h|--help)
-        echo "$help"
-        exit;;
-      *)
-        echo "Unknown option $1. Display available options with -h or --help"
-        exit;;
-  esac
+#CONSTANTS
+declare -r TRUE=1
+declare -r FALSE=0
+declare -r USERINITIATED_TYPE=0
+declare -r APPLICATIONCORED_TYPE=1
+declare -r DUMP_MAX_SIZE=500 #in KB
+
+#VARIABLES
+declare -x name=$"obmcdump_00000000_$(date +"%s")"
+declare -x dump_dir=$TMP_DIR
+declare -x dump_id=1
+declare -x dump_type=$USERINITIATED_TYPE
+declare -x verbose=$FALSE
+declare -x quiet=$FALSE
+declare -x dump_size=$DUMP_MAX_SIZE
+
+# PACKAGE VERSION
+PACKAGE_VERSION="0.0.1"
+
+# @brief Main function
+function main()
+{
+   echo "Initial Version of dreport tool"
+}
+
+TEMP=`getopt -o n:d:i:t:s:f:vVqh \
+      --long name:,dir:,dumpid:,type:,size:,file:,verbose,version,quiet,help \
+      -- "$@"`
+eval set -- "$TEMP"
+
+while [[ $# -gt 1 ]]; do
+    key="$1"
+    case $key in
+        -n|--name)
+            name=$2
+            shift 2;;
+        -d|--dir)
+            dir=$2
+            shift 2;;
+        -i|--dumpid)
+            dump_id=$2
+            shift 2;;
+        -t|--type)
+            dump_type=$2
+            shift 2;;
+        -s|--size)
+            dump_size=$2
+            shift 2;;
+        -f|--file)
+            dump_file=$2
+            shift 2;;
+        -v|—-verbose)
+            verbose=$TRUE
+            shift;;
+        -V|--version)
+            shift;;
+        -q|—-quiet)
+            quiet=$TRUE
+            shift;;
+        -h|--help)
+            echo "$help"
+            exit;;
+        *) # unknown option
+            echo "Unknown argument: $1"
+            echo "$help"
+            exit 1;;
+    esac
 done
+
+main #main program
+exit $?
