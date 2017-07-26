@@ -52,11 +52,48 @@ declare -x dump_type=$USERINITIATED_TYPE
 declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size=$DUMP_MAX_SIZE
-declare -x name_dir="$TMP_DIR/$dump_id/$name"
+declare -x name_dir="$TMP_DIR/$name"
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
 
+# @brief Packaging the dump and transferring to dump location.
+function package()
+{
+    mkdir -p "$dump_dir"
+    if [ $? -ne 0 ]; then
+        log_error "Could not create the destination directory $dump_dir"
+        dest_dir=$TMP_DIR
+    fi
+
+    #tar the files.
+    tar_file="$name_dir.tar"
+    tar -cf "$tar_file" -C "$TMP_DIR" "$name"
+
+    #compress the tar file
+    xz -z "$tar_file"
+
+    #remove the temporary name specific directory
+    rm -r "$name_dir"
+
+    #check the file size is in the allowed limit
+    file_size=$(stat -c%s "$tar_file.xz")
+    log_summary "Dump file size: $file_size"
+
+    if [ $(stat -c%s "$tar_file.xz") -gt $dump_size ]; then
+       log_error "File size exceeds the limit allowed"
+       exit
+    fi
+
+    #copy the compressed tar file into the destination
+    cp "$tar_file.xz" "$dump_dir"
+    if [ $? -ne 0 ]; then
+        log_error "Failed to copy the $tar_file.xz to $dump_dir"
+    else
+        log_info "Report is available in $dump_dir"
+        rm -r "$tar_file.xz"
+    fi
+}
 # @brief log the error message
 # @param error message
 function log_error()
@@ -109,13 +146,17 @@ function log_summary()
 # @brief Main function
 function main()
 {
-   mkdir -p "$TMP_DIR/$dump_id/$name"
+   mkdir -p "$TMP_DIR/$name"
    if [ $? -ne 0 ]; then
       log_error "Failed to create the temporary directory."
       exit;
    fi
 
    log_summary "Version: $PACKAGE_VERSION"
+
+   #TODO Add Dump report generating script.
+
+   package  #package the dump
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
