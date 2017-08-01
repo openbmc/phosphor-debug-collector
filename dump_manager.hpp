@@ -66,7 +66,7 @@ class Manager : public CreateIface
             lastEntryId(0),
             dumpWatch(eventLoop,
                   IN_NONBLOCK,
-                  IN_CLOSE_WRITE,
+                  IN_CLOSE_WRITE | IN_CREATE,
                   EPOLLIN,
                   BMC_DUMP_PATH,
                   std::bind(
