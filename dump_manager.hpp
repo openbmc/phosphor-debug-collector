@@ -64,6 +64,7 @@ class Manager : public CreateIface
             bus(bus),
             eventLoop(event.get()),
             lastEntryId(0),
+            activeDumpCount(0),
             dumpWatch(eventLoop,
                   IN_NONBLOCK,
                   IN_CLOSE_WRITE | IN_CREATE,
@@ -136,6 +137,14 @@ class Manager : public CreateIface
           */
         void removeWatch(const fs::path& path);
 
+        /** @brief Calculate per dump allowed size based on number of
+          *        existing dumps and total dump size. Returns
+          *        allowed size for a dump in kilo bytes.
+          *  @returns 0 indicates no space is available in dump location
+          *           non zero value indicates size of one dump.
+          */
+        size_t getAllowedSize();
+
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;
 
@@ -147,6 +156,9 @@ class Manager : public CreateIface
 
         /** @brief Id of the last Dump entry */
         uint32_t lastEntryId;
+
+        /** @brief active dump count */
+        uint32_t activeDumpCount;
 
         /** @brief Dump main watch object */
         Watch dumpWatch;
