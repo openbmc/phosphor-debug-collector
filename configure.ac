@@ -63,5 +63,13 @@ AC_ARG_VAR(BMC_DUMP_PATH, [Directory where bmc dumps are placed])
 AS_IF([test "x$BMC_DUMP_PATH" == "x"], [BMC_DUMP_PATH="/tmp/dumps"])
 AC_DEFINE_UNQUOTED([BMC_DUMP_PATH], ["$BMC_DUMP_PATH"], [Directory where bmc dumps are placed])
 
+AC_ARG_VAR(BMC_DUMP_MAX_SIZE, [Maximum size of one bmc dump in kilo bytes])
+AS_IF([test x$BMC_DUMP_MAX_SIZE == x], [BMC_DUMP_MAX_SIZE=200])
+AC_DEFINE_UNQUOTED([BMC_DUMP_MAX_SIZE], [$BMC_DUMP_MAX_SIZE], [Maximum size of one bmc dump in kilo bytes])
+
+AC_ARG_VAR(BMC_DUMP_TOTAL_SIZE, [Total size of the bmc dump in kilo bytes])
+AS_IF([test x$BMC_DUMP_TOTAL_SIZE == x], [BMC_DUMP_TOTAL_SIZE=1024])
+AC_DEFINE_UNQUOTED([BMC_DUMP_TOTAL_SIZE], [$BMC_DUMP_TOTAL_SIZE], [Total size of the dump in kilo bytes])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
