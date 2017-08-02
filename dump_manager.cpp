@@ -2,11 +2,13 @@
 #include <sys/inotify.h>
 #include <regex>
 
+#include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 
 #include "dump_manager.hpp"
 #include "dump_internal.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
+#include "xyz/openbmc_project/Dump/Create/error.hpp"
 #include "config.h"
 
 namespace phosphor
@@ -79,11 +81,17 @@ uint32_t Manager::captureDump(
         elog<InternalFailure>();
     }
 
+    //Increment active dump count.
+    activeDumpCount++;
+
     return ++lastEntryId;
 }
 
 void Manager::createEntry(const fs::path& file)
 {
+    //Decrement the Dump in progress counter.
+    activeDumpCount = (activeDumpCount == 0 ? 0 : activeDumpCount - 1);
+
     //Dump File Name format obmcdump_ID_EPOCHTIME.EXT
     static constexpr auto ID_POS         = 1;
     static constexpr auto EPOCHTIME_POS  = 2;
@@ -147,17 +155,17 @@ void Manager::watchCallback(const UserMap& fileInfo)
         else if ((IN_CREATE == i.second) && fs::is_directory(i.first))
         {
             auto watchObj = std::make_unique<Watch>(
-                                    eventLoop,
-                                    IN_NONBLOCK,
-                                    IN_CLOSE_WRITE,
-                                    EPOLLIN,
-                                    i.first,
-                                    std::bind(
-                                         std::mem_fn(
-                                      &phosphor::dump::Manager::watchCallback),
-                                         this, std::placeholders::_1));
+                                eventLoop,
+                                IN_NONBLOCK,
+                                IN_CLOSE_WRITE,
+                                EPOLLIN,
+                                i.first,
+                                std::bind(
+                                    std::mem_fn(
+                                       &phosphor::dump::Manager::watchCallback),
+                                    this, std::placeholders::_1));
 
-           childWatchMap.emplace(i.first, std::move(watchObj));
+            childWatchMap.emplace(i.first, std::move(watchObj));
         }
 
     }
@@ -197,6 +205,32 @@ void Manager::restore()
             }
         }
     }
+}
+
+size_t Manager::getAllowedSize()
+{
+    using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
+    using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
+
+    auto size = 0;
+
+    // Maximum number of dump is based on total dump size
+    // and individual dump Max size configured in the system.
+    // Set the new dump size to max, in case sum of available
+    // dump and active dumps is less than maximum number of dumps.
+   
+    constexpr const auto dumpCount = BMC_DUMP_TOTAL_SIZE / BMC_DUMP_SIZE;
+ 
+    if ((entries.size() + activeDumpCount) < dumpCount)
+    {
+        size = BMC_DUMP_SIZE;
+    }
+    else
+    {
+        //Reached to maximum limit
+        elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
+    }
+    return size;
 }
 
 } //namespace dump
