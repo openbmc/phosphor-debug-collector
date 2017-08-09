@@ -67,6 +67,10 @@ AC_ARG_VAR(BMC_DUMP_MAX_SIZE, [Maximum size of one bmc dump in kilo bytes])
 AS_IF([test x$BMC_DUMP_MAX_SIZE == x], [BMC_DUMP_MAX_SIZE=200])
 AC_DEFINE_UNQUOTED([BMC_DUMP_MAX_SIZE], [$BMC_DUMP_MAX_SIZE], [Maximum size of one bmc dump in kilo bytes])
 
+AC_ARG_VAR(BMC_DUMP_MIN_SIZE, [Minimum size of one bmc dump in kilo bytes])
+AS_IF([test x$BMC_DUMP_MIN_SIZE == x], [BMC_DUMP_MIN_SIZE=50])
+AC_DEFINE_UNQUOTED([BMC_DUMP_MIN_SIZE], [$BMC_DUMP_MIN_SIZE], [Minimum size of one bmc dump in kilo bytes])
+
 AC_ARG_VAR(BMC_DUMP_TOTAL_SIZE, [Total size of the bmc dump in kilo bytes])
 AS_IF([test x$BMC_DUMP_TOTAL_SIZE == x], [BMC_DUMP_TOTAL_SIZE=1024])
 AC_DEFINE_UNQUOTED([BMC_DUMP_TOTAL_SIZE], [$BMC_DUMP_TOTAL_SIZE], [Total size of the dump in kilo bytes])
