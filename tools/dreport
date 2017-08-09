@@ -14,7 +14,7 @@ Options:
         -n, —-name <name>     Name to be used for the archive.
                               Default name format obmcdump_<id>_<epochtime>
         -d, —-dir <directory> Archive directory to copy the compressed report.
-                              Default output directory is /tmp/dreport
+                              Default output directory is /tmp
         -i, —-id <id>         Dump identifier to associate with the archive.
                               Identifiers include numeric characters.
                               Default dump identifier is 0
@@ -37,25 +37,91 @@ Options:
 #CONSTANTS
 declare -r TRUE=1
 declare -r FALSE=0
-declare -r USERINITIATED_TYPE=0
-declare -r APPLICATIONCORED_TYPE=1
-declare -r DUMP_MAX_SIZE=500 #in KB
+declare -r UNLIMITED="unlimited"
+declare -r SUMMARY_DUMP="summary"
+declare -r UserRequested="1"
+declare -r ApplicationCored="2"
+declare -r TYPE_USER="user"
+declare -r TYPE_CORE="core"
 declare -r SUMMARY_LOG="summary.log"
 declare -r DREPORT_LOG="dreport.log"
-declare -r TMP_DIR="/tmp/dreport"
+declare -r TMP_DIR="/tmp"
+declare -r EPOCHTIME=$(date +"%s")
+
+#Error Codes
+declare -r SUCCESS="0"
+declare -r INTERNAL_FAILURE="1"
+declare -r RESOURCE_UNAVAILABLE="2"
 
 #VARIABLES
-declare -x name=$"obmcdump_00000000_$(date +"%s")"
+declare -x name=""
 declare -x dump_dir="/tmp"
-declare -x dump_id=0
-declare -x dump_type=$USERINITIATED_TYPE
+declare -x dump_id="00000000"
+declare -x dump_type=$UserRequested
 declare -x verbose=$FALSE
 declare -x quiet=$FALSE
-declare -x dump_size=$DUMP_MAX_SIZE
-declare -x name_dir="$TMP_DIR/$name"
+declare -x dump_size="unlimited"
+declare -x name_dir=""
+declare -x optional_file=""
+declare -x dreport_log=""
+declare -x summary_log=""
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
+
+# @brief Check the validity of user inputs and initialize global
+#        variables. Create directory for temporary data collection
+# @return 0 on success, error code otherwise
+
+function initialize()
+{
+    #Dump file name
+    if [ -z $name ]; then
+        name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+    fi
+
+    #Create temporary data directory.
+    mkdir -p "$TMP_DIR/$name"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to create the temporary directory."
+        return $RESOURCE_UNAVAILABLE;
+    fi
+
+    #name directory
+    name_dir="$TMP_DIR/$name"
+
+    #dreport log file
+    dreport_log="$name_dir/$DREPORT_LOG"
+
+    #summary log file
+    summary_log="$name_dir/$SUMMARY_LOG"
+
+    #Type
+    key="$dump_type"
+    case $key in
+        $UserRequested | $TYPE_USER)
+            dump_type=$TYPE_USER
+            ;;
+        $ApplicationCored | $TYPE_CORE)
+           dump_type=$TYPE_CORE
+           ;;
+        *)
+           log_error "Invalid -type, Only summary log is available"
+           dump_type=$SUMMARY_DUMP
+           ;;
+    esac
+
+    #Size
+    #Check the input is integer.
+    if [ "$dump_size" -eq "$dump_size" ] 2>/dev/null; then
+       #Converts in to bytes.
+       dump_size="$((dump_size * 1024))"
+    else
+       dump_size=$UNLIMITED
+    fi
+
+    return $SUCCESS
+}
 
 # @brief Packaging the dump and transferring to dump location.
 function package()
@@ -101,7 +167,7 @@ function package()
 # @param error message
 function log_error()
 {
-   echo "ERROR: $@" >>"$name_dir/$DREPORT_LOG"
+   echo "ERROR: $@" >> $dreport_log
    if ((quiet != TRUE)); then
       echo "ERROR: $@" >&2
    fi
@@ -112,7 +178,7 @@ function log_error()
 function log_warning()
 {
     if ((verbose == TRUE)); then
-        echo "WARNING: $@" >>"$name_dir/$DREPORT_LOG"
+        echo "WARNING: $@" >> $dreport_log
         if ((quiet != TRUE)); then
             echo "WARNING: $@" >&2
         fi
@@ -124,7 +190,7 @@ function log_warning()
 function log_info()
 {
     if ((verbose == TRUE)); then
-        echo "INFO: $@" >>"$name_dir/$DREPORT_LOG"
+        echo "INFO: $@" >> $dreport_log
         if ((quiet != TRUE)); then
             echo "INFO: $@" >&1
         fi
@@ -135,31 +201,39 @@ function log_info()
 # @param message
 function log_summary()
 {
-   echo "$@" >> "$name_dir/$SUMMARY_LOG"
-   if ((quiet != TRUE)); then
+    echo "$@" >> $summary_log
+    if ((quiet != TRUE)); then
         echo "$@" >&1
-   fi
+    fi
 }
 
 # @brief Main function
 function main()
 {
-   mkdir -p "$TMP_DIR/$name"
-   if [ $? -ne 0 ]; then
-      log_error "Failed to create the temporary directory."
-      exit;
-   fi
+    #initialize the global variables and
+    #create temporary storage locations
+    initialize
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo $(date -u)" Error: Failed to initialize, Exiting"
+        exit;
+    fi
 
-   log_summary "Version: $PACKAGE_VERSION"
+    #TODO Add Dump report generating script.
 
-   #TODO Add Dump report generating script.
-
-   package  #package the dump
+    package  #package the dump
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
       --long name:,dir:,dumpid:,type:,size:,file:,verbose,version,quiet,help \
       -- "$@"`
+
+if [ $? -ne 0 ]
+then
+    echo "Error: Invalid options"
+    exit 1
+fi
+
 eval set -- "$TEMP"
 
 while [[ $# -gt 1 ]]; do
