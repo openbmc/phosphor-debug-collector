@@ -67,6 +67,17 @@ declare -x summary_log=""
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
 
+# @brief Initial version of the summary log
+init_summary()
+{
+   log_summary "Version:       $PACKAGE_VERSION"
+   log_summary "Name:          $name.tar.xz"
+   log_summary "Epochtime:     $EPOCHTIME"
+   log_summary "ID:            $dump_id"
+   log_summary "Type:          $dump_type"
+   log_summary "Optional file: $optional_file"
+}
+
 # @brief Check the validity of user inputs and initialize global
 #        variables. Create directory for temporary data collection
 # @return 0 on success, error code otherwise
@@ -207,6 +218,9 @@ function main()
         echo $(date -u)" Error: Failed to initialize, Exiting"
         exit;
     fi
+
+    #Initilize the summary log
+    init_summary
 
     #TODO Add Dump report generating script.
 
