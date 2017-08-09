@@ -34,7 +34,8 @@ void Manager::create(
 uint32_t Manager::createDump()
 {
     std::vector<std::string> paths;
-
+    //No debug files need to include.
+    paths.push_back("");
     return captureDump(Type::UserRequested, paths);
 }
 
@@ -57,13 +58,27 @@ uint32_t Manager::captureDump(
     if (pid == 0)
     {
         fs::path dumpPath(BMC_DUMP_PATH);
+        auto id =  std::to_string(lastEntryId + 1);
+        dumpPath /= id;
 
-        dumpPath /= std::to_string(lastEntryId + 1);
-        execl("/usr/bin/ffdc", "ffdc", "-d", dumpPath.c_str(), "-e", nullptr);
+        //Get Dump type enum.
+        auto tempType =
+            std::to_string(static_cast<std::underlying_type<Type>::type>(type));
 
-        //ffdc script execution is failed.
+         execl("/usr/bin/dreport",
+              "dreport",
+              "-d", dumpPath.c_str(),
+              "-i", id.data(),
+              "-s", std::to_string(size).data(),
+              "-q",
+              "-v",
+              "-f", fullPaths.front(),
+              "-t", tempType.data(),
+              nullptr);
+
+        //dreport script execution is failed.
         auto error = errno;
-        log<level::ERR>("Error occurred during ffdc function execution",
+        log<level::ERR>("Error occurred during dreport function execution",
                         entry("ERRNO=%d", error));
         elog<InternalFailure>();
     }
