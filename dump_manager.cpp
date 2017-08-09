@@ -229,14 +229,35 @@ size_t Manager::getAllowedSize()
     if ((entries.size() + activeDumpCount) <
         (BMC_DUMP_TOTAL_SIZE / BMC_DUMP_SIZE))
     {
-        size = BMC_DUMP_SIZE;
+        return BMC_DUMP_SIZE;
     }
-    else
+
+    //Get current size of the dump directory.
+    for (const auto& p : fs::recursive_directory_iterator(BMC_DUMP_PATH))
     {
-        //Reached to maximum limit
-        size = 0;
+        if (!fs::is_directory(p))
+        {
+            size += fs::file_size(p);
+        }
     }
-    return size;
+
+    //Convert size into KB
+    size = size / 1024;
+
+    //Set the Dump size to Maximum  if the free space is greater than
+    //Dump max size otherwise set to minimum size.
+
+    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
+
+    if (size > BMC_DUMP_SIZE)
+    {
+        return BMC_DUMP_SIZE;
+    }
+    if (size > BMC_DUMP_MIN_SIZE)
+    {
+        return BMC_DUMP_MIN_SIZE;
+    }
+    return 0;
 }
 
 } //namespace dump
