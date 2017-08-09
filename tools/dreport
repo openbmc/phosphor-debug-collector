@@ -128,6 +128,29 @@ run_commands=(
 )
 }
 
+# @brief Initiate data collection based on the type.
+# @return 0 on success, error code otherwise
+function collect_data()
+{
+    case $dump_type in
+        $TYPE_USER)
+            runlevel_user
+            capture_data "${run_commands[@]}"
+            ;;
+        $TYPE_CORE)
+            set_pid
+            runlevel_core
+            capture_data "${run_commands[@]}"
+            ;;
+        $SUMMARY_DUMP)
+            #No data collection is required.
+            ;;
+        *) # unknown option
+            log_error "Skipping: Unknown dump type: $dump_type"
+            ;;
+    esac
+}
+
 # @brief get pid from the file
 #        dreport "core" type user provides core file as optional file parameter.
 #        As per coredump source code systemd-coredump uses below format
@@ -402,7 +425,8 @@ function main()
     #Initilize the summary log
     init_summary
 
-    #TODO Add Dump report generating script.
+    #collect data based on the type.
+    collect_data
 
     package  #package the dump
 }
