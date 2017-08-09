@@ -128,6 +128,70 @@ run_commands=(
 )
 }
 
+# @brief Capture debug data based on the input command array.
+#        and stores in to global temporary name specific location.
+# @param $1 Source array
+# @return 0 on success, error code otherwise
+function capture_data()
+{
+    source=("$@")
+
+    for ((i=0;i<${#source[@]};i+=3)); do
+
+       key="${source[i]}"
+
+       case $key in
+          $CMD_GENERAL)
+             copy_loc="${source[i+1]}"
+             command="${source[i+2]}"
+             eval $command >> "$name_dir/$copy_loc"
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to collect $command"
+                 continue
+             fi
+             if check_size "$name_dir/$copy_loc"; then
+                 log_info "Collected $command"
+             else
+                 log_warning "Skipping $command"
+             fi
+             ;;
+          $CMD_DIR_COPY)
+             copy_loc="${source[i+1]}"
+             source_loc="${source[i+2]}"
+             mkdir "$name_dir/$copy_loc"
+             cp -r $source_loc/* $name_dir/$copy_loc
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to copy contents of $source_loc"
+                 continue
+             fi
+             if check_size "$name_dir/$copy_loc"; then
+                 log_info "Copied contents of $source_loc \
+                      to directory ./$copy_loc"
+             else
+                 log_warning "Skipping $source_loc copying"
+             fi
+             ;;
+          $CMD_FILE_MOVE)
+             file_name="${source[i+1]}"
+             mv $file_name $name_dir
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to move file $file_name"
+                 continue
+             fi
+             if check_size "$name_dir/$file_name"; then
+                 log_info "Moving file $file_name"
+             else
+                 log_warning "Skipping $file_name move"
+             fi
+             ;;
+          *) # unknown option
+             log_error "Unknown command type: $key"
+           ;;
+        esac
+    done
+    return 0
+}
+
 # @brief Calculate file or directory compressed size based on input
 #        and check whether the size in the the allowed size limit.
 #        Remove the file or directory from the name_dir
