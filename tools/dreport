@@ -47,6 +47,9 @@ declare -r SUMMARY_LOG="summary.log"
 declare -r DREPORT_LOG="dreport.log"
 declare -r TMP_DIR="/tmp"
 declare -r EPOCHTIME=$(date +"%s")
+declare -r CMD_GENERAL="1"
+declare -r CMD_FILE_COPY="2"
+declare -r CMD_DIR_COPY="3"
 
 #Error Codes
 declare -r SUCCESS="0"
@@ -66,9 +69,41 @@ declare -x optional_file=""
 declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
+declare -a run_commands=("","","")
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
+
+# @brief Initialize user type command array
+function runlevel_user()
+{
+    run_commands=(
+    # Note: Table entry is organized in priority order(high->low)
+    # Commands to be outputted into individual files
+    # Format: "Command type" File or directory name to copy" "Command"
+    $CMD_GENERAL    "FW_level.txt"            "cat /etc/os-release"
+    $CMD_GENERAL    "BMC_OS.txt"              "uname -a"
+    $CMD_GENERAL    "BMC_uptime.txt"          "uptime"
+    $CMD_GENERAL    "BMC_disk_usage.txt"      "df -hT"
+    $CMD_GENERAL    "System_state.txt"        "obmcutil state"
+    $CMD_GENERAL    "Hostnamectl.txt"         "hostnamectl status"
+    $CMD_GENERAL    "Host_console.txt"        "cat /var/log/obmc-console.log"
+    $CMD_GENERAL    "BMC_procinfo.txt"        "cat /proc/cpuinfo"
+    $CMD_GENERAL    "BMC_meminfo.txt"         "cat /proc/meminfo"
+    $CMD_GENERAL    "BMC_proc_list.txt"       "top -n 1 -b"
+    $CMD_GENERAL    "eSEL.txt"                "busctl --list --no-pager tree \
+                                      xyz.openbmc_project.Logging | grep \
+                                      '/xyz/openbmc_project/logging/entry/' | \
+                                      xargs -I {} busctl --no-pager \
+                                      call xyz.openbmc_project.Logging {} \
+                                      org.freedesktop.DBus.Properties GetAll s \
+                                      xyz.openbmc_project.Logging.Entry"
+    $CMD_GENERAL    "BMC_journalctl.txt"      "journalctl -o json-pretty -r"
+    $CMD_GENERAL    "Systemctl_status.txt"    "systemctl status"
+    $CMD_GENERAL    "Failed_services.txt"     "systemctl --failed"
+    $CMD_DIR_COPY   "obmc"                    "/var/lib/obmc/"
+    )
+}
 
 # @brief Calculate file or directory compressed size based on input
 #        and check whether the size in the the allowed size limit.
@@ -77,7 +112,6 @@ PACKAGE_VERSION="0.0.1"
 # @param $1 Source file or directory
 # @return 0 on success, error code if size exceeds the limit.
 # Limitation: compress and tar will have few bytes size difference
-#            between tar and compression approch.
 function check_size()
 {
    source=$1
