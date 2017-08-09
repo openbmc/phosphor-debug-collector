@@ -49,6 +49,7 @@ declare -r TMP_DIR="/tmp"
 declare -r EPOCHTIME=$(date +"%s")
 declare -r CMD_GENERAL="1"
 declare -r CMD_DIR_COPY="2"
+declare -r CMD_FILE_MOVE="3"
 
 #Error Codes
 declare -r SUCCESS="0"
@@ -102,6 +103,29 @@ function runlevel_user()
     $CMD_GENERAL    "Failed_services.txt"     "systemctl --failed"
     $CMD_DIR_COPY   "obmc"                    "/var/lib/obmc/"
     )
+}
+
+# @brief Initialize core type command array
+function runlevel_core()
+{
+run_commands=(
+    # Note: Table entry is organized in priority order(high->low)
+    # Commands to be outputted into individual files
+    # Format: "Command type" File or directory name to copy" "Command"
+    $CMD_FILE_MOVE    "$optional_file"         ""
+    $CMD_GENERAL      "FW_level.txt"           "cat /etc/os-release"
+    $CMD_GENERAL      "BMC_OS.txt"             "uname -a"
+    $CMD_GENERAL      "BMC_uptime.txt"         "uptime"
+    $CMD_GENERAL      "BMC_disk_usage.txt"     "df -hT"
+    $CMD_GENERAL      "system_state.txt"       "obmcutil state"
+    $CMD_GENERAL      "BMC_journalctl.txt"     "journalctl -o verbose _PID=$core_pid"
+    $CMD_GENERAL      "Hostnamectl.txt"        "hostnamectl status"
+    $CMD_GENERAL      "Failed_services.txt"    "systemctl --failed"
+    $CMD_GENERAL      "Host_console.txt"       "cat /var/log/obmc-console.log"
+    $CMD_GENERAL      "BMC_procinfo.txt"       "cat /proc/cpuinfo"
+    $CMD_GENERAL      "BMC_meminfo.txt"        "cat /proc/meminfo"
+    $CMD_GENERAL      "BMC_proc_list.txt"      "top -n 1 -b"
+)
 }
 
 # @brief Calculate file or directory compressed size based on input
