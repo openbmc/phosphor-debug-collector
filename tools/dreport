@@ -301,6 +301,21 @@ function run_command()
     fi
 }
 
+# @brief Capture debug data based on the input command array.
+#        and stores in to global temporary name specific location.
+# @param $1 Source array
+# @return 0 on success, error code otherwise
+function capture_data()
+{
+    source=("$@")
+
+    for ((i=0;i<${#source[@]};i+=1)); do
+        ${source[i]}
+    done
+
+    return 0
+}
+
 # @brief Calculate file or directory compressed size based on input
 #        and check whether the size in the the allowed size limit.
 #        Remove the file or directory from the name_dir
