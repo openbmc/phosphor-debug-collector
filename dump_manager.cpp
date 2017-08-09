@@ -34,7 +34,6 @@ void Manager::create(
 uint32_t Manager::createDump()
 {
     std::vector<std::string> paths;
-
     return captureDump(Type::UserRequested, paths);
 }
 
@@ -42,18 +41,36 @@ uint32_t Manager::captureDump(
     Type type,
     const std::vector<std::string>& fullPaths)
 {
+    //Get Dump size.
+    auto size = getAllowedSize();
+
     pid_t pid = fork();
 
     if (pid == 0)
     {
         fs::path dumpPath(BMC_DUMP_PATH);
+        auto id =  std::to_string(lastEntryId + 1);
+        dumpPath /= id;
 
-        dumpPath /= std::to_string(lastEntryId + 1);
-        execl("/usr/bin/ffdc", "ffdc", "-d", dumpPath.c_str(), "-e", nullptr);
+        //dreport type parameter uses dump type enum value defined in
+        //create.interface.yaml
+        auto tempType =
+            std::to_string(static_cast<std::underlying_type<Type>::type>(type));
 
-        //ffdc script execution is failed.
+         execl("/usr/bin/dreport",
+              "dreport",
+              "-d", dumpPath.c_str(),
+              "-i", id.c_str(),
+              "-s", std::to_string(size).c_str(),
+              "-q",
+              "-v",
+              "-f", fullPaths.empty() ? "" : fullPaths.front(),
+              "-t", tempType.c_str(),
+              nullptr);
+
+        //dreport script execution is failed.
         auto error = errno;
-        log<level::ERR>("Error occurred during ffdc function execution",
+        log<level::ERR>("Error occurred during dreport function execution",
                         entry("ERRNO=%d", error));
         elog<InternalFailure>();
     }
