@@ -223,13 +223,36 @@ size_t Manager::getAllowedSize()
  
     if ((entries.size() + activeDumpCount) < dumpCount)
     {
-        size = BMC_DUMP_SIZE;
+        return BMC_DUMP_SIZE;
     }
-    else
+
+    //Get current size of the dump directory.
+    for (const auto& p : fs::recursive_directory_iterator(BMC_DUMP_PATH))
+    {
+        if (!fs::is_directory(p))
+        {
+            size += fs::file_size(p);
+        }
+    }
+
+    //Convert size into KB
+    size = size / 1024;
+
+    //Set the Dump size to Maximum  if the free space is greater than
+    //Dump max size otherwise return the available size.
+
+    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
+
+    if (size < BMC_DUMP_MIN_SIZE)
     {
         //Reached to maximum limit
         elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
     }
+    if (size > BMC_DUMP_SIZE)
+    {
+        size = BMC_DUMP_SIZE;
+    }
+
     return size;
 }
 
