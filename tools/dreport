@@ -91,6 +91,28 @@ command_list=(
     )
 }
 
+# @brief Initialize core type command array
+function runlevel_core()
+{
+command_list=(
+    move_optional_file
+    get_proc_journal
+    get_fw_level
+    get_uname
+    get_uptime
+    get_disk_usage
+    bmc_state
+    host_state
+    chassis_state
+    get_host_info
+    get_failed_services
+    get_obmc_console
+    get_cpuinfo
+    get_meminfo
+    get_top
+)
+}
+
 function get_fw_level()
 {
     desc="Firmware Release"
@@ -128,6 +150,14 @@ function get_journal()
     desc="Journal log"
     command="journalctl -o json-pretty -r"
     copy_loc="journal.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_proc_journal()
+{
+    desc="Process Journal log"
+    command="journalctl -o verbose _PID=$core_pid"
+    copy_loc="proc_journal.log"
     run_command "$command" "$copy_loc" "$desc"
 }
 
@@ -234,6 +264,22 @@ function get_esel()
                           xyz.openbmc_project.Logging.Entry"
     copy_loc="eSEL.log"
     run_command "$command" "$copy_loc" "$desc"
+}
+
+function move_optional_file()
+{
+    desc="Move Optional file"
+
+    mv $optional_file $name_dir
+    if [ $? -ne 0 ]; then
+        log_error "Failed to move file $optional_file"
+        return 1
+    fi
+    if check_size "$name_dir/$(basename "$optional_file")"; then
+        log_info "Moving file $file_name"
+    else
+        log_warning "Skipping $file_name move"
+    fi
 }
 
 # @brief Run the requested command and save the output
