@@ -81,17 +81,11 @@ uint32_t Manager::captureDump(
         elog<InternalFailure>();
     }
 
-    //Increment active dump count.
-    activeDumpCount++;
-
     return ++lastEntryId;
 }
 
 void Manager::createEntry(const fs::path& file)
 {
-    //Decrement the Dump in progress counter.
-    activeDumpCount = (activeDumpCount == 0 ? 0 : activeDumpCount - 1);
-
     //Dump File Name format obmcdump_ID_EPOCHTIME.EXT
     static constexpr auto ID_POS         = 1;
     static constexpr auto EPOCHTIME_POS  = 2;
@@ -214,22 +208,33 @@ size_t Manager::getAllowedSize()
 
     auto size = 0;
 
-    // Maximum number of dump is based on total dump size
-    // and individual dump Max size configured in the system.
-    // Set the new dump size to max, in case sum of available
-    // dump and active dumps is less than maximum number of dumps.
-
-    constexpr auto dumpCount = BMC_DUMP_TOTAL_SIZE / BMC_DUMP_MAX_SIZE;
-
-    if ((entries.size() + activeDumpCount) < dumpCount)
+    //Get current size of the dump directory.
+    for (const auto& p : fs::recursive_directory_iterator(BMC_DUMP_PATH))
     {
-        size = BMC_DUMP_MAX_SIZE;
+        if (!fs::is_directory(p))
+        {
+            size += fs::file_size(p);
+        }
     }
-    else
+
+    //Convert size into KB
+    size = size / 1024;
+
+    //Set the Dump size to Maximum  if the free space is greater than
+    //Dump max size otherwise return the available size.
+
+    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
+
+    if (size < BMC_DUMP_MIN_SIZE)
     {
         //Reached to maximum limit
         elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
     }
+    if (size > BMC_DUMP_MAX_SIZE)
+    {
+        size = BMC_DUMP_MAX_SIZE;
+    }
+
     return size;
 }
 
