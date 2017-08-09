@@ -51,6 +51,7 @@ declare -r CMD_GENERAL="1"
 declare -r CMD_DIR_COPY="2"
 declare -r CMD_FILE_MOVE="3"
 declare -r CORE_BASE_STRING="/var/lib/systemd/coredump/core"
+declare -r TIME_STAMP="date -u"
 
 #Error Codes
 declare -r SUCCESS="0"
@@ -346,36 +347,35 @@ function package()
         dest_dir=$TMP_DIR
     fi
 
-    #TODO openbmc/openbmc#1506 Enable file level compression.
     #tar and compress the files.
-    tar_file="$name_dir.tar.xz"
-    tar -Jcf "$tar_file" -C "$TMP_DIR" "$name"
+    tar -Jcf "$name_dir.tar.xz" -C \
+             $(dirname "$name_dir") $(basename "$name_dir")
+
+    if [ $? -ne 0 ]; then
+        echo "Could not create the compressed tar file"
+        rm -r "$name_dir"
+        return $INTERNAL_FAILURE
+    fi
 
     #remove the temporary name specific directory
     rm -r "$name_dir"
 
-    #check the file size is in the allowed limit
-    if [ $(stat -c%s "$tar_file") -gt $dump_size ]; then
-       echo "File size exceeds the limit allowed"
-       rm -rf "$TMP_DIR"
-       exit 1
-       #TODO openbmc/openbmc#1506 Revisit the error handling
-    fi
-
     echo "Report is available in $dump_dir"
 
     if [ "$TMP_DIR" == "$dump_dir" ]; then
-       return
+       return $SUCCESS
     fi
 
     #copy the compressed tar file into the destination
-    cp "$tar_file" "$dump_dir"
+    cp "$name_dir.tar.xz" "$dump_dir"
     if [ $? -ne 0 ]; then
-        echo "Failed to copy the $tar_file to $dump_dir"
-        return
-    else
-        rm -rf "$TMP_DIR"
+        echo "Failed to copy the $name_dir.tar.xz to $dump_dir"
+        rm "$name_dir.tar.xz"
+        return $INTERNAL_FAILURE
     fi
+
+    #Remove the temporary copy of the file
+    rm "$name_dir.tar.xz"
 }
 # @brief log the error message
 # @param error message
@@ -429,7 +429,7 @@ function main()
     initialize
     result=$?
     if [[ ${result} -ne $SUCCESS ]]; then
-        echo $(date -u)" Error: Failed to initialize, Exiting"
+        echo $(TIME_STAMP)" Error: Failed to initialize, Exiting"
         exit;
     fi
 
@@ -440,6 +440,13 @@ function main()
     collect_data
 
     package  #package the dump
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo $($TIME_STAMP)" Error: Failed to package, Exiting"
+    else
+        echo $($TIME_STAMP)" Sucessfully completed"
+        exit;
+    fi
 }
 
 TEMP=`getopt -o n:d:i:t:s:f:vVqh \
