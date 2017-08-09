@@ -483,7 +483,7 @@ function package()
              $(dirname "$name_dir") $(basename "$name_dir")
 
     if [ $? -ne 0 ]; then
-        echo "Could not create the compressed tar file"
+        echo $($TIME_STAMP) "Could not create the compressed tar file"
         rm -r "$name_dir"
         return $INTERNAL_FAILURE
     fi
@@ -491,7 +491,7 @@ function package()
     #remove the temporary name specific directory
     rm -r "$name_dir"
 
-    echo "Report is available in $dump_dir"
+    echo $($TIME_STAMP) "Report is available in $dump_dir"
 
     if [ "$TMP_DIR" == "$dump_dir" ]; then
        return $SUCCESS
@@ -508,13 +508,14 @@ function package()
     #Remove the temporary copy of the file
     rm "$name_dir.tar.xz"
 }
+
 # @brief log the error message
 # @param error message
 function log_error()
 {
-   echo "ERROR: $@" >> $dreport_log
+   echo $($TIME_STAMP) "ERROR: $@" >> $dreport_log
    if ((quiet != TRUE)); then
-      echo "ERROR: $@" >&2
+      echo $($TIME_STAMP) "ERROR: $@" >&2
    fi
 }
 
@@ -523,9 +524,9 @@ function log_error()
 function log_warning()
 {
     if ((verbose == TRUE)); then
-        echo "WARNING: $@" >> $dreport_log
+        echo $($TIME_STAMP) "WARNING: $@" >> $dreport_log
         if ((quiet != TRUE)); then
-            echo "WARNING: $@" >&2
+            echo $($TIME_STAMP) "WARNING: $@" >&2
         fi
     fi
 }
@@ -535,9 +536,9 @@ function log_warning()
 function log_info()
 {
     if ((verbose == TRUE)); then
-        echo "INFO: $@" >> $dreport_log
+        echo $($TIME_STAMP) "INFO: $@" >> $dreport_log
         if ((quiet != TRUE)); then
-            echo "INFO: $@" >&1
+            echo $($TIME_STAMP) "INFO: $@" >&1
         fi
     fi
 }
@@ -546,9 +547,9 @@ function log_info()
 # @param message
 function log_summary()
 {
-    echo "$@" >> $summary_log
+    echo $($TIME_STAMP) "$@" >> $summary_log
     if ((quiet != TRUE)); then
-        echo "$@" >&1
+        echo $($TIME_STAMP) "$@" >&1
     fi
 }
 
@@ -560,7 +561,7 @@ function main()
     initialize
     result=$?
     if [[ ${result} -ne $SUCCESS ]]; then
-        echo $(TIME_STAMP)" Error: Failed to initialize, Exiting"
+        echo $($TIME_STAMP) "Error: Failed to initialize, Exiting"
         exit;
     fi
 
@@ -573,9 +574,9 @@ function main()
     package  #package the dump
     result=$?
     if [[ ${result} -ne $SUCCESS ]]; then
-        echo $($TIME_STAMP)" Error: Failed to package, Exiting"
+        echo $($TIME_STAMP) "Error: Failed to package, Exiting"
     else
-        echo $($TIME_STAMP)" Sucessfully completed"
+        echo $($TIME_STAMP) "Sucessfully completed"
         exit;
     fi
 }
