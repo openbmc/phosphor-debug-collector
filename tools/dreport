@@ -126,6 +126,63 @@ run_commands=(
 )
 }
 
+# @brief Capture debug data based on the input command array.
+#        and stores in to global temporary name specific location.
+# @param $1 Source array
+# @return 0 on success, error code otherwise
+function capture_data()
+{
+    source=("$@")
+
+    for ((i=0;i<${#source[@]};i+=3)); do
+       key="${source[i]}"
+       case $key in
+          $CMD_GENERAL)
+             eval ${source[i+2]} >> "$name_dir/${source[i+1]}"
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to collect ${source[i+2]}"
+                 continue
+             fi
+             if check_size "$name_dir/${source[i+1]}"; then
+                 log_info "Collected ${source[i+2]}"
+             else
+                 log_warning "Skipping ${source[i+2]}"
+             fi
+             ;;
+          $CMD_DIR_COPY)
+             mkdir "$name_dir/${source[i+1]}"
+             cp -r ${source[i+2]}/* $name_dir/${source[i+1]}
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to copy contents of ${source[i+2]}"
+                 continue
+             fi
+             if check_size "$name_dir/${source[i+1]}"; then
+                 log_info "Copied contents of ${source[i+2]} \
+                      to directory ./${source[i+1]}"
+             else
+                 log_warning "Skipping ${source[i+2]} copying"
+             fi
+             ;;
+          $CMD_FILE_COPY)
+             mv ${source[i+1]} $name_dir
+             if [ $? -ne 0 ]; then
+                 log_error "Failed to copy file ${source[i+1]}"
+                 continue
+             fi
+             if check_size "$name_dir/${source[i+1]}"; then
+                 log_info "Copying file ${source[i+1]}"
+             else
+                 log_warning "Skipping ${source[i+1]} copying"
+             fi
+             ;;
+          *) # unknown option
+             log_error "Unknown command type: $${source[i]}"
+           ;;
+        esac
+    done
+    return 0
+}
+
 # @brief Check the file or directory compressed size is not exceeding
 #        the allowed size. Remove the file or directory from
 #        the name_dir if the check fails
