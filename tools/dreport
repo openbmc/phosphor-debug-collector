@@ -63,9 +63,49 @@ declare -x name_dir=""
 declare -x optional_file=""
 declare -x dreport_log=""
 declare -x summary_log=""
+declare -x cur_dump_size=0
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
+
+# @brief Calculate file or directory compressed size based on input
+#        and check whether the size in the the allowed size limit.
+#        Remove the file or directory from the name_dir
+#        if the check fails.
+# @param $1 Source file or directory
+# @return 0 on success, error code if size exceeds the limit.
+# Limitation: compress and tar will have few bytes size difference
+#            between tar and compression approch.
+function check_size()
+{
+   source=$1
+
+   #No size check required incase dump_size is set to unlimited
+   if [ $dump_size = $UNLIMITED ]; then
+       return 0
+   fi
+
+   if [[ -d $source ]] && [[ -n $source ]]; then
+       tar -Jcf "$source.xz" -C \
+                 $(dirname "$source") $(basename "$source")
+   else
+       xz -kz "$source"
+   fi
+
+   #get the file size
+   source_size=$(stat -c%s "$source.xz")
+   if [ $((source_size + cur_dump_size)) -gt $dump_size ]; then
+      #Exceed the allowed limit,
+      #Remove the the specific data from the name_dir and contniue
+      rm "$source" "$source.xz"
+      return $RESOURCE_UNAVAILABLE
+   else
+      #Remove the compressed file from the name directory
+      rm "$source.xz"
+      cur_dump_size=$((source_size + cur_dump_size))
+      return $SUCCESS
+   fi
+}
 
 # @brief Initial version of the summary log
 init_summary()
