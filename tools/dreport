@@ -50,6 +50,7 @@ declare -r EPOCHTIME=$(date +"%s")
 declare -r CMD_GENERAL="1"
 declare -r CMD_DIR_COPY="2"
 declare -r CMD_FILE_MOVE="3"
+declare -r CORE_BASE_STRING="/var/lib/systemd/coredump/core"
 
 #Error Codes
 declare -r SUCCESS="0"
@@ -70,6 +71,7 @@ declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
 declare -a run_commands=("","","")
+declare -x core_pid="0"
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
@@ -126,6 +128,23 @@ run_commands=(
     $CMD_GENERAL      "BMC_meminfo.txt"        "cat /proc/meminfo"
     $CMD_GENERAL      "BMC_proc_list.txt"      "top -n 1 -b"
 )
+}
+
+# @brief get pid from the file
+#        dreport "core" type user provides core file as optional file parameter.
+#        As per coredump source code systemd-coredump uses below format
+#        https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
+#        /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “.
+#        <process ID>.%s000000"
+#        Added additional check to make sure that user provided in
+#        systemd-coredump format.
+function set_pid()
+{
+    string=$(echo $optional_file | awk -F . '{ print $1}')
+    if [ "$CORE_BASE_STRING" = "$string" ]; then
+        #matching systemd-coredump core file format.
+        core_pid=$(echo $optional_file | awk -F . '{ print $5}')
+    fi
 }
 
 # @brief Capture debug data based on the input command array.
