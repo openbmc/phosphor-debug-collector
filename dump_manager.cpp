@@ -220,6 +220,11 @@ void Manager::restore()
 
 uint32_t Manager::getAllowedSize()
 {
+    // setting minimum dump size to 10K. This will help
+    // to collect minimum dump data incase dump is close
+    // maximium szie.
+    static constexpr auto  BMC_DUMP_MINI_SIZE = 10;
+
     auto size = 0;
 
     // Maximum number of dump is based on total dump partion size
@@ -230,11 +235,29 @@ uint32_t Manager::getAllowedSize()
     if ((entries.size() + progressCounter) <
         (BMC_DUMP_TOTAL_SIZE / BMC_DUMP_SIZE))
     {
-        size = BMC_DUMP_SIZE;
+        return BMC_DUMP_SIZE;
+    }
+
+    //Get current size of the dump directory.
+    for (const auto& p : fs::recursive_directory_iterator(BMC_DUMP_PATH))
+    {
+        if (!fs::is_directory(p))
+        {
+            size += fs::file_size(p);
+        }
+    }
+
+    //Convert size into KB
+    size = size / 1024;
+
+    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
+
+    if (size > BMC_DUMP_MINI_SIZE)
+    {
+        size = (size > BMC_DUMP_SIZE ? BMC_DUMP_SIZE :  BMC_DUMP_MINI_SIZE);
     }
     else
     {
-        //Reached to maximum limit
         size = 0;
     }
     return size;
