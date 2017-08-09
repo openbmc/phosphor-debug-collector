@@ -64,9 +64,199 @@ declare -x optional_file=""
 declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
+declare -a command_list=("")
 
 # PACKAGE VERSION
 PACKAGE_VERSION="0.0.1"
+
+# @brief Initialize user type command array
+function runlevel_user()
+{
+command_list=(
+    get_fw_level
+    get_uname
+    get_uptime
+    get_disk_usage
+    bmc_state
+    host_state
+    chassis_state
+    get_host_info
+    get_obmc_console
+    get_cpuinfo
+    get_meminfo
+    get_top
+    get_esel
+    get_journal
+    get_failed_services
+    )
+}
+
+function get_fw_level()
+{
+    desc="Firmware Release"
+    command="cat /etc/os-release"
+    copy_loc="firmware_release.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_uname()
+{
+    desc="uname"
+    command="uname -a"
+    copy_loc="uname.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_uptime()
+{
+    desc="uptime"
+    command="uptime"
+    copy_loc="uptime.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_disk_usage()
+{
+    desc="Disk Usage"
+    command="df -hT"
+    copy_loc="disk_usage.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_journal()
+{
+    desc="Journal log"
+    command="journalctl -o json-pretty -r"
+    copy_loc="journal.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_host_info()
+{
+    desc="Host information"
+    command="hostnamectl status"
+    copy_loc="hostnamectl.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_failed_services()
+{
+    desc="Failed Services"
+    command="systemctl --failed"
+    copy_loc="failed_services.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_obmc_console()
+{
+    desc="OBMC Console"
+    command="cat /var/log/obmc-console.log"
+    copy_loc="obmc_console.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_cpuinfo()
+{
+    desc="cpuinfo"
+    command="cat /proc/cpuinfo"
+    copy_loc="cpuinfo.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_meminfo()
+{
+    desc="meminfo"
+    command="cat /proc/meminfo"
+    copy_loc="meminfo.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_top()
+{
+    desc="top"
+    command="top -n 1 -b"
+    copy_loc="top.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function bmc_state()
+{
+    desc="BMC State"
+    command="busctl get-property \
+                    xyz.openbmc_project.State.BMC \
+                    /xyz/openbmc_project/state/bmc0 \
+                    xyz.openbmc_project.State.BMC \
+                    CurrentBMCState"
+    copy_loc="BMCState.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function host_state()
+{
+    desc="Host State"
+    command="busctl get-property \
+                    xyz.openbmc_project.State.Host \
+                    /xyz/openbmc_project/state/host0 \
+                    xyz.openbmc_project.State.Host \
+                    CurrentHostState"
+    copy_loc="HostState.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function chassis_state()
+{
+    desc="Chassis State"
+    command="busctl get-property \
+                    xyz.openbmc_project.State.Chassis \
+                    /xyz/openbmc_project/state/chassis0 \
+                    xyz.openbmc_project.State.Chassis \
+                    CurrentPowerState"
+    copy_loc="HostState.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+function get_esel()
+{
+    desc="eSEL"
+
+    entries="busctl --list --no-pager tree \
+                           xyz.openbmc_project.Logging | grep \
+                           '/xyz/openbmc_project/logging/entry/'"
+
+    #check for eSEL entries.
+    if [ x"${entries}" = x ]; then
+      return 0
+    fi
+
+    command="${entries} | xargs -I {} busctl --verbose --no-pager \
+                          call xyz.openbmc_project.Logging {} \
+                          org.freedesktop.DBus.Properties GetAll s \
+                          xyz.openbmc_project.Logging.Entry"
+    copy_loc="eSEL.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+# @brief Run the requested command and save the output
+#        into temporary location for successful size check
+
+function run_command()
+{
+    command="$1"
+    copy_loc="$2"
+    desc="$3"
+
+    eval $command >> "$name_dir/$copy_loc"
+    if [ $? -ne 0 ]; then
+        log_error "Failed to collect $desc"
+        return 1
+    fi
+
+    if check_size "$name_dir/$copy_loc"; then
+        log_info "Collected $desc"
+    else
+        log_warning "Skipping $desc"
+    fi
+}
 
 # @brief Calculate file or directory compressed size based on input
 #        and check whether the size in the the allowed size limit.
@@ -75,7 +265,6 @@ PACKAGE_VERSION="0.0.1"
 # @param $1 Source file or directory
 # @return 0 on success, error code if size exceeds the limit.
 # Limitation: compress and tar will have few bytes size difference
-#            between tar and compression approch.
 function check_size()
 {
     source=$1
