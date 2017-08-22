@@ -18,7 +18,6 @@ Options:
 declare -a arr=(
 # Commands to be outputted into individual files
 # Format: "File name" "Command"
-      "Build_info.txt"            "cat /etc/version"
       "FW_level.txt"              "cat /etc/os-release"
       "BMC_OS.txt"                "uname -a"
       "BMC_uptime.txt"            "uptime"
