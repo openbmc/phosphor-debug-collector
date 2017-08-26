@@ -60,7 +60,7 @@ AS_IF([test "x$OBJ_ENTRY" == "x"], [OBJ_ENTRY="/xyz/openbmc_project/dump/entry"]
 AC_DEFINE_UNQUOTED([OBJ_ENTRY], ["$OBJ_ENTRY"], [The dump entry DBus object path])
 
 AC_ARG_VAR(BMC_DUMP_PATH, [Directory where bmc dumps are placed])
-AS_IF([test "x$BMC_DUMP_PATH" == "x"], [BMC_DUMP_PATH="/tmp/dumps"])
+AS_IF([test "x$BMC_DUMP_PATH" == "x"], [BMC_DUMP_PATH="/var/lib/phosphor-debug-collector/dumps/"])
 AC_DEFINE_UNQUOTED([BMC_DUMP_PATH], ["$BMC_DUMP_PATH"], [Directory where bmc dumps are placed])
 
 AC_ARG_VAR(BMC_DUMP_MAX_SIZE, [Maximum size of one bmc dump in kilo bytes])
