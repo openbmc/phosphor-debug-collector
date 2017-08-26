@@ -67,7 +67,7 @@ uint32_t Manager::captureDump(
               "-s", std::to_string(size).c_str(),
               "-q",
               "-v",
-              "-f", fullPaths.empty() ? "" : fullPaths.front(),
+              "-f", fullPaths.empty() ? "" : fullPaths.front().c_str(),
               "-t", tempType->second.c_str(),
               nullptr);
 
