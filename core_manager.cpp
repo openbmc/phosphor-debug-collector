@@ -1,3 +1,6 @@
+#include <regex>
+#include <experimental/filesystem>
+
 #include <phosphor-logging/log.hpp>
 
 #include "core_manager.hpp"
@@ -22,12 +25,31 @@ void watchCallback(const UserMap& fileInfo)
     for (const auto& i : fileInfo)
     {
         // Get list of debug files.
-        if (IN_CLOSE_WRITE == i.second)
+        if (IN_CLOSE_WRITE != i.second)
         {
-            files.push_back(i.first.string());
+            continue;
+        }
+
+        namespace fs = std::experimental::filesystem;
+        fs::path file(i.first);
+        std::string name = file.filename();
+
+        /*
+          As per coredump source code systemd-coredump uses below format
+          https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
+          /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “
+          systemd-coredump also creates temporary file in core file path prior
+          to actual core file creation. Checking the file name format will help
+          to limit dump creation only for the new core files.
+        */
+        if("core" == name.substr(0, name.find('.')))
+        {
+            //Consider only file name start with "core"
+            files.push_back(file);
         }
     }
-    if(!files.empty())
+
+    if (!files.empty())
     {
         createHelper(files);
     }
@@ -40,7 +62,7 @@ void createHelper(const vector<string>& files)
     constexpr auto MAPPER_INTERFACE = "xyz.openbmc_project.ObjectMapper";
     constexpr auto IFACE_INTERNAL("xyz.openbmc_project.Dump.Internal.Create");
     constexpr auto APPLICATION_CORED =
-              "xyz.openbmc_project.Dump.Internal.Create.Type.ApplicationCored";
+        "xyz.openbmc_project.Dump.Internal.Create.Type.ApplicationCored";
 
     auto b = sdbusplus::bus::new_default();
     auto mapper = b.new_method_call(
