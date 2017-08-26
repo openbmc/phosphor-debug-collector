@@ -340,17 +340,11 @@ function collect_data()
 #        systemd-coredump format.
 function set_pid()
 {
-    #from coredump.c file.
-    CORE_BASE_STRING="/var/lib/systemd/coredump/core"
-
     #Escape bash characters in file name
     file=$(printf %q "$optional_file")
 
-    string=$(echo $file | awk -F . '{ print $1}')
-    if [ "$CORE_BASE_STRING" = "$string" ]; then
-        #matching systemd-coredump core file format.
-        core_pid=$(echo $file | awk -F . '{ print $5}')
-    fi
+    #matching systemd-coredump core file format.
+    core_pid=$(echo $file | awk -F . '{ print $5}')
 }
 
 # @brief Capture debug data based on the input command array.
