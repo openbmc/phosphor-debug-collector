@@ -27,15 +27,7 @@ int main(int argc, char* argv[])
 
     try
     {
-        phosphor::dump::inotify::Watch watch(
-            eventP,
-            IN_NONBLOCK,
-            IN_CLOSE_WRITE,
-            EPOLLIN,
-            CORE_FILE_DIR,
-            std::bind(
-                &phosphor::dump::core::manager::watchCallback,
-                std::placeholders::_1));
+        phosphor::dump::core::Manager manager(eventP);
 
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
