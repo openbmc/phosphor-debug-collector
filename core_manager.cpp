@@ -12,13 +12,11 @@ namespace dump
 {
 namespace core
 {
-namespace manager
-{
 
 using namespace phosphor::logging;
 using namespace std;
 
-void watchCallback(const UserMap& fileInfo)
+void Manager::watchCallback(const UserMap& fileInfo)
 {
     vector<string> files;
 
@@ -64,7 +62,7 @@ void watchCallback(const UserMap& fileInfo)
     }
 }
 
-void createHelper(const vector<string>& files)
+void Manager::createHelper(const vector<string>& files)
 {
     constexpr auto MAPPER_BUSNAME = "xyz.openbmc_project.ObjectMapper";
     constexpr auto MAPPER_PATH = "/xyz/openbmc_project/object_mapper";
@@ -106,7 +104,6 @@ void createHelper(const vector<string>& files)
     b.call_noreply(m);
 }
 
-} // namespace manager
 } // namespace core
 } // namespace dump
 } // namespace phosphor
