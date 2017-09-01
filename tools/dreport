@@ -240,7 +240,7 @@ function chassis_state()
                     /xyz/openbmc_project/state/chassis0 \
                     xyz.openbmc_project.State.Chassis \
                     CurrentPowerState"
-    copy_loc="HostState.log"
+    copy_loc="ChassisState.log"
     run_command "$command" "$copy_loc" "$desc"
 }
 
