@@ -13,10 +13,9 @@ methods:
        - name: FullPaths
          type: array[string]
          description: >
-            List of absolute paths to the files to be included
-            as part of Dump package.
+            List of absolute paths (file or dbus) to be included
+            in the Dump package.
       errors:
-        - xyz.openbmc_project.Common.Error.InternalFailure
         - xyz.openbmc_project.Common.File.Error.Write
         - xyz.openbmc_project.Dump.Create.Error.Disabled
         - xyz.openbmc_project.Dump.Create.Error.QuotaExceeded
@@ -32,5 +31,8 @@ enumerations:
         - name: UserRequested
           description: >
               Dump triggered by the user.
+        - name: InternalFailure
+          description: >
+              Dump triggered due to InternalFailure type error commit.
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
