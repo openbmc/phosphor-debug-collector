@@ -19,12 +19,13 @@ Options:
                               Identifiers include numeric characters.
                               Default dump identifier is 0
         -t, —-type <type>     Data collection type. Valid types are
-                              "user", "core".
+                              "user", "core", "elog".
                               Default type is "user" initiated.
         -p, —-path <path>     Optional contents to be included in the archive.
                               Valid paths are absolute file path or d-bus path
                               based on type parameter.
                                  -Absolute file path for "core" type.
+                                 -elog d-bus object for "elog" type.
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
                               Report will be truncated in case size exceeds
                               this limit. Default size is unlimited.
@@ -41,6 +42,7 @@ declare -r UNLIMITED="unlimited"
 declare -r SUMMARY_DUMP="summary"
 declare -r TYPE_USER="user"
 declare -r TYPE_CORE="core"
+declare -r TYPE_ELOG="elog"
 declare -r SUMMARY_LOG="summary.log"
 declare -r DREPORT_LOG="dreport.log"
 declare -r TMP_DIR="/tmp"
@@ -67,25 +69,35 @@ declare -x summary_log=""
 declare -x cur_dump_size=0
 declare -a command_list=("")
 declare -x pid="0"
+declare -x elog_id=""
+
+# @brief Initialize general command array
+#        Set of commands, which provide general debug information
+function runlevel_general()
+{
+command_list=(
+    get_fw_level
+    bmc_state
+    host_state
+    chassis_state
+    get_host_info
+    get_uname
+    get_uptime
+    get_disk_usage
+    get_host_info
+    get_cpuinfo
+    get_meminfo
+    get_top
+    )
+}
 
 # @brief Initialize user type command array
 function runlevel_user()
 {
 command_list=(
-    get_fw_level
-    get_uname
-    get_uptime
-    get_disk_usage
-    bmc_state
-    host_state
-    chassis_state
-    get_host_info
-    get_obmc_console
-    get_cpuinfo
-    get_meminfo
-    get_top
-    get_elog_all
     get_journal
+    get_elog_all
+    get_obmc_console
     get_failed_services
     )
 }
@@ -96,20 +108,18 @@ function runlevel_core()
 command_list=(
     move_optional_file
     get_proc_journal
-    get_fw_level
-    get_uname
-    get_uptime
-    get_disk_usage
-    bmc_state
-    host_state
-    chassis_state
-    get_host_info
     get_failed_services
     get_obmc_console
-    get_cpuinfo
-    get_meminfo
-    get_top
-)
+    )
+}
+
+# @brief Initialize elog type command array
+function runlevel_elog()
+{
+command_list=(
+    get_proc_journal
+    get_elog
+    )
 }
 
 function get_fw_level()
@@ -244,6 +254,7 @@ function chassis_state()
     run_command "$command" "$copy_loc" "$desc"
 }
 
+# @brief get all available elogs in BMC.
 function get_elog_all()
 {
     desc="elog"
@@ -266,6 +277,20 @@ function get_elog_all()
                      org.freedesktop.DBus.Properties GetAll s \
                      xyz.openbmc_project.Logging.Entry"
     copy_loc="elog.log"
+    run_command "$command" "$copy_loc" "$desc"
+}
+
+# @brief get elog specific to global elog_id
+function get_elog()
+{
+    desc="elog id:$elog_id"
+
+    command="busctl --verbose --no-pager \
+                     call xyz.openbmc_project.Logging \
+                     $optional_path \
+                     org.freedesktop.DBus.Properties GetAll s \
+                     xyz.openbmc_project.Logging.Entry"
+    copy_loc="elog_$elog_id.log"
     run_command "$command" "$copy_loc" "$desc"
 }
 
@@ -311,6 +336,9 @@ function run_command()
 # @return 0 on success, error code otherwise
 function collect_data()
 {
+    runlevel_general
+    capture_data "${command_list[@]}"
+
     case $dump_type in
         $TYPE_USER)
             runlevel_user
@@ -321,6 +349,13 @@ function collect_data()
             runlevel_core
             capture_data "${command_list[@]}"
             ;;
+        $TYPE_ELOG)
+            elog_id=$(basename "$optional_path")
+            set_elog_pid
+            runlevel_elog
+            capture_data "${command_list[@]}"
+            ;;
+
         $SUMMARY_DUMP)
             #No data collection is required.
             ;;
@@ -343,6 +378,23 @@ function set_core_pid()
 
     #matching systemd-coredump core file format.
     pid=$(echo $file | awk -F . '{ print $5}')
+}
+
+# @brief set elog pid by reading _PID information from the elog d-bus object.
+#        _PID information is stored  elog Additional data field
+#        Data format  "_PID=<pid>"
+function set_elog_pid()
+{
+    additional_data=$(busctl get-property xyz.openbmc_project.Logging \
+                             $optional_path \
+                             xyz.openbmc_project.Logging.Entry \
+                             AdditionalData)
+
+    #read _PID data.
+    if [ ! -z "$additional_data" ]; then
+        pid=$(echo $additional_data | \
+                   awk -F _PID= '{ print ($2+0)}')
+    fi
 }
 
 # @brief Capture debug data based on the input command array.
@@ -444,7 +496,9 @@ function initialize()
     summary_log="$name_dir/$SUMMARY_LOG"
 
     #Type
-    if [[ !($dump_type = $TYPE_USER || $dump_type = $TYPE_CORE) ]]; then
+    if [[ !($dump_type = $TYPE_USER || \
+            $dump_type = $TYPE_CORE || \
+            $dump_type = $TYPE_ELOG) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
     fi
