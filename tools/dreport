@@ -21,10 +21,10 @@ Options:
         -t, —-type <type>     Data collection type. Valid types are
                               "user", "core".
                               Default type is "user" initiated.
-        -f, —-file <file>     Optional file to be included in the archive.
-                              Absolute path of the file must be passed as
-                              parameter. This is useful to include application
-                              core in the dump.
+        -P, —-path <path>     Optional contents to be included in the archive.
+                              Valid paths are absolute file path or d-bus path
+                              based on type parameter.
+                                 -Absolute file path for "core" type.
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
                               Report will be truncated in case size exceeds
                               this limit. Default size is unlimited.
@@ -61,7 +61,7 @@ declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size="unlimited"
 declare -x name_dir=""
-declare -x optional_file=""
+declare -x optional_path=""
 declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
@@ -273,12 +273,12 @@ function move_optional_file()
 {
     desc="Move Optional file"
 
-    mv $optional_file $name_dir
+    mv $optional_path $name_dir
     if [ $? -ne 0 ]; then
-        log_error "Failed to move file $optional_file"
+        log_error "Failed to move file $optional_path"
         return 1
     fi
-    if check_size "$name_dir/$(basename "$optional_file")"; then
+    if check_size "$name_dir/$(basename "$optional_path")"; then
         log_info "Moving file $file_name"
     else
         log_warning "Skipping $file_name move"
@@ -331,7 +331,7 @@ function collect_data()
 }
 
 # @brief get pid from the file
-#        dreport "core" type user provides core file as optional file parameter.
+#        dreport "core" type user provides core file as optional path parameter.
 #        As per coredump source code systemd-coredump uses below format
 #        https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
 #        /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “.
@@ -339,7 +339,7 @@ function collect_data()
 function set_pid()
 {
     #Escape bash characters in file name
-    file=$(printf %q "$optional_file")
+    file=$(printf %q "$optional_path")
 
     #matching systemd-coredump core file format.
     core_pid=$(echo $file | awk -F . '{ print $5}')
@@ -413,7 +413,7 @@ init_summary()
    log_summary "Epochtime:     $EPOCHTIME"
    log_summary "ID:            $dump_id"
    log_summary "Type:          $dump_type"
-   log_summary "Optional file: $optional_file"
+   log_summary "Optional path: $optional_path"
 }
 
 # @brief Check the validity of user inputs and initialize global
@@ -573,8 +573,8 @@ function main()
     fi
 }
 
-TEMP=`getopt -o n:d:i:t:s:f:vVqh \
-      --long name:,dir:,dumpid:,type:,size:,file:,verbose,version,quiet,help \
+TEMP=`getopt -o n:d:i:t:s:P:vVqh \
+      --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
       -- "$@"`
 
 if [ $? -ne 0 ]
@@ -603,8 +603,8 @@ while [[ $# -gt 1 ]]; do
         -s|--size)
             dump_size=$2
             shift 2;;
-        -f|--file)
-            optional_file=$2
+        -P|--path)
+            optional_path=$2
             shift 2;;
         -v|—-verbose)
             verbose=$TRUE
