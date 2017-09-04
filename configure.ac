@@ -75,5 +75,7 @@ AC_ARG_VAR(BMC_DUMP_TOTAL_SIZE, [Total size of the bmc dump in kilo bytes])
 AS_IF([test x$BMC_DUMP_TOTAL_SIZE == x], [BMC_DUMP_TOTAL_SIZE=1024])
 AC_DEFINE_UNQUOTED([BMC_DUMP_TOTAL_SIZE], [$BMC_DUMP_TOTAL_SIZE], [Total size of the dump in kilo bytes])
 
+AC_DEFINE(ELOG_ENTRY, "entry", [Path element indicates an error log entry under logging namespace.])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
