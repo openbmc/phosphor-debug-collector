@@ -66,7 +66,7 @@ declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
 declare -a command_list=("")
-declare -x core_pid="0"
+declare -x pid="0"
 
 # @brief Initialize user type command array
 function runlevel_user()
@@ -155,7 +155,7 @@ function get_journal()
 function get_proc_journal()
 {
     desc="Process Journal log"
-    command="journalctl -o verbose _PID=$core_pid"
+    command="journalctl -o verbose _PID=$pid"
     copy_loc="proc_journal.log"
     run_command "$command" "$copy_loc" "$desc"
 }
@@ -317,7 +317,7 @@ function collect_data()
             capture_data "${command_list[@]}"
             ;;
         $TYPE_CORE)
-            set_pid
+            set_core_pid
             runlevel_core
             capture_data "${command_list[@]}"
             ;;
@@ -330,19 +330,19 @@ function collect_data()
     esac
 }
 
-# @brief get pid from the file
+# @brief set pid by reading information from the optional path.
 #        dreport "core" type user provides core file as optional path parameter.
 #        As per coredump source code systemd-coredump uses below format
 #        https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
 #        /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “.
 #        <process ID>.%s000000"
-function set_pid()
+function set_core_pid()
 {
     #Escape bash characters in file name
     file=$(printf %q "$optional_path")
 
     #matching systemd-coredump core file format.
-    core_pid=$(echo $file | awk -F . '{ print $5}')
+    pid=$(echo $file | awk -F . '{ print $5}')
 }
 
 # @brief Capture debug data based on the input command array.
