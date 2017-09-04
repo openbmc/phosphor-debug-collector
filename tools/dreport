@@ -27,7 +27,7 @@ Options:
                               core in the dump.
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
                               Report will be truncated in case size exceeds
-                              this limit. Default size is 500KB.
+                              this limit. Default size is unlimited.
         -v, —-verbose         Increase logging verbosity.
         -V, --version         Output version information.
         -q, —-quiet           Only log fatal errors to stderr
