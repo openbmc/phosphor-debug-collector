@@ -84,7 +84,7 @@ command_list=(
     get_cpuinfo
     get_meminfo
     get_top
-    get_esel
+    get_elog_all
     get_journal
     get_failed_services
     )
@@ -244,9 +244,9 @@ function chassis_state()
     run_command "$command" "$copy_loc" "$desc"
 }
 
-function get_esel()
+function get_elog_all()
 {
-    desc="eSEL"
+    desc="elog"
 
     entries=$(busctl --list --no-pager tree \
                      xyz.openbmc_project.Logging | grep \
@@ -265,7 +265,7 @@ function get_esel()
                      call xyz.openbmc_project.Logging {} \
                      org.freedesktop.DBus.Properties GetAll s \
                      xyz.openbmc_project.Logging.Entry"
-    copy_loc="eSEL.log"
+    copy_loc="elog.log"
     run_command "$command" "$copy_loc" "$desc"
 }
 
