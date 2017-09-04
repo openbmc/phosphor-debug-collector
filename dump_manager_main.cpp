@@ -6,6 +6,7 @@
 #include "dump_manager.hpp"
 #include "dump_internal.hpp"
 #include "watch.hpp"
+#include "elog_watch.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -36,6 +37,7 @@ int main(int argc, char* argv[])
         //Restore dump d-bus objects.
         manager.restore();
         phosphor::dump::internal::Manager mgr(bus, manager, OBJ_INTERNAL);
+        phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
         auto rc = sd_event_loop(eventP.get());
