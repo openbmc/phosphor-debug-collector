@@ -44,7 +44,8 @@ uint32_t Manager::captureDump(
     //Type to dreport type  string map
     static const std::map<Type, std::string> typeMap =
                                {{Type::ApplicationCored, "core"},
-                                {Type::UserRequested, "user"}};
+                                {Type::UserRequested, "user"},
+                                {Type::InternalFailure, "elog"}};
 
     //Get Dump size.
     auto size = getAllowedSize();
