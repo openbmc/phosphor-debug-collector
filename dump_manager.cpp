@@ -43,9 +43,11 @@ uint32_t Manager::captureDump(
 {
     //Type to dreport type  string map
     static const std::map<Type, std::string> typeMap =
-                               {{Type::ApplicationCored, "core"},
-                                {Type::UserRequested, "user"},
-                                {Type::InternalFailure, "elog"}};
+    {
+        {Type::ApplicationCored, "core"},
+        {Type::UserRequested, "user"},
+        {Type::InternalFailure, "elog"}
+    };
 
     //Get Dump size.
     auto size = getAllowedSize();
@@ -177,7 +179,7 @@ void Manager::watchCallback(const UserMap& fileInfo)
                                 i.first,
                                 std::bind(
                                     std::mem_fn(
-                                       &phosphor::dump::Manager::watchCallback),
+                                        &phosphor::dump::Manager::watchCallback),
                                     this, std::placeholders::_1));
 
             childWatchMap.emplace(i.first, std::move(watchObj));

@@ -161,6 +161,7 @@ class Manager : public CreateIface
           *        [path:watch object]
           */
         std::map<fs::path, std::unique_ptr<Watch>> childWatchMap;
+
 };
 
 } // namespace dump
