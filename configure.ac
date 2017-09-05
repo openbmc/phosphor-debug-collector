@@ -77,5 +77,11 @@ AC_DEFINE_UNQUOTED([BMC_DUMP_TOTAL_SIZE], [$BMC_DUMP_TOTAL_SIZE], [Total size of
 
 AC_DEFINE(OBJ_LOGGING, "/xyz/openbmc_project/logging", [The log manager DBus object path.])
 
+AC_ARG_VAR(ELOG_ID_PERSIST_PATH, [Path of file for storing elog id's, which have associated dumps])
+AS_IF([test "x$ELOG_ID_PERSIST_PATH" == "x"], \
+    [ELOG_ID_PERSIST_PATH="/var/lib/phosphor-debug-collector/elogid"])
+AC_DEFINE_UNQUOTED([ELOG_ID_PERSIST_PATH], ["$ELOG_ID_PERSIST_PATH"], \
+    [Path of file for storing elog id's, which have associated dumps])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
