@@ -16,7 +16,7 @@ namespace elog
 using IMgr = phosphor::dump::internal::Manager;
 
 /** @class Watch
- *  @brief Adds d-bus signal based watch for elog commit.
+ *  @brief Adds d-bus signal based watch for elog add and delete.
  *  @details This implements methods for watching for InternalFailure
  *  type error message and call appropriate function to initiate dump
  */
@@ -30,36 +30,54 @@ class Watch
         Watch(Watch&&) = default;
         Watch& operator=(Watch&&) = default;
 
-        /** @brief constructs watch for elog commits.
+        /** @brief constructs watch for elog add and delete signals.
          *  @param[in] bus -  The Dbus bus object
          *  @param[in] intMgr - Dump internal Manager object
          */
         Watch(sdbusplus::bus::bus& bus, IMgr& iMgr):
             iMgr(iMgr),
-            elogMatch(
+            addMatch(
                 bus,
                 sdbusplus::bus::match::rules::interfacesAdded() +
                 sdbusplus::bus::match::rules::path_namespace(
-                                              OBJ_LOGGING),
-                std::bind(std::mem_fn(&Watch::callback),
+                    OBJ_LOGGING),
+                std::bind(std::mem_fn(&Watch::addCallback),
+                          this, std::placeholders::_1)),
+            delMatch(
+                bus,
+                sdbusplus::bus::match::rules::interfacesRemoved() +
+                sdbusplus::bus::match::rules::path_namespace(
+                    OBJ_LOGGING),
+                std::bind(std::mem_fn(&Watch::delCallback),
                           this, std::placeholders::_1))
         {
             //Do nothing
         }
     private:
 
-        /** @brief Callback function for error log commit.
+        /** @brief Callback function for error log add.
          *  @details InternalError type error message initiates
          *           Internal error type dump request.
          *  @param[in] msg  - Data associated with subscribed signal
          */
-        void callback(sdbusplus::message::message& msg);
+        void addCallback(sdbusplus::message::message& msg);
+
+        /** @brief Callback function for error log delete.
+         *  @param[in] msg  - Data associated with subscribed signal
+         */
+        void delCallback(sdbusplus::message::message& msg);
 
         /**  @brief Dump internal Manager object. */
         IMgr& iMgr;
 
-        /** @brief sdbusplus signal match for elog commit */
-        sdbusplus::bus::match_t elogMatch;
+        /** @brief sdbusplus signal match for elog add */
+        sdbusplus::bus::match_t addMatch;
+
+        /** @brief sdbusplus signal match for elog delete */
+        sdbusplus::bus::match_t delMatch;
+
+        /** @brief List of elog, which already requested dump */
+        std::vector<std::string> elogList;
 };
 
 }//namespace elog
