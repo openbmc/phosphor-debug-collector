@@ -26,7 +26,13 @@ void Manager::create(
     Type type,
     std::vector<std::string> fullPaths)
 {
-    dumpMgr.phosphor::dump::Manager::captureDump(type, fullPaths);
+    auto id = dumpMgr.phosphor::dump::Manager::captureDump(type, fullPaths);
+
+    //elog entry object association is needed for InternalFailure type dump
+    if (Type::InternalFailure == type)
+    {
+        dumpMgr.phosphor::dump::Manager::assocMap.emplace(id, fullPaths.front());
+    }
 }
 
 } //namepsace internal
@@ -43,9 +49,11 @@ uint32_t Manager::captureDump(
 {
     //Type to dreport type  string map
     static const std::map<Type, std::string> typeMap =
-                               {{Type::ApplicationCored, "core"},
-                                {Type::UserRequested, "user"},
-                                {Type::InternalFailure, "elog"}};
+    {
+        {Type::ApplicationCored, "core"},
+        {Type::UserRequested, "user"},
+        {Type::InternalFailure, "elog"}
+    };
 
     //Get Dump size.
     auto size = getAllowedSize();
@@ -141,6 +149,8 @@ void Manager::createEntry(const fs::path& file)
                                           fs::file_size(file),
                                           file,
                                           *this)));
+        //Set Elog Association
+        setElogAssociation(id);
     }
     catch (const std::invalid_argument& e)
     {
@@ -177,7 +187,7 @@ void Manager::watchCallback(const UserMap& fileInfo)
                                 i.first,
                                 std::bind(
                                     std::mem_fn(
-                                       &phosphor::dump::Manager::watchCallback),
+                                        &phosphor::dump::Manager::watchCallback),
                                     this, std::placeholders::_1));
 
             childWatchMap.emplace(i.first, std::move(watchObj));
@@ -257,6 +267,71 @@ size_t Manager::getAllowedSize()
     }
 
     return size;
+}
+
+void  Manager::setElogAssociation(const uint32_t id)
+{
+    constexpr auto MAPPER_BUSNAME = "xyz.openbmc_project.ObjectMapper";
+    constexpr auto MAPPER_PATH = "/xyz/openbmc_project/object_mapper";
+    constexpr auto MAPPER_INTERFACE = "xyz.openbmc_project.ObjectMapper";
+    constexpr auto ASSOC_IFACE     = "org.openbmc.Associations";
+    constexpr auto ASSOC_PROP     = "associations";
+    constexpr auto PROP_IFACE = "org.freedesktop.DBus.Properties";
+
+    using AssociationList =
+        std::vector<std::tuple<std::string, std::string, std::string>>;
+
+    auto iter = assocMap.find(id);
+    if (iter == assocMap.end())
+    {
+        //Skip , no association entry found.
+        return;
+    }
+
+    auto elogPath = iter->second;
+
+    //Delete the entry from map.
+    assocMap.erase(id);
+
+    //Initialize dump object path.
+    fs::path dumpPath(DUMP_OBJPATH);
+    dumpPath /= std::to_string(id);
+
+    auto bus = sdbusplus::bus::new_default();
+    auto mapper = bus.new_method_call(
+                      MAPPER_BUSNAME,
+                      MAPPER_PATH,
+                      MAPPER_INTERFACE,
+                      "GetObject");
+    mapper.append(elogPath.c_str(), std::vector<std::string>({ASSOC_IFACE}));
+    auto mapperResponseMsg = bus.call(mapper);
+    if (mapperResponseMsg.is_method_error())
+    {
+        log<level::ERR>("Error in mapper call");
+        return;
+    }
+    std::map<std::string, std::vector<std::string>> mapperResponse;
+    mapperResponseMsg.read(mapperResponse);
+    if (mapperResponse.empty())
+    {
+        log<level::ERR>("Error reading mapper response");
+        return;
+    }
+
+    AssociationList list;
+    list.emplace_back(std::make_tuple("DUMP_FWD_ASSOCIATION",
+                                      "DUMP_REV_ASSOCIATION",
+                                      dumpPath.c_str()));
+    const auto& host = mapperResponse.cbegin()->first;
+    auto m = bus.new_method_call(
+                 host.c_str(),
+                 elogPath.c_str(),
+                 PROP_IFACE,
+                 "Set");
+    m.append(ASSOC_IFACE);
+    m.append(ASSOC_PROP);
+    m.append(list);
+    bus.call_noreply(m);
 }
 
 } //namespace dump

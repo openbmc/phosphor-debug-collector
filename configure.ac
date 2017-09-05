@@ -76,6 +76,8 @@ AS_IF([test x$BMC_DUMP_TOTAL_SIZE == x], [BMC_DUMP_TOTAL_SIZE=1024])
 AC_DEFINE_UNQUOTED([BMC_DUMP_TOTAL_SIZE], [$BMC_DUMP_TOTAL_SIZE], [Total size of the dump in kilo bytes])
 
 AC_DEFINE(OBJ_LOGGING, "/xyz/openbmc_project/logging", [The log manager DBus object path.])
+AC_DEFINE(DUMP_FWD_ASSOCIATION, "elog", [The name of the dump's forward association.])
+AC_DEFINE(DUMP_REV_ASSOCIATION, "dump", [The name of the dump's reverse association.])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

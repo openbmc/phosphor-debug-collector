@@ -142,6 +142,11 @@ class Manager : public CreateIface
           */
         size_t getAllowedSize();
 
+        /** @brief Set dump association in elog
+          * @param[in] dump id
+          */
+        void setElogAssociation(const uint32_t id);
+
         /** @brief sdbusplus DBus bus connection. */
         sdbusplus::bus::bus& bus;
 
@@ -161,6 +166,10 @@ class Manager : public CreateIface
           *        [path:watch object]
           */
         std::map<fs::path, std::unique_ptr<Watch>> childWatchMap;
+
+        /** @brief Dump id and its associated elog object path map.
+          */
+        std::map<uint32_t, std::string> assocMap;
 };
 
 } // namespace dump
