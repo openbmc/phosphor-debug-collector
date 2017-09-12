@@ -7,6 +7,7 @@
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
+#include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
 #include "dump_entry.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
@@ -24,6 +25,8 @@ class Manager;
 } // namespace internal
 
 using UserMap = phosphor::dump::inotify::UserMap;
+using DeleteAllIface = sdbusplus::server::object::object <
+                       sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll >;
 
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
@@ -40,7 +43,7 @@ using Watch = phosphor::dump::inotify::Watch;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Create DBus API.
  */
-class Manager : public CreateIface
+class Manager : public CreateIface ,public DeleteAllIface
 {
         friend class internal::Manager;
         friend class Entry;
@@ -61,6 +64,7 @@ class Manager : public CreateIface
         Manager(sdbusplus::bus::bus& bus,
                 const EventPtr& event, const char* path) :
             CreateIface(bus, path),
+            DeleteAllIface(bus, path),
             bus(bus),
             eventLoop(event.get()),
             lastEntryId(0),
@@ -113,6 +117,17 @@ class Manager : public CreateIface
           * @param[in] entryId - unique identifier of the entry
           */
         void erase(uint32_t entryId);
+
+        /** @brief  Erase all BMC dumps.
+         *
+         */
+        void deleteAll()
+        {
+            for (const auto& entry : entries)
+            {
+                erase(entry.first);
+            }
+        }
 
         /** @brief sd_event_add_child callback
           *
