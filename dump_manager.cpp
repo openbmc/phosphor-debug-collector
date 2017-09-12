@@ -10,7 +10,6 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 #include "config.h"
-
 namespace phosphor
 {
 namespace dump
@@ -151,6 +150,28 @@ void Manager::createEntry(const fs::path& file)
 void Manager::erase(uint32_t entryId)
 {
     entries.erase(entryId);
+}
+
+void Manager::deleteAll()
+{
+    fs::path dumpDir(BMC_DUMP_PATH);
+
+    //Delete all Dump files from Permanent location
+    try
+    {
+        for (const auto& p : fs::directory_iterator(dumpDir))
+        {
+            fs::remove_all(p.path());
+        }
+    }
+    catch (fs::filesystem_error& e)
+    {
+        //Log Error message and continue
+        log<level::ERR>(e.what());
+    }
+
+    // Remove all Dump entries
+    eraseAll();
 }
 
 void Manager::watchCallback(const UserMap& fileInfo)
