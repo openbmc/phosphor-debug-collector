@@ -7,6 +7,7 @@
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
+#include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
 #include "dump_entry.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
@@ -28,8 +29,9 @@ using UserMap = phosphor::dump::inotify::UserMap;
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
 
-using CreateIface = sdbusplus::server::object::object<
-                    sdbusplus::xyz::openbmc_project::Dump::server::Create>;
+using CreateIface = sdbusplus::server::object::object <
+                    sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll,
+                    sdbusplus::xyz::openbmc_project::Dump::server::Create >;
 
 namespace fs = std::experimental::filesystem;
 
@@ -38,7 +40,8 @@ using Watch = phosphor::dump::inotify::Watch;
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
  *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Create DBus API.
+ *  xyz.openbmc_project.Dump.Create DBus API and
+ *  xyz::openbmc_project::Collection::server::DeleteAll.
  */
 class Manager : public CreateIface
 {
@@ -113,6 +116,12 @@ class Manager : public CreateIface
           * @param[in] entryId - unique identifier of the entry
           */
         void erase(uint32_t entryId);
+
+        /** @brief  Erase all BMC dump entries and  Delete all Dump files
+         * from Permanent location
+         *
+        */
+        void deleteAll()  override;
 
         /** @brief sd_event_add_child callback
           *
