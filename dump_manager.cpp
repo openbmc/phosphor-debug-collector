@@ -154,6 +154,17 @@ void Manager::erase(uint32_t entryId)
     entries.erase(entryId);
 }
 
+void Manager::deleteAll()
+{
+    auto iter = entries.begin();
+    while (iter != entries.end())
+    {
+        auto& entry = iter->second;
+        entry->delete_();
+        ++iter;
+    }
+}
+
 void Manager::watchCallback(const UserMap& fileInfo)
 {
     for (const auto& i : fileInfo)
