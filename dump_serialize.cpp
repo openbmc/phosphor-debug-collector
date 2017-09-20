@@ -2,6 +2,8 @@
 #include <cereal/archives/binary.hpp>
 #include <fstream>
 
+#include <phosphor-logging/log.hpp>
+
 #include "dump_serialize.hpp"
 
 namespace phosphor
@@ -10,6 +12,8 @@ namespace dump
 {
 namespace elog
 {
+
+using namespace phosphor::logging;
 
 void serialize(const ElogList& list, const fs::path& dir)
 {
@@ -20,14 +24,23 @@ void serialize(const ElogList& list, const fs::path& dir)
 
 bool deserialize(const fs::path& path, ElogList& list)
 {
-    if (fs::exists(path))
+    try
     {
-        std::ifstream is(path.c_str(), std::ios::in | std::ios::binary);
-        cereal::BinaryInputArchive iarchive(is);
-        iarchive(list);
-        return true;
+        if (fs::exists(path) && !fs::is_empty(path))
+        {
+            std::ifstream is(path.c_str(), std::ios::in | std::ios::binary);
+            cereal::BinaryInputArchive iarchive(is);
+            iarchive(list);
+            return true;
+        }
+        return false;
     }
-    return false;
+    catch(cereal::Exception& e)
+    {
+        log<level::ERR>(e.what());
+        fs::remove(path);
+        return false;
+    }
 }
 
 } // namespace elog
