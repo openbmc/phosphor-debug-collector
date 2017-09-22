@@ -83,5 +83,14 @@ AS_IF([test "x$ELOG_ID_PERSIST_PATH" == "x"], \
 AC_DEFINE_UNQUOTED([ELOG_ID_PERSIST_PATH], ["$ELOG_ID_PERSIST_PATH"], \
     [Path of file for storing elog id's, which have associated dumps])
 
+AC_ARG_ENABLE([core-file-ubi],
+    AS_HELP_STRING([--enable-core-file-ubi],
+                   [Turn on ubi workaround for core file])
+)
+AS_IF([test "x$enable_core_file_ubi" != "xno"],
+      [AC_DEFINE([UBI_CORE_FILE_WORKAROUND], [],
+      [Turn on ubi workaround for core file])]
+)
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
