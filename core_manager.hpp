@@ -15,6 +15,16 @@ namespace core
 using Watch = phosphor::dump::inotify::Watch;
 using UserMap = phosphor::dump::inotify::UserMap;
 
+/** workaround: Watches for IN_CREATE event for the
+ *  ubi filesystem based systemd-coredump core path
+ *  Refer openbmc/issues/#2287 for more details.
+ */
+#ifdef UBI_CORE_FILE_WORKAROUND
+    static constexpr auto CORE_FILE_EVENT = IN_CREATE;
+#else
+    static constexpr auto CORE_FILE_EVENT = IN_CLOSE_WRITE;
+#endif
+
 /** @class Manager
  *  @brief OpenBMC Core manager implementation.
  */
@@ -35,7 +45,7 @@ class Manager
             eventLoop(event.get()),
             coreWatch(eventLoop,
                       IN_NONBLOCK,
-                      IN_CLOSE_WRITE,
+                      CORE_FILE_EVENT,
                       EPOLLIN,
                       CORE_FILE_DIR,
                       std::bind(
