@@ -22,12 +22,6 @@ void Manager::watchCallback(const UserMap& fileInfo)
 
     for (const auto& i : fileInfo)
     {
-        // Get list of debug files.
-        if (IN_CLOSE_WRITE != i.second)
-        {
-            continue;
-        }
-
         namespace fs = std::experimental::filesystem;
         fs::path file(i.first);
         std::string name = file.filename();
