@@ -35,7 +35,7 @@ class Manager
             eventLoop(event.get()),
             coreWatch(eventLoop,
                       IN_NONBLOCK,
-                      IN_CLOSE_WRITE,
+                      IN_CREATE,
                       EPOLLIN,
                       CORE_FILE_DIR,
                       std::bind(
