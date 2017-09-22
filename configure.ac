@@ -87,5 +87,14 @@ AC_ARG_VAR(CLASS_VERSION, [Class version to register with Cereal])
 AS_IF([test "x$CLASS_VERSION" == "x"], [CLASS_VERSION=1])
 AC_DEFINE_UNQUOTED([CLASS_VERSION], [$CLASS_VERSION], [Class version to register with Cereal])
 
+AC_ARG_ENABLE([core-file-ubi],
+    AS_HELP_STRING([--enable-core-file-ubi],
+                   [Turn on ubi workaround for core file])
+)
+AS_IF([test "x$enable_core_file_ubi" != "xno"],
+      [AC_DEFINE([UBI_CORE_FILE_WORKAROUND], [],
+      [Turn on ubi workaround for core file])]
+)
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
