@@ -47,11 +47,17 @@ class Watch
         /** @brief Function required by Cereal to perform serialization.
          *  @tparam Archive - Cereal archive type (binary in our case).
          *  @param[in] a - reference to Cereal archive.
+         *  @param[in] version - Class version that enables handling
+         *                       a serialized data across code levels
          */
         template<class Archive>
-        void serialize(Archive& a)
+        void serialize(Archive& a, const std::uint32_t version)
         {
             a(elogList);
+
+            //TODO: openbmc/phosphor-debug-collector#1
+            //      Split into load/save so that it enables
+            //      version compare during serialization
         }
 
         /** @brief Callback function for error log add.

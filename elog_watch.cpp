@@ -1,9 +1,14 @@
+#include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
 
 #include "elog_watch.hpp"
 #include "dump_internal.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 #include "dump_serialize.hpp"
+#include "config.h"
+
+// Register class version with Cereal
+CEREAL_CLASS_VERSION(phosphor::dump::elog::Watch, CLASS_VERSION);
 
 namespace phosphor
 {
