@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#   /usr/share/dump/bmc-base/get_disk_usage
+#
+# config: 123 90 
+# description: 
+# processname: get_disk_usage
+#
+### BEGIN INIT INFO
+desc="Disk Usage"
+command="df -hT"
+copy_loc="disk_usage.log"
+run_command "$command" "$copy_loc" "$desc"

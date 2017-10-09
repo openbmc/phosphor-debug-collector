@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#   /usr/share/dump/bmc-base/get_fw_level
+#
+# config: 123 00
+# description: 
+# processname: get_fw_level 
+#
+### BEGIN INIT INFO
+
+desc="Firmware Release"
+command="cat /etc/os-release"
+copy_loc="firmware_release.log"
+run_command "$command" "$copy_loc" "$desc"
+
