@@ -1,0 +1,39 @@
+#! /bin/bash
+
+#CONSTANTS
+declare -rx TRUE=1
+declare -rx FALSE=0
+declare -rx UNLIMITED="unlimited"
+declare -rx SUMMARY_DUMP="summary"
+declare -rx TYPE_USER="user"
+declare -rx TYPE_CORE="core"
+declare -rx TYPE_ELOG="elog"
+declare -rx SUMMARY_LOG="summary.log"
+declare -rx DREPORT_LOG="dreport.log"
+declare -rx TMP_DIR="/tmp"
+declare -rx EPOCHTIME=$(date +"%s")
+declare -rx TIME_STAMP="date -u"
+#declare -r USR_SHARE_DREPORT="/usr/share/dreport.d/"
+declare -rx DREPORT_PLUGIN="dp_"
+declare -rx USR_SHARE_DREPORT="/tmp/dreport.d/"
+
+#Error Codes
+declare -rx SUCCESS="0"
+declare -rx INTERNAL_FAILURE="1"
+declare -rx RESOURCE_UNAVAILABLE="2"
+
+#VARIABLES
+declare -x name=""
+declare -x dump_dir="/tmp"
+declare -x dump_id="00000000"
+declare -x dump_type=$TYPE_USER
+declare -x verbose=$FALSE
+declare -x quiet=$FALSE
+declare -x dump_size="unlimited"
+declare -x name_dir=""
+declare -x optional_path=""
+declare -x dreport_log=""
+declare -x summary_log=""
+declare -x cur_dump_size=0
+declare -x pid="0"
+declare -x elog_id=""
