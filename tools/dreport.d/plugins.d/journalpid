@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# config: 13 1
+# @brief: Collect user initialized PID specific journal log information.
+#
+
+. $DREPORT_SOURCE/functions
+
+desc="Journal pid:$pid log"
+file_name="journal-pid-$pid.log"
+command="journalctl -o verbose _PID=$pid"
+
+add_cmd_output "$command" "$file_name" "$desc"
