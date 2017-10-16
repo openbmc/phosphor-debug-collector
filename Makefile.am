@@ -14,9 +14,16 @@ noinst_HEADERS = \
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Internal/Create/server.hpp
 
+# Application test which runs in obmc env (qemu, real hardware)
+bin_PROGRAMS = \
+    elog-report
+
 sbin_PROGRAMS = \
 	phosphor-dump-manager \
 	phosphor-dump-monitor
+
+elog_report_SOURCES = \
+    elog_report.cpp
 
 phosphor_dump_manager_SOURCES = \
 	dump_manager_main.cpp \
@@ -31,6 +38,15 @@ phosphor_dump_monitor_SOURCES = \
 	watch.cpp \
 	core_manager.cpp \
 	core_manager_main.cpp
+
+elog_report_LDFLAGS = \
+    $(SYSTEMD_LIBS) \
+    $(SDBUSPLUS_LIBS) \
+    $(PHOSPHOR_LOGGING_LIBS)
+elog_report_CXXFLAGS = \
+    $(SYSTEMD_CFLAGS) \
+    $(SDBUSPLUS_CFLAGS) \
+    $(PHOSPHOR_LOGGING_CFLAGS)
 
 phosphor_dump_manager_CXXFLAGS = \
 	$(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
