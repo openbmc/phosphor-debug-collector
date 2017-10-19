@@ -90,7 +90,7 @@ uint32_t Manager::captureDump(
         {
             // Failed to add to event loop
             log<level::ERR>("Error occurred during the sd_event_add_child call",
-                            entry("rc=%d", rc));
+                            entry("RC=%d", rc));
             elog<InternalFailure>();
         }
     }
@@ -119,7 +119,7 @@ void Manager::createEntry(const fs::path& file)
           (match.size() > 0)))
     {
         log<level::ERR>("Invalid Dump file name",
-                        entry("Filename=%s", file.filename()));
+                        entry("FILENAME=%s", file.filename()));
         return;
     }
 
