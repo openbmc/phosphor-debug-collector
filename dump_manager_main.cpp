@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     if (rc < 0)
     {
         log<level::ERR>("Error occurred during the sd_event_default",
-                        entry("rc=%d", rc));
+                        entry("RC=%d", rc));
         report<InternalFailure>();
         return rc;
     }
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         if (rc < 0)
         {
             log<level::ERR>("Error occurred during the sd_event_loop",
-                            entry("rc=%d", rc));
+                            entry("RC=%d", rc));
             elog<InternalFailure>();
         }
     }

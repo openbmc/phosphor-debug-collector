@@ -39,7 +39,7 @@ Watch::Watch(const EventPtr& eventObj,
     if (!fs::is_directory(path))
     {
         log<level::ERR>("Watch directory doesn't exist",
-                        entry("dir=%s", path.c_str()));
+                        entry("DIR=%s", path.c_str()));
         elog<InternalFailure>();
     }
 
@@ -62,7 +62,7 @@ Watch::Watch(const EventPtr& eventObj,
     {
         // Failed to add to event loop
         log<level::ERR>("Error occurred during the sd_event_add_io call",
-                        entry("rc=%d", rc));
+                        entry("RC=%d", rc));
         elog<InternalFailure>();
     }
 }
