@@ -257,7 +257,7 @@ function main()
         exit;
     fi
 
-    #Initilize the summary log
+    #Initialize the summary log
     init_summary
 
     #collect data based on the type.
@@ -268,7 +268,7 @@ function main()
     if [[ ${result} -ne $SUCCESS ]]; then
         echo $($TIME_STAMP) "Error: Failed to package, Exiting"
     else
-        echo $($TIME_STAMP) "Sucessfully completed"
+        echo $($TIME_STAMP) "Successfully completed"
         exit;
     fi
 }

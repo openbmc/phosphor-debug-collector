@@ -16,7 +16,7 @@ namespace inotify
 
 namespace fs = std::experimental::filesystem;
 
-//User specfic call back function input map(path:event) type.
+//User specific call back function input map(path:event) type.
 using UserMap = std::map<fs::path, uint32_t>;
 
 //User specific callback function wrapper type.
