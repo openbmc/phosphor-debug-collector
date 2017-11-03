@@ -79,6 +79,98 @@
       "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6b99d7_af5cb826",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000115
+      },
+      "writtenOn": "2017-11-03T20:08:45Z",
+      "side": 1,
+      "message": "Agree, Can also write some text... \n\nThe ID of the dump is returned in the response",
+      "parentUuid": "1a486d77_1781844a",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 152
+      },
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6b99d7_6f3780e4",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000115
+      },
+      "writtenOn": "2017-11-03T20:08:45Z",
+      "side": 1,
+      "message": "I would recommend that we either wrap with single back ticks or create a code block..  If we create code blocks, we can do better with comments... \n\nAlso.. BMC_IP is a variable, if we wanted to say \u003cBMC_IP\u003e as replacement, wrapping in code blocks would allow the brackets to appear \n\n```\n# Set the BMC IP address\nBMC_IP\u003d\u003cIP ADDRESS\u003e\ncurl -c cjar -b cjar -k https://$BMC_IP/xyz/openbmc_project/dump/list\n```\n\nor \n\n```\ncurl -c cjar -b cjar -k https://\u003cBMC_IP\u003e/xyz/openbmc_project/dump/list\n```",
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6b99d7_cf4d6c74",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000115
+      },
+      "writtenOn": "2017-11-03T20:08:45Z",
+      "side": 1,
+      "message": "If going with the above comment...\n\n```\n curl -O -J -c cjar -b cjar -k -X GET https://\u003cBMC_IP\u003e/download/dump/\u003cID\u003e\n```",
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6b99d7_8f577402",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000115
+      },
+      "writtenOn": "2017-11-03T20:08:45Z",
+      "side": 1,
+      "message": "Suggest \"Delete a Dump\" or \"Delete a single Dump\"",
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa6b99d7_ef52b012",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000115
+      },
+      "writtenOn": "2017-11-03T20:08:45Z",
+      "side": 1,
+      "message": "If we wrap this, the code will warp, we could use \\ to split into multiple lines... \n\n\n```\ncurl -c cjar -b cjar -k -H \"Content-Type: application/json\" \\\n-d \"{\\\"data\\\": []}\" -X POST \\\nhttps://\u003cBMC_IP\u003e/xyz/openbmc_project/dump/entry/\u003cID\u003e/action/Delete\n```\n\nSame comment below.",
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
