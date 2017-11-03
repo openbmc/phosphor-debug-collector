@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fa6b99d7_5d57d902",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2017-11-03T12:43:15Z",
+      "side": 1,
+      "message": "Aren\u0027t these REST examples applicable to _any_ implementation of xyz.openbmc_project.Dump.XXX ?\n\nShouldn\u0027t they go in phosphor-dbus-interfaces?",
+      "revId": "588ef0f4661fc3daed4567de16b81fef59fd3601",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a4b7175_33449273",
         "filename": "README.md",
         "patchSetId": 1
