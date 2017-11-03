@@ -9,6 +9,7 @@ usage: ffdc [OPTION]
 Options:
    -d, --dir <directory>  Specify destination directory. Defaults to /tmp if
                           invalid or unspecified.
+   -D, --disable_dreport  Disable dreport based dump collection
    -h, --help             Display this help text and exit.
 '
 
@@ -38,6 +39,7 @@ declare -a arr=(
 
 dir=$"ffdc_$(date +"%Y-%m-%d_%H-%M-%S")"
 dest="/tmp"
+disable_dreport=false
 
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -52,6 +54,10 @@ while [[ $# -gt 0 ]]; do
       fi
       shift 2
       ;;
+    -D|--disable_dreport)
+      disable_dreport=true
+      shift
+      ;;
     -h|--help)
       echo "$help"
       exit
@@ -64,6 +70,11 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo "Using destination directory $dest"
+
+if [ $disable_dreport = false ]; then
+  dreport -d $dest -v
+  exit
+fi
 
 mkdir -p "$dest/$dir"
 
