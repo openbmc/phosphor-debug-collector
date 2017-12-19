@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# config: 2 25
+# config: 23 25
 # @brief: Collect OBMC console log.
 #
 
