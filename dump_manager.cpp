@@ -45,7 +45,8 @@ uint32_t Manager::captureDump(
     static const std::map<Type, std::string> typeMap =
                                {{Type::ApplicationCored, "core"},
                                 {Type::UserRequested, "user"},
-                                {Type::InternalFailure, "elog"}};
+                                {Type::InternalFailure, "elog"},
+                                {Type::HostCheckstop, "elog"}};
 
     //Get Dump size.
     auto size = getAllowedSize();
