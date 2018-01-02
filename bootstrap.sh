@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/sh -xe test
 
 AUTOCONF_FILES="Makefile.in aclocal.m4 ar-lib autom4te.cache compile \
         config.guess config.h.in config.sub configure depcomp install-sh \
