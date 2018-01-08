@@ -51,6 +51,8 @@ declare -rx TIME_STAMP="date -u"
 declare -rx PLUGIN="pl_"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
 declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
+declare -rx ZERO="0"
+declare -rx JOURNAL_LINE_LIMIT="500"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -70,7 +72,7 @@ declare -x optional_path=""
 declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
-declare -x pid="0"
+declare -x pid=$ZERO
 declare -x elog_id=""
 
 #Source dreport common functions
