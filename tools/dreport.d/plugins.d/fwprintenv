@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# config: 2 40
+# @brief: Print variables from U-Boot environment.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="U-Boot environment variables"
+file_name="fw-printenv.log"
+command="fw_printenv"
+
+add_cmd_output "$command" "$file_name" "$desc"
