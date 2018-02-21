@@ -1,6 +1,7 @@
 #pragma once
 
 #include <experimental/filesystem>
+#include <functional>
 #include <systemd/sd-event.h>
 #include <sys/inotify.h>
 #include <map>
