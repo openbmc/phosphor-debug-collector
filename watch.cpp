@@ -128,7 +128,7 @@ int Watch::callback(sd_event_source* s,
         offset += offsetof(inotify_event, name) + event->len;
     }
 
-    //Call user call back function incase valid data in the map
+    //Call user call back function in case valid data in the map
     if (!userMap.empty())
     {
         userData->userFunc(userMap);

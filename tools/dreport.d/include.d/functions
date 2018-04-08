@@ -58,7 +58,7 @@ function check_size()
 {
     source=$1
 
-    #No size check required incase dump_size is set to unlimited
+    #No size check required in case dump_size is set to unlimited
     if [ $dump_size = $UNLIMITED ]; then
         return 0
     fi
