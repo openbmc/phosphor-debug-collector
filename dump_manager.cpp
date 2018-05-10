@@ -119,7 +119,7 @@ void Manager::createEntry(const fs::path& file)
           (match.size() > 0)))
     {
         log<level::ERR>("Invalid Dump file name",
-                        entry("FILENAME=%s", file.filename()));
+                        entry("FILENAME=%s", file.filename().c_str()));
         return;
     }
 
