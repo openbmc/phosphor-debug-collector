@@ -1,5 +1,6 @@
 #include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <sdbusplus/exception.hpp>
 
 #include "elog_watch.hpp"
 #include "dump_internal.hpp"
@@ -65,7 +66,17 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         sdbusplus::xyz::openbmc_project::Dump::Create::Error::QuotaExceeded;
 
     LogEntryMsg logEntry;
-    msg.read(logEntry);
+    try
+    {
+        msg.read(logEntry);
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>("Failed to parse elog add signal",
+                        entry("ERROR=%s", e.what()),
+                        entry("REPLY_SIG=%s", msg.get_signature()));
+        return;
+    }
 
     std::string objectPath(std::move(logEntry.first));
 
@@ -135,7 +146,17 @@ void Watch::addCallback(sdbusplus::message::message& msg)
 void Watch::delCallback(sdbusplus::message::message& msg)
 {
     sdbusplus::message::object_path logEntry;
-    msg.read(logEntry);
+    try
+    {
+        msg.read(logEntry);
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>("Failed to parse elog del signal",
+                        entry("ERROR=%s", e.what()),
+                        entry("REPLY_SIG=%s", msg.get_signature()));
+        return;
+    }
 
     //Get elog entry message string.
     std::string objectPath(logEntry);
