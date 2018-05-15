@@ -2,6 +2,7 @@
 #include <experimental/filesystem>
 
 #include <phosphor-logging/log.hpp>
+#include <sdbusplus/exception.hpp>
 
 #include "core_manager.hpp"
 #include "config.h"
@@ -72,7 +73,17 @@ void Manager::createHelper(const vector<string>& files)
     }
 
     map<string, vector<string>> mapperResponse;
-    mapperResponseMsg.read(mapperResponse);
+    try
+    {
+        mapperResponseMsg.read(mapperResponse);
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>("Failed to parse dump create message",
+                        entry("ERROR=%s", e.what()),
+                        entry("REPLY_SIG=%s", mapperResponseMsg.get_signature()));
+        return;
+    }
     if (mapperResponse.empty())
     {
         log<level::ERR>("Error reading mapper response");
