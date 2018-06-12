@@ -28,7 +28,6 @@ using AttributeName = std::string;
 using AttributeMap = std::map<AttributeName, Attributes>;
 using PropertyName = std::string;
 using PropertyMap = std::map<PropertyName, AttributeMap>;
-using LogEntryMsg = std::pair<sdbusplus::message::object_path, PropertyMap>;
 
 Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr):
     iMgr(iMgr),
@@ -65,10 +64,11 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     using QuotaExceeded =
         sdbusplus::xyz::openbmc_project::Dump::Create::Error::QuotaExceeded;
 
-    LogEntryMsg logEntry;
+    sdbusplus::message::object_path objectPath;
+    PropertyMap propertyMap;
     try
     {
-        msg.read(logEntry);
+        msg.read(objectPath, propertyMap);
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
@@ -78,9 +78,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    std::string objectPath(std::move(logEntry.first));
-
-    std::size_t found = objectPath.find("entry");
+    std::size_t found = objectPath.str.find("entry");
     if (found == std::string::npos)
     {
         //Not a new error entry skip
@@ -96,8 +94,8 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    auto iter = logEntry.second.find("xyz.openbmc_project.Logging.Entry");
-    if (iter == logEntry.second.end())
+    auto iter = propertyMap.find("xyz.openbmc_project.Logging.Entry");
+    if (iter == propertyMap.end())
     {
         return;
     }
@@ -145,10 +143,10 @@ void Watch::addCallback(sdbusplus::message::message& msg)
 
 void Watch::delCallback(sdbusplus::message::message& msg)
 {
-    sdbusplus::message::object_path logEntry;
+    sdbusplus::message::object_path objectPath;
     try
     {
-        msg.read(logEntry);
+        msg.read(objectPath);
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
@@ -157,9 +155,6 @@ void Watch::delCallback(sdbusplus::message::message& msg)
                         entry("REPLY_SIG=%s", msg.get_signature()));
         return;
     }
-
-    //Get elog entry message string.
-    std::string objectPath(logEntry);
 
     //Get elog id
     auto eId = getEid(objectPath);
