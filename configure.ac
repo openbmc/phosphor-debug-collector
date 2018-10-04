@@ -36,7 +36,7 @@ AS_IF([test "x$SDBUSPLUSPLUS" == "x"],
 LT_INIT # Required for systemd linking
 
 # Checks for typedefs, structures, and compiler characteristics.
-AX_CXX_COMPILE_STDCXX_14([noext])
+AX_CXX_COMPILE_STDCXX_17([noext])
 AX_APPEND_COMPILE_FLAGS([-Wall -Werror], [CXXFLAGS])
 
 AC_ARG_VAR(DUMP_BUSNAME, [The Dbus busname to own])
