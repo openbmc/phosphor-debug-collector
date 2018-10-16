@@ -1,7 +1,8 @@
-#include <phosphor-logging/elog-errors.hpp>
+#include "watch.hpp"
 
 #include "xyz/openbmc_project/Common/error.hpp"
-#include "watch.hpp"
+
+#include <phosphor-logging/elog-errors.hpp>
 
 namespace phosphor
 {
@@ -22,17 +23,10 @@ Watch::~Watch()
     }
 }
 
-Watch::Watch(const EventPtr& eventObj,
-             const int flags,
-             const uint32_t mask,
-             const uint32_t events,
-             const fs::path& path,
-             UserType userFunc):
+Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
+             const uint32_t events, const fs::path& path, UserType userFunc) :
     flags(flags),
-    mask(mask),
-    events(events),
-    path(path),
-    fd(inotifyInit()),
+    mask(mask), events(events), path(path), fd(inotifyInit()),
     userFunc(userFunc)
 {
     // Check if watch DIR exists.
@@ -52,12 +46,8 @@ Watch::Watch(const EventPtr& eventObj,
         elog<InternalFailure>();
     }
 
-    auto rc = sd_event_add_io(eventObj.get(),
-                              nullptr,
-                              fd(),
-                              events,
-                              callback,
-                              this);
+    auto rc =
+        sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback, this);
     if (0 > rc)
     {
         // Failed to add to event loop
@@ -82,9 +72,7 @@ int Watch::inotifyInit()
     return fd;
 }
 
-int Watch::callback(sd_event_source* s,
-                    int fd,
-                    uint32_t revents,
+int Watch::callback(sd_event_source* s, int fd, uint32_t revents,
                     void* userdata)
 {
     auto userData = static_cast<Watch*>(userdata);
@@ -94,15 +82,15 @@ int Watch::callback(sd_event_source* s,
         return 0;
     }
 
-    //Maximum inotify events supported in the buffer
+    // Maximum inotify events supported in the buffer
     constexpr auto maxBytes = sizeof(struct inotify_event) + NAME_MAX + 1;
     uint8_t buffer[maxBytes];
 
     auto bytes = read(fd, buffer, maxBytes);
     if (0 > bytes)
     {
-        //Failed to read inotify event
-        //Report error and return
+        // Failed to read inotify event
+        // Report error and return
         auto error = errno;
         log<level::ERR>("Error occurred during the read",
                         entry("ERRNO=%d", error));
@@ -121,14 +109,13 @@ int Watch::callback(sd_event_source* s,
 
         if (mask)
         {
-            userMap.emplace(
-                    (userData->path / event->name), mask);
+            userMap.emplace((userData->path / event->name), mask);
         }
 
         offset += offsetof(inotify_event, name) + event->len;
     }
 
-    //Call user call back function in case valid data in the map
+    // Call user call back function in case valid data in the map
     if (!userMap.empty())
     {
         userData->userFunc(userMap);
