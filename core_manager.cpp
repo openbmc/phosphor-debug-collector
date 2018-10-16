@@ -1,11 +1,11 @@
-#include <regex>
-#include <experimental/filesystem>
-
-#include <phosphor-logging/log.hpp>
-#include <sdbusplus/exception.hpp>
+#include "config.h"
 
 #include "core_manager.hpp"
-#include "config.h"
+
+#include <experimental/filesystem>
+#include <phosphor-logging/log.hpp>
+#include <regex>
+#include <sdbusplus/exception.hpp>
 
 namespace phosphor
 {
@@ -35,9 +35,9 @@ void Manager::watchCallback(const UserMap& fileInfo)
           to actual core file creation. Checking the file name format will help
           to limit dump creation only for the new core files.
         */
-        if("core" == name.substr(0, name.find('.')))
+        if ("core" == name.substr(0, name.find('.')))
         {
-            //Consider only file name start with "core."
+            // Consider only file name start with "core."
             files.push_back(file);
         }
     }
@@ -58,11 +58,8 @@ void Manager::createHelper(const vector<string>& files)
         "xyz.openbmc_project.Dump.Internal.Create.Type.ApplicationCored";
 
     auto b = sdbusplus::bus::new_default();
-    auto mapper = b.new_method_call(
-                      MAPPER_BUSNAME,
-                      MAPPER_PATH,
-                      MAPPER_INTERFACE,
-                      "GetObject");
+    auto mapper = b.new_method_call(MAPPER_BUSNAME, MAPPER_PATH,
+                                    MAPPER_INTERFACE, "GetObject");
     mapper.append(OBJ_INTERNAL, vector<string>({IFACE_INTERNAL}));
 
     auto mapperResponseMsg = b.call(mapper);
@@ -79,9 +76,9 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>("Failed to parse dump create message",
-                        entry("ERROR=%s", e.what()),
-                        entry("REPLY_SIG=%s", mapperResponseMsg.get_signature()));
+        log<level::ERR>(
+            "Failed to parse dump create message", entry("ERROR=%s", e.what()),
+            entry("REPLY_SIG=%s", mapperResponseMsg.get_signature()));
         return;
     }
     if (mapperResponse.empty())
@@ -91,11 +88,8 @@ void Manager::createHelper(const vector<string>& files)
     }
 
     const auto& host = mapperResponse.cbegin()->first;
-    auto m = b.new_method_call(
-                 host.c_str(),
-                 OBJ_INTERNAL,
-                 IFACE_INTERNAL,
-                 "Create");
+    auto m =
+        b.new_method_call(host.c_str(), OBJ_INTERNAL, IFACE_INTERNAL, "Create");
     m.append(APPLICATION_CORED, files);
     b.call_noreply(m);
 }
