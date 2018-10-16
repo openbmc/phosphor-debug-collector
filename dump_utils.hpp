@@ -1,8 +1,9 @@
 #pragma once
 
-#include <memory>
-#include <unistd.h>
 #include <systemd/sd-event.h>
+#include <unistd.h>
+
+#include <memory>
 
 namespace phosphor
 {
@@ -25,35 +26,37 @@ using EventPtr = std::unique_ptr<sd_event, EventDeleter>;
  */
 struct CustomFd
 {
-    private:
-        /** @brief File descriptor */
-        int fd = -1;
+  private:
+    /** @brief File descriptor */
+    int fd = -1;
 
-    public:
-        CustomFd() = delete;
-        CustomFd(const CustomFd&) = delete;
-        CustomFd& operator=(const CustomFd&) = delete;
-        CustomFd(CustomFd&&) = delete;
-        CustomFd& operator=(CustomFd&&) = delete;
+  public:
+    CustomFd() = delete;
+    CustomFd(const CustomFd&) = delete;
+    CustomFd& operator=(const CustomFd&) = delete;
+    CustomFd(CustomFd&&) = delete;
+    CustomFd& operator=(CustomFd&&) = delete;
 
-        /** @brief Saves File descriptor and uses it to do file operation
-          *
-          *  @param[in] fd - File descriptor
-          */
-        CustomFd(int fd) : fd(fd) {}
+    /** @brief Saves File descriptor and uses it to do file operation
+     *
+     *  @param[in] fd - File descriptor
+     */
+    CustomFd(int fd) : fd(fd)
+    {
+    }
 
-        ~CustomFd()
+    ~CustomFd()
+    {
+        if (fd >= 0)
         {
-            if (fd >= 0)
-            {
-                close(fd);
-            }
+            close(fd);
         }
+    }
 
-        int operator()() const
-        {
-            return fd;
-        }
+    int operator()() const
+    {
+        return fd;
+    }
 };
 
 } // namespace dump

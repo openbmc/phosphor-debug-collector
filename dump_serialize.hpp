@@ -1,9 +1,10 @@
 #pragma once
 
-#include <experimental/filesystem>
+#include "config.h"
 
 #include "elog_watch.hpp"
-#include "config.h"
+
+#include <experimental/filesystem>
 
 namespace phosphor
 {
