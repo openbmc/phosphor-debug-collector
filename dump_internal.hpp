@@ -1,9 +1,9 @@
 #pragma once
 
+#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
+
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
-
-#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
 namespace phosphor
 {
@@ -15,7 +15,7 @@ namespace internal
 {
 
 using CreateIface = sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create>;
+    sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create>;
 using Mgr = phosphor::dump::Manager;
 
 /** @class Manager
@@ -24,36 +24,34 @@ using Mgr = phosphor::dump::Manager;
  */
 class Manager : public CreateIface
 {
-    public:
-        Manager() = delete;
-        Manager(const Manager&) = delete;
-        Manager& operator=(const Manager&) = delete;
-        Manager(Manager&&) = delete;
-        Manager& operator=(Manager&&) = delete;
-        virtual ~Manager() = default;
+  public:
+    Manager() = delete;
+    Manager(const Manager&) = delete;
+    Manager& operator=(const Manager&) = delete;
+    Manager(Manager&&) = delete;
+    Manager& operator=(Manager&&) = delete;
+    virtual ~Manager() = default;
 
-        /** @brief Constructor to put object onto bus at a dbus path.
-         *  @param[in] bus - Bus to attach to.
-         *  @param[in] dumpMgr - Dump Manager object
-         *  @param[in] path - Path to attach at.
-         */
-        Manager(sdbusplus::bus::bus& bus, Mgr& dumpMgr, const char* path):
-            CreateIface(bus, path),
-            dumpMgr(dumpMgr) {};
+    /** @brief Constructor to put object onto bus at a dbus path.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] dumpMgr - Dump Manager object
+     *  @param[in] path - Path to attach at.
+     */
+    Manager(sdbusplus::bus::bus& bus, Mgr& dumpMgr, const char* path) :
+        CreateIface(bus, path), dumpMgr(dumpMgr){};
 
-        /**  @brief Implementation for Create
-          *  Create BMC Dump based on the Dump type.
-          *
-          *  @param[in] type - Type of the Dump.
-          *  @param[in] fullPaths - List of absolute paths to the files
-          *             to be included as part of Dump package.
-          */
-        void create(
-            Type type,
-            std::vector<std::string> fullPaths) override;
-    private:
-        /**  @brief Dump Manager object. */
-        Mgr& dumpMgr;
+    /**  @brief Implementation for Create
+     *  Create BMC Dump based on the Dump type.
+     *
+     *  @param[in] type - Type of the Dump.
+     *  @param[in] fullPaths - List of absolute paths to the files
+     *             to be included as part of Dump package.
+     */
+    void create(Type type, std::vector<std::string> fullPaths) override;
+
+  private:
+    /**  @brief Dump Manager object. */
+    Mgr& dumpMgr;
 };
 
 } // namespace internal

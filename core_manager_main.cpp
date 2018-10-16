@@ -1,10 +1,11 @@
-#include <sdbusplus/bus.hpp>
-#include <phosphor-logging/elog-errors.hpp>
-
-#include "xyz/openbmc_project/Common/error.hpp"
 #include "config.h"
+
 #include "core_manager.hpp"
 #include "watch.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
+
+#include <phosphor-logging/elog-errors.hpp>
+#include <sdbusplus/bus.hpp>
 
 int main(int argc, char* argv[])
 {

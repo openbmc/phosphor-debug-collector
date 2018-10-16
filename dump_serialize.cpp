@@ -1,10 +1,9 @@
-#include <cereal/types/set.hpp>
-#include <cereal/archives/binary.hpp>
-#include <fstream>
-
-#include <phosphor-logging/log.hpp>
-
 #include "dump_serialize.hpp"
+
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/set.hpp>
+#include <fstream>
+#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
@@ -35,7 +34,7 @@ bool deserialize(const fs::path& path, ElogList& list)
         }
         return false;
     }
-    catch(cereal::Exception& e)
+    catch (cereal::Exception& e)
     {
         log<level::ERR>(e.what());
         fs::remove(path);
