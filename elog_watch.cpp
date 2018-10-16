@@ -1,12 +1,14 @@
+#include "config.h"
+
+#include "elog_watch.hpp"
+
+#include "dump_internal.hpp"
+#include "dump_serialize.hpp"
+#include "xyz/openbmc_project/Dump/Create/error.hpp"
+
 #include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/exception.hpp>
-
-#include "elog_watch.hpp"
-#include "dump_internal.hpp"
-#include "xyz/openbmc_project/Dump/Create/error.hpp"
-#include "dump_serialize.hpp"
-#include "config.h"
 
 // Register class version with Cereal
 CEREAL_CLASS_VERSION(phosphor::dump::elog::Watch, CLASS_VERSION);
@@ -29,22 +31,18 @@ using AttributeMap = std::map<AttributeName, Attributes>;
 using PropertyName = std::string;
 using PropertyMap = std::map<PropertyName, AttributeMap>;
 
-Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr):
+Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr) :
     iMgr(iMgr),
-    addMatch(
-        bus,
-        sdbusplus::bus::match::rules::interfacesAdded() +
-        sdbusplus::bus::match::rules::path_namespace(
-            OBJ_LOGGING),
-        std::bind(std::mem_fn(&Watch::addCallback),
-                  this, std::placeholders::_1)),
-    delMatch(
-        bus,
-        sdbusplus::bus::match::rules::interfacesRemoved() +
-        sdbusplus::bus::match::rules::path_namespace(
-            OBJ_LOGGING),
-        std::bind(std::mem_fn(&Watch::delCallback),
-                  this, std::placeholders::_1))
+    addMatch(bus,
+             sdbusplus::bus::match::rules::interfacesAdded() +
+                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING),
+             std::bind(std::mem_fn(&Watch::addCallback), this,
+                       std::placeholders::_1)),
+    delMatch(bus,
+             sdbusplus::bus::match::rules::interfacesRemoved() +
+                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING),
+             std::bind(std::mem_fn(&Watch::delCallback), this,
+                       std::placeholders::_1))
 {
 
     fs::path file(ELOG_ID_PERSIST_PATH);
@@ -81,7 +79,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     std::size_t found = objectPath.str.find("entry");
     if (found == std::string::npos)
     {
-        //Not a new error entry skip
+        // Not a new error entry skip
         return;
     }
 
@@ -90,7 +88,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     auto search = elogList.find(eId);
     if (search != elogList.end())
     {
-        //elog exists in the list, Skip the dump
+        // elog exists in the list, Skip the dump
         return;
     }
 
@@ -110,13 +108,13 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         sdbusplus::message::variant_ns::get<PropertyName>(attr->second);
     if (data.empty())
     {
-        //No Message skip
+        // No Message skip
         return;
     }
 
     if (data != INTERNAL_FAILURE)
     {
-        //Not a InternalFailure, skip
+        // Not a InternalFailure, skip
         return;
     }
 
@@ -125,18 +123,18 @@ void Watch::addCallback(sdbusplus::message::message& msg)
 
     try
     {
-        //Save the elog information. This is to avoid dump requests
-        //in elog restore path.
+        // Save the elog information. This is to avoid dump requests
+        // in elog restore path.
         elogList.insert(eId);
 
         phosphor::dump::elog::serialize(elogList);
 
-        //Call internal create function to initiate dump
+        // Call internal create function to initiate dump
         iMgr.IMgr::create(Type::InternalFailure, fullPaths);
     }
     catch (QuotaExceeded& e)
     {
-        //No action now
+        // No action now
     }
     return;
 }
@@ -156,10 +154,10 @@ void Watch::delCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    //Get elog id
+    // Get elog id
     auto eId = getEid(objectPath);
 
-    //Delete the elog entry from the list and serialize
+    // Delete the elog entry from the list and serialize
     auto search = elogList.find(eId);
     if (search != elogList.end())
     {
@@ -168,6 +166,6 @@ void Watch::delCallback(sdbusplus::message::message& msg)
     }
 }
 
-}//namespace elog
-}//namespace dump
-}//namespace phosphor
+} // namespace elog
+} // namespace dump
+} // namespace phosphor

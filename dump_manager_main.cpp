@@ -1,12 +1,13 @@
-#include <sdbusplus/bus.hpp>
-#include <phosphor-logging/elog-errors.hpp>
-
-#include "xyz/openbmc_project/Common/error.hpp"
 #include "config.h"
+
 #include "dump_manager.hpp"
 #include "dump_internal.hpp"
-#include "watch.hpp"
 #include "elog_watch.hpp"
+#include "watch.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
+
+#include <phosphor-logging/elog-errors.hpp>
+#include <sdbusplus/bus.hpp>
 
 int main(int argc, char* argv[])
 {
@@ -34,7 +35,7 @@ int main(int argc, char* argv[])
     try
     {
         phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
-        //Restore dump d-bus objects.
+        // Restore dump d-bus objects.
         manager.restore();
         phosphor::dump::internal::Manager mgr(bus, manager, OBJ_INTERNAL);
         phosphor::dump::elog::Watch eWatch(bus, mgr);
