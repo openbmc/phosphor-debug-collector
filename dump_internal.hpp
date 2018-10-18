@@ -9,6 +9,8 @@ namespace phosphor
 {
 namespace dump
 {
+
+class Manager;
 namespace internal
 {
 
