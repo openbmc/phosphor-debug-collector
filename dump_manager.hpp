@@ -37,6 +37,13 @@ namespace fs = std::experimental::filesystem;
 
 using Watch = phosphor::dump::inotify::Watch;
 
+// Type to dreport type  string map
+static const std::map<Type, std::string> TypeMap = {
+    {Type::ApplicationCored, "core"},
+    {Type::UserRequested, "user"},
+    {Type::InternalFailure, "elog"},
+    {Type::Checkstop, "checkstop"}};
+
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
  *  @details A concrete implementation for the
