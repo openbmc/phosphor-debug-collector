@@ -4,9 +4,11 @@
 
 #include "dump_internal.hpp"
 #include "dump_serialize.hpp"
+#include "errors_map.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 #include <cereal/cereal.hpp>
+#include <fstream>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/exception.hpp>
 
@@ -22,8 +24,6 @@ namespace elog
 
 using namespace phosphor::logging;
 constexpr auto LOG_PATH = "/xyz/openbmc_project/logging";
-constexpr auto INTERNAL_FAILURE =
-    "xyz.openbmc_project.Common.Error.InternalFailure";
 using Message = std::string;
 using Attributes = sdbusplus::message::variant<Message>;
 using AttributeName = std::string;
@@ -112,9 +112,21 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    if (data != INTERNAL_FAILURE)
+    EType errorType = "";
+    for (const auto& item : errorMap)
     {
-        // Not a InternalFailure, skip
+        auto errorList = item.second;
+        for (const auto& error : errorList)
+        {
+            if (error == data)
+            {
+                errorType = item.first;
+                break;
+            }
+        }
+    }
+    if (errorType.empty())
+    {
         return;
     }
 
@@ -127,10 +139,21 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         // in elog restore path.
         elogList.insert(eId);
 
+        Type type;
+        bool found = false;
         phosphor::dump::elog::serialize(elogList);
-
-        // Call internal create function to initiate dump
-        iMgr.IMgr::create(Type::InternalFailure, fullPaths);
+        for (const auto& item : TypeMap)
+        {
+            if (errorType == item.second)
+            {
+                type = item.first;
+                found = true;
+            }
+        }
+        if (found)
+        {
+            iMgr.IMgr::create(type, fullPaths);
+        }
     }
     catch (QuotaExceeded& e)
     {

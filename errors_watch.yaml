@@ -1,0 +1,5 @@
+elog: 
+    - xyz.openbmc_project.Common.Error.InternalFailure
+    - xyz.openbmc_project.Common.Error.InvalidArgument
+checkstop:
+    - org.open_power.Host.Boot.Error.Checkstop
