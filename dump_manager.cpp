@@ -40,12 +40,6 @@ uint32_t Manager::createDump()
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
-    // Type to dreport type  string map
-    static const std::map<Type, std::string> typeMap = {
-        {Type::ApplicationCored, "core"},
-        {Type::UserRequested, "user"},
-        {Type::InternalFailure, "elog"}};
-
     // Get Dump size.
     auto size = getAllowedSize();
 
@@ -58,7 +52,7 @@ uint32_t Manager::captureDump(Type type,
         dumpPath /= id;
 
         // get dreport type map entry
-        auto tempType = typeMap.find(type);
+        auto tempType = TypeMap.find(type);
 
         execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
               id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
