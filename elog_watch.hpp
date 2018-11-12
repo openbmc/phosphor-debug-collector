@@ -19,6 +19,10 @@ namespace elog
 using IMgr = phosphor::dump::internal::Manager;
 using EId = uint32_t;
 using ElogList = std::set<EId>;
+using EType = std::string;
+using Error = std::string;
+using ErrorList = std::vector<Error>;
+using ErrorMap = std::map<EType, std::vector<Error>>;
 
 /** @class Watch
  *  @brief Adds d-bus signal based watch for elog add and delete.
@@ -93,6 +97,9 @@ class Watch
 
     /** @brief List of elog ids, which have associated dumps created */
     ElogList elogList;
+
+    /** @brief List of error paths to watch for creating dump */
+    ErrorMap errorMap;
 };
 
 } // namespace elog
