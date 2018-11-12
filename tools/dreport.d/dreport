@@ -43,6 +43,7 @@ declare -rx SUMMARY_DUMP="summary"
 declare -rx TYPE_USER="user"
 declare -rx TYPE_CORE="core"
 declare -rx TYPE_ELOG="elog"
+declare -rx TYPE_CHECKSTOP="checkstop"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
@@ -91,6 +92,11 @@ function collect_data()
             ;;
         $TYPE_ELOG)
             log_summary "ELOG: $optional_path"
+            elog_id=$(basename "$optional_path")
+            set_elog_pid
+            ;;
+        $TYPE_CHECKSTOP)
+            log_summary "CHECKSTOP: $optional_path"
             elog_id=$(basename "$optional_path")
             set_elog_pid
             ;;
@@ -190,7 +196,8 @@ function initialize()
     #Type
     if [[ !($dump_type = $TYPE_USER || \
             $dump_type = $TYPE_CORE || \
-            $dump_type = $TYPE_ELOG) ]]; then
+            $dump_type = $TYPE_ELOG || \
+            $dump_type = $TYPE_CHECKSTOP) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
     fi

@@ -55,7 +55,8 @@ phosphor_dump_monitor_LDADD = \
 # Be sure to build needed files before compiling
 BUILT_SOURCES = \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
-	xyz/openbmc_project/Dump/Internal/Create/server.hpp
+	xyz/openbmc_project/Dump/Internal/Create/server.hpp \
+	errors_map.hpp
 
 CLEANFILES=${BUILT_SOURCES}
 
@@ -71,3 +72,11 @@ xyz/openbmc_project/Dump/Internal/Create.interface.yaml
 	@mkdir -p `dirname $@`
 	$(SDBUSPLUSPLUS) -r $(srcdir) interface server-header \
 xyz.openbmc_project.Dump.Internal.Create > $@
+
+ERROR_TEMPLATE ?= ${abs_srcdir}/errors_map.mako.hpp
+ERROR_REQ_FILES_TO_GEN ?= ${abs_srcdir}/errors_map_gen.py \
+	${ERROR_TEMPLATE}
+
+EXTRA_DIST = $(ERROR_REQ_FILES_TO_GEN)
+errors_map.hpp: $(ERROR_REQ_FILES_TO_GEN)
+	$(AM_V_at)$(PYTHON) ${abs_srcdir}/errors_map_gen.py -i ${ERROR_MAP_YAML}
