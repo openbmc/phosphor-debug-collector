@@ -34,5 +34,8 @@ enumerations:
         - name: InternalFailure
           description: >
               Dump triggered due to InternalFailure type error commit.
+        - name: Checkstop
+          description: >
+              Dump triggered due to Checkstop type error commit.
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

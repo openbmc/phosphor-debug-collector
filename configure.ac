@@ -96,5 +96,9 @@ AS_IF([test "x$enable_ubifs_workaround" != "xno"],
       [Turn on ubi workaround for core file])]
 )
 
+AC_ARG_VAR(ERROR_MAP_YAML, [YAML filepath containing error object paths])
+AS_IF([test "x$ERROR_MAP_YAML" == "x"], \
+    [ERROR_MAP_YAML="example_errors_watch.yaml"])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
