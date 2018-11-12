@@ -7,6 +7,8 @@
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 #include <cereal/cereal.hpp>
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/exception.hpp>
 
@@ -19,11 +21,9 @@ namespace dump
 {
 namespace elog
 {
-
+using Json = nlohmann::json;
 using namespace phosphor::logging;
 constexpr auto LOG_PATH = "/xyz/openbmc_project/logging";
-constexpr auto INTERNAL_FAILURE =
-    "xyz.openbmc_project.Common.Error.InternalFailure";
 using Message = std::string;
 using Attributes = sdbusplus::message::variant<Message>;
 using AttributeName = std::string;
@@ -52,6 +52,41 @@ Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr) :
         {
             log<level::ERR>("Error occurred during error id deserialize");
         }
+    }
+
+    std::ifstream jsonFile(ERROR_WATCH_FILE);
+    if (jsonFile.is_open())
+    {
+        auto data = Json::parse(jsonFile, nullptr, false);
+        if (data.is_discarded())
+        {
+            log<level::ERR>("Failed to parse JSon watch file");
+        }
+        else
+        {
+            // parse elog error paths to watch for and add to map
+            auto elog = data["elog"];
+            ErrorList elogList;
+            for (auto& item : elog)
+            {
+                elogList.push_back(item);
+            }
+            errorMap.emplace("elog", elogList);
+
+            // parse checkstop error paths to watch for and add to map
+            auto checkstop = data["checkstop"];
+            ErrorList checkstopList;
+            for (auto& item : checkstop)
+            {
+                checkstopList.push_back(item);
+            }
+            errorMap.emplace("checkstop", checkstopList);
+        }
+    }
+    else
+    {
+        log<level::ERR>("Failed to open error watch file",
+                        entry("FILE_NAME=%s", ERROR_WATCH_FILE));
     }
 }
 
@@ -112,9 +147,21 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    if (data != INTERNAL_FAILURE)
+    EType errorType = "";
+    for (const auto& item : errorMap)
     {
-        // Not a InternalFailure, skip
+        auto errorList = item.second;
+        for (const auto& error : errorList)
+        {
+            if (error == data)
+            {
+                errorType = item.first;
+                break;
+            }
+        }
+    }
+    if (errorType.empty())
+    {
         return;
     }
 
@@ -127,10 +174,21 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         // in elog restore path.
         elogList.insert(eId);
 
+        Type type;
+        bool found = false;
         phosphor::dump::elog::serialize(elogList);
-
-        // Call internal create function to initiate dump
-        iMgr.IMgr::create(Type::InternalFailure, fullPaths);
+        for (const auto& item : TypeMap)
+        {
+            if (errorType == item.second)
+            {
+                type = item.first;
+                found = true;
+            }
+        }
+        if (found)
+        {
+            iMgr.IMgr::create(type, fullPaths);
+        }
     }
     catch (QuotaExceeded& e)
     {

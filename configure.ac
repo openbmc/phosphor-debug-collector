@@ -32,6 +32,10 @@ AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
 AS_IF([test "x$SDBUSPLUSPLUS" == "x"],
     AC_MSG_ERROR(["Requires sdbus++"]))
 
+# check for nloghman json
+AC_CHECK_HEADER(nlohmann/json.hpp, ,
+    [AC_MSG_ERROR([Could not find nlohmann/json.hpp... nlohmann/json package required])])
+
 # Checks for library functions
 LT_INIT # Required for systemd linking
 
@@ -95,6 +99,10 @@ AS_IF([test "x$enable_ubifs_workaround" != "xno"],
       [AC_DEFINE([UBI_CORE_FILE_WORKAROUND], [],
       [Turn on ubi workaround for core file])]
 )
+
+AC_ARG_VAR(ERROR_WATCH_FILE, [Json file containing errors to watch.])
+AS_IF([test "x$ERROR_WATCH_FILE" == "x"], [ERROR_WATCH_FILE="/usr/share/dump/errors_watch.json"])
+AC_DEFINE_UNQUOTED([ERROR_WATCH_FILE], ["$ERROR_WATCH_FILE"],[Path of errors to watch])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
