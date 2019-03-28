@@ -14,7 +14,7 @@ noinst_HEADERS = \
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Internal/Create/server.hpp
 
-sbin_PROGRAMS = \
+bin_PROGRAMS = \
 	phosphor-dump-manager \
 	phosphor-dump-monitor
 
