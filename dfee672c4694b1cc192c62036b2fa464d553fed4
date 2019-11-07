@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "248abffb_df5836e5",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "etc.",
+      "range": {
+        "startLine": 24,
+        "startChar": 68,
+        "endLine": 24,
+        "endChar": 73
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "708e76cb_6caadf8c",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "size of a",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 12
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21561856_f50a387c",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "reword this like \"Maximum size of a dump can take up to 200 bytes and minimum is 20 bytes\"",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4512e92_398cc17e",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "what is X here?",
+      "range": {
+        "startLine": 34,
+        "startChar": 43,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a6efd86_03031cee",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 19
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d059e2_fcff7150",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "end with full stop then continue with next sentence",
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8689a1e9_7d97bffe",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2019-11-07T16:27:50Z",
+      "side": 1,
+      "message": "have a",
+      "range": {
+        "startLine": 108,
+        "startChar": 19,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    }
+  ]
+}
