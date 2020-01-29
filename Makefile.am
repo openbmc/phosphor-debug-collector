@@ -21,6 +21,7 @@ bin_PROGRAMS = \
 phosphor_dump_manager_SOURCES = \
 	dump_manager_main.cpp \
 	dump_entry.cpp \
+        bmc_dump_entry.cpp \
 	dump_manager.cpp \
 	watch.cpp \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
