@@ -2,6 +2,7 @@
 
 #include "config.h"
 
+#include "bmc_dump_entry.hpp"
 #include "dump_entry.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
