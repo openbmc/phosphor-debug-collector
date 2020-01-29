@@ -115,8 +115,9 @@ void Manager::createEntry(const fs::path& file)
 
         entries.insert(std::make_pair(
             id,
-            std::make_unique<Entry>(bus, objPath.c_str(), id, stoull(msString),
-                                    fs::file_size(file), file, *this)));
+            std::make_unique<BMC::Entry>(bus, objPath.c_str(), id,
+                                    stoull(msString), fs::file_size(file), file,
+                                    *this)));
     }
     catch (const std::invalid_argument& e)
     {

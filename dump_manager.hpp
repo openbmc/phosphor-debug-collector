@@ -3,6 +3,7 @@
 #include "config.h"
 
 #include "dump_entry.hpp"
+#include "bmc_dump_entry.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
@@ -54,6 +55,7 @@ class Manager : public CreateIface
 {
     friend class internal::Manager;
     friend class Entry;
+    friend class BMC::Entry;
 
   public:
     Manager() = delete;
