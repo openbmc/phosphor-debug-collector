@@ -2,6 +2,7 @@
 
 #include "dump_manager.hpp"
 
+#include "bmc_dump_entry.hpp"
 #include "dump_internal.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
@@ -113,10 +114,10 @@ void Manager::createEntry(const fs::path& file)
         // Entry Object path.
         auto objPath = fs::path(OBJ_ENTRY) / std::to_string(id);
 
-        entries.insert(std::make_pair(
-            id,
-            std::make_unique<Entry>(bus, objPath.c_str(), id, stoull(msString),
-                                    fs::file_size(file), file, *this)));
+        entries.insert(
+            std::make_pair(id, std::make_unique<bmc::Entry>(
+                                   bus, objPath.c_str(), id, stoull(msString),
+                                   fs::file_size(file), file, *this)));
     }
     catch (const std::invalid_argument& e)
     {
