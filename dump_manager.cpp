@@ -239,5 +239,28 @@ size_t Manager::getAllowedSize()
     return size;
 }
 
+void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
+{
+    //get the timestamp
+    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                  std::chrono::system_clock::now().time_since_epoch())
+                  .count();
+    //Get the id
+    auto id = lastEntryId + 1;
+    auto idString = std::to_string(id);
+    try
+    {
+        auto objPath = fs::path(OBJ_ENTRY) / idString;
+        entries.insert(std::make_pair(
+            id,
+            std::make_unique<system::Entry>(bus, objPath.c_str(), id, ms,
+                                    size, dumpId, *this)));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        log<level::ERR>(e.what());
+    }
+}
+
 } // namespace dump
 } // namespace phosphor
