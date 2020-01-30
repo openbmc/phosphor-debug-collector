@@ -1,8 +1,8 @@
 #pragma once
 
-#include "xyz/openbmc_project/Dump/Entry/server.hpp"
-#include "xyz/openbmc_project/Object/Delete/server.hpp"
-#include "xyz/openbmc_project/Time/EpochTime/server.hpp"
+#include "dump_entry.hpp"
+
+#include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <experimental/filesystem>
 #include <sdbusplus/bus.hpp>
@@ -12,25 +12,24 @@ namespace phosphor
 {
 namespace dump
 {
-
+namespace system
+{
 template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
-    sdbusplus::xyz::openbmc_project::Dump::server::Entry,
-    sdbusplus::xyz::openbmc_project::Object::server::Delete,
-    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
+    sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
 
 namespace fs = std::experimental::filesystem;
 
 class Manager;
 
 /** @class Entry
- *  @brief Base Dump Entry implementation.
+ *  @brief System Dump Entry implementation.
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : public EntryIfaces
+class Entry : public EntryIfaces, public phosphor::dump::Entry
 {
   public:
     Entry() = delete;
@@ -46,37 +45,22 @@ class Entry : public EntryIfaces
      *  @param[in] dumpId - Dump id.
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
-     *  @param[in] dumpSize - Dump file size in bytes.
+     *  @param[in] dumpSize - Dump size in bytes.
+     *  @param[in] sourceId - DumpId provided by the source..
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, Manager& parent) :
+          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
-        parent(parent), id(dumpId)
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
+        parent)
     {
-        size(dumpSize);
-        elapsed(timeStamp);
-        // Emit deferred signal.
-        this->emit_object_added();
+        sourceDumpId(sourceId);
     };
 
-    /** @brief Delete this d-bus object.
-     */
-    void delete_() override;
-
-    /** @brief Method to initiate the offload of dump
-     */
-    void initiateOffload() override
-    {
-    }
-
-  protected:
-    /** @brief This entry's parent */
-    Manager& parent;
-
-    /** @brief This entry's id */
-    uint32_t id;
 };
 
+} // namespace system
 } // namespace dump
 } // namespace phosphor
