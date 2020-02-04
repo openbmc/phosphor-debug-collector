@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include <memory>
+#include <sdbusplus/bus.hpp>
 
 namespace phosphor
 {
@@ -58,6 +59,17 @@ struct CustomFd
         return fd;
     }
 };
+
+/**
+ * @brief Get the bus service
+ *
+ * @param[in] bus - Bus to attach to.
+ * @param[in] path - D-Bus path name.
+ * @param[in] interface - D-Bus interface name.
+ * @return the bus service as a string
+ **/
+std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
+                       const std::string& interface);
 
 } // namespace dump
 } // namespace phosphor
