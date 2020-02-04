@@ -29,7 +29,8 @@ phosphor_dump_manager_SOURCES = \
 	elog_watch.cpp \
 	dump_serialize.cpp \
 	pldm_interface.cpp \
-	dump_utils.cpp
+	dump_utils.cpp \
+        system_dump_entry.cpp
 
 phosphor_dump_monitor_SOURCES = \
 	watch.cpp \
