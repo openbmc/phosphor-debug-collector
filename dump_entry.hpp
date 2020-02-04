@@ -65,9 +65,11 @@ class Entry : public EntryIfaces
     void delete_() override;
 
     /** @brief Method to initiate the offload of dump
+     *  @param[in] uri - URI to offload dump
      */
-    void initiateOffload() override
+    void initiateOffload(std::string uri) override
     {
+        offloadUri(uri);
     }
 
   protected:
