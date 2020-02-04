@@ -28,7 +28,8 @@ phosphor_dump_manager_SOURCES = \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
 	elog_watch.cpp \
 	dump_serialize.cpp \
-	pldm_interface.cpp
+	pldm_interface.cpp \
+        system_dump_entry.cpp
 
 phosphor_dump_monitor_SOURCES = \
 	watch.cpp \
