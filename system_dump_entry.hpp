@@ -57,6 +57,10 @@ class Entry : public EntryIfaces, public phosphor::dump::Entry
     {
         sourceDumpId(sourceId);
     };
+
+    /** @brief Method to initiate the offload of dump
+     */ 
+    void initiateOffload();
 };
 
 } // namespace system
