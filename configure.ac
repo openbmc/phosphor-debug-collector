@@ -28,6 +28,8 @@ AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
 AS_IF([test "x$SDBUSPLUSPLUS" == "x"],
     AC_MSG_ERROR(["Requires sdbus++"]))
 
+PKG_CHECK_MODULES([SDEVENTPLUS], [sdeventplus])
+
 # Checks for library functions
 LT_INIT # Required for systemd linking
 
