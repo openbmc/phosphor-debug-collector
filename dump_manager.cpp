@@ -136,8 +136,8 @@ void Manager::deleteAll()
     while (iter != entries.end())
     {
         auto& entry = iter->second;
-        entry->delete_();
         ++iter;
+        entry->delete_();
     }
 }
 
