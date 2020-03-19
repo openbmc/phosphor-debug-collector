@@ -12,12 +12,25 @@ AC_PROG_MAKE_SET
 AC_PROG_MKDIR_P
 AC_CHECK_PROG([DIRNAME], dirname, dirname)
 
+AC_ARG_WITH([host-dump-offload-transport],
+	[
+AS_HELP_STRING([--with-host-dump-offload-transport],
+		[To specify the host dump transport protocol])])
+
+
+
+
 # Check for libraries
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces])
 PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus])
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging])
-PKG_CHECK_MODULES([LIBPLDM], [libpldm])
+
+AM_CONDITIONAL([DEFAULT_OFFLOAD], [test "$with_host_dump_offload_transport" == "no"])
+AM_CONDITIONAL([ENABLE_PLDM_OFFLOAD], [test "$with_host_dump_offload_transport" == "pldm"])
+AS_IF([test "$with_host_dump_offload_transport" == "pldm"],
+    [AX_PKG_CHECK_MODULES([LIBPLDM], [libpldm])]
+)
 
 # Check for sdbus++
 AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
