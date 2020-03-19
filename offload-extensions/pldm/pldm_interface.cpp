@@ -31,6 +31,20 @@ namespace phosphor
 {
 namespace dump
 {
+namespace host
+{
+/**
+ * @brief Initiate offload of the dump with provided id
+ *
+ * @param[in] id - The Dump Source ID.
+ *
+ */
+void requestOffload(uint32_t id)
+{
+    pldm::requestOffload(id);
+}
+} // namespace host
+
 namespace pldm
 {
 
