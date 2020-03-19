@@ -12,12 +12,21 @@ AC_PROG_MAKE_SET
 AC_PROG_MKDIR_P
 AC_CHECK_PROG([DIRNAME], dirname, dirname)
 
+AC_ARG_ENABLE([host-offload-pldm],
+	AS_HELP_STRING([--enable-host-offload-pldm], [Offload pldm])
+)
+
 # Check for libraries
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces])
 PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus])
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging])
-PKG_CHECK_MODULES([LIBPLDM], [libpldm])
+
+AM_CONDITIONAL([ENABLE_PLDM_OFFLOAD], [test "x$enable_host_offload_pldm" == "xyes"])
+
+AS_IF([test "x$enable_host_offload_pldm" == "xyes"],
+	[AX_PKG_CHECK_MODULES([LIBPLDM], [libpldm])]
+)
 
 # Check for sdbus++
 AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
