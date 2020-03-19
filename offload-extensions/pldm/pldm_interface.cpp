@@ -31,6 +31,12 @@ namespace phosphor
 {
 namespace dump
 {
+
+void requestOffload(uint32_t id)
+{
+    pldm::requestOffload(id);  
+}
+
 namespace pldm
 {
 
