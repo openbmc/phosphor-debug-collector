@@ -12,12 +12,38 @@ AC_PROG_MAKE_SET
 AC_PROG_MKDIR_P
 AC_CHECK_PROG([DIRNAME], dirname, dirname)
 
+AC_ARG_ENABLE([hostdump-offload],
+              [
+AS_HELP_STRING([--enable-hostdump-offload],
+               [Enable offloading dump from host using a transport protocol.
+                The transport protocol needs to specified with
+                --with-host-dump-offload-transport option])
+               ])
+
+AC_ARG_WITH([host-dump-offload-transport],
+	[
+AS_HELP_STRING([--with-host-dump-offload-transport],
+		[To specify the host dump transport protocol])])
+
 # Check for libraries
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces])
 PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus])
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging])
-PKG_CHECK_MODULES([LIBPLDM], [libpldm])
+
+AM_CONDITIONAL([DEFAULT_HOST_OFFLOAD], [test "x$enable_hostdump_offload" == "x"])
+AM_CONDITIONAL([ENABLE_PLDM_OFFLOAD], [test "$with_host_dump_offload_transport" == "pldm"])
+
+AS_IF([test "x$enable_hostdump_offload" == "xyes"],
+      [
+      case "$with_host_dump_offload_transport" in
+           pldm)  {
+                  AX_PKG_CHECK_MODULES([LIBPLDM], [libpldm])
+                  };;
+              *)  AC_MSG_ERROR("Host dump offload enabled
+                               but unsupported transport protocol specified.");;
+      esac
+      ])
 
 # Check for sdbus++
 AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
