@@ -168,6 +168,13 @@ void Watch::delCallback(sdbusplus::message::message& msg)
         return;
     }
 
+    std::size_t found = objectPath.str.find("entry");
+    if (found == std::string::npos)
+    {
+        // Not a error entry so skip
+        return;
+    }
+
     // Get elog id
     auto eId = getEid(objectPath);
 
