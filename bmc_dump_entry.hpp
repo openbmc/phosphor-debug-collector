@@ -6,7 +6,7 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
-#include <experimental/filesystem>
+#include <filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
@@ -62,6 +62,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
     /** @brief Delete this d-bus object.
      */
     void delete_() override;
+
+    /** @brief Method to initiate the offload of dump
+     *  @param[in] uri - URI to offload dump
+     */
+    void initiateOffload(std::string uri);
 
   private:
     /** @Dump file name */
