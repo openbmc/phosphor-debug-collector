@@ -9,7 +9,9 @@ noinst_HEADERS = \
 	dump_utils.hpp \
 	watch.hpp \
 	elog_watch.hpp \
-	dump_serialize.hpp
+	dump_serialize.hpp \
+	pldm_interface.hpp \
+        dump_offload.hpp
 
 nobase_nodist_include_HEADERS = \
 	xyz/openbmc_project/Dump/Internal/Create/server.hpp
@@ -27,8 +29,10 @@ phosphor_dump_manager_SOURCES = \
 	xyz/openbmc_project/Dump/Internal/Create/server.cpp \
 	elog_watch.cpp \
 	dump_serialize.cpp \
+	pldm_interface.cpp \
 	dump_utils.cpp \
-        system_dump_entry.cpp
+        system_dump_entry.cpp \
+        dump_offload.cpp
 
 phosphor_dump_monitor_SOURCES = \
 	watch.cpp \
@@ -38,7 +42,8 @@ phosphor_dump_monitor_SOURCES = \
 phosphor_dump_manager_CXXFLAGS = \
 	$(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
 	$(SDBUSPLUS_CFLAGS) \
-	$(PHOSPHOR_LOGGING_CFLAGS)
+	$(PHOSPHOR_LOGGING_CFLAGS) \
+	$(LIBPLDM_CFLAGS)
 
 phosphor_dump_monitor_CXXFLAGS = \
 	$(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
@@ -48,14 +53,13 @@ phosphor_dump_manager_LDADD = \
 	$(PHOSPHOR_DBUS_INTERFACES_LIBS) \
 	$(SDBUSPLUS_LIBS) \
 	$(PHOSPHOR_LOGGING_LIBS) \
-	-lstdc++fs
+	-lstdc++fs \
+	$(LIBPLDM_LIBS)
 
 phosphor_dump_monitor_LDADD = \
 	$(PHOSPHOR_DBUS_INTERFACES_LIBS) \
 	$(PHOSPHOR_LOGGING_LIBS) \
 	-lstdc++fs
-
-include offload-extensions/extensions.mk
 
 # Be sure to build needed files before compiling
 BUILT_SOURCES = \
