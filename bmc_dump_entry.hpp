@@ -63,6 +63,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      */
     void delete_() override;
 
+    /** @brief Method to initiate the offload of dump
+     *  @param[in] uri - URI to offload dump
+     */
+    void initiateOffload(std::string uri);
+
   private:
     /** @Dump file name */
     fs::path file;
