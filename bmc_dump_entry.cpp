@@ -1,6 +1,7 @@
 #include "bmc_dump_entry.hpp"
 
 #include "dump_manager.hpp"
+#include "dump_offload.hpp"
 
 #include <phosphor-logging/log.hpp>
 
@@ -27,6 +28,11 @@ void Entry::delete_()
 
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
+}
+
+void Entry::initiateOffload(std::string uri)
+{
+    phosphor::dump::offload::requestOffload(file); 
 }
 
 } // namespace bmc
