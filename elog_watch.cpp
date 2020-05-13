@@ -25,7 +25,7 @@ namespace elog
 using namespace phosphor::logging;
 constexpr auto LOG_PATH = "/xyz/openbmc_project/logging";
 using Message = std::string;
-using Attributes = sdbusplus::message::variant<Message>;
+using Attributes = std::variant<Message>;
 using AttributeName = std::string;
 using AttributeMap = std::map<AttributeName, Attributes>;
 using PropertyName = std::string;
