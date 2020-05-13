@@ -102,8 +102,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         return;
     }
 
-    auto& data =
-        sdbusplus::message::variant_ns::get<PropertyName>(attr->second);
+    auto& data = std::get<PropertyName>(attr->second);
     if (data.empty())
     {
         // No Message skip
