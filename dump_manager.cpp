@@ -45,10 +45,16 @@ uint32_t Manager::captureDump(Type type,
     // Get Dump size.
     auto size = getAllowedSize();
 
+    // Blocking SIGCHLD is needed for calling sd_event_add_child
+    sigset_t mask;
+    sigemptyset(&mask);
+    sigaddset(&mask,SIGCHLD);
+    sigprocmask(SIG_BLOCK,&mask,NULL);
     pid_t pid = fork();
 
     if (pid == 0)
     {
+        sigprocmask(SIG_UNBLOCK,&mask,NULL);
         fs::path dumpPath(BMC_DUMP_PATH);
         auto id = std::to_string(lastEntryId + 1);
         dumpPath /= id;
@@ -78,6 +84,7 @@ uint32_t Manager::captureDump(Type type,
                             entry("RC=%d", rc));
             elog<InternalFailure>();
         }
+        sigprocmask(SIG_UNBLOCK,&mask,NULL);
     }
     else
     {
