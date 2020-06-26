@@ -45,29 +45,6 @@ uint32_t Manager::captureDump(Type type,
     // Get Dump size.
     auto size = getAllowedSize();
 
-    // Blocking SIGCHLD is needed for calling sd_event_add_child
-    sigset_t mask;
-    if (sigemptyset(&mask) < 0)
-    {
-        log<level::ERR>("Unable to initialize signal set",
-                        entry("ERRNO=%d", errno));
-        throw std::runtime_error("Unable to initialize signal set");
-    }
-
-    if (sigaddset(&mask, SIGCHLD) < 0)
-    {
-        log<level::ERR>("Unable to add signal to signal set",
-                        entry("ERRNO=%d", errno));
-        throw std::runtime_error("Unable to add signal to signal set");
-    }
-
-    // Block SIGCHLD first, so that the event loop can handle it
-    if (sigprocmask(SIG_BLOCK, &mask, NULL) < 0)
-    {
-        log<level::ERR>("Unable to block signal", entry("ERRNO=%d", errno));
-        throw std::runtime_error("Unable to block signal");
-    }
-
     pid_t pid = fork();
 
     if (pid == 0)
@@ -100,12 +77,6 @@ uint32_t Manager::captureDump(Type type,
             log<level::ERR>("Error occurred during the sd_event_add_child call",
                             entry("RC=%d", rc));
             elog<InternalFailure>();
-        }
-        if (sigprocmask(SIG_UNBLOCK, &mask, NULL) < 0)
-        {
-            log<level::ERR>("Unable to unblock signal",
-                            entry("ERRNO=%d", errno));
-            throw std::runtime_error("Unable to unblock signal");
         }
     }
     else
