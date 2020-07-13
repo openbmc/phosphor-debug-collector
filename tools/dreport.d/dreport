@@ -238,7 +238,7 @@ function package()
 
     echo $($TIME_STAMP) "Report is available in $dump_dir"
 
-    if [ "$TMP_DIR" == "$dump_dir" ]; then
+    if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
        return $SUCCESS
     fi
 
