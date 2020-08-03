@@ -12,3 +12,12 @@ To build this package, do the following steps:
 
 To clean the repository run `./bootstrap.sh clean`.
 ```
+
+## To Build with meson
+To build this package with meson, do the following steps:
+```
+    1. meson builddir
+    2. ninja -C builddir
+```
+To clean the built files run `ninja -C builddir clean`.
+

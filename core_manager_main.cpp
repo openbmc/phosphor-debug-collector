@@ -7,7 +7,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <sdbusplus/bus.hpp>
 
-int main(int argc, char* argv[])
+int main()
 {
     using namespace phosphor::logging;
     using InternalFailure =

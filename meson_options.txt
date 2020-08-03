@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: Apache-2.0
+
+option('ubifs-workaround', type: 'feature',
+        description : 'Turn on ubi workaround for core file'
+      )
+
+option('DUMP_BUSNAME', type : 'string',
+        value : 'xyz.openbmc_project.Dump.Manager',
+        description : 'The Dbus busname to own'
+      )
+
+option('DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump',
+        description : 'The Dump manager Dbus root'
+      )
+
+option('CORE_FILE_DIR', type : 'string',
+        value : '/var/lib/systemd/coredump',
+        description : 'Directory where core dumps are placed'
+      )
+
+option('OBJ_INTERNAL', type : 'string',
+        value : '/xyz/openbmc_project/dump/internal/manager',
+        description : 'Internal Dump manager Dbus object path'
+      )
+
+option('OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/entry',
+        description : 'The dump entry DBus object path'
+      )
+
+option('BMC_DUMP_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/dumps/',
+        description : 'Directory where bmc dumps are placed'
+      )
+
+option('BMC_DUMP_MAX_SIZE', type : 'integer',
+        value : 200,
+        description : 'Maximum size of one bmc dump in kilo bytes'
+      )
+
+option('BMC_DUMP_MIN_SPACE_REQD', type : 'integer',
+        value : 20,
+        description : 'Minimum space required for one bmc dump in kilo bytes'
+      )
+
+option('BMC_DUMP_TOTAL_SIZE', type : 'integer',
+        value : 1024,
+        description : 'Total size of the dump in kilo bytes'
+      )
+
+option('ELOG_ID_PERSIST_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/elogid',
+        description : 'Path of file for storing elog id\'s, which have associated dumps'
+      )
+
+option('CLASS_VERSION', type : 'integer',
+        value : 1,
+        description : 'Class version to register with Cereal'
+      )
+
+option('ERROR_MAP_YAML', type : 'string',
+        value : 'example_errors_watch.yaml',
+        description : 'YAML filepath containing error object paths'
+      )
+
+option('host-dump-offload-transport', type : 'string',
+        value : 'default',
+        description : 'To specify the host dump transport protocol')

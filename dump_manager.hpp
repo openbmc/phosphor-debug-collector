@@ -139,7 +139,7 @@ class Manager : public CreateIface
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source* s, const siginfo_t* si, void* userdata)
+    static int callback(sd_event_source*, const siginfo_t*, void*)
     {
         // No specific action required in
         // the sd_event_add_child callback.
