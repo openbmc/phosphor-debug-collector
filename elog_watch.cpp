@@ -13,7 +13,7 @@
 #include <sdbusplus/exception.hpp>
 
 // Register class version with Cereal
-CEREAL_CLASS_VERSION(phosphor::dump::elog::Watch, CLASS_VERSION);
+CEREAL_CLASS_VERSION(phosphor::dump::elog::Watch, CLASS_VERSION)
 
 namespace phosphor
 {
