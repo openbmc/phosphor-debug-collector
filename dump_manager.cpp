@@ -241,7 +241,8 @@ size_t Manager::getAllowedSize()
     return size;
 }
 
-void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
+void Manager::notify(NewDump::DumpType /* dumpType */, uint32_t dumpId,
+                     uint64_t size)
 {
     // Get the timestamp
     auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
