@@ -7,7 +7,7 @@ namespace dump
 {
 namespace host
 {
-void requestOffload(uint32_t id)
+void requestOffload(uint32_t /* id */)
 {
     throw std::runtime_error("Hostdump offload method not specified");
 }
