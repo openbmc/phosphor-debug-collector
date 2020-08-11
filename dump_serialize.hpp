@@ -2,9 +2,8 @@
 
 #include "config.h"
 
-#include "elog_watch.hpp"
-
 #include <experimental/filesystem>
+#include <set>
 
 namespace phosphor
 {
@@ -12,6 +11,8 @@ namespace dump
 {
 namespace elog
 {
+using EId = uint32_t;
+using ElogList = std::set<EId>;
 
 namespace fs = std::experimental::filesystem;
 
