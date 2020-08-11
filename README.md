@@ -10,3 +10,12 @@ To build this package with meson, do the following steps:
 ```
 To clean the built files run `ninja -C builddir clean`.
 
+## To run unit tests
+Tests can be run in the CI docker container, refer
+[local-ci-build](https://github.com/openbmc/docs/blob/master/testing/local-ci-build.md)
+
+or with an OpenBMC x86 sdk(see below for x86 steps).
+```
+meson -Doe-sdk=enabled -Dtests=enabled build
+ninja -C build test
+```
