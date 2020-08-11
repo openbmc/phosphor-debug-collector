@@ -6,13 +6,13 @@
 #include "dump_utils.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
-#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
-#include "xyz/openbmc_project/Dump/NewDump/server.hpp"
+#include "xyz/openbmc_project/Dump/Create/server.hpp"
 
 #include <experimental/filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
-#include <xyz/openbmc_project/Dump/Create/server.hpp>
+#include <xyz/openbmc_project/Dump/Internal/Create/server.hpp>
+#include <xyz/openbmc_project/Dump/NewDump/server.hpp>
 
 namespace phosphor
 {
