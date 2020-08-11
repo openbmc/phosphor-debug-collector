@@ -153,3 +153,7 @@ foreach executable : executables
                         install : executable[3]
                        )
 endforeach
+
+if get_option('tests').enabled()
+  subdir('test')
+endif
