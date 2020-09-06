@@ -14,6 +14,16 @@ option('DUMP_OBJPATH', type : 'string',
         description : 'The Dump manager Dbus root'
       )
 
+option('BMC_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/bmc',
+        description : 'The BMC Dump manager Dbus object path'
+      )
+
+option('SYSTEM_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/system',
+        description : 'The system Dump manager Dbus object path'
+      )
+
 option('CORE_FILE_DIR', type : 'string',
         value : '/var/lib/systemd/coredump',
         description : 'Directory where core dumps are placed'

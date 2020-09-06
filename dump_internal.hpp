@@ -9,6 +9,8 @@ namespace phosphor
 {
 namespace dump
 {
+namespace BMC_stored
+{
 
 class Manager;
 namespace internal
@@ -16,7 +18,7 @@ namespace internal
 
 using CreateIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create>;
-using Mgr = phosphor::dump::Manager;
+using Mgr = phosphor::dump::BMC_stored::Manager;
 
 /** @class Manager
  *  @brief Implementation for the
@@ -55,5 +57,6 @@ class Manager : public CreateIface
 };
 
 } // namespace internal
+} // namespace BMC_stored
 } // namespace dump
 } // namespace phosphor

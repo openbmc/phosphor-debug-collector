@@ -138,9 +138,10 @@ void Watch::addCallback(sdbusplus::message::message& msg)
         phosphor::dump::elog::serialize(elogList);
 
         auto item = std::find_if(
-            TypeMap.begin(), TypeMap.end(),
+            phosphor::dump::BMC_stored::TypeMap.begin(),
+            phosphor::dump::BMC_stored::TypeMap.end(),
             [errorType](const auto& err) { return (err.second == errorType); });
-        if (item != TypeMap.end())
+        if (item != phosphor::dump::BMC_stored::TypeMap.end())
         {
             iMgr.IMgr::create((*item).first, fullPaths);
         }

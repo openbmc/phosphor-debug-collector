@@ -3,10 +3,14 @@
 #include "config.h"
 
 #include "dump_entry.hpp"
+#include "dump_manager_host_stored.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
+#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
+#include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
+#include <experimental/filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -15,9 +19,11 @@ namespace phosphor
 {
 namespace dump
 {
+namespace system
+{
 
-using Iface = sdbusplus::server::object::object<
-    sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll>;
+using CreateIface = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -25,7 +31,7 @@ using Iface = sdbusplus::server::object::object<
  *  xyz.openbmc_project.Dump.Create DBus API and
  *  xyz::openbmc_project::Collection::server::DeleteAll.
  */
-class Manager : public Iface
+class Manager : public CreateIface, public phosphor::dump::host_stored::Manager
 {
     friend class Entry;
 
@@ -43,39 +49,18 @@ class Manager : public Iface
      *  @param[in] path - Path to attach at.
      */
     Manager(sdbusplus::bus::bus& bus, const char* path) :
-        Iface(bus, path), bus(bus), lastEntryId(0)
+        CreateIface(bus, path), phosphor::dump::host_stored::Manager(bus, path)
     {
     }
 
-    /** @brief Construct dump d-bus objects from their persisted
-     *        representations.
-     */
-    virtual void restore() = 0;
-
-
-  protected:
-
-    /** @brief Erase specified entry d-bus object
+    /** @brief Implementation for CreateDump
+     *  Method to create Dump.
      *
-     * @param[in] entryId - unique identifier of the entry
+     *  @return id - The Dump entry id number.
      */
-    void erase(uint32_t entryId);
-
-    /** @brief  Erase all BMC dump entries and  Delete all Dump files
-     * from Permanent location
-     *
-     */
-    void deleteAll() override;
-
-    /** @brief sdbusplus DBus bus connection. */
-    sdbusplus::bus::bus& bus;
-
-    /** @brief Dump Entry dbus objects map based on entry id */
-    std::map<uint32_t, std::unique_ptr<Entry>> entries;
-
-    /** @brief Id of the last Dump entry */
-    uint32_t lastEntryId;
+    uint32_t createDump() override;
 };
 
+} // namespace system
 } // namespace dump
 } // namespace phosphor
