@@ -2,6 +2,8 @@
 
 #include "dump_internal.hpp"
 #include "dump_manager.hpp"
+#include "dump_manager_bmc.hpp"
+#include "dump_manager_system.hpp"
 #include "elog_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -57,10 +59,15 @@ int main()
 
     try
     {
-        phosphor::dump::Manager manager(bus, eventP, DUMP_OBJPATH);
+        phosphor::dump::BMC::Manager BMCDumpMgr(bus, eventP, BMC_DUMP_OBJPATH,
+                                                BMC_DUMP_OBJ_ENTRY,
+                                                BMC_DUMP_PATH);
         // Restore dump d-bus objects.
-        manager.restore();
-        phosphor::dump::internal::Manager mgr(bus, manager, OBJ_INTERNAL);
+        BMCDumpMgr.restore();
+        phosphor::dump::local::internal::Manager mgr(bus, BMCDumpMgr,
+                                                        OBJ_INTERNAL);
+        phosphor::dump::system::Manager systemDumpMgr(bus, SYSTEM_DUMP_OBJPATH,
+                                                      SYSTEM_DUMP_OBJ_ENTRY);
         phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 

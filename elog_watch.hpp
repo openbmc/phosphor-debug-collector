@@ -2,7 +2,7 @@
 
 #include "config.h"
 
-#include "dump_manager.hpp"
+#include "dump_manager_local.hpp"
 
 #include <cereal/access.hpp>
 #include <sdbusplus/bus.hpp>
@@ -16,7 +16,7 @@ namespace dump
 namespace elog
 {
 
-using IMgr = phosphor::dump::internal::Manager;
+using IMgr = phosphor::dump::local::internal::Manager;
 using EId = uint32_t;
 using ElogList = std::set<EId>;
 
