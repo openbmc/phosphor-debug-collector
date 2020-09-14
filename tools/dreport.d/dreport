@@ -194,10 +194,10 @@ function initialize()
     summary_log="$name_dir/$SUMMARY_LOG"
 
     #Type
-    if [[ !($dump_type = $TYPE_USER || \
-            $dump_type = $TYPE_CORE || \
-            $dump_type = $TYPE_ELOG || \
-            $dump_type = $TYPE_CHECKSTOP) ]]; then
+    if [[ ! ($dump_type = $TYPE_USER || \
+             $dump_type = $TYPE_CORE || \
+             $dump_type = $TYPE_ELOG || \
+             $dump_type = $TYPE_CHECKSTOP) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
     fi

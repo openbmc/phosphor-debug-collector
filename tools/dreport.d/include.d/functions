@@ -118,9 +118,9 @@ function check_size()
 # @param error message
 function log_error()
 {
-   echo $($TIME_STAMP) "ERROR: $@" >> $dreport_log
+   echo $($TIME_STAMP) "ERROR: $*" >> $dreport_log
    if ((quiet != TRUE)); then
-      echo $($TIME_STAMP) "ERROR: $@" >&2
+      echo $($TIME_STAMP) "ERROR: $*" >&2
    fi
 }
 
@@ -129,9 +129,9 @@ function log_error()
 function log_warning()
 {
     if ((verbose == TRUE)); then
-        echo $($TIME_STAMP) "WARNING: $@" >> $dreport_log
+        echo $($TIME_STAMP) "WARNING: $*" >> $dreport_log
         if ((quiet != TRUE)); then
-            echo $($TIME_STAMP) "WARNING: $@" >&2
+            echo $($TIME_STAMP) "WARNING: $*" >&2
         fi
     fi
 }
@@ -141,9 +141,9 @@ function log_warning()
 function log_info()
 {
     if ((verbose == TRUE)); then
-        echo $($TIME_STAMP) "INFO: $@" >> $dreport_log
+        echo $($TIME_STAMP) "INFO: $*" >> $dreport_log
         if ((quiet != TRUE)); then
-            echo $($TIME_STAMP) "INFO: $@" >&1
+            echo $($TIME_STAMP) "INFO: $*" >&1
         fi
     fi
 }
@@ -152,8 +152,8 @@ function log_info()
 # @param message
 function log_summary()
 {
-    echo $($TIME_STAMP) "$@" >> $summary_log
+    echo $($TIME_STAMP) "$*" >> $summary_log
     if ((quiet != TRUE)); then
-        echo $($TIME_STAMP) "$@" >&1
+        echo $($TIME_STAMP) "$*" >&1
     fi
 }
