@@ -1,0 +1,185 @@
+#!/bin/bash
+#
+#Header for BMC DUMP
+#This script will create header file only for IBM systems.
+#This script will generate generic IBM dump header format.
+#
+#Reference: Generic IBM dump header format Design Document
+#
+#Note: The dump header will be imposed on the dump file i.e
+#<obmdump file>.tar.xz only on IBM specific systems, user needs to
+#separate out the header before extracting the dump.
+#
+
+#Constants
+declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
+declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
+declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
+
+#Variables
+declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
+declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
+declare -x modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+$INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+declare -x serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+$INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+
+#Function to add NULL
+function add_null () {
+    local a=$1
+    printf '%*s' $a | tr ' ' "\0" >> $FILE
+}
+
+#Function to fetch the size of the dump
+function dump_size () {
+    sizeDump=`expr $dumpSize + 516`
+    printf -v hex "%x" $sizeDump
+    x=${#hex}
+    if [ $(($x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=`expr $x / 2`
+    msize=`expr 8 - $msize`
+    add_null $msize
+    for ((i=0;i<$x;i+=2));
+    do
+        printf \\x${hex:$i:2} >> $FILE
+    done
+}
+
+#Function to add virtual file directory entry, consists of below entries
+####################FORMAT################
+#Name              Size(bytes)  Value
+#Entry Header      8            FILE
+#Entry Size        2            0x0040
+#Reserved          10           NULL
+#Entry Type        2            0x0001
+#File Name Prefix  2            0x000F
+#Dump File Type    7            BMCDUMP
+#Separator         1            .
+#System Serial No  7            System serial number fetched from system
+#Dump Identifier   8            Dump Identifier value fetched from dump
+#Separator         1            .
+#Time stamp        14           Form should be yyyymmddhhmmss
+#Null Terminator   1            0x00
+function dump_file_entry () {
+    printf "FILE    " >> $FILE
+    add_null 1
+    printf '\x40' >> $FILE #Virtual file directory entry size
+    add_null 11
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x0F' >> $FILE
+    printf "BMPDUMP.%s.%s." "$serialNo" "$dump_id" >> $FILE
+    printf $dDay >> $FILE  #UTC time stamp
+    add_null 1
+}
+
+#Function section directory entry, consists of below entries
+####################FORMAT################
+#Name              Size(bytes)  Value
+#Entry Header      8            SECTION
+#Entry Size        2            0x0030
+#Section Priority  2            0x0000
+#Reserved          4            NULL
+#Entry Flags       4            0x00000001
+#Entry Types       2            0x0002
+#Reserved          2            NULL
+#Dump Size         8            Dump size in hex + dump header
+#Optional Section  16           BMCDUMP
+function dump_section_entry () {
+    printf "SECTION " >> $FILE
+    add_null 1
+    printf '\x30' >> $FILE #Section entry size
+    add_null 9
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 2
+    dump_size    #Dump size
+    printf "BMCDUMP" >> $FILE
+    add_null 9
+}
+
+#Function to add dump header, consists of below entries
+####################FORMAT################
+#Name              Size(bytes)  Value
+#Dump type         8            BMC DUMP
+#Dump Request time 8            Dump request time stamp (in BCD)
+#Dump Identifier   4            Dump identifer fetched from dump
+#Dump version      2            0x0210
+#Dump header       2            0x200
+#Total dump size   8            Dump size + dump header
+#Panel function    32           System model, feature, type and IPL mode
+#System Name       32           System Name (in ASCII)
+#Serial number     7            System serial number
+#Reserved          1            NULL
+#PLID              4            Comes from errorlog
+#File Header Size  2            0x70
+#Dump SRC Size     2            Dump SRC Size. Currently NULL
+#DUMP SRC          356          DUMP SRC. Currently NULL
+#Dump Req Type     4            Dump requester user interface type.
+#Dump Req ID       32           Dump requester user interface ID
+#Dump Req user ID  8            Dump requester user ID. Currently NULL
+#
+#Note: Unpopulated elements are listed below are set as NULL
+#BCD time stamp
+#PLID
+#SRC size
+#SRC dump
+#Dump requestor
+#Dump requestor user interface ID
+#Dump Requester user ID
+function dump_header () {
+    printf "BMC DUMP" >> $FILE
+    add_null 8 #BCD time stamp
+    add_null 4 #Dump Identifier
+    printf '\x02' >> $FILE #Dump version 0x0210
+    printf '\x10' >> $FILE
+    printf '\x02' >> $FILE #Dump header size 0x0200
+    add_null 1
+    dump_size  #dump size
+    printf $modelNo >> $FILE
+    add_null 24
+    printf "Server-%s-SN-%s" "$modelNo" "$serialNo" >> $FILE
+    add_null 7
+    printf $serialNo >> $FILE
+    add_null 1
+    add_null 4 #PLID
+    printf '\x70' >> $FILE #File header size
+    add_null 2 # SRC size
+    add_null 356 # SRC dump
+    add_null 4 # Dump requester
+    add_null 32 # Dump requester user interface ID
+    add_null 8
+}
+
+#Function to add Dump entry, consists of below entries
+####################FORMAT################
+#Name               Size(bytes)  Value
+#Dump Entry Version 1            0x01
+#BMC Dump Valid     1            0x01
+#No of Dump Entry   2            Number of Dump Entry
+#
+#Note: Missing elements are listed below, currently are set as NULL
+#Number of Dump Entry
+function dump_entry () {
+    printf '\x01' #Dump entry version
+    printf '\x01' #Dump valid
+    add_null 2
+}
+
+#main function
+function gen_header_package () {
+    dump_file_entry
+    dump_section_entry
+    dump_header
+    dump_entry
+}
+
+#Run gen_header_package
+gen_header_package
