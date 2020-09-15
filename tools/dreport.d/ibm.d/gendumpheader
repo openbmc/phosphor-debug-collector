@@ -1,0 +1,173 @@
+#!/bin/bash
+#
+#Header for BMC DUMP
+#This script will create header file same as FSPDump header format.
+#Reference: FSPDUMP Design Document
+#
+#Note: The dump header will be imposed on the dump file i.e
+#<obmdump file>.tar.xz, user needs to separate out the header
+#before extracting the dump.
+#
+
+#Constants
+declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
+declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
+declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
+
+#Variables
+declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
+declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
+declare -x dumpId=$(echo $name_dir.tar.xz | cut -d'_' -f 2)
+declare -x modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+$INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+declare -x serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+$INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+
+#Function to add NULL
+function add_null () {
+    local a=$1
+    for ((i=1;i<=$a;i++));
+    do
+        printf '\0' >> $FILE
+    done
+}
+
+#Function to fetch the size of the dump
+function dump_size () {
+    printf -v hex "%x" $dumpSize
+    x=${#hex}
+    if [ $(($x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=`expr $x / 2`
+    msize=`expr 8 - $msize`
+    add_null $msize
+    for ((i=0;i<$x;i+=2));
+    do
+        echo $i
+        echo ${hex:$i:2}
+        printf \\x${hex:$i:2} >> $FILE
+    done
+}
+
+#Function to add virtual file directory entry, consists of below entries
+#Entry Header 8 bytes
+#Entry Size 2 bytes
+#Reserved 10 bytes
+#Entry Type 2 bytes set to 0x0001 for File entry
+#File Name Prefix Size 2 bytes
+#File Name made by dump file type, serial number,dump identifier,time stamp
+function dump_file_entry () {
+    printf "FILE    " >> $FILE
+    add_null 1
+    printf '\x40' >> $FILE #Virtual file directory entry size
+    add_null 11
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x0F' >> $FILE
+    printf "BMPDUMP.%s.%s." "$serialNo" "$dumpId" >> $FILE
+    printf $dDay >> $FILE  #UTC time stamp
+    add_null 1
+}
+
+#Function section directory entry, consists of below entries
+#Entry Header 8 bytes
+#Entry Size 2 bytes
+#Section Priority 2 bytes
+#Reserved 4 bytes
+#Entry Flags 4 bytes
+#Entry Types 2 bytes set to 0x0002 for section entry
+#Reserved 2 bytes
+#Dump Size 8 bytes
+#Optional Section name 16 bytes
+function dump_section_entry () {
+    printf "SECTION " >> $FILE
+    add_null 1
+    printf '\x30' >> $FILE #Section entry size
+    add_null 9
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 2
+    dump_size    #Dump size
+    printf "BMCDUMP" >> $FILE
+    add_null 9
+}
+
+#Function to add dump header, consists of below entries
+#Dump type 8 bytes
+#Dump request time stamp 8 bytes in BCD
+#Dump Identifier 4 bytes
+#Dump version 2 bytes set to 0x0210
+#Dump header size 2 bytes set to 0x200
+#Total dump size 8 bytes
+#Panel function 32 bytes(system model, feature, type and IPL mode)
+#System Name 32 bytes
+#System serial number 7 bytes
+#Reserved 1 byte
+#Platform event log identifier 4 bytes
+#File Header Size 2 bytes set to 0x70
+#Dump SRC Size 2 bytes
+#DUMP SRC 356 bytes
+#Dump Requester type 4 bytes
+#Dump Requester interface ID 32 bytes
+#Dump Requester user ID 8 bytes
+#
+#Note: Unpopulated elements are listed below
+#BCD time stamp
+#PLID
+#SRC size
+#SRC dump
+#Dump requestor
+#Dump requestor user interface ID
+#Dump Requester user ID
+function dump_header () {
+    printf "BMC DUMP" >> $FILE
+    add_null 8 #BCD time stamp
+    add_null 4 #Dump Identifier
+    printf '\x02' >> $FILE #Dump version 0x0210
+    printf '\x10' >> $FILE
+    printf '\x02' >> $FILE #Dump header size 0x0200
+    add_null 1
+    dump_size  #dump size
+    printf $modelNo >> $FILE
+    add_null 24
+    printf "Server-%s-SN-%s" "$modelNo" "$serialNo" >> $FILE
+    add_null 7
+    printf $serialNo >> $FILE
+    add_null 1
+    add_null 4 #PLID
+    printf '\x70' >> $FILE #File header size
+    add_null 2 # SRC size
+    add_null 356 # SRC dump
+    add_null 4 # Dump requester
+    add_null 32 # Dump requester user interface ID
+    add_null 8
+}
+
+#Function to add Dump entry, consists of below entries
+#Dump Entry Version 1 byte set to 0x01
+#BMC Dump Valid 1 byte set to 0x01
+#Number of Dump Entry 2 bytes
+#
+#Note: Missing elements are listed below
+#Number of Dump Entry
+function dump_entry () {
+    printf '\x01' #Dump entry version
+    printf '\x01' #Dump valid
+    add_null 2
+}
+
+function main () {
+    dump_file_entry
+    dump_section_entry
+    dump_header
+    dump_entry
+}
+
+#Run main
+main
