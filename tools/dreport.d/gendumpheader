@@ -1,0 +1,84 @@
+#!/bin/bash
+#
+# Header of BMC DUMP
+#
+
+
+FILE="dumpheader.txt"
+version="0201"
+
+Null_dump () {
+  	local a=$1
+	for ((i=1;i<=$a;i++));
+	do
+	  	printf '\0' >> $FILE
+	done
+}
+
+modelno=$(busctl get-property xyz.openbmc_project.Inventory.Manager \
+/xyz/openbmc_project/inventory/system \
+xyz.openbmc_project.Inventory.Decorator.Asset \
+Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+serialno=$(busctl get-property xyz.openbmc_project.Inventory.Manager \
+/xyz/openbmc_project/inventory/system \
+xyz.openbmc_project.Inventory.Decorator.Asset SerialNumber \
+| cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+tday=$(date "+%Y%m%d %T" | tr -d ':' | tr -d ' ')
+
+#HMC Virtual File Directory Entry
+printf "FILE    " >> $FILE
+Null_dump 1
+printf '\x40' >> $FILE
+Null_dump 11
+printf "\x01" >> $FILE
+Null_dump 1
+printf "\x0F" >> $FILE
+printf "BMPDUMP.%s.12345678." "$serialno" >> $FILE
+#printf "12345678" "." >> $FILE
+printf $tday >> $FILE
+Null_dump 1
+
+#Section Directory Entry
+printf "SECTION " >> $FILE
+Null_dump 1
+printf '\x30' >> $FILE
+Null_dump 9
+printf '\x01' >> $FILE
+Null_dump 1
+printf '\x02' >> $FILE
+Null_dump 2
+Null_dump 8 #dump size
+printf "BMCDUMP" >> $FILE
+Null_dump 9
+
+#Dump Header
+printf "BMC DUMP" >> $FILE
+Null_dump 8 #BCD time stamp
+Null_dump 4 #Dump Identifier
+printf $version >> $FILE
+printf '\x200' >> $FILE
+Null_dump 8 #dump size
+printf $modelno >> $FILE
+Null_dump 24
+printf $server_name >> $FILE
+Null_dump 7
+printf $serialno >> $FILE
+Null_dump 1
+Null_dump 4 #PLID
+printf '\x70' >> $FILE
+Null_dump 2 # SRC
+Null_dump 356 # SRC dump
+Null_dump 4 # Dump requester
+Null_dump 32 # Dump requester user interface ID
+Null_dump 8
+
+
+
+#Creating hexdump file
+if [ -f "header" ]; then
+  	rm -rf "header"
+fi
+hexdump -C $FILE >> "header"
+rm -rf $FILE
