@@ -6,6 +6,7 @@
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
+#include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 namespace phosphor
 {
@@ -15,6 +16,7 @@ namespace system
 {
 
 using NotifyIface = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::xyz::openbmc_project::Dump::server::NewDump>;
 
 /** @class Manager
@@ -58,6 +60,13 @@ class Manager : virtual public NotifyIface,
      *  @param[in] size - Size of the dump.
      */
     void notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size) override;
+
+    /** @brief Implementation for CreateDump
+     *  Method to create Dump.
+     *
+     *  @return id - The Dump entry id number.
+     */
+    uint32_t createDump() override;
 };
 
 } // namespace system
