@@ -3,7 +3,9 @@
 #include "dump_internal.hpp"
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
+
 #include "dump_manager_system.hpp"
+
 #include "elog_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -65,8 +67,10 @@ int main()
         bmcDumpMgr.restore();
         phosphor::dump::bmc::internal::Manager mgr(bus, bmcDumpMgr,
                                                    OBJ_INTERNAL);
+
         phosphor::dump::system::Manager systemDumpMgr(bus, SYSTEM_DUMP_OBJPATH,
                                                       SYSTEM_DUMP_OBJ_ENTRY);
+
         phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
