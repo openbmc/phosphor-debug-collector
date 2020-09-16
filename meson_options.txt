@@ -82,3 +82,6 @@ option('ERROR_MAP_YAML', type : 'string',
 option('host-dump-offload-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
+
+option('system-dump', type: 'feature',
+        description : 'Enable system dump')

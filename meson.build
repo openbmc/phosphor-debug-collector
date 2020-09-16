@@ -73,6 +73,9 @@ conf_data.set('ERROR_MAP_YAML', get_option('ERROR_MAP_YAML'),
 conf_data.set('UBI_CORE_FILE_WORKAROUND', get_option('ubifs-workaround').enabled(),
                description : 'Turn on ubi workaround for core file'
              )
+conf_data.set('SYSTEM_DUMP_ENABLED' , get_option('system-dump').enabled(),
+               description : 'Enable the system dump'
+             )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
