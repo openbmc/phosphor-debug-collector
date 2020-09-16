@@ -65,8 +65,12 @@ int main()
         bmcDumpMgr.restore();
         phosphor::dump::bmc::internal::Manager mgr(bus, bmcDumpMgr,
                                                    OBJ_INTERNAL);
+       
+#ifdef SYSTEM_DUMP_ENABLED 
         phosphor::dump::system::Manager systemDumpMgr(bus, SYSTEM_DUMP_OBJPATH,
                                                       SYSTEM_DUMP_OBJ_ENTRY);
+#endif
+
         phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
