@@ -27,6 +27,21 @@ void Manager::notify(NewDump::DumpType, uint32_t dumpId, uint64_t size)
     lastEntryId++;
 }
 
+uint32_t Manager::createDump()
+{
+    constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
+    constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
+    constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
+    constexpr auto DIAG_MOD_TARGET = "obmc-host-diagnostic-mode@0.target";
+    auto b = sdbusplus::bus::new_default();
+    auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
+                                      SYSTEMD_INTERFACE, "StartUnit");
+    method.append(DIAG_MOD_TARGET); // unit to activate
+    method.append("replace");
+    bus.call_noreply(method);
+    return ++lastEntryId;
+}
+
 } // namespace system
 } // namespace dump
 } // namespace phosphor
