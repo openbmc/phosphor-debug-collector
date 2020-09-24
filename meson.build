@@ -103,7 +103,6 @@ phosphor_dump_manager_sources = [
         'dump_entry.cpp',
         'dump_manager.cpp',
         'dump_manager_bmc.cpp',
-        'dump_manager_system.cpp',
         'dump_manager_main.cpp',
         'dump_serialize.cpp',
         'elog_watch.cpp',
@@ -113,7 +112,6 @@ phosphor_dump_manager_sources = [
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
-        'system_dump_entry.cpp',
         'dump_offload.cpp'
     ]
 
@@ -129,6 +127,9 @@ phosphor_dump_manager_install = true
 # To get host dump offload transport source files and dependency list
 # for phosphor_dump_manager
 subdir('offload-extensions')
+
+#pick any architecture specific dumps
+subdir('dump-extensions')
 
 phosphor_dump_monitor_sources = [
         'core_manager.cpp',
