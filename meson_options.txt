@@ -82,3 +82,7 @@ option('ERROR_MAP_YAML', type : 'string',
 option('host-dump-offload-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
+
+option('open-power-dumps', type: 'feature',
+        description : 'Enable Open Power specific dumps'
+      )

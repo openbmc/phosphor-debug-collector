@@ -1,15 +1,17 @@
 #include "config.h"
 
+#include "dump-extensions.hpp"
 #include "dump_internal.hpp"
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
-#include "dump_manager_system.hpp"
 #include "elog_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <sdbusplus/bus.hpp>
+#include <vector>
+#include <memory>
 
 int main()
 {
@@ -59,15 +61,22 @@ int main()
 
     try
     {
-        phosphor::dump::bmc::Manager bmcDumpMgr(
+        phosphor::dump::DumpManagerList dumpMgrList{};
+        std::unique_ptr<phosphor::dump::bmc::Manager>  bmcDumpMgr = std::make_unique<phosphor::dump::bmc::Manager>(
             bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY, BMC_DUMP_PATH);
-        // Restore dump d-bus objects.
-        bmcDumpMgr.restore();
-        phosphor::dump::bmc::internal::Manager mgr(bus, bmcDumpMgr,
+
+        phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
                                                    OBJ_INTERNAL);
 
-        phosphor::dump::system::Manager systemDumpMgr(bus, SYSTEM_DUMP_OBJPATH,
-                                                      SYSTEM_DUMP_OBJ_ENTRY);
+        dumpMgrList.push_back(std::move(bmcDumpMgr));
+
+        phosphor::dump::loadExtensions(bus, dumpMgrList);
+
+        //Restore dbus objects of all dumps
+        for (auto& dmpMgr: dumpMgrList)
+        {
+            dmpMgr->restore();
+        }
 
         phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
