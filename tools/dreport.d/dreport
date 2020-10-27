@@ -32,6 +32,7 @@ Options:
         -v, —-verbose         Increase logging verbosity.
         -V, --version         Output version information.
         -q, —-quiet           Only log fatal errors to stderr
+        -e, --errorlog        Errorlog ID
         -h, —-help            Display this help and exit.
 "
 
@@ -76,6 +77,7 @@ declare -x summary_log=""
 declare -x cur_dump_size=0
 declare -x pid=$ZERO
 declare -x elog_id=""
+declare -x errorId=""
 
 #Source dreport common functions
 . $DREPORT_INCLUDE/functions
@@ -292,8 +294,8 @@ function main()
     fi
 }
 
-TEMP=`getopt -o n:d:i:t:s:p:vVqh \
-      --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
+TEMP=`getopt -o n:d:i:t:s:p:e:vVqh \
+      --long name:,dir:,dumpid:,type:,size:,path:,errorlog:,verbose,version,quiet,help \
       -- "$@"`
 
 if [ $? -ne 0 ]
@@ -333,6 +335,9 @@ while [[ $# -gt 1 ]]; do
         -q|—-quiet)
             quiet=$TRUE
             shift;;
+        -e|--errorlog)
+            errorId=$2
+            shift 2;;
         -h|--help)
             echo "$help"
             exit;;

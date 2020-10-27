@@ -91,10 +91,11 @@ class Manager : virtual public CreateIface,
 
     /** @brief Implementation for CreateDump
      *  Method to create Dump.
+     *  @param [in] eid - errorlog ID
      *
      *  @return id - The Dump entry id number.
      */
-    uint32_t createDump() override;
+    uint32_t createDump(std::string eid = "") override;
 
   private:
     /** @brief Create Dump entry d-bus object
@@ -106,9 +107,12 @@ class Manager : virtual public CreateIface,
      *  @param[in] type - Type of the Dump.
      *  @param[in] fullPaths - List of absolute paths to the files
      *             to be included as part of Dump package.
+     *  @param[in] eid - errorlog id
+     *
      *  @return id - The Dump entry id number.
      */
-    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
+    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths,
+                         std::string eid = "");
 
     /** @brief sd_event_add_child callback
      *

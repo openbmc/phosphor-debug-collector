@@ -34,18 +34,18 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 
 } // namespace internal
 
-uint32_t Manager::createDump()
+uint32_t Manager::createDump(std::string eid)
 {
     std::vector<std::string> paths;
-    return captureDump(Type::UserRequested, paths);
+    return captureDump(Type::UserRequested, paths, eid);
 }
 
 uint32_t Manager::captureDump(Type type,
-                              const std::vector<std::string>& fullPaths)
+                              const std::vector<std::string>& fullPaths,
+                              std::string eid)
 {
     // Get Dump size.
     auto size = getAllowedSize();
-
     pid_t pid = fork();
 
     if (pid == 0)
@@ -60,7 +60,7 @@ uint32_t Manager::captureDump(Type type,
         execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
               id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
               fullPaths.empty() ? "" : fullPaths.front().c_str(), "-t",
-              tempType->second.c_str(), nullptr);
+              tempType->second.c_str(), "-e", eid.c_str(), nullptr);
 
         // dreport script execution is failed.
         auto error = errno;
