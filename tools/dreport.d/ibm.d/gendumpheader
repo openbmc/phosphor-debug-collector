@@ -14,6 +14,11 @@ declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
 declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
 declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
 declare -rx DUMP_HEADER_ENTRY_SIZE='516'
+declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
+declare -rx SIZE_4='4'
+declare -rx SIZE_8='8'
+declare -rx SIZE_12='12'
+declare -rx SIZE_32='32'
 
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
@@ -26,10 +31,28 @@ $INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\
 
 declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
 
+declare -x bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
+org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
+SerialNumber | cut -d " " -f 3 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
 #Function to add NULL
 function add_null () {
     local a=$1
     printf '%*s' $a | tr ' ' "\0" >> $FILE
+}
+
+#Function to is to convert the EPOCHTIME collected
+#from dreport into hex values and write the same in
+#header.
+function dump_time () {
+    x=${#dDay}
+    msize=`expr $x / 2`
+    msize=`expr $SIZE_8 - $msize`
+    for ((i=0;i<$x;i+=2));
+    do
+        printf \\x${dDay:$i:2} >> $FILE
+    done
+    add_null $msize
 }
 
 #Function to fetch the size of the dump
@@ -45,7 +68,7 @@ function dump_size () {
         x=${#hex}
     fi
     msize=`expr $x / 2`
-    msize=`expr 8 - $msize`
+    msize=`expr $SIZE_8 - $msize`
     add_null $msize
     for ((i=0;i<$x;i+=2));
     do
@@ -56,10 +79,32 @@ function dump_size () {
 #Function to set dump id to 8 bytes format
 function get_dump_id () {
     x=${#dump_id}
-    nulltoadd=`expr 8 - $x`
+    nulltoadd=`expr $SIZE_8 - $x`
     printf '%*s' $nulltoadd | tr ' ' "0" >> $FILE
     printf $dump_id >> $FILE
 }
+
+#Function to get the bmc serial number
+function getbmc_serial () {
+    x=${#bmcSerialNo}
+    nulltoadd=`expr $SIZE_12 - $x`
+    printf $bmcSerialNo >> $FILE
+    printf '%*s' $nulltoadd | tr ' ' "0" >> $FILE
+}
+
+#Function to set the user details
+function set_user_details () {
+    printf "DUMP" >> $FILE           #Dump requester user interface type
+    if [ $dump_type = $TYPE_USER ]; then
+        printf "User Initiated" >> $FILE   #Dump requester user interface ID
+        add_null 18
+    else
+        printf "Dump Manager" >> $FILE
+        add_null 20
+    fi
+    add_null 32                      #Dump requester user ID
+}
+
 
 #Function to add virtual file directory entry, consists of below entries
 ####################FORMAT################
@@ -133,23 +178,19 @@ function dump_section_entry () {
 #PLID              4            Comes from errorlog
 #File Header Size  2            0x70
 #Dump SRC Size     2            Dump SRC Size. Currently NULL
-#DUMP SRC          356          DUMP SRC. Currently NULL
+#DUMP SRC          320          DUMP SRC. Currently NULL
 #Dump Req Type     4            Dump requester user interface type.
 #Dump Req ID       32           Dump requester user interface ID
-#Dump Req user ID  8            Dump requester user ID. Currently NULL
+#Dump Req user ID  32           Dump requester user ID. Currently NULL
 #
-#TODO: Github issue #3707, to populate the unpopulated elements.
+#TODO: Github issue #2639, to populate the unpopulated elements.
 #Note: Unpopulated elements are listed below are set as NULL
-#BCD time stamp
 #PLID
 #SRC size
 #SRC dump
-#Dump requestor
-#Dump requestor user interface ID
-#Dump Requester user ID
 function dump_header () {
     printf "BMC DUMP" >> $FILE
-    add_null 8 #BCD time stamp
+    dump_time
     add_null 4 #Dump Identifier
     printf '\x02' >> $FILE #Dump version 0x0210
     printf '\x10' >> $FILE
@@ -165,10 +206,9 @@ function dump_header () {
     add_null 4 #PLID
     printf '\x70' >> $FILE #File header size
     add_null 2 # SRC size
-    add_null 356 # SRC dump
-    add_null 4 # Dump requester
-    add_null 32 # Dump requester user interface ID
-    add_null 8
+    add_null 320 # SRC dump
+    getbmc_serial
+    set_user_details
 }
 
 #Function to add Dump entry, consists of below entries
@@ -178,13 +218,11 @@ function dump_header () {
 #BMC Dump Valid     1            0x01
 #No of Dump Entry   2            Number of Dump Entry
 #
-#TODO: Github issue #3707, to populate the unpopulated elements.
-#Note: Unpopulated elements are listed below, currently are set as NULL
-#Number of Dump Entry
 function dump_entry () {
     printf '\x01' >> $FILE #Dump entry version
     printf '\x01' >> $FILE #Dump valid
-    add_null 2
+    add_null 1
+    printf '\x10' >> $FILE #Dump entry
 }
 
 #main function
