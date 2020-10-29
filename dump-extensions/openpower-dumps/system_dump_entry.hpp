@@ -44,15 +44,17 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] dumpSize - Dump size in bytes.
-     *  @param[in] sourceId - DumpId provided by the source..
+     *  @param[in] sourceId - DumpId provided by the source.
+     *  @param[in] status - status  of the dump.
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              parent)
+                              status, parent)
     {
         sourceDumpId(sourceId);
     };
@@ -72,6 +74,10 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         elapsed(timeStamp);
         size(dumpSize);
         sourceDumpId(sourceId);
+        // TODO: Handled dump failure case with
+        // #bm-openbmc/2808
+        status(OperationStatus::Completed);
+        completedTime(timeStamp);
     }
 };
 
