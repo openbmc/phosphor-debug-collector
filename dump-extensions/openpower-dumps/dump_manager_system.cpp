@@ -34,7 +34,7 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     {
         phosphor::dump::system::Entry* sysEntry =
             dynamic_cast<phosphor::dump::system::Entry*>(entry.second.get());
-        if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
+        if (sysEntry->status() == phosphor::dump::OperationStatus::InProgress)
         {
             sysEntry->update(ms, size, dumpId);
             return;
@@ -45,8 +45,9 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     auto idString = std::to_string(id);
     auto objPath = fs::path(baseEntryPath) / idString;
     entries.insert(std::make_pair(
-        id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, ms, size,
-                                            dumpId, *this)));
+        id, std::make_unique<system::Entry>(
+                bus, objPath.c_str(), id, ms, size, dumpId,
+                phosphor::dump::OperationStatus::Completed, *this)));
 }
 
 sdbusplus::message::object_path Manager::createDump()
@@ -66,8 +67,9 @@ sdbusplus::message::object_path Manager::createDump()
     auto idString = std::to_string(id);
     auto objPath = fs::path(baseEntryPath) / idString;
     entries.insert(std::make_pair(
-        id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, 0, 0,
-                                            INVALID_SOURCE_ID, *this)));
+        id, std::make_unique<system::Entry>(
+                bus, objPath.c_str(), id, 0, 0, INVALID_SOURCE_ID,
+                phosphor::dump::OperationStatus::InProgress, *this)));
     return std::string(objPath.c_str());
 }
 
