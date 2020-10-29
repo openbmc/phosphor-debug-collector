@@ -45,8 +45,9 @@ sdbusplus::message::object_path Manager::createDump()
     try
     {
         entries.insert(std::make_pair(
-            id, std::make_unique<bmc::Entry>(bus, objPath.c_str(), id, 0, 0,
-                                             std::string(), *this)));
+            id, std::make_unique<bmc::Entry>(
+                    bus, objPath.c_str(), id, 0, 0, std::string(),
+                    phosphor::dump::OperationStatus::InProgress, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -143,10 +144,11 @@ void Manager::createEntry(const fs::path& file)
         // Entry Object path.
         auto objPath = fs::path(baseEntryPath) / std::to_string(id);
 
-        entries.insert(
-            std::make_pair(id, std::make_unique<bmc::Entry>(
-                                   bus, objPath.c_str(), id, stoull(msString),
-                                   fs::file_size(file), file, *this)));
+        entries.insert(std::make_pair(
+            id,
+            std::make_unique<bmc::Entry>(
+                bus, objPath.c_str(), id, stoull(msString), fs::file_size(file),
+                file, phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
     {

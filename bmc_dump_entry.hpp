@@ -6,6 +6,7 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <chrono>
 #include <filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -49,14 +50,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *             since the epoch.
      *  @param[in] fileSize - Dump file size in bytes.
      *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize, const fs::path& file,
+          phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              parent),
+                              status, parent),
         file(file){};
 
     /** @brief Delete this d-bus object.
@@ -79,7 +82,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
     {
         elapsed(timeStamp);
         size(fileSize);
+        status(OperationStatus::Completed);
         file = filePath;
+
+        std::time_t epochTimeNow = std::time(nullptr);
+        completedTime(epochTimeNow);
     }
 
   private:

@@ -1,9 +1,11 @@
 #pragma once
 
+#include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <ctime>
 #include <experimental/filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -17,10 +19,13 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
     sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
 
+using OperationStatus =
+    sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
 namespace fs = std::experimental::filesystem;
 
 class Manager;
@@ -50,12 +55,27 @@ class Entry : public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, Manager& parent) :
+          uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         parent(parent), id(dumpId)
     {
         size(dumpSize);
         elapsed(timeStamp);
+        status(dumpStatus);
+        std::time_t epochTimeNow = std::time(nullptr);
+
+        // If the object is created after the creation dump, keep start time
+        // as timestamp and current time as completed time. 
+        if (dumpStatus == OperationStatus::Completed)
+        {
+            startTime(timeStamp);
+            completedTime(epochTimeNow);
+        }
+        else
+        {
+            startTime(epochTimeNow);
+        }
         // Emit deferred signal.
         this->emit_object_added();
     };
