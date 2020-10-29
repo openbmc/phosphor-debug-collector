@@ -116,10 +116,11 @@ void Manager::createEntry(const fs::path& file)
         // Entry Object path.
         auto objPath = fs::path(baseEntryPath) / std::to_string(id);
 
-        entries.insert(
-            std::make_pair(id, std::make_unique<bmc::Entry>(
-                                   bus, objPath.c_str(), id, stoull(msString),
-                                   fs::file_size(file), file, *this)));
+        entries.insert(std::make_pair(
+            id,
+            std::make_unique<bmc::Entry>(
+                bus, objPath.c_str(), id, stoull(msString), fs::file_size(file),
+                file, phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
     {
