@@ -1,5 +1,6 @@
 #pragma once
 
+#include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
@@ -16,11 +17,18 @@ namespace dump
 template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
+// TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
+// still needed in dump entry since start time and completed time are available
+// from sdbusplus::xyz::openbmc_project::Common::server::Progress
+// #ibm-openbmc/2809
 using EntryIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
     sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
 
+using OperationStatus =
+    sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
 namespace fs = std::experimental::filesystem;
 
 class Manager;
@@ -50,12 +58,29 @@ class Entry : public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, Manager& parent) :
+          uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         parent(parent), id(dumpId)
     {
         size(dumpSize);
         elapsed(timeStamp);
+        status(dumpStatus);
+
+        // If the object is created after the dump creation, keep start time
+        // as timestamp and current time as completed time.
+        if (dumpStatus == OperationStatus::Completed)
+        {
+            elapsed(timeStamp);
+            startTime(timeStamp);
+            completedTime(timeStamp);
+        }
+        else
+        {
+            elapsed(0);
+            startTime(timeStamp);
+            completedTime(0);
+        }
         // Emit deferred signal.
         this->emit_object_added();
     };
