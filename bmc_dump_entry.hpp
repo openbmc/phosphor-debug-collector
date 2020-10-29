@@ -68,6 +68,20 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      */
     void initiateOffload(std::string uri) override;
 
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     */
+    void update(uint64_t timeStamp, uint64_t fileSize, const fs::path& filePath)
+    {
+        elapsed(timeStamp);
+        size(fileSize);
+        file = filePath;
+    }
+
   private:
     /** @Dump file name */
     fs::path file;
