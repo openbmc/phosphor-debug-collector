@@ -28,9 +28,7 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
         return;
     }
     // Get the timestamp
-    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                  std::chrono::system_clock::now().time_since_epoch())
-                  .count();
+    std::time_t timeStamp = std::time(nullptr);
 
     // System dump can get created due to a fault in server
     // or by request from user. A system dump by fault is
@@ -44,7 +42,7 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
             dynamic_cast<phosphor::dump::system::Entry*>(entry.second.get());
         if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
         {
-            sysEntry->update(ms, size, dumpId);
+            sysEntry->update(timeStamp, size, dumpId);
             return;
         }
     }
@@ -57,15 +55,16 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     try
     {
         entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, ms,
-                                                size, dumpId, *this)));
+            id, std::make_unique<system::Entry>(
+                    bus, objPath.c_str(), id, timeStamp, size, dumpId,
+                    phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
     {
         log<level::ERR>(e.what());
         log<level::ERR>("Error in creating system dump entry",
                         entry("OBJECTPATH=%s", objPath.c_str()),
-                        entry("ID=%d", id), entry("TIMESTAMP=%ull", ms),
+                        entry("ID=%d", id), entry("TIMESTAMP=%ull", timeStamp),
                         entry("SIZE=%d", size), entry("SOURCEID=%d", dumpId));
         report<InternalFailure>();
         return;
@@ -90,12 +89,14 @@ sdbusplus::message::object_path Manager::createDump()
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
     auto objPath = fs::path(baseEntryPath) / idString;
+    std::time_t timeStamp = std::time(nullptr);
 
     try
     {
         entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, 0, 0,
-                                                INVALID_SOURCE_ID, *this)));
+            id, std::make_unique<system::Entry>(
+                    bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
+                    phosphor::dump::OperationStatus::InProgress, *this)));
     }
     catch (const std::invalid_argument& e)
     {
