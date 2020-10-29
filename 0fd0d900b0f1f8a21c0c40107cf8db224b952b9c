@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8dd5db7_498692b7",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-10-29T04:49:42Z",
+      "side": 1,
+      "message": "What will happen if dbus api call failed means ?",
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98c9f13b_006b1151",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-10-29T04:49:42Z",
+      "side": 1,
+      "message": "is it intension to convert dDay into hex ?",
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd7d748f_d21772a8",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-10-29T04:49:42Z",
+      "side": 1,
+      "message": "is it length for date in dump header?",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "664e98fd_62c7ea01",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-10-29T04:49:42Z",
+      "side": 1,
+      "message": "is it some fixed length in dump header ? if so, can you use some variable instead hard code value?",
+      "range": {
+        "startLine": 84,
+        "startChar": 20,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba7ae83_2c44c6fb",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-10-29T04:49:42Z",
+      "side": 1,
+      "message": "In case, dbus api failed to get serial number then adding null ? \nAlso, some trace is required to get know failure details ?",
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
