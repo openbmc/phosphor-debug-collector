@@ -28,17 +28,28 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                   std::chrono::system_clock::now().time_since_epoch())
                   .count();
+
+    // If there is an entry with invalid sourceId update that.
+    for (auto& entry : entries)
+    {
+        phosphor::dump::system::Entry* sysEntry =
+            dynamic_cast<phosphor::dump::system::Entry*>(entry.second.get());
+        if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
+        {
+            sysEntry->update(ms, size, dumpId);
+            return;
+        }
+    }
     // Get the id
-    auto id = lastEntryId + 1;
+    auto id = ++lastEntryId;
     auto idString = std::to_string(id);
     auto objPath = fs::path(baseEntryPath) / idString;
     entries.insert(std::make_pair(
         id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, ms, size,
                                             dumpId, *this)));
-    lastEntryId++;
 }
 
-uint32_t Manager::createDump()
+sdbusplus::message::object_path Manager::createDump()
 {
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
     constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
@@ -50,7 +61,14 @@ uint32_t Manager::createDump()
     method.append(DIAG_MOD_TARGET); // unit to activate
     method.append("replace");
     bus.call_noreply(method);
-    return ++lastEntryId;
+
+    auto id = ++lastEntryId;
+    auto idString = std::to_string(id);
+    auto objPath = fs::path(baseEntryPath) / idString;
+    entries.insert(std::make_pair(
+        id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, 0, 0,
+                                            INVALID_SOURCE_ID, *this)));
+    return std::string(objPath.c_str());
 }
 
 } // namespace system
