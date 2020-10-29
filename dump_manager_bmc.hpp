@@ -94,7 +94,7 @@ class Manager : virtual public CreateIface,
      *
      *  @return id - The Dump entry id number.
      */
-    uint32_t createDump() override;
+    sdbusplus::message::object_path createDump() override;
 
   private:
     /** @brief Create Dump entry d-bus object
