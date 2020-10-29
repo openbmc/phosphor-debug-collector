@@ -34,10 +34,27 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 
 } // namespace internal
 
-uint32_t Manager::createDump()
+sdbusplus::message::object_path Manager::createDump()
 {
     std::vector<std::string> paths;
-    return captureDump(Type::UserRequested, paths);
+    auto id = captureDump(Type::UserRequested, paths);
+
+    // Entry Object path.
+    auto objPath = fs::path(baseEntryPath) / std::to_string(id);
+
+    try
+    {
+        entries.insert(std::make_pair(
+            id, std::make_unique<bmc::Entry>(bus, objPath.c_str(), id, 0, 0,
+                                             std::string(), *this)));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        log<level::ERR>(e.what());
+        elog<InternalFailure>();
+    }
+
+    return objPath.string();
 }
 
 uint32_t Manager::captureDump(Type type,
@@ -110,9 +127,19 @@ void Manager::createEntry(const fs::path& file)
     auto idString = match[ID_POS];
     auto msString = match[EPOCHTIME_POS];
 
+    auto id = stoul(idString);
+
+    // If there is an existing entry update it and return.
+    auto entry = entries.find(id);
+    if (entry != entries.end())
+    {
+        dynamic_cast<phosphor::dump::bmc::Entry*>(entry->second.get())
+            ->update(stoull(msString), fs::file_size(file), file);
+        return;
+    }
+
     try
     {
-        auto id = stoul(idString);
         // Entry Object path.
         auto objPath = fs::path(baseEntryPath) / std::to_string(id);
 
