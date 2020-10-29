@@ -7,6 +7,7 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
+#include <ctime>
 #include <sys/inotify.h>
 #include <unistd.h>
 
@@ -42,9 +43,11 @@ sdbusplus::message::object_path Manager::createDump()
     // Entry Object path.
     auto objPath = fs::path(baseEntryPath) / std::to_string(id);
 
+    std::time_t timeStamp = std::time(nullptr);
     entries.insert(std::make_pair(
-        id, std::make_unique<bmc::Entry>(bus, objPath.c_str(), id, 0, 0,
-                                         std::string(), *this)));
+        id, std::make_unique<bmc::Entry>(
+                bus, objPath.c_str(), id, timeStamp, 0, std::string(),
+                phosphor::dump::OperationStatus::InProgress, *this)));
     return objPath.string();
 }
 
@@ -134,10 +137,11 @@ void Manager::createEntry(const fs::path& file)
         // Entry Object path.
         auto objPath = fs::path(baseEntryPath) / std::to_string(id);
 
-        entries.insert(
-            std::make_pair(id, std::make_unique<bmc::Entry>(
-                                   bus, objPath.c_str(), id, stoull(msString),
-                                   fs::file_size(file), file, *this)));
+        entries.insert(std::make_pair(
+            id,
+            std::make_unique<bmc::Entry>(
+                bus, objPath.c_str(), id, stoull(msString), fs::file_size(file),
+                file, phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
     {
