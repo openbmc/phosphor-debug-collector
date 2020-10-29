@@ -49,14 +49,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *             since the epoch.
      *  @param[in] fileSize - Dump file size in bytes.
      *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize, const fs::path& file,
+          phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              parent),
+                              status, parent),
         file(file){};
 
     /** @brief Delete this d-bus object.
@@ -79,7 +81,12 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
     {
         elapsed(timeStamp);
         size(fileSize);
+        // TODO: Handled dump failed case with #ibm-openbmc/2808
+        status(OperationStatus::Completed);
         file = filePath;
+        // TODO: serialization of this property will be handled with
+        // #ibm-openbmc/2597
+        completedTime(timeStamp);
     }
 
   private:
