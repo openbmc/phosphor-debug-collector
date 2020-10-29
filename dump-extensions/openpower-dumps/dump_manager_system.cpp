@@ -52,8 +52,9 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     auto objPath = fs::path(baseEntryPath) / idString;
 
     entries.insert(std::make_pair(
-        id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, ms, size,
-                                            dumpId, *this)));
+        id, std::make_unique<system::Entry>(
+                bus, objPath.c_str(), id, ms, size, dumpId,
+                phosphor::dump::OperationStatus::Completed,  *this)));
     lastEntryId++;
     return;
 }
@@ -74,10 +75,12 @@ sdbusplus::message::object_path Manager::createDump()
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
     auto objPath = fs::path(baseEntryPath) / idString;
+    std::time_t timeStamp = std::time(nullptr);
 
     entries.insert(std::make_pair(
-        id, std::make_unique<system::Entry>(bus, objPath.c_str(), id, 0, 0,
-                                            INVALID_SOURCE_ID, *this)));
+        id, std::make_unique<system::Entry>(
+                bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
+                phosphor::dump::OperationStatus::InProgress, *this)));
     lastEntryId++;
     return objPath.string();
 }
