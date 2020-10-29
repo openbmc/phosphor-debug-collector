@@ -63,6 +63,18 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] uri - URI to offload dump.
      */
     void initiateOffload(std::string uri);
+
+    /** @brief Method to update an existing dump entry
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] dumpSize - Dump size in bytes.
+     *  @param[in] sourceId - DumpId provided by the source.
+     */
+    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
+    {
+        elapsed(timeStamp);
+        size(dumpSize);
+        sourceDumpId(sourceId);
+    }
 };
 
 } // namespace system
