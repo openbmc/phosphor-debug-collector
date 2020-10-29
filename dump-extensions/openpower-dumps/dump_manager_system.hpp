@@ -15,6 +15,7 @@ namespace dump
 namespace system
 {
 
+constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using NotifyIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::xyz::openbmc_project::Dump::server::NewDump>;
@@ -63,11 +64,12 @@ class Manager : virtual public NotifyIface,
                 uint64_t size) override;
 
     /** @brief Implementation for CreateDump
-     *  Method to create Dump.
+     *  Method to create a new system dump entry when user
+     *  requests for a new system dump.
      *
-     *  @return id - The Dump entry id number.
+     *  @return object_path - The path to the new dump entry.
      */
-    uint32_t createDump() override;
+    sdbusplus::message::object_path createDump() override;
 };
 
 } // namespace system

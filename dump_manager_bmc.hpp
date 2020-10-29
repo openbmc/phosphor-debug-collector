@@ -90,11 +90,11 @@ class Manager : virtual public CreateIface,
     void restore() override;
 
     /** @brief Implementation for CreateDump
-     *  Method to create Dump.
+     *  Method to create a BMC dump entry when user requests for a new BMC dump
      *
-     *  @return id - The Dump entry id number.
+     *  @return object_path - The object path of the new dump entry.
      */
-    uint32_t createDump() override;
+    sdbusplus::message::object_path createDump() override;
 
   private:
     /** @brief Create Dump entry d-bus object
