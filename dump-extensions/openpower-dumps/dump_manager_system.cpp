@@ -18,15 +18,9 @@ namespace system
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
-void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
+void Manager::notify(uint32_t dumpId, uint64_t size)
 {
 
-    if (dumpType != NewDump::DumpType::System)
-    {
-        log<level::ERR>("Only system dump is supported",
-                        entry("DUMPTYPE=%d", dumpType));
-        return;
-    }
     // Get the timestamp
     std::time_t timeStamp = std::time(nullptr);
 
@@ -73,12 +67,19 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     return;
 }
 
-sdbusplus::message::object_path Manager::createDump()
+sdbusplus::message::object_path
+    Manager::createDump(std::map<std::string, std::string> params)
 {
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
     constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
     constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
     constexpr auto DIAG_MOD_TARGET = "obmc-host-diagnostic-mode@0.target";
+
+    if (!params.empty())
+    {
+        log<level::WARNING>("System dump accepts no additional parameters");
+    }
+
     auto b = sdbusplus::bus::new_default();
     auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
                                       SYSTEMD_INTERFACE, "StartUnit");
