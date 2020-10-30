@@ -68,7 +68,8 @@ class Manager : virtual public NotifyIface,
      *
      *  @return id - The Dump entry id number.
      */
-    sdbusplus::message::object_path createDump() override;
+    sdbusplus::message::object_path
+        createDump(std::map<std::string, std::string> params) override;
 };
 
 } // namespace system

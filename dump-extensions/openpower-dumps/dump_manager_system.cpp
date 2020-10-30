@@ -51,12 +51,19 @@ void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
     lastEntryId++;
 }
 
-sdbusplus::message::object_path Manager::createDump()
+sdbusplus::message::object_path
+    Manager::createDump(std::map<std::string, std::string> params)
 {
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
     constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
     constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
     constexpr auto DIAG_MOD_TARGET = "obmc-host-diagnostic-mode@0.target";
+
+    if (!params.empty())
+    {
+        log<level::INFO>("System dump accepts no additional parameters");
+    }
+
     auto b = sdbusplus::bus::new_default();
     auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
                                       SYSTEMD_INTERFACE, "StartUnit");
@@ -70,7 +77,7 @@ sdbusplus::message::object_path Manager::createDump()
     entries.insert(std::make_pair(
         id, std::make_unique<system::Entry>(
                 bus, objPath.c_str(), id, 0, 0, INVALID_SOURCE_ID,
-                phosphor::dump::OperationStatus::InProgress,  *this)));
+                phosphor::dump::OperationStatus::InProgress, *this)));
     lastEntryId++;
     return std::string(objPath.c_str());
 }
