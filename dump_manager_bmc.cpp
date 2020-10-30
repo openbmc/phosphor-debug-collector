@@ -34,8 +34,13 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 
 } // namespace internal
 
-sdbusplus::message::object_path Manager::createDump()
+sdbusplus::message::object_path
+    Manager::createDump(std::map<std::string, std::string> params)
 {
+    if (!params.empty())
+    {
+        log<level::INFO>("BMC dump accepts no additional parameters");
+    }
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
 
