@@ -56,19 +56,18 @@ class Manager : virtual public NotifyIface,
     }
 
     /** @brief Notify the system dump manager about creation of a new dump.
-     *  @param[in] dumpType - Type of the Dump.
      *  @param[in] dumpId - Id from the source of the dump.
      *  @param[in] size - Size of the dump.
      */
-    void notify(NewDump::DumpType dumpType, uint32_t dumpId,
-                uint64_t size) override;
+    void notify(uint32_t dumpId, uint64_t size) override;
 
     /** @brief Implementation for CreateDump
      *  Method to create Dump.
      *
      *  @return id - The Dump entry id number.
      */
-    sdbusplus::message::object_path createDump() override;
+    sdbusplus::message::object_path
+        createDump(std::map<std::string, std::string> params) override;
 };
 
 } // namespace system
