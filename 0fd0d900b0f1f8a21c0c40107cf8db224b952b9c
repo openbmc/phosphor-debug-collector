@@ -198,6 +198,24 @@
       "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "894dcc01_072058cb",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-11-06T05:14:07Z",
+      "side": 1,
+      "message": "Agree, For dump info using various dbus api to get details.\n\nMy point is, if failure in any of dbus api call, then can we get know error info in dreport script? because you are using `busctl` command and applying some pattern to get details from dbus response so, I am wondering if any failure then pattern won\u0027t match right if so, how user can get error details?\n\nI am seeing below trace with error code, not sure how we can debug if any failure to get each field from dbus response.\n\n```\nauto error \u003d errno;\n        log\u003clevel::ERR\u003e(\"Error occurred during dreport function execution\",\n                        entry(\"ERRNO\u003d%d\", error));\n```\n\nIf some other component will add trace means ignore else @Jayanth can comment, am not sure dreport will add trace into journal as well.",
+      "parentUuid": "445d358a_64bd8e5f",
+      "revId": "0fd0d900b0f1f8a21c0c40107cf8db224b952b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
