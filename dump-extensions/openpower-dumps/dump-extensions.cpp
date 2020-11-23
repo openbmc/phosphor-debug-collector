@@ -3,6 +3,7 @@
 #include "dump-extensions.hpp"
 
 #include "dump_manager_system.hpp"
+#include "dump_manager_resource.hpp"
 
 namespace phosphor
 {
@@ -14,6 +15,8 @@ void loadExtensions(sdbusplus::bus::bus& bus, DumpManagerList& dumpList)
 
     dumpList.push_back(std::make_unique<phosphor::dump::system::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY));
+    dumpList.push_back(std::make_unique<phosphor::dump::resource::Manager>(
+        bus, RESOURCE_DUMP_OBJPATH, RESOURCE_DUMP_OBJ_ENTRY));
 }
 } // namespace dump
 } // namespace phosphor
