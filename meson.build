@@ -124,9 +124,10 @@ phosphor_dump_manager_dependency = [
 
 phosphor_dump_manager_install = true
 
-# To get host dump offload transport source files and dependency list
-# for phosphor_dump_manager
-subdir('offload-extensions')
+# To get host transport based interface to take respective host
+# dump actions. It will contain required sources and dependency
+# list for phosphor_dump_manager.
+subdir('host-transport-extensions')
 
 #pick any architecture specific dumps
 subdir('dump-extensions')
