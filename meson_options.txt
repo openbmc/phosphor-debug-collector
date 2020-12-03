@@ -83,7 +83,7 @@ option('ERROR_MAP_YAML', type : 'string',
         description : 'YAML filepath containing error object paths'
       )
 
-option('host-dump-offload-transport', type : 'string',
+option('host-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
 
