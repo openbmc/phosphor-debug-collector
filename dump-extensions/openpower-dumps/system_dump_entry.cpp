@@ -1,6 +1,6 @@
 #include "system_dump_entry.hpp"
 
-#include "offload-extensions.hpp"
+#include "host_transport_exts.hpp"
 
 namespace phosphor
 {
