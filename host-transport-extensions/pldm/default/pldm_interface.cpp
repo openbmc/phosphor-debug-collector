@@ -16,6 +16,11 @@ void requestOffload(uint32_t)
 {
     throw std::runtime_error("PLDM: Hostdump offload method not specified");
 }
+
+void requestDelete(uint32_t)
+{
+    throw std::runtime_error("PLDM: Hostdump delete method not specified");
+}
 } // namespace host
 } // namespace dump
 } // namespace phosphor

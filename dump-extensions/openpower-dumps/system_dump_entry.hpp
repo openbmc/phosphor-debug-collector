@@ -79,6 +79,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         status(OperationStatus::Completed);
         completedTime(timeStamp);
     }
+
+    /**
+     * @brief Delete host system dump and it entry dbus object
+     */
+    void delete_() override;
 };
 
 } // namespace system
