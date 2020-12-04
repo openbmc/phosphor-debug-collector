@@ -5,11 +5,15 @@
 
 #include <memory>
 #include <sdbusplus/bus.hpp>
+#include <xyz/openbmc_project/State/Boot/Progress/server.hpp>
 
 namespace phosphor
 {
 namespace dump
 {
+
+using BootProgress = sdbusplus::xyz::openbmc_project::State::Boot::server::
+    Progress::ProgressStages;
 
 /* Need a custom deleter for freeing up sd_event */
 struct EventDeleter
@@ -70,6 +74,15 @@ struct CustomFd
  **/
 std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
                        const std::string& interface);
+
+/**
+ * @brief Get the host boot progress stage
+ *
+ * @return BootProgress on success
+ *         Throw exception on failure
+ *
+ */
+BootProgress getBootProgress();
 
 } // namespace dump
 } // namespace phosphor

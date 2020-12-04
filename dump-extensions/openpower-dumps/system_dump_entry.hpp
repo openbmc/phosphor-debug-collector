@@ -73,6 +73,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         size(dumpSize);
         sourceDumpId(sourceId);
     }
+
+    /**
+     * @brief Delete host system dump and it entry dbus object
+     */
+    void delete_() override;
 };
 
 } // namespace system

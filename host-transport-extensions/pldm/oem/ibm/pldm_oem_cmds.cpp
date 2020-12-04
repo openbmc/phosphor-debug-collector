@@ -20,6 +20,7 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/base.h>
+#include <libpldm/file_io.h>
 #include <libpldm/platform.h>
 #include <unistd.h>
 
@@ -44,6 +45,11 @@ void requestOffload(uint32_t id)
 {
     pldm::requestOffload(id);
 }
+
+void requestDelete(uint32_t id)
+{
+    pldm::requestDelete(id);
+}
 } // namespace host
 
 namespace pldm
@@ -54,8 +60,8 @@ using namespace phosphor::logging;
 constexpr auto eidPath = "/usr/share/pldm/host_eid";
 constexpr mctp_eid_t defaultEIDValue = 9;
 
-using InternalFailure =
-    sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
+using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
 mctp_eid_t readEID()
 {
@@ -65,7 +71,8 @@ mctp_eid_t readEID()
     if (!eidFile.good())
     {
         log<level::ERR>("Could not open host EID file");
-        elog<InternalFailure>();
+        elog<NotAllowed>(Reason("Required host dump action via pldm is not "
+                                "allowed due to mctp end point read failed"));
     }
     else
     {
@@ -78,7 +85,9 @@ mctp_eid_t readEID()
         else
         {
             log<level::ERR>("EID file was empty");
-            elog<InternalFailure>();
+            elog<NotAllowed>(
+                Reason("Required host dump action via pldm is not "
+                       "allowed due to mctp end point read failed"));
         }
     }
 
@@ -110,7 +119,8 @@ void requestOffload(uint32_t id)
     if (rc != PLDM_SUCCESS)
     {
         log<level::ERR>("Message encode failure. ", entry("RC=%d", rc));
-        elog<InternalFailure>();
+        elog<NotAllowed>(Reason("Host system dump offload via pldm is not "
+                                "allowed due to encode failed"));
     }
 
     uint8_t* responseMsg = nullptr;
@@ -125,7 +135,8 @@ void requestOffload(uint32_t id)
         auto e = errno;
         log<level::ERR>("pldm_send failed", entry("RC=%d", rc),
                         entry("ERRNO=%d", e));
-        elog<InternalFailure>();
+        elog<NotAllowed>(Reason("Host system dump offload via pldm is not "
+                                "allowed due to fileack send failed"));
     }
     pldm_msg* response = reinterpret_cast<pldm_msg*>(responseMsg);
     log<level::INFO>(
@@ -133,6 +144,80 @@ void requestOffload(uint32_t id)
         entry("RC=%d", static_cast<uint16_t>(response->payload[0])));
 }
 
+/*
+ * Using FileAck pldm command with file type as PLDM_FILE_TYPE_DUMP
+ * to delete host system dump
+ */
+void requestDelete(uint32_t dumpId)
+{
+    const size_t pldmMsgHdrSize = sizeof(pldm_msg_hdr);
+    std::array<uint8_t, pldmMsgHdrSize + PLDM_FILE_ACK_REQ_BYTES> fileAckReqMsg;
+
+    mctp_eid_t mctpEndPointId = readEID();
+
+    auto pldmInstanceId = getPLDMInstanceID(mctpEndPointId);
+
+    // - PLDM_FILE_TYPE_DUMP - To indicate FileAck for Host system dump
+    // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
+    //   no longer host system dump is not required so, initiate deletion from
+    //   host memory
+    int retCode = encode_file_ack_req(
+        pldmInstanceId, PLDM_FILE_TYPE_DUMP, dumpId, PLDM_SUCCESS,
+        reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
+
+    if (retCode != PLDM_SUCCESS)
+    {
+        log<level::ERR>(
+            "Failed to encode pldm FileAck to delete host system dump",
+            entry("SRC_DUMP_ID=%d", dumpId),
+            entry("PLDM_RETURN_CODE=%d", retCode));
+        elog<NotAllowed>(Reason("Host system dump deletion via pldm is not "
+                                "allowed due to encode fileack failed"));
+    }
+
+    uint8_t* pldmRespMsg = nullptr;
+    size_t pldmRespMsgSize;
+
+    CustomFd pldmFd(openPLDM());
+
+    retCode =
+        pldm_send_recv(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
+                       fileAckReqMsg.size(), &pldmRespMsg, &pldmRespMsgSize);
+
+    std::unique_ptr<uint8_t, decltype(std::free)*> pldmRespMsgPtr{pldmRespMsg,
+                                                                  std::free};
+    if (retCode != PLDM_REQUESTER_SUCCESS)
+    {
+        auto errorNumber = errno;
+        log<level::ERR>(
+            "Failed to send pldm FileAck to delete host system dump",
+            entry("SRC_DUMP_ID=%d", dumpId),
+            entry("PLDM_RETURN_CODE=%d", retCode),
+            entry("ERRNO=%d", errorNumber),
+            entry("ERRMSG=%s", strerror(errorNumber)));
+        elog<NotAllowed>(Reason("Host system dump deletion via pldm is not "
+                                "allowed due to fileack send failed"));
+    }
+
+    uint8_t completionCode;
+
+    retCode =
+        decode_file_ack_resp(reinterpret_cast<pldm_msg*>(pldmRespMsgPtr.get()),
+                             pldmRespMsgSize - pldmMsgHdrSize, &completionCode);
+
+    if (retCode || completionCode)
+    {
+        log<level::ERR>("Failed to delete host system dump",
+                        entry("SRC_DUMP_ID=%d", dumpId),
+                        entry("PLDM_RETURN_CODE=%d", retCode),
+                        entry("PLDM_COMPLETION_CODE=%d", completionCode));
+        elog<NotAllowed>(Reason("Host system dump deletion via pldm is "
+                                "failed"));
+    }
+
+    log<level::INFO>("Deleted host system dump",
+                     entry("SRC_DUMP_ID=%d", dumpId));
+}
 } // namespace pldm
 } // namespace dump
 } // namespace phosphor
