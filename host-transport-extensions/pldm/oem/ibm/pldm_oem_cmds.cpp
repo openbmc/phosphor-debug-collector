@@ -57,14 +57,6 @@ constexpr mctp_eid_t defaultEIDValue = 9;
 using InternalFailure =
     sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
-void closeFD(int fd)
-{
-    if (fd >= 0)
-    {
-        close(fd);
-    }
-}
-
 mctp_eid_t readEID()
 {
     mctp_eid_t eid = defaultEIDValue;
@@ -124,13 +116,12 @@ void requestOffload(uint32_t id)
     uint8_t* responseMsg = nullptr;
     size_t responseMsgSize{};
 
-    auto fd = openPLDM();
+    CustomFd fd(openPLDM());
 
-    rc = pldm_send_recv(eid, fd, requestMsg.data(), requestMsg.size(),
+    rc = pldm_send_recv(eid, fd(), requestMsg.data(), requestMsg.size(),
                         &responseMsg, &responseMsgSize);
     if (rc < 0)
     {
-        closeFD(fd);
         auto e = errno;
         log<level::ERR>("pldm_send failed", entry("RC=%d", rc),
                         entry("ERRNO=%d", e));
@@ -140,8 +131,6 @@ void requestOffload(uint32_t id)
     log<level::INFO>(
         "Done. PLDM message",
         entry("RC=%d", static_cast<uint16_t>(response->payload[0])));
-
-    closeFD(fd);
 }
 
 } // namespace pldm

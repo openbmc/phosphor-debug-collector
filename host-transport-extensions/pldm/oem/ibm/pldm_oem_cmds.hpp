@@ -43,11 +43,6 @@ void requestOffload(uint32_t id);
  */
 mctp_eid_t readEID();
 
-/**
- * @brief Closes the PLDM file descriptor
- */
-void closeFD(int fd);
-
 } // namespace pldm
 } // namespace dump
 } // namespace phosphor
