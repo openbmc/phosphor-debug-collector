@@ -6,6 +6,17 @@ namespace phosphor
 {
 namespace dump
 {
+namespace host
+{
+/**
+ * @brief Initiate offload of the dump with provided id
+ *
+ * @param[in] id - The Dump Source ID.
+ *
+ */
+void requestOffload(uint32_t id);
+}
+
 namespace pldm
 {
 
@@ -33,23 +44,9 @@ void requestOffload(uint32_t id);
 mctp_eid_t readEID();
 
 /**
- * @brief Opens the PLDM file descriptor
- */
-int open();
-
-/**
  * @brief Closes the PLDM file descriptor
  */
 void closeFD(int fd);
-
-/**
- * @brief Returns the PLDM instance ID to use for PLDM commands
- *
- * @param[in] eid - The PLDM EID
- *
- * @return uint8_t - The instance ID
- **/
-uint8_t getPLDMInstanceID(uint8_t eid);
 
 } // namespace pldm
 } // namespace dump
