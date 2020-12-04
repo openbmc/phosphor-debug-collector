@@ -124,6 +124,8 @@ phosphor_dump_manager_dependency = [
 
 phosphor_dump_manager_install = true
 
+phosphor_dump_manager_incdir = []
+
 # To get host transport based interface to take respective host
 # dump actions. It will contain required sources and dependency
 # list for phosphor_dump_manager.
@@ -146,15 +148,19 @@ phosphor_dump_monitor_dependency = [
 
 phosphor_dump_monitor_install = true
 
+phosphor_dump_monitor_incdir = []
+
 executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_manager_sources,
                   phosphor_dump_manager_dependency,
-                  phosphor_dump_manager_install
+                  phosphor_dump_manager_install,
+                  phosphor_dump_manager_incdir
                ],
                [ 'phosphor-dump-monitor',
                   phosphor_dump_monitor_sources,
                   phosphor_dump_monitor_dependency,
-                  phosphor_dump_monitor_install
+                  phosphor_dump_monitor_install,
+                  phosphor_dump_monitor_incdir
                ]
               ]
 
@@ -163,7 +169,8 @@ foreach executable : executables
                         executable[0],
                         executable[1],
                         dependencies: executable[2],
-                        install : executable[3]
+                        install : executable[3],
+                        include_directories : executable[4]
                        )
 endforeach
 
