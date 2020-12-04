@@ -61,6 +61,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] uri - URI to offload dump.
      */
     void initiateOffload(std::string uri);
+
+    /**
+     * @brief Delete host system dump and it entry dbus object
+     */
+    void delete_() override;
 };
 
 } // namespace system
