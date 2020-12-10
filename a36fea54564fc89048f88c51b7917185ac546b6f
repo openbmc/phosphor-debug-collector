@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "a4aece8e_4afb1ae7",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "no :)",
+      "parentUuid": "6098b875_4b31028e",
+      "range": {
+        "startLine": 1,
+        "startChar": 9,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4daf72ff_700c0be1",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 12
@@ -62,6 +86,30 @@
       "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05541dc8_bba7c1f4",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4daf72ff_700c0be1",
+      "range": {
+        "startLine": 27,
+        "startChar": 38,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "90478f59_784cb188",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee43e6ab_fa714abd",
+      "range": {
+        "startLine": 41,
+        "startChar": 14,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57cb7095_a4bccd72",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 12
@@ -99,6 +171,24 @@
       "writtenOn": "2020-12-10T16:43:28Z",
       "side": 1,
       "message": "is it somebody watching created entry to get there is request for create resource dump ? \nIf so, can make some comment like creation will happen by this dbus client ?",
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92757b8_8a2fe712",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "yes PLDM will watch for the creating of this entry",
+      "parentUuid": "57cb7095_a4bccd72",
       "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "d16a4768_d188d47a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3996535_98d1a377",
+      "range": {
+        "startLine": 63,
+        "startChar": 73,
+        "endLine": 63,
+        "endChar": 77
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "091809d0_29a52bc7",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 12
@@ -148,6 +262,30 @@
       "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f4e387_690f02e8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "091809d0_29a52bc7",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -191,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "5a8f20c7_1baa6d3c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "yes com::ibm::Dump is for the enum",
+      "parentUuid": "257a3538_667f9d93",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 45
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08f4b40c_1a8ac598",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
         "patchSetId": 12
@@ -214,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "11b52bf4_7a8dd456",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f4b40c_1a8ac598",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9691c24b_1c131f05",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
         "patchSetId": 12
@@ -228,6 +414,24 @@
       "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f41330_a0456cb0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9691c24b_1c131f05",
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -254,6 +458,30 @@
     },
     {
       "key": {
+        "uuid": "ee70da45_986b4af0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa27ce70_0940382f",
+      "range": {
+        "startLine": 59,
+        "startChar": 26,
+        "endLine": 59,
+        "endChar": 45
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc1bfa97_612eb7ea",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
         "patchSetId": 12
@@ -277,6 +505,30 @@
     },
     {
       "key": {
+        "uuid": "0f3d804a_51e403cb",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc1bfa97_612eb7ea",
+      "range": {
+        "startLine": 68,
+        "startChar": 16,
+        "endLine": 68,
+        "endChar": 46
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22f09daf_53dd7843",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
         "patchSetId": 12
@@ -288,6 +540,30 @@
       "writtenOn": "2020-12-10T16:43:28Z",
       "side": 1,
       "message": "requestOffload will use same pldm command for host system and resource dump?",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e21a7e1e_03bd1209",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "22f09daf_53dd7843",
       "range": {
         "startLine": 15,
         "startChar": 26,
@@ -323,6 +599,30 @@
     },
     {
       "key": {
+        "uuid": "b7a6db35_f50e74f9",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d578b7_9836fe02",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14c09932_99e378ef",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 12
@@ -346,6 +646,30 @@
     },
     {
       "key": {
+        "uuid": "6383efaa_980b431a",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "The update is only when the operation is completed, we can change this later if at all we handle abort or error.",
+      "parentUuid": "14c09932_99e378ef",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 42
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdebe505_50fa39cf",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 12
@@ -357,6 +681,30 @@
       "writtenOn": "2020-12-10T16:43:28Z",
       "side": 1,
       "message": "same as LN 81.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 21
+      },
+      "revId": "a36fea54564fc89048f88c51b7917185ac546b6f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b1b53b_233bb8a8",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-10T17:13:27Z",
+      "side": 1,
+      "message": "This will be hardcoded, this is the best place to find the completed time",
+      "parentUuid": "cdebe505_50fa39cf",
       "range": {
         "startLine": 84,
         "startChar": 8,
