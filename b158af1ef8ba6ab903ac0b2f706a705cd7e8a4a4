@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6c94f35_135dcefb",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2020-12-14T11:04:53Z",
+      "side": 1,
+      "message": "not critical but these can go before line 66, declare variables at place of usage.",
+      "range": {
+        "startLine": 55,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 0
+      },
+      "revId": "b158af1ef8ba6ab903ac0b2f706a705cd7e8a4a4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
