@@ -445,6 +445,30 @@
       "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f8c80ac_a04b183f",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-16T15:38:10Z",
+      "side": 1,
+      "message": "#2597 is needed for all properties here, so no need to mention that explicitely",
+      "parentUuid": "b6a0ec0f_44266e87",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
