@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f088a4c_b01948f2",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Do you need to update progress status for user initiated dump case?",
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eb09e4f_d11d0ae7",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Somewhere I saw for other type dumps, the entry id is incremented only at last. Do you need same behaviour here too?",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4579f971_2fb278cd",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "I think you need to add this insertion into try and catch block to catch make_unique exception",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 80
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07777dbe_9cd7d1e8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Somewhere I saw for other type dumps, the entry id is incremented only at last. Do you need same behaviour here too?",
+      "range": {
+        "startLine": 55,
+        "startChar": 14,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "832e52a6_8cc67ced",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "I think you need to add this insertion into try and catch block to catch make_unique exception",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 75
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9615e1d3_5b1acb25",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Can we request offload when host is down ? if not please handle.\n\nEffecter ID is same for resource and system dump ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 57
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44d22edb_5ba88d54",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "FYI, we can use std::filesystem instead from experimental package.",
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3019011a_fcba2939",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "white space",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4de79d4_4502b7a6",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Do you need to add TODO for issue #2808",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d80d2c8_ad908104",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-16T07:17:13Z",
+      "side": 1,
+      "message": "Do you need to add TODO for issue #2597",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
