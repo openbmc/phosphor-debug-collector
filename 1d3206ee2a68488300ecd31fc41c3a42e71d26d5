@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4cb226_1a571717",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-17T12:51:57Z",
+      "side": 1,
+      "message": "I guess, pldm file type will be differ for resource dump. Please check with pldm team, I remember they said it will be different.\n\nIf it is different, then we won\u0027t see expected result here i.e current used host::requestDelete() -\u003e pldm::requestDelete() (I guess you expected pldm ibm specific command in your flow, because your dbus sitting under com/ibm so, it will ibm specific pldm::requestDelete()) will request host system dump. So, we need to pass type of dump.\n\nReference: https://github.com/openbmc/phosphor-debug-collector/blob/master/host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp#L160\n\n\u003e // - PLDM_FILE_TYPE_DUMP - To indicate FileAck for Host system dump",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 55
+      },
+      "revId": "1d3206ee2a68488300ecd31fc41c3a42e71d26d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
