@@ -20,7 +20,6 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/base.h>
-#include <libpldm/file_io.h>
 #include <libpldm/platform.h>
 #include <unistd.h>
 
@@ -28,6 +27,9 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
+
+constexpr auto TYPE_SYSTEM_DUMP = 0;
+constexpr auto TYPE_RESOURCE_DUMP = 1;
 
 namespace phosphor
 {
@@ -46,9 +48,21 @@ void requestOffload(uint32_t id)
     pldm::requestOffload(id);
 }
 
-void requestDelete(uint32_t id)
+void requestDelete(uint32_t id, uint32_t dumpType)
 {
-    pldm::requestDelete(id);
+    pldm_fileio_file_type pldmDumpType;
+    switch (dumpType)
+    {
+        case TYPE_SYSTEM_DUMP:
+            pldmDumpType = PLDM_FILE_TYPE_DUMP;
+            break;
+        case TYPE_RESOURCE_DUMP:
+            pldmDumpType = PLDM_FILE_TYPE_RESOURCE_DUMP_PARMS;
+            break;
+        default:
+            throw std::runtime_error("Unknown dump type"); 
+    }
+    pldm::requestDelete(id, pldmDumpType);
 }
 } // namespace host
 
@@ -144,11 +158,7 @@ void requestOffload(uint32_t id)
         entry("RC=%d", static_cast<uint16_t>(response->payload[0])));
 }
 
-/*
- * Using FileAck pldm command with file type as PLDM_FILE_TYPE_DUMP
- * to delete host system dump
- */
-void requestDelete(uint32_t dumpId)
+void requestDelete(uint32_t dumpId, pldm_fileio_file_type dumpType)
 {
     const size_t pldmMsgHdrSize = sizeof(pldm_msg_hdr);
     std::array<uint8_t, pldmMsgHdrSize + PLDM_FILE_ACK_REQ_BYTES> fileAckReqMsg;
@@ -157,12 +167,11 @@ void requestDelete(uint32_t dumpId)
 
     auto pldmInstanceId = getPLDMInstanceID(mctpEndPointId);
 
-    // - PLDM_FILE_TYPE_DUMP - To indicate FileAck for Host system dump
     // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
-    //   no longer host system dump is not required so, initiate deletion from
+    //   no longer host dump is not required so, initiate deletion from
     //   host memory
     int retCode = encode_file_ack_req(
-        pldmInstanceId, PLDM_FILE_TYPE_DUMP, dumpId, PLDM_SUCCESS,
+        pldmInstanceId, dumpType, dumpId, PLDM_SUCCESS,
         reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
 
     if (retCode != PLDM_SUCCESS)

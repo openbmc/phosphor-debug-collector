@@ -13,6 +13,9 @@ namespace dump
 {
 namespace resource
 {
+// This value is used to identify the dump in the transport layer to host,
+constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 1;
+
 template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
@@ -86,6 +89,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         status(OperationStatus::Completed);
         completedTime(timeStamp);
     }
+
+    /**
+     * @brief Delete resource dump in host memory and the entry dbus object
+     */
+    void delete_() override;
 };
 
 } // namespace resource
