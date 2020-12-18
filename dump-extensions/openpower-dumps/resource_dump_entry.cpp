@@ -12,6 +12,10 @@ namespace dump
 {
 namespace resource
 {
+// TODO #ibm-openbmc/issues/2859
+// Revisit host transport impelementation
+// This value is used to identify the dump in the transport layer to host,
+constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 7;
 using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
@@ -30,6 +34,21 @@ void Entry::initiateOffload(std::string uri)
     phosphor::dump::host::requestOffload(sourceDumpId());
 }
 
+void Entry::delete_()
+{
+    auto srcDumpID = sourceDumpId();
+
+    // Remove Dump entry D-bus object
+    phosphor::dump::Entry::delete_();
+
+    // Remove resource dump when host is up by using source dump id
+    // which is present in resource dump entry dbus object as a property.
+    if (phosphor::dump::isHostRunning())
+    {
+        phosphor::dump::host::requestDelete(srcDumpID,
+                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
+    }
+}
 } // namespace resource
 } // namespace dump
 } // namespace openpower
