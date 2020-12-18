@@ -101,5 +101,17 @@ BootProgress getBootProgress()
 
     return bootProgessStage;
 }
+
+bool isHostRunning()
+{
+    BootProgress bootProgressStatus = phosphor::dump::getBootProgress();
+    if ((bootProgressStatus == BootProgress::SystemInitComplete) ||
+        (bootProgressStatus == BootProgress::OSStart) ||
+        (bootProgressStatus == BootProgress::OSRunning))
+    {
+        return true;
+    }
+    return false;
+}
 } // namespace dump
 } // namespace phosphor

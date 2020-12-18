@@ -84,5 +84,13 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
  */
 BootProgress getBootProgress();
 
+/**
+ * @brief Check whether host is running
+ *
+ * @return true is the host running else false.
+ *         Throw exception on failure.
+ */
+bool isHostRunning();
+
 } // namespace dump
 } // namespace phosphor
