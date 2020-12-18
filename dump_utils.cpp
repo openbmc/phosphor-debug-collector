@@ -101,5 +101,19 @@ BootProgress getBootProgress()
 
     return bootProgessStage;
 }
+
+bool isHostRunning()
+{
+    // TODO #ibm-openbmc/dev/2858 Revisit the method for finding whether host
+    // is running.
+    BootProgress bootProgressStatus = phosphor::dump::getBootProgress();
+    if ((bootProgressStatus == BootProgress::SystemInitComplete) ||
+        (bootProgressStatus == BootProgress::OSStart) ||
+        (bootProgressStatus == BootProgress::OSRunning))
+    {
+        return true;
+    }
+    return false;
+}
 } // namespace dump
 } // namespace phosphor
