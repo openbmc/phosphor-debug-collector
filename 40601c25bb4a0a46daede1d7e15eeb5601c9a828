@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "9d97b9fb_97b1baae",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-18T04:27:36Z",
+      "side": 1,
+      "message": "TODO is there inside the function, this function may not change but we add some new report error function.",
+      "parentUuid": "eb86e2b6_f6b852f0",
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2eb09e4f_d11d0ae7",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 24
@@ -302,6 +320,30 @@
       "side": 1,
       "message": "Can you change system offload then? because, currently we did not handle such case for system dump offload.\nhttps://github.com/openbmc/phosphor-debug-collector/blob/master/dump-extensions/openpower-dumps/system_dump_entry.cpp#L13\n\nSeparate patch will be good or Add in this patch and update commit as well.",
       "parentUuid": "00391c1f_47614d68",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 57
+      },
+      "revId": "40601c25bb4a0a46daede1d7e15eeb5601c9a828",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a8ea9d1_206fae8c",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-18T04:27:36Z",
+      "side": 1,
+      "message": "that was something you could add.. but anyway I will push a commit for that",
+      "parentUuid": "0e060f8a_4d2548ad",
       "range": {
         "startLine": 15,
         "startChar": 4,
