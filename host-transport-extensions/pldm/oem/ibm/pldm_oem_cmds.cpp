@@ -20,7 +20,6 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/base.h>
-#include <libpldm/file_io.h>
 #include <libpldm/platform.h>
 #include <unistd.h>
 
@@ -46,9 +45,9 @@ void requestOffload(uint32_t id)
     pldm::requestOffload(id);
 }
 
-void requestDelete(uint32_t id)
+void requestDelete(uint32_t id, uint32_t dumpType)
 {
-    pldm::requestDelete(id);
+    pldm::requestDelete(id, dumpType);
 }
 } // namespace host
 
@@ -119,7 +118,7 @@ void requestOffload(uint32_t id)
     if (rc != PLDM_SUCCESS)
     {
         log<level::ERR>("Message encode failure. ", entry("RC=%d", rc));
-        elog<NotAllowed>(Reason("Host system dump offload via pldm is not "
+        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to encode failed"));
     }
 
@@ -135,7 +134,7 @@ void requestOffload(uint32_t id)
         auto e = errno;
         log<level::ERR>("pldm_send failed", entry("RC=%d", rc),
                         entry("ERRNO=%d", e));
-        elog<NotAllowed>(Reason("Host system dump offload via pldm is not "
+        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to fileack send failed"));
     }
     pldm_msg* response = reinterpret_cast<pldm_msg*>(responseMsg);
@@ -144,12 +143,21 @@ void requestOffload(uint32_t id)
         entry("RC=%d", static_cast<uint16_t>(response->payload[0])));
 }
 
-/*
- * Using FileAck pldm command with file type as PLDM_FILE_TYPE_DUMP
- * to delete host system dump
- */
-void requestDelete(uint32_t dumpId)
+void requestDelete(uint32_t dumpId, uint32_t dumpType)
 {
+    pldm_fileio_file_type pldmDumpType;
+    switch (dumpType)
+    {
+        case PLDM_FILE_TYPE_DUMP:
+            pldmDumpType = PLDM_FILE_TYPE_DUMP;
+            break;
+        case PLDM_FILE_TYPE_RESOURCE_DUMP_PARMS:
+            pldmDumpType = PLDM_FILE_TYPE_RESOURCE_DUMP_PARMS;
+            break;
+        default:
+            throw std::runtime_error("Unknown pldm dump file-io type to delete "
+                                     "host dump");
+    }
     const size_t pldmMsgHdrSize = sizeof(pldm_msg_hdr);
     std::array<uint8_t, pldmMsgHdrSize + PLDM_FILE_ACK_REQ_BYTES> fileAckReqMsg;
 
@@ -157,21 +165,20 @@ void requestDelete(uint32_t dumpId)
 
     auto pldmInstanceId = getPLDMInstanceID(mctpEndPointId);
 
-    // - PLDM_FILE_TYPE_DUMP - To indicate FileAck for Host system dump
     // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
-    //   no longer host system dump is not required so, initiate deletion from
+    //   no longer host dump is not required so, initiate deletion from
     //   host memory
-    int retCode = encode_file_ack_req(
-        pldmInstanceId, PLDM_FILE_TYPE_DUMP, dumpId, PLDM_SUCCESS,
-        reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
+    int retCode =
+        encode_file_ack_req(pldmInstanceId, pldmDumpType, dumpId, PLDM_SUCCESS,
+                            reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
 
     if (retCode != PLDM_SUCCESS)
     {
-        log<level::ERR>(
-            "Failed to encode pldm FileAck to delete host system dump",
-            entry("SRC_DUMP_ID=%d", dumpId),
-            entry("PLDM_RETURN_CODE=%d", retCode));
-        elog<NotAllowed>(Reason("Host system dump deletion via pldm is not "
+        log<level::ERR>("Failed to encode pldm FileAck to delete host dump",
+                        entry("SRC_DUMP_ID=%d", dumpId),
+                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
+                        entry("PLDM_RETURN_CODE=%d", retCode));
+        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to encode fileack failed"));
     }
 
@@ -189,13 +196,13 @@ void requestDelete(uint32_t dumpId)
     if (retCode != PLDM_REQUESTER_SUCCESS)
     {
         auto errorNumber = errno;
-        log<level::ERR>(
-            "Failed to send pldm FileAck to delete host system dump",
-            entry("SRC_DUMP_ID=%d", dumpId),
-            entry("PLDM_RETURN_CODE=%d", retCode),
-            entry("ERRNO=%d", errorNumber),
-            entry("ERRMSG=%s", strerror(errorNumber)));
-        elog<NotAllowed>(Reason("Host system dump deletion via pldm is not "
+        log<level::ERR>("Failed to send pldm FileAck to delete host dump",
+                        entry("SRC_DUMP_ID=%d", dumpId),
+                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
+                        entry("PLDM_RETURN_CODE=%d", retCode),
+                        entry("ERRNO=%d", errorNumber),
+                        entry("ERRMSG=%s", strerror(errorNumber)));
+        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to fileack send failed"));
     }
 
@@ -207,16 +214,16 @@ void requestDelete(uint32_t dumpId)
 
     if (retCode || completionCode)
     {
-        log<level::ERR>("Failed to delete host system dump",
+        log<level::ERR>("Failed to delete host dump",
                         entry("SRC_DUMP_ID=%d", dumpId),
+                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
                         entry("PLDM_RETURN_CODE=%d", retCode),
                         entry("PLDM_COMPLETION_CODE=%d", completionCode));
-        elog<NotAllowed>(Reason("Host system dump deletion via pldm is "
+        elog<NotAllowed>(Reason("Host dump deletion via pldm is "
                                 "failed"));
     }
 
-    log<level::INFO>("Deleted host system dump",
-                     entry("SRC_DUMP_ID=%d", dumpId));
+    log<level::INFO>("Deleted host dump", entry("SRC_DUMP_ID=%d", dumpId));
 }
 } // namespace pldm
 } // namespace dump
