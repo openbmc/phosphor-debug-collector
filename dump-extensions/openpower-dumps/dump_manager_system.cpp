@@ -1,6 +1,7 @@
 #include "config.h"
 
 #include "dump_manager_system.hpp"
+#include "dump_utils.hpp"
 
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -78,6 +79,18 @@ sdbusplus::message::object_path
     if (!params.empty())
     {
         log<level::WARNING>("System dump accepts no additional parameters");
+    }
+
+    using NotAllowed =
+        sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+    using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
+    // Allow creating system dump only when the host is up.
+    if (!phosphor::dump::isHostRunning())
+    {
+        elog<NotAllowed>(
+            Reason("System dump can be initiated only when the host is up"));
+        return std::string();
     }
 
     auto b = sdbusplus::bus::new_default();
