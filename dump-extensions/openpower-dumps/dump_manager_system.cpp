@@ -18,15 +18,9 @@ namespace system
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
-void Manager::notify(NewDump::DumpType dumpType, uint32_t dumpId, uint64_t size)
+void Manager::notify(uint32_t dumpId, uint64_t size)
 {
 
-    if (dumpType != NewDump::DumpType::System)
-    {
-        log<level::ERR>("Only system dump is supported",
-                        entry("DUMPTYPE=%d", dumpType));
-        return;
-    }
     // Get the timestamp
     std::time_t timeStamp = std::time(nullptr);
 
