@@ -48,7 +48,7 @@ void Entry::delete_()
         (bootProgressStatus == BootProgress::OSStart) ||
         (bootProgressStatus == BootProgress::OSRunning))
     {
-        phosphor::dump::host::requestDelete(srcDumpID);
+        phosphor::dump::host::requestDelete(srcDumpID, PLDM_FILE_TYPE_DUMP);
     }
 }
 } // namespace system

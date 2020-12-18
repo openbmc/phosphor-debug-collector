@@ -46,9 +46,9 @@ void requestOffload(uint32_t id)
     pldm::requestOffload(id);
 }
 
-void requestDelete(uint32_t id)
+void requestDelete(uint32_t id, pldm_fileio_file_type dumpType)
 {
-    pldm::requestDelete(id);
+    pldm::requestDelete(id, dumpType);
 }
 } // namespace host
 
@@ -148,7 +148,7 @@ void requestOffload(uint32_t id)
  * Using FileAck pldm command with file type as PLDM_FILE_TYPE_DUMP
  * to delete host system dump
  */
-void requestDelete(uint32_t dumpId)
+void requestDelete(uint32_t dumpId, pldm_fileio_file_type dumpType)
 {
     const size_t pldmMsgHdrSize = sizeof(pldm_msg_hdr);
     std::array<uint8_t, pldmMsgHdrSize + PLDM_FILE_ACK_REQ_BYTES> fileAckReqMsg;
