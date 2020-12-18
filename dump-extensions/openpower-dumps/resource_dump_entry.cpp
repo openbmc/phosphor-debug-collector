@@ -30,6 +30,21 @@ void Entry::initiateOffload(std::string uri)
     phosphor::dump::host::requestOffload(sourceDumpId());
 }
 
+void Entry::delete_()
+{
+    auto srcDumpID = sourceDumpId();
+
+    // Remove Dump entry D-bus object
+    phosphor::dump::Entry::delete_();
+
+    // Remove host system dump when host is up by using source dump id
+    // which is present in system dump entry dbus object as a property.
+    if (phosphor::dump::isHostRunning())
+    {
+        phosphor::dump::host::requestDelete(srcDumpID,
+                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
+    }
+}
 } // namespace resource
 } // namespace dump
 } // namespace openpower

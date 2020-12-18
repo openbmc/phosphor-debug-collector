@@ -42,7 +42,8 @@ void Entry::delete_()
     // which is present in system dump entry dbus object as a property.
     if (phosphor::dump::isHostRunning())
     {
-        phosphor::dump::host::requestDelete(srcDumpID);
+        phosphor::dump::host::requestDelete(srcDumpID,
+                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
     }
 }
 } // namespace system

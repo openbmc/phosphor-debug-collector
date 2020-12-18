@@ -12,6 +12,9 @@ namespace dump
 {
 namespace system
 {
+// This value is used to identify the dump in the transport layer to host,
+constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 0;
+
 template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
