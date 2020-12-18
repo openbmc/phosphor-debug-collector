@@ -1,5 +1,6 @@
 #pragma once
 
+#include <libpldm/file_io.h>
 #include <libpldm/pldm.h>
 
 namespace phosphor
@@ -8,6 +9,7 @@ namespace dump
 {
 namespace host
 {
+
 /**
  * @brief Initiate offload of the dump with provided id
  *
@@ -20,10 +22,11 @@ void requestOffload(uint32_t id);
  * @brief Request to delete dump
  *
  * @param[in] id - The Dump Source ID.
+ * @param[in] dumpType - Type of the dump.
  * @return NULL
  *
  */
-void requestDelete(uint32_t id);
+void requestDelete(uint32_t id, uint32_t dumpType);
 } // namespace host
 
 namespace pldm
@@ -56,10 +59,11 @@ mctp_eid_t readEID();
  * @brief Request to delete dump
  *
  * @param[in] id - The Dump Source ID.
+ * @param[in] dumpType - Type of the dump.
  * @return NULL
  *
  */
-void requestDelete(uint32_t id);
+void requestDelete(uint32_t id, pldm_fileio_file_type dumpType);
 } // namespace pldm
 } // namespace dump
 } // namespace phosphor
