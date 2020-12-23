@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "b4fb03bb_4cda6f92",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-23T14:44:15Z",
+      "side": 1,
+      "message": "the caller is taking care of that, anyway, that is a basic validation on the caller end.",
+      "parentUuid": "1738028b_201405f2",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f087d1fc_c525c74f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 31
