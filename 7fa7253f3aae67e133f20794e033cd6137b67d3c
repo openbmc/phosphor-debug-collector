@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1738028b_201405f2",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-23T14:12:52Z",
+      "side": 1,
+      "message": "\u003e if the empty string is returned caller is taking it as an error\n\nreturn statement won\u0027t execute right ? so, I hope caller need to take care both.",
+      "parentUuid": "e77a2640_b9d55d10",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f087d1fc_c525c74f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 31
