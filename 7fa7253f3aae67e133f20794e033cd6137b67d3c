@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "428dee8b_c31f3953",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-23T08:53:39Z",
+      "side": 1,
+      "message": "vsp and pwd needs only for create?  not for offload/delete later to system initiated dump ?",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d5b2fd9_6505eef8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-23T08:53:39Z",
+      "side": 1,
+      "message": "elog will throw exception (https://github.com/openbmc/phosphor-logging/blob/master/phosphor-logging/elog.hpp#L166) so, return empty path is no effect, so caller of this api need to take care right to catch exception or how error handling will happen caller side ?",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f087d1fc_c525c74f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2020-12-23T08:53:39Z",
+      "side": 1,
+      "message": "same as 84 comment,",
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
