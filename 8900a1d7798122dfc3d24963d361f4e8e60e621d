@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "d8ea427c_b948da3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-12-23T15:16:31Z",
+      "side": 1,
+      "message": "be specific on dump type here. , BMC specfifc dump deoen\u0027t have host state depenedncy",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e511b5b8_86f0d7f0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-12-23T15:16:31Z",
+      "side": 1,
+      "message": "Make this is as common util function , system_dump_entry.cpp also have similiar chcek.",
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee18bf86_abd26f94",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 1
@@ -43,6 +83,47 @@
         "endLine": 96,
         "endChar": 29
       },
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a6632be_7de8effe",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-12-23T15:16:31Z",
+      "side": 1,
+      "message": "this is to avoid build warning -\u003e error .",
+      "parentUuid": "72bef279_5a77af42",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6ac531_913ca6ff",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-12-23T15:16:31Z",
+      "side": 1,
+      "message": "same comment as in other file.",
       "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
