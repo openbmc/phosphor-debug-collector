@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "717e1c27_6accad86",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-23T11:28:21Z",
+      "side": 1,
+      "message": "yes only for create",
+      "parentUuid": "428dee8b_c31f3953",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d5b2fd9_6505eef8",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 31
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e77a2640_b9d55d10",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-23T11:28:21Z",
+      "side": 1,
+      "message": "yes but this practice is there in this code,so just keeping it. and if the empty string is returned caller is taking it as an error",
+      "parentUuid": "6d5b2fd9_6505eef8",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f087d1fc_c525c74f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 31
@@ -59,6 +107,24 @@
       "writtenOn": "2020-12-23T08:53:39Z",
       "side": 1,
       "message": "same as 84 comment,",
+      "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "069dc326_a84cde0f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 31
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-23T11:28:21Z",
+      "side": 1,
+      "message": "same just keeping the practice",
+      "parentUuid": "f087d1fc_c525c74f",
       "revId": "7fa7253f3aae67e133f20794e033cd6137b67d3c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
