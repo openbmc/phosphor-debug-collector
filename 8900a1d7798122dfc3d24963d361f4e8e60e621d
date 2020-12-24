@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "561e9bba_f75440f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-24T08:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ea427c_b948da3e",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e511b5b8_86f0d7f0",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4562fb9_a9d47898",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-24T08:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e511b5b8_86f0d7f0",
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -127,6 +169,24 @@
       "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643d8c1d_3db3d8ec",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2020-12-24T08:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e6ac531_913ca6ff",
+      "revId": "8900a1d7798122dfc3d24963d361f4e8e60e621d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
