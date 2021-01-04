@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59dc331c_d5de93c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-04T04:37:46Z",
+      "side": 1,
+      "message": "Please update commit message like using utility function for host system dump deletion as well.",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8cf33a1_4f822e29",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-04T04:37:46Z",
+      "side": 1,
+      "message": "I think return doc need to change as like below\n\n```\n@return true if host is running else false\n               Throw exception on failure\n```",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
