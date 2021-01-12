@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f17e690_50a4a029",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59dc331c_d5de93c2",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb70ccd0_6bbf357e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2021-01-12T07:21:00Z",
       "side": 1,
       "message": "This commit is system dump specific chnage or general host dump specific one? line number 10 statement seems to be contradictory to this.",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9413b5c_29a5000b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "changing",
+      "parentUuid": "cb70ccd0_6bbf357e",
       "range": {
         "startLine": 7,
         "startChar": 31,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "342a8fc0_b2ffdd28",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80893daa_946c7001",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 86,
+        "endChar": 68
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15757eb9_02655201",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
         "patchSetId": 2
@@ -85,6 +151,30 @@
       "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa2b1a03_63eb56e8",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15757eb9_02655201",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 68
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "a33a3b72_176530a7",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "This is an existing logic just moved here, I think this is implemented this way after discussions",
+      "parentUuid": "7b81df7e_d0c10dbc",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 8
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8cf33a1_4f822e29",
         "filename": "dump_utils.hpp",
         "patchSetId": 2
@@ -125,6 +239,24 @@
       "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2cbb7b1_a376e143",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T07:50:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8cf33a1_4f822e29",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
