@@ -19,6 +19,98 @@
     },
     {
       "key": {
+        "uuid": "cb70ccd0_6bbf357e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-12T07:21:00Z",
+      "side": 1,
+      "message": "This commit is system dump specific chnage or general host dump specific one? line number 10 statement seems to be contradictory to this.",
+      "range": {
+        "startLine": 7,
+        "startChar": 31,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80893daa_946c7001",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-12T07:21:00Z",
+      "side": 1,
+      "message": "Not included this error code in the existing d-bus definition. please include.",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 86,
+        "endChar": 68
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15757eb9_02655201",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-12T07:21:00Z",
+      "side": 1,
+      "message": "Not included in the d-bus definition , need to include .",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 68
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b81df7e_d0c10dbc",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-12T07:21:00Z",
+      "side": 1,
+      "message": "Is there any better way to check the state , My understanding is that if if phyp is ready to accept command means, dump functions works right? instead of looking specific state. I know some ealire discussion happened related to this during Ramesh review. PLDM provides any interface to check Host is up like . if PLD returns error saying comminication failed reason code just not allow , that may be cleaner tha adding buch of state check here.This approch need  chnages when phyp added more states . Adding PLDM mainitaniners @tom and @deepak to comment.",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 8
+      },
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8cf33a1_4f822e29",
         "filename": "dump_utils.hpp",
         "patchSetId": 2
