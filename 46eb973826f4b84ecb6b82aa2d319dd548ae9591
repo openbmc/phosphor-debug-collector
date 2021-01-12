@@ -148,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "c4345fd0_d9e9450e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T08:17:03Z",
+      "side": 1,
+      "message": "You mean specific to system? this is enabled only on openpower systems, and these dumps are available only when host on the managed system is up",
+      "parentUuid": "e7d2ea12_033b6ff2",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15757eb9_02655201",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
         "patchSetId": 2
