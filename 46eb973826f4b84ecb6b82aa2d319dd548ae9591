@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "fb6e5478_83eb00d2",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2021-01-12T08:33:14Z",
+      "side": 1,
+      "message": "Yes, I meant https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/xyz/openbmc_project/Dump/Entry/System.interface.yaml is not openpower specific, right? I\u0027m fine with this check since it\u0027s in an extension now.",
+      "parentUuid": "c4345fd0_d9e9450e",
+      "revId": "46eb973826f4b84ecb6b82aa2d319dd548ae9591",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15757eb9_02655201",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
         "patchSetId": 2
