@@ -16,6 +16,24 @@
       "revId": "edf1040f35f6460870f105ac8b35785c84cc046a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5271fd82_daf13d24",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-12T11:37:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d1e2e1_3bff77ca",
+      "revId": "edf1040f35f6460870f105ac8b35785c84cc046a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
