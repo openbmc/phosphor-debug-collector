@@ -1,0 +1,233 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72f871d7_3820af06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 37
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "it will be good to add details like this is openpower specific feature and what is the build option need to use to enable this build.",
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f2f8db8_04fbaa8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 37
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "Validation details need to include.",
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04cfc459_9590f8f7",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "resource",
+      "range": {
+        "startLine": 59,
+        "startChar": 43,
+        "endLine": 59,
+        "endChar": 55
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef8ebae8_181d902e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "resource",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "824d8203_875afa59",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "resource",
+      "range": {
+        "startLine": 110,
+        "startChar": 42,
+        "endLine": 110,
+        "endChar": 55
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d40e123_367fca1f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.hpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "Since this is openpower specific dump , inlcude this under openpower name space.",
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "370c9ee2_0f3e969c",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 37
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "This is required?",
+      "range": {
+        "startLine": 8,
+        "startChar": 65,
+        "endLine": 8,
+        "endChar": 66
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46cd797e_9d022153",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "move to to openpowerdumps name space.\nIt will be good to keep openpower dumps including system dump in the openpower specific name space.",
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afa25dbd_ea7f7680",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "the?",
+      "range": {
+        "startLine": 29,
+        "startChar": 34,
+        "endLine": 29,
+        "endChar": 38
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9debbf_82098ef5",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 37
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "Resource dump",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c457fe46_ee88a2d3",
+        "filename": "meson_options.txt",
+        "patchSetId": 37
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-15T06:11:18Z",
+      "side": 1,
+      "message": "be consitent in the file , \"dump\"",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "68398fe72174c12a6df3c9e7ea3310a20f275007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
