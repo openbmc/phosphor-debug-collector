@@ -9,7 +9,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -32,8 +32,8 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // if not the source id will stay as invalid one.
     for (auto& entry : entries)
     {
-        phosphor::dump::resource::Entry* resEntry =
-            dynamic_cast<phosphor::dump::resource::Entry*>(entry.second.get());
+        openpower::dump::resource::Entry* resEntry =
+            dynamic_cast<openpower::dump::resource::Entry*>(entry.second.get());
         if ((resEntry->status() ==
              phosphor::dump::OperationStatus::InProgress) &&
             ((resEntry->sourceDumpId() == dumpId) ||
@@ -123,4 +123,4 @@ sdbusplus::message::object_path
 
 } // namespace resource
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower

@@ -6,7 +6,7 @@
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -88,4 +88,4 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
 
 } // namespace system
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower

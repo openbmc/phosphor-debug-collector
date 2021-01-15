@@ -6,7 +6,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -32,4 +32,4 @@ void Entry::initiateOffload(std::string uri)
 
 } // namespace resource
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower
