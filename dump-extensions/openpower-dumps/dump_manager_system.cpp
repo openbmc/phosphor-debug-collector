@@ -9,7 +9,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -33,8 +33,8 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // if there is an entry with invalid sourceId update that.
     for (auto& entry : entries)
     {
-        phosphor::dump::system::Entry* sysEntry =
-            dynamic_cast<phosphor::dump::system::Entry*>(entry.second.get());
+        openpower::dump::system::Entry* sysEntry =
+            dynamic_cast<openpower::dump::system::Entry*>(entry.second.get());
         if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
         {
             sysEntry->update(timeStamp, size, dumpId);
@@ -127,4 +127,4 @@ sdbusplus::message::object_path
 
 } // namespace system
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower

@@ -6,7 +6,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -47,4 +47,4 @@ void Entry::delete_()
 }
 } // namespace system
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower
