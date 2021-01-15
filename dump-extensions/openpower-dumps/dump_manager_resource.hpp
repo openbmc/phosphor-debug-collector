@@ -8,7 +8,7 @@
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
-namespace phosphor
+namespace openpower
 {
 namespace dump
 {
@@ -73,4 +73,4 @@ class Manager : virtual public NotifyIface,
 
 } // namespace resource
 } // namespace dump
-} // namespace phosphor
+} // namespace openpower
