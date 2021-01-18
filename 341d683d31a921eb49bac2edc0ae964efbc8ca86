@@ -16,6 +16,24 @@
       "revId": "341d683d31a921eb49bac2edc0ae964efbc8ca86",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3f96e4_9a807fd5",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-01-18T14:35:34Z",
+      "side": 0,
+      "message": "removed from wrong place",
+      "parentUuid": "6e6387bb_d70bd7b2",
+      "revId": "341d683d31a921eb49bac2edc0ae964efbc8ca86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
