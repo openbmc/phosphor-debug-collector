@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e6387bb_d70bd7b2",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T13:58:51Z",
+      "side": 0,
+      "message": "I think this is need revert ? because, added required header file eventhough it included in another header file as per openbmc guideline. \nwhy you removed ?",
+      "revId": "341d683d31a921eb49bac2edc0ae964efbc8ca86",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
