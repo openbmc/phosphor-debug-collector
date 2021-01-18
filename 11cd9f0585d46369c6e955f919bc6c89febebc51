@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "ce2856e9_70111492",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "2 - Agree, May be I need to mention like TRANSPORT_DUMP_TYPE_RESOURCE TRANSPORT_DUMP_TYPE_SYSTEM. It will be good from readablity point of view else we need to look defined place i.e In pldm about 3 and 7 but, I agree since, you are added in respective resource and system source file so, it\u0027s upto you to take decision.",
+      "parentUuid": "83b11a7e_2b93bb75",
+      "revId": "11cd9f0585d46369c6e955f919bc6c89febebc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2e6166e_ff4e980f",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
         "patchSetId": 15

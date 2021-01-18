@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1ea87ab_357bb64b",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "JS: I think this can before requestDelete() call i.e do we need in global scope ?",
+      "revId": "3bc61071ff5b838c4bc9aeecc22e32a3cd6e76e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec3edf52_aeb0ee9d",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "JS: I think this can before requestDelete() call i.e do we need in global scope ?",
+      "revId": "3bc61071ff5b838c4bc9aeecc22e32a3cd6e76e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eaefbdd_ccdf3849",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "- Do we need any trace or dbus handler will capture exception and add into journal ?\n- May be we can change exception like `Unknown pldm dump file-io type to delete host dump`",
+      "revId": "3bc61071ff5b838c4bc9aeecc22e32a3cd6e76e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a5f1f78_90ba083c",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "Please add pldmDumptype in trace and it may help us in future.\nSame as all place wherever is possible",
+      "revId": "3bc61071ff5b838c4bc9aeecc22e32a3cd6e76e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01e00a03_90cc2fda",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-01-18T12:13:26Z",
+      "side": 1,
+      "message": "This should go in source file since you removed required pldm stuff from header file in this patch",
+      "revId": "3bc61071ff5b838c4bc9aeecc22e32a3cd6e76e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
