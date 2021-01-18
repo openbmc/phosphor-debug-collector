@@ -4,8 +4,8 @@ option('tests', type: 'feature', description: 'Build tests')
 
 option('oe-sdk', type: 'feature', description: 'Enable OE SDK')
 
-option('ubifs-workaround', type: 'feature',
-        description : 'Turn on ubi workaround for core file'
+option('jffs-workaround', type: 'feature',
+        description : 'Turn on jffs workaround for core file'
       )
 
 option('DUMP_BUSNAME', type : 'string',
