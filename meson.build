@@ -70,8 +70,8 @@ conf_data.set('CLASS_VERSION', get_option('CLASS_VERSION'),
 conf_data.set('ERROR_MAP_YAML', get_option('ERROR_MAP_YAML'),
                description : 'YAML filepath containing error object paths'
              )
-conf_data.set('UBI_CORE_FILE_WORKAROUND', get_option('ubifs-workaround').enabled(),
-               description : 'Turn on ubi workaround for core file'
+conf_data.set('JFFS_CORE_FILE_WORKAROUND', get_option('jffs-workaround').enabled(),
+               description : 'Turn on jffs workaround for core file'
              )
 
 configure_file(configuration : conf_data,
