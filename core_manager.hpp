@@ -19,8 +19,11 @@ using UserMap = phosphor::dump::inotify::UserMap;
 /** workaround: Watches for IN_CREATE event for the
  *  ubi filesystem based systemd-coredump core path
  *  Refer openbmc/issues/#2287 for more details.
+ *
+ *  CORE_FILESYSTEM_FLAG will be enabled for ext4 and
+ *  ubifs filesystem for other it will be disabled.
  */
-#ifdef UBI_CORE_FILE_WORKAROUND
+#ifdef CORE_FILESYSTEM_FLAG
 static constexpr auto coreFileEvent = IN_CREATE;
 #else
 static constexpr auto coreFileEvent = IN_CLOSE_WRITE;
