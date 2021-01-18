@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65e0677b_e844bb17",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-18T06:43:31Z",
+      "side": 1,
+      "message": "Usually  entry is valid only if the Host is up. for any host restart dump is doing to delete automatically. To support this flow , are we planing to creat any serice to do this cleanup actions part of host poweroff path?.\n\nNoticed check inside delete_ function , allows only if the host is up and not error returns incase not valid state. i think it is better to move this here , by moving delete_ inside the host running case.",
+      "revId": "5e38aa8f4070ce5852e71f3ac617938f3a9bcd16",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
