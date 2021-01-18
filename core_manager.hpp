@@ -16,14 +16,17 @@ namespace core
 using Watch = phosphor::dump::inotify::Watch;
 using UserMap = phosphor::dump::inotify::UserMap;
 
-/** workaround: Watches for IN_CREATE event for the
- *  ubi filesystem based systemd-coredump core path
+/** workaround: Watches for IN_CLOSE_WRITE event for the
+ *  jffs filesystem based systemd-coredump core path
  *  Refer openbmc/issues/#2287 for more details.
+ *
+ *  JFFS_CORE_FILE_WORKAROUND will be enabled for jffs and
+ *  for other file system it will be disabled.
  */
-#ifdef UBI_CORE_FILE_WORKAROUND
-static constexpr auto coreFileEvent = IN_CREATE;
-#else
+#ifdef JFFS_CORE_FILE_WORKAROUND
 static constexpr auto coreFileEvent = IN_CLOSE_WRITE;
+#else
+static constexpr auto coreFileEvent = IN_CREATE;
 #endif
 
 /** @class Manager
