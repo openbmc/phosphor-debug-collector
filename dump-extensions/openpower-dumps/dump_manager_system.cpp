@@ -74,7 +74,7 @@ sdbusplus::message::object_path
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
     constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
     constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
-    constexpr auto DIAG_MOD_TARGET = "obmc-host-diagnostic-mode@0.target";
+    constexpr auto DIAG_MOD_TARGET = "obmc-host-crash@0.target";
 
     if (!params.empty())
     {
