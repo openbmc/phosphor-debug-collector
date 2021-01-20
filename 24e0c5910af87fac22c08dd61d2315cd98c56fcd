@@ -22,6 +22,30 @@
       "revId": "24e0c5910af87fac22c08dd61d2315cd98c56fcd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c710c28b_2492b002",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-01-20T03:26:11Z",
+      "side": 1,
+      "message": "yeah I went back and forth on it. The crash target still invokes the diag target and externally we are still in diagnostic mode so I left it but I can go either way. You tell me which one you want.",
+      "parentUuid": "3727b2f0_a4838600",
+      "range": {
+        "startLine": 77,
+        "startChar": 19,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "24e0c5910af87fac22c08dd61d2315cd98c56fcd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
