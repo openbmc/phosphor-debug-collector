@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3727b2f0_a4838600",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-01-20T02:59:12Z",
+      "side": 1,
+      "message": "Rename to CRASH_TARGET?",
+      "range": {
+        "startLine": 77,
+        "startChar": 19,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "24e0c5910af87fac22c08dd61d2315cd98c56fcd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
