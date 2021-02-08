@@ -2,6 +2,7 @@
 
 #include "config.h"
 
+#include "dump_internal.hpp"
 #include "dump_manager_bmc.hpp"
 
 #include <cereal/access.hpp>
@@ -16,7 +17,7 @@ namespace dump
 namespace elog
 {
 
-using IMgr = phosphor::dump::bmc::internal::Manager;
+using IMgr = phosphor::dump::internal::Manager;
 using EId = uint32_t;
 using ElogList = std::set<EId>;
 

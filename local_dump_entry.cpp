@@ -1,4 +1,4 @@
-#include "bmc_dump_entry.hpp"
+#include "local_dump_entry.hpp"
 
 #include "dump_manager.hpp"
 #include "dump_offload.hpp"
@@ -9,7 +9,7 @@ namespace phosphor
 {
 namespace dump
 {
-namespace bmc
+namespace local
 {
 using namespace phosphor::logging;
 
@@ -36,6 +36,6 @@ void Entry::initiateOffload(std::string uri)
     offloaded(true);
 }
 
-} // namespace bmc
+} // namespace local
 } // namespace dump
 } // namespace phosphor
