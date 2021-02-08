@@ -49,6 +49,24 @@ class Manager : public Iface
      */
     virtual void restore() = 0;
 
+    /** @brief Get the last entry id
+     * 
+     *  @return Last entry id
+     */
+    uint32_t getLastEntryId()
+    {
+        return lastEntryId;
+    }
+
+    /** @brief Get the next dump id by incrementing the current id.
+     *
+     *  @return next id
+     */
+    uint32_t getNextId()
+    {
+        return ++lastEntryId;
+    } 
+
   protected:
     /** @brief Erase specified entry d-bus object
      *

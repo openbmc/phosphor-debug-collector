@@ -116,9 +116,10 @@ phosphor_dump_manager_sources = [
         server_hpp,
         server_cpp,
         'watch.cpp',
-        'bmc_dump_entry.cpp',
+        'local_dump_entry.cpp',
         'dump_utils.cpp',
-        'dump_offload.cpp'
+        'dump_offload.cpp',
+        'dump_internal.cpp'
     ]
 
 phosphor_dump_manager_dependency = [

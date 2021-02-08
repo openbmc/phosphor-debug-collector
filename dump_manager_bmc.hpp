@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_manager.hpp"
+#include "dump_internal.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
@@ -14,31 +15,15 @@ namespace dump
 {
 namespace bmc
 {
-namespace internal
-{
-
-class Manager;
-
-} // namespace internal
-
 using CreateIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 using UserMap = phosphor::dump::inotify::UserMap;
-
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
-
 namespace fs = std::experimental::filesystem;
 
 using Watch = phosphor::dump::inotify::Watch;
-
-// Type to dreport type  string map
-static const std::map<Type, std::string> TypeMap = {
-    {Type::ApplicationCored, "core"},
-    {Type::UserRequested, "user"},
-    {Type::InternalFailure, "elog"},
-    {Type::Checkstop, "checkstop"}};
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -46,9 +31,9 @@ static const std::map<Type, std::string> TypeMap = {
  *  xyz.openbmc_project.Dump.Create DBus API
  */
 class Manager : virtual public CreateIface,
-                virtual public phosphor::dump::Manager
+                public phosphor::dump::Manager
 {
-    friend class internal::Manager;
+    friend class phosphor::dump::internal::Manager;
 
   public:
     Manager() = delete;
@@ -64,9 +49,10 @@ class Manager : virtual public CreateIface,
      *  @param[in] path - Path to attach at.
      *  @param[in] baseEntryPath - Base path for dump entry.
      *  @param[in] filePath - Path where the dumps are stored.
+     *  @param[in] dumpInternalMgr - Reference of internal dump manager.
      */
     Manager(sdbusplus::bus::bus& bus, const EventPtr& event, const char* path,
-            const std::string& baseEntryPath, const char* filePath) :
+            const std::string& baseEntryPath, const char* filePath, phosphor::dump::internal::Manager& dumpInternalMgr) :
         CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath),
         eventLoop(event.get()),
@@ -75,8 +61,14 @@ class Manager : virtual public CreateIface,
             filePath,
             std::bind(std::mem_fn(&phosphor::dump::bmc::Manager::watchCallback),
                       this, std::placeholders::_1)),
-        dumpDir(filePath)
+        dumpDir(filePath),
+        dumpInternalMgr(dumpInternalMgr)
     {
+        // Register the dump types handled by this dump manager.
+        dumpInternalMgr.typeMap.emplace(Type::ApplicationCored, std::move(phosphor::dump::internal::DumpInfo("core", *this)));
+        dumpInternalMgr.typeMap.emplace(Type::UserRequested, std::move(phosphor::dump::internal::DumpInfo("user", *this)));
+        dumpInternalMgr.typeMap.emplace(Type::InternalFailure, std::move(phosphor::dump::internal::DumpInfo("elog", *this)));
+        dumpInternalMgr.typeMap.emplace(Type::Checkstop, std::move(phosphor::dump::internal::DumpInfo("checkstop", *this)));
     }
 
     /** @brief Implementation of dump watch call back
@@ -97,19 +89,16 @@ class Manager : virtual public CreateIface,
     sdbusplus::message::object_path
         createDump(std::map<std::string, std::string> params) override;
 
+    /** @brief Calculate per dump allowed size based on the available
+     *        size in the dump location.
+     *  @returns dump size in kilobytes.
+     */
+    size_t getAllowedSize();
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
      */
     void createEntry(const fs::path& fullPath);
-
-    /**  @brief Capture BMC Dump based on the Dump type.
-     *  @param[in] type - Type of the Dump.
-     *  @param[in] fullPaths - List of absolute paths to the files
-     *             to be included as part of Dump package.
-     *  @return id - The Dump entry id number.
-     */
-    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
 
     /** @brief sd_event_add_child callback
      *
@@ -131,12 +120,6 @@ class Manager : virtual public CreateIface,
      */
     void removeWatch(const fs::path& path);
 
-    /** @brief Calculate per dump allowed size based on the available
-     *        size in the dump location.
-     *  @returns dump size in kilobytes.
-     */
-    size_t getAllowedSize();
-
     /** @brief sdbusplus Dump event loop */
     EventPtr eventLoop;
 
@@ -150,6 +133,9 @@ class Manager : virtual public CreateIface,
      *        [path:watch object]
      */
     std::map<fs::path, std::unique_ptr<Watch>> childWatchMap;
+
+    /** @brief The manager for internal dump call implementation */
+    phosphor::dump::internal::Manager& dumpInternalMgr;
 };
 
 } // namespace bmc

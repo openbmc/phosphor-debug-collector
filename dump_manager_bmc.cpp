@@ -25,16 +25,6 @@ namespace bmc
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
 
-namespace internal
-{
-
-void Manager::create(Type type, std::vector<std::string> fullPaths)
-{
-    dumpMgr.phosphor::dump::bmc::Manager::captureDump(type, fullPaths);
-}
-
-} // namespace internal
-
 sdbusplus::message::object_path
     Manager::createDump(std::map<std::string, std::string> params)
 {
@@ -43,7 +33,7 @@ sdbusplus::message::object_path
         log<level::WARNING>("BMC dump accepts no additional parameters");
     }
     std::vector<std::string> paths;
-    auto id = captureDump(Type::UserRequested, paths);
+    auto id = dumpInternalMgr.captureDump(phosphor::dump::internal::Type::UserRequested, paths);
 
     // Entry Object path.
     auto objPath = fs::path(baseEntryPath) / std::to_string(id);
@@ -66,56 +56,6 @@ sdbusplus::message::object_path
     }
 
     return objPath.string();
-}
-
-uint32_t Manager::captureDump(Type type,
-                              const std::vector<std::string>& fullPaths)
-{
-    // Get Dump size.
-    auto size = getAllowedSize();
-
-    pid_t pid = fork();
-
-    if (pid == 0)
-    {
-        fs::path dumpPath(dumpDir);
-        auto id = std::to_string(lastEntryId + 1);
-        dumpPath /= id;
-
-        // get dreport type map entry
-        auto tempType = TypeMap.find(type);
-
-        execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
-              id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
-              fullPaths.empty() ? "" : fullPaths.front().c_str(), "-t",
-              tempType->second.c_str(), nullptr);
-
-        // dreport script execution is failed.
-        auto error = errno;
-        log<level::ERR>("Error occurred during dreport function execution",
-                        entry("ERRNO=%d", error));
-        elog<InternalFailure>();
-    }
-    else if (pid > 0)
-    {
-        auto rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                     WEXITED | WSTOPPED, callback, nullptr);
-        if (0 > rc)
-        {
-            // Failed to add to event loop
-            log<level::ERR>("Error occurred during the sd_event_add_child call",
-                            entry("RC=%d", rc));
-            elog<InternalFailure>();
-        }
-    }
-    else
-    {
-        auto error = errno;
-        log<level::ERR>("Error occurred during fork", entry("ERRNO=%d", error));
-        elog<InternalFailure>();
-    }
-
-    return ++lastEntryId;
 }
 
 void Manager::createEntry(const fs::path& file)
@@ -237,6 +177,7 @@ void Manager::restore()
 
 size_t Manager::getAllowedSize()
 {
+    log<level::ERR>("EX11");
     using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
     using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
 
@@ -245,12 +186,13 @@ size_t Manager::getAllowedSize()
     // Get current size of the dump directory.
     for (const auto& p : fs::recursive_directory_iterator(dumpDir))
     {
+        log<level::ERR>("EX13");
         if (!fs::is_directory(p))
         {
             size += fs::file_size(p);
         }
     }
-
+    log<level::ERR>("EX12");
     // Convert size into KB
     size = size / 1024;
 

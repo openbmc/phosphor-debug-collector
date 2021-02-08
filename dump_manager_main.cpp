@@ -61,14 +61,14 @@ int main()
 
     try
     {
+        phosphor::dump::internal::Manager mgr(bus, eventP,
+                                                   OBJ_INTERNAL);
         phosphor::dump::DumpManagerList dumpMgrList{};
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
                 bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY,
-                BMC_DUMP_PATH);
+                BMC_DUMP_PATH, mgr);
 
-        phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
-                                                   OBJ_INTERNAL);
         dumpMgrList.push_back(std::move(bmcDumpMgr));
 
         phosphor::dump::loadExtensions(bus, dumpMgrList);

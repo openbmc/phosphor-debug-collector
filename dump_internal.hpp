@@ -1,24 +1,39 @@
 #pragma once
 
+#include <systemd/sd-event.h>
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
-
+#include "dump_manager.hpp"
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
+#include "dump_utils.hpp"
 
 namespace phosphor
 {
 namespace dump
 {
-namespace bmc
-{
-
-class Manager;
 namespace internal
 {
 
 using CreateIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create>;
-using Mgr = phosphor::dump::bmc::Manager;
+using Type =
+    sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
+
+/** @struct DumpInfo
+ *  @brief Association between dumpp type and handling manager
+ */
+struct DumpInfo
+{
+    std::string type; // Type of the dump
+    phosphor::dump::Manager& manager; // Handling dump manager
+
+    /** @brief Constructor for the structure.
+     *  @param[in] type - Type of the dump
+     *  @param[in] manager - Dump handler
+     */
+    DumpInfo(std::string type, phosphor::dump::Manager& manager):
+       type(type), manager(manager) {}
+};
 
 /** @class Manager
  *  @brief Implementation for the
@@ -39,24 +54,49 @@ class Manager : public CreateIface
      *  @param[in] dumpMgr - Dump Manager object
      *  @param[in] path - Path to attach at.
      */
-    Manager(sdbusplus::bus::bus& bus, Mgr& dumpMgr, const char* path) :
-        CreateIface(bus, path), dumpMgr(dumpMgr){};
+    Manager(sdbusplus::bus::bus& bus, const EventPtr& event, const char* path) :
+        CreateIface(bus, path), eventLoop(event.get()){};
 
     /**  @brief Implementation for Create
-     *  Create BMC Dump based on the Dump type.
+     *   Create BMC Dump based on the Dump type.
      *
-     *  @param[in] type - Type of the Dump.
-     *  @param[in] fullPaths - List of absolute paths to the files
+     *   @param[in] type - Type of the Dump.
+     *   @param[in] fullPaths - List of absolute paths to the files
      *             to be included as part of Dump package.
      */
     void create(Type type, std::vector<std::string> fullPaths) override;
 
+    /** @brief Capture BMC Dump based on the Dump type.
+     *  @param[in] type - Type of the Dump.
+     *  @param[in] fullPaths - List of absolute paths to the files
+     *             to be included as part of Dump package.
+     *  @return id - The Dump entry id number.
+     */
+    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
+
+    /** @brief map for holding the dump type and associations */
+    static std::map<Type, DumpInfo> typeMap;
+
   private:
-    /**  @brief Dump Manager object. */
-    Mgr& dumpMgr;
+    /** @brief sdbusplus Dump event loop */
+    EventPtr eventLoop;
+
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] userdata - pointer to Watch object
+     *
+     *  @returns 0 on success, -1 on fail
+     */
+    static int callback(sd_event_source*, const siginfo_t*, void*)
+    {
+        // No specific action required in
+        // the sd_event_add_child callback.
+        return 0;
+    }
 };
 
 } // namespace internal
-} // namespace bmc
 } // namespace dump
 } // namespace phosphor
