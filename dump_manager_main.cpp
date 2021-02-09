@@ -66,7 +66,8 @@ int main()
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
                 bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY,
-                BMC_DUMP_PATH, mgr);
+                BMC_DUMP_PATH, mgr,
+                "obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)");
 
         dumpMgrList.push_back(std::move(bmcDumpMgr));
 

@@ -46,7 +46,8 @@ class Manager : virtual public NotifyIface,
     Manager(sdbusplus::bus::bus& bus, const char* path,
             const std::string& baseEntryPath) :
         NotifyIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath)
+        phosphor::dump::Iface(bus, path, true), phosphor::dump::Manager(
+                                                    bus, path, baseEntryPath)
     {
     }
 

@@ -119,7 +119,8 @@ phosphor_dump_manager_sources = [
         'local_dump_entry.cpp',
         'dump_utils.cpp',
         'dump_offload.cpp',
-        'dump_internal.cpp'
+        'dump_internal.cpp',
+        'dump_manager_local.cpp'
     ]
 
 phosphor_dump_manager_dependency = [
