@@ -72,6 +72,30 @@ sdbusplus::message::object_path
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
+    std::string paths{};
+    // get dreport type map entry
+    auto it = TypeMap.find(type);
+    if (it == TypeMap.end())
+    {
+        log<level::ERR>("Wrong dreport type");
+        return 0;
+    }
+
+    auto tempType = it->second;
+
+    if ("ramoops" == tempType && fullPaths.size() > 1)
+    {
+        for (const auto& path : fullPaths)
+        {
+            paths += path + ";";
+        }
+        paths = paths.substr(0, paths.length() - 1);
+    }
+    else
+    {
+        paths = fullPaths.empty() ? "" : fullPaths.front();
+    }
+
     // Get Dump size.
     auto size = getAllowedSize();
 
@@ -83,13 +107,9 @@ uint32_t Manager::captureDump(Type type,
         auto id = std::to_string(lastEntryId + 1);
         dumpPath /= id;
 
-        // get dreport type map entry
-        auto tempType = TypeMap.find(type);
-
         execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
               id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
-              fullPaths.empty() ? "" : fullPaths.front().c_str(), "-t",
-              tempType->second.c_str(), nullptr);
+              paths.c_str(), "-t", tempType.c_str(), nullptr);
 
         // dreport script execution is failed.
         auto error = errno;
