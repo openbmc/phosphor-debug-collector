@@ -62,6 +62,8 @@ conf_data.set_quoted('BMC_DUMP_OBJ_ENTRY', get_option('BMC_DUMP_OBJ_ENTRY'),
                     )
 conf_data.set_quoted('BMC_DUMP_PATH', get_option('BMC_DUMP_PATH'),
                      description : 'Directory where bmc dumps are placed')
+conf_data.set_quoted('SYSTEMD_PSTORE_PATH', get_option('SYSTEMD_PSTORE_PATH'),
+                     description : 'Path to the systemd pstore directory')
 conf_data.set('BMC_DUMP_MAX_SIZE', get_option('BMC_DUMP_MAX_SIZE'),
                description : 'Maximum size of one bmc dump in kilo bytes'
              )
@@ -163,6 +165,22 @@ phosphor_dump_monitor_install = true
 
 phosphor_dump_monitor_incdir = []
 
+phosphor_ramoops_monitor_sources = [
+        'ramoops_manager.cpp',
+        'ramoops_manager_main.cpp',
+        'watch.cpp'
+    ]
+
+phosphor_ramoops_monitor_dependency = [
+        phosphor_dbus_interfaces,
+        phosphor_logging,
+        cppfs
+    ]
+
+phosphor_ramoops_monitor_install = true
+
+phosphor_ramoops_monitor_incdir = []
+
 executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_manager_sources,
                   phosphor_dump_manager_dependency,
@@ -174,6 +192,12 @@ executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_monitor_dependency,
                   phosphor_dump_monitor_install,
                   phosphor_dump_monitor_incdir
+               ],
+               [ 'phosphor-ramoops-monitor',
+                  phosphor_ramoops_monitor_sources,
+                  phosphor_ramoops_monitor_dependency,
+                  phosphor_ramoops_monitor_install,
+                  phosphor_ramoops_monitor_incdir
                ]
               ]
 
