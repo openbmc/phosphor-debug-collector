@@ -37,5 +37,8 @@ enumerations:
         - name: Checkstop
           description: >
               Dump triggered due to Checkstop type error commit.
+        - name: KernelOops
+          description: >
+              Dump triggered due to Kernel type error commit.
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

@@ -55,6 +55,8 @@ conf_data.set_quoted('BMC_DUMP_OBJ_ENTRY', get_option('BMC_DUMP_OBJ_ENTRY'),
                     )
 conf_data.set_quoted('BMC_DUMP_PATH', get_option('BMC_DUMP_PATH'),
                      description : 'Directory where bmc dumps are placed')
+conf_data.set_quoted('SYSTEMD_PSTORE_PATH', get_option('SYSTEMD_PSTORE_PATH'),
+                     description : 'Directory where systemd pstore are placed')
 conf_data.set('BMC_DUMP_MAX_SIZE', get_option('BMC_DUMP_MAX_SIZE'),
                description : 'Maximum size of one bmc dump in kilo bytes'
              )
@@ -156,6 +158,22 @@ phosphor_dump_monitor_install = true
 
 phosphor_dump_monitor_incdir = []
 
+phosphor_kernel_monitor_sources = [
+        'kernel_manager.cpp',
+        'kernel_manager_main.cpp',
+        'watch.cpp'
+    ]
+
+phosphor_kernel_monitor_dependency = [
+        phosphor_dbus_interfaces,
+        phosphor_logging,
+        cppfs
+    ]
+
+phosphor_kernel_monitor_install = true
+
+phosphor_kernel_monitor_incdir = []
+
 executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_manager_sources,
                   phosphor_dump_manager_dependency,
@@ -167,6 +185,12 @@ executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_monitor_dependency,
                   phosphor_dump_monitor_install,
                   phosphor_dump_monitor_incdir
+               ],
+               [ 'phosphor-kernel-monitor',
+                  phosphor_kernel_monitor_sources,
+                  phosphor_kernel_monitor_dependency,
+                  phosphor_kernel_monitor_install,
+                  phosphor_kernel_monitor_incdir
                ]
               ]
 
