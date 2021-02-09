@@ -10,5 +10,6 @@ phosphor_dump_manager_sources += [
     ]
 
 phosphor_dump_monitor_sources += [
-        'dump-extensions/openpower-dumps/dump-watch-extensions.cpp'
+        'dump-extensions/openpower-dumps/dump-watch-extensions.cpp',
+        'dump-extensions/openpower-dumps/hostboot_dump_watch.cpp'
     ]
