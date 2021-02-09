@@ -5,6 +5,7 @@
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
 #include "elog_watch.hpp"
+#include "ramoops_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -80,6 +81,9 @@ int main()
         }
 
         phosphor::dump::elog::Watch eWatch(bus, mgr);
+        phosphor::dump::ramoops::RamoopsWatch rWatch(eventP, mgr,
+                                                     SYSTEMD_PSTORE_PATH);
+
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
         auto rc = sd_event_loop(eventP.get());

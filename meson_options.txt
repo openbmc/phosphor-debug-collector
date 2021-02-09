@@ -63,6 +63,11 @@ option('BMC_DUMP_PATH', type : 'string',
         description : 'Directory where bmc dumps are placed'
       )
 
+option('SYSTEMD_PSTORE_PATH', type : 'string',
+        value : '/var/lib/systemd/pstore/',
+        description : 'Directory where systemd pstore are placed'
+)
+
 option('BMC_DUMP_MAX_SIZE', type : 'integer',
         value : 200,
         description : 'Maximum size of one bmc dump in kilo bytes'
