@@ -38,6 +38,9 @@ conf_data.set_quoted('SYSTEM_DUMP_OBJPATH', get_option('SYSTEM_DUMP_OBJPATH'),
 conf_data.set_quoted('RESOURCE_DUMP_OBJPATH', get_option('RESOURCE_DUMP_OBJPATH'),
                       description : 'The resource Dump manager Dbus path'
                     )
+conf_data.set_quoted('HOSTBOOT_DUMP_OBJPATH', get_option('HOSTBOOT_DUMP_OBJPATH'),
+                      description : 'The Hostboot Dump manager Dbus path'
+                    )
 conf_data.set_quoted('CORE_FILE_DIR', get_option('CORE_FILE_DIR'),
                       description : 'Directory where core dumps are placed'
                     )
@@ -53,8 +56,13 @@ conf_data.set_quoted('RESOURCE_DUMP_OBJ_ENTRY', get_option('RESOURCE_DUMP_OBJ_EN
 conf_data.set_quoted('BMC_DUMP_OBJ_ENTRY', get_option('BMC_DUMP_OBJ_ENTRY'),
                       description : 'The BMC dump entry DBus object path'
                     )
+conf_data.set_quoted('HOSTBOOT_DUMP_OBJ_ENTRY', get_option('HOSTBOOT_DUMP_OBJ_ENTRY'),
+                      description : 'The Hostboot dump entry DBus object path'
+                    )
 conf_data.set_quoted('BMC_DUMP_PATH', get_option('BMC_DUMP_PATH'),
                      description : 'Directory where bmc dumps are placed')
+conf_data.set_quoted('HOSTBOOT_DUMP_PATH', get_option('HOSTBOOT_DUMP_PATH'),
+                     description : 'Directory where host dumps are placed')
 conf_data.set('BMC_DUMP_MAX_SIZE', get_option('BMC_DUMP_MAX_SIZE'),
                description : 'Maximum size of one bmc dump in kilo bytes'
              )

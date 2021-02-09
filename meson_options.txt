@@ -33,6 +33,11 @@ option('RESOURCE_DUMP_OBJPATH', type : 'string',
         description : 'The resource dump manager Dbus object path'
       )
 
+option('HOSTBOOT_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/hostboot',
+        description : 'The resource dump manager Dbus object path'
+      )
+
 option('CORE_FILE_DIR', type : 'string',
         value : '/var/lib/systemd/coredump',
         description : 'Directory where core dumps are placed'
@@ -58,9 +63,19 @@ option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         description : 'The resource dump entry DBus object path'
       )
 
+option('HOSTBOOT_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/hostboot/entry',
+        description : 'The hostboot dump entry DBus object path'
+      )
+
 option('BMC_DUMP_PATH', type : 'string',
         value : '/var/lib/phosphor-debug-collector/dumps/',
         description : 'Directory where bmc dumps are placed'
+      )
+
+option('HOSTBOOT_DUMP_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/hostboot/',
+        description : 'Directory where hostboot dumps are placed'
       )
 
 option('BMC_DUMP_MAX_SIZE', type : 'integer',
