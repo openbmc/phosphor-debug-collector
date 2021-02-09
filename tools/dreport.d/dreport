@@ -44,6 +44,7 @@ declare -rx TYPE_USER="user"
 declare -rx TYPE_CORE="core"
 declare -rx TYPE_ELOG="elog"
 declare -rx TYPE_CHECKSTOP="checkstop"
+declare -rx TYPE_KERNEL_OOPS="kernelOops"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
@@ -91,6 +92,10 @@ function collect_data()
             log_summary "Core: $optional_path"
             set_core_pid
             ;;
+        $TYPE_KERNEL_OOPS)
+            log_summary "Kernel oops: $optional_path"
+            set_kernel_pid
+            ;;
         $TYPE_ELOG)
             log_summary "ELOG: $optional_path"
             elog_id=$(basename "$optional_path")
@@ -124,6 +129,11 @@ function collect_data()
     for i in $plugin_path/* ; do
        $i
     done
+}
+
+function set_kernel_pid()
+{
+    pid += 1
 }
 
 # @brief set pid by reading information from the optional path.
@@ -198,6 +208,7 @@ function initialize()
     if [[ ! ($dump_type = $TYPE_USER || \
              $dump_type = $TYPE_CORE || \
              $dump_type = $TYPE_ELOG || \
+             $dump_type = $TYPE_KERNEL_OOPS || \
              $dump_type = $TYPE_CHECKSTOP) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
