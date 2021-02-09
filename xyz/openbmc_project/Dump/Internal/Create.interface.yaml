@@ -1,10 +1,10 @@
 description: >
-    Implement to capture BMC Dump based on type.
+    Implement to capture Dump based on type.
 
 methods:
     - name: Create
       description: >
-          Create BMC Dump based on the Dump type.
+          Create Dump based on the Dump type.
       parameters:
        - name: Type
          type: enum[self.Type]
@@ -37,5 +37,8 @@ enumerations:
         - name: Checkstop
           description: >
               Dump triggered due to Checkstop type error commit.
+        - name: Bootfailure
+          description: >
+              Dump triggered due to failure or hang during boot.
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
