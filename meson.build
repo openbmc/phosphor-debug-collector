@@ -44,6 +44,9 @@ conf_data.set_quoted('HOSTBOOT_DUMP_OBJPATH', get_option('HOSTBOOT_DUMP_OBJPATH'
 conf_data.set_quoted('CORE_FILE_DIR', get_option('CORE_FILE_DIR'),
                       description : 'Directory where core dumps are placed'
                     )
+conf_data.set_quoted('HOSTBOOT_DUMP_FILE_DIR', get_option('HOSTBOOT_DUMP_FILE_DIR'),
+                      description : 'Directory where hostboot dumps are placed'
+                    )
 conf_data.set_quoted('OBJ_INTERNAL', get_option('OBJ_INTERNAL'),
                       description : 'Internal Dump manager Dbus object path'
                     )

@@ -25,8 +25,5 @@ void loadExtensions(sdbusplus::bus::bus& bus, const EventPtr& event,
         HOSTBOOT_DUMP_PATH, dumpInternalMgr, ""));
 }
 
-void loadFileWatchList(const EventPtr&, FileWatchManagerList&)
-{
-}
 } // namespace dump
 } // namespace phosphor

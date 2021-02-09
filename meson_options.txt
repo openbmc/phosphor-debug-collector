@@ -43,6 +43,11 @@ option('CORE_FILE_DIR', type : 'string',
         description : 'Directory where core dumps are placed'
       )
 
+option('HOSTBOOT_DUMP_FILE_DIR', type : 'string',
+        value : '/tmp/hostbootdump/',
+        description : 'Directory where core dumps are placed'
+      )
+
 option('OBJ_INTERNAL', type : 'string',
         value : '/xyz/openbmc_project/dump/internal/manager',
         description : 'Internal Dump manager Dbus object path'
