@@ -55,6 +55,8 @@ conf_data.set_quoted('BMC_DUMP_OBJ_ENTRY', get_option('BMC_DUMP_OBJ_ENTRY'),
                     )
 conf_data.set_quoted('BMC_DUMP_PATH', get_option('BMC_DUMP_PATH'),
                      description : 'Directory where bmc dumps are placed')
+conf_data.set_quoted('SYSTEMD_PSTORE_PATH', get_option('SYSTEMD_PSTORE_PATH'),
+                     description : 'Directory where systemd pstore are placed')
 conf_data.set('BMC_DUMP_MAX_SIZE', get_option('BMC_DUMP_MAX_SIZE'),
                description : 'Maximum size of one bmc dump in kilo bytes'
              )
@@ -118,7 +120,8 @@ phosphor_dump_manager_sources = [
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
-        'dump_offload.cpp'
+        'dump_offload.cpp',
+        'ramoops_watch.cpp'
     ]
 
 phosphor_dump_manager_dependency = [
