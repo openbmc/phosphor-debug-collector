@@ -19,7 +19,7 @@ using Iface = sdbusplus::server::object::object<
  *  @details A concrete implementation for the
  *  xyz::openbmc_project::Collection::server::DeleteAll.
  */
-class Manager : public Iface
+class Manager : public virtual Iface
 {
     friend class Entry;
 
