@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# config: 5 1
+# @brief: Move the ramoops data file to the dreport packaging.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Ramoops file"
+
+for path in ${optional_path}/*
+do
+    if [ -f $path ]; then
+        # Remove the file from path after successful copy
+        if add_copy_file "$path" "$desc"; then
+            rm "$path"
+        fi
+    fi
+done
