@@ -147,13 +147,12 @@ phosphor_dump_manager_incdir = []
 # list for phosphor_dump_manager.
 subdir('host-transport-extensions')
 
-#pick any architecture specific dumps
-subdir('dump-extensions')
-
 phosphor_dump_monitor_sources = [
         'core_manager.cpp',
-        'core_manager_main.cpp',
-        'watch.cpp'
+        'file_watch_manager.cpp',
+        'file_watch_manager_main.cpp',
+        'watch.cpp',
+        server_cpp
     ]
 
 phosphor_dump_monitor_dependency = [
@@ -161,6 +160,9 @@ phosphor_dump_monitor_dependency = [
         phosphor_logging,
         cppfs
     ]
+
+#pick any architecture specific dumps
+subdir('dump-extensions')
 
 phosphor_dump_monitor_install = true
 
