@@ -8,3 +8,7 @@ phosphor_dump_manager_sources += [
         'dump-extensions/openpower-dumps/resource_dump_entry.cpp',
         'dump-extensions/openpower-dumps/dump_manager_hostboot.cpp'
     ]
+
+phosphor_dump_monitor_sources += [
+        'dump-extensions/openpower-dumps/dump-watch-extensions.cpp'
+    ]

@@ -1,6 +1,7 @@
 #include "config.h"
 
 #include "core_manager.hpp"
+#include "dump-extensions-watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -26,9 +27,14 @@ int main()
     phosphor::dump::EventPtr eventP{event};
     event = nullptr;
 
+    phosphor::dump::FileWatchManagerList fileWatchManagerList = {};
+
     try
     {
-        phosphor::dump::core::Manager manager(eventP);
+        std::unique_ptr<phosphor::dump::core::Manager> manager =
+            std::make_unique<phosphor::dump::core::Manager>(eventP);
+        fileWatchManagerList.push_back(std::move(manager));
+        loadFileWatchList(eventP, fileWatchManagerList);
 
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
