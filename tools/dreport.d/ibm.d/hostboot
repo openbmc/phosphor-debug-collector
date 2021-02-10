@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# config: 6 15
+# @brief: Collect the hostboot dump files.
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+desc="Hostboot Dump files"
+
+if [ -z "$optional_path" ]; then
+    log_error "$desc does not exist"
+    exit
+fi
+
+# Remove the file from optional_path after successful copy
+if add_copy_file "$optional_path" "$desc"; then
+    rm -rf "$optional_path"
+fi
