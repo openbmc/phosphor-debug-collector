@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b5c16bb_49cf0e88",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-02-10T14:11:42Z",
+      "side": 1,
+      "message": "BMC Dump already using time stamp , information. if you are using custom one here , it can triggre confusion in user.\nrefer EPOCHTIME in dreport for details.",
+      "revId": "7a2557c6ffcb1ad0d654cc22ec9257e2647daa19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
