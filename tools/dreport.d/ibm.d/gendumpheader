@@ -61,6 +61,15 @@ function get_dump_id () {
     printf $dump_id >> $FILE
 }
 
+#Function to fetch teh hostname
+function system_name () {
+    name=$hostname
+    len=${#hostname}
+    nulltoadd=`expr 32 - $len`
+    printf $name >> $FILE
+    printf '%*s' $nulltoadd | tr ' ' "0" >> $FILE
+}
+
 #Function to add virtual file directory entry, consists of below entries
 ####################FORMAT################
 #Name              Size(bytes)  Value
@@ -69,7 +78,7 @@ function get_dump_id () {
 #Reserved          10           NULL
 #Entry Type        2            0x0001
 #File Name Prefix  2            0x000F
-#Dump File Type    7            BMCDUMP
+#Dump File Type    7            BMCDUMP/SYSDUMP
 #Separator         1            .
 #System Serial No  7            System serial number fetched from system
 #Dump Identifier   8            Dump Identifier value fetched from dump
@@ -84,7 +93,11 @@ function dump_file_entry () {
     printf '\x01' >> $FILE
     add_null 1
     printf '\x0F' >> $FILE
-    printf "BMPDUMP.%s." "$serialNo" >> $FILE
+    if [ $dump_type = $TYPE_HOSTBOOT ]; then
+        printf "SYSDUMP.%s." "$serialNo" >> $FILE
+    else
+        printf "BMCDUMP.%s." "$serialNo" >> $FILE
+    fi
     get_dump_id
     printf "." >> $FILE
     printf $dDay >> $FILE  #UTC time stamp
@@ -102,7 +115,7 @@ function dump_file_entry () {
 #Entry Types       2            0x0002
 #Reserved          2            NULL
 #Dump Size         8            Dump size in hex + dump header
-#Optional Section  16           BMCDUMP
+#Optional Section  16           BMCDUMP/DUMP SUMMARY
 function dump_section_entry () {
     printf "SECTION " >> $FILE
     add_null 1
@@ -113,8 +126,13 @@ function dump_section_entry () {
     printf '\x02' >> $FILE
     add_null 2
     dump_size    #Dump size
-    printf "BMCDUMP" >> $FILE
-    add_null 9
+    if [ $dump_type = $TYPE_HOSTBOOT ]; then
+        printf "DUMP SUMMARY" >> $FILE
+        add_null 4
+    else
+        printf "BMCDUMP" >> $FILE
+        add_null 9
+    fi
 }
 
 #Function to add dump header, consists of below entries
@@ -187,12 +205,144 @@ function dump_entry () {
     add_null 2
 }
 
+#Function to Hardware Dump Section
+####################FORMAT##################
+#Name            Size(bytes)    Value
+#HWDumpHeader      8            SECTION
+#HWDumpEntrySize   2            0x0030
+#HWDumpPriority    2            0x02
+#reserve6          4            NULL
+#HWDumpEntryFlag   4            0x0001
+#HWDumpEntryType   2            0x02
+#reserve7          2            NULL
+#reserve7a         4            NULL
+#HWDumpSize        4            NULL
+#HWDumpName[16]    16           HARDWARE DATA
+function hw_dump_section () {
+    printf "SECTION " >> $FILE
+    add_null 1
+    printf '\x30' >> $FILE #Section entry size
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 7
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 10
+    printf "HARDWARE DATA" >> $FILE
+    add_null 3
+}
+
+#Function to Mainstore Dump Section
+######################FORMAT###################
+#Name                Size(in bytes)   Value
+#MainstoreHeader         8            SECTION
+#MainstoreEntrySize      2
+#MainstorePriority       2
+#reserve8                4
+#MainstoreEntryFlag      4
+#MainstoreEntryType      2
+#reserve9                2
+#MainstoreSize           8
+#MainstoreName           16           HYPERVISOR DATA
+function mainstore_dump_section () {
+    printf "SECTION " >> $FILE
+    add_null 1
+    printf '\x30' >> $FILE #Section entry size
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 7
+    printf '\x01' >> $FILE
+    add_null 1
+    printf '\x02' >> $FILE
+    add_null 10
+    printf "HYPERVISOR DATA" >> $FILE
+    add_null 1
+}
+
+#Function for platform system dump header
+######################FORMAT##################
+#Name                Size(in bytes)   Value
+#eyeCatcher              8            SYS DUMP
+#requestTimestamp        8            BCD time
+#dumpIdentifier          4
+#dumpVersion             2
+#headerSize              2
+#totalDumpSize           8
+#machineInfo             32
+#systemName              32
+#systemSerialNumber      7
+#brand                   1
+#eventLogId              4
+#fileHeaderSize          2
+#srcSize                 2
+#dumpSrc                 332
+#toolType                4
+#clientId                32
+#userId                  32
+#systemDumpFlags         2
+#hardwareErrorFlags      2
+#processorChipEcid       2
+#hardwareObjectModel     1
+#chUnused                1
+#cecMemoryErrorFlags     8
+#memoryDumpStartTime     8
+#memoryDumpCompleteTime  8
+#hypVerRelMod            8
+#Reserved4HysrInfo       2
+#hypMode                 1
+#hypDumpContentPolicy    1
+#Reserved4HWDInfo        2
+#hardwareNodalCount      2
+#hardwareDumpTableSize   4
+#hardwareDumpDataSize    4
+#totalHardwareDumpDataSize   4
+#mdrtTableSize           4
+#mdrtTableAddress        8
+#memoryDumpDataSize      8
+#hypModLoadMapTime       8
+#hardwareCollectionEndTime   8
+#contentType             4
+#failingUnitId           4
+#failingCappChipId       2
+#failingCappUnitId       1
+#reserve02               5
+#hypHRMOR                8
+#hypNACAAddress          8
+#hardwareCollectionStartTime  8
+#mdstTableSize           4
+#payloadState            4
+#reservedForCreator      170
+function plat_dump_header () {
+    printf "SYS DUMP" >> $FILE
+    add_null 8   #BCD time stamp
+    add_null 4   #Dump identifier
+    printf '\x02' >> $FILE
+    printf '\x21' >> $FILE #Need to cross check
+    printf '\x04' >> $FILE #Dump header size 0x0400
+    add_null 1
+    add_null 8  # Dump size
+    printf $modelNo >> $FILE
+    add_null 24
+    system_name
+    printf $serialNo >> $FILE
+    add_null 1   #Brand name
+    add_null 920
+}
+
+
 #main function
 function gen_header_package () {
     dump_file_entry
     dump_section_entry
-    dump_header
-    dump_entry
+    if [ $dump_type = $TYPE_HOSTBOOT ]; then
+        hw_dump_section
+        mainstore_dump_section
+        plat_dump_header
+    else
+        dump_header
+        dump_entry
+    fi
 }
 
 #Run gen_header_package
