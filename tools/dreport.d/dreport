@@ -19,12 +19,12 @@ Options:
                               Identifiers include numeric characters.
                               Default dump identifier is 0
         -t, —-type <type>     Data collection type. Valid types are
-                              "user", "core", "elog".
+                              "user", "core", "elog", "hostboot".
                               Default type is "user" initiated.
         -p, —-path <path>     Optional contents to be included in the archive.
                               Valid paths are absolute file path or d-bus path
                               based on type parameter.
-                                 -Absolute file path for "core" type.
+                                 -Absolute file path for "core" and "hostboot" type.
                                  -elog d-bus object for "elog" type.
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
                               Report will be truncated in case size exceeds
@@ -55,6 +55,7 @@ declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx TYPE_HOSTBOOT="hostboot"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -91,6 +92,9 @@ function collect_data()
             log_summary "Core: $optional_path"
             set_core_pid
             ;;
+        $TYPE_HOSTBOOT)
+            log_summary "Hostboot: $optional_path"
+            ;;
         $TYPE_ELOG)
             log_summary "ELOG: $optional_path"
             elog_id=$(basename "$optional_path")
@@ -112,18 +116,22 @@ function collect_data()
             ;;
     esac
 
-    plugin_path=$DREPORT_SOURCE/$PLUGIN$dump_type.d
+    if [ $dump_type = $TYPE_HOSTBOOT ]; then
+        cp -R $optional_path $name_dir
+    else
+        plugin_path=$DREPORT_SOURCE/$PLUGIN$dump_type.d
 
-    # check plugin directory for this dump type?
-    if [ ! -d $plugin_path ]; then
-        log_error "$plugin_path does not exist, skipping dump collection"
-        return 0
+        # check plugin directory for this dump type?
+        if [ ! -d $plugin_path ]; then
+            log_error "$plugin_path does not exist, skipping dump collection"
+            return 0
+        fi
+
+        #Executes plugins based on the type.
+        for i in $plugin_path/* ; do
+            $i
+        done
     fi
-
-    #Executes plugins based on the type.
-    for i in $plugin_path/* ; do
-       $i
-    done
 }
 
 # @brief set pid by reading information from the optional path.
@@ -175,7 +183,11 @@ function initialize()
 {
     #Dump file name
     if [ -z $name ]; then
-        name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+        if [ $dump_type = $TYPE_HOSTBOOT ]; then
+            name=$"hbdump_"$dump_id"_$EPOCHTIME"
+        else
+            name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+        fi
     fi
 
     #Create temporary data directory.
@@ -198,6 +210,7 @@ function initialize()
     if [[ ! ($dump_type = $TYPE_USER || \
              $dump_type = $TYPE_CORE || \
              $dump_type = $TYPE_ELOG || \
+             $dump_type = $TYPE_HOSTBOOT || \
              $dump_type = $TYPE_CHECKSTOP) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
