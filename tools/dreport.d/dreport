@@ -55,6 +55,7 @@ declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx TYPE_HOSTBOOT="hostboot"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -91,6 +92,9 @@ function collect_data()
             log_summary "Core: $optional_path"
             set_core_pid
             ;;
+        $TYPE_HOSTBOOT)
+            log_summary "Hostboot: $optional_path"
+            ;;
         $TYPE_ELOG)
             log_summary "ELOG: $optional_path"
             elog_id=$(basename "$optional_path")
@@ -111,6 +115,11 @@ function collect_data()
             return
             ;;
     esac
+
+    if [ $dump_type = $TYPE_HOSTBOOT ]; then
+		echo "In host boot dump"
+		mv $optional_path $name_dir
+	fi
 
     plugin_path=$DREPORT_SOURCE/$PLUGIN$dump_type.d
 
@@ -198,6 +207,7 @@ function initialize()
     if [[ ! ($dump_type = $TYPE_USER || \
              $dump_type = $TYPE_CORE || \
              $dump_type = $TYPE_ELOG || \
+             $dump_type = $TYPE_HOSTBOOT || \
              $dump_type = $TYPE_CHECKSTOP) ]]; then
        log_error "Invalid -type, Only summary log is available"
        dump_type=$SUMMARY_DUMP
