@@ -16,6 +16,24 @@
       "revId": "7a2557c6ffcb1ad0d654cc22ec9257e2647daa19",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de6e272a_88cfadba",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-02-11T04:07:29Z",
+      "side": 1,
+      "message": "Considering EPOCHTIME.\ndeclare -x dDay\u003d$(date -d @$EPOCHTIME +\u0027%Y%m%d%H%M%S\u0027) \n\nThe function above is to convert that time to hex and write to the header.\n\nWill add more details about the function.",
+      "parentUuid": "9b5c16bb_49cf0e88",
+      "revId": "7a2557c6ffcb1ad0d654cc22ec9257e2647daa19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
