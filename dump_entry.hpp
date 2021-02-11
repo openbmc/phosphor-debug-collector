@@ -83,8 +83,6 @@ class Entry : public EntryIfaces
             startTime(timeStamp);
             completedTime(0);
         }
-        // Emit deferred signal.
-        this->emit_object_added();
     };
 
     /** @brief Delete this d-bus object.
