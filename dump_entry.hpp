@@ -38,7 +38,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : public EntryIfaces
+class Entry : virtual public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -83,8 +83,6 @@ class Entry : public EntryIfaces
             startTime(timeStamp);
             completedTime(0);
         }
-        // Emit deferred signal.
-        this->emit_object_added();
     };
 
     /** @brief Delete this d-bus object.

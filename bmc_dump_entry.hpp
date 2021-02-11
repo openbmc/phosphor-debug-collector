@@ -57,9 +57,14 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
+        phosphor::dump::EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               status, parent),
-        file(file){};
+        file(file)
+    {
+        // Emit deferred signal.
+        this->EntryIfaces::emit_object_added();
+    }
 
     /** @brief Delete this d-bus object.
      */

@@ -58,12 +58,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
+        phosphor::dump::EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               status, parent)
     {
         sourceDumpId(sourceId);
         vSPString(vspString);
         password(pwd);
+        // Emit deferred signal.
+        this->EntryIfaces::emit_object_added();
+        this->phosphor::dump::EntryIfaces::emit_object_added();
     };
 
     /** @brief Method to initiate the offload of dump
