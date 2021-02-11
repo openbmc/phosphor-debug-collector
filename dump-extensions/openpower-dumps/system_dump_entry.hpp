@@ -57,12 +57,14 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
                               status, parent)
     {
         sourceDumpId(sourceId);
+        // Emit deferred signal.
+        this->EntryIfaces::emit_object_added();
     };
 
     /** @brief Method to initiate the offload of dump
      *  @param[in] uri - URI to offload dump.
      */
-    void initiateOffload(std::string uri);
+    void initiateOffload(std::string uri) override;
 
     /** @brief Method to update an existing dump entry
      *  @param[in] timeStamp - Dump creation timestamp
