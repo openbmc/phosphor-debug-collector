@@ -52,6 +52,24 @@
       "revId": "03eb92db6ad2f6d3641d71404ba90d8fefcb795c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15c9cb22_e4641737",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T07:42:56Z",
+      "side": 1,
+      "message": "No there is no issue once the emit is moved to derived class, the issue was not apparent in system or bmc classed but in resource dump class where new properties added in the derived class..\n\nnow the properties are getting updated in InterfaceAdded\n\n                 DICT_ENTRY \"sa{sv}\" {\n                          STRING \"com.ibm.Dump.Entry.Resource\";\n                          ARRAY \"{sv}\" {\n                                  DICT_ENTRY \"sv\" {\n                                          STRING \"SourceDumpId\";\n                                          VARIANT \"u\" {\n                                                  UINT32 4294967295;\n                                          };\n                                  };\n                                  DICT_ENTRY \"sv\" {\n                                          STRING \"VSPString\";\n                                          VARIANT \"s\" {\n                                                  STRING \"vsp\";\n                                          };\n                                  };\n                                  DICT_ENTRY \"sv\" {\n                                          STRING \"Password\";\n                                          VARIANT \"s\" {\n                                                  STRING \"pass0\";\n                                          };\n                                  };\n                          };",
+      "parentUuid": "92fcf6ef_bc3c5abb",
+      "revId": "03eb92db6ad2f6d3641d71404ba90d8fefcb795c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
