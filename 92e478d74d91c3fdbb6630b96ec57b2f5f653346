@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "1b7d8d73_d5ecf0fe",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T07:30:38Z",
+      "side": 1,
+      "message": "```\nusing EntryIfaces \u003d sdbusplus::server::object::object\u003c\n     sdbusplus::xyz::openbmc_project::Common::server::Progress,\n     sdbusplus::xyz::openbmc_project::Dump::server::Entry,\n     sdbusplus::xyz::openbmc_project::Object::server::Delete,\n     sdbusplus::xyz::openbmc_project::Time::server::EpochTime\u003e;\n\nclass Entry : public EntryIfaces {};\n\nusing EntryIfaces \u003d sdbusplus::server::object::object\u003c\n     sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC\u003e;\n\nclass Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry {}\n```\n\n- BMC entry class has visibility to call emit_object_added() for bmc entry and as well base Entry.\n- Currently it calling BMC EntryIfaces::emit_object_added() based on near scope (it will check in derived class scope first and then it will look base class scope based on class inheritence order) and this is implicit call and while looking code we are losing readability for this kind of implicit call. So, suggesting will make it as explicitly ?",
+      "parentUuid": "67919be7_9aaadc2e",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
