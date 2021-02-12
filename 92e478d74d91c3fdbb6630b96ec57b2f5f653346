@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "badbdcab_325e5ea0",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:06:07Z",
+      "side": 1,
+      "message": "Will remove and test",
+      "parentUuid": "ba09de7f_d2ba48d7",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "920fac24_a3046104",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:06:07Z",
+      "side": 1,
+      "message": "That is added because of virtual inheritance, removing\nEmit signal is needed since the signal is differed right?",
+      "parentUuid": "73ae943d_8c767b33",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "418792cb_36dd2aaf",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
@@ -74,6 +116,24 @@
       "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6151f1bf_56c5c9be",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "418792cb_36dd2aaf",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "0da96edf_e70f7cfe",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:06:07Z",
+      "side": 1,
+      "message": "It is there below",
+      "parentUuid": "1fa77539_92fb6bb1",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 7
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0300a811_4b09e30e",
         "filename": "dump_entry.hpp",
         "patchSetId": 1
@@ -137,6 +221,30 @@
       "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b7bd942_0a523541",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0300a811_4b09e30e",
+      "range": {
+        "startLine": 41,
+        "startChar": 14,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
