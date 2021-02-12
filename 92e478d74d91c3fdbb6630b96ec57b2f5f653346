@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "67919be7_9aaadc2e",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T07:09:14Z",
+      "side": 1,
+      "message": "You mean phosphor::dump::bmc::EntryIfaces? Since it in this class i am not sure how that is confusing.. but I can add that",
+      "parentUuid": "09865a3e_0f64451b",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
