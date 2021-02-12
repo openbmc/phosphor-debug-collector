@@ -148,6 +148,30 @@
     },
     {
       "key": {
+        "uuid": "988d8d62_9c8254a6",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:40:15Z",
+      "side": 1,
+      "message": "this was added because emit signal was ambigous",
+      "parentUuid": "21f5a9f8_ef9ed99c",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
@@ -213,6 +237,24 @@
       "side": 1,
       "message": "Devender: They are making `deferSignal` as true (LN60 in this file) which is parameter to sdbusplus::server::object::object constructor. So, Dbus object implementer have custom property (In this case, srcID, vsp and pwd) that need to be initialise before sending interface added signal.\n\nDhruv but, do we need to emit signal for base entry and bmc entry ? (same as Deepak point)",
       "parentUuid": "73ae943d_8c767b33",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a314b9a3_720b162c",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-02-12T05:40:15Z",
+      "side": 1,
+      "message": "Only one is needed",
+      "parentUuid": "920fac24_a3046104",
       "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
