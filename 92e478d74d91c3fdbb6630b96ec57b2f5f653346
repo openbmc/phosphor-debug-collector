@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "21f5a9f8_ef9ed99c",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-02-12T05:14:34Z",
+      "side": 1,
+      "message": "Here , trying to emit objects for derived one BMC right?  Looks like you are trying to get base object emit signal on this . My understanding you are trying to solve the issue with missing member update info. with base class signal emission. The reason could be  the order of object ceration.\nArticle related to this http://www.cs.technion.ac.il/users/yechiel/c++-faq/using-this-in-ctors.html\n\nHow the end user is warching the signal ,its is based type  specific dump object right? then we just need to emit signal on the sepcific typoe objecvt . if not they need to change .",
+      "parentUuid": "badbdcab_325e5ea0",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
