@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "723e4877_c2547fd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T05:33:35Z",
+      "side": 1,
+      "message": "Can you add new line ?",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46e6a5f8_13a3cd7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T05:33:35Z",
+      "side": 1,
+      "message": "Can you add new line?",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "318346ba_dd49b09d",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T05:33:35Z",
+      "side": 1,
+      "message": "Why need to call base EntryIfaces constructor explicitly? since, In LN:61, the base entry constructor is called and it calling Base dump::EntryIfaces right?",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba09de7f_d2ba48d7",
         "filename": "bmc_dump_entry.hpp",
         "patchSetId": 1
@@ -73,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "69cef926_df05b853",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T05:33:35Z",
+      "side": 1,
+      "message": "Looks you have different EntryIfaces (for BMC, System, Resource and Base Entry) if so, EntryIfaces naming is confusing while looking object creation order, can you change it ?",
+      "parentUuid": "ba09de7f_d2ba48d7",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
@@ -119,6 +194,24 @@
       "writtenOn": "2021-02-12T05:06:07Z",
       "side": 1,
       "message": "That is added because of virtual inheritance, removing\nEmit signal is needed since the signal is differed right?",
+      "parentUuid": "73ae943d_8c767b33",
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bc5c342_996f6a72",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T05:33:35Z",
+      "side": 1,
+      "message": "Devender: They are making `deferSignal` as true (LN60 in this file) which is parameter to sdbusplus::server::object::object constructor. So, Dbus object implementer have custom property (In this case, srcID, vsp and pwd) that need to be initialise before sending interface added signal.\n\nDhruv but, do we need to emit signal for base entry and bmc entry ? (same as Deepak point)",
       "parentUuid": "73ae943d_8c767b33",
       "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
