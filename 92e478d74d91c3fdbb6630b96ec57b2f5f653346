@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "09865a3e_0f64451b",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-12T06:59:23Z",
+      "side": 1,
+      "message": "Yes, it is in different namespace, but those EntryIfaces emit_object_added() function scope applicable to derived class as well and implicitly it picking near scope function, So, explicit namespace is good or rename it",
+      "parentUuid": "f6b2103a_11cd4fc3",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "92e478d74d91c3fdbb6630b96ec57b2f5f653346",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8570ab5f_69678225",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
         "patchSetId": 1
