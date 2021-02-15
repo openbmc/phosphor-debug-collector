@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c134210f_43e1560e",
+        "filename": "ramoops_watch.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-15T07:04:20Z",
+      "side": 1,
+      "message": "Ramoops is an oops/panic logger that writes its logs to RAM before the system crashes.\n\nadd little bit about ramoops",
+      "range": {
+        "startLine": 18,
+        "startChar": 45,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "c7e5c184e5466211ac7c5091eb2668754e1498e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333cd3ce_df9c6139",
+        "filename": "ramoops_watch.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-15T07:04:20Z",
+      "side": 1,
+      "message": "iMgr also event parameter is missing",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "c7e5c184e5466211ac7c5091eb2668754e1498e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80fa94f3_458a98ee",
+        "filename": "ramoops_watch.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-15T07:04:20Z",
+      "side": 1,
+      "message": "this can be fs::path as we are doing fs operations on this",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "c7e5c184e5466211ac7c5091eb2668754e1498e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
