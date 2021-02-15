@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d19fe7ec_7a7c3697",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-02-15T11:44:10Z",
+      "side": 1,
+      "message": "Dump Req Type     4            Dump requester user interface type.\n#Dump Req ID       32           Dump requester user interface ID\n#Dump Req user ID  32           Dump requester user ID. Currently NULL\n\nSuppoort is missing in dump header? \n#2639 includes only PLID?SRC related info.",
+      "revId": "415815877993b8401d3bebf29cceea1d7d9dee84",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
