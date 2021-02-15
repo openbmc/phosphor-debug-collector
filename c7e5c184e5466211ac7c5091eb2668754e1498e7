@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6e2ca418_0cc004d9",
+        "filename": "ramoops_watch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-02-15T07:49:18Z",
+      "side": 1,
+      "message": "ApplicationCored type is for creating Application core dump use case . In this type dreport ( packaging scripts) collects the data required to analyze the core dump. Please refer phosphor-debug-collector/tools/dreport.d/dreport file for details.\n\nThe design should be creating new dump type instead of using ApplicationCore type and add support in internal d-bus and dreport tool..\n\nAlso dump manager follows design s enble only required dumps.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 68
+      },
+      "revId": "c7e5c184e5466211ac7c5091eb2668754e1498e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c134210f_43e1560e",
         "filename": "ramoops_watch.hpp",
         "patchSetId": 2
