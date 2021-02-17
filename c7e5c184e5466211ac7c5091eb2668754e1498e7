@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dad7de51_27f9ef1b",
+        "filename": "ramoops_watch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-02-17T00:31:09Z",
+      "side": 1,
+      "message": "@Jayanth\nthis issue link with: \nhttps://github.com/openbmc/phosphor-debug-collector/issues/15\n\nSo I think it belongs to `core dump use case`\n\n@Andrew, What do you think?",
+      "parentUuid": "6e2ca418_0cc004d9",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 68
+      },
+      "revId": "c7e5c184e5466211ac7c5091eb2668754e1498e7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c134210f_43e1560e",
         "filename": "ramoops_watch.hpp",
         "patchSetId": 2
