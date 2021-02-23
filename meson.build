@@ -5,7 +5,8 @@ project('phosphor-debug-collector',
         default_options: [
                           'cpp_std=c++17',
                           'warning_level=3',
-                          'werror=true'
+                          'werror=true',
+                          'buildtype=debugoptimized'
                          ],
         version: '1.0',
         license: 'Apache-2.0'
@@ -18,6 +19,12 @@ libsystemd = dependency('libsystemd', version : '>=221')
 phosphor_dbus_interfaces = dependency('phosphor-dbus-interfaces')
 sdbusplus = dependency('sdbusplus')
 phosphor_logging = dependency('phosphor-logging')
+
+# Disable FORTIFY_SOURCE when compiling with no optimization
+if(get_option('optimization') == '0')
+  add_project_arguments('-U_FORTIFY_SOURCE',language:['cpp','c'])
+  message('Disabling FORTIFY_SOURCE as optimization is set to 0')
+endif
 
 # Configuration header file(config.h) generation
 
