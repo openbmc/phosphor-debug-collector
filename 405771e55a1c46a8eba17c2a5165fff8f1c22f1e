@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "94a35b14_c62f567f",
+        "filename": "tools/dreport.d/plugins.d/vpd",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-02-23T14:38:02Z",
+      "side": 1,
+      "message": "dreport.d/plugins.d is enabled for all systems. \nTwo option to enable only on openpower based systems .\n1. Matt added pel specific plugins here openbmc/meta-ibm/recipes-phosphor/dump/phosphor-debug-collector/plugins.d path.  Minimal chnage,  not aligning to the general direction, keeping repository specific function in openbmc .\n2. Add plugins in ibm specific directory and enabled only for IBM systems. this required additional work in recipes.",
+      "parentUuid": "2dbefd7f_d4f3dbcf",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "405771e55a1c46a8eba17c2a5165fff8f1c22f1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "123cdcd5_eee260bc",
         "filename": "tools/dreport.d/plugins.d/vpd",
         "patchSetId": 1
