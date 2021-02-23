@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# config: 2 15
+# @brief: Collect Bad VPD.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Bad VPD"
+dir_name="/tmp/bad-vpd"
+
+add_copy_file "$dir_name" "$desc"
