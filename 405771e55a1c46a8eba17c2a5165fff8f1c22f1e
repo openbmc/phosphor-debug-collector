@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2dbefd7f_d4f3dbcf",
+        "filename": "tools/dreport.d/plugins.d/vpd",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2021-02-23T13:47:05Z",
+      "side": 1,
+      "message": "one of openpower-vpd-parser repo\u0027s application say ibm-read-vpd - will create this file.\nand the ibm-read-vpd app gets generated only when ibm-parser flag is enabled.\nhttps://github.com/openbmc/openpower-vpd-parser/blob/master/meson.build#L46",
+      "parentUuid": "7003cdd9_a16385cd",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "405771e55a1c46a8eba17c2a5165fff8f1c22f1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "123cdcd5_eee260bc",
         "filename": "tools/dreport.d/plugins.d/vpd",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2021-02-23T13:19:28Z",
       "side": 1,
       "message": "Any use case for keeping this file after copying into dump?",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "405771e55a1c46a8eba17c2a5165fff8f1c22f1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70f1a4bb_8eb9f1d6",
+        "filename": "tools/dreport.d/plugins.d/vpd",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000362
+      },
+      "writtenOn": "2021-02-23T13:47:05Z",
+      "side": 1,
+      "message": "no.\nWe\u0027ll remove the file from /tmp/badVpd, once the corresponding issue related to that file is fixed.",
+      "parentUuid": "123cdcd5_eee260bc",
       "range": {
         "startLine": 12,
         "startChar": 1,
