@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb2797ac_8d82330b",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b52ef3cc_fb85d787",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "remove do check by removing the headers and compile",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 19
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c25dd639_cbad8e5b",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "how is this populated is it a TODO?",
+      "range": {
+        "startLine": 26,
+        "startChar": 34,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d690fa5_e9bfa357",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "the below code can as well go into the create method, as I do not see this method being used else where",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ed6d3ee_e20d14e1",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "this will commit the error and will continue to line 42 is that your expectation?",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54bdec6_717e23f0",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "Derived* pDerived \u003d dynamic_cast\u003cDerived*\u003e(pBase);\nif(pDerived) // always test  \n{\n}\n\nyou should be using dynamic_cast and check return value, here we are doing assumption and reinterpreting which is dangerous.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 77
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5b4e13_aa22aafc",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "avoid InternalFailure you can create std::runtime exception with the error message, which the caller can catch using \ncatch(std::exception\u0026 ex)\n{\n   print ex.what();\n   elog\u003cInternalFailure);\n}\n\nthis way the caller can print the error message where it is invoked, assuming if there are multiple places this captureDump method is invoked we will have the message in those caller methods.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc427a8d_f5ff2e02",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "https://www.freedesktop.org/software/systemd/man/sd_event_add_child.html\n\nIf the handler parameter to sd_event_add_child() is NULL, and the event source fires, this will be considered a request to exit the event loop. In this case, the userdata parameter, cast to an integer, is passed as the exit code parameter to sd_event_exit(3).\n\nno need to define callback method if no special handling is done, worst case you can pass a lambda?",
+      "range": {
+        "startLine": 71,
+        "startChar": 57,
+        "endLine": 71,
+        "endChar": 65
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0361055b_2684f484",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "this return value is not used by the caller, so is it required",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91b22300_adccab36",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 25,
+        "startChar": 35,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1a72dc_711f8c2f",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "I guess these can go into private section",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 44
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03b18c32_3e6a7fd9",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "is the code added in future commits? we can pass NULL in the caller if no specific handling is done. if this method is removed need to remove corresponding headers too",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 17
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36daeb46_50dc2704",
+        "filename": "dump_manager.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "don\u0027t we need to override this method as we are inheriting from DeleteAll\nvirtual void deleteAll() \u003d 0;",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04dac8bf_a26eb4fb",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "who is going to call Dump::internal::Manager-\u003ecreate method, if no one else is calling better change Internal::Manager to not to inherit from Create interface. Let it be like an helper class",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a86b9c7_926f66e7",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "don\u0027t think this is required as we are just accessing static variable",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 51
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7455cac6_a1389123",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "static const std::map\u003cType, std::string\u003e TypeMap \u003d {\n    {Type::ApplicationCored, \"core\"},\n    {Type::UserRequested, \"user\"},\n    {Type::InternalFailure, \"elog\"},\n    {Type::Checkstop, \"checkstop\"}};\n\nbetter to define TypeMap like above and let the phosphor::bmc::dump::Manager have the phosphod::dump::internal::manager have the member object of it, use it like an helper class.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b74c0751_d6eeccc4",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-24T09:42:15Z",
+      "side": 1,
+      "message": "as phosphor::dump::internal::manager is very specific to phosphor::dump::bmc::Manager we can choose to create the internal::manager object as part of the constructor of bmc::manager ( composition) unless phosphor::dump::internal::manager is used for other dumps too.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
