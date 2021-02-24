@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "b8dd190a_a6a3101f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Please elaborate your problem statement like\n- Why you are refactoring ?\n- What is blocking to enable local dump in current code? \n- What is local dump?\n- How refactored code won\u0027t affect existing bmc dump functionality.\nThose pointes will be good to review by understanding problems.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d16bbb5_68ca4080",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Is it covered negative test cases if so, please elaborate TCs and add more TCs.\nSince, It refactor patch set and we don\u0027t UT support right now for all code so, adding more TCs will help to see if we missed anything - May be maintainer know more functionality and They can help us if we missed anything to test.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb2797ac_8d82330b",
         "filename": "bmc_dump_entry.hpp",
         "patchSetId": 6
@@ -94,6 +128,30 @@
     },
     {
       "key": {
+        "uuid": "955c261e_e0e281d9",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "- Why is it in global scope ?\n- Whether it is limited scope with file unit ? If use static.\n- Same as Devender: How it is get initialise. if it different commit set then push this variable related changes into that commit not here.",
+      "parentUuid": "c25dd639_cbad8e5b",
+      "range": {
+        "startLine": 26,
+        "startChar": 34,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5d690fa5_e9bfa357",
         "filename": "dump_internal.cpp",
         "patchSetId": 6
@@ -105,6 +163,30 @@
       "writtenOn": "2021-02-24T09:42:15Z",
       "side": 1,
       "message": "the below code can as well go into the create method, as I do not see this method being used else where",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7d24f6_2c4d07de",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "5d690fa5_e9bfa357",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -140,6 +222,47 @@
     },
     {
       "key": {
+        "uuid": "087515d4_a0ee8941",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "5ed6d3ee_e20d14e1",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 34
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71e1e54b_b2b3fd50",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Why not use mngr -\u003e bmcMgr?",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e54bdec6_717e23f0",
         "filename": "dump_internal.cpp",
         "patchSetId": 6
@@ -157,6 +280,47 @@
         "endLine": 44,
         "endChar": 77
       },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72d9696b_3d436b92",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "e54bdec6_717e23f0",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 77
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b39ae454_b98664e3",
+        "filename": "dump_internal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "please add error message rather than error code else whoever looking error code they need to get know respective error message.",
       "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -255,6 +419,40 @@
     },
     {
       "key": {
+        "uuid": "b53ca82f_52802499",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Do you restricted other constructor as like other class ?",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a513ef19_0db54635",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Looks you changed arguments, please correct it with purpose of this argument.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c1a72dc_711f8c2f",
         "filename": "dump_internal.hpp",
         "patchSetId": 6
@@ -301,6 +499,30 @@
     },
     {
       "key": {
+        "uuid": "14427d14_1d0419fe",
+        "filename": "dump_internal.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "No implementation then why you are returning 0 instead -1 as per you return code doc.",
+      "parentUuid": "03b18c32_3e6a7fd9",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 17
+      },
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36daeb46_50dc2704",
         "filename": "dump_manager.hpp",
         "patchSetId": 6
@@ -330,6 +552,40 @@
       "side": 1,
       "message": "ignore it is there in protected",
       "parentUuid": "36daeb46_50dc2704",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94347c1c_ce3d8710",
+        "filename": "dump_manager.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Can you as const function ? I guess caller can not change the value",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2b1df30_71ec900f",
+        "filename": "dump_manager.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Same as above comment",
       "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -433,6 +689,23 @@
       "writtenOn": "2021-02-24T09:42:15Z",
       "side": 1,
       "message": "as phosphor::dump::internal::manager is very specific to phosphor::dump::bmc::Manager we can choose to create the internal::manager object as part of the constructor of bmc::manager ( composition) unless phosphor::dump::internal::manager is used for other dumps too.",
+      "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "224c0019_733c9f9a",
+        "filename": "local_dump_entry.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T11:53:37Z",
+      "side": 1,
+      "message": "Please add what are dbus api this class is implemented \n- Delete\n- Offload\n\nAnything else ?",
       "revId": "2026512f5344f17c623e3205d15d59b9a09119d4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
