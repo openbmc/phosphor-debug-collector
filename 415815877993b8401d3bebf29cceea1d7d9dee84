@@ -52,6 +52,24 @@
       "revId": "415815877993b8401d3bebf29cceea1d7d9dee84",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41be724e_ae054b1d",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-03-03T05:35:10Z",
+      "side": 1,
+      "message": "Yes. \nDump Req Type     4  \u003c\u003c Is of 4 bytes. So the value we agreed was DUMP for this as we don\u0027t have any info about who is the caller.\n\n#Dump Req ID       32 \u003c\u003c Is 32 bytes max length. Here we are adding DUMP Manager.\n\nFrom FSP:-\n00000220  59 41 33 30 55 46 36 39  44 30 31 4c 00 00 00 00  |YA30UF69D01L....| \u003c\u003c\u003c 4 bytes is empty as its driven by cli. But if we initiate from PANL, ASMI we get that ID.\n00000230  66 69 70 73 64 75 6d 70  20 43 4c 49 00 00 00 00  |fipsdump CLI....| \u003c\u003c\u003c\u003c 32 bytes\n00000240  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|\n\nAs per spec we are trying to populate the values in the header.",
+      "parentUuid": "b241ccc3_08fb0ba6",
+      "revId": "415815877993b8401d3bebf29cceea1d7d9dee84",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
