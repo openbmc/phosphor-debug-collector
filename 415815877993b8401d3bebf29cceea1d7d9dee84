@@ -70,6 +70,24 @@
       "revId": "415815877993b8401d3bebf29cceea1d7d9dee84",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d85b3e73_7dd6f447",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-03T06:27:18Z",
+      "side": 1,
+      "message": "Am refering \"Dump Creator \t10B \tascii \tWho created the dump\" in the https://github.ibm.com/smartdump/dump-docs/blob/master/ebmcDumpFormat.md document.\n\nDump manager gets requests from various components in BMC . This means requester is dump manager. other than user initiated dump.  \n\nis this fiield is consumed by any external tool or just a place holder?",
+      "parentUuid": "41be724e_ae054b1d",
+      "revId": "415815877993b8401d3bebf29cceea1d7d9dee84",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
