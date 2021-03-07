@@ -114,9 +114,6 @@ class Manager :
                 Argument::ARGUMENT_VALUE("INVALID_PARAMETERS"));
         }
 
-        // Check dump policy
-        util::isOPDumpsEnabled();
-
         uint32_t id = ++lastEntryId;
         // Entry Object path.
         auto objPath =
