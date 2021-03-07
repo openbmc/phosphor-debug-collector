@@ -79,7 +79,7 @@ int main()
                                                    OBJ_INTERNAL);
         dumpMgrList.push_back(std::move(bmcDumpMgr));
 
-        phosphor::dump::loadExtensions(bus, dumpMgrList);
+        phosphor::dump::loadExtensions(bus, eventP, dumpMgrList);
 
         // Restore dbus objects of all dumps
         for (auto& dmpMgr : dumpMgrList)

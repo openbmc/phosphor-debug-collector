@@ -4,19 +4,29 @@
 
 #include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
 
+<<<<<<< HEAD
 #include "dump_manager_hardware.hpp"
+=======
+>>>>>>> 784f820... OpenPOWER: Add support for Hostboot dump.
 #include "dump_manager_hostboot.hpp"
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
+#include "dump_utils.hpp"
+
+#include <fmt/core.h>
+
+#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
 namespace dump
 {
 
-void loadExtensions(sdbusplus::bus::bus& bus, DumpManagerList& dumpList)
+using namespace phosphor::logging;
+void loadExtensions(sdbusplus::bus::bus& bus,
+                    const phosphor::dump::EventPtr& event,
+                    DumpManagerList& dumpList)
 {
-
     dumpList.push_back(std::make_unique<openpower::dump::system::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY));
     dumpList.push_back(std::make_unique<openpower::dump::resource::Manager>(
