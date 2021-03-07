@@ -42,11 +42,17 @@ conf_data.set_quoted('BMC_DUMP_OBJPATH', get_option('BMC_DUMP_OBJPATH'),
 conf_data.set_quoted('CORE_FILE_DIR', get_option('CORE_FILE_DIR'),
                       description : 'Directory where core dumps are placed'
                     )
+conf_data.set_quoted('HOSTBOOT_DUMP_TMP_FILE_DIR', get_option('HOSTBOOT_DUMP_TMP_FILE_DIR'),
+                      description : 'Directory where hostboot dump pieces are stored for packaging'
+                    )
 conf_data.set_quoted('OBJ_INTERNAL', get_option('OBJ_INTERNAL'),
                       description : 'Internal Dump manager Dbus object path'
                     )
 conf_data.set_quoted('BMC_DUMP_OBJ_ENTRY', get_option('BMC_DUMP_OBJ_ENTRY'),
                       description : 'The BMC dump entry DBus object path'
+                    )
+conf_data.set_quoted('HOSTBOOT_DUMP_OBJ_ENTRY', get_option('HOSTBOOT_DUMP_OBJ_ENTRY'),
+                      description : 'The Hostboot dump entry DBus object path'
                     )
 conf_data.set_quoted('BMC_DUMP_PATH', get_option('BMC_DUMP_PATH'),
                      description : 'Directory where bmc dumps are placed')
