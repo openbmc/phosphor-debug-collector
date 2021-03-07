@@ -28,6 +28,11 @@ option('CORE_FILE_DIR', type : 'string',
         description : 'Directory where core dumps are placed'
       )
 
+option('HOSTBOOT_DUMP_TMP_FILE_DIR', type : 'string',
+        value : '/tmp/openpower-dumps/hostboot',
+        description : 'Directory where hostboot dump pieces are stored for packaging'
+      )
+
 option('OBJ_INTERNAL', type : 'string',
         value : '/xyz/openbmc_project/dump/internal/manager',
         description : 'Internal Dump manager Dbus object path'
@@ -41,6 +46,11 @@ option('BMC_DUMP_OBJ_ENTRY', type : 'string',
 option('BMC_DUMP_PATH', type : 'string',
         value : '/var/lib/phosphor-debug-collector/dumps/',
         description : 'Directory where bmc dumps are placed'
+      )
+
+option('HOSTBOOT_DUMP_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/hostbootdump/',
+        description : 'Directory where Hostboot dumps are placed'
       )
 
 option('BMC_DUMP_MAX_SIZE', type : 'integer',
@@ -106,4 +116,31 @@ option('RESOURCE_DUMP_OBJPATH', type : 'string',
 option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/resource/entry',
         description : 'The resource dump entry DBus object path'
+      )
+
+# Hostboot dump options
+
+option('HOSTBOOT_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/hostboot',
+        description : 'The hostboot dump manager Dbus object path'
+      )
+
+option('HOSTBOOT_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/hostboot/entry',
+        description : 'The Hostboot dump entry DBus object path'
+      )
+
+option('HOSTBOOT_DUMP_MAX_SIZE', type : 'integer',
+        value : 102400,
+        description : 'Maximum size of one Hostboot dump in kilo bytes'
+      )
+
+option('HOSTBOOT_DUMP_MIN_SPACE_REQD', type : 'integer',
+        value : 81920,
+        description : 'Minimum space required for one Hostboot dump in kilo bytes'
+      )
+
+option('HOSTBOOT_DUMP_TOTAL_SIZE', type : 'integer',
+        value : 409600,
+        description : 'Total size of the dump in kilo bytes'
       )
