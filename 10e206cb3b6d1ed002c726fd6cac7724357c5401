@@ -2,6 +2,86 @@
   "comments": [
     {
       "key": {
+        "uuid": "98a37662_71f9657a",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-08T12:00:34Z",
+      "side": 1,
+      "message": "ramoops?",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0744007c_5fa61516",
+        "filename": "kernel_manager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-08T12:00:34Z",
+      "side": 1,
+      "message": "My understanding is watch folder contain;s multiple files,. this file copying logic is good for copying all required files from the folder , i mean in the first IN_CLOSE_WRITE signal , all the required files are going to be availble in the folder?",
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f36316_aa180e6c",
+        "filename": "kernel_manager.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-08T12:00:34Z",
+      "side": 1,
+      "message": "Need to make sure this path should be availble before starting this service, better place is in the recipie.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdf58f3b_e17a13ff",
+        "filename": "tools/dreport.d/plugins.d/kernelfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-08T12:00:34Z",
+      "side": 1,
+      "message": "There are some basic info we should add as part of each dump ,osrelease is mandotary . @andrew J can comment on the additional content required here.",
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0fcbfc43_d6676f3a",
         "filename": "xyz/openbmc_project/Dump/Internal/Create.interface.yaml",
         "patchSetId": 4
