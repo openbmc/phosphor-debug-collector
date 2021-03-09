@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8bfb500a_0416e428",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-09T05:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98a37662_71f9657a",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0744007c_5fa61516",
         "filename": "kernel_manager.cpp",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2021-03-08T12:00:34Z",
       "side": 1,
       "message": "My understanding is watch folder contain;s multiple files,. this file copying logic is good for copying all required files from the folder , i mean in the first IN_CLOSE_WRITE signal , all the required files are going to be availble in the folder?",
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dcc94f6_90f5d8da",
+        "filename": "kernel_manager.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-09T05:56:39Z",
+      "side": 1,
+      "message": "Yes, like this:\n```\n# ls /var/lib/systemd/pstore/\nconsole-ramoops-0  dmesg-ramoops-0    dmesg-ramoops-1    dmesg.txt\n```",
+      "parentUuid": "0744007c_5fa61516",
       "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "3afb489a_528406ed",
+        "filename": "kernel_manager.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-09T05:56:39Z",
+      "side": 1,
+      "message": "I think we can check it in ramoops_manager_mai.cpp.\nAdded",
+      "parentUuid": "00f36316_aa180e6c",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cdf58f3b_e17a13ff",
         "filename": "tools/dreport.d/plugins.d/kernelfile",
         "patchSetId": 4
@@ -76,6 +142,24 @@
       "writtenOn": "2021-03-08T12:00:34Z",
       "side": 1,
       "message": "There are some basic info we should add as part of each dump ,osrelease is mandotary . @andrew J can comment on the additional content required here.",
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1844a138_836fd339",
+        "filename": "tools/dreport.d/plugins.d/kernelfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-09T05:56:39Z",
+      "side": 1,
+      "message": "Right now, I added os-release.\n@andrew J, @Jayanth\nDo I need to add other plugins?",
+      "parentUuid": "cdf58f3b_e17a13ff",
       "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -102,6 +186,30 @@
       "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bebe8586_bee203ab",
+        "filename": "xyz/openbmc_project/Dump/Internal/Create.interface.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-09T05:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fcbfc43_d6676f3a",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "10e206cb3b6d1ed002c726fd6cac7724357c5401",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
