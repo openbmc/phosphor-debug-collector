@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d80157c6_ba79c716",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-03-10T12:03:38Z",
+      "side": 1,
+      "message": "Adding \"User Initiated\" in case of user dump and for other dumps like core etc setting requestor as \"Dump manager\"",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 20
+      },
+      "revId": "e2a8b5a4a9318ce62f8e9dfa365ad2a02c933fba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
