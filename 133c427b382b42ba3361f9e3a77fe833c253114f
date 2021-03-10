@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7227811e_64f03e49",
+        "filename": "ramoops_manager_main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-10T05:03:57Z",
+      "side": 1,
+      "message": "This creates BMCDump, do we really need to triiger BMCDump to debug this issue?",
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
