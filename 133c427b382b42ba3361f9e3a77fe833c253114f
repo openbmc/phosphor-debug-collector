@@ -1192,6 +1192,30 @@
       "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2475c56e_3204d209",
+        "filename": "xyz/openbmc_project/Dump/Internal/Create.interface.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-11T10:30:45Z",
+      "side": 1,
+      "message": "@andrew J , ramoops and kdump design flow is same , my understanding is ramoops type is temporary solution , till the actual kdump support in place.",
+      "parentUuid": "95fcf8c8_837c4692",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 62
+      },
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
