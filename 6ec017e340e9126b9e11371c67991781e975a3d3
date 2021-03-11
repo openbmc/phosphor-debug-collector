@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1d6e25d_5102437b",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "can we have some constant here, to specify what is passed here",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 58
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83c74944_7a47f855",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "who is throwing this exception not make_pair not std::time",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04a06aff_8b0d3954",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "to be consistent make it openpower::dump::hostboot::Entry similar to line 141",
+      "range": {
+        "startLine": 153,
+        "startChar": 29,
+        "endLine": 153,
+        "endChar": 38
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf05b1fb_582687b9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "who is throwing this exception? not make_pair",
+      "range": {
+        "startLine": 157,
+        "startChar": 17,
+        "endLine": 157,
+        "endChar": 39
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6ca4483_e1c7b041",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "c++11 now has std::filesystem just do\n#include\u003cfilesystem\u003e",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e1da1d1_31bab397",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "std::filesystem",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2377f3f8_15f5dbce",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "can\u0027t these be std::string?",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba97ba25_2f90dd0b",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "can it be in private or protected section",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 48
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d000cc5d_bb69aa4e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "params description",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 6
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50d0fcf_b94f904d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "hostboot? simply dump?",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 27
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987ba239_3e0d29bb",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "can we pass NULL to the  caller of this method, i remember we can",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 5
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29e1eff2_4d8c62ee",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "is this correct?",
+      "range": {
+        "startLine": 23,
+        "startChar": 58,
+        "endLine": 23,
+        "endChar": 61
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fadb185f_8ed9f035",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-03-11T18:11:46Z",
+      "side": 1,
+      "message": "only std::filesystem",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
