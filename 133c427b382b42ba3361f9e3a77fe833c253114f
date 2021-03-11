@@ -134,6 +134,30 @@
     },
     {
       "key": {
+        "uuid": "4440870f_dc31f58d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-11T07:22:20Z",
+      "side": 1,
+      "message": "Dump contents file names information is sufficient here.",
+      "parentUuid": "fccd06ea_a2b4c7d2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 119
+      },
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b2b44fa_88c1056f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -157,6 +181,30 @@
     },
     {
       "key": {
+        "uuid": "f5288c42_cdb1ec29",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-11T07:22:20Z",
+      "side": 1,
+      "message": "am curious to know , actual error scenario , like capturing all the required files in the eral error path.",
+      "parentUuid": "1b2b44fa_88c1056f",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0d8efcf1_47f891d5",
         "filename": "dump_manager_bmc.hpp",
         "patchSetId": 5
@@ -168,6 +216,30 @@
       "writtenOn": "2021-03-10T23:50:32Z",
       "side": 1,
       "message": "Can we call it something generic so it covers kdump as well?",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7a79851_c00aef93",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-11T07:22:20Z",
+      "side": 1,
+      "message": "@andrew design flow is same for kdump and ramoops?",
+      "parentUuid": "0d8efcf1_47f891d5",
       "range": {
         "startLine": 42,
         "startChar": 4,
@@ -473,6 +545,24 @@
       "writtenOn": "2021-03-10T23:50:32Z",
       "side": 1,
       "message": "What does this mean?",
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f80bdc6_205e529b",
+        "filename": "tools/dreport.d/plugins.d/osrelease",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-11T07:22:20Z",
+      "side": 1,
+      "message": "This enables to to install this plugin for required dump type. mainly number indiactes dump types.",
+      "parentUuid": "cafb02b0_06bf7896",
       "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
