@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b93640a6_35b95ac0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "My comment about this on PS5 hasn\u0027t been addressed.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "957b5811_63c31d9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Not convinced that the comments on PS5 are addressed here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 61
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f137c32_7ca67d0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Did you actually run this? It lists the content of the archive...",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "273d9084_f2a1577a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "... which means that you don\u0027t have to extract and run `ls`.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07f352bf_8b6caa9c",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Please use a set to avoid this code. You\u0027re open-coding the behaviour of a set. Let\u0027s make the implementation boring and obvious by actually using a set.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 9
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e2a7dd_76bbd275",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Please move this into createHelper() as an early-exit test.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2f08c66_1cbe9591",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Take a set or an iterator as an argument.",
+      "range": {
+        "startLine": 55,
+        "startChar": 33,
+        "endLine": 55,
+        "endChar": 39
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f860577c_5eef28bd",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Answering my question on PS5 wasn\u0027t an escape hatch to avoid using a set :)",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 29
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

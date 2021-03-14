@@ -414,6 +414,30 @@
     },
     {
       "key": {
+        "uuid": "8410e0e7_bae32148",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-14T22:19:11Z",
+      "side": 1,
+      "message": "Well, you\u0027d look in a different location for the kdump data, but yes, I can\u0027t see why it would be much different.",
+      "parentUuid": "f7a79851_c00aef93",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "133c427b382b42ba3361f9e3a77fe833c253114f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7cc880a4_ab9ee90b",
         "filename": "meson.build",
         "patchSetId": 5
