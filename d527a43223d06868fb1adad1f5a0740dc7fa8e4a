@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8a1d6ac_74c5edf4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Sorry, I said: because I do not have a test environment, @Andrew Geissler said we can use the following command to simulate the test.\nSo, I need to help from @Andrew Geissler.",
+      "parentUuid": "b93640a6_35b95ac0",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "957b5811_63c31d9e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2021-03-14T22:19:11Z",
       "side": 1,
       "message": "Not convinced that the comments on PS5 are addressed here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 61
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "947ae2ae_acd7046c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Sorry, Removed",
+      "parentUuid": "957b5811_63c31d9e",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0aac3a24_5d5429b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Yes.\n\ntar -tvf obmcdump_1_248.tar.xz:\n\n```\ndrwxr-xr-x 0/0         0 1970-01-01 00:01:32 obmcdump_1_248/\n-rw-r--r-- 0/0     21239 1970-01-01 00:01:32 obmcdump_1_248/dmest.txt\n-rw-r--r-- 0/0       162 1970-01-01 00:01:32 obmcdump_1_248/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:01:31 obmcdump_1_248/os-release\n-rw-r--r-- 0/0       278 1970-01-01 00:01:31 obmcdump_1_248/summary.log\n```",
+      "parentUuid": "6f137c32_7ca67d0e",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "273d9084_f2a1577a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2021-03-14T22:19:11Z",
       "side": 1,
       "message": "... which means that you don\u0027t have to extract and run `ls`.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38dd3036_3caad2eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "I copied this file remotely and used `tar -zvf`.",
+      "parentUuid": "273d9084_f2a1577a",
       "range": {
         "startLine": 41,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "96960729_b5d4c4d1",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07f352bf_8b6caa9c",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 9
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "23e2a7dd_76bbd275",
         "filename": "ramoops_manager.cpp",
         "patchSetId": 6
@@ -137,6 +257,30 @@
       "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6833201_da6bdb39",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23e2a7dd_76bbd275",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1a48d914_f4837059",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2f08c66_1cbe9591",
+      "range": {
+        "startLine": 55,
+        "startChar": 33,
+        "endLine": 55,
+        "endChar": 39
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f860577c_5eef28bd",
         "filename": "ramoops_manager.cpp",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2021-03-14T22:19:11Z",
       "side": 1,
       "message": "Answering my question on PS5 wasn\u0027t an escape hatch to avoid using a set :)",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 29
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dbf76dd_9be3689f",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-15T02:28:51Z",
+      "side": 1,
+      "message": "Thanks Andrew J 😊",
+      "parentUuid": "f860577c_5eef28bd",
       "range": {
         "startLine": 97,
         "startChar": 4,
