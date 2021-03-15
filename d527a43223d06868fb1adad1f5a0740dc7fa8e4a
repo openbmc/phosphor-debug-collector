@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c2443ffb_70ba4478",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-15T11:01:02Z",
+      "side": 1,
+      "message": "I have miscommunicated my point :)\n\nYou can\u0027t say that you\u0027re \"triggering a kernel panic\" because that\u0027s not what this is doing.\n\nInstead, you should say something like \"Simulate a kernel panic by creating similar data in the expected location.\"",
+      "parentUuid": "b8a1d6ac_74c5edf4",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "957b5811_63c31d9e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Yes.\n\ntar -tvf obmcdump_1_248.tar.xz:\n\n```\ndrwxr-xr-x 0/0         0 1970-01-01 00:01:32 obmcdump_1_248/\n-rw-r--r-- 0/0     21239 1970-01-01 00:01:32 obmcdump_1_248/dmest.txt\n-rw-r--r-- 0/0       162 1970-01-01 00:01:32 obmcdump_1_248/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:01:31 obmcdump_1_248/os-release\n-rw-r--r-- 0/0       278 1970-01-01 00:01:31 obmcdump_1_248/summary.log\n```",
       "parentUuid": "6f137c32_7ca67d0e",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 33
+      },
+      "revId": "d527a43223d06868fb1adad1f5a0740dc7fa8e4a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42b1d0d_070e16ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2021-03-15T11:01:02Z",
+      "side": 1,
+      "message": "Right, I was just suggesting you paste the tar command and the output into the commit message, which means you don\u0027t need to include the `ls obmcdump_1_249` line below",
+      "parentUuid": "0aac3a24_5d5429b4",
       "range": {
         "startLine": 40,
         "startChar": 2,
