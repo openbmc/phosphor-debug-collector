@@ -16,6 +16,24 @@
       "revId": "027e6a1809b477262f646a306f76388201225413",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3a0193c_2d6defa9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-03-16T11:05:39Z",
+      "side": 1,
+      "message": "```\nroot@fp5280g2:/var/lib/systemd/pstore# dmesg \u003e console-ramoops-0\nroot@fp5280g2:/var/lib/systemd/pstore# dmesg \u003e dmesg-ramoops-0\nroot@fp5280g2:/var/lib/systemd/pstore# dmesg \u003e dmesg-ramoops-1\nroot@fp5280g2:/var/lib/systemd/pstore# dmesg \u003e dmesg.txt\n\nroot@fp5280g2:/var/lib/phosphor-debug-collector/dumps# tar -tvf 5/obmcdump_5_287.tar.xz \ndrwxr-xr-x 0/0         0 1970-01-01 00:04:48 obmcdump_5_287/\n-rw-r--r-- 0/0     21239 1970-01-01 00:04:48 obmcdump_5_287/console-ramoops-0\n-rw-r--r-- 0/0       169 1970-01-01 00:04:48 obmcdump_5_287/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:04:47 obmcdump_5_287/os-release\n-rw-r--r-- 0/0       287 1970-01-01 00:04:47 obmcdump_5_287/summary.log\nroot@fp5280g2:/var/lib/phosphor-debug-collector/dumps# tar -tvf 6/obmcdump_6_291.tar.xz \ndrwxr-xr-x 0/0         0 1970-01-01 00:04:52 obmcdump_6_291/\n-rw-r--r-- 0/0     21239 1970-01-01 00:04:52 obmcdump_6_291/dmesg-ramoops-0\n-rw-r--r-- 0/0       167 1970-01-01 00:04:52 obmcdump_6_291/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:04:52 obmcdump_6_291/os-release\n-rw-r--r-- 0/0       285 1970-01-01 00:04:52 obmcdump_6_291/summary.log\nroot@fp5280g2:/var/lib/phosphor-debug-collector/dumps# tar -tvf 7/obmcdump_7_295.tar.xz \ndrwxr-xr-x 0/0         0 1970-01-01 00:04:56 obmcdump_7_295/\n-rw-r--r-- 0/0     21239 1970-01-01 00:04:56 obmcdump_7_295/dmesg-ramoops-1\n-rw-r--r-- 0/0       167 1970-01-01 00:04:56 obmcdump_7_295/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:04:56 obmcdump_7_295/os-release\n-rw-r--r-- 0/0       285 1970-01-01 00:04:56 obmcdump_7_295/summary.log\nroot@fp5280g2:/var/lib/phosphor-debug-collector/dumps# tar -tvf 8/obmcdump_8_300.tar.xz \ndrwxr-xr-x 0/0         0 1970-01-01 00:05:01 obmcdump_8_300/\n-rw-r--r-- 0/0     21239 1970-01-01 00:05:01 obmcdump_8_300/dmesg.txt\n-rw-r--r-- 0/0       161 1970-01-01 00:05:01 obmcdump_8_300/dreport.log\n-rw-r--r-- 0/0       294 1970-01-01 00:05:00 obmcdump_8_300/os-release\n-rw-r--r-- 0/0       279 1970-01-01 00:05:00 obmcdump_8_300/summary.log\n```",
+      "parentUuid": "f28851db_e8b803b3",
+      "revId": "027e6a1809b477262f646a306f76388201225413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
