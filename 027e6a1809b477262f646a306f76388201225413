@@ -87,6 +87,24 @@
       "revId": "027e6a1809b477262f646a306f76388201225413",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33091363_20fad80f",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-17T05:03:59Z",
+      "side": 1,
+      "message": "https://www.freedesktop.org/software/systemd/man/systemd-pstore.service.html\n“The systemd-pstore executable does the actual work. Upon starting, the pstore.conf file is read and the /sys/fs/pstore/ directory contents are processed according to the options. Pstore files are written to the journal, and optionally saved into /var/lib/systemd/pstore/.” @andrewJ  based on this , the new ramps monitor service  should start  prior to systemd-pstore.service right?",
+      "parentUuid": "e8ae7244_a0dc9ba4",
+      "revId": "027e6a1809b477262f646a306f76388201225413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
