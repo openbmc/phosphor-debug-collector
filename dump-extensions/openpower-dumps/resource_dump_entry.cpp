@@ -41,9 +41,11 @@ void Entry::delete_()
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 
-    // Remove resource dump when host is up by using source dump id
-    // which is present in resource dump entry dbus object as a property.
-    if (phosphor::dump::isHostRunning())
+    // Remove resource dump when host is up and dump is finished by using source
+    // source dump id which is present in resource dump entry dbus object as
+    // a property.
+    if ((phosphor::dump::isHostRunning()) &&
+        (status() == OperationStatus::Completed))
     {
         phosphor::dump::host::requestDelete(srcDumpID,
                                             TRANSPORT_DUMP_TYPE_IDENTIFIER);
