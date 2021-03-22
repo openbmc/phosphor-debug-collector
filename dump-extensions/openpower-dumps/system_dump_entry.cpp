@@ -44,6 +44,9 @@ void Entry::delete_()
 
     // Remove host system dump when host is up by using source dump id
     // which is present in system dump entry dbus object as a property.
+    // Attempt  to delete the dump from host only if the dump is completed.
+    if ((phosphor::dump::isHostRunning() &&
+        (status == OperationStatus::Completed)
     if (phosphor::dump::isHostRunning())
     {
         phosphor::dump::host::requestDelete(srcDumpID,
