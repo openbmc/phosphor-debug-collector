@@ -148,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "45ed0cd9_b2dfb827",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "another commit for de-dupliation",
+      "parentUuid": "4f382f81_6b4eab6f",
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1d6e25d_5102437b",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
         "patchSetId": 1
@@ -218,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "70fb265a_fd782d1d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "make_pair",
+      "parentUuid": "83c74944_7a47f855",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 38
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "04a06aff_8b0d3954",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
         "patchSetId": 1
@@ -276,6 +318,30 @@
       "writtenOn": "2021-03-11T18:11:46Z",
       "side": 1,
       "message": "who is throwing this exception? not make_pair",
+      "range": {
+        "startLine": 157,
+        "startChar": 17,
+        "endLine": 157,
+        "endChar": 39
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "102188b8_2ab26e97",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "yes make_unique/make_pair",
+      "parentUuid": "bf05b1fb_582687b9",
       "range": {
         "startLine": 157,
         "startChar": 17,
@@ -382,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "93291e87_b331f8e5",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "cant change this alone",
+      "parentUuid": "c94a417b_72304830",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e1da1d1_31bab397",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
         "patchSetId": 1
@@ -452,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "2a0ab554_e19a41fb",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "just following the convention from bmc dump",
+      "parentUuid": "2377f3f8_15f5dbce",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba97ba25_2f90dd0b",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
         "patchSetId": 1
@@ -463,6 +577,30 @@
       "writtenOn": "2021-03-11T18:11:46Z",
       "side": 1,
       "message": "can it be in private or protected section",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 48
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e816a6c6_afbe81b9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "following the convention from BMC dump",
+      "parentUuid": "ba97ba25_2f90dd0b",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -498,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "3f8f21a4_4ea2d2b3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d000cc5d_bb69aa4e",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 6
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f27efb79_474f1d72",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
         "patchSetId": 1
@@ -518,6 +680,30 @@
       "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "936451a6_dcedc8c5",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f27efb79_474f1d72",
+      "range": {
+        "startLine": 87,
+        "startChar": 26,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -544,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "c3ec249b_602b53f3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e50d0fcf_b94f904d",
+      "range": {
+        "startLine": 99,
+        "startChar": 24,
+        "endLine": 99,
+        "endChar": 27
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987ba239_3e0d29bb",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
         "patchSetId": 1
@@ -555,6 +765,30 @@
       "writtenOn": "2021-03-11T18:11:46Z",
       "side": 1,
       "message": "can we pass NULL to the  caller of this method, i remember we can",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 5
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccbe95ac_f73ec8c6",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "need to check.. it is working like this bmc dump",
+      "parentUuid": "987ba239_3e0d29bb",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -649,6 +883,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "fadb185f_8ed9f035",
+      "range": {
+        "startLine": 25,
+        "startChar": 15,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "6ec017e340e9126b9e11371c67991781e975a3d3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e12d0222_b988f509",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-03-22T13:51:20Z",
+      "side": 1,
+      "message": "cant change this alone",
+      "parentUuid": "f5c75193_8a749bc5",
       "range": {
         "startLine": 25,
         "startChar": 15,
