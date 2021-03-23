@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e41d6ef_8de52e43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-23T05:55:16Z",
+      "side": 1,
+      "message": "Avoid using IBM specific , bug tracking info here.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "ad12f741715c658310890abb65c01fd6c15e4cec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aafc3d03_e1a10f02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-23T05:55:16Z",
+      "side": 1,
+      "message": "Since this is Bug, Please include Problem symptoms, and how it is fixed also test summary.\nNote if there is github issue related this discussion , please point that , then you need fix/test summary here",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "ad12f741715c658310890abb65c01fd6c15e4cec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
