@@ -152,8 +152,8 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
         case PLDM_FILE_TYPE_DUMP:
             pldmDumpType = PLDM_FILE_TYPE_DUMP;
             break;
-        case PLDM_FILE_TYPE_RESOURCE_DUMP_PARMS:
-            pldmDumpType = PLDM_FILE_TYPE_RESOURCE_DUMP_PARMS;
+        case PLDM_FILE_TYPE_RESOURCE_DUMP:
+            pldmDumpType = PLDM_FILE_TYPE_RESOURCE_DUMP;
             break;
         default:
             throw std::runtime_error("Unknown pldm dump file-io type to delete "

@@ -15,7 +15,7 @@ namespace resource
 // TODO #ibm-openbmc/issues/2859
 // Revisit host transport impelementation
 // This value is used to identify the dump in the transport layer to host,
-constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 7;
+constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 9;
 using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
