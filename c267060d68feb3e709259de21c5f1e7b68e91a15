@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22189d4c_34d15fc4",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-24T19:45:14Z",
+      "side": 1,
+      "message": "Is this defined somewhere within a PLDM or MCTP doc or something?",
+      "revId": "c267060d68feb3e709259de21c5f1e7b68e91a15",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62a0c735_37691f02",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-24T19:45:14Z",
+      "side": 1,
+      "message": "I\u0027m confused, why wasn\u0027t this changed to \"TRANSPORT_DUMP_TYPE_IDENTIFIER\" per the change in the other file? Or better yet, why not just delete \"TRANSPORT_DUMP_TYPE_IDENTIFIER\" and just use PLDM_FILE_TYPE_RESOURCE_DUMP?",
+      "revId": "c267060d68feb3e709259de21c5f1e7b68e91a15",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
