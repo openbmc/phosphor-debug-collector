@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bf2f8ec_9014bd0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-25T04:56:28Z",
+      "side": 1,
+      "message": "Based on the below description issue is specific to Hostdump, which is used PLDM transportation.  Please update commit message accordingly.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "cb09de7e24dedba6f9f5101478b1fc5811afeca1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32519a7c_31514cd2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-25T04:56:28Z",
+      "side": 1,
+      "message": "Please add deatils related problem description. which will help for future reference. \nFix summruy looks good here.",
+      "revId": "cb09de7e24dedba6f9f5101478b1fc5811afeca1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bda7b69_ce75630a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-25T04:56:28Z",
+      "side": 1,
+      "message": "line 15 also includes result. please use one result.",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "cb09de7e24dedba6f9f5101478b1fc5811afeca1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "701141af_45521c28",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-25T04:56:28Z",
+      "side": 1,
+      "message": "Is this got updated recently in PLDM spec?  openbmc/pldm/oem/ibm/libpldm/file_io.h  already have definition of this , better to include this header anu use here insetad of hard coding?",
+      "range": {
+        "startLine": 18,
+        "startChar": 48,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "cb09de7e24dedba6f9f5101478b1fc5811afeca1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02e9578a_e8b042f2",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-03-25T04:56:28Z",
+      "side": 1,
+      "message": "Please update the commit message , reason related to this change.",
+      "revId": "cb09de7e24dedba6f9f5101478b1fc5811afeca1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
