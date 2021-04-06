@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cea13e4_9b3e8d3c",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-06T15:42:59Z",
+      "side": 1,
+      "message": "Hostbootdump is controlled by environment variables also packaging and naming is not align to general dump design. This is kind of custom dump. Need to erstructre this code accoriding to that. like adding cutsom IBM specific dump header implementation.",
+      "revId": "5ce163c5798212dc49b01794eebec3329447c3a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
