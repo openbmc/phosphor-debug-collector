@@ -1,0 +1,354 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d888b9cb_3ea79e41",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Not an error case ? i mean log error and continue.?",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 78
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04d4c345_b13220b3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Better add Hostboot dump keyword to easily locate the failure type for journal.",
+      "range": {
+        "startLine": 93,
+        "startChar": 8,
+        "endLine": 94,
+        "endChar": 50
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b46122c9_2f3b3cf3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "EXT doesn\u0027t need 0-9 check",
+      "range": {
+        "startLine": 124,
+        "startChar": 60,
+        "endLine": 124,
+        "endChar": 63
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80578b1b_964bc1d4",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "format say\u0027s format hostboot_ID_EPOCHTIME.EXT , not matching.",
+      "range": {
+        "startLine": 124,
+        "startChar": 27,
+        "endLine": 124,
+        "endChar": 33
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f95493a_a3b36abc",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "This can lead issues with hostbootdump files , which got max size use case, with available size min space. \n- dreport got logic to handle this , like copying files based on size?",
+      "range": {
+        "startLine": 262,
+        "startChar": 3,
+        "endLine": 262,
+        "endChar": 44
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "637f65c9_ae114114",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "std::filesystem is fully supported in c++17, no need to use \nthe experimental filesystem.",
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3397571c_8844a620",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "refer Line 9 comments.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 45
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "448c4bd7_73f2fedb",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "use std::filesystem",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aef75e8_1e05bf11",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "same as comment in line 9.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 45
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05b527f5_f5586ac5",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "is this still valid here? already enabled restore function in this commit",
+      "range": {
+        "startLine": 91,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 28
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e147699_6e290365",
+        "filename": "meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Since this is openpower-dump specific definitions, move to respective definition file.",
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "908ad368_a61776be",
+        "filename": "meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Is this temporary file location?   confusing with line 74 definition.",
+      "range": {
+        "startLine": 54,
+        "startChar": 22,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c10b89d_21c84d0d",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Since this is openpower-dump specific definitions, move to respective definition file.",
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac423e8b_b024fb42",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Any specific reason keeping the data in flash space?  /tmp would be an option.",
+      "range": {
+        "startLine": 46,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76075a93_d878aeeb",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "Since this path is owned by openpower-debug-collector, should be  defined in common place controlled by recipe level .",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 62
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3dd0d2e_166da7a2",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-07T03:59:47Z",
+      "side": 1,
+      "message": "description seems to be as line 48",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 7
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
