@@ -8,9 +8,10 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
-#include <memory>
 #include <phosphor-logging/elog-errors.hpp>
 #include <sdbusplus/bus.hpp>
+
+#include <memory>
 #include <vector>
 
 int main()

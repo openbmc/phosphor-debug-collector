@@ -2,8 +2,9 @@
 
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/set.hpp>
-#include <fstream>
 #include <phosphor-logging/log.hpp>
+
+#include <fstream>
 
 namespace phosphor
 {

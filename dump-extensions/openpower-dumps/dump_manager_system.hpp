@@ -25,8 +25,9 @@ using NotifyIface = sdbusplus::server::object::object<
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Notify DBus API
  */
-class Manager : virtual public NotifyIface,
-                virtual public phosphor::dump::Manager
+class Manager :
+    virtual public NotifyIface,
+    virtual public phosphor::dump::Manager
 {
   public:
     Manager() = delete;
@@ -46,8 +47,7 @@ class Manager : virtual public NotifyIface,
             const std::string& baseEntryPath) :
         NotifyIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath)
-    {
-    }
+    {}
 
     void restore() override
     {
