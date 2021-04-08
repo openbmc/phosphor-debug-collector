@@ -5,8 +5,9 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
-#include <filesystem>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
+
+#include <filesystem>
 
 namespace phosphor
 {
@@ -43,8 +44,9 @@ static const std::map<Type, std::string> TypeMap = {
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Create DBus API
  */
-class Manager : virtual public CreateIface,
-                virtual public phosphor::dump::Manager
+class Manager :
+    virtual public CreateIface,
+    virtual public phosphor::dump::Manager
 {
     friend class internal::Manager;
 
@@ -74,8 +76,7 @@ class Manager : virtual public CreateIface,
             std::bind(std::mem_fn(&phosphor::dump::bmc::Manager::watchCallback),
                       this, std::placeholders::_1)),
         dumpDir(filePath)
-    {
-    }
+    {}
 
     /** @brief Implementation of dump watch call back
      *  @param [in] fileInfo - map of file info  path:event

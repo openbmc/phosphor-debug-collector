@@ -41,8 +41,7 @@ class Manager : public Iface
             const std::string& baseEntryPath) :
         Iface(bus, path, true),
         bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
-    {
-    }
+    {}
 
     /** @brief Construct dump d-bus objects from their persisted
      *        representations.

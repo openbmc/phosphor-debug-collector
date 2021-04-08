@@ -51,8 +51,7 @@ class Manager
                   std::bind(std::mem_fn(
                                 &phosphor::dump::core::Manager::watchCallback),
                             this, std::placeholders::_1))
-    {
-    }
+    {}
 
   private:
     /** @brief Helper function for initiating dump request using
