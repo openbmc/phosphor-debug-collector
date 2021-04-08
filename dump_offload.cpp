@@ -8,11 +8,12 @@
 #include <unistd.h>
 
 #include <dump_utils.hpp>
-#include <fstream>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <xyz/openbmc_project/Common/File/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
+
+#include <fstream>
 
 namespace phosphor
 {
