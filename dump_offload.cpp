@@ -128,7 +128,8 @@ int socketInit(const std::string& sockPath)
     return unixSocket;
 }
 
-void requestOffload(fs::path file, uint32_t dumpId, std::string writePath)
+void requestOffload(std::filesystem::path file, uint32_t dumpId,
+                    std::string writePath)
 {
     using namespace sdbusplus::xyz::openbmc_project::Common::File::Error;
     using ErrnoOpen = xyz::openbmc_project::Common::File::Open::ERRNO;
@@ -136,7 +137,7 @@ void requestOffload(fs::path file, uint32_t dumpId, std::string writePath)
     using ErrnoWrite = xyz::openbmc_project::Common::File::Write::ERRNO;
     using PathWrite = xyz::openbmc_project::Common::File::Write::PATH;
     // open a dump file for a transfer.
-    fs::path dumpPath(BMC_DUMP_PATH);
+    std::filesystem::path dumpPath(BMC_DUMP_PATH);
     dumpPath /= std::to_string(dumpId);
     dumpPath /= file.filename();
 

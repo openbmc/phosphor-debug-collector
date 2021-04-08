@@ -46,7 +46,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // Get the id
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
-    auto objPath = fs::path(baseEntryPath) / idString;
+    auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
     try
     {
@@ -89,7 +89,7 @@ sdbusplus::message::object_path
 
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
-    auto objPath = fs::path(baseEntryPath) / idString;
+    auto objPath = std::filesystem::path(baseEntryPath) / idString;
     std::time_t timeStamp = std::time(nullptr);
 
     std::string vspString = params[sdbusplus::com::ibm::Dump::server::Create::

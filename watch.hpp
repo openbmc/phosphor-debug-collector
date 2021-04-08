@@ -5,7 +5,7 @@
 #include <sys/inotify.h>
 #include <systemd/sd-event.h>
 
-#include <experimental/filesystem>
+#include <filesystem>
 #include <functional>
 #include <map>
 
@@ -16,10 +16,8 @@ namespace dump
 namespace inotify
 {
 
-namespace fs = std::experimental::filesystem;
-
 // User specific call back function input map(path:event) type.
-using UserMap = std::map<fs::path, uint32_t>;
+using UserMap = std::map<std::filesystem::path, uint32_t>;
 
 // User specific callback function wrapper type.
 using UserType = std::function<void(const UserMap&)>;
@@ -46,7 +44,7 @@ class Watch
      *
      */
     Watch(const EventPtr& eventObj, int flags, uint32_t mask, uint32_t events,
-          const fs::path& path, UserType userFunc);
+          const std::filesystem::path& path, UserType userFunc);
 
     Watch(const Watch&) = delete;
     Watch& operator=(const Watch&) = delete;
@@ -84,7 +82,7 @@ class Watch
     uint32_t events;
 
     /** @brief File path to be watched */
-    fs::path path;
+    std::filesystem::path path;
 
     /** @brief dump file directory watch descriptor */
     int wd = -1;

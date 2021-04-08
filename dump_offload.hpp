@@ -1,6 +1,6 @@
 #pragma once
 
-#include <experimental/filesystem>
+#include <filesystem>
 
 namespace phosphor
 {
@@ -8,8 +8,6 @@ namespace dump
 {
 namespace offload
 {
-
-namespace fs = std::experimental::filesystem;
 
 /**
  * @brief Kicks off the instructions to
@@ -20,7 +18,8 @@ namespace fs = std::experimental::filesystem;
  * @param[in] writePath[in] - path to write the dump file.
  *
  **/
-void requestOffload(fs::path file, uint32_t dumpId, std::string writePath);
+void requestOffload(std::filesystem::path file, uint32_t dumpId,
+                    std::string writePath);
 
 } // namespace offload
 } // namespace dump

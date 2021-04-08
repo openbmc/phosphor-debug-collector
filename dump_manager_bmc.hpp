@@ -5,7 +5,7 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
-#include <experimental/filesystem>
+#include <filesystem>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 namespace phosphor
@@ -28,8 +28,6 @@ using UserMap = phosphor::dump::inotify::UserMap;
 
 using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
-
-namespace fs = std::experimental::filesystem;
 
 using Watch = phosphor::dump::inotify::Watch;
 
@@ -101,7 +99,7 @@ class Manager : virtual public CreateIface,
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
      */
-    void createEntry(const fs::path& fullPath);
+    void createEntry(const std::filesystem::path& fullPath);
 
     /**  @brief Capture BMC Dump based on the Dump type.
      *  @param[in] type - Type of the Dump.
@@ -129,7 +127,7 @@ class Manager : virtual public CreateIface,
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map
      */
-    void removeWatch(const fs::path& path);
+    void removeWatch(const std::filesystem::path& path);
 
     /** @brief Calculate per dump allowed size based on the available
      *        size in the dump location.
@@ -149,7 +147,7 @@ class Manager : virtual public CreateIface,
     /** @brief Child directory path and its associated watch object map
      *        [path:watch object]
      */
-    std::map<fs::path, std::unique_ptr<Watch>> childWatchMap;
+    std::map<std::filesystem::path, std::unique_ptr<Watch>> childWatchMap;
 };
 
 } // namespace bmc

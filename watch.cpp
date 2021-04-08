@@ -24,13 +24,14 @@ Watch::~Watch()
 }
 
 Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
-             const uint32_t events, const fs::path& path, UserType userFunc) :
+             const uint32_t events, const std::filesystem::path& path,
+             UserType userFunc) :
     flags(flags),
     mask(mask), events(events), path(path), fd(inotifyInit()),
     userFunc(userFunc)
 {
     // Check if watch DIR exists.
-    if (!fs::is_directory(path))
+    if (!std::filesystem::is_directory(path))
     {
         log<level::ERR>("Watch directory doesn't exist",
                         entry("DIR=%s", path.c_str()));
