@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "6095a2d2_5994f9df",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-08T03:27:31Z",
+      "side": 1,
+      "message": "I think this is valid, it at all any different compression like bz2 is used then extension needs numbers, so it is safe to keep like this",
+      "parentUuid": "cfd3f58e_975e948c",
+      "range": {
+        "startLine": 124,
+        "startChar": 60,
+        "endLine": 124,
+        "endChar": 63
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f95493a_a3b36abc",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
         "patchSetId": 4
