@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a5c7f74_3094b92c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "Add some background on hostbootdump. descriptions or any design documents if any.\nAlso summary of contents planing to include here. existing dreports adds some default data , is this required here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb93f459_cc7ca00d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "Add test details.",
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "120242b3_6d5c6a9b",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "Not aligning to dreport design direction.\n- Create plugin and install only for hostboot dump enabled systems. refer recent commit related to \"badvpd\" plugin.",
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34722153_6f986712",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "remove additional space.",
+      "range": {
+        "startLine": 132,
+        "startChar": 7,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e99dcf6_2687f616",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "any specific reason for adding this additional space.",
+      "range": {
+        "startLine": 212,
+        "startChar": 7,
+        "endLine": 213,
+        "endChar": 8
+      },
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e46d839e_f3fe2d6b",
+        "filename": "tools/dreport.d/ibm.d/hostboot",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "Change to plugin format.",
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3b917ae_3992d808",
+        "filename": "tools/dreport.d/ibm.d/hostboot",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-08T05:00:58Z",
+      "side": 1,
+      "message": "Remove the file from optional_path after successful copy.",
+      "revId": "f80c6c7519db0fabe34f943c36b0f7183192627a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
