@@ -2,10 +2,11 @@
 
 #include "core_manager.hpp"
 
-#include <filesystem>
 #include <phosphor-logging/log.hpp>
-#include <regex>
 #include <sdbusplus/exception.hpp>
+
+#include <filesystem>
+#include <regex>
 
 namespace phosphor
 {
