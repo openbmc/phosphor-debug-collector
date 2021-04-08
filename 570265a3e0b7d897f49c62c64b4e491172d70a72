@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "f5c102d7_fb2e6f9d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-08T02:59:57Z",
+      "side": 1,
+      "message": "The input size the size of the directory, it is not clear what is the issue from the comment.",
+      "parentUuid": "3c730b45_4097de1e",
+      "range": {
+        "startLine": 262,
+        "startChar": 3,
+        "endLine": 262,
+        "endChar": 44
+      },
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "637f65c9_ae114114",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
         "patchSetId": 4
@@ -332,6 +356,24 @@
       "side": 1,
       "message": "How this changes is related to other repo code. Since this i new code we should stop using this . this is the direction openbmc follows",
       "parentUuid": "b15aa76d_9f93c3ce",
+      "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140de67f_5073ec46",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-08T02:59:57Z",
+      "side": 1,
+      "message": "I tried removing but this depends as the base entry class is still using experimental file system",
+      "parentUuid": "bcb17cb3_6e5923d1",
       "revId": "570265a3e0b7d897f49c62c64b4e491172d70a72",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
