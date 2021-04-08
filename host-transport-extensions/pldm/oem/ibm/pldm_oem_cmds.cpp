@@ -24,10 +24,11 @@
 #include <libpldm/platform.h>
 #include <unistd.h>
 
-#include <fstream>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
+
+#include <fstream>
 
 namespace phosphor
 {

@@ -10,9 +10,10 @@
 #include <sys/inotify.h>
 #include <unistd.h>
 
-#include <ctime>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+
+#include <ctime>
 #include <regex>
 
 namespace phosphor
