@@ -45,8 +45,8 @@ Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr) :
                        std::placeholders::_1))
 {
 
-    fs::path file(ELOG_ID_PERSIST_PATH);
-    if (fs::exists(file))
+    std::filesystem::path file(ELOG_ID_PERSIST_PATH);
+    if (std::filesystem::exists(file))
     {
         if (!deserialize(ELOG_ID_PERSIST_PATH, elogList))
         {

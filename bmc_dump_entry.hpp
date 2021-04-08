@@ -22,8 +22,6 @@ using ServerObject = typename sdbusplus::server::object::object<T>;
 using EntryIfaces = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
 
-namespace fs = std::experimental::filesystem;
-
 class Manager;
 
 /** @class Entry
@@ -53,7 +51,8 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t fileSize, const fs::path& file,
+          uint64_t timeStamp, uint64_t fileSize,
+          const std::filesystem::path& file,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
@@ -81,7 +80,8 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] fileSize - Dump file size in bytes.
      *  @param[in] file - Name of dump file.
      */
-    void update(uint64_t timeStamp, uint64_t fileSize, const fs::path& filePath)
+    void update(uint64_t timeStamp, uint64_t fileSize,
+                const std::filesystem::path& filePath)
     {
         elapsed(timeStamp);
         size(fileSize);
@@ -95,7 +95,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
 
   private:
     /** @Dump file name */
-    fs::path file;
+    std::filesystem::path file;
 };
 
 } // namespace bmc

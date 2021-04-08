@@ -14,18 +14,18 @@ namespace elog
 
 using namespace phosphor::logging;
 
-void serialize(const ElogList& list, const fs::path& dir)
+void serialize(const ElogList& list, const std::filesystem::path& dir)
 {
     std::ofstream os(dir.c_str(), std::ios::binary);
     cereal::BinaryOutputArchive oarchive(os);
     oarchive(list);
 }
 
-bool deserialize(const fs::path& path, ElogList& list)
+bool deserialize(const std::filesystem::path& path, ElogList& list)
 {
     try
     {
-        if (fs::exists(path))
+        if (std::filesystem::exists(path))
         {
             std::ifstream is(path.c_str(), std::ios::in | std::ios::binary);
             cereal::BinaryInputArchive iarchive(is);
@@ -37,7 +37,7 @@ bool deserialize(const fs::path& path, ElogList& list)
     catch (cereal::Exception& e)
     {
         log<level::ERR>(e.what());
-        fs::remove(path);
+        std::filesystem::remove(path);
         return false;
     }
 }

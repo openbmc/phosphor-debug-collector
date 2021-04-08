@@ -46,7 +46,7 @@ sdbusplus::message::object_path
     auto id = captureDump(Type::UserRequested, paths);
 
     // Entry Object path.
-    auto objPath = fs::path(baseEntryPath) / std::to_string(id);
+    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
 
     try
     {
@@ -78,7 +78,7 @@ uint32_t Manager::captureDump(Type type,
 
     if (pid == 0)
     {
-        fs::path dumpPath(dumpDir);
+        std::filesystem::path dumpPath(dumpDir);
         auto id = std::to_string(lastEntryId + 1);
         dumpPath /= id;
 
@@ -118,7 +118,7 @@ uint32_t Manager::captureDump(Type type,
     return ++lastEntryId;
 }
 
-void Manager::createEntry(const fs::path& file)
+void Manager::createEntry(const std::filesystem::path& file)
 {
     // Dump File Name format obmcdump_ID_EPOCHTIME.EXT
     static constexpr auto ID_POS = 1;
@@ -145,20 +145,20 @@ void Manager::createEntry(const fs::path& file)
     if (dumpEntry != entries.end())
     {
         dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get())
-            ->update(stoull(msString), fs::file_size(file), file);
+            ->update(stoull(msString), std::filesystem::file_size(file), file);
         return;
     }
 
     // Entry Object path.
-    auto objPath = fs::path(baseEntryPath) / std::to_string(id);
+    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
 
     try
     {
         entries.insert(std::make_pair(
-            id,
-            std::make_unique<bmc::Entry>(
-                bus, objPath.c_str(), id, stoull(msString), fs::file_size(file),
-                file, phosphor::dump::OperationStatus::Completed, *this)));
+            id, std::make_unique<bmc::Entry>(
+                    bus, objPath.c_str(), id, stoull(msString),
+                    std::filesystem::file_size(file), file,
+                    phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -167,7 +167,7 @@ void Manager::createEntry(const fs::path& file)
                         entry("OBJECTPATH=%s", objPath.c_str()),
                         entry("ID=%d", id),
                         entry("TIMESTAMP=%ull", stoull(msString)),
-                        entry("SIZE=%d", fs::file_size(file)),
+                        entry("SIZE=%d", std::filesystem::file_size(file)),
                         entry("FILENAME=%s", file.c_str()));
         return;
     }
@@ -186,7 +186,8 @@ void Manager::watchCallback(const UserMap& fileInfo)
             createEntry(i.first);
         }
         // Start inotify watch on newly created directory.
-        else if ((IN_CREATE == i.second) && fs::is_directory(i.first))
+        else if ((IN_CREATE == i.second) &&
+                 std::filesystem::is_directory(i.first))
         {
             auto watchObj = std::make_unique<Watch>(
                 eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE, EPOLLIN, i.first,
@@ -199,7 +200,7 @@ void Manager::watchCallback(const UserMap& fileInfo)
     }
 }
 
-void Manager::removeWatch(const fs::path& path)
+void Manager::removeWatch(const std::filesystem::path& path)
 {
     // Delete Watch entry from map.
     childWatchMap.erase(path);
@@ -207,27 +208,27 @@ void Manager::removeWatch(const fs::path& path)
 
 void Manager::restore()
 {
-    fs::path dir(dumpDir);
-    if (!fs::exists(dir) || fs::is_empty(dir))
+    std::filesystem::path dir(dumpDir);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
     {
         return;
     }
 
     // Dump file path: <DUMP_PATH>/<id>/<filename>
-    for (const auto& p : fs::directory_iterator(dir))
+    for (const auto& p : std::filesystem::directory_iterator(dir))
     {
         auto idStr = p.path().filename().string();
 
         // Consider only directory's with dump id as name.
         // Note: As per design one file per directory.
-        if ((fs::is_directory(p.path())) &&
+        if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
             lastEntryId =
                 std::max(lastEntryId, static_cast<uint32_t>(std::stoul(idStr)));
-            auto fileIt = fs::directory_iterator(p.path());
+            auto fileIt = std::filesystem::directory_iterator(p.path());
             // Create dump entry d-bus object.
-            if (fileIt != fs::end(fileIt))
+            if (fileIt != std::filesystem::end(fileIt))
             {
                 createEntry(fileIt->path());
             }
@@ -243,11 +244,11 @@ size_t Manager::getAllowedSize()
     auto size = 0;
 
     // Get current size of the dump directory.
-    for (const auto& p : fs::recursive_directory_iterator(dumpDir))
+    for (const auto& p : std::filesystem::recursive_directory_iterator(dumpDir))
     {
-        if (!fs::is_directory(p))
+        if (!std::filesystem::is_directory(p))
         {
-            size += fs::file_size(p);
+            size += std::filesystem::file_size(p);
         }
     }
 

@@ -5,6 +5,7 @@
 #include "dump_manager_bmc.hpp"
 
 #include <cereal/access.hpp>
+#include <filesystem>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server.hpp>
 #include <set>
@@ -78,7 +79,7 @@ class Watch
      */
     inline EId getEid(const std::string& objectPath)
     {
-        fs::path path(objectPath);
+        std::filesystem::path path(objectPath);
         return std::stoul(path.filename());
     }
 

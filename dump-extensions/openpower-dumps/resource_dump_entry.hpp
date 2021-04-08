@@ -19,8 +19,6 @@ using ServerObject = typename sdbusplus::server::object::object<T>;
 using EntryIfaces = sdbusplus::server::object::object<
     sdbusplus::com::ibm::Dump::Entry::server::Resource>;
 
-namespace fs = std::experimental::filesystem;
-
 class Manager;
 
 /** @class Entry
