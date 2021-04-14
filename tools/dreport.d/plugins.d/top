@@ -4,7 +4,8 @@
 # @brief: Collect top command output.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="top"
 file_name="top.log"
