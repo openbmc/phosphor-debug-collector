@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 help=$'FFDC File Collection Script
 
@@ -45,8 +45,7 @@ while [[ $# -gt 0 ]]; do
   key="$1"
   case $key in
     -d|--dir)
-      mkdir -p "$2"
-      if [ $? -eq 0 ]; then
+      if mkdir -p "$2" ; then
         dest="$2"
       else
         echo "Failed to create the destination directory specified."
@@ -72,24 +71,25 @@ done
 echo "Using destination directory $dest"
 
 if [ $disable_dreport = false ]; then
-  dreport -d $dest -v
+  dreport -d "$dest" -v
   exit
 fi
 
-mkdir -p "$dest/$dir"
+dest_dir="$dest/$dir"
+mkdir -p "$dest_dir"
 
 for ((i=0;i<${#arr[@]};i+=2)); do
   if [ -d "${arr[i+1]}" ]; then
     echo "Copying contents of ${arr[i+1]} to directory ./${arr[i]} ..."
-    mkdir "$dest/$dir/${arr[i]}"
-    cp -r ${arr[i+1]}/* $dest/$dir/${arr[i]}
+    mkdir "$dest_dir/${arr[i]}"
+    cp -r "${arr[i+1]}"/* "$dest_dir/${arr[i]}"
   else
     echo "Collecting ${arr[i]}..."
-    ${arr[i+1]} >> "$dest/$dir/${arr[i]}"
+    ${arr[i+1]} >> "$dest_dir/${arr[i]}"
   fi
 done
 
-tar -cf "$dest/$dir.tar" -C $dest $dir
-echo "Contents in $dest/$dir.tar"
+tar -cf "$dest_dir.tar" -C "$dest" "$dir"
+echo "Contents in $dest_dir.tar"
 
-rm -r "$dest/$dir"
+rm -r "$dest_dir"
