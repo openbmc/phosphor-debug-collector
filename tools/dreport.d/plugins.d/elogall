@@ -4,7 +4,8 @@
 # @brief: Get all the available elogs from BMC.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="elog"
 
