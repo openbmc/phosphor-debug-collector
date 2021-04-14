@@ -4,7 +4,8 @@
 # @brief: Collect cpuinfo log.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="CPU info"
 file_name="/proc/cpuinfo"

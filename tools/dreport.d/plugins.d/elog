@@ -4,15 +4,18 @@
 # @brief: Collect only user initialized elog ID details.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
-if [ -z $elog_id ]; then
+# shellcheck disable=SC2154
+if [ -z "$elog_id" ]; then
     log_error "elog does not exist"
     exit
 fi
 
 desc="elog id:$elog_id"
 file_name="elog-$elog_id.log"
+# shellcheck disable=SC2154
 command="busctl --verbose --no-pager \
                   call xyz.openbmc_project.Logging \
                   $optional_path \
