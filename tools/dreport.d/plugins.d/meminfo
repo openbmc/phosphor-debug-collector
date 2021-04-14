@@ -4,7 +4,8 @@
 # @brief: Collect meminfo log
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="Memory info"
 file_name="/proc/meminfo"

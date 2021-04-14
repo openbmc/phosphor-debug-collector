@@ -4,10 +4,12 @@
 # @brief: Move user initialized core file to the dreport packaging.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="Core file"
-if [ -z $optional_path ]; then
+# shellcheck disable=SC2154
+if [ -z "$optional_path" ]; then
     log_error "$desc does not exist"
     exit
 fi
