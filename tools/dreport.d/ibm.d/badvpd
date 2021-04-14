@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# config: 2 15
+# @brief: Collect Bad VPD.
+#
+
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
+
+desc="Bad VPD"
+dir_name="/tmp/bad-vpd"
+
+if [ -f $dir_name ]; then
+    add_copy_file "$dir_name" "$desc"
+else
+    log_info "No $desc data"
+    exit
+fi

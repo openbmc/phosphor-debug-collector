@@ -4,7 +4,8 @@
 # @brief: Collect Host state information.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="Host State"
 file_name="host-state.log"
