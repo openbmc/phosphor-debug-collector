@@ -39,6 +39,75 @@
       "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f41c3b6_a7bc89a1",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T06:42:14Z",
+      "side": 1,
+      "message": "can we use the same logic line 101 to get \"elog_id\u003d$(basename \"$optional_path\")\" how it is different here?",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90a06b41_beb5c97e",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T06:42:14Z",
+      "side": 1,
+      "message": "Why SYSDUMP here?",
+      "range": {
+        "startLine": 128,
+        "startChar": 40,
+        "endLine": 128,
+        "endChar": 47
+      },
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef8b5488_8bfb6942",
+        "filename": "tools/dreport.d/ibm.d/hostboot",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T06:42:14Z",
+      "side": 1,
+      "message": "3 indicates elog type dump. \nThis should be replaces with hostbootdump type.",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
