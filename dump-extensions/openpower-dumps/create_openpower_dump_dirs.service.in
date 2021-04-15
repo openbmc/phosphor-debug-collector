@@ -1,0 +1,10 @@
+[Unit]
+Description=Create openpower dump folders
+Before=xyz.openbmc_project.Dump.Manager.service
+
+[Service]
+ExecStart=/bin/sh -c 'mkdir -p {HOSTBOOT_DUMP_PATH}'
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
