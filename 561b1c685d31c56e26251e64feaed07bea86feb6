@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "859e3d3f_e1d90299",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T05:01:17Z",
+      "side": 1,
+      "message": "Here , dreport used for packaging dump , which involves adding header, copying the xz compressed file to dump path right?. please rephrase.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eea0da28_b6976a2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T05:01:17Z",
+      "side": 1,
+      "message": "Please include the details of dump directory content and unziped file name for reference , instead of og header info.",
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
