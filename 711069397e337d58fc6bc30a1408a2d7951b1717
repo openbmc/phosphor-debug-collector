@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bb86fdb_96763e64",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-15T07:48:26Z",
+      "side": 1,
+      "message": "declared as read-only. so initializing the variable is not allowed again. replace to -x.",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 11
+      },
+      "revId": "711069397e337d58fc6bc30a1408a2d7951b1717",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
