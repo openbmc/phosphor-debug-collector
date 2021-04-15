@@ -3,3 +3,4 @@
 phosphor_dump_manager_sources += [
         'dump-extensions/default/default.cpp',
     ]
+unit_files = []
