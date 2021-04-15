@@ -2,7 +2,9 @@
 
 unit_files += [
         ['dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service',
-         'clear_hostdumps_poweroff.service']
+         'clear_hostdumps_poweroff.service'],
+        ['dump-extensions/openpower-dumps/create_openpower_dump_dirs.service',
+         'create_openpower_dump_dirs.service'`]
    ]
 
 # Configuration header file(openpower_dumps_config.h) generation
