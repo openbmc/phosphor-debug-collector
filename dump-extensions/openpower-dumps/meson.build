@@ -9,3 +9,8 @@ phosphor_dump_manager_sources += [
         'dump-extensions/openpower-dumps/dump_manager_hostboot.cpp',
         'dump-extensions/openpower-dumps/hostboot_dump_entry.cpp'
     ]
+
+unit_files = [
+        ['dump-extensions/openpower-dumps/create_openpower_dump_dirs.service',
+         'create_openpower_dump_dirs.service']
+   ]
