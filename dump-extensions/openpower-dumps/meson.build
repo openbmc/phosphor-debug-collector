@@ -1,5 +1,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
+unit_files += [
+        ['dump-extensions/openpower-dumps/create_openpower_dump_dirs.service',
+         'create_openpower_dump_dirs.service']
+   ]
+
 # Configuration header file(openpower_dumps_config.h) generation
 opconf_data = configuration_data()
 
