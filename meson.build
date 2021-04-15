@@ -12,6 +12,8 @@ project('phosphor-debug-collector',
         license: 'Apache-2.0'
        )
 
+unit_files = []
+
 # Checking dependency external library
 
 cppfs = meson.get_compiler('cpp').find_library('stdc++fs')
@@ -180,6 +182,21 @@ foreach executable : executables
                         install : executable[3],
                         include_directories : executable[4]
                        )
+endforeach
+
+unit_subs = configuration_data()
+unit_subs.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
+systemd_system_unit_dir = dependency('systemd').get_pkgconfig_variable(
+    'systemdsystemunitdir',
+    define_variable: ['prefix', get_option('prefix')])
+foreach u : unit_files
+    configure_file(
+        configuration: unit_subs,
+        input: u[0] + '.in',
+        install: true,
+        install_dir: systemd_system_unit_dir,
+        output: u[1]
+    )
 endforeach
 
 if get_option('tests').enabled()
