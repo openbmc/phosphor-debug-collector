@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e7f23246_4fa17872",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-16T06:27:55Z",
+      "side": 1,
+      "message": "now it is enabled for all such dumps. we need a change here",
+      "parentUuid": "edb7be6a_70ea6f19",
+      "revId": "07bb7058a72f26f29e4b4a89811de7708ba01c32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05ce5473_5f0cd4f3",
         "filename": "meson_options.txt",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2021-04-16T06:16:41Z",
       "side": 1,
       "message": "/var/lib/phosphor-debug-collector/hostbootdumps/?",
+      "revId": "07bb7058a72f26f29e4b4a89811de7708ba01c32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f7a64f6_042290fd",
+        "filename": "meson_options.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-16T06:27:55Z",
+      "side": 1,
+      "message": "following same convention as bmc dump",
+      "parentUuid": "05ce5473_5f0cd4f3",
       "revId": "07bb7058a72f26f29e4b4a89811de7708ba01c32",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
