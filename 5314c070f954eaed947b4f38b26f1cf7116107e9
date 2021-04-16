@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eea8cb98_223616f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:19:11Z",
+      "side": 1,
+      "message": "Please add related service link creation patch info",
+      "revId": "5314c070f954eaed947b4f38b26f1cf7116107e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc836318_9fbbc19d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:19:11Z",
+      "side": 1,
+      "message": "If what is enabled ?",
+      "revId": "5314c070f954eaed947b4f38b26f1cf7116107e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f7bbbb0_dc663842",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:19:11Z",
+      "side": 1,
+      "message": "Do you need to add test case details ?",
+      "revId": "5314c070f954eaed947b4f38b26f1cf7116107e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1860b3_fecc890f",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:19:11Z",
+      "side": 1,
+      "message": "Is it your intension to make service file name and description in generic ?\nBecause, you are creating folder for hostboot dump but, you mentioned like openpower dumps and I guess openpower having other type of dump right ?",
+      "revId": "5314c070f954eaed947b4f38b26f1cf7116107e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f8cef74_757f10d3",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:19:11Z",
+      "side": 1,
+      "message": "Service file installation should go into base meson file because, below code (LN from 17 to 30) are common to any service file. \nSo, please move below code into base meson file and In this meson just append your service file name.\nE.x \n```\nunit_files +\u003d [\n        \u0027create_openpower_dump_dirs.service\u0027\n     ]\n```",
+      "revId": "5314c070f954eaed947b4f38b26f1cf7116107e9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
