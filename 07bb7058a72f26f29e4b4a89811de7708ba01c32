@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edb7be6a_70ea6f19",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:16:41Z",
+      "side": 1,
+      "message": "All option for hostboot dump should set if your respective feature is enabled not by default.",
+      "revId": "07bb7058a72f26f29e4b4a89811de7708ba01c32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05ce5473_5f0cd4f3",
+        "filename": "meson_options.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-04-16T06:16:41Z",
+      "side": 1,
+      "message": "/var/lib/phosphor-debug-collector/hostbootdumps/?",
+      "revId": "07bb7058a72f26f29e4b4a89811de7708ba01c32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
