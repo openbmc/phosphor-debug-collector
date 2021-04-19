@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "adee1e5a_9dd07261",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-19T14:20:35Z",
+      "side": 1,
+      "message": "all hostdumps are SYSDUMPs",
+      "parentUuid": "90a06b41_beb5c97e",
+      "range": {
+        "startLine": 128,
+        "startChar": 40,
+        "endLine": 128,
+        "endChar": 47
+      },
+      "revId": "561b1c685d31c56e26251e64feaed07bea86feb6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef8b5488_8bfb6942",
         "filename": "tools/dreport.d/ibm.d/hostboot",
         "patchSetId": 7
