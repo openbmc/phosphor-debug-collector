@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec7485e0_27a6b9ea",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-20T07:48:42Z",
+      "side": 1,
+      "message": "This only consumed by IBM plugins. Move this hostboot dump specific implementation.",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 23
+      },
+      "revId": "88130149c182fe4c254e6ba54c0de7c0da045348",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bde7dd40_f9143dcb",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-20T07:48:42Z",
+      "side": 1,
+      "message": "same comment as line 97",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 1
+      },
+      "revId": "88130149c182fe4c254e6ba54c0de7c0da045348",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15f95c68_8bf4554f",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-20T07:48:42Z",
+      "side": 1,
+      "message": "Required Summary loig in Hostboot dump also?",
+      "range": {
+        "startLine": 206,
+        "startChar": 3,
+        "endLine": 207,
+        "endChar": 40
+      },
+      "revId": "88130149c182fe4c254e6ba54c0de7c0da045348",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d37918ca_5956c100",
+        "filename": "tools/dreport.d/sample.conf",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-20T07:48:42Z",
+      "side": 1,
+      "message": "This need to be revisited.  Hostboot dump feature is enabled by feature basis. Not required to install this unspoorted systems.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "88130149c182fe4c254e6ba54c0de7c0da045348",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
