@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a6e0ac2_c1a753bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9b4cfaf_46b4969e",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77bf020a_093b106b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "f29e3fa2_d3f03691",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77bf020a_093b106b",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0afe05a_8f1367a4",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -56,6 +98,24 @@
       "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a388512_ec3bc880",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0afe05a_8f1367a4",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e46c3cc0_61e8022e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6bcb1b5_67531581",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a019c4b0_278cbd01",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "82ca7568_60418be3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Yes. Removing",
+      "parentUuid": "a019c4b0_278cbd01",
+      "range": {
+        "startLine": 32,
+        "startChar": 40,
+        "endLine": 32,
+        "endChar": 49
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9034821b_3b33b802",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "This tool is only used for hostbootdump. There are other hostdumps , like SBE, Hw dump etc also required similiar packaging.",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 69
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a976c9f_395d65c0",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Yes, as per discussion looks like we will keep it similar to FSP i.e. gz",
+      "parentUuid": "9034821b_3b33b802",
       "range": {
         "startLine": 4,
         "startChar": 8,
@@ -180,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "54b8624c_385a7833",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Yes will be adding these in separate commit.",
+      "parentUuid": "9a5a3e24_0d56e027",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53e9a5f6_0e76e4e7",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -191,6 +341,30 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "Not seeing any place these variables used.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf00f449_7bffbd75",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Changed. Done.",
+      "parentUuid": "53e9a5f6_0e76e4e7",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -250,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "0c3965de_92076df6",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "hostboot dump. Yes keeping hbdump as default.",
+      "parentUuid": "7666bf43_cdfa14b8",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f57542e_7e6c6d07",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -261,6 +459,24 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "not seeing any exit here, either stop the packaging or got with default behaviour, like keeping in /tmp path.",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbef8837_e2b8288e",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "OK. If fails dump_dir\u003d\"/tmp\"",
+      "parentUuid": "1f57542e_7e6c6d07",
       "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -284,6 +500,24 @@
     },
     {
       "key": {
+        "uuid": "29d55237_bcfa3f7e",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55dc8c6_121d92e9",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec39117c_80e06501",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -295,6 +529,30 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "should be an error message? what is the user expectes here ? there should eb some indication of of either missing info here. \nGeneral command:\ndreport uses echo message to avoind summary log file. Here not using summary log right? better be consistent , like either use log-xx or echo.",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc09d0b5_0891ddc4",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "We don\u0027t have summary log file here. Keeping echo.",
+      "parentUuid": "ec39117c_80e06501",
       "range": {
         "startLine": 87,
         "startChar": 7,
@@ -354,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "d7524bdb_c708e2f9",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s common for other dumps. As on we add support for other dumps this might change based on dump type.",
+      "parentUuid": "f6a55236_f81f16cf",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88dc9de8_051d2117",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -394,6 +676,24 @@
     },
     {
       "key": {
+        "uuid": "80697a52_e458d863",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8b358e_f542dfed",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73ac3a51_9599df7c",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -405,6 +705,24 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "rm -rf $optional_path removal is not required here?",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da38059b_e69b7b85",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-04-29T13:26:53Z",
+      "side": 1,
+      "message": "Nope. As the operation failed and we dont want to lose the optional path. Deleting it only when we successfully create the tar and move it to the requested path.",
+      "parentUuid": "73ac3a51_9599df7c",
       "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
