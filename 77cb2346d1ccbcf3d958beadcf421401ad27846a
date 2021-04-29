@@ -162,6 +162,24 @@
     },
     {
       "key": {
+        "uuid": "02ab4307_5611f5ab",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-29T11:54:22Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "9a5a3e24_0d56e027",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "53e9a5f6_0e76e4e7",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
@@ -196,6 +214,30 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "Hbdump indicates hostboot dump or hostdump? is this script default behaviour is hostboot dump type?",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e82c8548_89b5b269",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-29T11:54:22Z",
+      "side": 1,
+      "message": "throw error?",
+      "parentUuid": "7666bf43_cdfa14b8",
       "range": {
         "startLine": 55,
         "startChar": 15,
@@ -276,6 +318,30 @@
       "writtenOn": "2021-04-29T09:09:06Z",
       "side": 1,
       "message": "Is this true for all type of dumps?",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f576b50_530d999d",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-29T11:54:22Z",
+      "side": 1,
+      "message": "for hostboot and hw.. not SBE",
+      "parentUuid": "f6a55236_f81f16cf",
       "range": {
         "startLine": 92,
         "startChar": 24,
