@@ -1,0 +1,167 @@
+#! /bin/bash
+# shellcheck disable=SC2034  # Variable is used elsewhere
+help=$"
+        opdreport creates an archive(gz compression) consisting of the following:
+                * host dump files and header applied on top of it
+        The type parameter controls the content of the data. The generated
+        archive is stored in the user specified location.
+
+usage: opdreport [OPTION]
+
+Options:
+        -n, —-name <name>     Name to be used for the archive.
+                              Default name format <name>_<dump_id>_<epochtime>
+        -d, —-dir <directory> Archive directory to copy the compressed report.
+                              Default output directory is /tmp
+        -i, —-id <id>         Dump identifier to associate with the archive.
+                              Identifiers include numeric characters.
+                              Default dump identifier is 0
+        -t, —-type <type>     Data collection type.
+        -p, —-path <path>     Optional contents to be included in the archive.
+                              Valid paths are absolute file path.
+        -s, --size <size>     Maximum allowed size(in KB) of the archive.
+                              Report will be truncated in case size exceeds
+                              this limit. Default size is unlimited.
+        -v, —-verbose         Increase logging verbosity.
+        -V, --version         Output version information.
+        -q, —-quiet           Only log fatal errors to stderr
+        -h, —-help            Display this help and exit.
+"
+
+#CONSTANTS
+declare -rx TYPE_HOSTDUMP="hostdump"
+declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
+
+#VARIABLES
+declare -x dump_type=$TYPE_HOSTDUMP
+declare -x size_dump=""
+declare -x eid_dir=""
+declare -x elog_id=""
+
+# shellcheck disable=SC1091 # source=tools/dreport.d/include.d/dcommon
+. "$DREPORT_SOURCE/dcommon"
+
+# @brief Check the validity of user inputs and initialize global
+#        variables.
+# @return 0 on success, error code otherwise
+function initialize()
+{
+    #Dump file name
+    # shellcheck disable=SC2154 # name comes from elsewhere
+    if [ -z "$name" ]; then
+        echo "Error: Name of the dump is not provided."
+        return "$RESOURCE_UNAVAILABLE";
+    else
+        # shellcheck disable=SC2154 # dump_id comes from elsewhere
+        name="${name}_${dump_id}_${EPOCHTIME}"
+    fi
+
+    #Source files path
+    # shellcheck disable=SC2154 # optional_path comes from elsewhere
+    if [ -z "$optional_path" ]; then
+        echo "Error: Source file path is not provided."
+        return "$RESOURCE_UNAVAILABLE";
+    fi
+
+    #Destination path
+    # shellcheck disable=SC2154 # dump_dir comes from elsewhere
+    if [ -z "$dump_dir" ]; then
+        echo "Error: Destination path is not provided."
+        return "$RESOURCE_UNAVAILABLE";
+    fi
+
+    #Size
+    #Check the input is integer.
+    # shellcheck disable=SC2154 # dump_size comes from elsewhere
+    if [ "$dump_size" -eq "$dump_size" ] 2>/dev/null; then
+       #Converts in to bytes.
+       dump_size="$((dump_size * 1024))"
+    else
+       dump_size=$UNLIMITED
+    fi
+
+    return "$SUCCESS"
+}
+
+# @brief Packaging the dump and transferring to dump location.
+function package()
+{
+    if ! mkdir -p "$dump_dir" ; then
+        echo "Could not create the destination directory $dump_dir"
+        dump_dir="/tmp"
+    fi
+
+    cd "$optional_path" || exit
+
+    eid_dir=$(find "$optional_path" -type f -name ErrorLog)
+    # shellcheck disable=SC2181 # need output from `find` in above if cond
+    if [ $? -ne 0 ]; then
+        echo "Could not find ErrorLog file"
+    else
+        elog_id=$(cut -d' ' -f1 "$eid_dir")
+    fi
+
+    tar -cvzf "$name.tar" plat_dump/*Sbe*
+    # shellcheck disable=SC2181 # need output from `tar` in above if cond.
+    if [ $? -ne 0 ]; then
+        echo "$($TIME_STAMP)" "Could not create the compressed tar file"
+        return "$INTERNAL_FAILURE"
+    fi
+
+    #Fetching the size of the tar file
+    size_dump=$(stat -c %s "$name.tar")
+
+    if [ "$dump_size" != "$UNLIMITED" ] && [ "$size_dump" -gt "$dump_size" ]; then
+        rm "$name.tar"
+        return "$RESOURCE_UNAVAILABLE"
+    fi
+
+    echo "Adding Dump Header :""$HEADER_EXTENSION"
+    ("$HEADER_EXTENSION")
+    #Applying header to the tar file and compressing it
+    gzip -c "/tmp/dumpheader_$EPOCHTIME" "$name.tar" > "$name.tar.gz"
+    # shellcheck disable=SC2181 # need output from `gzip` in above if cond.
+    if [ $? -ne 0 ]; then
+        echo "$($TIME_STAMP)" "Could not create the compressed tar file"
+        rm -rf "$name.tar" "/tmp/dumpheader_$EPOCHTIME"
+        return "$INTERNAL_FAILURE"
+    fi
+
+    mv "$name.tar.gz" "$dump_dir"
+
+    rm -rf "/tmp/dumpheader_$EPOCHTIME" "$name.tar"
+    rm -rf "$optional_path"
+
+    return "$SUCCESS"
+}
+
+# @brief Main function
+function main()
+{
+    #initialize the global variables and checks for user provided data
+    initialize
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo "$($TIME_STAMP)" "Error: Failed to initialize, Exiting"
+        exit;
+    fi
+
+    package  #package the dump
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo "$($TIME_STAMP)" "Error: Failed to package, Exiting"
+    else
+        echo "$($TIME_STAMP)" "Successfully completed"
+        exit;
+    fi
+}
+
+# shellcheck disable=SC2034  # Variable is used elsewhere
+TEMP=$(getopt -o n:d:i:t:s:p:vVqh \
+      --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
+      -- "$@")
+
+validate_arg #Check the arguments
+
+main #main program
+exit $?

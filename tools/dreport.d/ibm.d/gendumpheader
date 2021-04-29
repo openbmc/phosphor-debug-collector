@@ -8,7 +8,7 @@
 #This script will generate generic IBM dump header format.
 #
 #Note: The dump header will be imposed on the dump file i.e
-#<obmdump file>.tar.xz only on IBM specific systems, user needs to
+#<dump name>.tar.xz/gz only on IBM specific systems, user needs to
 #separate out the header before extracting the dump.
 #
 
@@ -22,6 +22,9 @@ declare -rx SIZE_4='4'
 declare -rx SIZE_8='8'
 declare -rx SIZE_12='12'
 declare -rx SIZE_32='32'
+#Dump Summary size without header
+declare -rx DUMP_SUMMARY_SIZE='1024'
+declare -rx HOST_DUMP="hostdump"
 
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
@@ -37,7 +40,7 @@ serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
 $INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 
 declare -x dDay
-dDay=$(date -d "@$EPOCHTIME" +'%Y%m%d%H%M%S')
+dDay=$(date -d @"$EPOCHTIME" +'%Y%m%d%H%M%S')
 
 declare -x bmcSerialNo
 bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
@@ -70,6 +73,8 @@ function dump_size () {
     #Adding 516 bytes as the total dump size is dump tar size
     #plus the dump header entry in this case
     #dump_header and dump_entry
+    # shellcheck disable=SC2154 # name_dir comes from elsewhere.
+    dumpSize=$(stat -c %s "$name_dir.tar.xz")
     sizeDump=$(( dumpSize + DUMP_HEADER_ENTRY_SIZE ))
     printf -v hex "%x" "$sizeDump"
     x=${#hex}
@@ -104,6 +109,71 @@ function getbmc_serial () {
     printf '%-*s' "$nulltoadd" | tr ' ' "0" >> "$FILE"
 }
 
+#Function to fetch the hostname
+function system_name () {
+    name=$(hostname)
+    len=${#name}
+    nulltoadd=$(( SIZE_32 - len ))
+    printf "%s" "$name" >> "$FILE"
+    add_null "$nulltoadd"
+}
+
+#Function to get the errorlog ID
+function get_eid () {
+    # shellcheck disable=SC2154 # dump_type comes from elsewhere
+    if [ "$dump_type" = "$HOST_DUMP" ]; then
+        # shellcheck disable=SC2154 # elog_id comes from elsewhere
+        x=${#elog_id}
+        msize=$(( x / 2 ))
+        msize=$(( SIZE_4 - msize ))
+        for ((i=0;i<x;i+=2));
+        do
+            printf "\\x${elog_id:$i:2}" >> "$FILE"
+        done
+        add_null "$msize"
+    else
+        add_null 4
+    fi
+}
+
+#Function to get the tar size of the dump
+function tar_size () {
+    printf -v hex "%x" "$size_dump"
+    x=${#hex}
+    if [ $((x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=$(( x / 2 ))
+    msize=$(( SIZE_4 - msize ))
+    add_null "$msize"
+    for ((i=0;i<x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'hex' as a variable is safe here.
+        printf "\\x${hex:$i:2}" >> "$FILE"
+    done
+}
+
+#Function will get the total size of the dump without header
+# i.e. Dump summary size i.e. 1024 bytes + the tar file size
+function total_size () {
+    size_dump=$(( size_dump + DUMP_SUMMARY_SIZE ))
+    printf -v hex "%x" "$size_dump"
+    x=${#hex}
+    if [ $((x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=$(( x / 2 ))
+    msize=$(( SIZE_8 - msize ))
+    add_null "$msize"
+    for ((i=0;i<x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'hex' as a variable is safe here.
+        printf "\\x${hex:$i:2}" >> "$FILE"
+    done
+}
+
 #Function to add virtual file directory entry, consists of below entries
 ####################FORMAT################
 #Name              Size(bytes)  Value
@@ -112,7 +182,7 @@ function getbmc_serial () {
 #Reserved          10           NULL
 #Entry Type        2            0x0001
 #File Name Prefix  2            0x000F
-#Dump File Type    7            BMCDUMP
+#Dump File Type    7            BMCDUMP/SYSDUMP
 #Separator         1            .
 #System Serial No  7            System serial number fetched from system
 #Dump Identifier   8            Dump Identifier value fetched from dump
@@ -127,7 +197,11 @@ function dump_file_entry () {
     printf '\x01' >> "$FILE"
     add_null 1
     printf '\x0F' >> "$FILE"
-    printf "BMPDUMP.%s." "$serialNo" >> "$FILE"
+    if [ "$dump_type" = "$HOST_DUMP" ]; then
+        printf "SYSDUMP.%s." "$serialNo" >> "$FILE"
+    else
+        printf "BMCDUMP.%s." "$serialNo" >> "$FILE"
+    fi
     get_dump_id
     printf "." >> "$FILE"
     printf "%s" "$dDay" >> "$FILE"  #UTC time stamp
@@ -145,19 +219,27 @@ function dump_file_entry () {
 #Entry Types       2            0x0002
 #Reserved          2            NULL
 #Dump Size         8            Dump size in hex + dump header
-#Optional Section  16           BMCDUMP
+#Optional Section  16           BMCDUMP/DUMP SUMMARY
 function dump_section_entry () {
     printf "SECTION " >> "$FILE"
     add_null 1
     printf '\x30' >> "$FILE" #Section entry size
-    add_null 9
-    printf '\x01' >> "$FILE"
     add_null 1
+    printf '\x01' >> "$FILE"
+    add_null 9
     printf '\x02' >> "$FILE"
     add_null 2
-    dump_size    #Dump size
-    printf "BMCDUMP" >> "$FILE"
-    add_null 9
+    if [ "$dump_type" = "$HOST_DUMP" ]; then
+        add_null 6
+        printf '\x04' >> "$FILE"
+        add_null 1
+        printf "DUMP SUMMARY" >> "$FILE"
+        add_null 4
+    else
+        dump_size    #Dump size
+        printf "BMCDUMP" >> "$FILE"
+        add_null 9
+    fi
 }
 
 #Function to add dump header, consists of below entries
@@ -198,13 +280,13 @@ function dump_header () {
     printf '\x02' >> "$FILE" #Dump header size 0x0200
     add_null 1
     dump_size  #dump size
-    printf "%s" "$modelNo" >> "$FILE"
+    printf "$modelNo" >> "$FILE"
     add_null 24
     printf "Server-%s-SN-%s" "$modelNo" "$serialNo" >> "$FILE"
     add_null 7
-    printf "%s" "$serialNo" >> "$FILE"
+    printf "$serialNo" >> "$FILE"
     add_null 1
-    add_null 4 #PLID
+    get_eid
     printf '\x70' >> "$FILE" #File header size
     add_null 2 # SRC size
     add_null 320 # SRC dump
@@ -226,12 +308,147 @@ function dump_entry () {
     printf '\x10' >> "$FILE" #Dump entry
 }
 
+#Function to Hardware Dump Section
+####################FORMAT##################
+#Name            Size(bytes)    Value
+#HWDumpHeader      8            SECTION
+#HWDumpEntrySize   2            0x0030
+#HWDumpPriority    2            0x02
+#reserve6          4            NULL
+#HWDumpEntryFlag   4            0x0001
+#HWDumpEntryType   2            0x02
+#reserve7          2            NULL
+#reserve7a         4            NULL
+#HWDumpSize        4            NULL
+#HWDumpName[16]    16           HARDWARE DATA
+function hw_dump_section () {
+    printf "SECTION " >> "$FILE"
+    add_null 1
+    printf '\x30' >> "$FILE" #Section entry size
+    add_null 1
+    printf '\x02' >> "$FILE"
+    add_null 7
+    printf '\x00' >> "$FILE"
+    add_null 1
+    printf '\x02' >> "$FILE"
+    add_null 6
+    tar_size
+    printf "HARDWARE DATA" >> "$FILE"
+    add_null 3
+}
+
+#Function to Mainstore Dump Section
+######################FORMAT###################
+#Name                Size(in bytes)   Value
+#MainstoreHeader         8            SECTION
+#MainstoreEntrySize      2            0x30
+#MainstorePriority       2            0x02
+#reserve8                4            NULL
+#MainstoreEntryFlag      4            NULL
+#MainstoreEntryType      2            0x01
+#reserve9                2            NULL
+#MainstoreSize           8            NULL
+#MainstoreName           16           HYPERVISOR DATA
+function mainstore_dump_section () {
+    printf "SECTION " >> "$FILE"
+    add_null 1
+    printf '\x30' >> "$FILE" #Section entry size
+    add_null 1
+    printf '\x02' >> "$FILE"
+    add_null 7
+    printf '\x01' >> "$FILE"
+    add_null 1
+    printf '\x02' >> "$FILE"
+    add_null 10
+    printf "HYPERVISOR DATA" >> "$FILE"
+    add_null 1
+}
+
+#Function for platform system dump header
+######################FORMAT##################
+#Name                Size(in bytes)   Value
+#eyeCatcher              8            SYS DUMP
+#requestTimestamp        8            BCD time
+#dumpIdentifier          4
+#dumpVersion             2
+#headerSize              2
+#totalDumpSize           8
+#machineInfo             32
+#systemName              32
+#systemSerialNumber      7
+#brand                   1
+#eventLogId              4
+####################DATA NOT AVAIABLE##########
+#fileHeaderSize          2
+#srcSize                 2
+#dumpSrc                 332
+#toolType                4
+#clientId                32
+#userId                  32
+#systemDumpFlags         2
+#hardwareErrorFlags      2
+#processorChipEcid       2
+#hardwareObjectModel     1
+#chUnused                1
+#cecMemoryErrorFlags     8
+#memoryDumpStartTime     8
+#memoryDumpCompleteTime  8
+#hypVerRelMod            8
+#Reserved4HysrInfo       2
+#hypMode                 1
+#hypDumpContentPolicy    1
+#Reserved4HWDInfo        2
+#hardwareNodalCount      2
+#hardwareDumpTableSize   4
+#hardwareDumpDataSize    4
+#totalHardwareDumpDataSize   4
+#mdrtTableSize           4
+#mdrtTableAddress        8
+#memoryDumpDataSize      8
+#hypModLoadMapTime       8
+#hardwareCollectionEndTime   8
+#contentType             4
+#failingUnitId           4
+#failingCappChipId       2
+#failingCappUnitId       1
+#reserve02               5
+#hypHRMOR                8
+#hypNACAAddress          8
+#hardwareCollectionStartTime  8
+#mdstTableSize           4
+#payloadState            4
+#reservedForCreator      170
+function plat_dump_header () {
+    printf "SYS DUMP" >> "$FILE"
+    dump_time
+    add_null 4   #Dump identifier
+    printf '\x02' >> "$FILE"
+    printf '\x21' >> "$FILE" #Need to cross check
+    printf '\x04' >> "$FILE" #Dump header size 0x0400
+    add_null 1
+    total_size
+    printf "%s" "$modelNo" >> "$FILE"
+    add_null 24
+    system_name
+    printf "%s" "$serialNo" >> "$FILE"
+    add_null 1   #Brand name
+    get_eid
+    add_null 916
+}
+
+
 #main function
 function gen_header_package () {
     dump_file_entry
     dump_section_entry
-    dump_header
-    dump_entry
+    if [ "$dump_type" = "$HOST_DUMP" ]; then
+        hw_dump_section
+        mainstore_dump_section
+        plat_dump_header
+    else
+        dump_header
+        dump_entry
+    fi
 }
 
 #Run gen_header_package
