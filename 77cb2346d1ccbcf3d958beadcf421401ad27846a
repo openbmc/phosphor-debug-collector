@@ -1,0 +1,347 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9b4cfaf_46b4969e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Fix all the shell check warning\u0027s related to new changes.",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77bf020a_093b106b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "change to opdreport ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0afe05a_8f1367a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Please add why  this new scrip?",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6bcb1b5_67531581",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a019c4b0_278cbd01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "is this internal tool?",
+      "range": {
+        "startLine": 32,
+        "startChar": 40,
+        "endLine": 32,
+        "endChar": 49
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9034821b_3b33b802",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "This tool is only used for hostbootdump. There are other hostdumps , like SBE, Hw dump etc also required similiar packaging.",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 69
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "359e032b_81cd33b0",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "-s, --size \u003csize\u003e     Maximum allowed size(in KB) of the archive.\n                            Report will be truncated in case size exceeds\n                               this limit. Default size is unlimited.\nHow you are you making sure the sump packaging is with in the allowed size?",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a5a3e24_0d56e027",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "These some of the good to have option for debugging , are you planing to enable separate commit for supporting this?  \n       -v, —-verbose         Increase logging verbosity.\n         -V, --version         Output version information.\n         -q, —-quiet           Only log fatal errors to stderr",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e9a5f6_0e76e4e7",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Not seeing any place these variables used.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7666bf43_cdfa14b8",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Hbdump indicates hostboot dump or hostdump? is this script default behaviour is hostboot dump type?",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f57542e_7e6c6d07",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "not seeing any exit here, either stop the packaging or got with default behaviour, like keeping in /tmp path.",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d55dc8c6_121d92e9",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec39117c_80e06501",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "should be an error message? what is the user expectes here ? there should eb some indication of of either missing info here. \nGeneral command:\ndreport uses echo message to avoind summary log file. Here not using summary log right? better be consistent , like either use log-xx or echo.",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a55236_f81f16cf",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Is this true for all type of dumps?",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88dc9de8_051d2117",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "Make sure add gzip dependncy in dump packaging.",
+      "range": {
+        "startLine": 101,
+        "startChar": 3,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8b358e_f542dfed",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "This should be checking prior to 102?",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73ac3a51_9599df7c",
+        "filename": "dump-extensions/openpower-dumps/openpower_dump",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-29T09:09:06Z",
+      "side": 1,
+      "message": "rm -rf $optional_path removal is not required here?",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
