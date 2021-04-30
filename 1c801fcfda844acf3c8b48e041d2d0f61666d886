@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4a2bde2_dab42303",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-04-30T07:51:09Z",
+      "side": 1,
+      "message": "need to add -t, -q, and -v options too, you may make it no-op now if that is not being implemented in this commit.",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
