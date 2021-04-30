@@ -34,6 +34,86 @@
       "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0daaada1_fd622d4c",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T09:06:26Z",
+      "side": 1,
+      "message": "It will be good keep this information in common place like , \u003cdreport source\u003e/xx. similiar path is used in dreport also.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42bae317_78eca674",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T09:06:26Z",
+      "side": 1,
+      "message": "same used in dreport. better to move common include file.\nThis commit define new include file and keep the common defeinition in dreport/opdrepor definitions. and you can push new commit to update dreport to consume the common file.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2130e91a_ca626e8f",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T09:06:26Z",
+      "side": 1,
+      "message": "where is the allowed dump size comparoison?",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bded1f0_39968861",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T09:06:26Z",
+      "side": 1,
+      "message": "This is also potential function to move in common place.",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
