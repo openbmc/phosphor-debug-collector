@@ -213,6 +213,138 @@
     },
     {
       "key": {
+        "uuid": "05a771fe_a421f04e",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "Question is , this tool is specific to hostboot dump ?\nCommitr message updated for general purpose. here description is based on hostbootdump",
+      "parentUuid": "4a976c9f_395d65c0",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 69
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97299159_a57ee52a",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "Add cooment, in the code.",
+      "parentUuid": "0c3965de_92076df6",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4a88114_720d97ca",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "be consistent then , seeing some places using log_error .",
+      "parentUuid": "bbef8837_e2b8288e",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "322dc0c1_674cb873",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "be consistent then , seeing some places using log_error .",
+      "parentUuid": "cc09d0b5_0891ddc4",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb5a5eb1_271f89d9",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "Be clear in the commit message on the scope. also consistent in the coding.\nBased on the commit message we already have use for this . i think better contryl this using varibkle will help to extend support in future easilyu.",
+      "parentUuid": "d7524bdb_c708e2f9",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a45d396c_2f88ad71",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-04-30T08:08:07Z",
+      "side": 1,
+      "message": "be careful, do we have any code in application side to celanup this? otherwise this can cause filsystem issue with available size. \nor are you considering this here , during allowed checking szie?",
+      "parentUuid": "da38059b_e69b7b85",
+      "revId": "77cb2346d1ccbcf3d958beadcf421401ad27846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9034821b_3b33b802",
         "filename": "dump-extensions/openpower-dumps/openpower_dump",
         "patchSetId": 1
