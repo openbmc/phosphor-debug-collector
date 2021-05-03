@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "0f0d58ac_fe9399d6",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Done. Made it same as dreport args.\nChanged from hostboot dumps to host dumps.",
+      "parentUuid": "7c5a725f_1bea30ef",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0daaada1_fd622d4c",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 4
@@ -75,6 +93,30 @@
       "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d6fd1e_3a70fdd8",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Done. Adding a new file dcommon which will be placed in dreport/",
+      "parentUuid": "0daaada1_fd622d4c",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +143,47 @@
     },
     {
       "key": {
+        "uuid": "dc41af3f_2cb00724",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42bae317_78eca674",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7c2fa1_f0ab608d",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Removed log_error. Using echo",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2130e91a_ca626e8f",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 4
@@ -118,6 +201,24 @@
     },
     {
       "key": {
+        "uuid": "cfa7995b_4127e647",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2130e91a_ca626e8f",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bded1f0_39968861",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 4
@@ -132,6 +233,24 @@
       "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2faad709_f5545beb",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-03T03:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bded1f0_39968861",
+      "revId": "1c801fcfda844acf3c8b48e041d2d0f61666d886",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
