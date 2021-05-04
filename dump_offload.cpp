@@ -145,10 +145,6 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
     using PathOpen = xyz::openbmc_project::Common::File::Open::PATH;
     using ErrnoWrite = xyz::openbmc_project::Common::File::Write::ERRNO;
     using PathWrite = xyz::openbmc_project::Common::File::Write::PATH;
-    // open a dump file for a transfer.
-    std::filesystem::path dumpPath(BMC_DUMP_PATH);
-    dumpPath /= std::to_string(dumpId);
-    dumpPath /= file.filename();
 
     try
     {
@@ -188,16 +184,16 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
                 throw std::runtime_error(msg);
             }
 
-            std::ifstream infile{dumpPath, std::ios::in | std::ios::binary};
+            std::ifstream infile{file, std::ios::in | std::ios::binary};
             if (!infile.good())
             {
                 // Unable to open the dump file
                 log<level::ERR>(
                     fmt::format("Failed to open the dump from file, errno({}), "
                                 "DUMPFILE({}), DUMP_ID({})",
-                                errno, dumpPath.c_str(), dumpId)
+                                errno, file.c_str(), dumpId)
                         .c_str());
-                elog<Open>(ErrnoOpen(errno), PathOpen(dumpPath.c_str()));
+                elog<Open>(ErrnoOpen(errno), PathOpen(file.c_str()));
             }
 
             infile.exceptions(std::ifstream::failbit | std::ifstream::badbit |
@@ -229,9 +225,9 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
         log<level::ERR>(
             fmt::format(
                 "Failed to open, errormsg({}), OPENINTERFACE({}), DUMP_ID({})",
-                oe.what(), dumpPath.c_str(), dumpId)
+                oe.what(), file.c_str(), dumpId)
                 .c_str());
-        elog<Open>(ErrnoOpen(err), PathOpen(dumpPath.c_str()));
+        elog<Open>(ErrnoOpen(err), PathOpen(file.c_str()));
     }
     catch (const std::exception& e)
     {
