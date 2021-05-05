@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dump_manager.hpp"
+#include "dump_helper.hpp"
 #include "dump_utils.hpp"
 #include "errors_map.hpp"
 #include "watch.hpp"
@@ -18,12 +18,14 @@ namespace dump
 namespace bmc
 {
 
+constexpr auto BMC_DUMP_FILENAME_REGEX =
+    "obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)";
+
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
-using UserMap = phosphor::dump::inotify::UserMap;
+class DumpHelper;
 
-using Watch = phosphor::dump::inotify::Watch;
 using ::sdeventplus::source::Child;
 
 /** @class Manager
@@ -54,24 +56,13 @@ class Manager :
             const std::string& baseEntryPath, const char* filePath) :
         CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath),
-        eventLoop(event.get()),
-        dumpWatch(
-            eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE | IN_CREATE, EPOLLIN,
-            filePath,
-            std::bind(std::mem_fn(&phosphor::dump::bmc::Manager::watchCallback),
-                      this, std::placeholders::_1)),
-        dumpDir(filePath)
+        dumpHelper(bus, event, filePath, BMC_DUMP_FILENAME_REGEX,
+                   BMC_DUMP_MAX_SIZE, BMC_DUMP_MIN_SPACE_REQD,
+                   BMC_DUMP_TOTAL_SIZE, this)
     {}
 
-    /** @brief Implementation of dump watch call back
-     *  @param [in] fileInfo - map of file info  path:event
-     */
-    void watchCallback(const UserMap& fileInfo);
-
-    /** @brief Construct dump d-bus objects from their persisted
-     *        representations.
-     */
-    void restore() override;
+    // Declare DumpHelper as a friend class
+    friend class DumpHelper;
 
     /** @brief Implementation for CreateDump
      *  Method to create a BMC dump entry when user requests for a new BMC dump
@@ -90,12 +81,32 @@ class Manager :
             {"xyz.openbmc_project.Dump.Create.DumpType.UserRequested", "user"},
             {"xyz.openbmc_project.Dump.Create.DumpType.Ramoops", "ramoops"}};
 
-  private:
-    /** @brief Create Dump entry d-bus object
-     *  @param[in] fullPath - Full path of the Dump file name
+    /** @brief Create a  Dump Entry Object
+     *  @param[in] id - Id of the dump
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] timeStamp - Dump creation timestamp
+     *             since the epoch.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
+     *  @param[in] parent - The dump entry's parent.
      */
-    void createEntry(const std::filesystem::path& fullPath);
+    void createEntry(const uint32_t id, const std::string objPath,
+                     const uint64_t ms, uint64_t fileSize,
+                     const std::filesystem::path& file,
+                     phosphor::dump::OperationStatus status,
+                     std::string originatorId,
+                     originatorTypes originatorType) override;
 
+    /** @brief Construct dump d-bus objects from their persisted
+     *        representations.
+     */
+    void restore() override
+    {
+        dumpHelper.restore();
+    }
+
+  private:
     /**  @brief Capture BMC Dump based on the Dump type.
      *  @param[in] type - Type of the Dump.
      *  @param[in] path - An absolute paths to the file
@@ -103,18 +114,6 @@ class Manager :
      *  @return id - The Dump entry id number.
      */
     uint32_t captureDump(std::string& type, const std::string& path);
-
-    /** @brief Remove specified watch object pointer from the
-     *        watch map and associated entry from the map.
-     *        @param[in] path - unique identifier of the map
-     */
-    void removeWatch(const std::filesystem::path& path);
-
-    /** @brief Calculate per dump allowed size based on the available
-     *        size in the dump location.
-     *  @returns dump size in kilobytes.
-     */
-    size_t getAllowedSize();
 
     /** @brief extract the dump create parameters
      *  @param[in] The name of the parameter
@@ -194,26 +193,14 @@ class Manager :
         return dumpType;
     }
 
-    /** @brief sdbusplus Dump event loop */
-    EventPtr eventLoop;
-
-    /** @brief Dump main watch object */
-    Watch dumpWatch;
-
-    /** @brief Path to the dump file*/
-    std::string dumpDir;
-
     /** @brief Flag to reject user intiated dump if a dump is in progress*/
     // TODO: https://github.com/openbmc/phosphor-debug-collector/issues/19
     static bool fUserDumpInProgress;
 
-    /** @brief Child directory path and its associated watch object map
-     *        [path:watch object]
-     */
-    std::map<std::filesystem::path, std::unique_ptr<Watch>> childWatchMap;
-
     /** @brief map of SDEventPlus child pointer added to event loop */
     std::map<pid_t, std::unique_ptr<Child>> childPtrMap;
+
+    phosphor::dump::util::DumpHelper dumpHelper;
 };
 
 } // namespace bmc
