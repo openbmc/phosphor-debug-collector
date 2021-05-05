@@ -102,7 +102,7 @@ bool isHostRunning();
 
 inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
                                         std::string& originatorId,
-                                        originatorTypes& originatorType)
+                                        OriginatorTypes& originatorType)
 {
     using InvalidArgument =
         sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
@@ -141,7 +141,7 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
     {
         lg2::info("OriginatorType is not provided. Replacing the string "
                   "with the default value");
-        originatorType = originatorTypes::Internal;
+        originatorType = OriginatorTypes::Internal;
     }
     else
     {
