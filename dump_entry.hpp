@@ -1,5 +1,6 @@
 #pragma once
 
+#include "xyz/openbmc_project/Common/FilePath/server.hpp"
 #include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 #include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
@@ -28,6 +29,7 @@ using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
+    sdbusplus::xyz::openbmc_project::Common::server::FilePath,
     sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
 
 using OperationStatus =
@@ -60,18 +62,21 @@ class Entry : public EntryIfaces
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] dumpSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
      *  @param[in] originId - Id of the originator of the dump
      *  @param[in] originType - Originator type
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          uint64_t timeStamp, uint64_t dumpSize,
+          const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
         parent(parent), id(dumpId)
     {
         originatorId(originId);
         originatorType(originType);
+        path(file);
 
         size(dumpSize);
         status(dumpStatus);
@@ -113,6 +118,26 @@ class Entry : public EntryIfaces
     uint32_t getDumpId()
     {
         return id;
+    }
+
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     */
+    void update(uint64_t timeStamp, uint64_t fileSize,
+                const std::filesystem::path& filePath)
+    {
+        elapsed(timeStamp);
+        size(fileSize);
+        // TODO: Handled dump failed case with #ibm-openbmc/2808
+        status(OperationStatus::Completed);
+        path(filePath);
+        // TODO: serialization of this property will be handled with
+        // #ibm-openbmc/2597
+        completedTime(timeStamp);
     }
 
   protected:
