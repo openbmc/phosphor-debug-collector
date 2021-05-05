@@ -2,9 +2,10 @@
 
 #include "dump_manager_bmc.hpp"
 
-#include "bmc_dump_entry.hpp"
+#include "bmcstored_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
+#include "xyz/openbmc_project/Dump/Entry/BMC/server.hpp"
 
 #include <sys/inotify.h>
 #include <unistd.h>
@@ -79,11 +80,12 @@ sdbusplus::message::object_path
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
 
-        entries.insert(std::make_pair(
-            id, std::make_unique<bmc::Entry>(
+        entries.emplace(
+            id, std::make_unique<bmc_stored::Entry<
+                    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>>(
                     bus, objPath.c_str(), id, timeStamp, 0, std::string(),
                     phosphor::dump::OperationStatus::InProgress, originatorId,
-                    originatorType, *this)));
+                    originatorType, *this));
     }
     catch (const std::invalid_argument& e)
     {
@@ -187,8 +189,8 @@ void Manager::createEntry(const std::filesystem::path& file)
     auto dumpEntry = entries.find(id);
     if (dumpEntry != entries.end())
     {
-        dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get())
-            ->update(timestamp, std::filesystem::file_size(file), file);
+        dumpEntry->second.get()->update(timestamp,
+                                        std::filesystem::file_size(file), file);
         return;
     }
 
@@ -199,12 +201,13 @@ void Manager::createEntry(const std::filesystem::path& file)
     // For now, replacing it with null
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<bmc::Entry>(
+        entries.emplace(
+            id, std::make_unique<bmc_stored::Entry<
+                    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>>(
                     bus, objPath.c_str(), id, timestamp,
                     std::filesystem::file_size(file), file,
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+                    originatorTypes::Internal, *this));
     }
     catch (const std::invalid_argument& e)
     {
