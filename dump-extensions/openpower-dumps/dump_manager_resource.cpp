@@ -20,8 +20,6 @@ namespace dump
 namespace resource
 {
 
-using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
-    OriginatedBy::OriginatorTypes;
 using namespace phosphor::logging;
 using InternalFailure =
     sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;

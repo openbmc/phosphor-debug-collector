@@ -52,6 +52,83 @@ class Manager : public Iface
      */
     virtual void restore() = 0;
 
+    /** @brief Create a  Dump Entry Object
+     *  @param[in] id - Id of the dump
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] timeStamp - Dump creation timestamp
+     *             since the epoch.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
+     *  @param[in] parent - The dump entry's parent.
+     */
+    virtual void createEntry(const uint32_t id, const std::string objPath,
+                             const uint64_t ms, uint64_t fileSize,
+                             const std::filesystem::path& file,
+                             phosphor::dump::OperationStatus status,
+                             std::string originatorId,
+                             originatorTypes originatorType) = 0;
+
+    std::optional<std::reference_wrapper<std::unique_ptr<Entry>>>
+        getEntryById(uint32_t id)
+    {
+        auto it = entries.find(id);
+        if (it != entries.end())
+        {
+            return std::make_optional(std::ref(it->second));
+        }
+        else
+        {
+            return std::nullopt;
+        }
+    }
+
+    /** @brief Gets the object path for an entry with a specified ID.
+     *
+     * @param[in] id - The ID of the entry.
+     * @return The object path for the entry.
+     */
+    std::filesystem::path getEntryObjectPath(uint32_t id) const
+    {
+        return std::filesystem::path(baseEntryPath) / std::to_string(id);
+    }
+
+    uint32_t getLastEntryId()
+    {
+        return lastEntryId;
+    }
+
+    void updateLastEntryId(uint32_t id)
+    {
+        lastEntryId = id;
+    }
+
+    /**
+     * @brief Retrieves a pointer to the Entry with the lowest id.
+     * This function finds the Entry with the lowest id and returns a pointer to
+     * it.
+     *
+     * @return std::optional<Entry> Pointer to the Entry with the lowest id.
+     * Returns std::nullopt if the entries are empty.
+     */
+    std::optional<Entry*> getEntryWithLowestId()
+    {
+        if (entries.empty())
+        {
+            // Return std::nullopt if entries are empty
+            return std::nullopt;
+        }
+
+        // Find the entry with the lowest id
+        auto entryIter = min_element(entries.begin(), entries.end(),
+                                     [](const auto& l, const auto& r) {
+            return l.first < r.first;
+        });
+
+        // Return a pointer to the Entry
+        return entryIter->second.get();
+    }
+
   protected:
     /** @brief Erase specified entry d-bus object
      *
