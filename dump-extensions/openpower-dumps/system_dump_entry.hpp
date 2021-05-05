@@ -57,7 +57,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              std::strig(), status, originatorId,
+                              std::string(), status, originatorId,
                               originatorType, parent)
     {
         sourceDumpId(sourceId);
