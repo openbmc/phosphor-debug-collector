@@ -1,16 +1,21 @@
 #pragma once
 
-#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
-#include "xyz/openbmc_project/Common/Progress/server.hpp"
-#include "xyz/openbmc_project/Dump/Entry/server.hpp"
-#include "xyz/openbmc_project/Object/Delete/server.hpp"
-#include "xyz/openbmc_project/Time/EpochTime/server.hpp"
+#include "base_dump_entry.hpp"
+#include "dump_offload.hpp"
 
+#include <fcntl.h>
+
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <sdeventplus/event.hpp>
 #include <sdeventplus/source/event.hpp>
+#include <xyz/openbmc_project/Common/File/error.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
 
+#include <cstring>
 #include <filesystem>
 
 namespace phosphor
@@ -19,34 +24,31 @@ namespace dump
 {
 
 template <typename T>
-using ServerObject = typename sdbusplus::server::object_t<T>;
-
-// TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
-// still needed in dump entry since start time and completed time are available
-// from sdbusplus::xyz::openbmc_project::Common::server::Progress
-// #ibm-openbmc/2809
-using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
-    sdbusplus::xyz::openbmc_project::Common::server::Progress,
-    sdbusplus::xyz::openbmc_project::Dump::server::Entry,
-    sdbusplus::xyz::openbmc_project::Object::server::Delete,
-    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
+using DumpEntryIface = sdbusplus::server::object_t<T>;
 
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
 
-using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
+using OriginatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
 
 class Manager;
 
 /** @class Entry
- *  @brief Base Dump Entry implementation.
- *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Entry DBus API
+ *  @brief Concrete derived class for Dump Entry.
+ *  @details This class provides a templated concrete implementation for the
+ *  xyz.openbmc_project.Dump.Entry DBus API, derived from the BaseEntry class.
+ *
+ *  The Entry class is intended to be instantiated with a specific
+ *  DBus interface type as the template parameter T, providing functionality
+ *  specific to the corresponding dump type.
+ *
  */
-class Entry : public EntryIfaces
+template <typename T, typename U>
+class Entry : public BaseEntry, public DumpEntryIface<T>
 {
+    friend U;
+
   public:
     Entry() = delete;
     Entry(const Entry&) = delete;
@@ -62,6 +64,7 @@ class Entry : public EntryIfaces
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] dumpSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
      *  @param[in] originId - Id of the originator of the dump
      *  @param[in] originType - Originator type
      *  @param[in] parent - The dump entry's parent.
@@ -69,53 +72,32 @@ class Entry : public EntryIfaces
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
-          std::string originId, originatorTypes originType, Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
-        parent(parent), id(dumpId), file(file)
+          std::string originId, OriginatorTypes originType, Manager& parent) :
+        BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, file, dumpStatus,
+                  originId, originType, parent),
+        DumpEntryIface<T>(bus, objPath.c_str(),
+                          DumpEntryIface<T>::action::emit_no_signals),
+        helper(*this)
     {
-        originatorId(originId);
-        originatorType(originType);
-
-        size(dumpSize);
-        status(dumpStatus);
-
-        // If the object is created after the dump creation keep
-        // all same as timeStamp
-        // if the object created before the dump creation, update
-        // only the start time. Completed and elapsed time will
-        // be updated once the dump is completed.
-        if (dumpStatus == OperationStatus::Completed)
-        {
-            elapsed(timeStamp);
-            startTime(timeStamp);
-            completedTime(timeStamp);
-        }
-        else
-        {
-            elapsed(0);
-            startTime(timeStamp);
-            completedTime(0);
-        }
+        this->phosphor::dump::DumpEntryIface<T>::emit_object_added();
     };
 
     /** @brief Delete this d-bus object.
      */
-    void delete_() override;
+    void delete_() override
+    {
+        helper.delete_(file);
+        BaseEntry::delete_();
+    }
 
     /** @brief Method to initiate the offload of dump
      *  @param[in] uri - URI to offload dump
      */
     void initiateOffload(std::string uri) override
     {
-        offloadUri(uri);
-    }
-
-    /** @brief Returns the dump id
-     *  @return the id associated with entry
-     */
-    uint32_t getDumpId()
-    {
-        return id;
+        initiateOffload(uri);
+        phosphor::dump::offload::requestOffload(file, id, uri);
+        offloaded(true);
     }
 
     /** @brief Method to get the file handle of the dump
@@ -125,35 +107,13 @@ class Entry : public EntryIfaces
      *  @throws sdbusplus::xyz::openbmc_project::Common::Error::Unavailable if
      *  the file string is empty
      */
-    sdbusplus::message::unix_fd getFileHandle() override;
-
-  protected:
-    /** @brief This entry's parent */
-    Manager& parent;
-
-    /** @brief This entry's id */
-    uint32_t id;
-
-    /** @Dump file name */
-    std::filesystem::path file;
-
-  private:
-    /** @brief Closes the file descriptor and removes the corresponding event
-     *  source.
-     *
-     */
-    void closeFD()
+    sdbusplus::message::unix_fd getFileHandle() override
     {
-        if (fdCloseEventSource)
-        {
-            close(fdCloseEventSource->first);
-            fdCloseEventSource.reset();
-        }
+        return helper.getFileHandle(id, file);
     }
 
-    /* @brief A pair of file descriptor and corresponding event source. */
-    std::optional<std::pair<int, std::unique_ptr<sdeventplus::source::Defer>>>
-        fdCloseEventSource;
+  private:
+    U helper;
 };
 
 } // namespace dump

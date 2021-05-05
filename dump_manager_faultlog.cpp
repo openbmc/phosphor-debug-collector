@@ -2,8 +2,8 @@
 
 #include "dump_manager_faultlog.hpp"
 
+#include "dump_entry.hpp"
 #include "dump_utils.hpp"
-#include "faultlog_dump_entry.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
@@ -48,7 +48,7 @@ sdbusplus::message::object_path
 
     // Get the originator id and type from params
     std::string originatorId;
-    originatorTypes originatorType;
+    OriginatorTypes originatorType;
 
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
@@ -89,19 +89,21 @@ sdbusplus::message::object_path
     try
     {
         lg2::info("dump_manager_faultlog.cpp: add faultlog entry");
+        /*
+                uint64_t timestamp =
+                    std::chrono::duration_cast<std::chrono::microseconds>(
+                        std::chrono::system_clock::now().time_since_epoch())
+                        .count();
 
-        uint64_t timestamp =
-            std::chrono::duration_cast<std::chrono::microseconds>(
-                std::chrono::system_clock::now().time_since_epoch())
-                .count();
-
-        entries.insert(
-            std::make_pair(id, std::make_unique<faultlog::Entry>(
-                                   bus, objPath.c_str(), id, timestamp,
-                                   std::filesystem::file_size(faultLogFilePath),
-                                   faultLogFilePath,
-                                   phosphor::dump::OperationStatus::Completed,
-                                   originatorId, originatorType, *this)));
+                entries.insert(
+                    std::make_pair(id, std::make_unique<Entry<>>(
+                                           bus, objPath.c_str(), id, timestamp,
+                                           std::filesystem::file_size(faultLogFilePath),
+                                           faultLogFilePath,
+                                           phosphor::dump::OperationStatus::Completed,
+                                           originatorId, originatorType,
+           *this)));
+        */
     }
     catch (const std::invalid_argument& e)
     {
