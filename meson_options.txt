@@ -23,16 +23,6 @@ option('BMC_DUMP_OBJPATH', type : 'string',
         description : 'The BMC Dump manager Dbus object path'
       )
 
-option('SYSTEM_DUMP_OBJPATH', type : 'string',
-        value : '/xyz/openbmc_project/dump/system',
-        description : 'The system Dump manager Dbus object path'
-      )
-
-option('RESOURCE_DUMP_OBJPATH', type : 'string',
-        value : '/xyz/openbmc_project/dump/resource',
-        description : 'The resource dump manager Dbus object path'
-      )
-
 option('CORE_FILE_DIR', type : 'string',
         value : '/var/lib/systemd/coredump',
         description : 'Directory where core dumps are placed'
@@ -46,16 +36,6 @@ option('OBJ_INTERNAL', type : 'string',
 option('BMC_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/bmc/entry',
         description : 'The BMC dump entry DBus object path'
-      )
-
-option('SYSTEM_DUMP_OBJ_ENTRY', type : 'string',
-        value : '/xyz/openbmc_project/dump/system/entry',
-        description : 'The system dump entry DBus object path'
-      )
-
-option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
-        value : '/xyz/openbmc_project/dump/resource/entry',
-        description : 'The resource dump entry DBus object path'
       )
 
 option('BMC_DUMP_PATH', type : 'string',
@@ -100,4 +80,30 @@ option('host-transport', type : 'string',
 option('openpower-dumps-extension', type: 'feature',
         value : 'disabled',
         description : 'Enable Open Power specific dumps'
+      )
+
+# Configurations for openpower-dump extension
+
+# System dump options
+
+option('SYSTEM_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/system',
+        description : 'The system Dump manager Dbus object path'
+      )
+
+option('SYSTEM_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/system/entry',
+        description : 'The system dump entry DBus object path'
+      )
+
+# Resource dump options
+
+option('RESOURCE_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/resource',
+        description : 'The resource dump manager Dbus object path'
+      )
+
+option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/resource/entry',
+        description : 'The resource dump entry DBus object path'
       )
