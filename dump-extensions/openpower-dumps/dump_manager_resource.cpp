@@ -2,9 +2,10 @@
 
 #include "dump_manager_resource.hpp"
 
+#include "com/ibm/Dump/Entry/Resource/server.hpp"
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
-#include "resource_dump_entry.hpp"
+#include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -18,6 +19,8 @@ namespace dump
 namespace resource
 {
 
+using OriginatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
+    OriginatedBy::OriginatorTypes;
 using namespace phosphor::logging;
 using InternalFailure =
     sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
@@ -33,11 +36,15 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // If there is an entry with invalid id update that.
     // If there a completed one with same source id ignore it
     // if there is no invalid id, create new entry
-    openpower::dump::resource::Entry* upEntry = NULL;
+    openpower::dump::Entry<
+        sdbusplus::com::ibm::Dump::Entry::server::Resource>* upEntry = NULL;
     for (auto& entry : entries)
     {
-        openpower::dump::resource::Entry* resEntry =
-            dynamic_cast<openpower::dump::resource::Entry*>(entry.second.get());
+        openpower::dump::Entry<
+            sdbusplus::com::ibm::Dump::Entry::server::Resource>* resEntry =
+            dynamic_cast<openpower::dump::Entry<
+                sdbusplus::com::ibm::Dump::Entry::server::Resource>*>(
+                entry.second.get());
 
         // If there is already a completed entry with input source id then
         // ignore this notification.
@@ -85,12 +92,13 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             "Resouce Dump Notify: creating new dump entry dumpId: {DUMP_ID} "
             "Id: {ID} Size: {SIZE}",
             "DUMP_ID", id, "ID", dumpId, "SIZE", size);
-        entries.insert(std::make_pair(
-            id, std::make_unique<resource::Entry>(
+        entries.emplace(
+            id, std::make_unique<
+                    Entry<sdbusplus::com::ibm::Dump::Entry::server::Resource>>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
                     std::string(), std::string(),
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+                    OriginatorTypes::Internal, 9, *this));
     }
     catch (const std::invalid_argument& e)
     {
@@ -190,18 +198,20 @@ sdbusplus::message::object_path
 
     // Get the originator id and type from params
     std::string originatorId;
-    originatorTypes originatorType;
+    OriginatorTypes originatorType;
 
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
 
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<resource::Entry>(
+        entries.emplace(
+            id,
+            std::make_unique <
+                Entry<sdbusplus::com::ibm::Dump::Entry::server::Resource>>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
                     vspString, pwd, phosphor::dump::OperationStatus::InProgress,
-                    originatorId, originatorType, *this)));
+                    originatorId, originatorType, 9, *this));
     }
     catch (const std::invalid_argument& e)
     {

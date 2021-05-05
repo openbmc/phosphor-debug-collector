@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dump_entry.hpp"
+#include "base_dump_entry.hpp"
 #include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -25,7 +25,7 @@ using Iface = sdbusplus::server::object_t<
  */
 class Manager : public Iface
 {
-    friend class Entry;
+    friend class BaseEntry;
 
   public:
     Manager() = delete;
@@ -69,7 +69,7 @@ class Manager : public Iface
     sdbusplus::bus_t& bus;
 
     /** @brief Dump Entry dbus objects map based on entry id */
-    std::map<uint32_t, std::unique_ptr<Entry>> entries;
+    std::map<uint32_t, std::unique_ptr<BaseEntry>> entries;
 
     /** @brief Id of the last Dump entry */
     uint32_t lastEntryId;
