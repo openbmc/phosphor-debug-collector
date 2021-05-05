@@ -1,5 +1,6 @@
 #pragma once
 
+#include "xyz/openbmc_project/Common/FilePath/server.hpp"
 #include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 #include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
@@ -62,6 +63,7 @@ class Entry : public EntryIfaces
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] dumpSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
      *  @param[in] originId - Id of the originator of the dump
      *  @param[in] originType - Originator type
      *  @param[in] parent - The dump entry's parent.
@@ -75,6 +77,7 @@ class Entry : public EntryIfaces
     {
         originatorId(originId);
         originatorType(originType);
+        path(file);
 
         size(dumpSize);
         status(dumpStatus);
@@ -126,6 +129,26 @@ class Entry : public EntryIfaces
      *  the file string is empty
      */
     sdbusplus::message::unix_fd getFileHandle() override;
+
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     */
+    void update(uint64_t timeStamp, uint64_t fileSize,
+                const std::filesystem::path& filePath)
+    {
+        elapsed(timeStamp);
+        size(fileSize);
+        // TODO: Handled dump failed case with #ibm-openbmc/2808
+        status(OperationStatus::Completed);
+        file = filePath;
+        // TODO: serialization of this property will be handled with
+        // #ibm-openbmc/2597
+        completedTime(timeStamp);
+    }
 
   protected:
     /** @brief This entry's parent */
