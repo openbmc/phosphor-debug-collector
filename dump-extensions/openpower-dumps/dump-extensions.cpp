@@ -1,4 +1,5 @@
 #include "config.h"
+#include "dump-extensions/openpower-dumps/opconfig.h"
 
 #include "dump-extensions.hpp"
 
