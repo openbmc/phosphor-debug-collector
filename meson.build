@@ -132,6 +132,9 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
                description : 'Turn on rotate config for bmc dump'
              )
 
+conf_data.set('TIMESTAMP_FORMAT', get_option('TIMESTAMP_FORMAT'),
+               description : 'Timestamp format in filename: 0-epoch 1-human readable'
+             )
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
@@ -160,6 +163,7 @@ errors_map_hpp = custom_target(
 phosphor_dump_manager_sources = [
         'dump_entry.cpp',
         'dump_manager.cpp',
+        'dump_manager_bmcstored.cpp',
         'dump_manager_bmc.cpp',
         'dump_manager_main.cpp',
         'dump_serialize.cpp',
