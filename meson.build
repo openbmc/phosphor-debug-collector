@@ -162,6 +162,7 @@ errors_map_hpp = custom_target(
 phosphor_dump_manager_sources = [
         'dump_entry.cpp',
         'dump_manager.cpp',
+        'dump_manager_bmcstored.cpp',
         'dump_manager_bmc.cpp',
         'dump_manager_main.cpp',
         'dump_serialize.cpp',
