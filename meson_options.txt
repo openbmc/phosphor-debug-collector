@@ -10,27 +10,17 @@ option('jffs-workaround', type: 'feature',
 
 option('DUMP_BUSNAME', type : 'string',
         value : 'xyz.openbmc_project.Dump.Manager',
-        description : 'The Dbus busname to own'
+        description : 'The D-Bus busname to own'
       )
 
 option('DUMP_OBJPATH', type : 'string',
         value : '/xyz/openbmc_project/dump',
-        description : 'The Dump manager Dbus root'
+        description : 'The dump manager D-Bus root'
       )
 
 option('BMC_DUMP_OBJPATH', type : 'string',
         value : '/xyz/openbmc_project/dump/bmc',
-        description : 'The BMC Dump manager Dbus object path'
-      )
-
-option('SYSTEM_DUMP_OBJPATH', type : 'string',
-        value : '/xyz/openbmc_project/dump/system',
-        description : 'The system Dump manager Dbus object path'
-      )
-
-option('RESOURCE_DUMP_OBJPATH', type : 'string',
-        value : '/xyz/openbmc_project/dump/resource',
-        description : 'The resource dump manager Dbus object path'
+        description : 'The BMC dump manager D-Bus object path'
       )
 
 option('CORE_FILE_DIR', type : 'string',
@@ -40,22 +30,12 @@ option('CORE_FILE_DIR', type : 'string',
 
 option('OBJ_INTERNAL', type : 'string',
         value : '/xyz/openbmc_project/dump/internal/manager',
-        description : 'Internal Dump manager Dbus object path'
+        description : 'Internal dump manager D-Bus object path'
       )
 
 option('BMC_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/bmc/entry',
-        description : 'The BMC dump entry DBus object path'
-      )
-
-option('SYSTEM_DUMP_OBJ_ENTRY', type : 'string',
-        value : '/xyz/openbmc_project/dump/system/entry',
-        description : 'The system dump entry DBus object path'
-      )
-
-option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
-        value : '/xyz/openbmc_project/dump/resource/entry',
-        description : 'The resource dump entry DBus object path'
+        description : 'The BMC dump entry D-Bus object path'
       )
 
 option('BMC_DUMP_PATH', type : 'string',
@@ -100,4 +80,30 @@ option('host-transport', type : 'string',
 option('openpower-dumps-extension', type: 'feature',
         value : 'disabled',
         description : 'Enable Open Power specific dumps'
+      )
+
+# Configurations for openpower-dump extension
+
+# System dump options
+
+option('SYSTEM_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/system',
+        description : 'The system dump manager D-Bus object path'
+      )
+
+option('SYSTEM_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/system/entry',
+        description : 'The system dump entry D-Bus object path'
+      )
+
+# Resource dump options
+
+option('RESOURCE_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/resource',
+        description : 'The resource dump manager D-Bus object path'
+      )
+
+option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/resource/entry',
+        description : 'The resource dump entry D-Bus object path'
       )
