@@ -132,3 +132,7 @@ option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/resource/entry',
         description : 'The resource dump entry D-Bus object path'
       )
+option('TIMESTAMP_FORMAT', type : 'integer',
+        value : 0,
+        description : 'Timestamp format in filename: 0-epoch 1-human readable'
+      )
