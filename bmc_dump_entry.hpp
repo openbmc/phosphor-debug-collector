@@ -23,7 +23,7 @@ using ServerObject = typename sdbusplus::server::object_t<T>;
 using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
 
-using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
+using OriginatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
 
 class Manager;
@@ -60,7 +60,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::Manager& parent) :
+          OriginatorTypes originatorType, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               file, status, originatorId, originatorType,
