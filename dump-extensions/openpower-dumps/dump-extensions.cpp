@@ -2,6 +2,8 @@
 
 #include "dump-extensions.hpp"
 
+#include "dump-extensions/openpower-dumps/opconfig.h"
+
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
 
