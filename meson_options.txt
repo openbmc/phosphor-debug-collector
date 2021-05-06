@@ -144,3 +144,30 @@ option('HOSTBOOT_DUMP_TOTAL_SIZE', type : 'integer',
         value : 409600,
         description : 'Total size of the dump in kilo bytes'
       )
+
+# Hardware dump options
+
+option('HARDWARE_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/hardware',
+        description : 'The hardware dump manager D-Bus object path'
+      )
+
+option('HARDWARE_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/hardware/entry',
+        description : 'The hardware dump entry D-Bus object path'
+      )
+
+option('HARDWARE_DUMP_MAX_SIZE', type : 'integer',
+        value : 102400,
+        description : 'Maximum size of one hardware dump in kilo bytes'
+      )
+
+option('HARDWARE_DUMP_MIN_SPACE_REQD', type : 'integer',
+        value : 81920,
+        description : 'Minimum space required for one hardware dump in kilo bytes'
+      )
+
+option('HARDWARE_DUMP_TOTAL_SIZE', type : 'integer',
+        value : 409600,
+        description : 'Total size of the dump in kilo bytes'
+      )

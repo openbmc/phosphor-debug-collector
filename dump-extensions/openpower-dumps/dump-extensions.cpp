@@ -4,6 +4,7 @@
 
 #include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
 
+#include "dump_manager_hardware.hpp"
 #include "dump_manager_hostboot.hpp"
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
@@ -42,6 +43,10 @@ void loadExtensions(sdbusplus::bus::bus& bus, DumpManagerList& dumpList)
     dumpList.push_back(std::make_unique<openpower::dump::hostboot::Manager>(
         bus, eventP, HOSTBOOT_DUMP_OBJPATH, HOSTBOOT_DUMP_OBJ_ENTRY,
         HOSTBOOT_DUMP_PATH));
+
+    dumpList.push_back(std::make_unique<openpower::dump::hardware::Manager>(
+        bus, eventP, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
+        HARDWARE_DUMP_PATH));
 }
 } // namespace dump
 } // namespace phosphor
