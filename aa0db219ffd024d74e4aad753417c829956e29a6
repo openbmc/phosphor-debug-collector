@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea107d41_d69a89ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-05-06T07:07:08Z",
+      "side": 1,
+      "message": "Please rearrange those moved config parameters in meson_options.txt file and add some info like those parameter required for X feature.",
+      "revId": "aa0db219ffd024d74e4aad753417c829956e29a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6615104_533bd1b2",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-05-06T07:07:08Z",
+      "side": 1,
+      "message": "is it really required ?",
+      "range": {
+        "startLine": 5,
+        "startChar": 10,
+        "endLine": 5,
+        "endChar": 42
+      },
+      "revId": "aa0db219ffd024d74e4aad753417c829956e29a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be146865_dfde2204",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-05-06T07:07:08Z",
+      "side": 1,
+      "message": "Please rename the variable currently it may work based on local scope but, better rename based on your header file usage.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 9
+      },
+      "revId": "aa0db219ffd024d74e4aad753417c829956e29a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dbd4c50_22b524ea",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-05-06T07:07:08Z",
+      "side": 1,
+      "message": "openpower_dumps_config.h ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "aa0db219ffd024d74e4aad753417c829956e29a6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
