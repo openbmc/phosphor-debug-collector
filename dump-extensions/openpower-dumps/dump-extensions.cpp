@@ -53,6 +53,24 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         HOSTBOOT_DUMP_TOTAL_SIZE,
         openpower::dump::util::SBE_DUMP_TYPE_HOSTBOOT));
 
+    try
+    {
+        std::filesystem::create_directories(HARDWARE_DUMP_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format("Failed to create hardware dump directory({})",
+                        HARDWARE_DUMP_PATH)
+                .c_str());
+        throw std::runtime_error("Failed to create hardware dump directory");
+    }
+    dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
+                           sdbusplus::com::ibm::Dump::Entry::server::Hardware>>(
+        bus, event, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
+        HARDWARE_DUMP_START_ID, HARDWARE_DUMP_PATH, "hwdump",
+        HARDWARE_DUMP_TMP_FILE_DIR, HARDWARE_DUMP_MAX_SIZE,
+        HARDWARE_DUMP_MIN_SPACE_REQD, HARDWARE_DUMP_TOTAL_SIZE));
 }
 } // namespace dump
 } // namespace phosphor
