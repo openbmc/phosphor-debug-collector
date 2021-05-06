@@ -8,6 +8,7 @@
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
 #include "dump_utils.hpp"
+#include "hardware_dump_entry.hpp"
 #include "hostboot_dump_entry.hpp"
 
 #include <fmt/core.h>
@@ -47,6 +48,26 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         HOSTBOOT_DUMP_PATH, "hbdump", HOSTBOOT_DUMP_TMP_FILE_DIR,
         HOSTBOOT_DUMP_MAX_SIZE, HOSTBOOT_DUMP_MIN_SPACE_REQD,
         HOSTBOOT_DUMP_TOTAL_SIZE));
+
+    try
+    {
+        std::filesystem::create_directories(HARDWARE_DUMP_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format("Failed to create hardware dump directory({})",
+                        HARDWARE_DUMP_PATH)
+                .c_str());
+        throw std::runtime_error("Failed to create hardware dump directory");
+    }
+
+    dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
+                           openpower::dump::hardware::Entry>>(
+        bus, event, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
+        HARDWARE_DUMP_PATH, "hwdump", HARDWARE_DUMP_TMP_FILE_DIR,
+        HARDWARE_DUMP_MAX_SIZE, HARDWARE_DUMP_MIN_SPACE_REQD,
+        HARDWARE_DUMP_TOTAL_SIZE));
 }
 } // namespace dump
 } // namespace phosphor
