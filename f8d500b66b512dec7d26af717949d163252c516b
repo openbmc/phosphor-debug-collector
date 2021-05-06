@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7114486a_6ee54000",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-06T13:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4fd4f3f_10882b62",
+      "range": {
+        "startLine": 3,
+        "startChar": 28,
+        "endLine": 3,
+        "endChar": 38
+      },
+      "revId": "f8d500b66b512dec7d26af717949d163252c516b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1aa6c8d_2af640db",
         "filename": "dump-extensions/openpower-dumps/meson.build",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2021-05-06T13:17:38Z",
       "side": 1,
       "message": "is it really working ?\nIn meson, we have \"configure_file()\" function only and it can not customise.\nPlease refer here: https://mesonbuild.com/Reference-manual.html#configure_file\nI am wondering whether compilation is working or not and CI can not capture this issue because, we did not enabled feature based code compilation so far.\nPlease check and update your test cases in commit message.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 16
+      },
+      "revId": "f8d500b66b512dec7d26af717949d163252c516b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e41603f_88032d0b",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-06T13:21:44Z",
+      "side": 1,
+      "message": "need to changes, but it compiled because conf_data is declared in root",
+      "parentUuid": "e1aa6c8d_2af640db",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -82,6 +130,54 @@
       "writtenOn": "2021-05-06T13:17:38Z",
       "side": 1,
       "message": "JS: can you change it to small case ?",
+      "range": {
+        "startLine": 91,
+        "startChar": 34,
+        "endLine": 91,
+        "endChar": 35
+      },
+      "revId": "f8d500b66b512dec7d26af717949d163252c516b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b17129f0_1f0a299b",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-06T13:21:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "589b3ab5_fc01976f",
+      "range": {
+        "startLine": 91,
+        "startChar": 47,
+        "endLine": 91,
+        "endChar": 48
+      },
+      "revId": "f8d500b66b512dec7d26af717949d163252c516b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05a73add_10ea82d0",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-06T13:21:44Z",
+      "side": 1,
+      "message": "changing for dump",
+      "parentUuid": "edb91dd4_c2f9617c",
       "range": {
         "startLine": 91,
         "startChar": 34,
