@@ -24,7 +24,7 @@ declare -rx SIZE_12='12'
 declare -rx SIZE_32='32'
 #Dump Summary size without header
 declare -rx DUMP_SUMMARY_SIZE='1024'
-declare -rx HB_DUMP="hostboot"
+declare -rx SYS_DUMP="hostdump"
 
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
@@ -116,7 +116,7 @@ function system_name () {
 
 #Function to get the errorlog ID
 function get_eid () {
-    if [ "$dump_type" = "$HB_DUMP" ]; then
+    if [ "$dump_type" = "$SYS_DUMP" ]; then
         x=${#elog_id}
         msize=$(( x / 2 ))
         msize=$(( SIZE_4 - msize ))
@@ -191,7 +191,7 @@ function dump_file_entry () {
     printf '\x01' >> "$FILE"
     add_null 1
     printf '\x0F' >> "$FILE"
-    if [ "$dump_type" = "$HB_DUMP" ]; then
+    if [ "$dump_type" = "$SYS_DUMP" ]; then
         printf "SYSDUMP.%s." "$serialNo" >> "$FILE"
     else
         printf "BMCDUMP.%s." "$serialNo" >> "$FILE"
@@ -223,7 +223,7 @@ function dump_section_entry () {
     add_null 9
     printf '\x02' >> "$FILE"
     add_null 2
-    if [ "$dump_type" = "$HB_DUMP" ]; then
+    if [ "$dump_type" = "$SYS_DUMP" ]; then
         add_null 6
         printf '\x04' >> "$FILE"
         add_null 1
@@ -435,7 +435,7 @@ function plat_dump_header () {
 function gen_header_package () {
     dump_file_entry
     dump_section_entry
-    if [ "$dump_type" = "$HB_DUMP" ]; then
+    if [ "$dump_type" = "$SYS_DUMP" ]; then
         hw_dump_section
         mainstore_dump_section
         plat_dump_header

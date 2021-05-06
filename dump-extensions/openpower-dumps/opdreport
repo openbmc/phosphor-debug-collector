@@ -29,8 +29,8 @@ Options:
 "
 
 #CONSTANTS
-declare -rx TYPE_HOSTBOOT="hostboot"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
+declare -rx dump_type = "hostdump"
 
 #VARIABLES
 declare -x EPOCHTIME
@@ -38,7 +38,6 @@ EPOCHTIME=$(date +"%s")
 declare -x name=""
 declare -x dump_dir=""
 declare -x dump_id="00000000"
-declare -x dump_type=$TYPE_HOSTBOOT
 declare -x optional_path=""
 declare -x size_dump=""
 declare -x eid_dir=""
