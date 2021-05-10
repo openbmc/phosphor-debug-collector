@@ -8,6 +8,10 @@
 
 #include <chrono>
 
+#ifndef SDBUSPP_NEW_CAMELCASE
+#define vspString vSPString
+#endif
+
 namespace openpower
 {
 namespace dump
@@ -46,14 +50,14 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *             since the epoch.
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
-     *  @param[in] vspString - Input to host to generate the resource dump.
+     *  @param[in] vspStr- Input to host to generate the resource dump.
      *  @param[in] pwd - Password needed by host to validate the request.
      *  @param[in] status - status  of the dump.
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
-          std::string vspString, std::string pwd,
+          std::string vspStr, std::string pwd,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
@@ -61,7 +65,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
                               status, parent)
     {
         sourceDumpId(sourceId);
-        vSPString(vspString);
+        vspString(vspStr);
         password(pwd);
         // Emit deferred signal.
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
