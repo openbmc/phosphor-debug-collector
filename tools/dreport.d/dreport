@@ -36,9 +36,6 @@ Options:
 "
 
 #CONSTANTS
-declare -rx TRUE=1
-declare -rx FALSE=0
-declare -rx UNLIMITED="unlimited"
 declare -rx SUMMARY_DUMP="summary"
 declare -rx TYPE_USER="user"
 declare -rx TYPE_CORE="core"
@@ -47,30 +44,15 @@ declare -rx TYPE_CHECKSTOP="checkstop"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
-declare -rx EPOCHTIME=$(date +"%s")
-declare -rx TIME_STAMP="date -u"
 declare -rx PLUGIN="pl_"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
-declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
-declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
 
-#Error Codes
-declare -rx SUCCESS="0"
-declare -rx INTERNAL_FAILURE="1"
-declare -rx RESOURCE_UNAVAILABLE="2"
 
 #VARIABLES
-declare -x name=""
-declare -x dump_dir="/tmp"
-declare -x dump_id="00000000"
 declare -x dump_type=$TYPE_USER
-declare -x verbose=$FALSE
-declare -x quiet=$FALSE
-declare -x dump_size="unlimited"
 declare -x name_dir=""
-declare -x optional_path=""
 declare -x dreport_log=""
 declare -x summary_log=""
 declare -x cur_dump_size=0
@@ -78,6 +60,7 @@ declare -x pid=$ZERO
 declare -x elog_id=""
 
 #Source dreport common functions
+. "$DREPORT_SOURCE/dcommon"
 . $DREPORT_INCLUDE/functions
 
 # @brief Initiate data collection based on the type.
@@ -296,52 +279,7 @@ TEMP=`getopt -o n:d:i:t:s:p:vVqh \
       --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
       -- "$@"`
 
-if [ $? -ne 0 ]
-then
-    echo "Error: Invalid options"
-    exit 1
-fi
-
-eval set -- "$TEMP"
-
-while [[ $# -gt 1 ]]; do
-    key="$1"
-    case $key in
-        -n|--name)
-            name=$2
-            shift 2;;
-        -d|--dir)
-            dump_dir=$2
-            shift 2;;
-        -i|--dumpid)
-            dump_id=$2
-            shift 2;;
-        -t|--type)
-            dump_type=$2
-            shift 2;;
-        -s|--size)
-            dump_size=$2
-            shift 2;;
-        -p|--path)
-            optional_path=$2
-            shift 2;;
-        -v|—-verbose)
-            verbose=$TRUE
-            shift;;
-        -V|--version)
-            shift;;
-        -q|—-quiet)
-            quiet=$TRUE
-            shift;;
-        -h|--help)
-            echo "$help"
-            exit;;
-        *) # unknown option
-            log_error "Unknown argument: $1"
-            log_info "$help"
-            exit 1;;
-    esac
-done
+validate_arg #Check the arguments
 
 main #main program
 exit $?
