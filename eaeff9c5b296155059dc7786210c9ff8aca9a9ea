@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "549cfa09_9290f00b",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-10T07:42:54Z",
+      "side": 1,
+      "message": "I think you can keep type as system dump or hostdump since there is no special handling for hostboot dump",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 35
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1355b1de_bf5e2508",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-10T07:42:54Z",
+      "side": 1,
+      "message": "no default, this should be error",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 44
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987d56e7_8b09d271",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-10T07:42:54Z",
+      "side": 1,
+      "message": "There is no special handling for hostboot dump, the header should be common for all system dumps, so this should be hostdump or systemdump",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6af44aa7_4e9697ba",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-10T07:42:54Z",
+      "side": 1,
+      "message": "this should be hostdump or system dump",
+      "range": {
+        "startLine": 119,
+        "startChar": 26,
+        "endLine": 119,
+        "endChar": 33
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
