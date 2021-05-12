@@ -1,0 +1,16 @@
+[Unit]
+Description=Remove host dump entries during poweroff
+Wants=obmc-host-stop-pre@0.target
+After=obmc-host-stop-pre@0.target
+Wants=obmc-host-stopping@0.target
+Before=obmc-host-stopping@0.target
+Conflicts=obmc-host-diagnostic-mode@0.target
+Conflicts=obmc-host-startmin@0.target
+
+[Service]
+Type=oneshot
+ExecStart=busctl call xyz.openbmc_project.Dump.Manager /xyz/openbmc_project/dump/resource xyz.openbmc_project.Collection.DeleteAll  DeleteAll
+ExecStart=busctl call xyz.openbmc_project.Dump.Manager /xyz/openbmc_project/dump/system xyz.openbmc_project.Collection.DeleteAll  DeleteAll
+
+[Install]
+WantedBy=obmc-host-stop@0.target

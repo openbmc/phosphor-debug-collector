@@ -1,5 +1,10 @@
 # SPDX-License-Identifier: Apache-2.0
 
+unit_files += [
+        ['dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service',
+         'clear_hostdumps_poweroff.service']
+   ]
+
 # Configuration header file(openpower_dumps_config.h) generation
 opconf_data = configuration_data()
 
