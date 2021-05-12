@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27fb90a8_4006b62f",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-05-12T17:06:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure on the history of the .in? Is there a reason we need to add that? I wonder if it was an automake thing? My repos have all just had the .service type.",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f98096c_c05d6968",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-05-12T17:06:27Z",
+      "side": 1,
+      "message": "RemainAfterExit defaults to no so with an oneshot service that means this service will run every time obmc-host-stop@0.target is called. The Conflicts are kind of redundant in that case. Nothing wrong with having them but just wanted to highlight this in case you\u0027d prefer to add a \"RemainAfterExit\u003dyes\" in which case this service would only run when one of the Conflicts first stops it.",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7628fe54_60d598fc",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-05-12T17:06:27Z",
+      "side": 1,
+      "message": "I believe the full path to the binary is needed here, i.e. /us/bin/busctl",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1485b8a8_762ccf67",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-05-12T17:06:27Z",
+      "side": 1,
+      "message": "This is missing the .in?",
+      "range": {
+        "startLine": 4,
+        "startChar": 66,
+        "endLine": 4,
+        "endChar": 74
+      },
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
