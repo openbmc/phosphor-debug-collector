@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c34a3ce8_2bd3dfb2",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-13T04:19:26Z",
+      "side": 1,
+      "message": "Yes it is an automake thing, but. need to find more about that.",
+      "parentUuid": "27fb90a8_4006b62f",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f98096c_c05d6968",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "77be05b2_ab0d3526",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-13T04:19:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f98096c_c05d6968",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7628fe54_60d598fc",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2021-05-12T17:06:27Z",
       "side": 1,
       "message": "I believe the full path to the binary is needed here, i.e. /us/bin/busctl",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "872664f6_5c1a6352",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-13T04:19:26Z",
+      "side": 1,
+      "message": "it worked when I tested, other examples also not adding full path, but changing to full path.",
+      "parentUuid": "7628fe54_60d598fc",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
