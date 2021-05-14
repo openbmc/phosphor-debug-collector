@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9e1d494d_06843dff",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-14T14:23:30Z",
+      "side": 1,
+      "message": ".in still need to find\nthis directory is needed before starting the app, similarly the BMC dump also getting created as part of the dump manager service",
+      "parentUuid": "f14241f2_5733d832",
+      "revId": "79fd10902c7abc4aa27d4096b49beb094acd48a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb450d73_5116823c",
         "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
         "patchSetId": 11
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ec27f3eb_c1d9e89e",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-14T14:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb450d73_5116823c",
+      "revId": "79fd10902c7abc4aa27d4096b49beb094acd48a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e30dfc17_16dfde55",
         "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
         "patchSetId": 11
@@ -47,6 +83,30 @@
       "writtenOn": "2021-05-12T17:09:37Z",
       "side": 1,
       "message": "Does this really get expanded into the service file during build time?",
+      "range": {
+        "startLine": 6,
+        "startChar": 31,
+        "endLine": 6,
+        "endChar": 51
+      },
+      "revId": "79fd10902c7abc4aa27d4096b49beb094acd48a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6757d055_c9a1cd7f",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service.in",
+        "patchSetId": 11
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-05-14T14:23:30Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "e30dfc17_16dfde55",
       "range": {
         "startLine": 6,
         "startChar": 31,
