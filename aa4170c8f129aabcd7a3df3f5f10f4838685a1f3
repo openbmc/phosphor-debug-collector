@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "af6c3049_40b55f6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-17T09:48:56Z",
+      "side": 1,
+      "message": "Please include test detaisl.",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "27fb90a8_4006b62f",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
         "patchSetId": 2
@@ -31,6 +48,23 @@
       "side": 1,
       "message": "Yes it is an automake thing, but. need to find more about that.",
       "parentUuid": "27fb90a8_4006b62f",
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4fb47a_c323e3aa",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-17T09:48:56Z",
+      "side": 1,
+      "message": "Am not exepert in the state management side\n- This service should run in hostpoweroff path.\n- also need to execute , uncontrolled BMC reboot and follwed by normal boot.\n- MPIPL path boot , data persists?",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
