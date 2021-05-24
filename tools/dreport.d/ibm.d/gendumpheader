@@ -120,14 +120,17 @@ function get_eid () {
     # shellcheck disable=SC2154 # dump_type comes from elsewhere
     if [ "$dump_type" = "$HOST_DUMP" ]; then
         # shellcheck disable=SC2154 # elog_id comes from elsewhere
-        x=${#elog_id}
-        msize=$(( x / 2 ))
-        msize=$(( SIZE_4 - msize ))
-        for ((i=0;i<x;i+=2));
-        do
-            printf "\\x${elog_id:$i:2}" >> "$FILE"
-        done
-        add_null "$msize"
+        echo "ErrorLog ID is " "$elog_id"
+        elog_id=$(echo $elog_id | awk '{print gensub(/0x/,"","")}')
+        elog_len=${#elog_id}
+        if [ "$elog_len" -eq "$SIZE_8" ]; then
+            for ((i=0;i<elog_len;i+=2));
+            do
+                printf "\\x${elog_id:$i:2}" >> "$FILE"
+            done
+        else
+            add_null 4
+        fi
     else
         add_null 4
     fi
