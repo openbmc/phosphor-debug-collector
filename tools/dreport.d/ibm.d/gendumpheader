@@ -282,11 +282,12 @@ function dump_header () {
     dump_size  #dump size
     printf "$modelNo" >> "$FILE"
     add_null 24
-    printf "Server-%s-SN-%s" "$modelNo" "$serialNo" >> "$FILE"
+    printf "Server-%s-SN%s" "$modelNo" "$serialNo" >> "$FILE"
     add_null 7
     printf "$serialNo" >> "$FILE"
     add_null 1
     get_eid
+    add_null 1
     printf '\x70' >> "$FILE" #File header size
     add_null 2 # SRC size
     add_null 320 # SRC dump
