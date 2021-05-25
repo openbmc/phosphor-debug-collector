@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4acd96a_34c3f9d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-25T05:24:35Z",
+      "side": 1,
+      "message": "be specific , size?",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "ebb2a5f157237204011032ee771f08dc591ffc19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fa4ea86_42a9f663",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-25T05:24:35Z",
+      "side": 1,
+      "message": "D-bus interface is implemented by debug-collector code . Looks like d-bus input data  is validating here and not logging error can lead confusion to the user. Since this is not critical item from content perspective , it is ok to continue with default aftre logging right error log info. Please check with dump user/PE this approch is correct.\ndreport doesn\u0027t have mechanism to log error directly . Either package this log message in the dump content or log error would be the right approch.",
+      "revId": "ebb2a5f157237204011032ee771f08dc591ffc19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
