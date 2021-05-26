@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41104451_cc950cac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-26T03:47:05Z",
+      "side": 1,
+      "message": "it will be good to add the key issue you are trying to solve here. instead of making genric commit message.\n\nBoth the changes are linked to same issue, reading serial number or diffrent issues?",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "890ab3bac1ff48b0b6b8328b949eff8774cc4623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d194bb4_815e9c92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-05-26T03:47:05Z",
+      "side": 1,
+      "message": "Can you provide additional details why changing this.?  Is this documented in the existing header document you are refring?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "890ab3bac1ff48b0b6b8328b949eff8774cc4623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
