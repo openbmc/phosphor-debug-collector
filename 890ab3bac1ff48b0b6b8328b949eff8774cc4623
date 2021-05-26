@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea8f03a5_040f1fcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-26T06:26:08Z",
+      "side": 1,
+      "message": "It\u0027s fixing two things here.\n1-\u003e To make the dump extraction work for hostboot dump accidentally 54th bit got reset as a result of which when started debugging found that HMC tool was unable to read the correct size.\n2-\u003e the serial number had an extra char as a result of which HMC tool was unable to read the last byte.",
+      "parentUuid": "41104451_cc950cac",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "890ab3bac1ff48b0b6b8328b949eff8774cc4623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d194bb4_815e9c92",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2021-05-26T03:47:05Z",
       "side": 1,
       "message": "Can you provide additional details why changing this.?  Is this documented in the existing header document you are refring?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "890ab3bac1ff48b0b6b8328b949eff8774cc4623",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c59e3a3e_e9543f27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-05-26T06:26:08Z",
+      "side": 1,
+      "message": "Yes sure. \nSo basically in the section header we have flags which is of 4 bytes which tells if this is the last section or not so if the value is set to 0x01 means its last section if zero means not.\n\nSo in this case that got reset, hence reverting it back to set. Yes its documented in the header document.",
+      "parentUuid": "1d194bb4_815e9c92",
       "range": {
         "startLine": 11,
         "startChar": 0,
