@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ee184f5_dda521ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-23T02:36:17Z",
+      "side": 1,
+      "message": "\u003e I think you can initiate this app during BMC boot path aftre dump manager started.\n\nYes, I have updated it\nhttps://gerrit.openbmc-project.xyz/c/openbmc/openbmc/+/41157/4/meta-phosphor/recipes-phosphor/dump/phosphor-debug-collector/ramoops-monitor.service#4\n\n\u003e all the file copying logic can move to dreport by just passing the ramoops folder path.\n\nSorry, I am not follwoing.\nI called the captureDump method and ran `/usr/bin/dreport` if the file is available.\nCould you kindly explain it? Thanks a lot.",
+      "parentUuid": "c4e1fce9_48b759bf",
+      "revId": "64bc5b5096448fb43589608389ba05c4079daa19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8323ab8c_c8521c3c",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "64bc5b5096448fb43589608389ba05c4079daa19",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a0e6293_b71b84f9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-23T02:36:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8323ab8c_c8521c3c",
+      "revId": "64bc5b5096448fb43589608389ba05c4079daa19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
