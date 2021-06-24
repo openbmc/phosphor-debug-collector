@@ -13,6 +13,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 
+#include <cmath>
 #include <ctime>
 #include <regex>
 
@@ -249,12 +250,9 @@ size_t Manager::getAllowedSize()
     {
         if (!std::filesystem::is_directory(p))
         {
-            size += std::filesystem::file_size(p);
+            size += std::ceil((std::filesystem::file_size(p) / 1024.0));
         }
     }
-
-    // Convert size into KB
-    size = size / 1024;
 
     // Set the Dump size to Maximum  if the free space is greater than
     // Dump max size otherwise return the available size.
