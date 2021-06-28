@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c40ddf62_12381f8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-28T09:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aedbda2b_f6a9d4eb",
+      "range": {
+        "startLine": 13,
+        "startChar": 47,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "edefee1ee8f94ff673b322b55c6f243ba0329f06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f38b8244_8c54f4ac",
         "filename": "ramoops_manager.cpp",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2021-06-28T09:01:45Z",
       "side": 1,
       "message": "us fmt lib call\u0027s help to get additional info directly form journal pretty.\neg: log\u003clevel::ERR\u003e(\n        fmt::format(\"Failed to parse dump create message errormsg({})\", err.what()).c_str());",
+      "range": {
+        "startLine": 55,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "edefee1ee8f94ff673b322b55c6f243ba0329f06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f104c43c_0a394f73",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-28T09:47:18Z",
+      "side": 1,
+      "message": "Thanks Jayanth\nSince we do not use fmt anywhere in this repo, I want to push a new patch separately to update it, What do you think?",
+      "parentUuid": "f38b8244_8c54f4ac",
       "range": {
         "startLine": 55,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1b678a68_53ff2b29",
+        "filename": "ramoops_manager.hpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-28T09:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b2c17a_40c39380",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "edefee1ee8f94ff673b322b55c6f243ba0329f06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcdb702c_b922825d",
         "filename": "ramoops_manager_main.cpp",
         "patchSetId": 11
@@ -82,6 +154,24 @@
       "writtenOn": "2021-06-28T09:01:45Z",
       "side": 1,
       "message": "use fmt lib functions.",
+      "revId": "edefee1ee8f94ff673b322b55c6f243ba0329f06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33dd19db_f3a83118",
+        "filename": "ramoops_manager_main.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-06-28T09:47:18Z",
+      "side": 1,
+      "message": "as above",
+      "parentUuid": "dcdb702c_b922825d",
       "revId": "edefee1ee8f94ff673b322b55c6f243ba0329f06",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
