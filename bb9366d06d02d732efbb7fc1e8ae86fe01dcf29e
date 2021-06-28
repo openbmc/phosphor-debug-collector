@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f36b50d_a029b50e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T09:06:36Z",
+      "side": 1,
+      "message": "Can you share the data during test case failing context. like what is the mismatch vs actual size. You can print the fils_size and du -s . Want to know the actual root cause for this.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "bb9366d06d02d732efbb7fc1e8ae86fe01dcf29e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
