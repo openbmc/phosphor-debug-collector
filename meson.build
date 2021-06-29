@@ -16,9 +16,33 @@ project('phosphor-debug-collector',
 
 cppfs = meson.get_compiler('cpp').find_library('stdc++fs')
 libsystemd = dependency('libsystemd', version : '>=221')
-phosphor_dbus_interfaces = dependency('phosphor-dbus-interfaces')
-sdbusplus = dependency('sdbusplus')
-phosphor_logging = dependency('phosphor-logging')
+
+sdbusplus_dep = dependency('sdbusplus', required: false)
+if sdbusplus_dep.found()
+    sdbusplusplus_prog = find_program('sdbus++')
+    sdbuspp_gen_meson_prog = find_program('sdbus++-gen-meson')
+else
+    sdbusplus_proj = subproject('sdbusplus', required: true)
+    sdbusplus_dep = sdbusplus_proj.get_variable('sdbusplus_dep')
+    sdbusplusplus_prog = sdbusplus_proj.get_variable('sdbusplusplus_prog')
+    sdbuspp_gen_meson_prog = sdbusplus_proj.get_variable(
+        'sdbuspp_gen_meson_prog'
+    )
+endif
+phosphor_dbus_interfaces_dep = dependency(
+    'phosphor-dbus-interfaces',
+    fallback: [
+        'phosphor-dbus-interfaces',
+        'phosphor_dbus_interfaces_dep'
+    ],
+)
+phosphor_logging_dep = dependency(
+    'phosphor-logging',
+    fallback: [
+        'phosphor-logging',
+        'phosphor_logging_dep'
+    ],
+)
 
 # Disable FORTIFY_SOURCE when compiling with no optimization
 if(get_option('optimization') == '0')
@@ -131,9 +155,9 @@ phosphor_dump_manager_sources = [
     ]
 
 phosphor_dump_manager_dependency = [
-        phosphor_dbus_interfaces,
-        sdbusplus,
-        phosphor_logging,
+        phosphor_dbus_interfaces_dep,
+        sdbusplus_dep,
+        phosphor_logging_dep,
         cppfs
     ]
 
@@ -156,8 +180,8 @@ phosphor_dump_monitor_sources = [
     ]
 
 phosphor_dump_monitor_dependency = [
-        phosphor_dbus_interfaces,
-        phosphor_logging,
+        phosphor_dbus_interfaces_dep,
+        phosphor_logging_dep,
         cppfs
     ]
 

@@ -16,6 +16,6 @@ Tests can be run in the CI docker container, refer
 
 or with an OpenBMC x86 sdk(see below for x86 steps).
 ```
-meson -Doe-sdk=enabled -Dtests=enabled build
+meson -Dtests=enabled build
 ninja -C build test
 ```
