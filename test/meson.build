@@ -1,20 +1,23 @@
-# SPDX-License-Identifier: Apache-2.0
-if get_option('oe-sdk').enabled()
-    # Setup OE SYSROOT
-    OECORE_TARGET_SYSROOT = run_command('sh', '-c', 'echo $OECORE_TARGET_SYSROOT').stdout().strip()
-    if OECORE_TARGET_SYSROOT == ''
-        error('Unable to get OECORE_TARGET_SYSROOT, check your environment.')
-    endif
-    message('OECORE_TARGET_SYSROOT: ' + OECORE_TARGET_SYSROOT)
-    rpath = ':'.join([OECORE_TARGET_SYSROOT + '/lib', OECORE_TARGET_SYSROOT + '/usr/lib'])
-    ld_so = run_command('sh', '-c', 'find ' + OECORE_TARGET_SYSROOT + '/lib/ld-*.so | sort -r -n | head -n1').stdout().strip()
-    dynamic_linker = ['-Wl,-dynamic-linker,' + ld_so]
-else
-    dynamic_linker = []
+gtest_dep = dependency('gtest', main: true, disabler: true, required: false)
+gmock_dep = dependency('gmock', disabler: true, required: false)
+if not gtest_dep.found() or not gmock_dep.found()
+    gtest_proj = import('cmake').subproject('googletest', required: false)
+    if gtest_proj.found()
+        gtest_dep = declare_dependency(
+            dependencies: [
+                dependency('threads'),
+                gtest_proj.dependency('gtest'),
+                gtest_proj.dependency('gtest_main'),
+            ]
+        )
+        gmock_dep = gtest_proj.dependency('gmock')
+  else
+        assert(
+            not get_option('tests').enabled(),
+            'Googletest is required if tests are enabled'
+        )
+  endif
 endif
-
-gtest = dependency('gtest', main: true, disabler: true, required: true)
-gmock = dependency('gmock', disabler: true, required: true)
 
 dump = declare_dependency(
          sources: [
@@ -29,12 +32,10 @@ foreach t : tests
   test(t, executable(t.underscorify(), t + '.cpp',
                      include_directories: ['.', '../'],
                      implicit_include_directories: false,
-                     link_args: dynamic_linker,
-                     build_rpath: get_option('oe-sdk').enabled() ? rpath : '',
-                     dependencies:[ gtest,
-                                    gmock,
+                     dependencies:[ gtest_dep,
+                                    gmock_dep,
                                     dump,
-                                    phosphor_logging,
+                                    phosphor_logging_dep,
                                     cppfs]),
        workdir: meson.current_source_dir())
 endforeach

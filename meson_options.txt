@@ -2,8 +2,6 @@
 
 option('tests', type: 'feature', description: 'Build tests')
 
-option('oe-sdk', type: 'feature', description: 'Enable OE SDK')
-
 option('jffs-workaround', type: 'feature',
         description : 'Turn on jffs workaround for core file'
       )
