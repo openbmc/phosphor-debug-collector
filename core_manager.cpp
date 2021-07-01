@@ -2,6 +2,8 @@
 
 #include "core_manager.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/exception.hpp>
 
@@ -76,9 +78,10 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>(
-            "Failed to parse dump create message", entry("ERROR=%s", e.what()),
-            entry("REPLY_SIG=%s", mapperResponseMsg.get_signature()));
+        log<level::ERR>(fmt::format("Failed to parse dump create message, "
+                                    "errormsg({}), REPLY_SIG({})",
+                                    e.what(), mapperResponseMsg.get_signature())
+                            .c_str());
         return;
     }
     if (mapperResponse.empty())

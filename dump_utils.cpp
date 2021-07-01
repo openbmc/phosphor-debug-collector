@@ -1,5 +1,7 @@
 #include "dump_utils.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/log.hpp>
 
 namespace phosphor
@@ -29,18 +31,19 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
         reply.read(response);
         if (response.empty())
         {
-            log<level::ERR>("Error in mapper response for getting service name",
-                            entry("PATH=%s", path.c_str()),
-                            entry("INTERFACE=%s", interface.c_str()));
+            log<level::ERR>(fmt::format("Error in mapper response for getting "
+                                        "service name, PATH({}), INTERFACE({})",
+                                        path, interface)
+                                .c_str());
             return std::string{};
         }
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>("Error in mapper method call",
-                        entry("ERROR=%s", e.what()),
-                        entry("PATH=%s", path.c_str()),
-                        entry("INTERFACE=%s", interface.c_str()));
+        log<level::ERR>(fmt::format("Error in mapper method call, "
+                                    "errormsg({}), PATH({}), INTERFACE({})",
+                                    e.what(), path, interface)
+                            .c_str());
         return std::string{};
     }
     return response[0].first;
@@ -83,19 +86,20 @@ BootProgress getBootProgress()
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>("D-Bus call exception",
-                        entry("OBJPATH=%s", hostStateObjPath),
-                        entry("INTERFACE=%s", bootProgressInterface),
-                        entry("EXCEPTION=%s", e.what()));
+        log<level::ERR>(fmt::format("D-Bus call exception, OBJPATH({}), "
+                                    "INTERFACE({}), EXCEPTION({})",
+                                    hostStateObjPath, bootProgressInterface,
+                                    e.what())
+                            .c_str());
         throw std::runtime_error("Failed to get BootProgress stage");
     }
     catch (const std::bad_variant_access& e)
     {
         log<level::ERR>(
-            "Exception raised while read BootProgress property value",
-            entry("OBJPATH=%s", hostStateObjPath),
-            entry("INTERFACE=%s", bootProgressInterface),
-            entry("EXCEPTION=%s", e.what()));
+            fmt::format("Exception raised while read BootProgress property "
+                        "value,  OBJPATH({}), INTERFACE({}), EXCEPTION({})",
+                        hostStateObjPath, bootProgressInterface, e.what())
+                .c_str());
         throw std::runtime_error("Failed to get BootProgress stage");
     }
 
