@@ -44,6 +44,19 @@ phosphor_logging_dep = dependency(
     ],
 )
 
+fmt_dep = dependency('fmt', required: false)
+if not fmt_dep.found()
+  fmt_proj = import('cmake').subproject(
+    'fmt',
+    cmake_options: [
+      '-DCMAKE_POSITION_INDEPENDENT_CODE=ON',
+      '-DMASTER_PROJECT=OFF'
+    ],
+    required: false)
+  assert(fmt_proj.found(), 'fmtlib is required')
+  fmt_dep = fmt_proj.dependency('fmt')
+endif
+
 # Disable FORTIFY_SOURCE when compiling with no optimization
 if(get_option('optimization') == '0')
   add_project_arguments('-U_FORTIFY_SOURCE',language:['cpp','c'])
@@ -158,7 +171,8 @@ phosphor_dump_manager_dependency = [
         phosphor_dbus_interfaces_dep,
         sdbusplus_dep,
         phosphor_logging_dep,
-        cppfs
+        cppfs,
+        fmt_dep
     ]
 
 phosphor_dump_manager_install = true
@@ -182,7 +196,8 @@ phosphor_dump_monitor_sources = [
 phosphor_dump_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
         phosphor_logging_dep,
-        cppfs
+        cppfs,
+        fmt_dep
     ]
 
 phosphor_dump_monitor_install = true
@@ -196,9 +211,10 @@ phosphor_ramoops_monitor_sources = [
     ]
 
 phosphor_ramoops_monitor_dependency = [
-        phosphor_dbus_interfaces,
-        phosphor_logging,
-        cppfs
+        phosphor_dbus_interfaces_dep,
+        phosphor_logging_dep,
+        cppfs,
+        fmt_dep
     ]
 
 phosphor_ramoops_monitor_install = true

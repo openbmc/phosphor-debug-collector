@@ -6,6 +6,8 @@
 #include "resource_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 
@@ -58,11 +60,12 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(e.what());
-        log<level::ERR>("Error in creating resource dump entry",
-                        entry("OBJECTPATH=%s", objPath.c_str()),
-                        entry("ID=%d", id), entry("TIMESTAMP=%ull", timeStamp),
-                        entry("SIZE=%d", size), entry("SOURCEID=%d", dumpId));
+        log<level::ERR>(fmt::format("Error in creating resource dump entry, "
+                                    "errormsg({}),OBJECTPATH({}),ID({}),"
+                                    "TIMESTAMP({}),SIZE({}),SOURCEID({})",
+                                    e.what(), objPath, id, timeStamp, size,
+                                    dumpId)
+                            .c_str());
         report<InternalFailure>();
         return;
     }
@@ -109,11 +112,12 @@ sdbusplus::message::object_path
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(e.what());
-        log<level::ERR>("Error in creating resource dump entry",
-                        entry("OBJECTPATH=%s", objPath.c_str()),
-                        entry("VSPSTRING=%s", vspString.c_str()),
-                        entry("ID=%d", id));
+        log<level::ERR>(
+            fmt::format(
+                "Error in creating resource dump "
+                "entry,errormsg({}),OBJECTPATH({}), VSPSTRING({}), ID({})",
+                e.what(), objPath, vspString, id)
+                .c_str());
         elog<InternalFailure>();
         return std::string();
     }

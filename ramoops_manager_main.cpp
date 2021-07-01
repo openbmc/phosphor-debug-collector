@@ -2,6 +2,8 @@
 
 #include "ramoops_manager.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 
 int main()
@@ -9,8 +11,10 @@ int main()
     fs::path filePath(SYSTEMD_PSTORE_PATH);
     if (!fs::exists(filePath))
     {
-        log<level::ERR>("Pstore file path is not exists",
-                        entry("FILE_PATH = %s", SYSTEMD_PSTORE_PATH));
+        log<level::ERR>(
+            fmt::format("Pstore file path is not exists, FILE_PATH({})",
+                        SYSTEMD_PSTORE_PATH)
+                .c_str());
         return EXIT_FAILURE;
     }
 

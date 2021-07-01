@@ -7,6 +7,8 @@
 #include "errors_map.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
+#include <fmt/core.h>
+
 #include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/exception.hpp>
@@ -69,9 +71,11 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>("Failed to parse elog add signal",
-                        entry("ERROR=%s", e.what()),
-                        entry("REPLY_SIG=%s", msg.get_signature()));
+        log<level::ERR>(
+            fmt::format(
+                "Failed to parse elog add signal, errormsg({}), REPLY_SIG({})",
+                e.what(), msg.get_signature())
+                .c_str());
         return;
     }
 
@@ -163,9 +167,11 @@ void Watch::delCallback(sdbusplus::message::message& msg)
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>("Failed to parse elog del signal",
-                        entry("ERROR=%s", e.what()),
-                        entry("REPLY_SIG=%s", msg.get_signature()));
+        log<level::ERR>(
+            fmt::format(
+                "Failed to parse elog del signal, errormsg({}), REPLY_SIG({})",
+                e.what(), msg.get_signature())
+                .c_str());
         return;
     }
 

@@ -2,6 +2,8 @@
 
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 
 namespace phosphor
@@ -33,8 +35,9 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
     // Check if watch DIR exists.
     if (!std::filesystem::is_directory(path))
     {
-        log<level::ERR>("Watch directory doesn't exist",
-                        entry("DIR=%s", path.c_str()));
+        log<level::ERR>(
+            fmt::format("Watch directory doesn't exist, DIR({})", path.c_str())
+                .c_str());
         elog<InternalFailure>();
     }
 
@@ -42,8 +45,11 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
     if (-1 == wd)
     {
         auto error = errno;
-        log<level::ERR>("Error occurred during the inotify_add_watch call",
-                        entry("ERRNO=%d", error));
+        log<level::ERR>(
+            fmt::format(
+                "Error occurred during the inotify_add_watch call, errno({})",
+                error)
+                .c_str());
         elog<InternalFailure>();
     }
 
@@ -52,8 +58,10 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
     if (0 > rc)
     {
         // Failed to add to event loop
-        log<level::ERR>("Error occurred during the sd_event_add_io call",
-                        entry("RC=%d", rc));
+        log<level::ERR>(
+            fmt::format(
+                "Error occurred during the sd_event_add_io call, rc({})", rc)
+                .c_str());
         elog<InternalFailure>();
     }
 }
@@ -65,8 +73,10 @@ int Watch::inotifyInit()
     if (-1 == fd)
     {
         auto error = errno;
-        log<level::ERR>("Error occurred during the inotify_init1",
-                        entry("ERRNO=%d", error));
+        log<level::ERR>(
+            fmt::format("Error occurred during the inotify_init1, errno({})",
+                        error)
+                .c_str());
         elog<InternalFailure>();
     }
 
@@ -92,8 +102,9 @@ int Watch::callback(sd_event_source*, int fd, uint32_t revents, void* userdata)
         // Failed to read inotify event
         // Report error and return
         auto error = errno;
-        log<level::ERR>("Error occurred during the read",
-                        entry("ERRNO=%d", error));
+        log<level::ERR>(
+            fmt::format("Error occurred during the read, errno({})", error)
+                .c_str());
         report<InternalFailure>();
         return 0;
     }

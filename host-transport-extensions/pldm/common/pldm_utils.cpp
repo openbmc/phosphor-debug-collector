@@ -5,6 +5,8 @@
 #include "dump_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 
@@ -25,8 +27,8 @@ int openPLDM()
     if (fd < 0)
     {
         auto e = errno;
-        log<level::ERR>("pldm_open failed", entry("ERRNO=%d", e),
-                        entry("FD=%d\n", fd));
+        log<level::ERR>(
+            fmt::format("pldm_open failed, errno({}), FD({})", e, fd).c_str());
         elog<NotAllowed>(Reason("Required host dump action via pldm is not "
                                 "allowed due to pldm_open failed"));
     }
