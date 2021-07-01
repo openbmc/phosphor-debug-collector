@@ -19,6 +19,7 @@
 #include "pldm_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <fmt/core.h>
 #include <libpldm/base.h>
 #include <libpldm/file_io.h>
 #include <libpldm/platform.h>
@@ -119,7 +120,8 @@ void requestOffload(uint32_t id)
 
     if (rc != PLDM_SUCCESS)
     {
-        log<level::ERR>("Message encode failure. ", entry("RC=%d", rc));
+        log<level::ERR>(
+            fmt::format("Message encode failure. RC({})", rc).c_str());
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to encode failed"));
     }
@@ -134,15 +136,15 @@ void requestOffload(uint32_t id)
     if (rc < 0)
     {
         auto e = errno;
-        log<level::ERR>("pldm_send failed", entry("RC=%d", rc),
-                        entry("ERRNO=%d", e));
+        log<level::ERR>(
+            fmt::format("pldm_send failed, RC({}), errno({})", rc, e).c_str());
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to fileack send failed"));
     }
     pldm_msg* response = reinterpret_cast<pldm_msg*>(responseMsg);
-    log<level::INFO>(
-        "Done. PLDM message",
-        entry("RC=%d", static_cast<uint16_t>(response->payload[0])));
+    log<level::INFO>(fmt::format("Done. PLDM message, RC({})",
+                                 static_cast<uint16_t>(response->payload[0]))
+                         .c_str());
 }
 
 void requestDelete(uint32_t dumpId, uint32_t dumpType)
@@ -176,10 +178,12 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
 
     if (retCode != PLDM_SUCCESS)
     {
-        log<level::ERR>("Failed to encode pldm FileAck to delete host dump",
-                        entry("SRC_DUMP_ID=%d", dumpId),
-                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
-                        entry("PLDM_RETURN_CODE=%d", retCode));
+        log<level::ERR>(
+            fmt::format("Failed to encode pldm FileAck to delete host "
+                        "dump,SRC_DUMP_ID({}), "
+                        "PLDM_FILE_IO_TYPE({}),PLDM_RETURN_CODE({})",
+                        dumpId, pldmDumpType, retCode)
+                .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to encode fileack failed"));
     }
@@ -198,12 +202,13 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
     if (retCode != PLDM_REQUESTER_SUCCESS)
     {
         auto errorNumber = errno;
-        log<level::ERR>("Failed to send pldm FileAck to delete host dump",
-                        entry("SRC_DUMP_ID=%d", dumpId),
-                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
-                        entry("PLDM_RETURN_CODE=%d", retCode),
-                        entry("ERRNO=%d", errorNumber),
-                        entry("ERRMSG=%s", strerror(errorNumber)));
+        log<level::ERR>(
+            fmt::format("Failed to send pldm FileAck to delete host dump, "
+                        "SRC_DUMP_ID({}), PLDM_FILE_IO_TYPE({}), "
+                        "PLDM_RETURN_CODE({}), ERRNO({}), ERRMSG({})",
+                        dumpId, pldmDumpType, retCode, errorNumber,
+                        strerror(errorNumber))
+                .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to fileack send failed"));
     }
@@ -216,16 +221,18 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
 
     if (retCode || completionCode)
     {
-        log<level::ERR>("Failed to delete host dump",
-                        entry("SRC_DUMP_ID=%d", dumpId),
-                        entry("PLDM_FILE_IO_TYPE=%d", pldmDumpType),
-                        entry("PLDM_RETURN_CODE=%d", retCode),
-                        entry("PLDM_COMPLETION_CODE=%d", completionCode));
+        log<level::ERR>(
+            fmt::format("Failed to delete host dump, SRC_DUMP_ID({}), "
+                        "PLDM_FILE_IO_TYPE({}), PLDM_RETURN_CODE({}), "
+                        "PLDM_COMPLETION_CODE({})",
+                        dumpId, pldmDumpType, retCode, completionCode)
+                .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is "
                                 "failed"));
     }
 
-    log<level::INFO>("Deleted host dump", entry("SRC_DUMP_ID=%d", dumpId));
+    log<level::INFO>(
+        fmt::format("Deleted host dump, SRC_DUMP_ID({})", dumpId).c_str());
 }
 } // namespace pldm
 } // namespace dump
