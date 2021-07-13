@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3df41e0a_f92678f9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-07-13T08:46:28Z",
+      "side": 1,
+      "message": "I guess this is not required",
+      "range": {
+        "startLine": 145,
+        "startChar": 51,
+        "endLine": 145,
+        "endChar": 59
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83cbac94_ba7482ee",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-07-13T08:46:28Z",
+      "side": 1,
+      "message": "do we need this c_str assume format will take std::string applicable every where.",
+      "range": {
+        "startLine": 181,
+        "startChar": 33,
+        "endLine": 181,
+        "endChar": 41
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f60b1fe0_d9b309fd",
+        "filename": "dump_serialize.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-07-13T08:46:28Z",
+      "side": 1,
+      "message": "haven\u0027t we switched to c++20 if so we need to use\n#include\u003cformat\u003e",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
