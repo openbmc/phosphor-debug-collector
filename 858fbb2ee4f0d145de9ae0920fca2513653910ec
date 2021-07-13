@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b263bcc4_1c4bf78b",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-07-13T10:46:42Z",
+      "side": 1,
+      "message": "No, it will return the `path` class if we remove `c_str()`",
+      "parentUuid": "3df41e0a_f92678f9",
+      "range": {
+        "startLine": 145,
+        "startChar": 51,
+        "endLine": 145,
+        "endChar": 59
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83cbac94_ba7482ee",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e595aae0_49df922d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-07-13T10:46:42Z",
+      "side": 1,
+      "message": "No\nAs above",
+      "parentUuid": "83cbac94_ba7482ee",
+      "range": {
+        "startLine": 181,
+        "startChar": 33,
+        "endLine": 181,
+        "endChar": 41
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f60b1fe0_d9b309fd",
         "filename": "dump_serialize.cpp",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2021-07-13T08:46:28Z",
       "side": 1,
       "message": "haven\u0027t we switched to c++20 if so we need to use\n#include\u003cformat\u003e",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "858fbb2ee4f0d145de9ae0920fca2513653910ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a2e9685_dc7bb3a5",
+        "filename": "dump_serialize.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2021-07-13T10:46:42Z",
+      "side": 1,
+      "message": "No, we still use C++17.\nI can push a new patch to switch c++20 and use #include\u003cformat\u003e",
+      "parentUuid": "f60b1fe0_d9b309fd",
       "range": {
         "startLine": 3,
         "startChar": 0,
