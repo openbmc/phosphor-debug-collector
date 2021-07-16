@@ -63,8 +63,8 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
         log<level::ERR>(fmt::format("Error in creating resource dump entry, "
                                     "errormsg({}),OBJECTPATH({}),ID({}),"
                                     "TIMESTAMP({}),SIZE({}),SOURCEID({})",
-                                    e.what(), objPath, id, timeStamp, size,
-                                    dumpId)
+                                    e.what(), objPath.c_str(), id, timeStamp,
+                                    size, dumpId)
                             .c_str());
         report<InternalFailure>();
         return;
@@ -116,7 +116,7 @@ sdbusplus::message::object_path
             fmt::format(
                 "Error in creating resource dump "
                 "entry,errormsg({}),OBJECTPATH({}), VSPSTRING({}), ID({})",
-                e.what(), objPath, vspString, id)
+                e.what(), objPath.c_str(), vspString, id)
                 .c_str());
         elog<InternalFailure>();
         return std::string();

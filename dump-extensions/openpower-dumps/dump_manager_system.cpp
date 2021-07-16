@@ -62,7 +62,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             fmt::format(
                 "Error in creating system dump entry, errormsg({}), "
                 "OBJECTPATH({}), ID({}), TIMESTAMP({}),SIZE({}), SOURCEID({})",
-                e.what(), objPath, id, timeStamp, size, dumpId)
+                e.what(), objPath.c_str(), id, timeStamp, size, dumpId)
                 .c_str());
         report<InternalFailure>();
         return;
@@ -120,7 +120,7 @@ sdbusplus::message::object_path
         log<level::ERR>(
             fmt::format("Error in creating system dump entry, errormsg({}), "
                         "OBJECTPATH({}), ID({})",
-                        e.what(), objPath, id)
+                        e.what(), objPath.c_str(), id)
                 .c_str());
         elog<InternalFailure>();
         return std::string();
