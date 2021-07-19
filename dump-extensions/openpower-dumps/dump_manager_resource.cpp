@@ -73,7 +73,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 }
 
 sdbusplus::message::object_path
-    Manager::createDump(std::map<std::string, std::string> params)
+    Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
 
     using NotAllowed =
@@ -87,6 +87,10 @@ sdbusplus::message::object_path
             Reason("Resource dump can be initiated only when the host is up"));
         return std::string();
     }
+
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
     using CreateParameters =
         sdbusplus::com::ibm::Dump::server::Create::CreateParameters;
 
@@ -95,12 +99,57 @@ sdbusplus::message::object_path
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
     std::time_t timeStamp = std::time(nullptr);
 
-    std::string vspString = params[sdbusplus::com::ibm::Dump::server::Create::
-                                       convertCreateParametersToString(
-                                           CreateParameters::VSPString)];
-    std::string pwd =
-        params[sdbusplus::com::ibm::Dump::server::Create::
-                   convertCreateParametersToString(CreateParameters::Password)];
+    std::string vspString;
+    auto iter = params.find(
+        sdbusplus::com::ibm::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::VSPString));
+    if (iter == params.end())
+    {
+        log<level::ERR>("Required argument vsp string is missing");
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("VSP_STRING"),
+                              Argument::ARGUMENT_VALUE("MISSING"));
+    }
+
+    try
+    {
+        vspString = std::get<std::string>(iter->second);
+    }
+    catch (const std::bad_variant_access& e)
+    {
+        // Exception will be raised if the input is not string
+        auto err = errno;
+        log<level::ERR>("An ivalid  vsp string is passed",
+                        entry("DETAILS=%s", e.what()), entry("ERRNO=%d", err),
+                        entry("ERROR=%s", strerror(err)));
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("VSP_STRING"),
+                              Argument::ARGUMENT_VALUE("INVALID INPUT"));
+    }
+
+    std::string pwd;
+    iter = params.find(
+        sdbusplus::com::ibm::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::Password));
+    if (iter == params.end())
+    {
+        log<level::ERR>("Required argument password is missing");
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("PASSOWORD"),
+                              Argument::ARGUMENT_VALUE("MISSING"));
+    }
+
+    try
+    {
+        pwd = std::get<std::string>(iter->second);
+    }
+    catch (const std::bad_variant_access& e)
+    {
+        // Exception will be raised if the input is not string
+        auto err = errno;
+        log<level::ERR>("An ivalid password string is passed",
+                        entry("DETAILS=%s", e.what()), entry("ERRNO=%d", err),
+                        entry("ERROR=%s", strerror(err)));
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("PASSWORD"),
+                              Argument::ARGUMENT_VALUE("INVALID INPUT"));
+    }
 
     try
     {
