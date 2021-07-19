@@ -39,7 +39,7 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 } // namespace internal
 
 sdbusplus::message::object_path
-    Manager::createDump(std::map<std::string, std::string> params)
+    Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
     if (!params.empty())
     {

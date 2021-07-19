@@ -72,7 +72,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 }
 
 sdbusplus::message::object_path
-    Manager::createDump(std::map<std::string, std::string> params)
+    Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
     constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
