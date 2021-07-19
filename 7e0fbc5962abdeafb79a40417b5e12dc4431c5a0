@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11793570_42b2b9da",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-19T20:07:49Z",
+      "side": 1,
+      "message": "I will update the commit message, but this may be needed to handle  the EPO kind of scenarios? just added this to cover that scenario",
+      "parentUuid": "2b219e75_79584123",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ffb69ff_c5550baa",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
         "patchSetId": 4
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "e06e4817_94a943a5",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-19T20:07:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ffb69ff_c5550baa",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 5
+      },
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b83087eb_16e3d583",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2021-07-19T19:55:53Z",
       "side": 1,
       "message": "I\u0027d think we just have this conflict with obmc-host-startmin@0.target to ensure we run it on every obmc-host-stop@0.target.",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5871882_71084d8e",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-19T20:07:49Z",
+      "side": 1,
+      "message": "Remove this?",
+      "parentUuid": "b83087eb_16e3d583",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -73,6 +133,24 @@
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "863f7e68_ceedf329",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-19T20:07:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f20f68b_8d75b4ad",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
