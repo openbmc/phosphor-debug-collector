@@ -186,6 +186,24 @@
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "980278f1_390b9097",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T03:08:37Z",
+      "side": 1,
+      "message": "I think you used it because you want the unit file name alone for the output field in configure_file() If so, you can use an array of dictionaries that can have keys (which can use in the input field) and values (which can use in the output field).\n\nFor example, I hope the below sample code will work (I did not test this)\n\nFYR: https://mesonbuild.com/Syntax.html#dictionaries and https://mesonbuild.com/Reference-manual.html#dictionary-object\n\n```\n# Root meson.build file \nunit_files \u003d [{}]\n\nforeach u : unit_files\n    configure_file(\n        configuration: unit_subs,\n        input: u.get(\u0027input\u0027),\n        install: true,\n        install_dir: systemd_system_unit_dir,\n        output: u.get(\u0027output\u0027)\n    )\nendforeach\n\n# Subdirectory meson.build file \n\nunit_files +\u003d { \u0027input\u0027: \u0027dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service\u0027, \u0027output\u0027 : \u0027clear_hostdumps_poweroff.service\u0027 }\n\n```\n\nOR\n\nAdd a comment about the `unit_files` value expectation because you mentioned it as `[]` in the root meson.build file but using as `[[]]` in subdirectory meson.build file and using only first and second index in the root meson.build file.",
+      "parentUuid": "4c48a4f5_77a36401",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
