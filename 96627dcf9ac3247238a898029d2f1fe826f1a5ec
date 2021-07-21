@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b0f5fb2_67037cec",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T05:11:36Z",
+      "side": 1,
+      "message": "BMC_DUMP_FILENAME_REGEX?",
+      "range": {
+        "startLine": 70,
+        "startChar": 55,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b8262a1_74d46c7b",
+        "filename": "dump_manager_bmcstored.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T05:11:36Z",
+      "side": 1,
+      "message": "How emit signal will happen when creating a dbus object for respective locally stored dump?",
+      "range": {
+        "startLine": 68,
+        "startChar": 33,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e903c1d_918cb389",
+        "filename": "dump_manager_bmcstored.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T05:11:36Z",
+      "side": 1,
+      "message": "I think this is not required since you added in below trace.",
+      "range": {
+        "startLine": 75,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 34
+      },
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a931886_a9ac8ab6",
+        "filename": "dump_manager_bmcstored.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T05:11:36Z",
+      "side": 1,
+      "message": "Restoring mechanism is common for all locally stored dumps?",
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97bbb073_2949e615",
+        "filename": "dump_manager_bmcstored.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-21T05:11:36Z",
+      "side": 1,
+      "message": "Can you add documentation for these members?",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 27
+      },
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
