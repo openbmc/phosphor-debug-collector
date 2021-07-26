@@ -52,6 +52,24 @@
       "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9449ec_fd627a49",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-26T05:11:18Z",
+      "side": 1,
+      "message": "It cannot be a warning because that is a valid scenario but just adding a trace",
+      "parentUuid": "8a8b1992_1bd5f8f7",
+      "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
