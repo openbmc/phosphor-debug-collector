@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f38fc0a9_053b0b43",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-26T05:23:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14f1a762_5bb9f1fc",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 31
+      },
+      "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1326406b_04368cb1",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 4
@@ -126,6 +150,24 @@
       "side": 1,
       "message": "This particular create interface is specific to resource dump interface. VSP string is mandatory or request with o VSP string is considered as System dump request. How the ed to flow  handled here , like resource type dump progress object is created and if it is system dump the flow i s different right?",
       "parentUuid": "dc700402_2bc0a95a",
+      "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b913419c_63b4352c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-26T05:23:09Z",
+      "side": 1,
+      "message": "not the MPIPL dump, but if the VSP string is not passed host will create a default dump, which is called a non-disruptive system dump",
+      "parentUuid": "f50b1575_b5c57718",
       "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
