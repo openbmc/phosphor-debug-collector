@@ -70,6 +70,24 @@
       "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eee3b251_cf61a1a3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-26T05:13:50Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "0b9449ec_fd627a49",
+      "revId": "23c6364c0c4f7cfcfc62249ff76a97d56bc26f82",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
