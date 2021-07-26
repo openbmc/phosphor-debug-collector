@@ -239,6 +239,24 @@
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28a602d8_44d53a80",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-26T13:28:10Z",
+      "side": 1,
+      "message": "You mentioned as Done but, looks you did address the comment. Can you clarify this?",
+      "parentUuid": "85a3ff16_ee41b1da",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
