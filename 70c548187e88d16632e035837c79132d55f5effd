@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63a57735_58f09e30",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-26T05:56:21Z",
+      "side": 1,
+      "message": "you want to change description to \"non-disruptive system dump\" created?",
+      "range": {
+        "startLine": 110,
+        "startChar": 54,
+        "endLine": 110,
+        "endChar": 76
+      },
+      "revId": "70c548187e88d16632e035837c79132d55f5effd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
