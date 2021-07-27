@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4bcced9a_1f52bc64",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-27T14:46:18Z",
+      "side": 1,
+      "message": "Removing",
+      "parentUuid": "11793570_42b2b9da",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ffb69ff_c5550baa",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
         "patchSetId": 4
@@ -165,6 +183,24 @@
       "writtenOn": "2021-07-22T04:34:30Z",
       "side": 1,
       "message": "should we include host-start too?",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571b48af_e266a43e",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-27T14:46:18Z",
+      "side": 1,
+      "message": "no, only during poweroff",
+      "parentUuid": "89b249f3_96763859",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
