@@ -29,11 +29,11 @@ Options:
 "
 
 #CONSTANTS
-declare -rx TYPE_HOSTDUMP="hostdump"
+declare -rx TYPE_OPDUMP="opdump"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
 
 #VARIABLES
-declare -x dump_type=$TYPE_HOSTDUMP
+declare -x dump_type=$TYPE_OPDUMP
 declare -x size_dump=""
 declare -x eid_dir=""
 declare -x elog_id=""
