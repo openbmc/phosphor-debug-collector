@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5e159fac_22f62709",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "Tested:",
+      "parentUuid": "3edfc791_bed0444f",
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2354e716_662e0858",
         "filename": "/COMMIT_MSG",
         "patchSetId": 23
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "8389ad92_839af5cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2354e716_662e0858",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c775867b_31fe3db5",
         "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
         "patchSetId": 23
@@ -53,6 +95,24 @@
       "writtenOn": "2021-07-28T13:11:25Z",
       "side": 1,
       "message": "- Why not add into LN 6? mkdir will support multiple directory creation right?\n- Also, as like other patch comment, why we need this instead of creating in the respective dump manager?",
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda9b29f_d5003e38",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "This path needs to be created before creating dump manager, but followed the BMC dump convention",
+      "parentUuid": "c775867b_31fe3db5",
       "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "99428712_26a656c9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "827687ca_94f452e3",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca0bbfe2_2d678103",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.hpp",
         "patchSetId": 23
@@ -93,6 +177,30 @@
       "writtenOn": "2021-07-28T13:11:25Z",
       "side": 1,
       "message": "Which create interface using?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 46
+      },
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d189aa76_e25ea7cc",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "com::ibm is for dict and enum and xyz is actual method",
+      "parentUuid": "ca0bbfe2_2d678103",
       "range": {
         "startLine": 24,
         "startChar": 4,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "c23d82a0_75a8c77a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cde8fca4_0d30ce04",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 52
+      },
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79e81ec7_901a68a1",
         "filename": "meson_options.txt",
         "patchSetId": 23
@@ -139,6 +271,30 @@
       "writtenOn": "2021-07-28T13:11:25Z",
       "side": 1,
       "message": "Posted comment in other hostboot dump patch - Can you clarify this dump as well?",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 7
+      },
+      "revId": "20a7fc356c2cb31c96b27fabf55ebec10dd28386",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ff20dc_5a908ebc",
+        "filename": "meson_options.txt",
+        "patchSetId": 23
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T13:23:26Z",
+      "side": 1,
+      "message": "This sizes are based on the design discussion for the current BMC",
+      "parentUuid": "79e81ec7_901a68a1",
       "range": {
         "startLine": 178,
         "startChar": 0,
