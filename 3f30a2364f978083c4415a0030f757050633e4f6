@@ -413,6 +413,24 @@
     },
     {
       "key": {
+        "uuid": "43e1466b_cd373042",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T13:29:44Z",
+      "side": 1,
+      "message": "IMO, it is not required since main() is handling exception but only internal failure so application crash - do you need bmc dump in this case?",
+      "parentUuid": "2a55c6fb_b2271932",
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6917e279_983a5840",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
         "patchSetId": 32
@@ -448,6 +466,30 @@
       "side": 1,
       "message": "if the file doesnt exist std::filesystem::remove_all will return false but does not throw an exception, it didnt gave an issue while testing",
       "parentUuid": "6917e279_983a5840",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49bd7081_65f35c5b",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T13:29:44Z",
+      "side": 1,
+      "message": "So delete operation will be dummy? I confused what will happen if trying to delete hostboot dump entries - is it something need in ODC as well? I mean is there any co-req?",
+      "parentUuid": "4e714320_c8dcb5a8",
       "range": {
         "startLine": 44,
         "startChar": 43,
