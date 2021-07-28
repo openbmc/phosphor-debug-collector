@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "3c3f9662_1057df3c",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T18:18:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b586277_ddd3c3dd",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8846dd55_f701c829",
         "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
         "patchSetId": 32
@@ -425,6 +449,24 @@
       "side": 1,
       "message": "IMO, it is not required since main() is handling exception but only internal failure so application crash - do you need bmc dump in this case?",
       "parentUuid": "2a55c6fb_b2271932",
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "054d3520_1fb8abcf",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T18:18:46Z",
+      "side": 1,
+      "message": "removing this block",
+      "parentUuid": "43e1466b_cd373042",
       "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -490,6 +532,30 @@
       "side": 1,
       "message": "So delete operation will be dummy? I confused what will happen if trying to delete hostboot dump entries - is it something need in ODC as well? I mean is there any co-req?",
       "parentUuid": "4e714320_c8dcb5a8",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71bfe2dc_27058dbb",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T18:18:46Z",
+      "side": 1,
+      "message": "ODC will never delete the dump, dump package is handled only here\ndelete will remove the entry if the file path is empty",
+      "parentUuid": "49bd7081_65f35c5b",
       "range": {
         "startLine": 44,
         "startChar": 43,
