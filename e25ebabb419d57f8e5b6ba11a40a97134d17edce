@@ -16,6 +16,24 @@
       "revId": "e25ebabb419d57f8e5b6ba11a40a97134d17edce",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcee0104_6d926701",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-28T17:31:51Z",
+      "side": 1,
+      "message": "These changes not affecting the dump which not stores in BMC that extends directly from the base dump manager",
+      "parentUuid": "602d45ba_0ca7ec4a",
+      "revId": "e25ebabb419d57f8e5b6ba11a40a97134d17edce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
