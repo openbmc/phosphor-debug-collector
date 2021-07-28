@@ -1,0 +1,469 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73590ba4_74825ac9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "is it only in OpenPOWER based system right? If so, please update commit message accordingly",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d0ee03_762f249e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Self Boot Engine (SBE)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd805397_011b9d05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "by?",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ccb09a_57d75617",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 53
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f513bf04_9529d474",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "PDC is not collecting dump right as per your commit message i.e it doing by ODC right? \nIt will be great if you added the role for PDC for hostboot dump collection.",
+      "range": {
+        "startLine": 12,
+        "startChar": 32,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8d0ddf_28719d8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "PDC hostboot dump manager?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a25921e2_52cabc0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 32
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "How PDC know to collect it? I think notification from ODC right? Please that info.",
+      "range": {
+        "startLine": 15,
+        "startChar": 44,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78e4854b_03e164ee",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Why you need one more event loop object instead of using the one which is created in main and the same used for other supported dump type right?",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8846dd55_f701c829",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "why \"return\" required? since you are throwing exception from LN40 right?",
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6917e279_983a5840",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "How deletion will work if passing empty path?\nhttps://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/42932/20/bmcstored_dump_entry.cpp?",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "004973d2_08226311",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "JS: You can use constructor rather than assignment constructor to avoid object creation and assignment.",
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b902326a_90656d53",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Do you need exception handler?",
+      "range": {
+        "startLine": 97,
+        "startChar": 21,
+        "endLine": 97,
+        "endChar": 35
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe659c2_0b7eb274",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "HB_DUMP_FILENAME_REGEX?",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8849a9b_5cd95c71",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Looks you implemented three interface in this class as per LN 23, can you add those also?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 35
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c79382_031f0a87",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "It will be great if you mentioned name of the variable as like prototype - Your wish",
+      "range": {
+        "startLine": 84,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 28
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0643f877_a0e162fc",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "is it required ? I am not seeing that in below prototype.",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 52
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10e56dd8_ebc635a4",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Is it really required? I am not seeing any implementation from those interface in this file.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52076695_683e9854",
+        "filename": "dump-extensions/openpower-dumps/hostboot_dump_entry.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "You are implementing com.ibm interface right?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a6473fe_dac443c9",
+        "filename": "meson_options.txt",
+        "patchSetId": 32
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Looks you added two time in this file.",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7bdb299_53d42b45",
+        "filename": "meson_options.txt",
+        "patchSetId": 32
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "Why this is required here? You mentioned like predefined location which is used to store dumps by ODC and PDC will get notification - can we get that path in notification?\n\nOR\n\nIf this is need to match with ODC path then can you add some comment on this?",
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94102a5d_d3ace6ce",
+        "filename": "meson_options.txt",
+        "patchSetId": 32
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-28T12:39:38Z",
+      "side": 1,
+      "message": "How those size is defined?\n- Do we have enough space in BMC flash? we are already storing BMC dump so if storing other host firmware dump means do we need to consider the BMC flash size?",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 7
+      },
+      "revId": "3f30a2364f978083c4415a0030f757050633e4f6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
