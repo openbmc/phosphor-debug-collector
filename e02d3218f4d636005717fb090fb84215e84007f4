@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e93037a8_f583e414",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
+        "patchSetId": 25
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "Refer previous discussion in the initial commit",
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29fb7765_622e2c4b",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "Kind of duplicating same code here . As i mentioned in the initial refcatoring point , this is another point need to look from refactornig point.",
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a078ee5f_ee514fa5",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "Report error and stop to  catch these issues at development time.",
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "366de94f_9fd3798c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "invalid argumnent doen\u0027t need dupmp to debug, juts log required messages in the jopurnal is sufficient right?",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d1a05cb_e113984e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "refer previous commit commnet related to usage of \"opdump\" type here .",
+      "range": {
+        "startLine": 103,
+        "startChar": 14,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae878063_d3c1f4e4",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "same as previous commit comments.",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 32
+      },
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "346766bc_19f314a8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "same as previous commit comments.",
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4227bf31_ffc2a5e8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "same as previous commit comments.",
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f179aebd_56daad63",
+        "filename": "meson_options.txt",
+        "patchSetId": 25
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:03:13Z",
+      "side": 1,
+      "message": "Hardware dump?",
+      "range": {
+        "startLine": 187,
+        "startChar": 38,
+        "endLine": 187,
+        "endChar": 47
+      },
+      "revId": "e02d3218f4d636005717fb090fb84215e84007f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
