@@ -93,15 +93,6 @@ class Manager :
                      const uint64_t ms, uint64_t fileSize,
                      const std::filesystem::path& file,
                      phosphor::dump::OperationStatus status) override;
-
-  private:
-    /** @brief Capture a Hostboot Dump based.
-     *  @param[in] fullPaths - List of absolute paths to the files
-     *             to be included as part of Dump package.
-     *  @return id - The Dump entry id number.
-     */
-    uint32_t captureDump(const std::vector<std::string>& fullPaths,
-                         uint32_t dumpId);
 };
 
 } // namespace hostboot
