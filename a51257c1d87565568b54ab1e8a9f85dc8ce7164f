@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de855aac_c1cb69ad",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T14:07:21Z",
+      "side": 1,
+      "message": "Except this function all the code is common with base capture dump function. you can include this point in the rfactoring commits.",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "a51257c1d87565568b54ab1e8a9f85dc8ce7164f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
