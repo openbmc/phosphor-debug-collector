@@ -2,8 +2,6 @@
 
 unit_files += {'input': 'dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service',
          'output': 'clear_hostdumps_poweroff.service'}
-unit_files += {'input': 'dump-extensions/openpower-dumps/create_openpower_dump_dirs.service',
-         'output': 'create_openpower_dump_dirs.service'}
 
 # Configuration header file(openpower_dumps_config.h) generation
 opconf_data = configuration_data()
