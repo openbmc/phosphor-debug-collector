@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c915d366_dd1b2e5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-29T05:58:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9608161_002e801c",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "d9861de01010f5083ab9e28137295b8c01d9ed61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2e584b4_ae7a04a6",
         "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
         "patchSetId": 26
@@ -212,6 +236,30 @@
       "revId": "d9861de01010f5083ab9e28137295b8c01d9ed61",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64e6f04c_50450dab",
+        "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
+        "patchSetId": 26
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-29T05:58:41Z",
+      "side": 1,
+      "message": "removing this file",
+      "parentUuid": "aca53c28_5da287a8",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 44
+      },
+      "revId": "d9861de01010f5083ab9e28137295b8c01d9ed61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
