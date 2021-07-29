@@ -22,6 +22,30 @@
       "revId": "997a3f43d591b7649158bf1632c443ef7db3296d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d115682_1619b475",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-07-29T05:59:48Z",
+      "side": 1,
+      "message": "Removing the parameter",
+      "parentUuid": "65212926_244ecbf0",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "997a3f43d591b7649158bf1632c443ef7db3296d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
