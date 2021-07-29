@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "051dab58_8d686650",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "This commit should go first before hostboot/hw diump commits.",
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73178b15_cb3c013c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "replace with hostboot",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb022ae4_d69f34a0",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "As i mentioned earlier not required this inetranl failure.",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f99b10f_e44d0215",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "This also need to revisit posted question in the initial commit.",
+      "range": {
+        "startLine": 41,
+        "startChar": 53,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88f05580_355b56eb",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "same as above comment",
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "358344a2_b04fb7ac",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "need update it is general host dumps right?",
+      "range": {
+        "startLine": 63,
+        "startChar": 42,
+        "endLine": 63,
+        "endChar": 56
+      },
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cde9131d_420ff63d",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "same as above comment",
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ace8c0d_e62187c9",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "need update it is general host dumps right?",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 41
+      },
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "509cda9e_511d8edf",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T06:09:56Z",
+      "side": 1,
+      "message": "same as above comment",
+      "revId": "c3404be71bd9957fd7980cc24d44a8668ff95b7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
