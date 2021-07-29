@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d9608161_002e801c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-29T05:48:46Z",
+      "side": 1,
+      "message": "Better to handle directory creation in the respective extension functions?",
+      "parentUuid": "07934526_0a0a9bab",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "d9861de01010f5083ab9e28137295b8c01d9ed61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2e584b4_ae7a04a6",
         "filename": "dump-extensions/openpower-dumps/create_openpower_dump_dirs.service",
         "patchSetId": 26
