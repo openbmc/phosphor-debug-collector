@@ -32,6 +32,8 @@ constexpr auto INVALID_DUMP_SIZE = 0;
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
+    using disabled =
+        sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
     if (!params.empty())
     {
         log<level::ERR>(fmt::format("Hardware dump accepts no additional "
@@ -40,6 +42,12 @@ sdbusplus::message::object_path
                             .c_str());
         throw std::runtime_error(
             "Hardware dump accepts no additional parameters");
+    }
+
+    if (!util::getOPDumpPolicy())
+    {
+        log<level::ERR>("Open power dumps are disabled, skipping");
+        elog<disabled>();
     }
 
     uint32_t id = ++lastEntryId;

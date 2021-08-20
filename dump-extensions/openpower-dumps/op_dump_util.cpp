@@ -88,6 +88,38 @@ void captureDump(uint32_t dumpId, size_t allowedSize,
     }
 }
 
+bool getOPDumpPolicy()
+{
+    bool enabled = true;
+    constexpr auto enable = "xyz.openbmc_project.Object.Enable";
+    constexpr auto policy = "/xyz/openbmc_project/dump/system_dump_policy";
+    constexpr auto property = "org.freedesktop.DBus.Properties";
+
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+
+        auto service = phosphor::dump::getService(bus, policy, enable);
+
+        auto method =
+            bus.new_method_call(service.c_str(), policy, property, "Get");
+        method.append(enable, "Enabled");
+        auto reply = bus.call(method);
+        std::variant<bool> v;
+        reply.read(v);
+        enabled = std::get<bool>(v);
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>(
+            fmt::format("Error({}) in getting dump policy, default is enabled",
+                        e.what())
+                .c_str());
+    }
+
+    return enabled;
+}
+
 } // namespace util
 } // namespace dump
 } // namespace openpower

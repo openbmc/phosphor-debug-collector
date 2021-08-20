@@ -3,8 +3,10 @@
 #include "dump_manager_system.hpp"
 
 #include "dump_utils.hpp"
+#include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
+#include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 #include <fmt/core.h>
 
@@ -79,9 +81,18 @@ sdbusplus::message::object_path
     constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
     constexpr auto DIAG_MOD_TARGET = "obmc-host-crash@0.target";
 
+    using disabled =
+        sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
+
     if (!params.empty())
     {
         log<level::WARNING>("System dump accepts no additional parameters");
+    }
+
+    if (!util::getOPDumpPolicy())
+    {
+        log<level::ERR>("Open power dumps are disabled, skipping");
+        elog<disabled>();
     }
 
     using NotAllowed =
