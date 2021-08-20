@@ -42,6 +42,9 @@ sdbusplus::message::object_path
             "Hardware dump accepts no additional parameters");
     }
 
+    // Check dump policy
+    isOPDumpsEnabled();
+
     uint32_t id = ++lastEntryId;
     // Entry Object path.
     auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);

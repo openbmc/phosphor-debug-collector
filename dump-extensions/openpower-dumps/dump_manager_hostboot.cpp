@@ -32,6 +32,8 @@ constexpr auto INVALID_DUMP_SIZE = 0;
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
+    using disabled =
+        sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
     if (!params.empty())
     {
         log<level::ERR>(fmt::format("Hostboot dump accepts no additional "
@@ -41,6 +43,9 @@ sdbusplus::message::object_path
         throw std::runtime_error(
             "Hostboot dump accepts no additional parameters");
     }
+
+    // Check dump policy
+    isOPDumpsEnabled();
 
     uint32_t id = ++lastEntryId;
     // Entry Object path.
