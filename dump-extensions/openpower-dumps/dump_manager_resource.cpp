@@ -4,6 +4,7 @@
 
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
+#include "op_dump_util.hpp"
 #include "resource_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -105,10 +106,12 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
-
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
+    // Check dump policy
+    util::isOPDumpsEnabled();
 
     // Allow creating resource dump only when the host is up.
     if (!phosphor::dump::isHostRunning())
