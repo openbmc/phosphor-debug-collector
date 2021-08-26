@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a1f9385a_6f6d8e8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-26T05:38:45Z",
+      "side": 1,
+      "message": "need to update commit message accordingly , still seeing \"Add support for system dump policy, here system dump\nreferes to all OpenPOWER dumps.\" . \n\nwhat is the plan for using policy name?",
+      "parentUuid": "8851d89b_8e124e2c",
+      "range": {
+        "startLine": 7,
+        "startChar": 27,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "3c33d7d02ed9e0b526dd6bab175d60b19bbca9c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f2cf1a0_aebcfc5b",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
         "patchSetId": 1
