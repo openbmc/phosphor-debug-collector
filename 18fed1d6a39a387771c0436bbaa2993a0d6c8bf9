@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1bbfdd89_87c3645e",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-08-27T05:14:04Z",
+      "side": 1,
+      "message": "From power user perspective all these are system dumps, only from internal developers there is a difference",
+      "parentUuid": "1d65e397_1eda5bd5",
+      "range": {
+        "startLine": 98,
+        "startChar": 55,
+        "endLine": 98,
+        "endChar": 73
+      },
+      "revId": "18fed1d6a39a387771c0436bbaa2993a0d6c8bf9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa022f32_c0be229a",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2021-08-26T05:38:45Z",
       "side": 1,
       "message": "Better toi create error log here , for tracking , othrewise if user set this policy and again creating dump mislead.  the debug incase the journnal is warpped.",
+      "revId": "18fed1d6a39a387771c0436bbaa2993a0d6c8bf9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0479330d_98108ca2",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-08-27T05:14:04Z",
+      "side": 1,
+      "message": "Will report an internal failure, a failure in settings should not stop from creating a dump in a host failure.",
+      "parentUuid": "aa022f32_c0be229a",
       "revId": "18fed1d6a39a387771c0436bbaa2993a0d6c8bf9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
