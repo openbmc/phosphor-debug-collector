@@ -151,71 +151,79 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
 
         CustomFd unixSocket = socketInit(writePath);
 
-        fd_set readFD;
-        struct timeval timeVal;
-        timeVal.tv_sec = 1;
-        timeVal.tv_usec = 0;
-
-        FD_ZERO(&readFD);
-        FD_SET(unixSocket(), &readFD);
-        int numOfFDs = unixSocket() + 1;
-
-        int retVal = select(numOfFDs, &readFD, NULL, NULL, &timeVal);
-        if (retVal <= 0)
+        while (true)
         {
-            log<level::ERR>(
-                fmt::format("select() failed, errno({}), DUMP_ID({})", errno,
-                            dumpId)
-                    .c_str());
-            std::string msg = "select() failed " + std::string(strerror(errno));
-            throw std::runtime_error(msg);
-        }
-        else if ((retVal > 0) && (FD_ISSET(unixSocket(), &readFD)))
-        {
-            CustomFd socketFD = accept(unixSocket(), NULL, NULL);
-            if (socketFD() < 0)
+            fd_set readFD;
+            struct timeval timeVal;
+            timeVal.tv_sec = 1;
+            timeVal.tv_usec = 0;
+
+            FD_ZERO(&readFD);
+            FD_SET(unixSocket(), &readFD);
+            int numOfFDs = unixSocket() + 1;
+
+            int retVal = select(numOfFDs, &readFD, NULL, NULL, &timeVal);
+            if (retVal <= 0)
             {
                 log<level::ERR>(
-                    fmt::format("accept() failed, errno({}), DUMP_ID({})",
+                    fmt::format("select() failed, errno({}), DUMP_ID({})",
                                 errno, dumpId)
                         .c_str());
                 std::string msg =
-                    "accept() failed " + std::string(strerror(errno));
-                throw std::runtime_error(msg);
+                    "select() failed " + std::string(strerror(errno));
+                sleep(1);
             }
-
-            std::ifstream infile{file, std::ios::in | std::ios::binary};
-            if (!infile.good())
+            else if ((retVal > 0) && (FD_ISSET(unixSocket(), &readFD)))
             {
-                // Unable to open the dump file
-                log<level::ERR>(
-                    fmt::format("Failed to open the dump from file, errno({}), "
-                                "DUMPFILE({}), DUMP_ID({})",
-                                errno, file.c_str(), dumpId)
+                CustomFd socketFD = accept(unixSocket(), NULL, NULL);
+                if (socketFD() < 0)
+                {
+                    log<level::ERR>(
+                        fmt::format("accept() failed, errno({}), DUMP_ID({})",
+                                    errno, dumpId)
+                            .c_str());
+                    std::string msg =
+                        "accept() failed " + std::string(strerror(errno));
+                    throw std::runtime_error(msg);
+                }
+
+                std::ifstream infile{file, std::ios::in | std::ios::binary};
+                if (!infile.good())
+                {
+                    // Unable to open the dump file
+                    log<level::ERR>(
+                        fmt::format(
+                            "Failed to open the dump from file, errno({}), "
+                            "DUMPFILE({}), DUMP_ID({})",
+                            errno, file.c_str(), dumpId)
+                            .c_str());
+                    elog<Open>(ErrnoOpen(errno), PathOpen(file.c_str()));
+                }
+
+                infile.exceptions(std::ifstream::failbit |
+                                  std::ifstream::badbit |
+                                  std::ifstream::eofbit);
+
+                log<level::INFO>(
+                    fmt::format("Opening File for RW, FILENAME({})",
+                                file.filename().c_str())
                         .c_str());
-                elog<Open>(ErrnoOpen(errno), PathOpen(file.c_str()));
+
+                std::filebuf* pbuf = infile.rdbuf();
+
+                // get file size using buffer's members
+                std::size_t size = pbuf->pubseekoff(0, infile.end, infile.in);
+                pbuf->pubseekpos(0, infile.in);
+
+                // allocate memory to contain file data
+                std::unique_ptr<char[]> buffer(new char[size]);
+                // get file data
+                pbuf->sgetn(buffer.get(), size);
+                infile.close();
+
+                writeOnUnixSocket(socketFD(), buffer.get(), size);
+                break;
             }
-
-            infile.exceptions(std::ifstream::failbit | std::ifstream::badbit |
-                              std::ifstream::eofbit);
-
-            log<level::INFO>(fmt::format("Opening File for RW, FILENAME({})",
-                                         file.filename().c_str())
-                                 .c_str());
-
-            std::filebuf* pbuf = infile.rdbuf();
-
-            // get file size using buffer's members
-            std::size_t size = pbuf->pubseekoff(0, infile.end, infile.in);
-            pbuf->pubseekpos(0, infile.in);
-
-            // allocate memory to contain file data
-            std::unique_ptr<char[]> buffer(new char[size]);
-            // get file data
-            pbuf->sgetn(buffer.get(), size);
-            infile.close();
-
-            writeOnUnixSocket(socketFD(), buffer.get(), size);
         }
     }
     catch (std::ifstream::failure& oe)
