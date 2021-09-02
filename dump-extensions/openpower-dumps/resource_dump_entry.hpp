@@ -8,10 +8,6 @@
 
 #include <chrono>
 
-#ifndef SDBUSPP_NEW_CAMELCASE
-#define vspString vSPString
-#endif
-
 namespace openpower
 {
 namespace dump
