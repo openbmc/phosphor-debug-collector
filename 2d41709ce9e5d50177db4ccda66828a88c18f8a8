@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69f164c6_e2a62b47",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "Which component triggering the hardware dump? is it PDC (phosphor-debug-collector) or ODC (openpower-debug-collector)?\n\nIf ODC then, I guess this policy check should go there right?",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69b1f3e5_f71da376",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "Which component triggering the hardware dump? is it PDC (phosphor-debug-collector) or ODC (openpower-debug-collector)?\n\nIf ODC then, I guess this policy check should go there right?",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58d40649_f1fba6bd",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "is it only for system dump or for all host dumps?",
+      "range": {
+        "startLine": 101,
+        "startChar": 55,
+        "endLine": 101,
+        "endChar": 73
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24953140_f084c3da",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "JS: DisabledError?",
+      "range": {
+        "startLine": 104,
+        "startChar": 10,
+        "endLine": 104,
+        "endChar": 18
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b10cd9c0_dc0a84bb",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "Do we really need this trace?",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4810c3fa_7c03b345",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "- Any reason for using this error instead of `NotAllowed`?\n- is there any other requirement driving the dump to enable/disable other than the policy feature?",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02c9cd13_199a7812",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-02T03:47:21Z",
+      "side": 1,
+      "message": "JS: isOPDumpsPolicyEnabled?",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
