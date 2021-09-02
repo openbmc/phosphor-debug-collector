@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c8ddfba3_da9f55b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-02T16:47:45Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69f164c6_e2a62b47",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
         "patchSetId": 4
@@ -76,6 +99,23 @@
         "endLine": 104,
         "endChar": 18
       },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b2b871_de7004e1",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-02T16:47:45Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be an ERR? Probably just INFO",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
