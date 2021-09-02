@@ -38,7 +38,7 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
             return std::string{};
         }
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(fmt::format("Error in mapper method call, "
                                     "errormsg({}), PATH({}), INTERFACE({})",
@@ -84,7 +84,7 @@ BootProgress getBootProgress()
         bootProgessStage = sdbusplus::xyz::openbmc_project::State::Boot::
             server::Progress::convertProgressStagesFromString(bootPgs);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(fmt::format("D-Bus call exception, OBJPATH({}), "
                                     "INTERFACE({}), EXCEPTION({})",

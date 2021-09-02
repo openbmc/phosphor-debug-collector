@@ -69,7 +69,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     {
         msg.read(objectPath, propertyMap);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format(
@@ -165,7 +165,7 @@ void Watch::delCallback(sdbusplus::message::message& msg)
     {
         msg.read(objectPath);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format(

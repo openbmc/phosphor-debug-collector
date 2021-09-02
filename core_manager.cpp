@@ -70,7 +70,7 @@ void Manager::createHelper(const vector<string>& files)
         auto mapperResponseMsg = b.call(mapper);
         mapperResponseMsg.read(mapperResponse);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to GetObject on Dump.Internal: {}", e.what())
@@ -91,7 +91,7 @@ void Manager::createHelper(const vector<string>& files)
     {
         b.call_noreply(m);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to create dump: {}", e.what()).c_str());

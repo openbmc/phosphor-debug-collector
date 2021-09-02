@@ -46,7 +46,7 @@ void Manager::createHelper(const std::vector<std::string>& files)
         auto mapperResponseMsg = b.call(mapper);
         mapperResponseMsg.read(mapperResponse);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to parse dump create message, error({})",
@@ -68,7 +68,7 @@ void Manager::createHelper(const std::vector<std::string>& files)
     {
         b.call_noreply(m);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to create ramoops dump, errormsg({})", e.what())
