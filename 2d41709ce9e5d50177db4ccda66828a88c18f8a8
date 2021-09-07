@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ffa14bde_7d5b071d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-07T17:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8ddfba3_da9f55b7",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69f164c6_e2a62b47",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
         "patchSetId": 4
@@ -119,6 +143,24 @@
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fe5eb6f_f851d96e",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-07T17:17:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0b2b871_de7004e1",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
