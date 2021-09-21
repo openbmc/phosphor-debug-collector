@@ -10,6 +10,7 @@
 #include "dump_utils.hpp"
 #include "hardware_dump_entry.hpp"
 #include "hostboot_dump_entry.hpp"
+#include "sbe_dump_entry.hpp"
 
 #include <fmt/core.h>
 
@@ -68,6 +69,26 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         HARDWARE_DUMP_PATH, "hwdump", HARDWARE_DUMP_TMP_FILE_DIR,
         HARDWARE_DUMP_MAX_SIZE, HARDWARE_DUMP_MIN_SPACE_REQD,
         HARDWARE_DUMP_TOTAL_SIZE));
+
+    try
+    {
+        std::filesystem::create_directories(SBE_DUMP_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(fmt::format("Failed to create SBE dump directory({})",
+                                    SBE_DUMP_PATH)
+                            .c_str());
+        throw std::runtime_error("Failed to create SBE dump directory");
+    }
+
+    dumpList.push_back(
+        std::make_unique<
+            openpower::dump::hostdump::Manager<openpower::dump::sbe::Entry>>(
+            bus, event, SBE_DUMP_OBJPATH, SBE_DUMP_OBJ_ENTRY, SBE_DUMP_PATH,
+            "sbedump", SBE_DUMP_TMP_FILE_DIR, SBE_DUMP_MAX_SIZE,
+            SBE_DUMP_MIN_SPACE_REQD, SBE_DUMP_TOTAL_SIZE));
+>>>>>>> 410970a... OpenPOWER: Add support for Self Boot Engine(SBE) dump
 }
 } // namespace dump
 } // namespace phosphor
