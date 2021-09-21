@@ -73,6 +73,23 @@ void loadExtensions(sdbusplus::bus::bus& bus,
             HARDWARE_DUMP_MAX_SIZE, HARDWARE_DUMP_MIN_SPACE_REQD,
             HARDWARE_DUMP_TOTAL_SIZE,
             openpower::dump::util::SBE_DUMP_TYPE_HARDWARE));
+
+    try
+    {
+        std::filesystem::create_directories(SBE_DUMP_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(fmt::format("Failed to create SBE dump directory({})",
+                                    SBE_DUMP_PATH)
+                            .c_str());
+        throw std::runtime_error("Failed to create SBE dump directory");
+    }
+    dumpList.emplace_back(std::make_unique<openpower::dump::hostdump::Manager<
+                              sdbusplus::com::ibm::Dump::Entry::server::SBE>>(
+        bus, event, SBE_DUMP_OBJPATH, SBE_DUMP_OBJ_ENTRY, SBE_DUMP_START_ID,
+        SBE_DUMP_PATH, "sbedump", SBE_DUMP_MAX_SIZE, SBE_DUMP_MIN_SPACE_REQD,
+        SBE_DUMP_TOTAL_SIZE, openpower::dump::util::SBE_DUMP_TYPE_SBE));
 }
 } // namespace dump
 } // namespace phosphor
