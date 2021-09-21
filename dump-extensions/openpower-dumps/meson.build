@@ -59,6 +59,28 @@ opconf_data.set('HARDWARE_DUMP_TOTAL_SIZE', get_option('HARDWARE_DUMP_TOTAL_SIZE
                description : 'Total size of the dump in kilo bytes'
             )
 
+opconf_data.set_quoted('SBE_DUMP_OBJPATH', get_option('SBE_DUMP_OBJPATH'),
+                      description : 'The SBE dump manager D-Bus path'
+                    )
+opconf_data.set_quoted('SBE_DUMP_OBJ_ENTRY', get_option('SBE_DUMP_OBJ_ENTRY'),
+                      description : 'The SBE dump entry D-Bus object path'
+                    )
+opconf_data.set_quoted('SBE_DUMP_TMP_FILE_DIR', get_option('SBE_DUMP_TMP_FILE_DIR'),
+                      description : 'Directory where hardwre dump pieces are stored for packaging'
+                    )
+opconf_data.set_quoted('SBE_DUMP_PATH', get_option('SBE_DUMP_PATH'),
+                     description : 'Directory where SBE dumps are placed'
+             )
+opconf_data.set('SBE_DUMP_MAX_SIZE', get_option('SBE_DUMP_MAX_SIZE'),
+               description : 'Maximum size of one SBE dump in kilo bytes'
+             )
+opconf_data.set('SBE_DUMP_MIN_SPACE_REQD', get_option('SBE_DUMP_MIN_SPACE_REQD'),
+               description : 'Minimum space required for one SBE dump in kilo bytes'
+             )
+opconf_data.set('SBE_DUMP_TOTAL_SIZE', get_option('SBE_DUMP_TOTAL_SIZE'),
+               description : 'Total size of the dump in kilo bytes'
+            )
+
 configure_file(configuration : opconf_data,
                output : 'openpower_dumps_config.h'
               )
