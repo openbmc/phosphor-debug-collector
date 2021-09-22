@@ -11,9 +11,23 @@ namespace phosphor
 {
 namespace dump
 {
+using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 void loadExtensions(sdbusplus::bus_t& bus, DumpManagerList& dumpList)
 {
+    try
+    {
+        std::filesystem::create_directories(SYSTEM_DUMP_SERIAL_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format(
+                "Failed to create system dump serial path({}), errormsg({})",
+                SYSTEM_DUMP_SERIAL_PATH, e.what())
+                .c_str());
+        elog<InternalFailure>();
+    }
 
     dumpList.push_back(std::make_unique<openpower::dump::system::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY));
