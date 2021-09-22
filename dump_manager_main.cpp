@@ -93,6 +93,8 @@ int main()
             dmpMgr->restore();
         }
 
+        bus.request_name(DUMP_BUSNAME);
+
         phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
