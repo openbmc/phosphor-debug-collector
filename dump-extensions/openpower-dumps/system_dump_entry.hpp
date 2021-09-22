@@ -44,15 +44,17 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      *  @param[in] status - status  of the dump.
+     *  @param[in] baseEntryPath - Base entry path
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           phosphor::dump::OperationStatus status,
-          phosphor::dump::Manager& parent) :
+          const std::string& baseEntryPath, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              status, parent)
+                              status, parent),
+        baseEntryPath(baseEntryPath)
     {
         sourceDumpId(sourceId);
         // Emit deferred signal.
@@ -69,21 +71,34 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
-    {
-        elapsed(timeStamp);
-        size(dumpSize);
-        sourceDumpId(sourceId);
-        // TODO: Handled dump failure case with
-        // #bm-openbmc/2808
-        status(OperationStatus::Completed);
-        completedTime(timeStamp);
-    }
+    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId);
 
     /**
      * @brief Delete host system dump and it entry dbus object
      */
     void delete_() override;
+
+    /** @brief Function to get the dump ID
+     *
+     *  @return Dump ID
+     */
+    uint32_t getID() const
+    {
+        return id;
+    }
+
+    /** @brief Function to set the dump ID
+     *
+     *  @return DumpId
+     */
+    void setID(uint32_t dumpId)
+    {
+        id = dumpId;
+    }
+
+  private:
+    /** @brief Based entry path of dumps*/
+    std::string baseEntryPath;
 };
 
 } // namespace system
