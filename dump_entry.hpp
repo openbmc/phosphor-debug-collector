@@ -4,6 +4,7 @@
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
+#include "com/ibm/Dump/ManagedBy/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -26,7 +27,8 @@ using EntryIfaces = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
-    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
+    sdbusplus::xyz::openbmc_project::Time::server::EpochTime,
+    sdbusplus::com::ibm::Dump::server::ManagedBy>;
 
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
@@ -95,6 +97,16 @@ class Entry : public EntryIfaces
     void initiateOffload(std::string uri) override
     {
         offloadUri(uri);
+    }
+
+    /** @brief Method to set the session id which
+     *         indicates the session that
+     *         initiates the dump
+     *  @param[in] sessionId - session id of the client
+     */
+    void setSessionId(std::string sessionId)
+    {
+        sessionId = sessionId;
     }
 
   protected:
