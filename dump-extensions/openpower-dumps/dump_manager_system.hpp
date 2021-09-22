@@ -49,11 +49,7 @@ class Manager :
         phosphor::dump::Manager(bus, path, baseEntryPath)
     {}
 
-    void restore() override
-    {
-        // TODO #2597  Implement the restore to restore the dump entries
-        // after the service restart.
-    }
+    void restore() override;
 
     /** @brief Notify the system dump manager about creation of a new dump.
      *  @param[in] dumpId - Id from the source of the dump.

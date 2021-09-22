@@ -85,6 +85,19 @@ class Entry : public EntryIfaces
         }
     };
 
+    /** @brief Constructor that puts an "empty" error object on the bus,
+     *         with only the id property populated. Rest of the properties
+     *         to be set by the caller. Caller should emit the added signal.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] path - Path to attach at.
+     *  @param[in] id - The error entry id.
+     *  @param[in] parent - The error's parent.
+     */
+    Entry(sdbusplus::bus::bus& bus, const std::string& objPath,
+          Manager& parent) :
+        EntryIfaces(bus, objPath.c_str(), true),
+        parent(parent){};
+
     /** @brief Delete this d-bus object.
      */
     void delete_() override;
@@ -95,6 +108,16 @@ class Entry : public EntryIfaces
     void initiateOffload(std::string uri) override
     {
         offloadUri(uri);
+    }
+
+    virtual uint32_t getID() const
+    {
+        return id;
+    }
+
+    virtual void setID(uint32_t dumpId)
+    {
+        id = dumpId;
     }
 
   protected:
