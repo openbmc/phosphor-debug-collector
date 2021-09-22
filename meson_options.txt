@@ -94,6 +94,11 @@ option('SYSTEM_DUMP_OBJPATH', type : 'string',
         description : 'The system dump manager D-Bus object path'
       )
 
+option('SYSTEM_DUMP_SERIAL_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/system',
+        description : 'The system dump D-Bus object persist path'
+      )
+
 option('SYSTEM_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/system/entry',
         description : 'The system dump entry D-Bus object path'

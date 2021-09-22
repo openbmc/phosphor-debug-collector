@@ -14,6 +14,19 @@ namespace dump
 
 void loadExtensions(sdbusplus::bus::bus& bus, DumpManagerList& dumpList)
 {
+    try
+    {
+        std::filesystem::create_directories(SYSTEM_DUMP_SERIAL_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format(
+                "Failed to create system dump directory({}), errormsg({})",
+                SYSTEM_DUMP_SERIAL_PATH, e.what())
+                .c_str());
+        throw std::runtime_error("Failed to create system dump directory");
+    }
 
     dumpList.push_back(std::make_unique<openpower::dump::system::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY));
