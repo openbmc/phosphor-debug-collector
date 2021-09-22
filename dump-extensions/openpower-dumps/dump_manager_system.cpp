@@ -2,9 +2,12 @@
 
 #include "dump_manager_system.hpp"
 
+#include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
+
 #include "dump_utils.hpp"
 #include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
+#include "system_dump_serialize.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <fmt/core.h>
@@ -54,11 +57,11 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // For now replacing it with null
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(
-                    bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                    std::string(), phosphor::dump::OperationStatus::Completed,
-                    *this)));
+        auto entry = std::make_unique<system::Entry>(
+            bus, objPath.c_str(), id, timeStamp, size, dumpId, std::string(),
+            phosphor::dump::OperationStatus::Completed, baseEntryPath, *this);
+        serialize(*entry.get());
+        entries.insert(std::make_pair(id, std::move(entry)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -151,11 +154,12 @@ sdbusplus::message::object_path
 
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(
-                    bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                    generatorId, phosphor::dump::OperationStatus::InProgress,
-                    *this)));
+        auto entry = std::make_unique<system::Entry>(
+            bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
+            generatorId, phosphor::dump::OperationStatus::InProgress,
+            baseEntryPath, *this);
+        serialize(*entry.get());
+        entries.insert(std::make_pair(id, std::move(entry)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -169,6 +173,38 @@ sdbusplus::message::object_path
     }
     lastEntryId++;
     return objPath.string();
+}
+
+void Manager::restore()
+{
+    std::filesystem::path dir(SYSTEM_DUMP_SERIAL_PATH);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
+    {
+        return;
+    }
+
+    std::vector<uint32_t> dumpIds;
+    for (auto& file : std::filesystem::directory_iterator(dir))
+    {
+        auto idNum = std::stol(file.path().filename().c_str());
+        auto idString = std::to_string(idNum);
+        auto objPath = std::filesystem::path(baseEntryPath) / idString;
+        auto entry =
+            std::make_unique<Entry>(bus, objPath, baseEntryPath, *this);
+        if (deserialize(file.path(), *entry))
+        {
+            entries.insert(std::make_pair(idNum, std::move(entry)));
+            dumpIds.push_back(idNum);
+        }
+        else
+        {
+            log<level::WARNING>("Unable to restore dump entry");
+        }
+    }
+    if (!dumpIds.empty())
+    {
+        lastEntryId = *(std::max_element(dumpIds.begin(), dumpIds.end()));
+    }
 }
 
 } // namespace system

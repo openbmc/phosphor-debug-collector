@@ -46,18 +46,36 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      *  @param[in] status - status  of the dump.
+     *  @param[in] baseEntryPath - Base entry path
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           std::string genId, phosphor::dump::OperationStatus status,
-          phosphor::dump::Manager& parent) :
+          const std::string& baseEntryPath, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              status, parent)
+                              status, parent),
+        baseEntryPath(baseEntryPath)
     {
         sourceDumpId(sourceId);
         generatorId(genId);
+        // Emit deferred signal.
+        this->openpower::dump::system::EntryIfaces::emit_object_added();
+    };
+
+    /** @brief Constructor for the Dump Entry Object
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] baseEntryPath - Base entry path
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus::bus& bus, const std::string& objPath,
+          const std::string& baseEntryPath, phosphor::dump::Manager& parent) :
+        EntryIfaces(bus, objPath.c_str(), true),
+        phosphor::dump::Entry(bus, objPath.c_str(), parent),
+        baseEntryPath(baseEntryPath)
+    {
         // Emit deferred signal.
         this->openpower::dump::system::EntryIfaces::emit_object_added();
     };
@@ -72,21 +90,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
-    {
-        elapsed(timeStamp);
-        size(dumpSize);
-        sourceDumpId(sourceId);
-        // TODO: Handled dump failure case with
-        // #bm-openbmc/2808
-        status(OperationStatus::Completed);
-        completedTime(timeStamp);
-    }
+    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId);
 
     /**
      * @brief Delete host system dump and it entry dbus object
      */
     void delete_() override;
+
+  private:
+    /** @brief Based entry path of dumps*/
+    std::string baseEntryPath;
 };
 
 } // namespace system

@@ -85,6 +85,16 @@ class Entry : public EntryIfaces
         }
     };
 
+    /** @brief Constructor for the Dump Entry Object
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus::bus& bus, const std::string& objPath,
+          Manager& parent) :
+        EntryIfaces(bus, objPath.c_str(), true),
+        parent(parent){};
+
     /** @brief Delete this d-bus object.
      */
     void delete_() override;
@@ -95,6 +105,24 @@ class Entry : public EntryIfaces
     void initiateOffload(std::string uri) override
     {
         offloadUri(uri);
+    }
+
+    /** @brief Function to get the dump ID
+     *
+     *  @return Dump ID
+     */
+    uint32_t getID() const
+    {
+        return id;
+    }
+
+    /** @brief Function to set the dump ID
+     *
+     *  @return DumpId
+     */
+    void setID(uint32_t dumpId)
+    {
+        id = dumpId;
     }
 
   protected:
