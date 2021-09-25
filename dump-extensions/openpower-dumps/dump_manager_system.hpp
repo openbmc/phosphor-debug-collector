@@ -50,6 +50,7 @@ class Manager :
     {}
 
     /** @brief Construct dump d-bus objects from their persisted
+	 *
      *        representations.
      */
     void restore() override;
