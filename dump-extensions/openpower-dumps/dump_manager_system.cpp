@@ -62,7 +62,8 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     {
         auto entry = std::make_unique<system::Entry>(
             bus, objPath.c_str(), id, timeStamp, size, dumpId,
-            phosphor::dump::OperationStatus::Completed, std::string(), originatorTypes::Internal, baseEntryPath, *this);
+            phosphor::dump::OperationStatus::Completed, std::string(),
+            originatorTypes::Internal, baseEntryPath, *this);
         serialize(*entry.get());
         entries.insert(std::make_pair(id, std::move(entry)));
     }
@@ -133,7 +134,8 @@ sdbusplus::message::object_path
     {
         auto entry = std::make_unique<system::Entry>(
             bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-            phosphor::dump::OperationStatus::InProgress, originatorId, originatorType, baseEntryPath, *this);
+            phosphor::dump::OperationStatus::InProgress, originatorId,
+            originatorType, baseEntryPath, *this);
         serialize(*entry.get());
         entries.insert(std::make_pair(id, std::move(entry)));
     }
