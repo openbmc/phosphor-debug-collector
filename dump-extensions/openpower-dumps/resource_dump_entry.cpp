@@ -5,6 +5,7 @@
 #include "op_dump_consts.hpp"
 
 #include <fmt/core.h>
+#include "resource_dump_serialize.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
@@ -40,6 +41,20 @@ void Entry::initiateOffload(std::string uri)
     }
     phosphor::dump::Entry::initiateOffload(uri);
     phosphor::dump::host::requestOffload(sourceDumpId());
+}
+
+void Entry::update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
+{
+    sourceDumpId(sourceId);
+    elapsed(timeStamp);
+    size(dumpSize);
+    // TODO: Handled dump failure case with
+    // #bm-openbmc/2808
+    status(OperationStatus::Completed);
+    completedTime(timeStamp);
+
+    // serialize as dump is successfully completed
+    serialize(*this);
 }
 
 void Entry::delete_()
