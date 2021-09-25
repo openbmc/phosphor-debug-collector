@@ -115,3 +115,8 @@ option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/resource/entry',
         description : 'The resource dump entry D-Bus object path'
       )
+
+option('RESOURCE_DUMP_SERIAL_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/resource',
+        description : 'The resource dump D-Bus object persist path'
+      )

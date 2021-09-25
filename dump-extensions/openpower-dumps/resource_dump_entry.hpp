@@ -8,6 +8,10 @@
 
 #include <chrono>
 
+#ifndef SDBUSPP_NEW_CAMELCASE
+#define vspString vSPString
+#endif
+
 namespace openpower
 {
 namespace dump
@@ -55,14 +59,31 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           std::string vspStr, std::string pwd,
           phosphor::dump::OperationStatus status,
-          phosphor::dump::Manager& parent) :
+          const std::string& baseEntryPath, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              status, parent)
+                              status, parent),
+        baseEntryPath(baseEntryPath)
     {
         sourceDumpId(sourceId);
         vspString(vspStr);
         password(pwd);
+        // Emit deferred signal.
+        this->openpower::dump::resource::EntryIfaces::emit_object_added();
+    };
+
+    /** @brief Constructor for the Dump Entry Object
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] baseEntryPath - Base entry path
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus::bus& bus, const std::string& objPath,
+          const std::string& baseEntryPath, phosphor::dump::Manager& parent) :
+        EntryIfaces(bus, objPath.c_str(), true),
+        phosphor::dump::Entry(bus, objPath.c_str(), parent),
+        baseEntryPath(baseEntryPath)
+    {
         // Emit deferred signal.
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
     };
@@ -77,21 +98,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - The id of dump in the origin.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
-    {
-        sourceDumpId(sourceId);
-        elapsed(timeStamp);
-        size(dumpSize);
-        // TODO: Handled dump failure case with
-        // #bm-openbmc/2808
-        status(OperationStatus::Completed);
-        completedTime(timeStamp);
-    }
+    void update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId);
 
     /**
      * @brief Delete resource dump in host memory and the entry dbus object
      */
     void delete_() override;
+
+  private:
+    /** @brief Based entry path of dumps*/
+    std::string baseEntryPath;
 };
 
 } // namespace resource
