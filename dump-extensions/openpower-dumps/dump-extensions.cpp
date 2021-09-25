@@ -31,6 +31,21 @@ void loadExtensions(sdbusplus::bus_t& bus, DumpManagerList& dumpList)
 
     dumpList.push_back(std::make_unique<openpower::dump::system::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY));
+
+    try
+    {
+        std::filesystem::create_directories(RESOURCE_DUMP_SERIAL_PATH);
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format(
+                "Failed to create resource dump serial path({}), errormsg({})",
+                RESOURCE_DUMP_SERIAL_PATH, e.what())
+                .c_str());
+        elog<InternalFailure>();
+    }
+
     dumpList.push_back(std::make_unique<openpower::dump::resource::Manager>(
         bus, RESOURCE_DUMP_OBJPATH, RESOURCE_DUMP_OBJ_ENTRY));
 }

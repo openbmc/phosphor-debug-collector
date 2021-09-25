@@ -2,9 +2,12 @@
 
 #include "dump_manager_resource.hpp"
 
+#include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
+
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
 #include "resource_dump_entry.hpp"
+#include "resource_dump_serialize.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <fmt/core.h>
@@ -85,16 +88,12 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 
     try
     {
-        log<level::INFO>(fmt::format("Resouce Dump Notify: creating new dump "
-                                     "entry dumpId({}) Id({}) Size({})",
-                                     id, dumpId, size)
-                             .c_str());
-        entries.insert(std::make_pair(
-            id, std::make_unique<resource::Entry>(
-                    bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                    std::string(), std::string(),
-                    phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+        auto entry = std::make_unique<resource::Entry>(
+            bus, objPath.c_str(), id, timeStamp, size, dumpId, std::string(),
+            std::string(), phosphor::dump::OperationStatus::Completed,
+            std::string(), originatorTypes::Internal, baseEntryPath, *this);
+        serialize(*entry.get());
+        entries.insert(std::make_pair(id, std::move(entry)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -205,11 +204,12 @@ sdbusplus::message::object_path
 
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<resource::Entry>(
-                    bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                    vspString, pwd, phosphor::dump::OperationStatus::InProgress,
-                    originatorId, originatorType, *this)));
+        auto entry = std::make_unique<resource::Entry>(
+            bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
+            vspString, pwd, phosphor::dump::OperationStatus::InProgress,
+            originatorId, originatorType, baseEntryPath, *this);
+        serialize(*entry.get());
+        entries.insert(std::make_pair(id, std::move(entry)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -224,6 +224,61 @@ sdbusplus::message::object_path
     }
     lastEntryId++;
     return objPath.string();
+}
+
+void Manager::restore()
+{
+    std::filesystem::path dir(RESOURCE_DUMP_SERIAL_PATH);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
+    {
+        log<level::INFO>(
+            fmt::format(
+                "Resource dump does not exist in the path ({}) to restore",
+                dir.c_str())
+                .c_str());
+        return;
+    }
+
+    std::vector<uint32_t> dumpIds;
+    for (auto& file : std::filesystem::directory_iterator(dir))
+    {
+        try
+        {
+            auto idNum = std::stol(file.path().filename().c_str());
+            auto idString = std::to_string(idNum);
+            auto objPath = std::filesystem::path(baseEntryPath) / idString;
+            auto entry = std::make_unique<Entry>(
+                bus, objPath, 0, 0, 0, 0, " ", " ",
+                phosphor::dump::OperationStatus::InProgress, std::string(),
+                originatorTypes::Internal, baseEntryPath, *this, false);
+            if (deserialize(file.path(), *entry))
+            {
+                entries.insert(std::make_pair(idNum, std::move(entry)));
+                dumpIds.push_back(idNum);
+            }
+        }
+        // Continue to retrieve the next dump entry
+        catch (const std::invalid_argument& e)
+        {
+            log<level::ERR>(fmt::format("Exception caught during restore with "
+                                        "errormsg({}) and ID({})",
+                                        e.what(),
+                                        file.path().filename().c_str())
+                                .c_str());
+        }
+        catch (const std::exception& e)
+        {
+            log<level::ERR>(fmt::format("Exception caught during restore with "
+                                        "errormsg({}) and ID({})",
+                                        e.what(),
+                                        file.path().filename().c_str())
+                                .c_str());
+        }
+    }
+    if (!dumpIds.empty())
+    {
+        lastEntryId = *(std::max_element(dumpIds.begin(), dumpIds.end()));
+    }
 }
 
 } // namespace resource
