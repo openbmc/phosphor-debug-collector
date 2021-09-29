@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "96625ce0_8c3989cd",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "This is an internal BMC failure, so caller cant handle this error",
+      "parentUuid": "3f95de7a_8272af5e",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4497abfc_57a1fd31",
         "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-09-27T06:59:45Z",
       "side": 1,
       "message": "prefer emplace_back",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f54693e8_d6104ff7",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "this doesnt have a functionality impact, so will change as part of planned refactor",
+      "parentUuid": "4497abfc_57a1fd31",
       "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b1abb5e6_7752be31",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "17b6a0a6_1c77d281",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d94ffeca_83abc72a",
         "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2021-09-27T06:59:45Z",
       "side": 1,
       "message": "what are we doing after checking?",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1540a0_6982e2c3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "whether dump is enabled",
+      "parentUuid": "d94ffeca_83abc72a",
       "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "33691e7e_46b6f35f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "this doesnt have a functionality impact, so will change as part of planned refactor",
+      "parentUuid": "276df5ad_2d646435",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d210a09_4052416b",
         "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2021-09-27T06:59:45Z",
       "side": 1,
       "message": "why can\u0027t we throw invalid_argument itself?. If the caller can do something about invalid_argument he will have an option, but if we club all the errors as runtime_error the caller cannot do anything.",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df94b7a4_533dda69",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "This is not related to the input provided, but an internal error so cant return invalid argument to user for for this error.",
+      "parentUuid": "4d210a09_4052416b",
       "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "f831bbb9_7169a015",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b2699c2_d16646cc",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64dc50df_892c34ad",
         "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.hpp",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2021-09-27T06:59:45Z",
       "side": 1,
       "message": "private method?",
+      "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c945758f_ae8f9a5e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_sbe.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-09-29T04:49:59Z",
+      "side": 1,
+      "message": "this doesnt have a functionality impact, so will change as part of the planned refactor",
+      "parentUuid": "64dc50df_892c34ad",
       "revId": "66119f388fcef6b18a0e3e2e9fc55d6edddf408c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
