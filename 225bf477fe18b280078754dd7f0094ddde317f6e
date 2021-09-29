@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da1a8b88_12ee77d1",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-29T10:35:24Z",
+      "side": 1,
+      "message": "here the dump info is updated, need to serialize again here.\nserialize(resEntry);",
+      "revId": "225bf477fe18b280078754dd7f0094ddde317f6e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e52cb483_0b38150a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-29T10:35:24Z",
+      "side": 1,
+      "message": "i assume this is a case where new resource entry is created because of some automatic dump I guess",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 61
+      },
+      "revId": "225bf477fe18b280078754dd7f0094ddde317f6e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cc29964_c4fbc4f9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-29T10:35:24Z",
+      "side": 1,
+      "message": "log a info trace here, stating no resource dumps found to restore",
+      "revId": "225bf477fe18b280078754dd7f0094ddde317f6e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1254a347_fb2a2a73",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-29T10:35:24Z",
+      "side": 1,
+      "message": "what is this for? came from some other changes",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 6
+      },
+      "revId": "225bf477fe18b280078754dd7f0094ddde317f6e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
