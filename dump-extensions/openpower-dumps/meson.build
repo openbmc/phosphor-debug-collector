@@ -58,6 +58,9 @@ opconf_data.set('HARDWARE_DUMP_MIN_SPACE_REQD', get_option('HARDWARE_DUMP_MIN_SP
 opconf_data.set('HARDWARE_DUMP_TOTAL_SIZE', get_option('HARDWARE_DUMP_TOTAL_SIZE'),
                description : 'Total size of the dump in kilo bytes'
             )
+opconf_data.set_quoted('HOST_DUMP_COMMON_FILENAME_PART', get_option('HOST_DUMP_COMMON_FILENAME_PART'),
+        description : 'The common filename suffix for host dumps'
+      )
 
 configure_file(configuration : opconf_data,
                output : 'openpower_dumps_config.h'
@@ -70,6 +73,4 @@ phosphor_dump_manager_sources += [
         'dump-extensions/openpower-dumps/dump_manager_resource.cpp',
         'dump-extensions/openpower-dumps/resource_dump_entry.cpp',
         'dump-extensions/openpower-dumps/op_dump_util.cpp',
-        'dump-extensions/openpower-dumps/dump_manager_hostboot.cpp',
-        'dump-extensions/openpower-dumps/dump_manager_hardware.cpp',
     ]

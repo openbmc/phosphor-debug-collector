@@ -111,6 +111,13 @@ option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         description : 'The resource dump entry D-Bus object path'
       )
 
+# Common hostdump filename part format
+
+option('HOST_DUMP_COMMON_FILENAME_PART', type : 'string',
+        value : '_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)',
+        description : 'The common filename suffix for host dumps'
+      )
+
 # Hostboot dump options
 
 option('HOSTBOOT_DUMP_OBJPATH', type : 'string',
