@@ -8,13 +8,13 @@
 
 #include <filesystem>
 #include <map>
-
 namespace phosphor
 {
 namespace dump
 {
 namespace bmc_stored
 {
+using namespace phosphor::logging;
 using UserMap = phosphor::dump::inotify::UserMap;
 
 using Watch = phosphor::dump::inotify::Watch;
