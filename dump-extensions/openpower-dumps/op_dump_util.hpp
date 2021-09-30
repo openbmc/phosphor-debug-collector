@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_utils.hpp"
+#include "types.hpp"
 
 namespace openpower
 {
@@ -8,6 +9,10 @@ namespace dump
 {
 namespace util
 {
+
+constexpr auto SBE_DUMP_TYPE_HOSTBOOT = 0x5;
+constexpr auto SBE_DUMP_TYPE_HARDWARE = 0x1;
+constexpr auto SBE_DUMP_TYPE_SBE = 0xA;
 
 /** @brief Check whether OpenPOWER dumps are enabled
  *
@@ -47,6 +52,17 @@ bool isInMpReboot();
  *          false - No dump in progress
  */
 bool isSystemDumpInProgress(sdbusplus::bus::bus& bus);
+
+/** @brief Extract passed dump create parameters
+ *  @param[in] params - A map contain input parameters
+ *  @param[in] dumpType - Type of the dump
+ *  @param[out] eid - Error id associated with dump
+ *  @param[out] failingUnit - Harware unit failed
+ */
+void extractDumpCreateParams(const phosphor::dump::DumpCreateParams& params,
+                             uint8_t dumpType, uint64_t& eid,
+                             uint64_t& failingUnit);
+>>>>>>> e2f4c64... OpenPOWER: Add support for Hostboot dump.
 } // namespace util
 } // namespace dump
 } // namespace openpower
