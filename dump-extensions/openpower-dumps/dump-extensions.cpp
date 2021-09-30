@@ -4,11 +4,12 @@
 
 #include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
 
-#include "dump_manager_hardware.hpp"
-#include "dump_manager_hostboot.hpp"
+#include "dump_manager_hostdump.hpp"
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
 #include "dump_utils.hpp"
+#include "hardware_dump_entry.hpp"
+#include "hostboot_dump_entry.hpp"
 
 #include <fmt/core.h>
 
@@ -18,6 +19,11 @@ namespace phosphor
 {
 namespace dump
 {
+constexpr auto HB_DUMP_FILENAME_REGEX =
+    "hbdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)";
+
+constexpr auto HARDWARE_DUMP_FILENAME_REGEX =
+    "hwdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)";
 
 using namespace phosphor::logging;
 void loadExtensions(sdbusplus::bus::bus& bus,
@@ -42,9 +48,12 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         throw std::runtime_error("Failed to create hostboot dump directory");
     }
 
-    dumpList.push_back(std::make_unique<openpower::dump::hostboot::Manager>(
+    dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
+                           openpower::dump::hostboot::Entry>>(
         bus, event, HOSTBOOT_DUMP_OBJPATH, HOSTBOOT_DUMP_OBJ_ENTRY,
-        HOSTBOOT_DUMP_PATH));
+        HOSTBOOT_DUMP_PATH, HB_DUMP_FILENAME_REGEX, "hbdump",
+        HOSTBOOT_DUMP_TMP_FILE_DIR, HOSTBOOT_DUMP_MAX_SIZE,
+        HOSTBOOT_DUMP_MIN_SPACE_REQD, HOSTBOOT_DUMP_TOTAL_SIZE));
 
     try
     {
@@ -59,9 +68,12 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         throw std::runtime_error("Failed to create hardware dump directory");
     }
 
-    dumpList.push_back(std::make_unique<openpower::dump::hardware::Manager>(
+    dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
+                           openpower::dump::hardware::Entry>>(
         bus, event, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
-        HARDWARE_DUMP_PATH));
+        HARDWARE_DUMP_PATH, HARDWARE_DUMP_FILENAME_REGEX, "hwdump",
+        HARDWARE_DUMP_TMP_FILE_DIR, HARDWARE_DUMP_MAX_SIZE,
+        HARDWARE_DUMP_MIN_SPACE_REQD, HARDWARE_DUMP_TOTAL_SIZE));
 }
 } // namespace dump
 } // namespace phosphor
