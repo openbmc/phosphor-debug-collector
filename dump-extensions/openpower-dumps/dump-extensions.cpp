@@ -6,6 +6,11 @@
 
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
+#include "dump_utils.hpp"
+
+#include <fmt/core.h>
+
+#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
