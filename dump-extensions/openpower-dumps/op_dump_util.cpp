@@ -6,6 +6,7 @@
 
 #include <unistd.h>
 
+#include <com/ibm/Dump/Create/server.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
@@ -128,6 +129,92 @@ bool isSystemDumpInProgress()
 
     lg2::info("Another system dump is not in progress");
     return false;
+}
+
+void extractDumpCreateParams(const phosphor::dump::DumpCreateParams& params,
+                             uint8_t dumpType, uint64_t& eid,
+                             uint64_t& failingUnit)
+{
+    using namespace phosphor::logging;
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using CreateParameters =
+        sdbusplus::com::ibm::Dump::server::Create::CreateParameters;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+    eid = 0;
+    failingUnit = 0;
+
+    constexpr auto MAX_FAILING_UNIT = 0x20;
+    constexpr auto MAX_ERROR_LOG_ID = 0xFFFFFFFF;
+
+    // get error log id
+    auto iter = params.find(
+        sdbusplus::com::ibm::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::ErrorLogId));
+    if (iter == params.end())
+    {
+        log<level::ERR>("Required argument, error log id is not passed");
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("ERROR_LOG_ID"),
+                              Argument::ARGUMENT_VALUE("MISSING"));
+    }
+
+    if (!std::holds_alternative<uint64_t>(iter->second))
+    {
+        // Exception will be raised if the input is not uint64
+        log<level::ERR>("An invalid error log id is passed, setting as 0");
+        report<InvalidArgument>(Argument::ARGUMENT_NAME("ERROR_LOG_ID"),
+                                Argument::ARGUMENT_VALUE("INVALID INPUT"));
+    }
+
+    eid = std::get<uint64_t>(iter->second);
+
+    if (eid > MAX_ERROR_LOG_ID)
+    {
+        // An error will be logged if the error log id is larger than maximum
+        // value and set the error log id as 0.
+        log<level::ERR>(fmt::format("Error log id is greater than maximum({}) "
+                                    "length, setting as 0, errorid({})",
+                                    MAX_ERROR_LOG_ID, eid)
+                            .c_str());
+        report<InvalidArgument>(
+            Argument::ARGUMENT_NAME("ERROR_LOG_ID"),
+            Argument::ARGUMENT_VALUE(std::to_string(eid).c_str()));
+        eid = 0;
+    }
+
+    if ((dumpType == SBE_DUMP_TYPE_HARDWARE) || (dumpType == SBE_DUMP_TYPE_SBE))
+    {
+        iter = params.find(sdbusplus::com::ibm::Dump::server::Create::
+                               convertCreateParametersToString(
+                                   CreateParameters::FailingUnitId));
+        if (iter == params.end())
+        {
+            log<level::ERR>("Required argument, failing unit id is not passed");
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("FAILING_UNIT_ID"),
+                                  Argument::ARGUMENT_VALUE("MISSING"));
+        }
+
+        if (!std::holds_alternative<uint64_t>(iter->second))
+        {
+            // Exception will be raised if the input is not uint64
+            log<level::ERR>("An invalid failing unit id is passed ");
+            report<InvalidArgument>(Argument::ARGUMENT_NAME("FAILING_UNIT_ID"),
+                                    Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+        failingUnit = std::get<uint64_t>(iter->second);
+
+        if (failingUnit > MAX_FAILING_UNIT)
+        {
+            log<level::ERR>(fmt::format("Invalid failing uint id: greater than "
+                                        "maximum number({}): input({})",
+                                        failingUnit, MAX_FAILING_UNIT)
+                                .c_str());
+            elog<InvalidArgument>(
+                Argument::ARGUMENT_NAME("FAILING_UNIT_ID"),
+                Argument::ARGUMENT_VALUE(std::to_string(failingUnit).c_str()));
+        }
+    }
 }
 
 } // namespace util
