@@ -141,7 +141,7 @@ configure_file(configuration : conf_data,
 subdir('xyz/openbmc_project/Dump/Internal/Create')
 
 python = find_program('python3')
-errors_map_gen_file_loc = meson.source_root()
+errors_map_gen_file_loc = meson.project_source_root()
 errors_map_gen_file_loc += '/errors_map_gen.py'
 
 errors_map_hpp = custom_target(

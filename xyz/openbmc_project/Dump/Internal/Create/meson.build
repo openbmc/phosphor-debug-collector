@@ -3,7 +3,7 @@
 server_hpp = custom_target(
                 'server.hpp',
                 command : [
-                    sdbusplusplus_prog, '-r', meson.source_root(),
+                    sdbusplusplus_prog, '-r', meson.project_source_root(),
                     'interface',
                     'server-header',
                     'xyz.openbmc_project.Dump.Internal.Create',
@@ -18,7 +18,7 @@ server_hpp = custom_target(
 server_cpp = custom_target(
                 'server.cpp',
                 command : [
-                    sdbusplusplus_prog, '-r', meson.source_root(),
+                    sdbusplusplus_prog, '-r', meson.project_source_root(),
                     'interface',
                     'server-cpp',
                     'xyz.openbmc_project.Dump.Internal.Create'
