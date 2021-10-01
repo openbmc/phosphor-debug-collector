@@ -37,6 +37,6 @@ foreach t : tests
                                     dump,
                                     phosphor_logging_dep,
                                     fmt_dep,
-                                    cppfs]),
+                                    ]),
        workdir: meson.current_source_dir())
 endforeach

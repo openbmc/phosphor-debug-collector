@@ -17,7 +17,6 @@ cpp = meson.get_compiler('cpp')
 
 # Checking dependency external library
 
-cppfs = cpp.find_library('stdc++fs')
 libsystemd = dependency('libsystemd', version : '>=221')
 
 sdbusplus_dep = dependency('sdbusplus', required: false)
@@ -180,7 +179,6 @@ phosphor_dump_manager_dependency = [
         phosphor_dbus_interfaces_dep,
         sdbusplus_dep,
         phosphor_logging_dep,
-        cppfs,
         fmt_dep,
         cereal_dep,
     ]
@@ -206,7 +204,6 @@ phosphor_dump_monitor_sources = [
 phosphor_dump_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
         phosphor_logging_dep,
-        cppfs,
         fmt_dep
     ]
 
@@ -223,7 +220,6 @@ phosphor_ramoops_monitor_sources = [
 phosphor_ramoops_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
         phosphor_logging_dep,
-        cppfs,
         fmt_dep
     ]
 
