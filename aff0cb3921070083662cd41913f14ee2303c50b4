@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "f10a7ff1_bd875d15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "It will be helpful if we have added information about cereal which is used to achieve serialization and deserialization.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37d26d0_fef0bdea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Tested: ?\nhttps://github.com/openbmc/docs/blob/master/CONTRIBUTING.md#testing",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7664afc6_2dfa65d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Did you checked the properties value as well right?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 44
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "28951a7b_56931bf8",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 5
@@ -34,6 +97,349 @@
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e956635_861822b7",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why we can not move this serialization inside the constructor?\n\nI know a few cases, we won\u0027t have properties value and these get updated as part of the \"update\" call. But, cereal won\u0027t allow serialization multiple times in the same file path?\n\nIMO, forcing the caller to do serialization is not a good idea if we have some common functions like constructor and update.",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30751acb_a4ba711c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "JS: Actually, we could use the existing entries map itself, to find the highest id value by using the comparator lambda with std::max_element once you created the entries for all the dumps.\n\nor Just we could have one variable `lastMaxEntryId` instead of vector.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950c5089_ce365e18",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "JS: We could do like below.\n```\nauto objPath \u003d std::filesystem::path(baseEntryPath) / file.path().filename().string();\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 71
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34dddaf7_c713dcad",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "I think we should take care of the D-Bus signal because, you are emitting the signal once Entry object construction was done but, you did not populate all properties value, and these properties were updated during the deserialization.\n\nSome other apps may use the D-Bus property watch signal so, it will get an inaccurate signal i.e after LN152 but, an actual property update happening at LN153.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0785af_fd365f92",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Do we not need to capture the trace if failed to restore it?",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e396b154_219706a3",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Unused one?",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 64
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a65269_aaad3ed8",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "It will be good if you added the note to mention \"other dbus properties values should be populated by the caller with help of the \"update\" function else default value only will be present\".",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36b363bb_3a656709",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why we cannot define this member into the base entry class? - it is only needed for the system dump?",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "389d360a_cb61321b",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Do we need to add the dependency check?\nI think, cereal is a header-only-based library.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19efd488_48d3b50a",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "I believe, LN33 and LN54 (save and load) should be in sync, right? like order? if so can add some comment on this if make sense to you.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07fadfca_14166d41",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why you are skipping the signal to emit for the property?\n\nI think some bmc components will look for the property value change signal, right? One example is, bmcweb will watch for the status property value change to take the appropriate action.",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff9ae75d_60f129f2",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why you did not skip the signal to emit for size property?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fed7fef4_77e7b91f",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "is it error dbus object or dump dbus object?",
+      "range": {
+        "startLine": 15,
+        "startChar": 33,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa686a64_f295da19",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "is it error object or dump object? or What you meant by \"error object\"?",
+      "range": {
+        "startLine": 88,
+        "startChar": 32,
+        "endLine": 88,
+        "endChar": 60
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19d9e1a2_573fce11",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Who you meant as a \"Caller\"? Who trying to create the Entry object instance?",
+      "range": {
+        "startLine": 90,
+        "startChar": 40,
+        "endLine": 90,
+        "endChar": 75
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e948ca_cce10631",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why it is virtual function?",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 11
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d94ca8aa_74639134",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-10-04T07:18:43Z",
+      "side": 1,
+      "message": "Why it is virtual function?",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 11
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
