@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "08fb9223_cbbbc9e6",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostdump.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-10-06T10:50:11Z",
+      "side": 1,
+      "message": "Missed the changes in later commit?",
+      "parentUuid": "bd4e26dd_08b3043d",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 15
+      },
+      "revId": "13b41a50025389addd5f121a1b299508583d41f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a9a86e1_7705ff6c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostdump.hpp",
         "patchSetId": 2
@@ -366,6 +390,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "52adf711_338df339",
+      "range": {
+        "startLine": 98,
+        "startChar": 41,
+        "endLine": 98,
+        "endChar": 45
+      },
+      "revId": "13b41a50025389addd5f121a1b299508583d41f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0da90706_c16820d2",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostdump.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-10-06T10:50:11Z",
+      "side": 1,
+      "message": "Missed in new commit",
+      "parentUuid": "892a13e1_33bb656b",
       "range": {
         "startLine": 98,
         "startChar": 41,
