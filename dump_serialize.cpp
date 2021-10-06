@@ -37,7 +37,7 @@ bool deserialize(const std::filesystem::path& path, ElogList& list)
         }
         return false;
     }
-    catch (cereal::Exception& e)
+    catch (const cereal::Exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to deserialize, errormsg({})", e.what())

@@ -45,7 +45,7 @@ int main()
         }
     }
 
-    catch (InternalFailure& e)
+    catch (const InternalFailure& e)
     {
         commit<InternalFailure>();
         return -1;

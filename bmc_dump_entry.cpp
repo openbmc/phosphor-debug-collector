@@ -22,7 +22,7 @@ void Entry::delete_()
     {
         std::filesystem::remove_all(file.parent_path());
     }
-    catch (std::filesystem::filesystem_error& e)
+    catch (const std::filesystem::filesystem_error& e)
     {
         // Log Error message and continue
         log<level::ERR>(

@@ -151,7 +151,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
             iMgr.IMgr::create((*item).first, fullPaths);
         }
     }
-    catch (QuotaExceeded& e)
+    catch (const QuotaExceeded& e)
     {
         // No action now
     }
