@@ -6,6 +6,8 @@
 
 #include <sdbusplus/exception.hpp>
 
+#include <filesystem>
+
 namespace phosphor
 {
 namespace dump
@@ -15,6 +17,14 @@ namespace ramoops
 
 Manager::Manager(const std::string& filePath)
 {
+    namespace fs = std::filesystem;
+
+    fs::path dir(filePath);
+    if (!fs::exists(dir) || fs::is_empty(dir))
+    {
+        return;
+    }
+
     std::vector<std::string> files;
     files.push_back(filePath);
 
@@ -23,11 +33,6 @@ Manager::Manager(const std::string& filePath)
 
 void Manager::createHelper(const std::vector<std::string>& files)
 {
-    if (files.empty())
-    {
-        return;
-    }
-
     constexpr auto MAPPER_BUSNAME = "xyz.openbmc_project.ObjectMapper";
     constexpr auto MAPPER_PATH = "/xyz/openbmc_project/object_mapper";
     constexpr auto MAPPER_INTERFACE = "xyz.openbmc_project.ObjectMapper";
