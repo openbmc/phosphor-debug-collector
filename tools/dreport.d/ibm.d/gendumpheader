@@ -171,6 +171,24 @@ function total_size () {
     done
 }
 
+#Function to populate content type based on dump type
+function content_type () {
+    type="00000000"
+    if [ "$dump_content_type" = "hbdump" ]; then
+        type="00000200"
+    elif [ "$dump_content_type" = "hwdump" ]; then
+        type="40000000"
+    elif [ "$dump_content_type" = "sbedump" ]; then
+        type="02000000"
+    fi
+    x=${#type}
+    for ((i=0;i<$x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'type' as a variable is safe here.
+        printf "\\x${type:$i:2}" >> "$FILE"
+    done
+}
+
 #Function to add virtual file directory entry, consists of below entries
 ####################FORMAT################
 #Name              Size(bytes)  Value
@@ -222,7 +240,11 @@ function dump_section_entry () {
     add_null 1
     printf '\x30' >> "$FILE" #Section entry size
     add_null 9
-    printf '\x01' >> "$FILE"
+    if [ "$dump_type" = "$OP_DUMP" ]; then
+        add_null 1
+    else
+        printf '\x01' >> "$FILE"
+    fi
     add_null 1
     printf '\x02' >> "$FILE"
     add_null 2
@@ -279,11 +301,12 @@ function dump_header () {
     dump_size  #dump size
     printf "$modelNo" >> "$FILE"
     add_null 24
-    printf "Server-%s-SN-%s" "$modelNo" "$serialNo" >> "$FILE"
+    printf "Server-%s-SN%s" "$modelNo" "$serialNo" >> "$FILE"
     add_null 7
     printf "$serialNo" >> "$FILE"
     add_null 1
     get_eid
+    add_null 1
     printf '\x70' >> "$FILE" #File header size
     add_null 2 # SRC size
     add_null 320 # SRC dump
@@ -373,7 +396,7 @@ function mainstore_dump_section () {
 #machineInfo             32
 #systemName              32
 #systemSerialNumber      7
-#brand                   1
+#DumpCreator             1
 #eventLogId              4
 ####################DATA NOT AVAIABLE##########
 #fileHeaderSize          2
@@ -428,9 +451,11 @@ function plat_dump_header () {
     add_null 24
     system_name
     printf "%s" "$serialNo" >> "$FILE"
-    add_null 1   #Brand name
+    printf '\x01' >> "$FILE"   #Dump Creator BMC
     get_eid
-    add_null 916
+    add_null 500
+    content_type # 4 bytes
+    add_null 412
 }
 
 
