@@ -64,6 +64,7 @@ declare -x verbose=$FALSE
 declare -x serialNo="0000000"
 declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
 declare -x FILE=""
+declare -x dump_content_type=""
 
 # shellcheck disable=SC1091 # source=tools/dreport.d/include.d/dcommon
 . "$DREPORT_SOURCE/dcommon"
