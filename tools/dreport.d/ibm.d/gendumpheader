@@ -17,6 +17,9 @@ declare -rx SIZE_12='12'
 declare -rx SIZE_32='32'
 #Dump Summary size without header
 declare -rx DUMP_SUMMARY_SIZE='1024'
+declare -rx HW_DUMP='00'
+declare -rx HB_DUMP='20'
+declare -rx SBE_DUMP='30'
 
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
@@ -167,6 +170,28 @@ function total_size() {
     do
         # shellcheck disable=SC2059 # using 'hex' as a variable is safe here.
         printf "\\x${hex:$i:2}" >> "$FILE"
+    done
+}
+
+#Function to populate content type based on dump type
+function content_type() {
+    type="00000000"
+    # content type:
+    # Hostboot dump = "20"
+    # Hardware dump = "00"
+    # SBE dump = "30"
+    if [ "$dump_content_type" = "$HB_DUMP" ]; then
+        type="00000200"
+    elif [ "$dump_content_type" = "$HW_DUMP" ]; then
+        type="40000000"
+    elif [ "$dump_content_type" = "$SBE_DUMP" ]; then
+        type="02000000"
+    fi
+    x=${#type}
+    for ((i=0;i<$x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'type' as a variable is safe here.
+        printf "\\x${type:$i:2}" >> "$FILE"
     done
 }
 
@@ -377,7 +402,7 @@ function mainstore_dump_section() {
 #machineInfo             32
 #systemName              32
 #systemSerialNumber      7
-#brand                   1
+#Dump Creator BMC        1
 #eventLogId              4
 #fileHeaderSize          2
 ####################DATA NOT AVAIABLE##########
@@ -433,11 +458,13 @@ function plat_dump_header() {
     add_null 24
     system_name
     printf "%s" "$serialNo" >> "$FILE"
-    add_null 1   #Brand name
+    printf '\x01' >> "$FILE"   #Dump Creator BMC
     get_eid
     add_null 1
     printf '\xd0' >> "$FILE" #File Header size
-    add_null 546
+    add_null 498
+    content_type # 4 bytes
+    add_null 44
     printf '\x01' >> "$FILE"  # BMC indicator
     add_null 367
 }
