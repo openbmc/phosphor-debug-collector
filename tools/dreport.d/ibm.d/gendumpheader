@@ -225,7 +225,11 @@ function dump_section_entry () {
     add_null 1
     printf '\x30' >> "$FILE" #Section entry size
     add_null 9
-    printf '\x01' >> "$FILE"
+    if [ "$dump_type" = "$OP_DUMP" ]; then
+        add_null 1
+    else
+        printf '\x01' >> "$FILE"
+    fi
     add_null 1
     printf '\x02' >> "$FILE"
     add_null 2
