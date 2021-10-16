@@ -41,6 +41,7 @@ declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
 declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
 declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
 declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
+declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -65,7 +66,7 @@ declare -x verbose=$FALSE
 declare -x serialNo="0000000"
 declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
 declare -x FILE=""
-declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -x dump_content_type=""
 
 # @brief get serial number property from inventory
 function fetch_serial_number () {
@@ -127,6 +128,8 @@ function package()
     fi
 
     cd "$optional_path" || exit
+
+    dump_content_type=${dump_id:0:2}
 
     eid_dir=$(find "$optional_path" -type f -name ErrorLog)
     # shellcheck disable=SC2181 # need output from `find` in above if cond
@@ -211,13 +214,13 @@ while [[ $# -gt 1 ]]; do
     case $key in
         -n|--name)
             name=$2
-            dump_content_type=$name
             shift 2;;
         -d|--dir)
             dump_dir=$2
             shift 2;;
         -i|--dumpid)
             dump_id=$2
+            dump_content_type=$dump_id
             shift 2;;
         -t|--type)
             dump_type=$2
