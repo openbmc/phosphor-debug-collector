@@ -37,6 +37,7 @@ declare -x dump_type=$TYPE_OPDUMP
 declare -x size_dump=""
 declare -x eid_dir=""
 declare -x elog_id=""
+declare -x dump_content_type=""
 
 # shellcheck disable=SC1091 # source=tools/dreport.d/include.d/dcommon
 . "$DREPORT_SOURCE/dcommon"
@@ -100,6 +101,8 @@ function package()
     else
         elog_id=$(cut -d' ' -f1 "$eid_dir")
     fi
+
+    dump_content_type=$(echo "$name" | cut -d'_' -f 1)
 
     tar -cvzf "$name.tar" plat_dump/*Sbe*
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
