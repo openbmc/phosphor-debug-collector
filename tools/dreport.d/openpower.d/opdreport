@@ -60,7 +60,9 @@ declare -x dump_size="unlimited"
 declare -x content_path=""
 declare -x name_dir=""
 declare -x serialNo="0000000"
-declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+declare -x dDay
+dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+declare -x dump_content_type=""
 
 # @brief get serial number property from inventory
 function fetch_serial_number () {
@@ -93,12 +95,6 @@ function initialize()
         return "$RESOURCE_UNAVAILABLE";
     fi
 
-    #Destination path
-    # shellcheck disable=SC2154 # dump_dir comes from elsewhere
-    if [ -z "$dump_dir" ]; then
-       dump_dir=$PWD
-    fi
-
     #Size
     #Check the input is integer.
     # shellcheck disable=SC2154 # dump_size comes from elsewhere
@@ -121,6 +117,8 @@ function package()
     fi
 
     cd "$content_path" || exit
+
+    dump_content_type=${dump_id:0:2}
 
     eid_dir=$(find "$content_path" -type f -name ErrorLog)
     # shellcheck disable=SC2181 # need output from `find` in above if cond
