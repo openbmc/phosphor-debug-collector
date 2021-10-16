@@ -38,7 +38,6 @@ declare -x size_dump=""
 declare -x eid_dir=""
 declare -x elog_id=""
 declare -x dump_content_type=""
-declare -x valid_size="unlimited"
 
 # shellcheck disable=SC1091 # source=tools/dreport.d/include.d/dcommon
 . "$DREPORT_SOURCE/dcommon"
@@ -105,7 +104,7 @@ function package()
 
     dump_content_type=$(echo "$name" | cut -d'_' -f 1)
 
-    tar -cvzf "$name" plat_dump/*Sbe*
+    tar -cvzf "$name.tar" plat_dump/*Sbe*
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed tar file"
@@ -123,17 +122,17 @@ function package()
     echo "Adding Dump Header :""$HEADER_EXTENSION"
     ("$HEADER_EXTENSION")
     #Applying header to the tar file and compressing it
-    gzip -c "/tmp/dumpheader_$EPOCHTIME" "$name" > "$name.gz"
+    gzip -c "/tmp/dumpheader_$EPOCHTIME" "$name.tar" > "$name.tar.gz"
     # shellcheck disable=SC2181 # need output from `gzip` in above if cond.
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed tar file"
-        rm -rf "$name" "/tmp/dumpheader_$EPOCHTIME"
-        return $INTERNAL_FAILURE
+        rm -rf "$name.tar" "/tmp/dumpheader_$EPOCHTIME"
+        return "$INTERNAL_FAILURE"
     fi
 
-    mv "$name.gz" "$dump_dir"
+    mv "$name.tar.gz" "$dump_dir"
 
-    rm -rf "/tmp/dumpheader_$EPOCHTIME" "$name"
+    rm -rf "/tmp/dumpheader_$EPOCHTIME" "$name.tar"
     rm -rf "$optional_path"
 
     return "$SUCCESS"
