@@ -28,9 +28,6 @@ declare -rx OP_DUMP="opdump"
 
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
-declare -x dumpSize
-# shellcheck disable=SC2154 # name_dir comes from elsewhere.
-dumpSize=$(stat -c %s "$name_dir.tar.gz")
 declare -x modelNo
 modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
 $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
@@ -74,7 +71,7 @@ function dump_size () {
     #plus the dump header entry in this case
     #dump_header and dump_entry
     # shellcheck disable=SC2154 # name_dir comes from elsewhere.
-    dumpSize=$(stat -c %s "$name_dir.tar.xz")
+    dumpSize=$(stat -c %s "$name_dir.bin")
     sizeDump=$(( dumpSize + DUMP_HEADER_ENTRY_SIZE ))
     printf -v hex "%x" "$sizeDump"
     x=${#hex}
