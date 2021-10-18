@@ -24,10 +24,19 @@ declare -rx SBE_DUMP='30'
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
-declare -x modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+declare -x modelNo
+modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
     $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+declare -rx OP_DUMP="opdump"
+declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
+declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
+declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
+declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
 
-declare -x serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+#Variables
+declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
+declare -x serialNo
+serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
     $INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 
 declare -x dDay
@@ -64,7 +73,7 @@ function dump_size() {
     #plus the dump header entry in this case
     #dump_header and dump_entry
     # shellcheck disable=SC2154 # name_dir comes from elsewhere.
-    dumpSize=$(stat -c %s "$name_dir.tar.xz")
+    dumpSize=$(stat -c %s "$name_dir.bin")
     sizeDump=$(( dumpSize + DUMP_HEADER_ENTRY_SIZE ))
     printf -v hex "%x" "$sizeDump"
     x=${#hex}
