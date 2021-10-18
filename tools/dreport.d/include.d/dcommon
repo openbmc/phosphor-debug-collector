@@ -7,6 +7,7 @@ declare -rx TIME_STAMP="date -u"
 declare -rx UNLIMITED="unlimited"
 declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx CUSTOM_PACKAGING="$DREPORT_INCLUDE/package"
 
 #Error Codes
 declare -rx SUCCESS="0"
