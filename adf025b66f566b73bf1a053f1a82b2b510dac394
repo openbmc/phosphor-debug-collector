@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17879485_c79e2856",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-10-21T12:03:59Z",
+      "side": 1,
+      "message": "Changing the headline to\n\"opdreport: Removing .tar from openpower dump file name\"\n\nYes, we are applying header to all platform dumps(sbe,hostboot,hardware)",
+      "parentUuid": "b76583c5_94ef128a",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d38ab279_bad52b8a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2021-10-21T10:25:18Z",
       "side": 1,
       "message": "Add name chjnage with some explane name old vs new.",
+      "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c82b9129_c00344a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-10-21T12:03:59Z",
+      "side": 1,
+      "message": "Adding info:-\nold dump name -\u003e \u003cdump name\u003e_\u003cdump id\u003e_\u003ctime\u003e.tar.gz\nnew dump name -\u003e \u003cdump name\u003e_\u003cdump id\u003e_\u003ctime\u003e.gz",
+      "parentUuid": "d38ab279_bad52b8a",
       "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
