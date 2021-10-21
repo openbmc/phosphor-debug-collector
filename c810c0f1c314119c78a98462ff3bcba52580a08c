@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f9bc238_cee15380",
+        "filename": "tools/dreport.d/include.d/dcommon",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-10-21T08:15:48Z",
+      "side": 1,
+      "message": "dcommon name seems to besuitable for here.kind of utils.",
+      "revId": "c810c0f1c314119c78a98462ff3bcba52580a08c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
