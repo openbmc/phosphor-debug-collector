@@ -16,6 +16,24 @@
       "revId": "13a9d110e86dedd2e6b98029576cc2d56b90ae4d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "210de37b_19aad0ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2021-10-21T12:12:42Z",
+      "side": 1,
+      "message": "Rephrasing \n\"Issue was seen in testing where flag field was set to 1,\nas a result of which tool was unable to interpret the\nSYSTEM header fields correctly.\nPost this change no issues were seen.\"",
+      "parentUuid": "6bce867c_37e53357",
+      "revId": "13a9d110e86dedd2e6b98029576cc2d56b90ae4d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
