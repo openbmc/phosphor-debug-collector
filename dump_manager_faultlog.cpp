@@ -2,6 +2,7 @@
 
 #include "dump_manager_faultlog.hpp"
 
+#include "dump_utils.hpp"
 #include "faultlog_dump_entry.hpp"
 
 #include <fmt/core.h>
@@ -46,6 +47,13 @@ sdbusplus::message::object_path
         log<level::INFO>("Got additional parameters");
     }
 
+    // Get the originator id and type from params
+    std::string originatorId;
+    originatorTypes originatorType;
+
+    phosphor::dump::extractOriginatorProperties(params, originatorId,
+                                                originatorType);
+
     // Get the id
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
@@ -89,12 +97,13 @@ sdbusplus::message::object_path
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
 
-        entries.insert(std::make_pair(
-            id,
-            std::make_unique<faultlog::Entry>(
-                bus, objPath.c_str(), id, timestamp,
-                std::filesystem::file_size(faultLogFilePath), faultLogFilePath,
-                phosphor::dump::OperationStatus::Completed, *this)));
+        entries.insert(
+            std::make_pair(id, std::make_unique<faultlog::Entry>(
+                                   bus, objPath.c_str(), id, timestamp,
+                                   std::filesystem::file_size(faultLogFilePath),
+                                   faultLogFilePath,
+                                   phosphor::dump::OperationStatus::Completed,
+                                   originatorId, originatorType, *this)));
     }
     catch (const std::invalid_argument& e)
     {

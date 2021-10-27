@@ -49,12 +49,15 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
+    // TODO: Get the originator Id, Type from the persisted file.
+    // For now replacing it with null
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                    phosphor::dump::OperationStatus::Completed, *this)));
+                    phosphor::dump::OperationStatus::Completed, std::string(),
+                    originatorTypes::Internal, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -79,9 +82,10 @@ sdbusplus::message::object_path
     constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
     constexpr auto DIAG_MOD_TARGET = "obmc-host-crash@0.target";
 
-    if (!params.empty())
+    if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
-        log<level::WARNING>("System dump accepts no additional parameters");
+        log<level::WARNING>(
+            "System dump accepts not more than 2 additional parameters");
     }
 
     using NotAllowed =
@@ -95,6 +99,13 @@ sdbusplus::message::object_path
             Reason("System dump can be initiated only when the host is up"));
         return std::string();
     }
+
+    // Get the originator id and type from params
+    std::string originatorId;
+    originatorTypes originatorType;
+
+    phosphor::dump::extractOriginatorProperties(params, originatorId,
+                                                originatorType);
 
     auto b = sdbusplus::bus::new_default();
     auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
@@ -113,7 +124,8 @@ sdbusplus::message::object_path
         entries.insert(std::make_pair(
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                    phosphor::dump::OperationStatus::InProgress, *this)));
+                    phosphor::dump::OperationStatus::InProgress, originatorId,
+                    originatorType, *this)));
     }
     catch (const std::invalid_argument& e)
     {
