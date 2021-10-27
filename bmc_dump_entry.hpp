@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/GeneratedBy/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/BMC/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
@@ -21,6 +22,7 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::GeneratedBy,
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
 
 class Manager;
@@ -53,7 +55,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize,
-          const std::filesystem::path& file,
+          const std::filesystem::path& file, std::string genId,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
@@ -61,6 +63,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
                               status, parent),
         file(file)
     {
+        generatorId(genId);
         // Emit deferred signal.
         this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
     }

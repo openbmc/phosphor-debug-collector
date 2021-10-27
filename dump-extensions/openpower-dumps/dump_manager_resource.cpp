@@ -50,12 +50,15 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
+    // TODO: Get the generator Id from the persisted file.
+    // For now replacing it with null
+
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<resource::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                    std::string(), std::string(),
+                    std::string(), std::string(), std::string(),
                     phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
@@ -93,6 +96,8 @@ sdbusplus::message::object_path
     using Argument = xyz::openbmc_project::Common::InvalidArgument;
     using CreateParameters =
         sdbusplus::com::ibm::Dump::server::Create::CreateParameters;
+    using CreateParametersXYZ =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
 
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
@@ -155,13 +160,39 @@ sdbusplus::message::object_path
                               Argument::ARGUMENT_VALUE("INVALID INPUT"));
     }
 
+    std::string generatorId;
+    iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParametersXYZ::GeneratorId));
+    if (iter == params.end())
+    {
+        log<level::INFO>(
+            "GeneratorId is not provided. Replacing the string with null");
+    }
+    else
+    {
+        try
+        {
+            generatorId = std::get<std::string>(iter->second);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>(
+                "An invalid  generatorId passed. It should be a string",
+                entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("GENERATOR_ID"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<resource::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                    vspString, pwd, phosphor::dump::OperationStatus::InProgress,
-                    *this)));
+                    vspString, pwd, generatorId,
+                    phosphor::dump::OperationStatus::InProgress, *this)));
     }
     catch (const std::invalid_argument& e)
     {
