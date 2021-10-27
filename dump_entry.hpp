@@ -1,5 +1,6 @@
 #pragma once
 
+#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 #include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
@@ -23,6 +24,7 @@ using ServerObject = typename sdbusplus::server::object_t<T>;
 // from sdbusplus::xyz::openbmc_project::Common::server::Progress
 // #ibm-openbmc/2809
 using EntryIfaces = sdbusplus::server::object_t<
+    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
@@ -30,6 +32,9 @@ using EntryIfaces = sdbusplus::server::object_t<
 
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
+
+using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
+    OriginatedBy::OriginatorTypes;
 
 class Manager;
 
@@ -55,14 +60,20 @@ class Entry : public EntryIfaces
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] dumpSize - Dump file size in bytes.
+     *  @param[in] originatorId - Id of the originator of the dump
+     *  @param[in] originatorType - Originator type
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          std::string originatorId, originatorTypes originatorType,
           Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
         parent(parent), id(dumpId)
     {
+        originatorId(originatorId);
+        originatorType(originatorType);
+
         size(dumpSize);
         status(dumpStatus);
 
