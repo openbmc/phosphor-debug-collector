@@ -2,6 +2,7 @@
 
 #include "com/ibm/Dump/Entry/Resource/server.hpp"
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/GeneratedBy/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -18,6 +19,7 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::GeneratedBy,
     sdbusplus::com::ibm::Dump::Entry::server::Resource>;
 
 class Manager;
@@ -53,7 +55,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
-          std::string vspStr, std::string pwd,
+          std::string vspStr, std::string pwd, std::string genId,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
@@ -63,6 +65,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         sourceDumpId(sourceId);
         vspString(vspStr);
         password(pwd);
+        generatorId(genId);
         // Emit deferred signal.
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
     };

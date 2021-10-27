@@ -41,10 +41,45 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
-    if (!params.empty())
+    if (params.size() > 1)
     {
-        log<level::WARNING>("BMC dump accepts no additional parameters");
+        log<level::WARNING>(
+            "BMC dump accepts not more than 1 additional parameter");
     }
+
+    // Get the generator id from params
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+    using CreateParameters =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+
+    std::string generatorId;
+    auto iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::GeneratorId));
+    if (iter == params.end())
+    {
+        log<level::INFO>(
+            "GeneratorId is not provided. Replacing the string with null");
+    }
+    else
+    {
+        try
+        {
+            generatorId = std::get<std::string>(iter->second);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>(
+                "An invalid  generatorId passed. It should be a string",
+                entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("GENERATOR_ID"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
 
@@ -57,7 +92,8 @@ sdbusplus::message::object_path
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, std::string(),
-                    phosphor::dump::OperationStatus::InProgress, *this)));
+                    generatorId, phosphor::dump::OperationStatus::InProgress,
+                    *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -164,12 +200,14 @@ void Manager::createEntry(const std::filesystem::path& file)
     // Entry Object path.
     auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
 
+    // TODO: Get the persisted generator id
+    // For now, replacing it with null
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, stoull(msString),
-                    std::filesystem::file_size(file), file,
+                    std::filesystem::file_size(file), file, std::string(),
                     phosphor::dump::OperationStatus::Completed, *this)));
     }
     catch (const std::invalid_argument& e)
