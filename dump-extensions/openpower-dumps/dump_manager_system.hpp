@@ -8,6 +8,8 @@
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
+#define CREATE_DUMP_MAX_PARAMS 2
+
 namespace openpower
 {
 namespace dump
