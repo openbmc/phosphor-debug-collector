@@ -41,10 +41,18 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
-    if (!params.empty())
+    if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
-        log<level::WARNING>("BMC dump accepts no additional parameters");
+        log<level::WARNING>(
+            "BMC dump accepts not more than 2 additional parameters");
     }
+
+    // Get the originator id and type from params
+    std::string oId;
+    originatorTypes oType;
+
+    phosphor::dump::extractOriginatorProperties(params, oId, oType);
+
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
 
@@ -57,7 +65,8 @@ sdbusplus::message::object_path
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, std::string(),
-                    phosphor::dump::OperationStatus::InProgress, *this)));
+                    phosphor::dump::OperationStatus::InProgress, oId, oType,
+                    *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -164,13 +173,16 @@ void Manager::createEntry(const std::filesystem::path& file)
     // Entry Object path.
     auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
 
+    // TODO: Get the persisted originator id & type
+    // For now, replacing it with null
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timestamp,
                     std::filesystem::file_size(file), file,
-                    phosphor::dump::OperationStatus::Completed, *this)));
+                    phosphor::dump::OperationStatus::Completed, std::string(),
+                    originatorTypes::Internal, *this)));
     }
     catch (const std::invalid_argument& e)
     {
