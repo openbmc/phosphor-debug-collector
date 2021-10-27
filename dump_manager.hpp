@@ -6,6 +6,8 @@
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
+#define CREATE_DUMP_MAX_PARAMS 2
+
 namespace phosphor
 {
 namespace dump
