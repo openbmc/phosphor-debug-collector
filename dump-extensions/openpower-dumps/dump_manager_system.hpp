@@ -4,6 +4,7 @@
 #include "dump_utils.hpp"
 #include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
+#include <com/ibm/Dump/Create/server.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>

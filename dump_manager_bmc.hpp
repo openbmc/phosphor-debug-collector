@@ -5,6 +5,7 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
+#include <com/ibm/Dump/Create/server.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include <filesystem>
