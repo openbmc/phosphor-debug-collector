@@ -46,6 +46,67 @@ sdbusplus::message::object_path
         log<level::INFO>("Got additional parameters");
     }
 
+    // Get the originator id from params
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+    using CreateParameters =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+
+    std::string oId;
+    auto iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::OriginatorId));
+    if (iter == params.end())
+    {
+        log<level::INFO>(
+            "OriginatorId is not provided. Replacing the string with null");
+    }
+    else
+    {
+        try
+        {
+            oId = std::get<std::string>(iter->second);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>(
+                "An invalid  originatorId passed. It should be a string",
+                entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_ID"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
+    originatorTypes oType;
+    iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::OriginatorType));
+    if (iter == params.end())
+    {
+        log<level::INFO>("OriginatorType is not provided. Replacing the string "
+                         "with the default value");
+        oType = originatorTypes::Internal;
+    }
+    else
+    {
+        try
+        {
+            std::string type = std::get<std::string>(iter->second);
+            oType = sdbusplus::xyz::openbmc_project::Common::server::
+                OriginatedBy::convertOriginatorTypesFromString(type);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>("An invalid  originatorType passed",
+                            entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_TYPE"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
     // Get the id
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
@@ -89,12 +150,13 @@ sdbusplus::message::object_path
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
 
-        entries.insert(std::make_pair(
-            id,
-            std::make_unique<faultlog::Entry>(
-                bus, objPath.c_str(), id, timestamp,
-                std::filesystem::file_size(faultLogFilePath), faultLogFilePath,
-                phosphor::dump::OperationStatus::Completed, *this)));
+        entries.insert(
+            std::make_pair(id, std::make_unique<faultlog::Entry>(
+                                   bus, objPath.c_str(), id, timestamp,
+                                   std::filesystem::file_size(faultLogFilePath),
+                                   faultLogFilePath,
+                                   phosphor::dump::OperationStatus::Completed,
+                                   oId, oType, *this)));
     }
     catch (const std::invalid_argument& e)
     {
