@@ -41,10 +41,73 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
-    if (!params.empty())
+    if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
-        log<level::WARNING>("BMC dump accepts no additional parameters");
+        log<level::WARNING>(
+            "BMC dump accepts not more than 2 additional parameters");
     }
+
+    // Get the originator id and type from params
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+    using CreateParameters =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+
+    std::string oId;
+    auto iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::OriginatorId));
+    if (iter == params.end())
+    {
+        log<level::INFO>(
+            "OriginatorId is not provided. Replacing the string with null");
+    }
+    else
+    {
+        try
+        {
+            oId = std::get<std::string>(iter->second);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>(
+                "An invalid  originatorId passed. It should be a string",
+                entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_ID"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
+    originatorTypes oType;
+    iter = params.find(
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParameters::OriginatorType));
+    if (iter == params.end())
+    {
+        log<level::INFO>("OriginatorType is not provided. Replacing the string "
+                         "with the default value");
+        oType = originatorTypes::Internal;
+    }
+    else
+    {
+        try
+        {
+            std::string type = std::get<std::string>(iter->second);
+            oType = sdbusplus::xyz::openbmc_project::Common::server::
+                OriginatedBy::convertOriginatorTypesFromString(type);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>("An invalid  originatorType passed",
+                            entry("ERROR_MSG=%s", e.what()));
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_TYPE"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
 
@@ -57,7 +120,8 @@ sdbusplus::message::object_path
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, std::string(),
-                    phosphor::dump::OperationStatus::InProgress, *this)));
+                    phosphor::dump::OperationStatus::InProgress, oId, oType,
+                    *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -164,13 +228,16 @@ void Manager::createEntry(const std::filesystem::path& file)
     // Entry Object path.
     auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
 
+    // TODO: Get the persisted originator id & type
+    // For now, replacing it with null
     try
     {
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timestamp,
                     std::filesystem::file_size(file), file,
-                    phosphor::dump::OperationStatus::Completed, *this)));
+                    phosphor::dump::OperationStatus::Completed, std::string(),
+                    originatorTypes::Internal, *this)));
     }
     catch (const std::invalid_argument& e)
     {
