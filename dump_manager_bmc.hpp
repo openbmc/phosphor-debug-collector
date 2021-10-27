@@ -9,6 +9,8 @@
 
 #include <filesystem>
 
+#define CREATE_DUMP_MAX_PARAMS 2
+
 namespace phosphor
 {
 namespace dump
