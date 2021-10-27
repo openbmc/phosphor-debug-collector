@@ -49,11 +49,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
-          phosphor::dump::OperationStatus status,
-          phosphor::dump::Manager& parent) :
+          phosphor::dump::OperationStatus status, std::string oId,
+          originatorTypes oType, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              status, parent),
+                              status, oId, oType, parent),
         file(file)
     {
         // Emit deferred signal.

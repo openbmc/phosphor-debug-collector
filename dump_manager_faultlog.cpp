@@ -8,6 +8,7 @@
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <sdbusplus/exception.hpp>
 #include <xyz/openbmc_project/Common/File/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
@@ -45,6 +46,12 @@ sdbusplus::message::object_path
     {
         log<level::INFO>("Got additional parameters");
     }
+
+    // Get the originator id and type from params
+    std::string oId;
+    originatorTypes oType;
+
+    phosphor::dump::extractOriginatorProperties(params, oId, oType);
 
     // Get the id
     auto id = lastEntryId + 1;
@@ -89,12 +96,13 @@ sdbusplus::message::object_path
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
 
-        entries.insert(std::make_pair(
-            id,
-            std::make_unique<faultlog::Entry>(
-                bus, objPath.c_str(), id, timestamp,
-                std::filesystem::file_size(faultLogFilePath), faultLogFilePath,
-                phosphor::dump::OperationStatus::Completed, *this)));
+        entries.insert(
+            std::make_pair(id, std::make_unique<faultlog::Entry>(
+                                   bus, objPath.c_str(), id, timestamp,
+                                   std::filesystem::file_size(faultLogFilePath),
+                                   faultLogFilePath,
+                                   phosphor::dump::OperationStatus::Completed,
+                                   oId, oType, *this)));
     }
     catch (const std::invalid_argument& e)
     {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_manager.hpp"
+#include "dump_utils.hpp"
 
 #include <fmt/core.h>
 
