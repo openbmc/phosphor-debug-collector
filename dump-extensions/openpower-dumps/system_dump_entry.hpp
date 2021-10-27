@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -16,7 +17,11 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
+
+using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
+    OriginatedBy::OriginatorTypes;
 
 class Manager;
 
@@ -48,6 +53,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      */
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          std::string oId, originatorTypes oType,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
@@ -55,6 +61,8 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
                               status, parent)
     {
         sourceDumpId(sourceId);
+        originatorId(oId);
+        originatorType(oType);
         // Emit deferred signal.
         this->openpower::dump::system::EntryIfaces::emit_object_added();
     };
