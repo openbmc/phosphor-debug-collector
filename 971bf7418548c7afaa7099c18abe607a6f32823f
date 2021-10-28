@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "79a55fd5_e1ba75ac",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2021-10-28T19:16:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e61c5e8_d390bd0b",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5eea86fb_7ab4c291",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b38b2335_170136ee",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2021-10-28T19:16:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5eea86fb_7ab4c291",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
