@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60d08748_4d12e70e",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2021-10-28T10:20:54Z",
+      "side": 1,
+      "message": "This is IBM only so please add compilation flag",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
