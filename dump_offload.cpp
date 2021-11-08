@@ -238,6 +238,7 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
                                     e.what(), writePath.c_str(), dumpId)
                             .c_str());
         elog<Write>(ErrnoWrite(err), PathWrite(writePath.c_str()));
+        throw std::runtime_error("Failed to offload");
     }
     std::remove(writePath.c_str());
     return;
