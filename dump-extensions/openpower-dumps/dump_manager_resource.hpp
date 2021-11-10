@@ -60,7 +60,16 @@ class Manager :
      *  @param[in] dumpId - Id from the source of the dump.
      *  @param[in] size - Size of the dump.
      */
-    void notify(uint32_t dumpId, uint64_t size) override;
+    void notify(uint32_t dumpId, uint64_t size) override
+    {}
+
+    /** @brief Notify the resource dump manager about creation of a new dump.
+     *  @param[in] dumpId - Id from the source of the dump.
+     *  @param[in] size - Size of the dump.
+     *  @param[in] token - A token to find the dump to update
+     */
+    void notifyWithToken(uint32_t dumpId, uint64_t size,
+                         uint32_t token) override;
 
     /** @brief Implementation for CreateDump
      *  Method to create Dump.

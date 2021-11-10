@@ -22,7 +22,7 @@ using namespace phosphor::logging;
 using InternalFailure =
     sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
-void Manager::notify(uint32_t dumpId, uint64_t size)
+void Manager::notifyWithToken(uint32_t dumpId, uint64_t size, uint32_t token)
 {
     // Get the timestamp
     std::time_t timeStamp = std::time(nullptr);
@@ -38,8 +38,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             dynamic_cast<openpower::dump::resource::Entry*>(entry.second.get());
         if ((resEntry->status() ==
              phosphor::dump::OperationStatus::InProgress) &&
-            ((resEntry->sourceDumpId() == dumpId) ||
-             (resEntry->sourceDumpId() == INVALID_SOURCE_ID)))
+            (resEntry->token() == token))
         {
             resEntry->update(timeStamp, size, dumpId);
             return;
