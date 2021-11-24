@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b1372df_3e205587",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "These functions will throw the exception, I think we should handle it else we will lose all dumps to restore if anyone is failed.\n\nSince we are using the stored file so it might be a chance to corrupt/change the file name by someone better let\u0027s handle it because we need to restore how much we can.",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 190,
+        "endChar": 46
+      },
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23f75dc5_3f7d6398",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "system::Entry?",
+      "range": {
+        "startLine": 193,
+        "startChar": 29,
+        "endLine": 193,
+        "endChar": 34
+      },
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7406f89f_2b327d11",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "Same as LN 190 comment.\nI think you can add one try and catch block.",
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4b984fb_567d19de",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "ERROR?",
+      "range": {
+        "startLine": 201,
+        "startChar": 23,
+        "endLine": 201,
+        "endChar": 30
+      },
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d223097_4d5e0a3a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "Add the id/file path that will help us to debug.",
+      "range": {
+        "startLine": 201,
+        "startChar": 51,
+        "endLine": 201,
+        "endChar": 61
+      },
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c617ac9e_a162ab9a",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "I think you are using this constructor for the restore function so the D-Bus signal emission is required here?\n\nIn the restore path, if we want to emit the signal then we need to emit after the properties deserialization right?",
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}

@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5bf00fce_a3657294",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "Looks you are using the newly created constructor for restore right?",
+      "parentUuid": "6cb666cf_f82afcdd",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30751acb_a4ba711c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 5
@@ -242,6 +266,24 @@
       "side": 1,
       "message": "There also we need to iterate(i.e. using map), thats why using vector as its easy.",
       "parentUuid": "30751acb_a4ba711c",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9553e35e_2a9b2f24",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "Agree but, we can use the existing map itself instead of a new vector. I will leave it to you, logic seems correct and not a blocker comment, just a suggestion comment.",
+      "parentUuid": "cb3f6841_75a03e7f",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -300,6 +342,24 @@
       "side": 1,
       "message": "Sorry unable to get this comment. \nWe are restoring properties in deserial method i.e. LN153.",
       "parentUuid": "34dddaf7_c713dcad",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b12f377_447773ed",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "Sorry for the confusion.\n\nI think you are emitting the D-Bus object creation signal in the above object constructor but, you are deserializing properties later and not emitting the signal for property value change so the watcher doesn\u0027t know it right?\n\nIn the restore path, if we want to emit the signal then we need to emit after the properties deserialization right?",
+      "parentUuid": "00703ef3_e42f0ac3",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -458,6 +518,24 @@
     },
     {
       "key": {
+        "uuid": "0bb5f1ad_04710443",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "I got it, it is needed here but, checking whether we can add in the base entry itself?\n\nFor me, it looks like a common member for all types of dump, and even you added in the resource dump serialization patch (https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/47234/1/dump-extensions/openpower-dumps/resource_dump_entry.hpp#11)",
+      "parentUuid": "82339edb_e7a82198",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "389d360a_cb61321b",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
         "patchSetId": 5
@@ -487,6 +565,24 @@
       "side": 1,
       "message": "No not needed.",
       "parentUuid": "389d360a_cb61321b",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82877480_3ccb4ec7",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "FYI, It is needed but it is already added\nFYR: https://github.com/openbmc/phosphor-debug-collector/commit/abbe15932f4d20f681969afb2296a8b2832ce933",
+      "parentUuid": "e512bc84_622d09d2",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -557,6 +653,24 @@
       "side": 1,
       "message": "load is at the time of restoring, we dont need to emit signal at that time.",
       "parentUuid": "07fadfca_14166d41",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "736064ce_03e35fa4",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-11-24T03:24:27Z",
+      "side": 1,
+      "message": "But, you are emitting the D-Bus object creation signal right?",
+      "parentUuid": "b35a7e00_a2ace87a",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
