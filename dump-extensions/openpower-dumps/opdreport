@@ -31,6 +31,8 @@ Options:
 #CONSTANTS
 declare -rx TYPE_OPDUMP="opdump"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
+declare -rx HBDUMP_ID="20000000"
+declare -rx SBEDUMP_ID="30000000"
 
 #VARIABLES
 declare -x dump_type=$TYPE_OPDUMP
@@ -53,7 +55,14 @@ function initialize()
         echo "Error: Name of the dump is not provided."
         return "$RESOURCE_UNAVAILABLE";
     else
-        # shellcheck disable=SC2154 # dump_id comes from elsewhere
+        if [ "$name" = "hbdump" ]; then
+            # shellcheck disable=SC2154 # dump_id comes from elsewhere
+            dump_id=$((HBDUMP_ID + dump_id))
+        elif [ "$name" = "sbedump" ]; then
+            # shellcheck disable=SC2154 # dump_id comes from elsewhere
+            dump_id=$((SBEDUMP_ID + dump_id))
+        fi
+        # shellcheck disable=SC2154
         name="${name}_${dump_id}_${EPOCHTIME}"
     fi
 
