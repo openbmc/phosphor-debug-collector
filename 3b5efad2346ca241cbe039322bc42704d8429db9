@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af379456_4930da46",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-08T10:37:01Z",
+      "side": 1,
+      "message": "as I assume path is base class variable it need to be initialized in the initializer list. \ni.e construct base class objects first and then deriver class objects.",
+      "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
