@@ -50,7 +50,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] fileSize - Dump file size in bytes.
-     *  @param[in] file - Name of dump file.
+     *  @param[in] file - Absolute path to the dump file.
      *  @param[in] status - status of the dump.
      *  @param[in] originatorId - Id of the originator of the dump
      *  @param[in] originatorType - Originator type
@@ -63,8 +63,8 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              status, originatorId, originatorType, parent),
-        file(file)
+                              file, status, originatorId, originatorType,
+                              parent)
     {
         // Emit deferred signal.
         this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
@@ -98,10 +98,6 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         // #ibm-openbmc/2597
         completedTime(timeStamp);
     }
-
-  private:
-    /** @Dump file name */
-    std::filesystem::path file;
 };
 
 } // namespace bmc
