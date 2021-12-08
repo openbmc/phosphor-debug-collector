@@ -52,17 +52,13 @@ class Entry : virtual public phosphor::dump::Entry
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              status, originatorId, originatorType, parent),
-        file(file)
+                              file, status, originatorId, originatorType,
+                              parent)
     {}
 
     /** @brief Delete this d-bus object.
      */
     void delete_() override;
-
-  private:
-    /** @Dump file path */
-    std::filesystem::path file;
 };
 
 } // namespace faultlog
