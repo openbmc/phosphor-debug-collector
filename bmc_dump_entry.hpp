@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/FilePath/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/BMC/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
@@ -21,7 +22,8 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
 
 using EntryIfaces = sdbusplus::server::object::object<
-    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
+    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
+    sdbusplus::xyz::openbmc_project::Common::server::FilePath>;
 
 class Manager;
 
@@ -58,9 +60,9 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), true),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              status, parent),
-        file(file)
+                              status, parent)
     {
+        path(file);
         // Emit deferred signal.
         this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
     }
@@ -88,15 +90,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         size(fileSize);
         // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);
-        file = filePath;
+        path(filePath);
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
     }
-
-  private:
-    /** @Dump file name */
-    std::filesystem::path file;
 };
 
 } // namespace bmc
