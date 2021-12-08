@@ -65,10 +65,11 @@ class Entry : public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          uint64_t timeStamp, uint64_t dumpSize,
+          const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
-        parent(parent), id(dumpId)
+        parent(parent), id(dumpId), file(file)
     {
         originatorId(originId);
         originatorType(originType);
@@ -115,12 +116,71 @@ class Entry : public EntryIfaces
         return id;
     }
 
+    /** @brief Method to get the file handle of the dump
+     *  @returns A Unix file descriptor to the dump file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::File::Error::Open on
+     * failure to open the file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::Error::Unavailable if
+     * the file string is empty
+     */
+    sdbusplus::message::unix_fd Entry::GetFileHandle() override
+    {
+        if (file.empty())
+        {
+            lg2::error("Failed to get file handle: File string is empty.");
+            elog<xyz::openbmc_project::Common::Error::Unavailable>();
+        }
+
+        int fd = open(file.c_str(), O_RDONLY | O_NONBLOCK);
+        if (fd == -1)
+        {
+            lg2::error("Failed to open dump file: id: {ID} error: {ERROR}",
+                       "ID", id, "ERROR", std::strerror(errno));
+            elog<xyz::openbmc_project::Common::File::Error::Open>();
+        }
+
+        // Create a new Defer event source for closing this fd
+        sdeventplus::Event event = sdeventplus::Event::get_default();
+        auto eventSource = std::make_unique<sdeventplus::source::Defer>(
+            event, [this, fd](auto& /*source*/) { closeFD(fd); });
+
+        // Insert the file descriptor and corresponding event source into the
+        // map
+        fdCloseEventSources.emplace(fd, std::move(eventSource));
+
+        return fd;
+    }
+
+    /** @brief Closes the file descriptor and removes the corresponding event
+     * source.
+     * @param[in] fd - The file descriptor to close.
+     *
+     * This function closes the given file descriptor and removes the
+     * corresponding event source from the fdCloseEventSources map. The event
+     * source's unique pointer is automatically deallocated when it is erased
+     * from the map.
+     */
+    void Entry::closeFD(int fd)
+    {
+        close(fd);
+        fdCloseEventSources.erase(fd);
+    }
+
   protected:
     /** @brief This entry's parent */
     Manager& parent;
 
     /** @brief This entry's id */
     uint32_t id;
+
+    /** @Dump file name */
+    std::filesystem::path file;
+
+    /**
+     * @brief A map of file descriptors and corresponding event sources.
+     */
+    std::map<int, std::unique_ptr<sdeventplus::source::Defer>>
+        fdCloseEventSources;
 };
 
 } // namespace dump
