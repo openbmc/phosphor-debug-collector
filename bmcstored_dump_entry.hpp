@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/FilePath/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -14,6 +15,11 @@ namespace dump
 namespace bmc_stored
 {
 
+template <typename T>
+using ServerObject = typename sdbusplus::server::object::object<T>;
+using FileIfaces = sdbusplus::server::object::object<
+    sdbusplus::xyz::openbmc_project::Common::server::FilePath>;
+
 class Manager;
 
 /** @class Entry
@@ -21,7 +27,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : public phosphor::dump::Entry
+class Entry : public phosphor::dump::Entry, public FileIfaces
 {
   public:
     Entry() = delete;
@@ -49,8 +55,10 @@ class Entry : public phosphor::dump::Entry
           phosphor::dump::Manager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               status, parent),
-        file(file)
-    {}
+        FileIfaces(bus, objPath.c_str(), true)
+    {
+        path(file);
+    }
 
     /** @brief Delete this d-bus object.
      */
@@ -75,7 +83,7 @@ class Entry : public phosphor::dump::Entry
         size(fileSize);
         // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);
-        file = filePath;
+        path(filePath);
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
