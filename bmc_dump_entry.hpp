@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "xyz/openbmc_project/Common/FilePath/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/BMC/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
@@ -21,7 +22,8 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
 using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
+    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
+    sdbusplus::xyz::openbmc_project::Common::server::FilePath>;
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
@@ -50,7 +52,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
      *  @param[in] fileSize - Dump file size in bytes.
-     *  @param[in] file - Name of dump file.
+     *  @param[in] file - Absolute path to the dump file.
      *  @param[in] status - status of the dump.
      *  @param[in] originatorId - Id of the originator of the dump
      *  @param[in] originatorType - Originator type
@@ -63,9 +65,9 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
-                              status, originatorId, originatorType, parent),
-        file(file)
+                              status, originatorId, originatorType, parent)
     {
+        path(file);
         // Emit deferred signal.
         this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
     }
@@ -93,15 +95,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
         size(fileSize);
         // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);
-        file = filePath;
+        path(filePath);
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
     }
-
-  private:
-    /** @Dump file name */
-    std::filesystem::path file;
 };
 
 } // namespace bmc
