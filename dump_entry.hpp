@@ -8,6 +8,8 @@
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
+#include <sdeventplus/event.hpp>
+#include <sdeventplus/source/event.hpp>
 
 #include <filesystem>
 
@@ -65,10 +67,11 @@ class Entry : public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
+          uint64_t timeStamp, uint64_t dumpSize,
+          const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
-        parent(parent), id(dumpId)
+        parent(parent), id(dumpId), file(file)
     {
         originatorId(originId);
         originatorType(originType);
@@ -115,12 +118,43 @@ class Entry : public EntryIfaces
         return id;
     }
 
+    /** @brief Method to get the file handle of the dump
+     *  @returns A Unix file descriptor to the dump file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::File::Error::Open on
+     *  failure to open the file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::Error::Unavailable if
+     *  the file string is empty
+     */
+    sdbusplus::message::unix_fd getFileHandle() override;
+
   protected:
     /** @brief This entry's parent */
     Manager& parent;
 
     /** @brief This entry's id */
     uint32_t id;
+
+    /** @Dump file name */
+    std::filesystem::path file;
+
+  private:
+    /** @brief Closes the file descriptor and removes the corresponding event
+     * source.
+     * @param[in] fd - The file descriptor to close.
+     *
+     */
+    void closeFD()
+    {
+        if (fdCloseEventSource)
+        {
+            close(fdCloseEventSource->first);
+            fdCloseEventSource.reset();
+        }
+    }
+
+    /* @brief A pair of file descriptor and corresponding event source. */
+    std::optional<std::pair<int, std::unique_ptr<sdeventplus::source::Defer>>>
+        fdCloseEventSource;
 };
 
 } // namespace dump
