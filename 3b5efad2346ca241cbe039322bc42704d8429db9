@@ -16,6 +16,24 @@
       "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2e3bdb7_89e83e9e",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-09T08:05:24Z",
+      "side": 1,
+      "message": "reverting as it is member variable and no constructor I guess cannot set",
+      "parentUuid": "af379456_4930da46",
+      "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
