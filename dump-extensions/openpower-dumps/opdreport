@@ -38,6 +38,8 @@ declare -x size_dump=""
 declare -x eid_dir=""
 declare -x elog_id=""
 declare -x dump_content_type=""
+declare -x FILE_SCRIPT="$DREPORT_SOURCE/include.d/gendumpinfo"
+declare -x YAML_FILE='/tmp/info.yaml'
 
 # shellcheck disable=SC1091 # source=tools/dreport.d/include.d/dcommon
 . "$DREPORT_SOURCE/dcommon"
@@ -94,6 +96,10 @@ function package()
 
     cd "$optional_path" || exit
 
+    dump_content_type=$(echo "$name" | cut -d'_' -f 1)
+
+    ("$FILE_SCRIPT")
+
     eid_dir=$(find "$optional_path" -type f -name ErrorLog)
     # shellcheck disable=SC2181 # need output from `find` in above if cond
     if [ $? -ne 0 ]; then
@@ -102,9 +108,7 @@ function package()
         elog_id=$(cut -d' ' -f1 "$eid_dir")
     fi
 
-    dump_content_type=$(echo "$name" | cut -d'_' -f 1)
-
-    tar -cvzf "$name" plat_dump/*Sbe*
+    tar -cvzf "$name" plat_dump/*Sbe* info.yaml
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed tar file"
