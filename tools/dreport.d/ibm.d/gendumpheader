@@ -437,7 +437,8 @@ function mainstore_dump_section () {
 #hardwareCollectionStartTime  8
 #mdstTableSize           4
 #payloadState            4
-#reservedForCreator      170
+#creator BMC             1
+#reservedForCreator      169
 function plat_dump_header () {
     printf "SYS DUMP" >> "$FILE"
     dump_time
@@ -455,7 +456,9 @@ function plat_dump_header () {
     get_eid
     add_null 500
     content_type # 4 bytes
-    add_null 412
+    add_null 44
+    printf '\x01' >> "$FILE"  # BMC indicator
+    add_null 367
 }
 
 
