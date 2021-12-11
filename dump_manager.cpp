@@ -1,9 +1,16 @@
 #include "dump_manager.hpp"
 
+#include <fmt/core.h>
+
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/elog.hpp>
+
 namespace phosphor
 {
 namespace dump
 {
+
+using namespace phosphor::logging;
 
 void Manager::erase(uint32_t entryId)
 {
@@ -12,6 +19,9 @@ void Manager::erase(uint32_t entryId)
 
 void Manager::deleteAll()
 {
+
+    log<level::INFO>("dump_manager deleteAll");
+
     auto iter = entries.begin();
     while (iter != entries.end())
     {
