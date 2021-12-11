@@ -17,6 +17,8 @@ using namespace phosphor::logging;
 
 void Entry::delete_()
 {
+    log<level::INFO>("In bmc_dump_entry.cpp delete_()");
+
     // Delete Dump file from Permanent location
     try
     {

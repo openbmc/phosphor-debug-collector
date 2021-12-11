@@ -80,9 +80,26 @@ option('host-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
 
+# Try enable
 option('openpower-dumps-extension', type: 'feature',
         value : 'disabled',
         description : 'Enable Open Power specific dumps'
+      )
+# Fault log
+
+option('FAULTLOG_DUMP_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/faultlogs/',
+        description : 'Directory where fault logs are placed'
+      )
+
+option('FAULTLOG_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/faultlog',
+        description : 'The fault log dump manager D-Bus object path'
+      )
+
+option('FAULTLOG_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/faultlog/entry',
+        description : 'The fault log dump entry D-Bus object path'
       )
 
 # Configurations for openpower-dump extension
