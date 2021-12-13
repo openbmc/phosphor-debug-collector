@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bde1adc2_b04e2cf4",
+        "filename": "dump_manager.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-13T06:34:01Z",
+      "side": 1,
+      "message": "parameters and doc differ event is not required and startingid is missing",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 66
+      },
+      "revId": "a7af014ceb8f15856c5cb02f4ee310589f7a34aa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
