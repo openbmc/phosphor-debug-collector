@@ -56,6 +56,35 @@ class Manager : public phosphor::dump::Manager
         minDumpSize(minDumpSize), allocatedSize(allocatedSize)
     {}
 
+    /** @brief Constructor to put object onto bus at a dbus path.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] event - Dump manager sd_event loop.
+     *  @param[in] path - Path to attach at.
+     *  @param[in] baseEntryPath - Base path for dump entry.
+     *  @param[in] startingId - Starting id of the dump
+     *  @param[in] filePath - Path where the dumps are stored.
+     *  @param[in] dumpFilenameFormat - Format of dump filename in regex
+     *  @param[in] maxDumpSize - Maximum size of the dump
+     *  @param[in] minDumpSize - Minimum possible size of a usable dump.
+     *  @param[in] allocatedSize - Total size allocated for the dumps
+     */
+    Manager(sdbusplus::bus::bus& bus, const EventPtr& event, const char* path,
+            const std::string& baseEntryPath, uint32_t startingId,
+            const char* filePath, const std::string dumpFilenameFormat,
+            const uint64_t maxDumpSize, const uint64_t minDumpSize,
+            const uint64_t allocatedSize) :
+        phosphor::dump::Manager(bus, path, baseEntryPath, startingId),
+        dumpDir(filePath), eventLoop(event.get()),
+        dumpWatch(
+            eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE | IN_CREATE, EPOLLIN,
+            filePath,
+            std::bind(std::mem_fn(
+                          &phosphor::dump::bmc_stored::Manager::watchCallback),
+                      this, std::placeholders::_1)),
+        dumpFilenameFormat(dumpFilenameFormat), maxDumpSize(maxDumpSize),
+        minDumpSize(minDumpSize), allocatedSize(allocatedSize)
+    {}
+
     /** @brief Implementation of dump watch call back
      *  @param [in] fileInfo - map of file info  path:event
      */
