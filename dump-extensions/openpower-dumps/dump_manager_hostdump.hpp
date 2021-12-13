@@ -71,6 +71,7 @@ class Manager :
      *  @param[in] event - Dump manager sd_event loop.
      *  @param[in] path - Path to attach at.
      *  @param[in] baseEntryPath - Base path for dump entry.
+     *  @param[in] startingId - Starting dump id
      *  @param[in] filePath - Path where the dumps are stored.
      *  @param[in] dumpNamePrefix - Prefix to the dump filename
      *  @param[in] dumpTempFileDir - Temporary location of dump files
@@ -80,12 +81,13 @@ class Manager :
      */
     Manager(sdbusplus::bus::bus& bus, const phosphor::dump::EventPtr& event,
             const char* path, const std::string& baseEntryPath,
-            const char* filePath, const std::string dumpNamePrefix,
-            const std::string dumpTempFileDir, const uint64_t maxDumpSize,
-            const uint64_t minDumpSize, const uint64_t allocatedSize) :
+            uint32_t startingId, const char* filePath,
+            const std::string dumpNamePrefix, const std::string dumpTempFileDir,
+            const uint64_t maxDumpSize, const uint64_t minDumpSize,
+            const uint64_t allocatedSize) :
         CreateIface(bus, path),
         phosphor::dump::bmc_stored::Manager(
-            bus, event, path, baseEntryPath, filePath,
+            bus, event, path, baseEntryPath, startingId, filePath,
             dumpNamePrefix + HOST_DUMP_COMMON_FILENAME_PART, maxDumpSize,
             minDumpSize, allocatedSize),
         dumpNamePrefix(dumpNamePrefix), dumpTempFileDir(dumpTempFileDir)
