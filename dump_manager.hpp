@@ -45,6 +45,18 @@ class Manager : public Iface
         bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
     {}
 
+    /** @brief Constructor to put object onto bus at a dbus path.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] path - Path to attach at.
+     *  @param[in] baseEntryPath - Base path of the dump entry.
+     *  @param[in] startingId - Starting id of the dump.
+     */
+    Manager(sdbusplus::bus::bus& bus, const char* path,
+            const std::string& baseEntryPath, uint32_t startingId) :
+        Iface(bus, path, true),
+        bus(bus), lastEntryId(startingId), baseEntryPath(baseEntryPath)
+    {}
+
     /** @brief Construct dump d-bus objects from their persisted
      *        representations.
      */
