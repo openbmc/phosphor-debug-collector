@@ -149,6 +149,10 @@ option('HOSTBOOT_DUMP_TOTAL_SIZE', type : 'integer',
         value : 409600,
         description : 'Total size of the dump in kilo bytes'
       )
+option('HOSTBOOT_DUMP_START_ID', type : 'integer',
+        value : 2000000,
+        description : 'Starting id of Hostboot Dump'
+      )
 
 # Hardware dump options
 
@@ -186,6 +190,10 @@ option('HARDWARE_DUMP_TOTAL_SIZE', type : 'integer',
         value : 409600,
         description : 'Total size of the hardware dump in kilo bytes'
       )
+option('HARDWARE_DUMP_START_ID', type : 'integer',
+        value : 0,
+        description : 'Starting id of Hardware Dump'
+      )
 
 # SBE dump options
 
@@ -222,4 +230,8 @@ option('SBE_DUMP_MIN_SPACE_REQD', type : 'integer',
 option('SBE_DUMP_TOTAL_SIZE', type : 'integer',
         value : 409600,
         description : 'Total size of the SBE dump in kilo bytes'
+      )
+option('SBE_DUMP_START_ID', type : 'integer',
+        value : 3000000,
+        description : 'Starting id of SBE Dump'
       )
