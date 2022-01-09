@@ -41,6 +41,7 @@ declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
 declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
 declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx FILE_SCRIPT="$DREPORT_SOURCE/include.d/gendumpinfo"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -127,6 +128,10 @@ function package()
     dump_content_type=${dump_id:0:2}
 
     eid_dir=$(find "$content_path" -type f -name ErrorLog)
+
+    ("$FILE_SCRIPT")
+
+    eid_dir=$(find "$content_path" -type f -name ErrorLog)
     # shellcheck disable=SC2181 # need output from `find` in above if cond
     if [ $? -ne 0 ]; then
         echo "Could not find ErrorLog file"
@@ -134,7 +139,7 @@ function package()
         elog_id=$(cut -d' ' -f1 "$eid_dir")
     fi
 
-    tar -cvzf "$name" plat_dump/*Sbe*
+    tar -cvzf "$name" plat_dump/*Sbe* info.yaml
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed tar file"
