@@ -1,0 +1,59 @@
+#!/bin/bash
+
+declare -rx DUMP_MANAGER='xyz.openbmc_project.Dump.Manager'
+declare -rx HB_DUMP_PATH='/xyz/openbmc_project/dump/hostboot/entry'
+declare -rx HW_DUMP_PATH='/xyz/openbmc_project/dump/hardware/entry'
+declare -rx SBE_DUMP_PATH='/xyz/openbmc_project/dump/sbe/entry'
+declare -rx DUMP_PROP='xyz.openbmc_project.Common.Progress'
+
+#Fetching the driver
+declare -x DRIVER=$(cat /etc/os-release | grep VERSION_ID | \
+awk -F = '{ print $2}' | cut -d'(' -f 1)
+
+declare -x START_TIME=''
+declare -x END_TIME=''
+
+#Function to get the dump start and completed time
+function dump_time_details () {
+    if [ "$dump_content_type" = "hbdump" ]; then
+        START_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/$dump_id \
+                $DUMP_PROP StartTime | awk '{print $2}')
+        END_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/$dump_id \
+                $DUMP_PROP CompletedTime | awk '{print $2}')
+    elif [ "$dump_content_type" = "hwdump" ]; then
+        START_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/$dump_id \
+                $DUMP_PROP StartTime | awk '{print $2}')
+        END_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/$dump_id \
+                $DUMP_PROP CompletedTime | awk '{print $2}')
+    elif [ "$dump_content_type" = "sbedump" ]; then
+        START_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/$dump_id \
+                $DUMP_PROP StartTime | awk '{print $2}')
+        END_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/$dump_id \
+                $DUMP_PROP CompletedTime | awk '{print $2}')
+    fi
+
+    if [ $? -ne 0 ]; then
+        echo "Could not fetch start time for $dump_id"
+        return $INTERNAL_FAILURE
+    fi
+
+    start=$(date -d @$START_TIME +'%Y-%m-%d %H:%M:%S')
+    end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
+    printf "dump-start-time: %s\n" "$start" >> $YAML_FILE
+    printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
+}
+
+#Function to write data to info.yaml file
+function write_to_info_file() {
+    printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> $YAML_FILE
+    printf "%s\n" "%YAML 1.2" >> $YAML_FILE
+    printf "%s\n\n" "---" >> $YAML_FILE
+    printf "generation : p10\n" >> $YAML_FILE
+    printf "driver: %s\n" "$DRIVER" >> $YAML_FILE
+    dump_time_details
+}
+
+#Run main
+write_to_info_file
+
+mv $YAML_FILE $optional_path
