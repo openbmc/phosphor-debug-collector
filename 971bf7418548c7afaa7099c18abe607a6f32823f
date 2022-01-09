@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "3e61c5e8_d390bd0b",
         "filename": "dump_manager_bmc.cpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "This is not required for general BMC dump create request",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "79a55fd5_e1ba75ac",
         "filename": "dump_manager_bmc.cpp",
@@ -32,10 +33,28 @@
       "message": "Ack",
       "parentUuid": "3e61c5e8_d390bd0b",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a11e079_c2a7a8e0",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-01-09T06:37:04Z",
+      "side": 1,
+      "message": "By this, it means it accepts 0/1 parameter for the create dump call.\nIsnt this fine?",
+      "parentUuid": "79a55fd5_e1ba75ac",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "5eea86fb_7ab4c291",
         "filename": "dump_manager_bmc.cpp",
@@ -49,10 +68,10 @@
       "side": 1,
       "message": "Same comment as line 44",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b38b2335_170136ee",
         "filename": "dump_manager_bmc.cpp",
@@ -67,10 +86,28 @@
       "message": "Ack",
       "parentUuid": "5eea86fb_7ab4c291",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c57fae_293dba44",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-01-09T06:37:04Z",
+      "side": 1,
+      "message": "Yes, \"\" will be replaced for the createdump call where the generated id is not provided",
+      "parentUuid": "b38b2335_170136ee",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "37e2fd63_7045fe65",
         "filename": "dump_manager_bmc.cpp",
@@ -84,10 +121,28 @@
       "side": 1,
       "message": "Same applicable only for gernarator id supported system.",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1b6f67_43b40246",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-01-09T06:37:04Z",
+      "side": 1,
+      "message": "Yes, \"\" will be replaced for the createdump call where the generated id is not provided",
+      "parentUuid": "37e2fd63_7045fe65",
+      "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "60d08748_4d12e70e",
         "filename": "dump_manager_bmc.hpp",
@@ -101,10 +156,10 @@
       "side": 1,
       "message": "This is IBM only so please add compilation flag",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f4be1227_1e36e37a",
         "filename": "dump_manager_bmc.hpp",
@@ -118,8 +173,7 @@
       "side": 1,
       "message": "Need to avoid com IBM specific code in BMC dump. dump-extension/openpower  path is used to keep all the codes speciifc com-ibm. Either use this or use new feature to enable the custom create function. Will wait for d-bus merge for final review.",
       "revId": "971bf7418548c7afaa7099c18abe607a6f32823f",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
