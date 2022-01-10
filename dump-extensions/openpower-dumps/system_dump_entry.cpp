@@ -20,17 +20,6 @@ using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
 {
-    using NotAllowed =
-        sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
-    using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-
-    // Allow offloading only when the host is up.
-    if (!phosphor::dump::isHostRunning())
-    {
-        elog<NotAllowed>(
-            Reason("System dump can be offloaded only when the host is up"));
-        return;
-    }
     phosphor::dump::Entry::initiateOffload(uri);
     phosphor::dump::host::requestOffload(sourceDumpId());
 }
