@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cbb7c7f_fa6c7d1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-10T09:12:28Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/39163 is used to enable this check ;looks like that commit includes helper function. recverting is not going help here.\nPlease include additional info, why there iso no side-effect with this function removal. ",
+      "revId": "c895869d8db97d48a8d68186e3723c96499acd10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
