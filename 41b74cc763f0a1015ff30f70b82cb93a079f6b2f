@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86cc2d7a_8ef9ee98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-01-10T16:49:56Z",
+      "side": 1,
+      "message": "LGTM, though I\u0027m hardly an expert in this area.",
+      "revId": "41b74cc763f0a1015ff30f70b82cb93a079f6b2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
