@@ -34,6 +34,24 @@
       "parentUuid": "6cbb7c7f_fa6c7d1f",
       "revId": "c895869d8db97d48a8d68186e3723c96499acd10",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ff81e9_7fbf2cf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-10T09:47:28Z",
+      "side": 1,
+      "message": "Commit i mention in the previous message \"Allow initiating or offloading host dumps only when host is up.\". To avoid confusion between thesze two commits add additioan details why you are reverting and hwo new design eworks as expected.",
+      "parentUuid": "fe3e3639_9cecb82f",
+      "revId": "c895869d8db97d48a8d68186e3723c96499acd10",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
