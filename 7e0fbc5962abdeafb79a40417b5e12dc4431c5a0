@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "2b219e75_79584123",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "This seems like a bit of overkill? We\u0027ll run when we stop the host but also when we start it? I don\u0027t see a reason behind this in the commit msg.",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "11793570_42b2b9da",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -32,10 +33,10 @@
       "message": "I will update the commit message, but this may be needed to handle  the EPO kind of scenarios? just added this to cover that scenario",
       "parentUuid": "2b219e75_79584123",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4bcced9a_1f52bc64",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -50,10 +51,28 @@
       "message": "Removing",
       "parentUuid": "11793570_42b2b9da",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23be70d5_6ec1ebd5",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-11T04:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4bcced9a_1f52bc64",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "7ffb69ff_c5550baa",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -73,10 +92,10 @@
         "endChar": 5
       },
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e06e4817_94a943a5",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -97,10 +116,10 @@
         "endChar": 5
       },
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b83087eb_16e3d583",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -114,10 +133,10 @@
       "side": 1,
       "message": "I\u0027d think we just have this conflict with obmc-host-startmin@0.target to ensure we run it on every obmc-host-stop@0.target.",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f5871882_71084d8e",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -132,10 +151,28 @@
       "message": "Remove this?",
       "parentUuid": "b83087eb_16e3d583",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f416e40b_771f43ba",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-11T04:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f5871882_71084d8e",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "2f20f68b_8d75b4ad",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -149,10 +186,10 @@
       "side": 1,
       "message": "I like to put \"RemainAfterExit\u003dyes\" under Service which are \"oneshot\" services to ensure they only run once and when we expect them to. This assume a valid \"Conflicts\" though.",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "863f7e68_ceedf329",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -167,10 +204,10 @@
       "message": "Done",
       "parentUuid": "2f20f68b_8d75b4ad",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "89b249f3_96763859",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -184,10 +221,10 @@
       "side": 1,
       "message": "should we include host-start too?",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "571b48af_e266a43e",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
@@ -202,10 +239,28 @@
       "message": "no, only during poweroff",
       "parentUuid": "89b249f3_96763859",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd8eaf94_ef2addaa",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-11T04:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "571b48af_e266a43e",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "aabd4d18_39d224df",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -219,10 +274,10 @@
       "side": 1,
       "message": "Why using \"clear_hostdumps_poweroff.service\" two times?",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "4c48a4f5_77a36401",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -237,10 +292,10 @@
       "message": "first one is location and second one is the service name",
       "parentUuid": "aabd4d18_39d224df",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "980278f1_390b9097",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -255,10 +310,10 @@
       "message": "I think you used it because you want the unit file name alone for the output field in configure_file() If so, you can use an array of dictionaries that can have keys (which can use in the input field) and values (which can use in the output field).\n\nFor example, I hope the below sample code will work (I did not test this)\n\nFYR: https://mesonbuild.com/Syntax.html#dictionaries and https://mesonbuild.com/Reference-manual.html#dictionary-object\n\n```\n# Root meson.build file \nunit_files \u003d [{}]\n\nforeach u : unit_files\n    configure_file(\n        configuration: unit_subs,\n        input: u.get(\u0027input\u0027),\n        install: true,\n        install_dir: systemd_system_unit_dir,\n        output: u.get(\u0027output\u0027)\n    )\nendforeach\n\n# Subdirectory meson.build file \n\nunit_files +\u003d { \u0027input\u0027: \u0027dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service\u0027, \u0027output\u0027 : \u0027clear_hostdumps_poweroff.service\u0027 }\n\n```\n\nOR\n\nAdd a comment about the `unit_files` value expectation because you mentioned it as `[]` in the root meson.build file but using as `[[]]` in subdirectory meson.build file and using only first and second index in the root meson.build file.",
       "parentUuid": "4c48a4f5_77a36401",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "85a3ff16_ee41b1da",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -273,10 +328,10 @@
       "message": "Done",
       "parentUuid": "980278f1_390b9097",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "28a602d8_44d53a80",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -291,10 +346,10 @@
       "message": "You mentioned as Done but, looks you did address the comment. Can you clarify this?",
       "parentUuid": "85a3ff16_ee41b1da",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "aaf15d40_5e3116ec",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -309,8 +364,25 @@
       "message": "I am still testing this, yet to update this commit",
       "parentUuid": "28a602d8_44d53a80",
       "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40bf8755_d073a5f1",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-11T04:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aaf15d40_5e3116ec",
+      "revId": "7e0fbc5962abdeafb79a40417b5e12dc4431c5a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

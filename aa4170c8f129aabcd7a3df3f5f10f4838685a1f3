@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "af6c3049_40b55f6e",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Please include test detaisl.",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d6bad852_8ff4311b",
         "filename": "/COMMIT_MSG",
@@ -32,10 +33,10 @@
       "message": "Done",
       "parentUuid": "af6c3049_40b55f6e",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "27fb90a8_4006b62f",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -49,10 +50,10 @@
       "side": 1,
       "message": "I\u0027m not sure on the history of the .in? Is there a reason we need to add that? I wonder if it was an automake thing? My repos have all just had the .service type.",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c34a3ce8_2bd3dfb2",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -67,10 +68,10 @@
       "message": "Yes it is an automake thing, but. need to find more about that.",
       "parentUuid": "27fb90a8_4006b62f",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "305ebdaf_97765a6c",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -85,10 +86,10 @@
       "message": "Done",
       "parentUuid": "c34a3ce8_2bd3dfb2",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1c4fb47a_c323e3aa",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -102,10 +103,10 @@
       "side": 1,
       "message": "Am not exepert in the state management side\n- This service should run in hostpoweroff path.\n- also need to execute , uncontrolled BMC reboot and follwed by normal boot.\n- MPIPL path boot , data persists?",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "922cc8f5_a74cc7c2",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -120,10 +121,10 @@
       "message": "- it is already in hostpower off\n- Execute in poweron - need to add\n- Data persist in MPIPL, so wont be executed in diagmode",
       "parentUuid": "1c4fb47a_c323e3aa",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "a521a038_f86222c4",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -138,10 +139,10 @@
       "message": "Done",
       "parentUuid": "922cc8f5_a74cc7c2",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8f98096c_c05d6968",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -155,10 +156,10 @@
       "side": 1,
       "message": "RemainAfterExit defaults to no so with an oneshot service that means this service will run every time obmc-host-stop@0.target is called. The Conflicts are kind of redundant in that case. Nothing wrong with having them but just wanted to highlight this in case you\u0027d prefer to add a \"RemainAfterExit\u003dyes\" in which case this service would only run when one of the Conflicts first stops it.",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "77be05b2_ab0d3526",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -173,10 +174,10 @@
       "message": "Done",
       "parentUuid": "8f98096c_c05d6968",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7628fe54_60d598fc",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -190,10 +191,10 @@
       "side": 1,
       "message": "I believe the full path to the binary is needed here, i.e. /us/bin/busctl",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "872664f6_5c1a6352",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -208,10 +209,10 @@
       "message": "it worked when I tested, other examples also not adding full path, but changing to full path.",
       "parentUuid": "7628fe54_60d598fc",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9a1617a1_8bd706d0",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service.in",
@@ -226,10 +227,10 @@
       "message": "Done",
       "parentUuid": "872664f6_5c1a6352",
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1485b8a8_762ccf67",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -249,10 +250,10 @@
         "endChar": 74
       },
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "37659d48_f3cd1a1c",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -273,8 +274,31 @@
         "endChar": 74
       },
       "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73021be8_5b97928a",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-11T04:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "37659d48_f3cd1a1c",
+      "range": {
+        "startLine": 4,
+        "startChar": 66,
+        "endLine": 4,
+        "endChar": 74
+      },
+      "revId": "aa4170c8f129aabcd7a3df3f5f10f4838685a1f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
