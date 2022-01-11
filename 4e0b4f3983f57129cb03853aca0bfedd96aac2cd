@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1fa18b_8a802434",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Please capture exceptions in the trace so it will help us during debug.",
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9382b998_2b674d53",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "I think we should do serialization after insert? (very rare case, if insertion failed then, we won\u0027t have dbus objects but, we will have an entry in the persisted dump file.",
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520ab8c6_86eba995",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "same as 62 comments.",
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4d546c_40b36573",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Do we need to add any info trace?",
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be0c1a6f_7634b699",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Do you want to move forward or want to continue with the next dump file?\n\nPlease add some comments on this.",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 156,
+        "endChar": 9
+      },
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a00ad03_9a843daa",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Looks scope is inside try block, I am missing something?",
+      "range": {
+        "startLine": 158,
+        "startChar": 62,
+        "endLine": 158,
+        "endChar": 70
+      },
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77e3c38_99a02a6a",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Please add some more details like path and in which case we got exception so it helps during debug.",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 34
+      },
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc38b310_6f7bdad4",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Same as LN 91 comment",
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7c1def4_8941ceff",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "e?",
+      "range": {
+        "startLine": 16,
+        "startChar": 15,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "4e0b4f3983f57129cb03853aca0bfedd96aac2cd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

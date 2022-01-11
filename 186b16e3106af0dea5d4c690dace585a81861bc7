@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44e42452_df700396",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "I agree with you since you are calling inside the system namespace so it will look inner to the outer scope.\n\nIMO we could add as \"system::Enntry\" for more readability like a few places you added as \"system::Entry\".",
+      "parentUuid": "28356e9e_e6566bca",
+      "range": {
+        "startLine": 193,
+        "startChar": 29,
+        "endLine": 193,
+        "endChar": 34
+      },
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7406f89f_2b327d11",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 6
@@ -108,6 +132,24 @@
       "writtenOn": "2021-11-24T03:24:27Z",
       "side": 1,
       "message": "Same as LN 190 comment.\nI think you can add one try and catch block.",
+      "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c89a65a_6e65acb8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Looks you missed to address here.",
+      "parentUuid": "7406f89f_2b327d11",
       "revId": "186b16e3106af0dea5d4c690dace585a81861bc7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

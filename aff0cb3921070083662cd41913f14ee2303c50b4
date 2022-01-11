@@ -262,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "898d5d1a_759c8b07",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "IMO more readable and maintainable if used constructor and update function for the serialization but, I will leave it to you.",
+      "parentUuid": "33ff76d2_d22115d1",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30751acb_a4ba711c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 5
@@ -403,6 +427,24 @@
       "side": 1,
       "message": "Added entry-\u003eemit_object_added(); post deserial.",
       "parentUuid": "5b12f377_447773ed",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f60d605_ae2a21c2",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "are we emitting signals twice?\n\nLooks, we are emitting signals in the constructor as well so it won\u0027t harm anything on the application side (who subscripted the signal)?",
+      "parentUuid": "10ce235a_23aff6cc",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -591,6 +633,24 @@
       "side": 1,
       "message": "not all type of dump, added only for resource and system",
       "parentUuid": "0bb5f1ad_04710443",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35c1458_38c88118",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-11T17:05:40Z",
+      "side": 1,
+      "message": "Now it might not be needed but, adding it into the base class helps other types as well in the future. I will leave it to you and if somebody needs this need to move.",
+      "parentUuid": "ddafb2b9_c8869c86",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
