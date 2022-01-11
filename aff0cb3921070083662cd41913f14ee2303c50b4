@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "f10a7ff1_bd875d15",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "It will be helpful if we have added information about cereal which is used to achieve serialization and deserialization.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9d09752d_7c330d63",
         "filename": "/COMMIT_MSG",
@@ -32,10 +33,10 @@
       "message": "Done",
       "parentUuid": "f10a7ff1_bd875d15",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b37d26d0_fef0bdea",
         "filename": "/COMMIT_MSG",
@@ -55,10 +56,10 @@
         "endChar": 4
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "41ceae52_9a5b2b14",
         "filename": "/COMMIT_MSG",
@@ -79,10 +80,10 @@
         "endChar": 4
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7664afc6_2dfa65d3",
         "filename": "/COMMIT_MSG",
@@ -102,10 +103,10 @@
         "endChar": 44
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "26861c83_9890222d",
         "filename": "/COMMIT_MSG",
@@ -126,10 +127,10 @@
         "endChar": 44
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "28951a7b_56931bf8",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -143,10 +144,10 @@
       "side": 1,
       "message": "serialize should be done here too",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "004cea5d_d4331adb",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -161,10 +162,10 @@
       "message": "Done",
       "parentUuid": "28951a7b_56931bf8",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2e956635_861822b7",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -184,10 +185,10 @@
         "endChar": 32
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "6cb666cf_f82afcdd",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -208,10 +209,10 @@
         "endChar": 32
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5bf00fce_a3657294",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -232,10 +233,34 @@
         "endChar": 32
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "33ff76d2_d22115d1",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-11T01:10:29Z",
+      "side": 1,
+      "message": "yes, but why to call it in constructor?",
+      "parentUuid": "5bf00fce_a3657294",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "30751acb_a4ba711c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -249,10 +274,10 @@
       "side": 1,
       "message": "JS: Actually, we could use the existing entries map itself, to find the highest id value by using the comparator lambda with std::max_element once you created the entries for all the dumps.\n\nor Just we could have one variable `lastMaxEntryId` instead of vector.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cb3f6841_75a03e7f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -267,10 +292,10 @@
       "message": "There also we need to iterate(i.e. using map), thats why using vector as its easy.",
       "parentUuid": "30751acb_a4ba711c",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9553e35e_2a9b2f24",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -285,10 +310,10 @@
       "message": "Agree but, we can use the existing map itself instead of a new vector. I will leave it to you, logic seems correct and not a blocker comment, just a suggestion comment.",
       "parentUuid": "cb3f6841_75a03e7f",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "950c5089_ce365e18",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -308,10 +333,10 @@
         "endChar": 71
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "34dddaf7_c713dcad",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -325,10 +350,10 @@
       "side": 1,
       "message": "I think we should take care of the D-Bus signal because, you are emitting the signal once Entry object construction was done but, you did not populate all properties value, and these properties were updated during the deserialization.\n\nSome other apps may use the D-Bus property watch signal so, it will get an inaccurate signal i.e after LN152 but, an actual property update happening at LN153.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "00703ef3_e42f0ac3",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -343,10 +368,10 @@
       "message": "Sorry unable to get this comment. \nWe are restoring properties in deserial method i.e. LN153.",
       "parentUuid": "34dddaf7_c713dcad",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5b12f377_447773ed",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -361,10 +386,28 @@
       "message": "Sorry for the confusion.\n\nI think you are emitting the D-Bus object creation signal in the above object constructor but, you are deserializing properties later and not emitting the signal for property value change so the watcher doesn\u0027t know it right?\n\nIn the restore path, if we want to emit the signal then we need to emit after the properties deserialization right?",
       "parentUuid": "00703ef3_e42f0ac3",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ce235a_23aff6cc",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-11T01:10:29Z",
+      "side": 1,
+      "message": "Added entry-\u003eemit_object_added(); post deserial.",
+      "parentUuid": "5b12f377_447773ed",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "cc0785af_fd365f92",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -378,10 +421,10 @@
       "side": 1,
       "message": "Do we not need to capture the trace if failed to restore it?",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "cd902c19_60fe2ba4",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
@@ -396,10 +439,10 @@
       "message": "Done",
       "parentUuid": "cc0785af_fd365f92",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e396b154_219706a3",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
@@ -419,10 +462,10 @@
         "endChar": 64
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "446ad912_19313602",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
@@ -443,10 +486,10 @@
         "endChar": 64
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c4a65269_aaad3ed8",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
@@ -460,10 +503,10 @@
       "side": 1,
       "message": "It will be good if you added the note to mention \"other dbus properties values should be populated by the caller with help of the \"update\" function else default value only will be present\".",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e00a4e52_fa7c11dd",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
@@ -478,10 +521,10 @@
       "message": "basically this we use while restoring the entries.",
       "parentUuid": "c4a65269_aaad3ed8",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "36b363bb_3a656709",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
@@ -495,10 +538,10 @@
       "side": 1,
       "message": "Why we cannot define this member into the base entry class? - it is only needed for the system dump?",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "82339edb_e7a82198",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
@@ -513,10 +556,10 @@
       "message": "It is needed here.",
       "parentUuid": "36b363bb_3a656709",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0bb5f1ad_04710443",
         "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
@@ -531,10 +574,28 @@
       "message": "I got it, it is needed here but, checking whether we can add in the base entry itself?\n\nFor me, it looks like a common member for all types of dump, and even you added in the resource dump serialization patch (https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/47234/1/dump-extensions/openpower-dumps/resource_dump_entry.hpp#11)",
       "parentUuid": "82339edb_e7a82198",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddafb2b9_c8869c86",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-11T01:10:29Z",
+      "side": 1,
+      "message": "not all type of dump, added only for resource and system",
+      "parentUuid": "0bb5f1ad_04710443",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "389d360a_cb61321b",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -548,10 +609,10 @@
       "side": 1,
       "message": "Do we need to add the dependency check?\nI think, cereal is a header-only-based library.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e512bc84_622d09d2",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -566,10 +627,10 @@
       "message": "No not needed.",
       "parentUuid": "389d360a_cb61321b",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "82877480_3ccb4ec7",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -584,10 +645,10 @@
       "message": "FYI, It is needed but it is already added\nFYR: https://github.com/openbmc/phosphor-debug-collector/commit/abbe15932f4d20f681969afb2296a8b2832ce933",
       "parentUuid": "e512bc84_622d09d2",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "19efd488_48d3b50a",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -601,10 +662,10 @@
       "side": 1,
       "message": "I believe, LN33 and LN54 (save and load) should be in sync, right? like order? if so can add some comment on this if make sense to you.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8e483dec_7f70c12c",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -619,10 +680,10 @@
       "message": "Done",
       "parentUuid": "19efd488_48d3b50a",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "07fadfca_14166d41",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -636,10 +697,10 @@
       "side": 1,
       "message": "Why you are skipping the signal to emit for the property?\n\nI think some bmc components will look for the property value change signal, right? One example is, bmcweb will watch for the status property value change to take the appropriate action.",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b35a7e00_a2ace87a",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -654,10 +715,10 @@
       "message": "load is at the time of restoring, we dont need to emit signal at that time.",
       "parentUuid": "07fadfca_14166d41",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "736064ce_03e35fa4",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -672,10 +733,28 @@
       "message": "But, you are emitting the D-Bus object creation signal right?",
       "parentUuid": "b35a7e00_a2ace87a",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8f31e7_93ceebee",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-11T01:10:29Z",
+      "side": 1,
+      "message": "emitting signal after restoring the dumps.",
+      "parentUuid": "736064ce_03e35fa4",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ff9ae75d_60f129f2",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -695,10 +774,10 @@
         "endChar": 21
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "213a59bc_76b857e4",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
@@ -719,10 +798,10 @@
         "endChar": 21
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fed7fef4_77e7b91f",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.hpp",
@@ -742,10 +821,10 @@
         "endChar": 51
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "0112e151_f25275ec",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.hpp",
@@ -766,10 +845,10 @@
         "endChar": 51
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "aa686a64_f295da19",
         "filename": "dump_entry.hpp",
@@ -789,10 +868,10 @@
         "endChar": 60
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "492a3e6f_4484d90d",
         "filename": "dump_entry.hpp",
@@ -813,10 +892,10 @@
         "endChar": 60
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "19d9e1a2_573fce11",
         "filename": "dump_entry.hpp",
@@ -836,10 +915,10 @@
         "endChar": 75
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b378c125_0fd18b36",
         "filename": "dump_entry.hpp",
@@ -860,10 +939,10 @@
         "endChar": 75
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b3e948ca_cce10631",
         "filename": "dump_entry.hpp",
@@ -883,10 +962,10 @@
         "endChar": 11
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1559e827_aa9b3623",
         "filename": "dump_entry.hpp",
@@ -907,10 +986,10 @@
         "endChar": 11
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d94ca8aa_74639134",
         "filename": "dump_entry.hpp",
@@ -930,10 +1009,10 @@
         "endChar": 11
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3872965e_b5880602",
         "filename": "dump_entry.hpp",
@@ -954,8 +1033,7 @@
         "endChar": 11
       },
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
