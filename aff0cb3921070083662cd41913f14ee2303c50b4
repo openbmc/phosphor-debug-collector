@@ -310,6 +310,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "412959bc_6d256809",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-12T16:21:53Z",
+      "side": 1,
+      "message": "I would prefer keeping it here instead of calling this in constructor.",
+      "parentUuid": "898d5d1a_759c8b07",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30751acb_a4ba711c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 5
@@ -469,6 +493,24 @@
       "side": 1,
       "message": "are we emitting signals twice?\n\nLooks, we are emitting signals in the constructor as well so it won\u0027t harm anything on the application side (who subscripted the signal)?",
       "parentUuid": "10ce235a_23aff6cc",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bbcdbb_edc75444",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-12T16:21:53Z",
+      "side": 1,
+      "message": "Need to discuss on this.",
+      "parentUuid": "5f60d605_ae2a21c2",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -675,6 +717,24 @@
       "side": 1,
       "message": "Now it might not be needed but, adding it into the base class helps other types as well in the future. I will leave it to you and if somebody needs this need to move.",
       "parentUuid": "ddafb2b9_c8869c86",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6dd292c_92e2486f",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-12T16:21:53Z",
+      "side": 1,
+      "message": "As of now keeping it as it is, can\u0027t touch dump_entry.hpp",
+      "parentUuid": "b35c1458_38c88118",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
