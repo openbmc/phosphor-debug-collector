@@ -286,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c7a0e85_772a69f0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-12T06:19:16Z",
+      "side": 1,
+      "message": "even thogh readable it is not logical to do serialize in the constructor as we use the same constructor during restore. we cannot have one constructor for creation and another for restore.",
+      "parentUuid": "898d5d1a_759c8b07",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30751acb_a4ba711c",
         "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
         "patchSetId": 5
