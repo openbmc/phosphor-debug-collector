@@ -16,6 +16,74 @@
       "message": "I hope it is tested if so I am good.",
       "revId": "146fbdf6cedf43e907c91a929db3e23f072fef1e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e00a401_0e08a9c9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-17T06:20:54Z",
+      "side": 1,
+      "message": "JS: you could add some details \"System dump does not exist in the path [{}] to restore\"",
+      "revId": "146fbdf6cedf43e907c91a929db3e23f072fef1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7463d64a_61c3fb9f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-17T06:20:54Z",
+      "side": 1,
+      "message": "Looks like we are emitting object creation signal twice, please add some default argument to the system::Entry constructor and by default emit the signal but, we no need to emit the signal in the restore path.",
+      "revId": "146fbdf6cedf43e907c91a929db3e23f072fef1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4b55a3_1b051a6e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-17T06:20:54Z",
+      "side": 1,
+      "message": "JS, it will be good if you added the file name in the trace",
+      "revId": "146fbdf6cedf43e907c91a929db3e23f072fef1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5901387b_1a46f25a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-17T06:20:54Z",
+      "side": 1,
+      "message": "JS, it will be good if you added the file name in the trace",
+      "revId": "146fbdf6cedf43e907c91a929db3e23f072fef1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
