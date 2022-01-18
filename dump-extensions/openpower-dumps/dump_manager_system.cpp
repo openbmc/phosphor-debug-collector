@@ -3,6 +3,7 @@
 #include "dump_manager_system.hpp"
 
 #include "dump_utils.hpp"
+#include "op_dump_consts.hpp"
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
