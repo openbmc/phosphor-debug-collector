@@ -15,7 +15,6 @@ namespace dump
 namespace resource
 {
 
-constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using NotifyIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::com::ibm::Dump::server::Create,
