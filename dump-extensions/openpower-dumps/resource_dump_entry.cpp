@@ -2,6 +2,7 @@
 
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
+#include "op_dump_consts.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
@@ -43,7 +44,7 @@ void Entry::delete_()
 
     // Remove resource dump when host is up by using source dump id
     // which is present in resource dump entry dbus object as a property.
-    if (phosphor::dump::isHostRunning())
+    if ((phosphor::dump::isHostRunning()) && (srcDumpID != INVALID_SOURCE_ID))
     {
         phosphor::dump::host::requestDelete(srcDumpID,
                                             TRANSPORT_DUMP_TYPE_IDENTIFIER);
