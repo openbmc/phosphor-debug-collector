@@ -972,6 +972,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac85a4ff_8f0faeb0",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-19T14:42:38Z",
+      "side": 1,
+      "message": "Made changes as suggested in the email registering the service after restoring the dumps, need to test it, Meanwhile will raise it for review.",
+      "parentUuid": "b7f9d297_b2de2185",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff9ae75d_60f129f2",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
         "patchSetId": 5
