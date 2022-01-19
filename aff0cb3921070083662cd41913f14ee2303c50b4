@@ -954,6 +954,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7f9d297_b2de2185",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-19T06:51:19Z",
+      "side": 1,
+      "message": "Looks, you removed the emit signal https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/47088/9..10/dump-extensions/openpower-dumps/dump_manager_system.cpp\n\nPlease refer https://lore.kernel.org/openbmc/6a83328d-c9d8-e387-6647-0595b9e73e88@linux.vnet.ibm.com/t/#openbmc-users mail thread and make sure your restore path meets that condition. please test add the test case on this.\n\ni.e bmcweb should not get signal but, Mapper should get it to update their cache.",
+      "parentUuid": "c9925db5_940e1a4c",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff9ae75d_60f129f2",
         "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
         "patchSetId": 5
