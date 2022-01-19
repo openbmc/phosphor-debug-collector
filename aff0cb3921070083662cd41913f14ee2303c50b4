@@ -934,6 +934,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9925db5_940e1a4c",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-01-19T06:45:12Z",
+      "side": 1,
+      "message": "discussed and no need to emit signal during signal.",
+      "parentUuid": "3e8f31e7_93ceebee",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff9ae75d_60f129f2",
