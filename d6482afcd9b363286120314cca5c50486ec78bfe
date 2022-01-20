@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a485817_051884fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-20T11:36:17Z",
+      "side": 1,
+      "message": "These change is going to break lower flash supported systems. These changes should be based on flash size and the existing  min config should maintain as it is.",
+      "revId": "d6482afcd9b363286120314cca5c50486ec78bfe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
