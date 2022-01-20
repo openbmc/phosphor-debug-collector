@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "af379456_4930da46",
         "filename": "bmc_dump_entry.hpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "as I assume path is base class variable it need to be initialized in the initializer list. \ni.e construct base class objects first and then deriver class objects.",
       "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a2e3bdb7_89e83e9e",
         "filename": "bmc_dump_entry.hpp",
@@ -32,8 +33,25 @@
       "message": "reverting as it is member variable and no constructor I guess cannot set",
       "parentUuid": "af379456_4930da46",
       "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8cea568_a6719850",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-01-20T08:43:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2e3bdb7_89e83e9e",
+      "revId": "3b5efad2346ca241cbe039322bc42704d8429db9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
