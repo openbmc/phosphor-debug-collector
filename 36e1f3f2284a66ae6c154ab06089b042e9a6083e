@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ba7f565_d26aadb9",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "Should be creating elog here. this is triggering dump service crash.",
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2127971_bccdc060",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "System Dump serial path. not dump directory.",
+      "range": {
+        "startLine": 28,
+        "startChar": 33,
+        "endLine": 28,
+        "endChar": 73
+      },
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ee68d2_176157a0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "This is an error scenario, Better to get error logged here.  Journal log life time is limited .",
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22562441_6fd69bd4",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "This is an error scenario, Better to get error logged here.",
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f2fd1c_c8420c7d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "This is an error scenario, Better to get error logged here.",
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae161f5b_1e12c720",
+        "filename": "meson_options.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-25T07:22:22Z",
+      "side": 1,
+      "message": "/var/lib/phosphor-debug-collector/prserve/\u003csystem\u003e . Thisway in future you can keep all presverved path in a common location.",
+      "revId": "36e1f3f2284a66ae6c154ab06089b042e9a6083e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
