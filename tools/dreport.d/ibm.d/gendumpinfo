@@ -43,6 +43,13 @@ function dump_time_details () {
     printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
 }
 
+#Function to fetch sbe failure details
+function sbe_failure_rc() {
+    while IFS= read -r line; do
+        printf "%s\n" $line >> $YAML_FILE
+    done < $SBE_FILE_PATH   
+}
+
 #Function to write data to info.yaml file
 function write_to_info_file() {
     printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> $YAML_FILE
@@ -51,6 +58,9 @@ function write_to_info_file() {
     printf "generation : p10\n" >> $YAML_FILE
     printf "driver: %s\n" "$DRIVER" >> $YAML_FILE
     dump_time_details
+    if [ "$dump_content_type" = "sbedump" ]; then
+        sbe_failure_rc
+    fi
 }
 
 #Run main
