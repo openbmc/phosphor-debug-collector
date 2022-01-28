@@ -13,6 +13,7 @@ declare -rx SBE_DUMP='30'
 declare -x DRIVER=$(cat /etc/os-release | grep VERSION_ID | \
     awk -F = '{ print $2}' | cut -d'(' -f 1)
 declare -x YAML_FILE="$content_path/info.yaml"
+declare -x ADDL_DATA_PATH="$content_path/plat_dump/additional_data/"
 declare -x START_TIME=''
 declare -x END_TIME=''
 
@@ -51,14 +52,27 @@ function dump_time_details() {
     printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
 }
 
+#Function to fetch additional details
+function get_addl_data() {
+    if [ -d "$ADDL_DATA_PATH" ]; then
+        for entry in "$ADDL_DATA_PATH"/*
+        do
+            while IFS= read -r line; do
+                echo "$line" >> $YAML_FILE
+            done < $entry
+        done
+    fi
+}
+
 #Function to write data to info.yaml file
 function write_to_info_file() {
     printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> $YAML_FILE
     printf "%s\n" "%YAML 1.2" >> $YAML_FILE
     printf "%s\n\n" "---" >> $YAML_FILE
-    printf "generation : p10\n" >> $YAML_FILE
+    printf "generation: p10\n" >> $YAML_FILE
     printf "driver: %s\n" "$DRIVER" >> $YAML_FILE
     dump_time_details
+    get_addl_data
 }
 
 #Run main
