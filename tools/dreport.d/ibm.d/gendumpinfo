@@ -10,6 +10,8 @@ declare -rx DUMP_PROP='xyz.openbmc_project.Common.Progress'
 declare -x DRIVER=$(cat /etc/os-release | grep VERSION_ID | \
 awk -F = '{ print $2}' | cut -d'(' -f 1)
 declare -x YAML_FILE="$optional_path/info.yaml"
+declare -x
+SBE_FILE_PATH="$optional_path/plat_dump/additional_data/sbe_data_file"
 declare -x START_TIME=''
 declare -x END_TIME=''
 
@@ -43,6 +45,17 @@ function dump_time_details () {
     printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
 }
 
+#Function to fetch sbe failure details
+function sbe_failure_rc() {
+    if [[ -f "$SBE_FILE_PATH" ]]; then
+        while IFS= read -r line; do
+            echo $line >> $YAML_FILE
+        done < $SBE_FILE_PATH
+    else
+        echo "$SBE_FILE_PATH does not exist."
+    fi
+}
+
 #Function to write data to info.yaml file
 function write_to_info_file() {
     printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> $YAML_FILE
@@ -51,6 +64,9 @@ function write_to_info_file() {
     printf "generation : p10\n" >> $YAML_FILE
     printf "driver: %s\n" "$DRIVER" >> $YAML_FILE
     dump_time_details
+    if [ "$dump_content_type" = "sbedump" ]; then
+        sbe_failure_rc
+    fi
 }
 
 #Run main
