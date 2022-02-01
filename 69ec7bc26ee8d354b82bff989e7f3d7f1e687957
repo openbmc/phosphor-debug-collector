@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52645300_4e365e9e",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-01T11:36:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93398fed_e6f233a6",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20f8c8be_c302bdab",
