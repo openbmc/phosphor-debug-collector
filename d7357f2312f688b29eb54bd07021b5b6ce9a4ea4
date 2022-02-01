@@ -16,6 +16,24 @@
       "message": "Can you add the manifest file content. related to new changes. This will help manifest file users.",
       "revId": "d7357f2312f688b29eb54bd07021b5b6ce9a4ea4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3764f15b_0bd755f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T11:16:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd9318af_4ef48d10",
+      "revId": "d7357f2312f688b29eb54bd07021b5b6ce9a4ea4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
