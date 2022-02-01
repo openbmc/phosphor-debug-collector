@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3449675_e99a84ed",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-01T10:36:21Z",
+      "side": 1,
+      "message": "comments same as previous commit for resource dump",
+      "revId": "3bb1ef474cdf2ed42a7c5e6e3a4e99432552470a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
