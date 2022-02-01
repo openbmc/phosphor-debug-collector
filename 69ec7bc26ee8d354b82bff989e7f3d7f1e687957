@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93398fed_e6f233a6",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-01T10:45:09Z",
+      "side": 1,
+      "message": "assume for inprogress dumpid will not be set so ok here",
+      "parentUuid": "e9d1267e_838a22ad",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20f8c8be_c302bdab",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 1
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "we need to look through all entries to make sure the new input is not a duplicate.",
       "parentUuid": "20f8c8be_c302bdab",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f74993f3_5c04ba1c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-01T10:45:09Z",
+      "side": 1,
+      "message": "we come here only when  (upEntry \u003d\u003d NULL)) and when we set this loop is of no use we can break",
+      "parentUuid": "654353bc_e76b4134",
       "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
