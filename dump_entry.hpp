@@ -97,6 +97,14 @@ class Entry : public EntryIfaces
         offloadUri(uri);
     }
 
+    /** @brief Returns the dump id
+     *  @return the id associated with entry
+     */
+    uint32_t getDumpId()
+    {
+        return id;
+    }
+
   protected:
     /** @brief This entry's parent */
     Manager& parent;
