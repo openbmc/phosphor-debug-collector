@@ -332,6 +332,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "049b2c17_0c7d20ee",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "412959bc_6d256809",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30751acb_a4ba711c",
@@ -385,6 +409,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c37c1538_5f148e8d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9553e35e_2a9b2f24",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "950c5089_ce365e18",
@@ -398,6 +440,30 @@
       "writtenOn": "2021-10-04T07:18:43Z",
       "side": 1,
       "message": "JS: We could do like below.\n```\nauto objPath \u003d std::filesystem::path(baseEntryPath) / file.path().filename().string();\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 71
+      },
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88350ddd_f20ecb84",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "950c5089_ce365e18",
       "range": {
         "startLine": 149,
         "startChar": 8,
@@ -511,6 +577,24 @@
       "side": 1,
       "message": "Need to discuss on this.",
       "parentUuid": "5f60d605_ae2a21c2",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46cafeb_501d308f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bbcdbb_edc75444",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -753,6 +837,24 @@
       "side": 1,
       "message": "As of now keeping it as it is, can\u0027t touch dump_entry.hpp",
       "parentUuid": "b35c1458_38c88118",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c0964e_eb24306a",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6dd292c_92e2486f",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -1020,6 +1122,24 @@
       "side": 1,
       "message": "Thanks, It will be good if you added the test details on this",
       "parentUuid": "bf5c84a2_b05986c2",
+      "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa48e846_95f31d1d",
+        "filename": "dump-extensions/openpower-dumps/system_dump_serialize.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-02-01T06:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e3bd06e_4e9b2a42",
       "revId": "aff0cb3921070083662cd41913f14ee2303c50b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
