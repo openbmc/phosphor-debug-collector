@@ -28,24 +28,49 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // Get the timestamp
     std::time_t timeStamp = std::time(nullptr);
 
-    // If there is an entry with this sourceId or an invalid id
-    // update that.
-    // If host is sending the source id before the completion
-    // the source id will be updated by the transport layer with host.
-    // if not the source id will stay as invalid one.
+    // If there is an entry with invalid id update that.
+    // If there a completed one with same source id ignore it
+    // if there is no invalid id, create new entry
+    openpower::dump::resource::Entry* upEntry = NULL;
     for (auto& entry : entries)
     {
         openpower::dump::resource::Entry* resEntry =
             dynamic_cast<openpower::dump::resource::Entry*>(entry.second.get());
-        if ((resEntry->status() ==
-             phosphor::dump::OperationStatus::InProgress) &&
-            ((resEntry->sourceDumpId() == dumpId) ||
-             (resEntry->sourceDumpId() == INVALID_SOURCE_ID)))
+
+        // If there is already a completed entry with input source id then
+        // ignore this notification.
+        if ((resEntry->sourceDumpId() == dumpId) &&
+            (resEntry->status() == phosphor::dump::OperationStatus::Completed))
         {
-            resEntry->update(timeStamp, size, dumpId);
+            log<level::INFO>(
+                fmt::format("Resource dump entry with source dump id({}) is "
+                            "already present with entry id({})",
+                            dumpId, resEntry->getDumpId())
+                    .c_str());
             return;
         }
+
+        // Save the fist entry with INVALID_SOURCE_ID
+        // but continue in the loop to make sure the
+        // new entry is not duplicate
+        if ((resEntry->status() ==
+             phosphor::dump::OperationStatus::InProgress) &&
+            (resEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
+            (upEntry == NULL))
+        {
+            upEntry = resEntry;
+        }
     }
+    if (upEntry != NULL)
+    {
+        log<level::INFO>(fmt::format("Resouce Dump Notify: Updating dumpId({}) "
+                                     "with source Id({}) Size({})",
+                                     upEntry->getDumpId(), dumpId, size)
+                             .c_str());
+        upEntry->update(timeStamp, size, dumpId);
+        return;
+    }
+
     // Get the id
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
@@ -53,6 +78,10 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 
     try
     {
+        log<level::INFO>(fmt::format("Resouce Dump Notify: creating new dump "
+                                     "entry dumpId({}) Id({}) Size({})",
+                                     id, dumpId, size)
+                             .c_str());
         entries.insert(std::make_pair(
             id, std::make_unique<resource::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
