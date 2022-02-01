@@ -33,15 +33,36 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // entry will be created first with invalid source id.
     // Since there can be only one system dump creation at a time,
     // if there is an entry with invalid sourceId update that.
+    openpower::dump::system::Entry* upEntry = NULL;
     for (auto& entry : entries)
     {
         openpower::dump::system::Entry* sysEntry =
             dynamic_cast<openpower::dump::system::Entry*>(entry.second.get());
-        if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
+        if ((sysEntry->sourceDumpId() == dumpId) &&
+            (sysEntry->status() == phosphor::dump::OperationStatus::Completed))
         {
-            sysEntry->update(timeStamp, size, dumpId);
+            log<level::INFO>(
+                fmt::format("System dump entry with source dump id({}) is "
+                            "already present with entry id({})",
+                            dumpId, sysEntry->getDumpId())
+                    .c_str());
             return;
         }
+        if ((sysEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
+            (upEntry == NULL))
+        {
+            upEntry = sysEntry;
+        }
+    }
+
+    if (upEntry != NULL)
+    {
+        log<level::INFO>(
+            fmt::format(
+                "System Dump Notify: Updating dumpId({}) Id({}) Size({})",
+                upEntry->getDumpId(), dumpId, size)
+                .c_str());
+        upEntry->update(timeStamp, size, dumpId);
     }
 
     // Get the id
@@ -51,6 +72,10 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 
     try
     {
+        log<level::INFO>(fmt::format("System Dump Notify: creating new dump "
+                                     "entry dumpId({}) Id({}) Size({})",
+                                     id, dumpId, size)
+                             .c_str());
         entries.insert(std::make_pair(
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
