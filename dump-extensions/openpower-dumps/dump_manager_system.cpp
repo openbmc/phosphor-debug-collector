@@ -36,15 +36,44 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // entry will be created first with invalid source id.
     // Since there can be only one system dump creation at a time,
     // if there is an entry with invalid sourceId update that.
+    openpower::dump::system::Entry* upEntry = nullptr;
     for (auto& entry : entries)
     {
         openpower::dump::system::Entry* sysEntry =
             dynamic_cast<openpower::dump::system::Entry*>(entry.second.get());
-        if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID)
+
+        // If there is already a completed entry with input source id then
+        // ignore this notification
+        if ((sysEntry->sourceDumpId() == dumpId) &&
+            (sysEntry->status() == phosphor::dump::OperationStatus::Completed))
         {
-            sysEntry->update(timeStamp, size, dumpId);
+            log<level::INFO>(
+                fmt::format("System dump entry with source dump id({}) is "
+                            "already present with entry id({})",
+                            dumpId, sysEntry->getDumpId())
+                    .c_str());
             return;
         }
+
+        // Save the first entry with INVALID_SOURCE_ID
+        // but continue in the loop to make sure the
+        // new entry is not duplicate
+        if ((sysEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
+            (upEntry == nullptr))
+        {
+            upEntry = sysEntry;
+        }
+    }
+
+    if (upEntry != nullptr)
+    {
+        log<level::INFO>(
+            fmt::format(
+                "System Dump Notify: Updating dumpId({}) Id({}) Size({})",
+                upEntry->getDumpId(), dumpId, size)
+                .c_str());
+        upEntry->update(timeStamp, size, dumpId);
+        return;
     }
 
     // Get the id
@@ -56,6 +85,10 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // For now replacing it with null
     try
     {
+        log<level::INFO>(fmt::format("System Dump Notify: creating new dump "
+                                     "entry dumpId({}) Id({}) Size({})",
+                                     id, dumpId, size)
+                             .c_str());
         entries.insert(std::make_pair(
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
