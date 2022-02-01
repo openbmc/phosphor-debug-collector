@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7fdecc_e085b639",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-01T10:41:15Z",
+      "side": 1,
+      "message": "The earlier assumption was, we will be getting the source dump id when we get request for the resource dump but that is not happening, and we get that id only after the completion of dump\nso there is no chance we will be updating an entry with existing source dump id.",
+      "parentUuid": "e9d1267e_838a22ad",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20f8c8be_c302bdab",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-01T10:34:59Z",
       "side": 1,
       "message": "do we need to break here? or else it will loop for all the entries, or else we could simply do this here\n\n        log\u003clevel::INFO\u003e(fmt::format(\"Resouce Dump Notify: Updating dumpId({}) \"\n                                     \"with source Id({}) Size({})\",\n                                     upEntry-\u003egetDumpId(), dumpId, size)\n                             .c_str());\n        upEntry-\u003eupdate(timeStamp, size, dumpId);",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "654353bc_e76b4134",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-01T10:41:15Z",
+      "side": 1,
+      "message": "we need to look through all entries to make sure the new input is not a duplicate.",
+      "parentUuid": "20f8c8be_c302bdab",
       "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
