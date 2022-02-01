@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d1267e_838a22ad",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-01T10:34:59Z",
+      "side": 1,
+      "message": "((resEntry-\u003esourceDumpId() \u003d\u003d dumpId) ||\n\ndon\u0027t we need this condition here",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f8c8be_c302bdab",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-01T10:34:59Z",
+      "side": 1,
+      "message": "do we need to break here? or else it will loop for all the entries, or else we could simply do this here\n\n        log\u003clevel::INFO\u003e(fmt::format(\"Resouce Dump Notify: Updating dumpId({}) \"\n                                     \"with source Id({}) Size({})\",\n                                     upEntry-\u003egetDumpId(), dumpId, size)\n                             .c_str());\n        upEntry-\u003eupdate(timeStamp, size, dumpId);",
+      "revId": "69ec7bc26ee8d354b82bff989e7f3d7f1e687957",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
