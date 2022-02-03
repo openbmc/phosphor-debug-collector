@@ -22,6 +22,30 @@
       },
       "revId": "a9529bb007e926e65e0ed1dd7b29c814ca3326d0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e12809_649f9d9b",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-03T14:07:05Z",
+      "side": 1,
+      "message": "@matt\nwe in openbmc do not support threads (not sure why though) but we support fork, can we allow usage of std::async as used in the above code? also the std::future was declared as global variable to force it to not to go out of scope(if it goes out of scope the thread used in std::async will be detached), will that have any other issues. Or there any other better alternatives? coroutines?",
+      "parentUuid": "2e3b42d9_758eb1e7",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "a9529bb007e926e65e0ed1dd7b29c814ca3326d0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
