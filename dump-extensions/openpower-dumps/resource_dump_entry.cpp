@@ -4,6 +4,8 @@
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
@@ -38,7 +40,10 @@ void Entry::initiateOffload(std::string uri)
 void Entry::delete_()
 {
     auto srcDumpID = sourceDumpId();
-
+    auto dumpId = id;
+    log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",
+                                 dumpId, srcDumpID)
+                         .c_str());
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 
