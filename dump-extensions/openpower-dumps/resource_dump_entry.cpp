@@ -3,8 +3,12 @@
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
 
+#include <fmt/core.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
+
+#include <future>
 
 namespace openpower
 {
@@ -17,6 +21,15 @@ namespace resource
 // This value is used to identify the dump in the transport layer to host,
 constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 9;
 using namespace phosphor::logging;
+
+std::future<int> asyncThread;
+
+int Entry::deleteHelper(uint32_t srcDumpID)
+{
+    phosphor::dump::host::requestDelete(srcDumpID,
+                                        TRANSPORT_DUMP_TYPE_IDENTIFIER);
+    return 0;
+}
 
 void Entry::initiateOffload(std::string uri)
 {
@@ -37,7 +50,10 @@ void Entry::initiateOffload(std::string uri)
 void Entry::delete_()
 {
     auto srcDumpID = sourceDumpId();
-
+    auto dumpId = id;
+    log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",
+                                 dumpId, srcDumpID)
+                         .c_str());
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 
@@ -45,9 +61,13 @@ void Entry::delete_()
     // which is present in resource dump entry dbus object as a property.
     if (phosphor::dump::isHostRunning())
     {
-        phosphor::dump::host::requestDelete(srcDumpID,
-                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
+        asyncThread = std::async(
+            std::launch::async, &openpower::dump::resource::Entry::deleteHelper,
+            this, srcDumpID);
     }
+    log<level::INFO>(
+        fmt::format("Resource dump entry with id({}) is deleted", dumpId)
+            .c_str());
 }
 } // namespace resource
 } // namespace dump

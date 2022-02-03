@@ -92,6 +92,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      * @brief Delete resource dump in host memory and the entry dbus object
      */
     void delete_() override;
+
+    /**
+     * @brief Delete helper to delete resource dump async
+     */
+    int deleteHelper(uint32_t srcDumpID);
 };
 
 } // namespace resource
