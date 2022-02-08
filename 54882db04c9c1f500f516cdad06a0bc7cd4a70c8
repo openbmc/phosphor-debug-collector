@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfbbf7ac_0502ed38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-08T11:56:54Z",
+      "side": 1,
+      "message": "Looks most of the code is common to the system and resource dump for the restore, cannot we simplify the code to put all in the one place and pass appropriate inputs that\u0027s vary per dump type if possible.\n\nI think, serialization, deserialization, and restore can be a virtual function (at least for the openpower specific dump), right? or templates? is there any difficulty?",
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "659b38ce_eb0cd6bf",
@@ -19,6 +36,98 @@
         "startChar": 0,
         "endLine": 30,
         "endChar": 5
+      },
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f017c9_1f84e69e",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-08T11:56:54Z",
+      "side": 1,
+      "message": "Do you need use `RESOURCE_DUMP_SERIAL_PATH`, right?",
+      "range": {
+        "startLine": 24,
+        "startChar": 64,
+        "endLine": 24,
+        "endChar": 87
+      },
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e756a17_0b4f4588",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-08T11:56:54Z",
+      "side": 1,
+      "message": "resource?",
+      "range": {
+        "startLine": 73,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9e477e_40c9c170",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_serialize.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-08T11:56:54Z",
+      "side": 1,
+      "message": "resource?",
+      "range": {
+        "startLine": 102,
+        "startChar": 39,
+        "endLine": 102,
+        "endChar": 45
+      },
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d8b8cc4_2bb7335b",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_serialize.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-08T11:56:54Z",
+      "side": 1,
+      "message": "resource?",
+      "range": {
+        "startLine": 112,
+        "startChar": 39,
+        "endLine": 112,
+        "endChar": 45
       },
       "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
