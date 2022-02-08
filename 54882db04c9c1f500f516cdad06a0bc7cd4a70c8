@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "659b38ce_eb0cd6bf",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-08T10:24:34Z",
+      "side": 1,
+      "message": "this should have been in system dump path commit,",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "54882db04c9c1f500f516cdad06a0bc7cd4a70c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
