@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20ba70e_8f045aa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-09T10:28:34Z",
+      "side": 1,
+      "message": "LGTM\n\nThe suggested comment on the reuse of the code is just an improvement comment. I am ok with it improving in the future based on the needs. ",
+      "revId": "ed0203eed6d4ba797fd4f69ef996ba47b4aafba6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
