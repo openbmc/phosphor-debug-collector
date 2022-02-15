@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fd0b0f6_3da8672e",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-15T12:42:51Z",
+      "side": 1,
+      "message": "then we need to do try..catch and commit the error, as I understand exceptions are not propagated to the main method",
+      "parentUuid": "d639434f_89f783f2",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30e9debb_354e067b",
         "filename": "bmcstored_dump_entry.cpp",
         "patchSetId": 2
