@@ -1,9 +1,11 @@
 #include "bmc_dump_entry.hpp"
 #include "dump_manager.hpp"
 #include "dump_offload.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
 
 #include <fmt/core.h>
 
+#include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 
 namespace phosphor
@@ -13,6 +15,14 @@ namespace dump
 namespace bmc_stored
 {
 using namespace phosphor::logging;
+
+uint32_t Entry::downloadHelper()
+{
+    phosphor::dump::offload::requestOffload(file, id, offloadUri());
+    log<level::INFO>(fmt::format("offload complete id({})", id).c_str());
+    offloaded(true);
+    return 0;
+}
 
 void Entry::delete_()
 {
@@ -35,8 +45,22 @@ void Entry::delete_()
 
 void Entry::initiateOffload(std::string uri)
 {
-    phosphor::dump::offload::requestOffload(file, id, uri);
-    offloaded(true);
+    log<level::INFO>(
+        fmt::format("offload started id({}) uri({})", id, uri).c_str());
+
+    // If another offload is in progress wait for that to finish
+    if (asyncOffloadThread.valid())
+    {
+        using NotAllowed =
+            sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+        using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+        log<level::ERR>("Another offload is in progress, cannot continue");
+        elog<NotAllowed>(
+            Reason("Another offload is in progress, please try later"));
+    }
+    phosphor::dump::Entry::initiateOffload(uri);
+    asyncOffloadThread = std::async(
+        std::launch::async, &phosphor::dump::bmc::Entry::downloadHelper, this);
 }
 
 } // namespace bmc_stored
