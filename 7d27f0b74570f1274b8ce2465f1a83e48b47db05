@@ -88,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5596f0_7caf702c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostdump.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-15T13:40:49Z",
+      "side": 1,
+      "message": "The function will throw QuotaExceeded exception",
+      "parentUuid": "b4fe35ac_a2ae2ea3",
+      "revId": "7d27f0b74570f1274b8ce2465f1a83e48b47db05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af25d39c_e729b49c",
