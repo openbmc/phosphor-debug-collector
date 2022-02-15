@@ -6,6 +6,8 @@
 
 #include <phosphor-logging/log.hpp>
 
+#include <future>
+
 namespace phosphor
 {
 namespace dump
@@ -13,6 +15,15 @@ namespace dump
 namespace bmc_stored
 {
 using namespace phosphor::logging;
+
+static std::future<uint32_t> asyncThread;
+uint32_t Entry::downloadHelper()
+{
+    phosphor::dump::offload::requestOffload(file, id, offloadUri());
+    log<level::ERR>(fmt::format("offload complete id({})", id).c_str());
+    offloaded(true);
+    return 0;
+}
 
 void Entry::delete_()
 {
@@ -35,8 +46,15 @@ void Entry::delete_()
 
 void Entry::initiateOffload(std::string uri)
 {
-    phosphor::dump::offload::requestOffload(file, id, uri);
-    offloaded(true);
+    log<level::ERR>(
+        fmt::format("offload started id({}) uri({})", id, uri).c_str());
+    if (asyncThread.valid())
+    {
+        asyncThread.get();
+    }
+    phosphor::dump::Entry::initiateOffload(uri);
+    asyncThread = std::async(std::launch::async,
+                             &phosphor::dump::bmc::Entry::downloadHelper, this);
 }
 
 } // namespace bmc_stored

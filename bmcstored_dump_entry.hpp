@@ -87,6 +87,11 @@ class Entry : public phosphor::dump::Entry
   protected:
     /** @Dump file name */
     std::filesystem::path file;
+
+    /** @brief Function to call dump offload method
+     *  @return 0 if success
+     */
+    uint32_t downloadHelper();
 };
 
 } // namespace bmc_stored
