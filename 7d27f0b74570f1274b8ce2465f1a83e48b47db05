@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4104d1d_dd19ecee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T10:02:31Z",
+      "side": 1,
+      "message": "please add OpenPOWER: at begining of commit message.",
+      "revId": "7d27f0b74570f1274b8ce2465f1a83e48b47db05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e0a6b8_a55ef3d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T10:02:31Z",
+      "side": 1,
+      "message": "Add tested details.",
+      "revId": "7d27f0b74570f1274b8ce2465f1a83e48b47db05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af25d39c_e729b49c",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostdump.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T10:02:31Z",
+      "side": 1,
+      "message": "Better to add unit also here , Kilobytes.",
+      "range": {
+        "startLine": 132,
+        "startChar": 64,
+        "endLine": 132,
+        "endChar": 66
+      },
+      "revId": "7d27f0b74570f1274b8ce2465f1a83e48b47db05",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
