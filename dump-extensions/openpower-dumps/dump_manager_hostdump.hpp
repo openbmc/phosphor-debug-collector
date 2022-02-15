@@ -4,6 +4,7 @@
 
 #include "dump_manager_bmcstored.hpp"
 #include "dump_utils.hpp"
+#include "host_dump_entry.hpp"
 #include "op_dump_util.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -181,8 +182,9 @@ class Manager :
         try
         {
             entries.insert(std::make_pair(
-                id, std::make_unique<T>(bus, objPath.c_str(), id, ms, fileSize,
-                                        file, status, *this)));
+                id, std::make_unique<openpower::dump::hostdump::Entry<T>>(
+                        bus, objPath.c_str(), id, ms, fileSize, file, status,
+                        *this)));
         }
         catch (const std::invalid_argument& e)
         {
