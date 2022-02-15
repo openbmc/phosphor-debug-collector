@@ -27,6 +27,10 @@ namespace bmc
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
+bool Manager::fUserDumpInProgress = false;
 
 namespace internal
 {
@@ -47,21 +51,29 @@ sdbusplus::message::object_path
             "BMC dump accepts not more than 2 additional parameters");
     }
 
-    // Get the originator id and type from params
-    std::string originatorId;
-    originatorTypes originatorType;
+    if (Manager::fUserDumpInProgress == true)
+    {
+        elog<NotAllowed>(Reason("User initiated dump is already in progress"));
+    }
+    Manager::fUserDumpInProgress = true;
 
-    phosphor::dump::extractOriginatorProperties(params, originatorId,
-                                                originatorType);
-
-    std::vector<std::string> paths;
-    auto id = captureDump(Type::UserRequested, paths);
-
-    // Entry Object path.
-    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
-
+    std::filesystem::path objPath;
+    uint32_t id;
     try
     {
+        // Get the originator id and type from params
+        std::string originatorId;
+        originatorTypes originatorType;
+
+        phosphor::dump::extractOriginatorProperties(params, originatorId,
+                                                    originatorType);
+
+        std::vector<std::string> paths;
+        id = captureDump(Type::UserRequested, paths);
+
+        // Entry Object path.
+        objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
+
         uint64_t timeStamp =
             std::chrono::duration_cast<std::chrono::microseconds>(
                 std::chrono::system_clock::now().time_since_epoch())
@@ -75,6 +87,7 @@ sdbusplus::message::object_path
     }
     catch (const std::invalid_argument& e)
     {
+        Manager::fUserDumpInProgress = false;
         log<level::ERR>(fmt::format("Error in creating dump entry, "
                                     "errormsg({}), OBJECTPATH({}), ID({})",
                                     e.what(), objPath.c_str(), id)
@@ -88,58 +101,71 @@ sdbusplus::message::object_path
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
-    // Get Dump size.
-    auto size = getAllowedSize();
 
-    pid_t pid = fork();
-
-    if (pid == 0)
+    try
     {
-        std::filesystem::path dumpPath(dumpDir);
-        auto id = std::to_string(lastEntryId + 1);
-        dumpPath /= id;
+        // Get Dump size.
+        auto size = getAllowedSize();
 
-        // get dreport type map entry
-        auto tempType = TypeMap.find(type);
+        pid_t pid = fork();
 
-        execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
-              id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
-              fullPaths.empty() ? "" : fullPaths.front().c_str(), "-t",
-              tempType->second.c_str(), nullptr);
-
-        // dreport script execution is failed.
-        auto error = errno;
-        log<level::ERR>(
-            fmt::format(
-                "Error occurred during dreport function execution, errno({})",
-                error)
-                .c_str());
-        elog<InternalFailure>();
-    }
-    else if (pid > 0)
-    {
-        auto rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                     WEXITED | WSTOPPED, callback, nullptr);
-        if (0 > rc)
+        if (pid == 0)
         {
-            // Failed to add to event loop
+            std::filesystem::path dumpPath(dumpDir);
+            auto id = std::to_string(lastEntryId + 1);
+            dumpPath /= id;
+
+            // get dreport type map entry
+            auto tempType = TypeMap.find(type);
+            execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
+                  id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v",
+                  "-p", fullPaths.empty() ? "" : fullPaths.front().c_str(),
+                  "-t", tempType->second.c_str(), nullptr);
+
+            // dreport script execution is failed.
+            auto error = errno;
+            log<level::ERR>(fmt::format("Error occurred during dreport "
+                                        "function execution, errno({})",
+                                        error)
+                                .c_str());
+            elog<InternalFailure>();
+        }
+        else if (pid > 0)
+        {
+            // local variable goes out of scope using pointer, callback method
+            // need to dellocate the pointer
+            Type* typePtr = new Type();
+            *typePtr = type;
+            int rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
+                                        WEXITED | WSTOPPED, callback,
+                                        (void*)(typePtr));
+            if (0 > rc)
+            {
+                // Failed to add to event loop
+                log<level::ERR>(fmt::format("Error occurred during the "
+                                            "sd_event_add_child call, rc({})",
+                                            rc)
+                                    .c_str());
+                elog<InternalFailure>();
+            }
+        }
+        else
+        {
+            auto error = errno;
             log<level::ERR>(
-                fmt::format(
-                    "Error occurred during the sd_event_add_child call, rc({})",
-                    rc)
+                fmt::format("Error occurred during fork, errno({})", error)
                     .c_str());
             elog<InternalFailure>();
         }
     }
-    else
+    catch (const InternalFailure& ex)
     {
-        auto error = errno;
-        log<level::ERR>(
-            fmt::format("Error occurred during fork, errno({})", error)
-                .c_str());
-        elog<InternalFailure>();
+        if (type == Type::UserRequested)
+        {
+            Manager::fUserDumpInProgress = false;
+        }
+        throw ex;
     }
-
     return ++lastEntryId;
 }
 
@@ -192,11 +218,12 @@ void Manager::createEntry(const std::filesystem::path& file)
     catch (const std::invalid_argument& e)
     {
         log<level::ERR>(
-            fmt::format(
-                "Error in creating dump entry, errormsg({}), OBJECTPATH({}), "
-                "ID({}), TIMESTAMP({}), SIZE({}), FILENAME({})",
-                e.what(), objPath.c_str(), id, timestamp,
-                std::filesystem::file_size(file), file.filename().c_str())
+            fmt::format("Error in creating dump entry, errormsg({}), "
+                        "OBJECTPATH({}), "
+                        "ID({}), TIMESTAMP({}), SIZE({}), FILENAME({})",
+                        e.what(), objPath.c_str(), id, timestamp,
+                        std::filesystem::file_size(file),
+                        file.filename().c_str())
                 .c_str());
         return;
     }
