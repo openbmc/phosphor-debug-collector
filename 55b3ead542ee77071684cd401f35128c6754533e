@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0980107_9d6974ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "Dhruv If user is async d-bus requests will solve this issue? \n\nPtarick sdbusplus  provides any async d-bus method_call?",
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08af95e8_2985bdb3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "The new proposal allows  multiple dump offload requests. is this allowed from BMCweb?  Based on the current design this is going to fail right? are we logging useful error information/response to user here? it will be good to add tested details here related to this.",
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea01c15b_2f1410c3",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "Alway\u0027s returning 0 , is this return is really required?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 8
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d639434f_89f783f2",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "requestOffload thrwos exceptions. do we need to restart the service for any failures?",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30e9debb_354e067b",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "INFO?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ebfb6d_db728c81",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T11:24:52Z",
+      "side": 1,
+      "message": "IONFO?",
+      "range": {
+        "startLine": 49,
+        "startChar": 15,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
