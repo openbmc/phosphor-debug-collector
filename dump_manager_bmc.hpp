@@ -8,7 +8,6 @@
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include <filesystem>
-
 namespace phosphor
 {
 namespace dump
@@ -119,10 +118,14 @@ class Manager :
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source*, const siginfo_t*, void*)
+    static int callback(sd_event_source*, const siginfo_t*, void* type)
     {
-        // No specific action required in
-        // the sd_event_add_child callback.
+        Type* ptr = reinterpret_cast<Type*>(type);
+        if (*ptr == Type::UserRequested)
+        {
+            fUserDumpInProgress = false;
+        }
+        delete ptr;
         return 0;
     }
     /** @brief Remove specified watch object pointer from the
@@ -145,6 +148,10 @@ class Manager :
 
     /** @brief Path to the dump file*/
     std::string dumpDir;
+
+    /** @brief Flag to reject user intiated dump if a dump is in progress*/
+    // TODO: https://github.com/openbmc/phosphor-debug-collector/issues/19
+    static bool fUserDumpInProgress;
 
     /** @brief Child directory path and its associated watch object map
      *        [path:watch object]
