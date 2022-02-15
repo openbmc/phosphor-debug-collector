@@ -58,6 +58,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79608239_6ad0da86",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-15T13:43:37Z",
+      "side": 1,
+      "message": "void was not allowed by the method",
+      "parentUuid": "ea01c15b_2f1410c3",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 8
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d639434f_89f783f2",
@@ -105,6 +129,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6d5db0c_a46b55d6",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-15T13:43:37Z",
+      "side": 1,
+      "message": "no if the download is not complete, the client need to restart the download",
+      "parentUuid": "8fd0b0f6_3da8672e",
+      "range": {
+        "startLine": 22,
+        "startChar": 29,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30e9debb_354e067b",
@@ -128,6 +176,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b44d885_9278bee6",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-15T13:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e9debb_354e067b",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9ebfb6d_db728c81",
@@ -141,6 +213,30 @@
       "writtenOn": "2022-02-15T11:24:52Z",
       "side": 1,
       "message": "IONFO?",
+      "range": {
+        "startLine": 49,
+        "startChar": 15,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1165c0f8_455351a0",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-15T13:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9ebfb6d_db728c81",
       "range": {
         "startLine": 49,
         "startChar": 15,
