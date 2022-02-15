@@ -1,10 +1,6 @@
 #pragma once
 
 #include "bmcstored_dump_entry.hpp"
-#include "com/ibm/Dump/Entry/Hardware/server.hpp"
-#include "xyz/openbmc_project/Dump/Entry/server.hpp"
-#include "xyz/openbmc_project/Object/Delete/server.hpp"
-#include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -15,23 +11,20 @@ namespace openpower
 {
 namespace dump
 {
-namespace hardware
+namespace hostdump
 {
+
 template <typename T>
-using ServerObject = typename sdbusplus::server::object::object<T>;
-
-using EntryIfaces = sdbusplus::server::object::object<
-    sdbusplus::com::ibm::Dump::Entry::server::Hardware>;
-
-class Manager;
+using EntryIfaces = sdbusplus::server::object::object<T>;
 
 /** @class Entry
- *  @brief Hardware Dump Entry implementation.
+ *  @brief Host Dump Entry implementation.
  *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Entry DBus API
+ *  host dump type DBus API
  */
+template <typename T>
 class Entry :
-    virtual public EntryIfaces,
+    virtual public EntryIfaces<T>,
     virtual public phosphor::dump::bmc_stored::Entry
 {
   public:
@@ -58,16 +51,16 @@ class Entry :
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), true),
+        EntryIfaces<T>(bus, objPath.c_str(), true),
         phosphor::dump::bmc_stored::Entry(bus, objPath.c_str(), dumpId,
                                           timeStamp, fileSize, file, status,
                                           parent)
     {
         // Emit deferred signal.
-        this->openpower::dump::hardware::EntryIfaces::emit_object_added();
+        this->openpower::dump::hostdump::EntryIfaces<T>::emit_object_added();
     }
 };
 
-} // namespace hardware
+} // namespace hostdump
 } // namespace dump
 } // namespace openpower
