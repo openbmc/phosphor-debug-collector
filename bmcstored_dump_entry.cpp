@@ -17,7 +17,7 @@ using namespace phosphor::logging;
 uint32_t Entry::downloadHelper()
 {
     phosphor::dump::offload::requestOffload(file, id, offloadUri());
-    log<level::ERR>(fmt::format("offload complete id({})", id).c_str());
+    log<level::INFO>(fmt::format("offload complete id({})", id).c_str());
     offloaded(true);
     return 0;
 }
@@ -43,7 +43,7 @@ void Entry::delete_()
 
 void Entry::initiateOffload(std::string uri)
 {
-    log<level::ERR>(
+    log<level::INFO>(
         fmt::format("offload started id({}) uri({})", id, uri).c_str());
 
     // If another offload is in progress wait for that to finish
