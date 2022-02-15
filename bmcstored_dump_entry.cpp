@@ -14,6 +14,14 @@ namespace bmc_stored
 {
 using namespace phosphor::logging;
 
+uint32_t Entry::downloadHelper()
+{
+    phosphor::dump::offload::requestOffload(file, id, offloadUri());
+    log<level::ERR>(fmt::format("offload complete id({})", id).c_str());
+    offloaded(true);
+    return 0;
+}
+
 void Entry::delete_()
 {
     // Delete Dump file from Permanent location
@@ -35,8 +43,17 @@ void Entry::delete_()
 
 void Entry::initiateOffload(std::string uri)
 {
-    phosphor::dump::offload::requestOffload(file, id, uri);
-    offloaded(true);
+    log<level::ERR>(
+        fmt::format("offload started id({}) uri({})", id, uri).c_str());
+
+    // If another offload is in progress wait for that to finish
+    if (asyncOffloadThread.valid())
+    {
+        asyncOffloadThread.get();
+    }
+    phosphor::dump::Entry::initiateOffload(uri);
+    asyncOffloadThread = std::async(
+        std::launch::async, &phosphor::dump::bmc::Entry::downloadHelper, this);
 }
 
 } // namespace bmc_stored

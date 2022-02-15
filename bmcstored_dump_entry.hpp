@@ -6,6 +6,7 @@
 #include <sdbusplus/server/object.hpp>
 
 #include <filesystem>
+#include <future>
 
 namespace phosphor
 {
@@ -84,6 +85,14 @@ class Entry : public phosphor::dump::Entry
   protected:
     /** @Dump file name */
     std::filesystem::path file;
+
+    /** @Thread for offloading dump */
+    std::future<uint32_t> asyncOffloadThread;
+
+    /** @brief Function to call dump offload method
+     *  @return 0 if success
+     */
+    uint32_t downloadHelper();
 };
 
 } // namespace bmc_stored
