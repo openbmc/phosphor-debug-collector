@@ -97,6 +97,11 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
   private:
     /** @Dump file name */
     std::filesystem::path file;
+
+    /** @brief Function to call dump offload method
+     *  @return 0 if success
+     */
+    uint32_t downloadHelper();
 };
 
 } // namespace bmc
