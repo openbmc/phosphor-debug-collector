@@ -119,12 +119,16 @@ class Manager :
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source*, const siginfo_t*, void*)
+    static int callback(sd_event_source*, const siginfo_t*, void* type)
     {
-        // No specific action required in
-        // the sd_event_add_child callback.
+        Type dumpType = *(reinterpret_cast<Type*>(type));
+        if (dumpType == Type::UserRequested)
+        {
+            fUserDumpInProgress = false;
+        }
         return 0;
     }
+
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map
@@ -145,6 +149,12 @@ class Manager :
 
     /** @brief Path to the dump file*/
     std::string dumpDir;
+
+    /** @brief Flag to reject user intiated dump if a dump is in progress*/
+    static bool fUserDumpInProgress;
+
+    /** @brief mutex to protect dump in progress flag access */
+    static std::mutex dumpMutex;
 
     /** @brief Child directory path and its associated watch object map
      *        [path:watch object]

@@ -27,6 +27,10 @@ namespace bmc
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
+bool Manager::fUserDumpInProgress = false;
 
 namespace internal
 {
@@ -45,6 +49,12 @@ sdbusplus::message::object_path
     {
         log<level::WARNING>("BMC dump accepts no additional parameters");
     }
+    if (Manager::fUserDumpInProgress == true)
+    {
+        elog<NotAllowed>(Reason("User initiated dump is already in progress"));
+    }
+
+    Manager::fUserDumpInProgress = true;
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
 
@@ -74,6 +84,7 @@ sdbusplus::message::object_path
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
+
     // Get Dump size.
     auto size = getAllowedSize();
 
@@ -93,6 +104,11 @@ uint32_t Manager::captureDump(Type type,
               fullPaths.empty() ? "" : fullPaths.front().c_str(), "-t",
               tempType->second.c_str(), nullptr);
 
+        if (type == Type::UserRequested)
+        {
+            Manager::fUserDumpInProgress = false;
+        }
+
         // dreport script execution is failed.
         auto error = errno;
         log<level::ERR>(
@@ -104,10 +120,15 @@ uint32_t Manager::captureDump(Type type,
     }
     else if (pid > 0)
     {
-        auto rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                     WEXITED | WSTOPPED, callback, nullptr);
+        int rc =
+            sd_event_add_child(eventLoop.get(), nullptr, pid,
+                               WEXITED | WSTOPPED, callback, (void*)(&type));
         if (0 > rc)
         {
+            if (type == Type::UserRequested)
+            {
+                Manager::fUserDumpInProgress = false;
+            }
             // Failed to add to event loop
             log<level::ERR>(
                 fmt::format(
@@ -119,6 +140,10 @@ uint32_t Manager::captureDump(Type type,
     }
     else
     {
+        if (type == Type::UserRequested)
+        {
+            Manager::fUserDumpInProgress = false;
+        }
         auto error = errno;
         log<level::ERR>(
             fmt::format("Error occurred during fork, errno({})", error)
