@@ -27,6 +27,11 @@ namespace bmc
 
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
+using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
+bool Manager::fUserDumpInProgress = false;
+std::mutex Manager::dumpMutex;
 
 namespace internal
 {
@@ -44,6 +49,19 @@ sdbusplus::message::object_path
     if (!params.empty())
     {
         log<level::WARNING>("BMC dump accepts no additional parameters");
+    }
+    bool fFlag = false;
+    {
+        Manager::Mutex mutex;
+        fFlag = Manager::fUserDumpInProgress;
+    }
+    if (fFlag == true)
+    {
+        elog<NotAllowed>(Reason("User initiated dump is already in progress"));
+    }
+    {
+        Manager::Mutex mutex;
+        Manager::fUserDumpInProgress = true;
     }
     std::vector<std::string> paths;
     auto id = captureDump(Type::UserRequested, paths);
@@ -74,6 +92,7 @@ sdbusplus::message::object_path
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
+
     // Get Dump size.
     auto size = getAllowedSize();
 
@@ -104,8 +123,18 @@ uint32_t Manager::captureDump(Type type,
     }
     else if (pid > 0)
     {
-        auto rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                     WEXITED | WSTOPPED, callback, nullptr);
+        int rc = 0;
+        if (type == Type::UserRequested)
+        {
+            rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
+                                    WEXITED | WSTOPPED, userDumpCallback,
+                                    nullptr);
+        }
+        else
+        {
+            rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
+                                    WEXITED | WSTOPPED, callback, nullptr);
+        }
         if (0 > rc)
         {
             // Failed to add to event loop

@@ -8,6 +8,7 @@
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include <filesystem>
+#include <mutex>
 
 namespace phosphor
 {
@@ -98,6 +99,17 @@ class Manager :
         createDump(phosphor::dump::DumpCreateParams params) override;
 
   private:
+    struct Mutex
+    {
+        Mutex()
+        {
+            Manager::dumpMutex.lock();
+        }
+        ~Mutex()
+        {
+            Manager::dumpMutex.unlock();
+        }
+    };
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
      */
@@ -125,6 +137,22 @@ class Manager :
         // the sd_event_add_child callback.
         return 0;
     }
+
+    /** @brief sd_event_add_child callback for user initiated dump
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] userdata - pointer to Watch object
+     *
+     *  @returns 0 on success, -1 on fail
+     */
+    static int userDumpCallback(sd_event_source*, const siginfo_t*, void*)
+    {
+        Manager::Mutex mutex;
+        fUserDumpInProgress = false;
+        return 0;
+    }
+
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map
@@ -145,6 +173,12 @@ class Manager :
 
     /** @brief Path to the dump file*/
     std::string dumpDir;
+
+    /** @brief Flag to reject user intiated dump if a dump is in progress*/
+    static bool fUserDumpInProgress;
+
+    /** @brief mutex to protect dump in progress flag access */
+    static std::mutex dumpMutex;
 
     /** @brief Child directory path and its associated watch object map
      *        [path:watch object]
