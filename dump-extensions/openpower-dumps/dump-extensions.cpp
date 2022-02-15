@@ -4,13 +4,14 @@
 
 #include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
 
+#include "com/ibm/Dump/Entry/Hardware/server.hpp"
+#include "com/ibm/Dump/Entry/Hostboot/server.hpp"
+#include "com/ibm/Dump/Entry/SBE/server.hpp"
 #include "dump_manager_hostdump.hpp"
 #include "dump_manager_resource.hpp"
 #include "dump_manager_system.hpp"
 #include "dump_utils.hpp"
-#include "hardware_dump_entry.hpp"
-#include "hostboot_dump_entry.hpp"
-#include "sbe_dump_entry.hpp"
+#include "host_dump_entry.hpp"
 
 #include <fmt/core.h>
 
@@ -44,7 +45,7 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         throw std::runtime_error("Failed to create hostboot dump directory");
     }
     dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
-                           openpower::dump::hostboot::Entry>>(
+                           sdbusplus::com::ibm::Dump::Entry::server::Hostboot>>(
         bus, event, HOSTBOOT_DUMP_OBJPATH, HOSTBOOT_DUMP_OBJ_ENTRY,
         HOSTBOOT_DUMP_START_ID, HOSTBOOT_DUMP_PATH, "hbdump",
         HOSTBOOT_DUMP_TMP_FILE_DIR, HOSTBOOT_DUMP_MAX_SIZE,
@@ -64,7 +65,7 @@ void loadExtensions(sdbusplus::bus::bus& bus,
     }
 
     dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
-                           openpower::dump::hardware::Entry>>(
+                           sdbusplus::com::ibm::Dump::Entry::server::Hardware>>(
         bus, event, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
         HARDWARE_DUMP_START_ID, HARDWARE_DUMP_PATH, "hwdump",
         HARDWARE_DUMP_TMP_FILE_DIR, HARDWARE_DUMP_MAX_SIZE,
@@ -82,12 +83,11 @@ void loadExtensions(sdbusplus::bus::bus& bus,
         throw std::runtime_error("Failed to create SBE dump directory");
     }
 
-    dumpList.push_back(
-        std::make_unique<
-            openpower::dump::hostdump::Manager<openpower::dump::sbe::Entry>>(
-            bus, event, SBE_DUMP_OBJPATH, SBE_DUMP_OBJ_ENTRY, SBE_DUMP_START_ID,
-            SBE_DUMP_PATH, "sbedump", SBE_DUMP_TMP_FILE_DIR, SBE_DUMP_MAX_SIZE,
-            SBE_DUMP_MIN_SPACE_REQD, SBE_DUMP_TOTAL_SIZE));
+    dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
+                           sdbusplus::com::ibm::Dump::Entry::server::SBE>>(
+        bus, event, SBE_DUMP_OBJPATH, SBE_DUMP_OBJ_ENTRY, SBE_DUMP_START_ID,
+        SBE_DUMP_PATH, "sbedump", SBE_DUMP_TMP_FILE_DIR, SBE_DUMP_MAX_SIZE,
+        SBE_DUMP_MIN_SPACE_REQD, SBE_DUMP_TOTAL_SIZE));
 }
 } // namespace dump
 } // namespace phosphor
