@@ -119,10 +119,18 @@ class Manager :
         // Check dump policy
         util::isOPDumpsEnabled();
 
+        auto size = getAllowedSize();
+
         uint32_t id = ++lastEntryId;
+
         // Entry Object path.
         auto objPath =
             std::filesystem::path(baseEntryPath) / std::to_string(id);
+
+        log<level::INFO>(fmt::format("Create dump type({}) with id({}) "
+                                     "available space: ({}) kilobytes",
+                                     dumpNamePrefix, id, size)
+                             .c_str());
 
         std::time_t timeStamp = std::time(nullptr);
         createEntry(id, objPath, timeStamp, 0, std::string(),
