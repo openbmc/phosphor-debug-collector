@@ -104,10 +104,17 @@ class Manager : public phosphor::dump::Manager
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source*, const siginfo_t*, void*)
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
     {
-        // No specific action required in
-        // the sd_event_add_child callback.
+        // Set progress as failed if packaging return error
+        if (si->si_status != 0)
+        {
+            if (entry != NULL)
+            {
+                reinterpret_cast<phosphor::dump::Entry*>(entry)->status(
+                    phosphor::dump::OperationStatus::Failed);
+            }
+        }
         return 0;
     }
 
