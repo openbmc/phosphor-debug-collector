@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d12120c_a914382e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T05:49:59Z",
+      "side": 1,
+      "message": "I think , it is not ignoring right ? opertaion is not allowed here. please update commit message documentation accordingly.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5029de6f_52deb7e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T05:49:59Z",
+      "side": 1,
+      "message": "avoid these details from commit message.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afdf7cb8_1d38b5d6",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 1
@@ -43,6 +89,23 @@
         "endLine": 149,
         "endChar": 31
       },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23293c9b_f9fae0ea",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T05:49:59Z",
+      "side": 1,
+      "message": "Why we need this , Dump manager is single threaded application.",
       "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
