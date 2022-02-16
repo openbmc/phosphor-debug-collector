@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0346eb7_64c2fcc1",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T22:13:27Z",
+      "side": 1,
+      "message": "dbus is not thread-safe.  You can\u0027t set a property (which has the side-effect of raising a PropertiesChanged signal) from anything except the main thread.\n\nThis is a sd_bus limitation, not just sdbusplus.",
+      "revId": "851256158be9055741c92b9aba0336567cf76e2d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "653ebdfe_c85b9007",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T22:13:27Z",
+      "side": 1,
+      "message": "The \u0027asyncOffloadThread.valid()\u0027 will be valid until someone calls \u0027get\u0027 on the future after it has completed.  I don\u0027t see any path where that happens, so how does the future become invalid after completion?  Doesn\u0027t this mean that you can only initiate offload a single time per entry?\n\nhttps://en.cppreference.com/w/cpp/thread/future/valid",
+      "revId": "851256158be9055741c92b9aba0336567cf76e2d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
