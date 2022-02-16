@@ -47,6 +47,40 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5b433f_8fb554a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T08:24:37Z",
+      "side": 1,
+      "message": "Key point need to look here is user initiate Dump request failure path hadling. Added few places. please beytter design to handle the failure Status flag reset.  Otherwise any failure is going to stop getter usre initated dump, going to be bigger issue for debug.",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a195bdbe_f6c4754c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T08:24:37Z",
+      "side": 1,
+      "message": "Need to reset the flag here.",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afdf7cb8_1d38b5d6",
@@ -66,6 +100,40 @@
         "endLine": 131,
         "endChar": 43
       },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4e3263_0562f083",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T08:24:37Z",
+      "side": 1,
+      "message": "Need to reset the flag here also.",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40829c0b_e22597b9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-16T08:24:37Z",
+      "side": 1,
+      "message": "Reset Flag Here also.",
       "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
