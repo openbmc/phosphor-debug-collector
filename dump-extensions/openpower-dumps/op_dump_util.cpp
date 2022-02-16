@@ -27,7 +27,7 @@ using InternalFailure =
 
 void isOPDumpsEnabled()
 {
-    auto enabled = true;
+    bool enabled = true;
     constexpr auto enable = "xyz.openbmc_project.Object.Enable";
     constexpr auto policy = "/xyz/openbmc_project/dump/system_dump_policy";
     constexpr auto property = "org.freedesktop.DBus.Properties";
