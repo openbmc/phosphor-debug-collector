@@ -4,14 +4,16 @@
 #include "dump_utils.hpp"
 #include "watch.hpp"
 
-#include <filesystem>
+#include <phosphor-logging/log.hpp>
 
+#include <filesystem>
 namespace phosphor
 {
 namespace dump
 {
 namespace bmc_stored
 {
+using namespace phosphor::logging;
 using UserMap = phosphor::dump::inotify::UserMap;
 
 using Watch = phosphor::dump::inotify::Watch;
@@ -104,10 +106,22 @@ class Manager : public phosphor::dump::Manager
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source*, const siginfo_t*, void*)
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
     {
-        // No specific action required in
-        // the sd_event_add_child callback.
+        // Set progress as failed if packaging return error
+        if (si->si_status != 0)
+        {
+            log<level::ERR>("Dump packaging failed");
+            if (entry != NULL)
+            {
+                reinterpret_cast<phosphor::dump::Entry*>(entry)->status(
+                    phosphor::dump::OperationStatus::Failed);
+            }
+        }
+        else
+        {
+            log<level::INFO>("Dump packaging completed");
+        }
         return 0;
     }
 
