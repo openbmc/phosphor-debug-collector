@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a89fcd8d_9d1bfb3c",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T15:57:03Z",
+      "side": 1,
+      "message": "lowerCamelCase",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 24
+      },
+      "revId": "2c29fbac9278876ab361258cdfcc7c4dc9c8eebf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd252cb_d8bc326e",
+        "filename": "bmcstored_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T15:57:03Z",
+      "side": 1,
+      "message": "just curious why do we need mutex here? we are either accessing the variable either in D-Bus method or in the event loop method which according to practice is good.",
+      "revId": "2c29fbac9278876ab361258cdfcc7c4dc9c8eebf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
