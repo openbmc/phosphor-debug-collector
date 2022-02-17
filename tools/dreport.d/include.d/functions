@@ -42,8 +42,8 @@ function add_copy_file()
         log_info "Copied $desc $file_name"
         return $SUCCESS
     else
-        return $RESOURCE_UNAVAILABLE
         log_warning "Skipping copy $desc $file_name"
+        return $RESOURCE_UNAVAILABLE
     fi
 }
 # @brief Copy the symbolic link file to the dreport packaging,
