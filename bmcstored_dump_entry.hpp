@@ -90,14 +90,27 @@ class Entry : public phosphor::dump::Entry, public FileIfaces
         completedTime(timeStamp);
     }
 
-  protected:
-    /** @Thread for offloading dump */
-    std::future<uint32_t> asyncOffloadThread;
-
-    /** @brief Function to call dump offload method
-     *  @return 0 if success
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] userdata - pointer to Watch object
+     *
+     *  @returns 0 on success, -1 on fail
      */
-    uint32_t downloadHelper();
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
+    {
+        // Set offloaded true if offloaded completed
+        if (si->si_status == 0)
+        {
+            if (entry != NULL)
+            {
+                reinterpret_cast<phosphor::dump::Entry*>(entry)->offloaded(
+                    true);
+            }
+        }
+        return 0;
+    }
 };
 
 } // namespace bmc_stored

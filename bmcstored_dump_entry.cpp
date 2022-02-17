@@ -1,5 +1,5 @@
 #include "bmc_dump_entry.hpp"
-#include "dump_manager.hpp"
+#include "dump_manager_bmcstored.hpp"
 #include "dump_offload.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -15,14 +15,6 @@ namespace dump
 namespace bmc_stored
 {
 using namespace phosphor::logging;
-
-uint32_t Entry::downloadHelper()
-{
-    phosphor::dump::offload::requestOffload(path(), id, offloadUri());
-    log<level::INFO>(fmt::format("offload complete id({})", id).c_str());
-    offloaded(true);
-    return 0;
-}
 
 void Entry::delete_()
 {
@@ -50,19 +42,42 @@ void Entry::initiateOffload(std::string uri)
     log<level::INFO>(
         fmt::format("offload started id({}) uri({})", id, uri).c_str());
 
-    // If another offload is in progress wait for that to finish
-    if (asyncOffloadThread.valid())
-    {
-        using NotAllowed =
-            sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
-        using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-        log<level::ERR>("Another offload is in progress, cannot continue");
-        elog<NotAllowed>(
-            Reason("Another offload is in progress, please try later"));
-    }
     phosphor::dump::Entry::initiateOffload(uri);
-    asyncOffloadThread = std::async(
-        std::launch::async, &phosphor::dump::bmc::Entry::downloadHelper, this);
+    pid_t pid = fork();
+    if (pid == 0)
+    {
+        execl("/usr/bin/phosphor-offload-handler", "phosphor-offload-handler",
+              "--id", std::to_string(id), "--path", path(), "--uri", uri,
+              nullptr);
+        throw std::runtime_error(
+            "Dump offload failure: Error occured while starting offload");
+    }
+    if (pid > 0)
+    {
+        auto rc = sd_event_add_child(
+            dynamic_cast<phosphor::dump::bmc_stored::Manager&>(parent)
+                .eventLoop.get(),
+            nullptr, pid, WEXITED | WSTOPPED, callback, this);
+        if (0 > rc)
+        {
+            // Failed to add to event loop
+            log<level::ERR>(fmt::format("Dump capture: Error occurred during "
+                                        "the sd_event_add_child call, rc({})",
+                                        rc)
+                                .c_str());
+            throw std::runtime_error("Dump capture: Error occurred during the "
+                                     "sd_event_add_child call");
+        }
+    }
+    else
+    {
+        auto error = errno;
+        log<level::ERR>(
+            fmt::format("Dump capture: Error occurred during fork, errno({})",
+                        error)
+                .c_str());
+        throw std::runtime_error("Dump capture: Error occurred during fork");
+    }
 }
 
 } // namespace bmc_stored
