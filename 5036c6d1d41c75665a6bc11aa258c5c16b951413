@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc17373_5061e852",
+        "filename": "tools/dreport.d/plugins.d/varlib",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-02-17T21:07:00Z",
+      "side": 1,
+      "message": "If we get tight on space, we can reconsider collecting  the cereal data for the d-bus errors in /var/lib/phosphor-logging/errors/.  It should be the same as the data from \u0027elogall\u0027 (I guess unless there\u0027s a problem there and we need to debug it.)",
+      "revId": "5036c6d1d41c75665a6bc11aa258c5c16b951413",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
