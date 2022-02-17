@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# config: 2 15
+# @brief: Collect /var/lib data.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Application data"
+dir_name="/tmp/var-lib"
+mkdir -p "$dir_name"
+
+cp -r  /var/lib/phosphor-logging "$dir_name"
+cp -r  /var/lib/phal "$dir_name"
+
+add_copy_file "$dir_name" "$desc"
