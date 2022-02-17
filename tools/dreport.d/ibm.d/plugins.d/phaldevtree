@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# config: 2 20
+# @brief: Collect phal devtree
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="phal devtree"
+dir_name="/media/hostfw/running/DEVTREE"
+
+add_copy_file "$dir_name" "$desc"
