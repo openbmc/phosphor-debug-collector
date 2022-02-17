@@ -78,7 +78,7 @@ class Manager : public phosphor::dump::Manager
             const uint64_t maxDumpSize, const uint64_t minDumpSize,
             const uint64_t allocatedSize) :
         phosphor::dump::Manager(bus, path, baseEntryPath, startingId),
-        dumpDir(filePath), eventLoop(event.get()),
+        eventLoop(event.get()), dumpDir(filePath),
         dumpWatch(
             eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE | IN_CREATE, EPOLLIN,
             filePath,
