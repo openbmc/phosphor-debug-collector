@@ -21,7 +21,18 @@ using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
 void Entry::delete_()
 {
+    if (isOffloadInProgress())
+    {
+        log<level::ERR>(
+            fmt::format("Dump offload is in progress, cannot delete id({})", id)
+                .c_str());
+        elog<NotAllowed>(
+            Reason("Dump offload is in progress, please try later"));
+    }
+
     // Delete Dump file from Permanent location
+    log<level::ERR>(
+        fmt::format("Deleting dump id({}) path({})", id, path()).c_str());
     try
     {
         std::filesystem::remove_all(
