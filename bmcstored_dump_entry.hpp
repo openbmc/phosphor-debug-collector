@@ -92,6 +92,61 @@ class Entry : public phosphor::dump::Entry, public FileIfaces
   protected:
     /** @Dump file name */
     std::filesystem::path file;
+
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] entry - pointer to dump entry
+     *
+     *  @returns 0 on success, -1 on fail
+     */
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
+    {
+        if (entry != NULL)
+        {
+            reinterpret_cast<phosphor::dump::bmc_stored::Entry*>(entry)
+                ->resetOffloadInProgress();
+        }
+        // Set offloaded true if offloaded completed
+        if (si->si_status == 0)
+        {
+            if (entry != NULL)
+            {
+                reinterpret_cast<phosphor::dump::Entry*>(entry)->offloaded(
+                    true);
+            }
+        }
+        return 0;
+    }
+
+    /** @brief Check whether offload is in progress
+     *  @return true if offloading in progress
+     *          false if offloading in not progress
+     */
+    bool isOffloadInProgress()
+    {
+        return offloadInProgress;
+    }
+
+    /** Set offload in progress to true
+     */
+    void setOffloadInProgress()
+    {
+        offloadInProgress = true;
+    }
+
+    /** Reset offload in progress to false
+     */
+    void resetOffloadInProgress()
+    {
+        offloadInProgress = false;
+    }
+
+  private:
+    /** @brief Indicates whether offload in progress
+     */
+    bool offloadInProgress;
 };
 
 } // namespace bmc_stored
