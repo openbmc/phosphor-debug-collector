@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# config: 2 15
+# @brief: Collect application data.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Application data"
+dir_name="/tmp/appsdata"
+mkdir -p "$dir_name"
+
+cp -r  /var/lib/phosphor-logging "$dir_name"
+
+add_copy_file "$dir_name" "$desc"
