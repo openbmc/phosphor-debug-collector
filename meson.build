@@ -227,6 +227,21 @@ phosphor_ramoops_monitor_install = true
 
 phosphor_ramoops_monitor_incdir = []
 
+phosphor_offload_handler_sources = [
+        'dump_offload.cpp',
+        'dump_offload_main.cpp',
+        'argument.cpp'
+    ]
+
+phosphor_offload_handler_dependency = [
+        phosphor_logging_dep,
+        fmt_dep
+    ]
+
+phosphor_offload_handler_install = true
+
+phosphor_offload_handler_incdir = []
+
 executables = [[ 'phosphor-dump-manager',
                   phosphor_dump_manager_sources,
                   phosphor_dump_manager_dependency,
@@ -244,6 +259,12 @@ executables = [[ 'phosphor-dump-manager',
                   phosphor_ramoops_monitor_dependency,
                   phosphor_ramoops_monitor_install,
                   phosphor_ramoops_monitor_incdir
+               ],
+               [ 'phosphor-offload-handler',
+                  phosphor_offload_handler_sources,
+                  phosphor_offload_handler_dependency,
+                  phosphor_offload_handler_install,
+                  phosphor_offload_handler_incdir
                ]
               ]
 
