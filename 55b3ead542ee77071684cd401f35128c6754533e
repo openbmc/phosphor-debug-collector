@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b77796f_773117b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-17T04:17:59Z",
+      "side": 1,
+      "message": "Tested downloading to clients with slow connection so a 10 minutes download worked with both async and sync methods\n\nbut if there is another dbus call coming with sync offload that dbus call is timing out and the offload also is failing.\n\nthat issue is not there with async method",
+      "parentUuid": "16d36e9d_86caa698",
+      "revId": "55b3ead542ee77071684cd401f35128c6754533e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08af95e8_2985bdb3",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2

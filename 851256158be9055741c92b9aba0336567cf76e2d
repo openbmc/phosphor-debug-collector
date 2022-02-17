@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b23bd94a_6591cff3",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-17T04:17:59Z",
+      "side": 1,
+      "message": "This will be a problem, need some callback to main thread after the completion of the offload",
+      "parentUuid": "a0346eb7_64c2fcc1",
+      "revId": "851256158be9055741c92b9aba0336567cf76e2d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "653ebdfe_c85b9007",
         "filename": "bmcstored_dump_entry.cpp",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-16T22:13:27Z",
       "side": 1,
       "message": "The \u0027asyncOffloadThread.valid()\u0027 will be valid until someone calls \u0027get\u0027 on the future after it has completed.  I don\u0027t see any path where that happens, so how does the future become invalid after completion?  Doesn\u0027t this mean that you can only initiate offload a single time per entry?\n\nhttps://en.cppreference.com/w/cpp/thread/future/valid",
+      "revId": "851256158be9055741c92b9aba0336567cf76e2d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf288f8_14c40495",
+        "filename": "bmcstored_dump_entry.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-17T04:17:59Z",
+      "side": 1,
+      "message": "Yes future will become invalid after completion because there is one socket file used by BMC web for each dump, so we cannot have simultaneous offloads of same dump",
+      "parentUuid": "653ebdfe_c85b9007",
       "revId": "851256158be9055741c92b9aba0336567cf76e2d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
