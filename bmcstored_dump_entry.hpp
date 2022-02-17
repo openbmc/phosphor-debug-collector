@@ -3,6 +3,9 @@
 #include "dump_entry.hpp"
 #include "xyz/openbmc_project/Common/FilePath/server.hpp"
 
+#include <fmt/core.h>
+
+#include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
@@ -14,6 +17,7 @@ namespace dump
 {
 namespace bmc_stored
 {
+using namespace phosphor::logging;
 
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
@@ -59,6 +63,7 @@ class Entry : public phosphor::dump::Entry, public FileIfaces
                               status, originId, originType, parent),
         FileIfaces(bus, objPath.c_str())
     {
+        offloadInProgress = false;
         path(file);
     }
 
@@ -92,8 +97,67 @@ class Entry : public phosphor::dump::Entry, public FileIfaces
     }
 
   protected:
-    /** @Dump file name */
-    std::filesystem::path file;
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] entry - pointer to dump entry
+     *
+     *  @returns 0 on success, -1 on fail
+     */
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
+    {
+        if (entry != NULL)
+        {
+            phosphor::dump::bmc_stored::Entry* dumpEntry =
+                reinterpret_cast<phosphor::dump::bmc_stored::Entry*>(entry);
+            dumpEntry->resetOffloadInProgress();
+            if (si->si_status == 0)
+            {
+                dumpEntry->offloaded(true);
+                log<level::ERR>(fmt::format("Dump offload completed id({})",
+                                            dumpEntry->getDumpId())
+                                    .c_str());
+            }
+            else
+            {
+                log<level::ERR>(fmt::format("Dump offload failed id({})",
+                                            dumpEntry->getDumpId())
+                                    .c_str());
+            }
+        }
+
+        return 0;
+    }
+
+    /** @brief Check whether offload is in progress
+     *  @return true if offloading in progress
+     *          false if offloading in not progress
+     */
+    bool isOffloadInProgress()
+    {
+        return offloadInProgress;
+    }
+
+    /** Set offload in progress to true
+     */
+    void setOffloadInProgress()
+    {
+        offloadInProgress = true;
+    }
+
+    /** Reset offload in progress to false
+     */
+    void resetOffloadInProgress()
+    {
+        offloadInProgress = false;
+        offloadUri(std::string());
+    }
+
+  private:
+    /** @brief Indicates whether offload in progress
+     */
+    bool offloadInProgress;
 };
 
 } // namespace bmc_stored
