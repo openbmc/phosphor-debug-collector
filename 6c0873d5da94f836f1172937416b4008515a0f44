@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f430eb9_a526af52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d12120c_a914382e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5029de6f_52deb7e8",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ef7389c_2ed96cbd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5029de6f_52deb7e8",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ff5b433f_8fb554a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -60,6 +108,24 @@
       "writtenOn": "2022-02-16T08:24:37Z",
       "side": 1,
       "message": "Key point need to look here is user initiate Dump request failure path hadling. Added few places. please beytter design to handle the failure Status flag reset.  Otherwise any failure is going to stop getter usre initated dump, going to be bigger issue for debug.",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea70e5f_479528ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "\u003e Key point need to look here is user initiate Dump request failure path hadling. Added few places. please beytter design to handle the failure Status flag reset.  Otherwise any failure is going to stop getter usre initated dump, going to be bigger issue for debug.",
+      "parentUuid": "ff5b433f_8fb554a3",
       "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -139,6 +205,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "307b09d9_a0b2962f",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4e3263_0562f083",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40829c0b_e22597b9",
@@ -174,6 +258,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0efd463c_837a112e",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5adae13_ed3ed6c8",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9363be77_dba32f3e",
@@ -187,6 +289,30 @@
       "writtenOn": "2022-02-16T05:42:38Z",
       "side": 1,
       "message": "we may have one call back and type can be passed as a parameter right?",
+      "range": {
+        "startLine": 149,
+        "startChar": 15,
+        "endLine": 149,
+        "endChar": 31
+      },
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c92a469_cef53633",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9363be77_dba32f3e",
       "range": {
         "startLine": 149,
         "startChar": 15,
@@ -228,6 +354,24 @@
       "side": 1,
       "message": "as we are doing fork and this variable is accessed in interprocess we need mutex",
       "parentUuid": "23293c9b_f9fae0ea",
+      "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9efe5276_47c33634",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T11:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e812b8d_7ba0c80e",
       "revId": "6c0873d5da94f836f1172937416b4008515a0f44",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
