@@ -90,14 +90,67 @@ class Entry : public phosphor::dump::Entry, public FileIfaces
         completedTime(timeStamp);
     }
 
-  protected:
-    /** @Thread for offloading dump */
-    std::future<uint32_t> asyncOffloadThread;
-
-    /** @brief Function to call dump offload method
-     *  @return 0 if success
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] entry - pointer to dump entry
+     *
+     *  @returns 0 on success, -1 on fail
      */
-    uint32_t downloadHelper();
+    static int callback(sd_event_source*, const siginfo_t* si, void* entry)
+    {
+        if (entry != NULL)
+        {
+            reinterpret_cast<phosphor::dump::bmc_stored::Entry*>(entry)
+                ->resetOffloadInProgress();
+        }
+        // Set offloaded true if offloaded completed
+        if (si->si_status == 0)
+        {
+            if (entry != NULL)
+            {
+                reinterpret_cast<phosphor::dump::Entry*>(entry)->offloaded(
+                    true);
+            }
+        }
+        return 0;
+    }
+
+    /** @brief Check whether offload is in progress
+     *  @return true if offloading in progress
+     *          false if offloading in not progress
+     */
+    bool isOffloadInProgress()
+    {
+        std::scoped_lock lock(mut);
+        return offloadInProgress;
+    }
+
+    /** Set offload in progress to true
+     */
+    void SetOffloadInProgress()
+    {
+        std::scoped_lock lock(mut);
+        offloadInProgress = true;
+    }
+
+    /** Reset offload in progress to false
+     */
+    void resetOffloadInProgress()
+    {
+        std::scoped_lock lock(mut);
+        offloadInProgress = false;
+    }
+
+  private:
+    /** @brief Indicates whether offload in progress
+     */
+    bool offloadInProgress;
+
+    /** @brief Mutex for guarding offload progress variable
+     */
+    std::mutex mut;
 };
 
 } // namespace bmc_stored
