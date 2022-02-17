@@ -39,6 +39,24 @@
       "message": "just curious why do we need mutex here? we are either accessing the variable either in D-Bus method or in the event loop method which according to practice is good.",
       "revId": "2c29fbac9278876ab361258cdfcc7c4dc9c8eebf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1db4466_f5d72aef",
+        "filename": "bmcstored_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-17T15:57:49Z",
+      "side": 1,
+      "message": "event loop callback method",
+      "parentUuid": "acd252cb_d8bc326e",
+      "revId": "2c29fbac9278876ab361258cdfcc7c4dc9c8eebf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
