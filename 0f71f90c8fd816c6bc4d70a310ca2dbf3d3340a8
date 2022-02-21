@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f28a0014_9981b74f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-21T08:37:09Z",
+      "side": 1,
+      "message": "\u003e New error code means changes here and also the redfish,\n\nIf the end-user needs to take some action then, we need to make a change in the Redfish as well. If no action required by the end-user then, I am fine.",
+      "parentUuid": "2e04b34e_83b94913",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "380712ee_0834036d",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 6
@@ -236,6 +260,24 @@
       "side": 1,
       "message": "created new issue here https://github.com/openbmc/phosphor-debug-collector/issues/19",
       "parentUuid": "900ca040_b1cb3b5b",
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77deba4d_82d74940",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-21T08:37:09Z",
+      "side": 1,
+      "message": "JS: Please add issue details in the comment as TODO, I guess that process is following in the PDC repo.",
+      "parentUuid": "4b5a79d7_cc7e0a2d",
       "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
