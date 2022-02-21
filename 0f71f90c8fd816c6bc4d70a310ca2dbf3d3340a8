@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e04b34e_83b94913",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-21T06:12:17Z",
+      "side": 1,
+      "message": "New error code means changes here and also the redfish, \"Not allowed\" error with reason should be good enough for the user to know, as the error message will be displayed to the user.",
+      "parentUuid": "71193920_040f7f4b",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "380712ee_0834036d",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 6
@@ -77,6 +101,24 @@
       "writtenOn": "2022-02-18T07:24:43Z",
       "side": 1,
       "message": "I think you need to cover all error cases between creation and collection to reset the added flag `fUserDumpInProgress` else permanently the dump manager won\u0027t allow the user requested BMC dump.",
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8edb01e5_6beab2d9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-21T06:12:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "380712ee_0834036d",
       "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -94,6 +136,24 @@
       "writtenOn": "2022-02-18T07:24:43Z",
       "side": 1,
       "message": "Please add that allocation deleted at the callback function.",
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8570f167_c8a1d321",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-21T06:12:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b99b38c_a2329245",
       "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -121,6 +181,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d25745f_bbb87dbd",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-21T06:12:17Z",
+      "side": 1,
+      "message": "wow good catch i intended to assign with type",
+      "parentUuid": "9ce80e2e_2f38febb",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "900ca040_b1cb3b5b",
@@ -134,6 +218,24 @@
       "writtenOn": "2022-02-18T07:24:43Z",
       "side": 1,
       "message": "- Why new a class member for this? Cannot we use the `Status` property to get to know the dump state? that\u0027s already implemented for the BMC dump, right?. https://github.com/openbmc/phosphor-debug-collector/blob/ff92ffe29db4099fa44864fc22f40843f4ca1834/dump_entry.hpp#L26\n\n- Looks, Your intention is, \"Don\u0027t allow ONLY the new user-requested BMC dump if another user-requested BMC type dump is in the progress to collect\" but, the BMC dump manager does not know the type of BMC dump since it did not add in the BMC dump entries so (I guess) that\u0027s why you are adding the special member.\n\n- Cannot we add that BMC dump type in the BMC Dump entry interface and implement and use it in the BMC dump manager and slove what you are trying to do instead of adding the member and maintaining the state inside the program because the state in the program won\u0027t solve the problem if dump-manager restarts for some reason. (it will solve if we added into BMC dump entry since we preserved the dump details and restored those details when the dump manager starts).",
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5a79d7_cc7e0a2d",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-02-21T06:12:17Z",
+      "side": 1,
+      "message": "created new issue here https://github.com/openbmc/phosphor-debug-collector/issues/19",
+      "parentUuid": "900ca040_b1cb3b5b",
       "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
