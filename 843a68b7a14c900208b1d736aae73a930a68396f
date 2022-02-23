@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418ec9b1_f8868475",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/appsdata",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-23T23:25:07Z",
+      "side": 1,
+      "message": "This seems a bit too generic. Shouldn\u0027t it be \"phoshor-logging-data\" or something more specific?",
+      "revId": "843a68b7a14c900208b1d736aae73a930a68396f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435ca803_912b1d06",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/appsdata",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-02-23T23:25:07Z",
+      "side": 1,
+      "message": "If we have the max 3000 logs/pels I\u0027m a bit concerned we\u0027re duplicating quite a bit of info in the dump. Any reason in particular this is needed? Don\u0027t we already get all the logs and peltool output in a dump?",
+      "revId": "843a68b7a14c900208b1d736aae73a930a68396f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
