@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8694f96d_aa4f5156",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-24T12:39:33Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc-project.xyz/c/openbmc/openbmc/+/51517 fxi will enable PEL plugins. ",
+      "revId": "843a68b7a14c900208b1d736aae73a930a68396f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "418ec9b1_f8868475",
