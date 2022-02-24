@@ -77,9 +77,10 @@ void Entry::delete_()
     log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",
                                  dumpId, srcDumpID)
                          .c_str());
+    auto path = std::filesystem::path(RESOURCE_DUMP_SERIAL_PATH) /
+                std::to_string(dumpId);
 
     // Remove resource dump when host is up by using source dump id
-
     // which is present in resource dump entry dbus object as a property.
     if ((phosphor::dump::isHostRunning()) && (srcDumpID != INVALID_SOURCE_ID))
     {
@@ -100,6 +101,18 @@ void Entry::delete_()
 
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
+    try
+    {
+        std::filesystem::remove_all(path);
+    }
+    catch (const std::filesystem::filesystem_error& e)
+    {
+        // Log Error message and continue
+        log<level::ERR>(
+            fmt::format("Failed to delete dump file({}), errormsg({})",
+                        path.string(), e.what())
+                .c_str());
+    }
 }
 } // namespace resource
 } // namespace dump
