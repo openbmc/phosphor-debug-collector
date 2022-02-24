@@ -67,6 +67,23 @@ void Entry::delete_()
     log<level::INFO>(fmt::format("System dump delete id({}) srcdumpid({})",
                                  dumpId, srcDumpID)
                          .c_str());
+    auto path =
+        std::filesystem::path(SYSTEM_DUMP_SERIAL_PATH) / std::to_string(dumpId);
+
+    // Remove Dump entry D-bus object
+    phosphor::dump::Entry::delete_();
+    try
+    {
+        std::filesystem::remove_all(path);
+    }
+    catch (const std::filesystem::filesystem_error& e)
+    {
+        // Log Error message and continue
+        log<level::ERR>(
+            fmt::format("Failed to delete dump file({}), errormsg({})",
+                        path.string().c_str(), e.what())
+                .c_str());
+    }
 
     // Remove host system dump when host is up by using source dump id
     // which is present in system dump entry dbus object as a property.
