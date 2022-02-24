@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f28ba42_06c51aa0",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 23
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-24T14:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9858104_61d4e29d",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "aef18a548bf46a4f8d903104d3707e854d290baa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1781aca_e95a2338",
