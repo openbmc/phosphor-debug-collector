@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b37ef36_a31ea0ea",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-24T06:55:53Z",
+      "side": 1,
+      "message": "Instead of setting status as false in failure palce you can throw exception and and set at one place in line 159 by moving 159 in try catch block?  all the places call elginternal failure.",
+      "revId": "526b05db62b4de59d66e951cff5220a484954fc1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
