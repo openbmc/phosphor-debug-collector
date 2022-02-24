@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9858104_61d4e29d",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 23
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-24T14:10:25Z",
+      "side": 1,
+      "message": "remove extra space.",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "aef18a548bf46a4f8d903104d3707e854d290baa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1781aca_e95a2338",
         "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
         "patchSetId": 23
