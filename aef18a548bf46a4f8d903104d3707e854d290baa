@@ -69,6 +69,54 @@
       },
       "revId": "aef18a548bf46a4f8d903104d3707e854d290baa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c0b213_233dbc3d",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 23
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-24T13:50:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e1781aca_e95a2338",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "aef18a548bf46a4f8d903104d3707e854d290baa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b800b5e8_a2c740a1",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 23
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-24T13:50:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "07a179d8_3bbd1a18",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "aef18a548bf46a4f8d903104d3707e854d290baa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
