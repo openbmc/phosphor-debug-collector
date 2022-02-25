@@ -148,7 +148,7 @@ void Manager::createEntry(const std::filesystem::path& file)
     }
 
     auto idString = match[ID_POS];
-    auto msString = match[EPOCHTIME_POS];
+    uint64_t timestamp = stoull(match[EPOCHTIME_POS]) * 1000 * 1000;
 
     auto id = stoul(idString);
 
@@ -157,7 +157,8 @@ void Manager::createEntry(const std::filesystem::path& file)
     if (dumpEntry != entries.end())
     {
         dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get())
-            ->update(stoull(msString), std::filesystem::file_size(file), file);
+            ->update(timestamp,
+                     std::filesystem::file_size(file), file);
         return;
     }
 
@@ -168,7 +169,7 @@ void Manager::createEntry(const std::filesystem::path& file)
     {
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
-                    bus, objPath.c_str(), id, stoull(msString),
+                    bus, objPath.c_str(), id, timestamp,
                     std::filesystem::file_size(file), file,
                     phosphor::dump::OperationStatus::Completed, *this)));
     }
@@ -178,7 +179,7 @@ void Manager::createEntry(const std::filesystem::path& file)
             fmt::format(
                 "Error in creating dump entry, errormsg({}), OBJECTPATH({}), "
                 "ID({}), TIMESTAMP({}), SIZE({}), FILENAME({})",
-                e.what(), objPath.c_str(), id, stoull(msString),
+                e.what(), objPath.c_str(), id, timestamp,
                 std::filesystem::file_size(file), file.filename().c_str())
                 .c_str());
         return;
