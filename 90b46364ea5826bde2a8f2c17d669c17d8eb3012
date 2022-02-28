@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa32dcd9_bda53a1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2022-02-28T11:23:51Z",
+      "side": 1,
+      "message": "The title could be rephrase something like:\n\n Fix the invalid value of Elapsed property",
+      "revId": "90b46364ea5826bde2a8f2c17d669c17d8eb3012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8341e0a7_3884c7e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2022-02-28T11:23:51Z",
+      "side": 1,
+      "message": "Add some description why the previous code is wrong.",
+      "revId": "90b46364ea5826bde2a8f2c17d669c17d8eb3012",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
