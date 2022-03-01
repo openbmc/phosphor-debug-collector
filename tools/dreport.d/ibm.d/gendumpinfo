@@ -10,8 +10,7 @@ declare -rx DUMP_PROP='xyz.openbmc_project.Common.Progress'
 declare -x DRIVER=$(cat /etc/os-release | grep VERSION_ID | \
 awk -F = '{ print $2}' | cut -d'(' -f 1)
 declare -x YAML_FILE="$optional_path/info.yaml"
-declare -x
-ADDL_DATA_PATH="$optional_path/plat_dump/additional_data/"
+declare -x ADDL_DATA_PATH="$optional_path/plat_dump/additional_data/"
 declare -x START_TIME=''
 declare -x END_TIME=''
 
@@ -51,7 +50,7 @@ function get_addl_data() {
         for entry in "$ADDL_DATA_PATH"/*
             do
                 while IFS= read -r line; do
-                    echo $line >> $YAML_FILE
+                    echo "$line" >> $YAML_FILE
                 done < $entry
             done
     fi
