@@ -8,15 +8,21 @@
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
-namespace openpower
+//#include <fmt/core.h>
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/elog.hpp>
+
+namespace phosphor
 {
 namespace dump
 {
-namespace system
+namespace faultlog
 {
 
-constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
-using NotifyIface = sdbusplus::server::object::object<
+using namespace phosphor::logging;
+
+// constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
+using CreateIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::xyz::openbmc_project::Dump::server::NewDump>;
 
@@ -26,7 +32,7 @@ using NotifyIface = sdbusplus::server::object::object<
  *  xyz.openbmc_project.Dump.Notify DBus API
  */
 class Manager :
-    virtual public NotifyIface,
+    virtual public CreateIface,
     virtual public phosphor::dump::Manager
 {
   public:
@@ -41,11 +47,25 @@ class Manager :
      *  @param[in] bus - Bus to attach to.
      *  @param[in] event - Dump manager sd_event loop.
      *  @param[in] path - Path to attach at.
+     *  @param[in] baseEntryPath - Base path for dump entry.
+     *  @param[in] filePath - Path where the dumps are stored.
+     */
+    Manager(sdbusplus::bus::bus& bus, const EventPtr& event, const char* path,
+            const std::string& baseEntryPath, const char* filePath) :
+        CreateIface(bus, path),
+        phosphor::dump::Manager(bus, path, baseEntryPath),
+        eventLoop(event.get()), dumpDir(filePath)
+    {}
+
+    /** @brief Constructor to put object onto bus at a dbus path.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] event - Dump manager sd_event loop.
+     *  @param[in] path - Path to attach at.
      *  @param[in] baseEntryPath - Base path of the dump entry.
      */
     Manager(sdbusplus::bus::bus& bus, const char* path,
             const std::string& baseEntryPath) :
-        NotifyIface(bus, path),
+        CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath)
     {}
 
@@ -53,7 +73,7 @@ class Manager :
     {
         // TODO #2597  Implement the restore to restore the dump entries
         // after the service restart.
-        log<level::INFO>("dump_manager_system restore");
+        log<level::INFO>("dump_manager_faultlog restore");
     }
 
     /** @brief Notify the system dump manager about creation of a new dump.
@@ -70,8 +90,32 @@ class Manager :
      */
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
+
+    /** @brief sd_event_add_child callback
+     *
+     *  @param[in] s - event source
+     *  @param[in] si - signal info
+     *  @param[in] userdata - pointer to Watch object
+     *
+     *  @returns 0 on success, -1 on fail
+     */
+    static int callback(sd_event_source*, const siginfo_t*, void*)
+    {
+        log<level::INFO>("sd_event_add_child callback!");
+
+        // No specific action required in
+        // the sd_event_add_child callback.
+        return 0;
+    }
+
+  private:
+    /** @brief sdbusplus Dump event loop */
+    EventPtr eventLoop;
+
+    /** @brief Path to the dump file*/
+    std::string dumpDir;
 };
 
-} // namespace system
+} // namespace faultlog
 } // namespace dump
-} // namespace openpower
+} // namespace phosphor
