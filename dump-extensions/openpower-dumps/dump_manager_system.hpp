@@ -53,6 +53,7 @@ class Manager :
     {
         // TODO #2597  Implement the restore to restore the dump entries
         // after the service restart.
+        log<level::INFO>("dump_manager_system restore");
     }
 
     /** @brief Notify the system dump manager about creation of a new dump.
