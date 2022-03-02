@@ -41,6 +41,9 @@ void Manager::create(Type type, std::vector<std::string> fullPaths)
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
+
+    log<level::INFO>("In dump_manager_bmc.cpp createDump");
+
     if (!params.empty())
     {
         log<level::WARNING>("BMC dump accepts no additional parameters");
@@ -69,11 +72,24 @@ sdbusplus::message::object_path
     }
 
     return objPath.string();
+
+    /*
+    uint32_t id = 5;
+
+    // Entry Object path.
+    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
+
+    log<level::INFO>(fmt::format("objPath={}", objPath.c_str()).c_str());
+
+    return objPath.string();
+    */
 }
 
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
+    log<level::INFO>("In captureDump");
+
     // Get Dump size.
     auto size = getAllowedSize();
 
@@ -220,6 +236,8 @@ void Manager::removeWatch(const std::filesystem::path& path)
 
 void Manager::restore()
 {
+    log<level::INFO>("dump_manager_bmc.cpp restore");
+
     std::filesystem::path dir(dumpDir);
     if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
     {
@@ -255,17 +273,31 @@ size_t Manager::getAllowedSize()
 
     auto size = 0;
 
+    log<level::INFO>(
+        fmt::format("getAllowedSize: dumpDir={}", dumpDir).c_str());
+
     // Get current size of the dump directory.
     for (const auto& p : std::filesystem::recursive_directory_iterator(dumpDir))
     {
         if (!std::filesystem::is_directory(p))
         {
             size += std::ceil(std::filesystem::file_size(p) / 1024.0);
+            log<level::INFO>(fmt::format("getAllowedSize: path={}",
+                                         p.path().filename().string())
+                                 .c_str());
         }
     }
 
     // Set the Dump size to Maximum  if the free space is greater than
     // Dump max size otherwise return the available size.
+
+    log<level::INFO>(fmt::format("getAllowedSize: size={}", size).c_str());
+    log<level::INFO>(fmt::format("getAllowedSize: BMC_DUMP_TOTAL_SIZE={}",
+                                 BMC_DUMP_TOTAL_SIZE)
+                         .c_str());
+    log<level::INFO>(fmt::format("getAllowedSize: BMC_DUMP_MIN_SPACE_REQD={}",
+                                 BMC_DUMP_MIN_SPACE_REQD)
+                         .c_str());
 
     size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
 

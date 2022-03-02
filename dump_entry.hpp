@@ -5,6 +5,9 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <fmt/core.h>
+
+#include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
@@ -14,6 +17,8 @@ namespace phosphor
 {
 namespace dump
 {
+
+using namespace phosphor::logging;
 
 template <typename T>
 using ServerObject = typename sdbusplus::server::object::object<T>;
@@ -73,12 +78,22 @@ class Entry : public EntryIfaces
         // be updated once the dump is completed.
         if (dumpStatus == OperationStatus::Completed)
         {
+            log<level::INFO>(
+                fmt::format("dump_entry.hpp completed, timeStamp = {}",
+                            timeStamp)
+                    .c_str());
+
             elapsed(timeStamp);
             startTime(timeStamp);
             completedTime(timeStamp);
         }
         else
         {
+            log<level::INFO>(
+                fmt::format("dump_entry.hpp not completed, timeStamp = {}",
+                            timeStamp)
+                    .c_str());
+
             elapsed(0);
             startTime(timeStamp);
             completedTime(0);
@@ -95,6 +110,14 @@ class Entry : public EntryIfaces
     void initiateOffload(std::string uri) override
     {
         offloadUri(uri);
+    }
+
+    /** @brief Returns entry ID
+     *  @returns entry ID
+     */
+    uint32_t getId()
+    {
+        return id;
     }
 
   protected:
