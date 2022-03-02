@@ -4,6 +4,7 @@
 #include "dump_internal.hpp"
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
+#include "dump_manager_faultlog.hpp"
 #include "elog_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -77,6 +78,12 @@ int main()
         phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
                                                    OBJ_INTERNAL);
         dumpMgrList.push_back(std::move(bmcDumpMgr));
+
+        std::unique_ptr<phosphor::dump::faultlog::Manager> faultLogMgr =
+            std::make_unique<phosphor::dump::faultlog::Manager>(
+                bus, FAULTLOG_DUMP_OBJPATH, FAULTLOG_DUMP_OBJ_ENTRY,
+                FAULTLOG_DUMP_PATH);
+        dumpMgrList.push_back(std::move(faultLogMgr));
 
         phosphor::dump::loadExtensions(bus, dumpMgrList);
 
