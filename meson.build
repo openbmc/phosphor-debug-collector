@@ -113,6 +113,15 @@ conf_data.set('ERROR_MAP_YAML', get_option('ERROR_MAP_YAML'),
 conf_data.set('JFFS_CORE_FILE_WORKAROUND', get_option('jffs-workaround').enabled(),
                description : 'Turn on jffs workaround for core file'
              )
+conf_data.set_quoted('FAULTLOG_DUMP_OBJ_ENTRY', get_option('FAULTLOG_DUMP_OBJ_ENTRY'),
+                      description : 'The Fault Log dump entry DBus object path'
+                    )
+conf_data.set_quoted('FAULTLOG_DUMP_OBJPATH', get_option('FAULTLOG_DUMP_OBJPATH'),
+                      description : 'The Fault Log Dump manager Dbus path'
+                    )
+conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
+                      description : 'Directory where fault logs are placed'
+                    )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
@@ -152,7 +161,9 @@ phosphor_dump_manager_sources = [
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
-        'dump_offload.cpp'
+        'dump_offload.cpp',
+        'dump_manager_faultlog.cpp',
+        'faultlog_dump_entry.cpp',
     ]
 
 phosphor_dump_manager_dependency = [
