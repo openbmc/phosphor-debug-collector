@@ -1,4 +1,4 @@
-#include "bmc_dump_entry.hpp"
+#include "faultlog_dump_entry.hpp"
 
 #include "dump_manager.hpp"
 #include "dump_offload.hpp"
@@ -11,13 +11,13 @@ namespace phosphor
 {
 namespace dump
 {
-namespace bmc
+namespace faultlog
 {
 using namespace phosphor::logging;
 
 void Entry::delete_()
 {
-    log<level::INFO>("In bmc_dump_entry.cpp delete_()");
+    log<level::INFO>("In faultlog_dump_entry.cpp delete_()");
 
     // Delete Dump file from Permanent location
     try
@@ -36,12 +36,6 @@ void Entry::delete_()
     phosphor::dump::Entry::delete_();
 }
 
-void Entry::initiateOffload(std::string uri)
-{
-    phosphor::dump::offload::requestOffload(file, id, uri);
-    offloaded(true);
-}
-
-} // namespace bmc
+} // namespace faultlog
 } // namespace dump
 } // namespace phosphor
