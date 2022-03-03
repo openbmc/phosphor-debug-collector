@@ -68,6 +68,24 @@
       "parentUuid": "435ca803_912b1d06",
       "revId": "843a68b7a14c900208b1d736aae73a930a68396f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "798abb6f_52297e68",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/appsdata",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-03T10:16:43Z",
+      "side": 1,
+      "message": "Matt, already fixed/enabled error log plugins you added in recipe side. It was broken a while due to yocto migration.",
+      "parentUuid": "7a40bece_b79d1ca4",
+      "revId": "843a68b7a14c900208b1d736aae73a930a68396f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
