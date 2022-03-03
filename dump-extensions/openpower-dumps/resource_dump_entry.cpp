@@ -28,8 +28,8 @@ void Entry::initiateOffload(std::string uri)
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
     log<level::INFO>(
         fmt::format(
-            "Resource dump offload request id({}) uri({}) source dumpid()", id,
-            uri, sourceDumpId())
+            "Resource dump offload request id({}) uri({}) source dumpid({})",
+            id, uri, sourceDumpId())
             .c_str());
 
     if (!phosphor::dump::isHostRunning())
