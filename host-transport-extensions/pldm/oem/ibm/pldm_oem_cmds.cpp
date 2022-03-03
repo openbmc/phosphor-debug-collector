@@ -126,13 +126,13 @@ void requestOffload(uint32_t id)
                                 "allowed due to encode failed"));
     }
 
-    uint8_t* responseMsg = nullptr;
-    size_t responseMsgSize{};
-
     CustomFd fd(openPLDM());
 
-    rc = pldm_send_recv(eid, fd(), requestMsg.data(), requestMsg.size(),
-                        &responseMsg, &responseMsgSize);
+    log<level::INFO>(
+        fmt::format("Sending request to offload dump id({}), eid({})", id, eid)
+            .c_str());
+
+    rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
     if (rc < 0)
     {
         auto e = errno;
@@ -141,10 +141,8 @@ void requestOffload(uint32_t id)
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to fileack send failed"));
     }
-    pldm_msg* response = reinterpret_cast<pldm_msg*>(responseMsg);
-    log<level::INFO>(fmt::format("Done. PLDM message, RC({})",
-                                 static_cast<uint16_t>(response->payload[0]))
-                         .c_str());
+    log<level::INFO>(
+        fmt::format("Done. PLDM message, id({} )RC({})", id, rc).c_str());
 }
 
 void requestDelete(uint32_t dumpId, uint32_t dumpType)
