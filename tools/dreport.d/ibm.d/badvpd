@@ -9,4 +9,9 @@
 desc="Bad VPD"
 dir_name="/tmp/bad-vpd"
 
-add_copy_file "$dir_name" "$desc"
+if [ -f $dir_name ]; then
+    add_copy_file "$dir_name" "$desc"
+else
+    log_info "No $desc data"
+    exit
+fi
