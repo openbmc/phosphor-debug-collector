@@ -18,6 +18,12 @@ namespace util
  */
 void isOPDumpsEnabled();
 
+/** @brief Check whether memory preserving reboot is in progress
+ *  @return true - memory preserving reboot in progress
+ *          false - no memory preserving reboot is in progress
+ */
+bool isInMpReboot();
+
 } // namespace util
 } // namespace dump
 } // namespace openpower
