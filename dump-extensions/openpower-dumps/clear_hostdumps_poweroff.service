@@ -5,7 +5,6 @@ After=obmc-host-stop-pre@0.target
 Wants=obmc-host-stopping@0.target
 Before=obmc-host-stopping@0.target
 Conflicts=obmc-host-startmin@0.target
-ConditionPathExists=!/run/openbmc/mpreboot@0
 
 [Service]
 Type=oneshot
