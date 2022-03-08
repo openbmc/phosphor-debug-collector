@@ -3,6 +3,7 @@
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
+#include "op_dump_util.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
@@ -46,6 +47,19 @@ void Entry::delete_()
 
     lg2::info("System dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
               "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
+
+    // Skip the system dump delete if the dump is in progress
+    // and in memory preserving reboot path
+    if ((openpower::dump::util::isInMpReboot()) &&
+        (status() == phosphor::dump::OperationStatus::InProgress))
+    {
+        log<level::INFO>(
+            fmt::format(
+                "Skip deleting system dump delete id({}) durng mp reboot",
+                dumpId)
+                .c_str());
+        return;
+    }
 
     // Remove host system dump when host is up by using source dump id
     // which is present in system dump entry dbus object as a property.
