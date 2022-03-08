@@ -17,6 +17,9 @@ namespace dump
 {
 namespace util
 {
+
+constexpr auto MP_REBOOT_FILE = "/run/openbmc/mpreboot@0";
+
 using namespace phosphor::logging;
 using InternalFailure =
     sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
@@ -60,6 +63,11 @@ void isOPDumpsEnabled()
         elog<disabled>();
     }
     log<level::INFO>("OpenPOWER dumps are enabled");
+}
+
+bool isInMpReboot()
+{
+    return std::filesystem::exists(MP_REBOOT_FILE);
 }
 
 } // namespace util
