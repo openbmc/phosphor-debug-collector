@@ -165,24 +165,24 @@ sdbusplus::message::object_path
             convertCreateParametersToString(CreateParameters::Password));
     if (iter == params.end())
     {
-        log<level::ERR>("Required argument password is missing");
-        elog<InvalidArgument>(Argument::ARGUMENT_NAME("PASSOWORD"),
-                              Argument::ARGUMENT_VALUE("MISSING"));
+        log<level::INFO>("Password is not provided for resource dump");
     }
-
-    try
+    else
     {
-        pwd = std::get<std::string>(iter->second);
-    }
-    catch (const std::bad_variant_access& e)
-    {
-        // Exception will be raised if the input is not string
-        log<level::ERR>(
-            fmt::format("An invalid password string is passed errormsg({})",
-                        e.what())
-                .c_str());
-        elog<InvalidArgument>(Argument::ARGUMENT_NAME("PASSWORD"),
-                              Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        try
+        {
+            pwd = std::get<std::string>(iter->second);
+        }
+        catch (const std::bad_variant_access& e)
+        {
+            // Exception will be raised if the input is not string
+            log<level::ERR>(
+                fmt::format("An invalid password string is passed errormsg({})",
+                            e.what())
+                    .c_str());
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("PASSWORD"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
     }
 
     try
