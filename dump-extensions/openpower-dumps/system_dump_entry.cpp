@@ -3,6 +3,7 @@
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
+#include "op_dump_util.hpp"
 
 #include <fmt/core.h>
 
@@ -25,7 +26,7 @@ void Entry::initiateOffload(std::string uri)
 {
     log<level::INFO>(
         fmt::format(
-            "System dump offload request id({}) uri({}) source dumpid()", id,
+            "System dump offload request id({}) uri({}) source dumpid({})", id,
             uri, sourceDumpId())
             .c_str());
     phosphor::dump::Entry::initiateOffload(uri);
@@ -46,6 +47,19 @@ void Entry::delete_()
         elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
             xyz::openbmc_project::Common::NotAllowed::REASON(
                 "Dump offload is in progress"));
+    }
+
+    // Skip the system dump delete if the dump is in progress
+    // and in memory preserving reboot path
+    if ((openpower::dump::util::isInMpReboot()) &&
+        (status() == phosphor::dump::OperationStatus::InProgress))
+    {
+        log<level::INFO>(
+            fmt::format(
+                "Skip deleting system dump delete id({}) durng mp reboot",
+                dumpId)
+                .c_str());
+        return;
     }
 
     log<level::INFO>(fmt::format("System dump delete id({}) srcdumpid({})",
