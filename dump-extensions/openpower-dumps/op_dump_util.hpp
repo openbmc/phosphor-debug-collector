@@ -31,6 +31,12 @@ using BIOSAttrValueType = std::variant<int64_t, std::string>;
  */
 BIOSAttrValueType readBIOSAttribute(const std::string& attrName);
 
+/** @brief Check whether memory preserving reboot is in progress
+ *  @return true - memory preserving reboot in progress
+ *          false - no memory preserving reboot is in progress
+ */
+bool isInMpReboot();
+
 /** @brief Check whether a system is in progress or available to offload.
  *  @return true - A dump is in progress or available to offload
  *          false - No dump in progress
