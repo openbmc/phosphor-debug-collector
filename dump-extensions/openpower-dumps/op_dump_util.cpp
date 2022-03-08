@@ -18,6 +18,8 @@ namespace dump
 namespace util
 {
 
+constexpr auto MP_REBOOT_FILE = "/run/openbmc/mpreboot@0";
+
 bool isOPDumpsEnabled(sdbusplus::bus::bus& bus)
 {
     auto enabled = true;
@@ -47,6 +49,23 @@ bool isOPDumpsEnabled(sdbusplus::bus::bus& bus)
             "ERROR_MSG", e);
         enabled = false;
     }
+}
+
+bool isInMpReboot()
+{
+    auto inMpReboot = false;
+    try
+    {
+        inMpReboot = std::filesystem::exists(MP_REBOOT_FILE);
+    }
+    catch (const std::filesystem::filesystem_error& e)
+    {
+        lg2::error(
+            "Error in determing whether the file:{FILE} exists, error:
+            {
+            ERROR_MSG}", "FILE", MP_REBOOT_FILE, "ERROR_MSG", e.what());
+    }
+    return inMpReboot;
 }
 
 } // namespace util
