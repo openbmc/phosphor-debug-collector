@@ -33,6 +33,12 @@ using BIOSAttrValueType = std::variant<int64_t, std::string>;
 BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
                                     sdbusplus::bus::bus& bus);
 
+/** @brief Check whether memory preserving reboot is in progress
+ *  @return true - memory preserving reboot in progress
+ *          false - no memory preserving reboot is in progress
+ */
+bool isInMpReboot();
+
 /** @brief Check whether a system is in progress or available to offload.
  *
  *  @param[in] bus - D-Bus handle
