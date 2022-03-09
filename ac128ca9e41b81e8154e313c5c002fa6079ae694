@@ -41,6 +41,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c2f830_c3a72f71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-03-09T05:13:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "707cd0d3_28974cad",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "453ac417_8ba94792",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-03-09T05:13:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6401efe3_b95a6d19",
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e91f62c2_e95a756e",
@@ -54,6 +96,24 @@
       "writtenOn": "2022-03-09T03:44:29Z",
       "side": 1,
       "message": "Is this logic is going to work MPIPL boot ( before completion) -\u003e another MPIPL Request use case?",
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5ec75eb_2fdd299b",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-03-09T05:13:46Z",
+      "side": 1,
+      "message": "Another MPIPL from user is not allowed until host reach standby/running.",
+      "parentUuid": "e91f62c2_e95a756e",
       "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
