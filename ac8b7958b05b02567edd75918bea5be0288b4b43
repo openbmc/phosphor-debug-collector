@@ -16,6 +16,23 @@
       "message": "@Matt @Jayanth could you kindly help to review this?",
       "revId": "ac8b7958b05b02567edd75918bea5be0288b4b43",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf32ae0_863a49f1",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-03-09T15:11:13Z",
+      "side": 1,
+      "message": "could also just do the math once so you don\u0027t have to do it each time below?\nuint64_t timestamp \u003d stoull(match[EPOCHTIME_POS].c_str()) * 1000 * 1000; or similar.",
+      "revId": "ac8b7958b05b02567edd75918bea5be0288b4b43",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
