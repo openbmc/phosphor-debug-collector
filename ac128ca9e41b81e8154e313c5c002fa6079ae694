@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "707cd0d3_28974cad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-09T03:44:29Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6401efe3_b95a6d19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-09T03:44:29Z",
+      "side": 1,
+      "message": "Add OpenPOWER tag.",
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91f62c2_e95a756e",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-09T03:44:29Z",
+      "side": 1,
+      "message": "Is this logic is going to work MPIPL boot ( before completion) -\u003e another MPIPL Request use case?",
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
