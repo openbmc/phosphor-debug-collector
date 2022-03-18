@@ -35,8 +35,6 @@ using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
 
 constexpr auto INVALID_DUMP_SIZE = 0;
-constexpr auto HOST_DUMP_COMMON_FILENAME_PART =
-    "_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)";
 
 using CreateIface = sdbusplus::server::object::object<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
@@ -92,8 +90,7 @@ class Manager :
         CreateIface(bus, path),
         phosphor::dump::bmc_stored::Manager(
             bus, event, path, baseEntryPath, startingId, filePath,
-            dumpNamePrefix + HOST_DUMP_COMMON_FILENAME_PART, maxDumpSize,
-            minDumpSize, allocatedSize),
+            SYS_DUMP_FILENAME_REGEX, maxDumpSize, minDumpSize, allocatedSize),
         dumpNamePrefix(dumpNamePrefix), dumpTempFileDir(dumpTempFileDir)
     {}
 
