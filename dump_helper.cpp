@@ -40,8 +40,6 @@ uint64_t timeToEpoch(std::string timeStr)
 
 void DumpHelper::createEntry(const std::filesystem::path& file)
 {
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
     std::regex file_regex(dumpFilenameFormat.c_str());
 
     std::smatch match;
@@ -54,8 +52,8 @@ void DumpHelper::createEntry(const std::filesystem::path& file)
         return;
     }
 
-    auto idString = match[ID_POS];
-    auto ts = match[EPOCHTIME_POS];
+    auto idString = match[FILENAME_DUMP_ID_POS];
+    auto ts = match[FILENAME_EPOCHTIME_POS];
 
     uint64_t timestamp = 1000 * 1000;
     if (TIMESTAMP_FORMAT == 1)
