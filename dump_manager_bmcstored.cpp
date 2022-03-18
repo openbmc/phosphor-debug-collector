@@ -29,8 +29,6 @@ using namespace phosphor::logging;
 
 void Manager::createEntry(const std::filesystem::path& file)
 {
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
     std::regex file_regex(dumpFilenameFormat.c_str());
 
     std::smatch match;
@@ -44,8 +42,8 @@ void Manager::createEntry(const std::filesystem::path& file)
         return;
     }
 
-    auto idString = match[ID_POS];
-    uint64_t timestamp = stoull(match[EPOCHTIME_POS]) * 1000 * 1000;
+    auto idString = match[FILENAME_DUMP_ID_POS];
+    uint64_t timestamp = stoull(match[FILENAME_EPOCHTIME_POS]) * 1000 * 1000;
 
     auto id = stoul(idString);
 
