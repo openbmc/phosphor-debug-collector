@@ -41,8 +41,6 @@ uint64_t timeToEpoch(std::string timeStr)
 
 void Manager::createEntry(const std::filesystem::path& file)
 {
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
     std::regex file_regex(dumpFilenameFormat.c_str());
 
     std::smatch match;
