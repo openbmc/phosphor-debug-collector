@@ -93,6 +93,9 @@ opconf_data.set('SBE_DUMP_TOTAL_SIZE', get_option('SBE_DUMP_TOTAL_SIZE'),
 opconf_data.set('SBE_DUMP_START_ID', get_option('SBE_DUMP_START_ID'),
                description : 'Starting id of SBE dump'
             )
+opconf_data.set_quoted('SYS_DUMP_FILENAME_REGEX', get_option('SYS_DUMP_FILENAME_REGEX'),
+                      description: 'System Dump filename format'
+            )
 
 configure_file(configuration : opconf_data,
                output : 'openpower_dumps_config.h'
