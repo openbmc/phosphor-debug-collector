@@ -18,9 +18,6 @@ namespace dump
 namespace bmc
 {
 
-constexpr auto BMC_DUMP_FILENAME_REGEX =
-    "obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)";
-
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
