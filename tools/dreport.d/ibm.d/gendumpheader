@@ -13,11 +13,7 @@
 #
 
 #Constants
-declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
-declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
-declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
 declare -rx DUMP_HEADER_ENTRY_SIZE='516'
-declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
 declare -rx SIZE_4='4'
 declare -rx SIZE_8='8'
 declare -rx SIZE_12='12'
@@ -31,13 +27,6 @@ declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x modelNo
 modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
 $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
-
-declare -x serialNo
-serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
-$INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
-
-declare -x dDay
-dDay=$(date -d @"$EPOCHTIME" +'%Y%m%d%H%M%S')
 
 declare -x bmcSerialNo
 bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \

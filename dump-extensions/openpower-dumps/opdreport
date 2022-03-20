@@ -1,7 +1,7 @@
 #! /bin/bash
 # shellcheck disable=SC2034  # Variable is used elsewhere
 help=$"
-        opdreport creates an archive(gz compression) consisting of the following:
+        opdreport creates an archive consisting of the following:
                 * host dump files and header applied on top of it
         The type parameter controls the content of the data. The generated
         archive is stored in the user specified location.
@@ -10,7 +10,8 @@ usage: opdreport [OPTION]
 
 Options:
         -n, —-name <name>     Name to be used for the archive.
-                              Default name format <name>_<dump_id>_<epochtime>
+                              Default name format
+                              SYSDUMP.<serial number>.<dump_id>.<time>
         -d, —-dir <directory> Archive directory to copy the compressed report.
                               Default output directory is /tmp
         -i, —-id <id>         Dump identifier to associate with the archive.
@@ -55,7 +56,8 @@ function initialize()
         return "$RESOURCE_UNAVAILABLE";
     else
         # shellcheck disable=SC2154 # dump_id comes from elsewhere
-        name="${name}_${dump_id}_${EPOCHTIME}"
+        id=$(printf %08d $dump_id)
+        name="SYSDUMP.${serialNo}.${id}.${dDay}"
     fi
 
     #Source files path
@@ -95,8 +97,6 @@ function package()
 
     cd "$optional_path" || exit
 
-    dump_content_type=$(echo "$name" | cut -d'_' -f 1)
-
     ("$FILE_SCRIPT")
 
     eid_dir=$(find "$optional_path" -type f -name ErrorLog)
@@ -124,16 +124,17 @@ function package()
 
     echo "Adding Dump Header :""$HEADER_EXTENSION"
     ("$HEADER_EXTENSION")
-    #Applying header to the file and compressing it
-    gzip -c "/tmp/dumpheader_$EPOCHTIME" "$name" > "$name.gz"
-    # shellcheck disable=SC2181 # need output from `gzip` in above if cond.
+    #Applying header to the file
+    cat "$name" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
+    mv "/tmp/dumpheader_$EPOCHTIME" "$name"
+    # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed file"
         rm -rf "$name" "/tmp/dumpheader_$EPOCHTIME"
         return "$INTERNAL_FAILURE"
     fi
 
-    mv "$name.gz" "$dump_dir"
+    mv "$name" "$dump_dir"
 
     rm -rf "/tmp/dumpheader_$EPOCHTIME" "$name"
     rm -rf "$optional_path"

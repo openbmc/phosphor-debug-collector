@@ -8,6 +8,10 @@ declare -rx UNLIMITED="unlimited"
 declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
 declare -rx CUSTOM_PACKAGING="$DREPORT_INCLUDE/package"
+declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
+declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
+declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
+declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -25,6 +29,18 @@ declare -x optional_path=""
 declare -x name_dir=""
 declare -x quiet=$FALSE
 declare -x verbose=$FALSE
+declare -x serialNo="0000000"
+declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+
+# @brief get serial number property from inventory
+function fetch_serial_number () {
+    serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+        $INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+    if [ -z "$serialNo" ]; then
+        serialNo="0000000"
+    fi
+}
 
 # @brief validate_arg function, will validate the provided arguments
 function validate_arg () {
@@ -41,6 +57,7 @@ function validate_arg () {
         case $key in
             -n|--name)
                 name=$2
+                dump_content_type=$name
                 shift 2;;
             -d|--dir)
                 dump_dir=$2
@@ -77,3 +94,5 @@ function validate_arg () {
         esac
     done
 }
+
+fetch_serial_number
