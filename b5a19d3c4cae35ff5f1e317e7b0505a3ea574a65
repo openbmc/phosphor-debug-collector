@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0167d486_9ec65155",
+        "filename": "meson_options.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-21T13:17:12Z",
+      "side": 1,
+      "message": "Defaulkt should be the existing value \"obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)\";.\n Any change in the file fomart shpould be communicated community level. Also this can break the script user who extracts the dump fil;e info from filename.",
+      "range": {
+        "startLine": 240,
+        "startChar": 7,
+        "endLine": 240,
+        "endChar": 58
+      },
+      "revId": "b5a19d3c4cae35ff5f1e317e7b0505a3ea574a65",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
