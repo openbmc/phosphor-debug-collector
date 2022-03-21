@@ -13,6 +13,8 @@ usage: dreport [OPTION]
 Options:
         -n, —-name <name>     Name to be used for the archive.
                               Default name format obmcdump_<id>_<epochtime>
+                              For dumps having header, the name format is
+                              BMCDUMP.<serial number>.<id>.<time>
         -d, —-dir <directory> Archive directory to copy the compressed report.
                               Default output directory is /tmp
         -i, —-id <id>         Dump identifier to associate with the archive.
@@ -49,7 +51,6 @@ declare -rx PLUGIN="pl_"
 declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
-
 
 #VARIABLES
 declare -x dump_type=$TYPE_USER
@@ -150,7 +151,7 @@ function set_elog_pid()
 init_summary()
 {
    if [ -f "$HEADER_EXTENSION" ]; then
-       log_summary "Name:          $name.bin"
+       log_summary "Name:          $name"
    else
        log_summary "Name:          $name.tar.xz"
    fi
@@ -166,8 +167,13 @@ init_summary()
 function initialize()
 {
     #Dump file name
-    if [ -z "$name" ]; then
-        name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+    if [ -z $name ]; then
+        if [ -f "$HEADER_EXTENSION" ]; then
+            dump_id=$(printf %07d $dump_id)
+            name="BMCDUMP.${serialNo}.${dump_id}.${dDay}"
+        else
+            name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+        fi
     fi
 
     #Create temporary data directory.
@@ -217,7 +223,7 @@ function package()
 
     #tar and compress the files.
     if [ -f "$HEADER_EXTENSION" ]; then
-        ("$CUSTOM_PACKAGING")
+        ("$CUSTOM_PACKAGE")
     else
         tar -Jcf "$name_dir.tar.xz" -C \
                  "$(dirname "$name_dir")" "$(basename "$name_dir")"
