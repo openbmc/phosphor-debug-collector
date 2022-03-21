@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "191f4c22_7b6545b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-21T11:43:19Z",
+      "side": 1,
+      "message": "no side effect on HMC or makedump tool.\nWhile offloading dump to HOST OS, OS is unable to recognize the .gz. Hence we are removing it.\nAlso changing the name to make it common across",
+      "parentUuid": "33925596_fa276bfa",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "402a26400db5620e610ae2dfeda76e9824f05e0a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76ba04d5_0fe09920",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c433a354_da961d90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-21T11:43:19Z",
+      "side": 1,
+      "message": "Nope. I dont have any link. This is new change where we are changing the name and making it common to what\u0027s there in FSP/HMC etc",
+      "parentUuid": "76ba04d5_0fe09920",
+      "revId": "402a26400db5620e610ae2dfeda76e9824f05e0a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b8d1913_445be0df",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2022-03-21T05:38:45Z",
       "side": 1,
       "message": "Need update here.",
+      "range": {
+        "startLine": 13,
+        "startChar": 30,
+        "endLine": 13,
+        "endChar": 78
+      },
+      "revId": "402a26400db5620e610ae2dfeda76e9824f05e0a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30cff7e6_fc56d493",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-03-21T11:43:19Z",
+      "side": 1,
+      "message": "Will do it.",
+      "parentUuid": "9b8d1913_445be0df",
       "range": {
         "startLine": 13,
         "startChar": 30,
