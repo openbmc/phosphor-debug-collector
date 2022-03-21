@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d62c25_730beb82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-21T13:23:04Z",
+      "side": 1,
+      "message": "Can you provide background why this chnage. We shouldn\u0027t be chnaging the file name , which is agreed initailly by the community. Incase IBM got requirement to custom requirement please handle the changes in IBM specific hadling.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "0b6c1a924d8cd051ee585ee4a8d46faeff7ad125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
