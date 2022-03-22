@@ -125,11 +125,23 @@ sdbusplus::message::object_path
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
-    // Allow creating system dump only when the host is up.
-    if (!phosphor::dump::isHostRunning())
+    try
     {
-        elog<NotAllowed>(
-            Reason("System dump can be initiated only when the host is up"));
+        // Allow creating system dump only when the host is up.
+        if (!(((phosphor::dump::isHostRunning()) ||
+               (phosphor::dump::isHostQuiesced()))))
+        {
+            elog<NotAllowed>(Reason(
+                "System dump can be initiated only when the host is up"));
+            return std::string();
+        }
+    }
+    catch (const InternalFailure& e)
+    {
+        lg2::error(
+            "System state cannot be determined, system dump is not allowed");
+        elog<NotAllowed>(Reason(
+            "System dump can be initiated only when the system is correct state"));
         return std::string();
     }
 
