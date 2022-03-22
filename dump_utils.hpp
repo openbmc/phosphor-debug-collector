@@ -12,6 +12,7 @@
 #include <xyz/openbmc_project/Common/error.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 #include <xyz/openbmc_project/State/Boot/Progress/server.hpp>
+#include <xyz/openbmc_project/State/Host/server.hpp>
 
 #include <memory>
 
@@ -22,6 +23,8 @@ namespace dump
 
 using BootProgress = sdbusplus::xyz::openbmc_project::State::Boot::server::
     Progress::ProgressStages;
+using HostState =
+    sdbusplus::xyz::openbmc_project::State::server::Host::HostState;
 
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
@@ -86,6 +89,15 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& path,
                        const std::string& interface);
 
 /**
+ * @brief Get the host state
+ *
+ * @return HostState on success
+ *         Throw exception on failure
+ *
+ */
+HostState getHostState();
+
+/**
  * @brief Get the host boot progress stage
  *
  * @return BootProgress on success
@@ -93,6 +105,19 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& path,
  *
  */
 BootProgress getBootProgress();
+
+/**
+ * @brief Get the host state value
+ *
+ * @param[in] intf - Interface to get the value
+ * @param[in] objPath - Object path of the service
+ * @param[in] state - State name to get
+ *
+ * @return The state value on success
+ *         Throw exception on failure
+ */
+std::string getStateValue(const std::string& intf, const std::string& objPath,
+                          const std::string& state);
 
 /**
  * @brief Check whether host is running
@@ -168,6 +193,14 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
         }
     }
 }
+
+/**
+ * @brief Check whether host is quiesced
+ *
+ * @return true if the host is quiesced else false.
+ *         Throw exception on failure.
+ */
+bool isHostQuiesced();
 
 } // namespace dump
 } // namespace phosphor
