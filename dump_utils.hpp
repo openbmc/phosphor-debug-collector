@@ -5,6 +5,7 @@
 
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/State/Boot/Progress/server.hpp>
+#include <xyz/openbmc_project/State/Host/server.hpp>
 
 #include <memory>
 
@@ -15,6 +16,8 @@ namespace dump
 
 using BootProgress = sdbusplus::xyz::openbmc_project::State::Boot::server::
     Progress::ProgressStages;
+using HostState =
+    sdbusplus::xyz::openbmc_project::State::server::Host::HostState;
 
 /* Need a custom deleter for freeing up sd_event */
 struct EventDeleter
@@ -76,6 +79,15 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
                        const std::string& interface);
 
 /**
+ * @brief Get the host state
+ *
+ * @return HostState on success
+ *         Throw exception on failure
+ *
+ */
+HostState getHostState();
+
+/**
  * @brief Get the host boot progress stage
  *
  * @return BootProgress on success
@@ -85,12 +97,33 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
 BootProgress getBootProgress();
 
 /**
+ * @brief Get the host state value
+ *
+ * @param[in] intf - Interface to get the value
+ * @param[in] objPath - Object path of the service
+ * @param[in] state - State name to get
+ *
+ * @return The state value on success
+ *         Throw exception on failure
+ */
+std::string getStateValue(std::string intf, std::string objPath,
+                          std::string state);
+
+/**
  * @brief Check whether host is running
  *
  * @return true if the host running else false.
  *         Throw exception on failure.
  */
 bool isHostRunning();
+
+/**
+ * @brief Check whether host is quiesced
+ *
+ * @return true if the host is quiesced else false.
+ *         Throw exception on failure.
+ */
+bool isHostQuiesced();
 
 } // namespace dump
 } // namespace phosphor
