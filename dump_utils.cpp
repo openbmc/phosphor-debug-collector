@@ -39,81 +39,10 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& path,
         lg2::error("Error in mapper method call, errormsg: {ERROR}, "
                    "PATH: {PATH}, INTERFACE: {INTERFACE}",
                    "ERROR", e, "PATH", path, "INTERFACE", interface);
-        return std::string{};
+        throw;
     }
     return response[0].first;
 }
 
-BootProgress getBootProgress()
-{
-    constexpr auto bootProgressInterface =
-        "xyz.openbmc_project.State.Boot.Progress";
-    // TODO Need to change host instance if multiple instead "0"
-    constexpr auto hostStateObjPath = "/xyz/openbmc_project/state/host0";
-
-    BootProgress bootProgessStage;
-
-    try
-    {
-        auto bus = sdbusplus::bus::new_default();
-        auto service = getService(bus, hostStateObjPath, bootProgressInterface);
-
-        auto method = bus.new_method_call(service.c_str(), hostStateObjPath,
-                                          "org.freedesktop.DBus.Properties",
-                                          "Get");
-
-        method.append(bootProgressInterface, "BootProgress");
-
-        auto reply = bus.call(method);
-
-        using DBusValue_t =
-            std::variant<std::string, bool, std::vector<uint8_t>,
-                         std::vector<std::string>>;
-        DBusValue_t propertyVal;
-
-        reply.read(propertyVal);
-
-        // BootProgress property type is string
-        std::string bootPgs(std::get<std::string>(propertyVal));
-
-        bootProgessStage = sdbusplus::xyz::openbmc_project::State::Boot::
-            server::Progress::convertProgressStagesFromString(bootPgs);
-    }
-    catch (const sdbusplus::exception_t& e)
-    {
-        lg2::error("D-Bus call exception, OBJPATH: {OBJ_PATH}, "
-                   "INTERFACE: {INTERFACE}, EXCEPTION: {ERROR}",
-                   "OBJ_PATH", hostStateObjPath, "INTERFACE",
-                   bootProgressInterface, "ERROR", e);
-        throw std::runtime_error("Failed to get BootProgress stage");
-    }
-    catch (const std::bad_variant_access& e)
-    {
-        lg2::error("Exception raised while read BootProgress property value, "
-                   "OBJPATH: {OBJ_PATH}, INTERFACE: {INTERFACE}, "
-                   "EXCEPTION: {ERROR}",
-                   "OBJ_PATH", hostStateObjPath, "INTERFACE",
-                   bootProgressInterface, "ERROR", e);
-        throw std::runtime_error("Failed to get BootProgress stage");
-    }
-
-    return bootProgessStage;
-}
-
-bool isHostRunning()
-{
-    // TODO #ibm-openbmc/dev/2858 Revisit the method for finding whether host
-    // is running.
-    BootProgress bootProgressStatus = phosphor::dump::getBootProgress();
-    if ((bootProgressStatus == BootProgress::SystemInitComplete) ||
-        (bootProgressStatus == BootProgress::SystemSetup) ||
-        (bootProgressStatus == BootProgress::OSStart) ||
-        (bootProgressStatus == BootProgress::OSRunning) ||
-        (bootProgressStatus == BootProgress::PCIInit))
-    {
-        return true;
-    }
-    return false;
-}
 } // namespace dump
 } // namespace phosphor
