@@ -68,9 +68,9 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     if (upEntry != nullptr)
     {
         log<level::INFO>(
-            fmt::format(
-                "System Dump Notify: Updating dumpId({}) Id({}) Size({})",
-                upEntry->getDumpId(), dumpId, size)
+            fmt::format("System Dump Notify: Updating dump entry with Id({}) "
+                        "with source  Id({}) and Size({})",
+                        upEntry->getDumpId(), dumpId, size)
                 .c_str());
         upEntry->update(timeStamp, size, dumpId);
         return;
@@ -85,10 +85,11 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // For now replacing it with null
     try
     {
-        log<level::INFO>(fmt::format("System Dump Notify: creating new dump "
-                                     "entry dumpId({}) Id({}) Size({})",
-                                     id, dumpId, size)
-                             .c_str());
+        log<level::INFO>(
+            fmt::format("System Dump Notify: creating new dump "
+                        "entry with dumpId({}) with source Id({}) and Size({})",
+                        id, dumpId, size)
+                .c_str());
         entries.insert(std::make_pair(
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
@@ -129,7 +130,8 @@ sdbusplus::message::object_path
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
     // Allow creating system dump only when the host is up.
-    if (!phosphor::dump::isHostRunning())
+    if (!(((phosphor::dump::isHostRunning()) ||
+           (phosphor::dump::isHostQuiesced()))))
     {
         elog<NotAllowed>(
             Reason("System dump can be initiated only when the host is up"));
