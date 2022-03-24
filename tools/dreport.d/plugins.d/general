@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# config: 2 30
+# @brief: Collect all general information
+#
+
+. $DREPORT_INCLUDE/functions
+
+file_name="general.log"
+
+#timedatectl
+add_cmd_output "echo $'\n[timedatectl]'" "$file_name" "timedatectl"
+add_cmd_output "/usr/bin/timedatectl" "$file_name" "timedatectl"
