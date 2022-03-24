@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# config: 2 30
+# @brief: Collect bmcweb persistent information
+#
+
+. $DREPORT_INCLUDE/functions
+
+bmcweb_file="/home/root/bmcweb_persistent_data.json"
+if [ -f $bmcweb_file ]; then
+  add_copy_file "$bmcweb_file" "bmcweb"
+fi
