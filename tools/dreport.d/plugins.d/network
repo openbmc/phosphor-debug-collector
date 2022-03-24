@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+#
+# config: 1234 30
+# @brief: Collect network information
+#
+
+#. $DREPORT_INCLUDE/functions
+
+file_name="network.log"
+
+#netstat
+add_cmd_output "echo $'[netstat]'" "$file_name" "netstat"
+add_cmd_output "netstat -nr" "$file_name" "netstat"
+
+#eth0
+eth0_file="/etc/systemd/network/00-bmc-eth0.network"
+if [ -f $eth0_file ]; then
+    add_cmd_output "echo $'\n[eth0]'" "$file_name" "eth0"
+    add_cmd_output "cat $eth0_file" "$file_name" "eth0"
+fi
+
+#eth1
+eth1_file="/etc/systemd/network/00-bmc-eth1.network"
+if [ -f $eth1_file ]; then
+    add_cmd_output "echo $'\n[eth1]'" "$file_name" "eth1"
+    add_cmd_output "cat $eth1_file" "$file_name" "eth1"
+fi
+
+
+#network interface statistics
+procnetdev_file="/proc/net/dev"
+if [ -f $procnetdev_file ]; then
+    add_cmd_output "echo $'\n[proc_net_dev]'" "$file_name" "proc_net_dev"
+    add_cmd_output "cat $procnetdev_file" "$file_name" "proc_net_dev"
+fi
+
+#active tcp connections
+activetcp="/proc/net/tcp"
+if [ -f $activetcp ]; then
+    add_cmd_output "echo $'\n[activetcp]'" "$file_name" "activetcp"
+    add_cmd_output "cat $activetcp" "$file_name" "activetcp"
+fi
+
+#Load average
+loadavg="cat /proc/loadavg"
+if [ -f $activetcp ]; then
+    add_cmd_output "echo $'\n[Load average]'" "$file_name" "loadaverage"
+    add_cmd_output "cat $loadavg" "$file_name" "loadaverage"
+fi
