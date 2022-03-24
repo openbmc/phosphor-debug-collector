@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d419ec2f_e233f773",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-24T03:14:03Z",
+      "side": 1,
+      "message": "looks contradictory with line 69 check.\nis this condition not running?",
+      "range": {
+        "startLine": 50,
+        "startChar": 32,
+        "endLine": 50,
+        "endChar": 63
+      },
+      "revId": "efef88af5b03d3253ab84a7fc286acf916eebcce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b387186_056fa031",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-24T03:14:03Z",
+      "side": 1,
+      "message": "\"ERROR\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "efef88af5b03d3253ab84a7fc286acf916eebcce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
