@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# config: 2 30
+# @brief: Collect all general information
+#
+
+. $DREPORT_INCLUDE/functions
+
+file_name="general.log"
+
+#timestamp
+timestamp_file="/etc/timestamp"
+if [ -f $timestamp_file ]; then
+    add_cmd_output "echo $'[timestamp]'" "$file_name" "timestamp"
+    add_cmd_output "cat $timestamp_file" "$file_name" "timestamp"
+fi
+
+#date
+add_cmd_output "echo $'\n[date]'" "$file_name" "date"
+add_cmd_output "date" "$file_name" "date"
+
+#uname
+add_cmd_output "echo -n [uname]" "$file_name" "uname"
+add_cmd_output "uname -a" "$file_name" "uname"
+
+#hwclock
+hwclock_file="/sbin/hwclock"
+if [ -f $hwclock_file ]; then
+    add_cmd_output "echo $'\n[hwclock]'" "$file_name" "hwclock"
+    add_cmd_output "$hwclock_file --show" "$file_name" "hwclock"
+fi
+
+#timedatectl
+timedatectl="/usr/bin/timedatectl"
+if [ -f $timedatectl]; then
+    add_cmd_output "echo $'\n[timedatectl]'" "$file_name" "timedatectl"
+    add_cmd_output "$timedatectl" "$file_name" "timedatectl"
+fi
+
