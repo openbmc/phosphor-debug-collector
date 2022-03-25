@@ -16,6 +16,24 @@
       "message": "Existing ipaddr plugin provides simliar data , Need networ team comment on what is the additional info this plugin provides here.",
       "revId": "85785fb7461770f7c694ca617e1706f073b3b125",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e32e9c4c_a7ecafc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-03-25T08:09:33Z",
+      "side": 1,
+      "message": "This gives the NTP, DNS configuration details on each interfaces along with the ip network setups  \nAnd give the default route settings \u0026 the also gives the route details if user has create a static route",
+      "parentUuid": "5e6af179_c195e6fb",
+      "revId": "85785fb7461770f7c694ca617e1706f073b3b125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
