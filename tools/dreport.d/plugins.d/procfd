@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# config: 123 60
+# @brief: List the open file descriptors
+#
+
+. $DREPORT_INCLUDE/functions
+
+file_name="procfd.log"
+add_cmd_output "ls -Al /proc/*/fd/" "$file_name" "procfd"
