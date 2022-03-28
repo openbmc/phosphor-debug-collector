@@ -55,12 +55,13 @@ void Entry::delete_()
 
 void Entry::initiateOffload(std::string uri)
 {
-    if ((isOffloadInProgress()) && (uri == offloadUri()))
+    if (isOffloadInProgress())
     {
-        log<level::ERR>(fmt::format("Another offload is in progress with same "
-                                    "URI({}), cannot continue",
-                                    offloadUri())
-                            .c_str());
+        log<level::ERR>(
+            fmt::format(
+                "Another offload is in progress URI({}) id({}) cannot continue",
+                offloadUri(), id)
+                .c_str());
         elog<NotAllowed>(
             Reason("Another offload is in progress, please try later"));
     }
