@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3835ac_11647e53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Modified to leave only timedatactl in this script, but leaving the name as general if incase we want to add any general info in future.",
+      "revId": "e03821d025ab8fcec29c10be2684efe7ecbd287b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

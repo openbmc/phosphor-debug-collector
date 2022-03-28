@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e9d0ba_d53e3a3b",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f641ebe1_78190783",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a25d511d_252ece36",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-03-24T15:13:42Z",
       "side": 1,
       "message": "same as line 12 comment",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba13995b_2e4b87b3",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25d511d_252ece36",
       "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc869b8e_7367c29c",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5add834_8c92e6cb",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb20ad02_f1aa2d26",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-03-24T15:13:42Z",
       "side": 1,
       "message": "is this data going to get from summary log epochtime?",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10033d43_d1611143",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb20ad02_f1aa2d26",
       "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -86,6 +158,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f290f1e0_90ab170e",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cad7d357_0171814d",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dec5f6e7_b0bc66fd",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-03-24T15:13:42Z",
       "side": 1,
       "message": "Already 3 plugins to prrint host/bmc/chassisstates. kind of duplicate data , better to add missing state info , which will help dump type state info collection.",
+      "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2b2c9f_c6b79ba9",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-28T10:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dec5f6e7_b0bc66fd",
       "revId": "670d9cb00aae25dd5e4bbc3a7c0a8536b75c147b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
