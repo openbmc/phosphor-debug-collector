@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78655750_93c6fac2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-28T13:43:55Z",
+      "side": 1,
+      "message": "This debug only console and not enabled alway\u0027s . better moove to ibm only plugin now.",
+      "revId": "adf73239074cc870af280939bd59ceb2f4aa7cf1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
