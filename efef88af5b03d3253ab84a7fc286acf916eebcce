@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6d3bc1_da1558d9",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-03-28T08:38:39Z",
+      "side": 1,
+      "message": "it is not contradicting but selecting two different actions\n1 - if host is running and offload URI is not empty do not allow another offload\n2 - if host is running and delete is allowed then remove dump from host too.",
+      "parentUuid": "d419ec2f_e233f773",
+      "range": {
+        "startLine": 50,
+        "startChar": 32,
+        "endLine": 50,
+        "endChar": 63
+      },
+      "revId": "efef88af5b03d3253ab84a7fc286acf916eebcce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b387186_056fa031",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-24T03:14:03Z",
       "side": 1,
       "message": "\"ERROR\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "efef88af5b03d3253ab84a7fc286acf916eebcce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fddcd91_da9a832e",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-03-28T08:38:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b387186_056fa031",
       "range": {
         "startLine": 52,
         "startChar": 19,
