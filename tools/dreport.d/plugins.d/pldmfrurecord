@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# config: 2 40
+# @brief: Get fanctl dump details
+#
+
+. $DREPORT_INCLUDE/functions
+
+# collect data only if pldmtool is present
+pldmtool="/usr/bin/pldmtool" 
+if [ -e $pldmtool ]; then
+    desc="PLDM FRU Record table"
+    file_name="pldm_fru_record_table.txt"
+
+    add_cmd_output "$pldmtool fru getfrurecordtable" "$file_name" "$desc"
+fi
