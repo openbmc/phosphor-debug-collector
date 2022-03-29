@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# config: 2 25
+# @brief: Collect device tree details.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="devtree"
+file_name="/var/lib/phosphor-software-manager/pnor/rw/DEVTREE"
+
+if [ -e "$file_name" ]; then
+    add_copy_file "$file_name" "$desc"
+fi
