@@ -49,9 +49,7 @@ void Entry::delete_()
         lg2::error("Dump offload is in progress, cannot delete dump, "
                    "id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
                    "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
-        elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
-            xyz::openbmc_project::Common::NotAllowed::REASON(
-                "Dump offload is in progress"));
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     lg2::info("Resource dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
