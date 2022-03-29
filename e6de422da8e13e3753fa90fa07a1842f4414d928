@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ebbb77_84f757ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-03-29T03:30:51Z",
+      "side": 1,
+      "message": "Why?  Please answer in the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9816ca05_ab930556",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-03-29T03:30:51Z",
+      "side": 1,
+      "message": "Please mention the security consequences of this.  This file has user session credential secrets that realistically should never leave the BMC, and realistically should never be read by anything tbmcweb.  Given that this patchset doesn\u0027t mention that, and this commit message is one sentence, I\u0027m assuming you didn\u0027t realize that?",
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabc5448_c6d5cd52",
+        "filename": "tools/dreport.d/plugins.d/bmcweb",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-03-29T03:30:51Z",
+      "side": 1,
+      "message": "I don\u0027t really like that this is hardcoded, and I wonder if there\u0027s a more generic solution that doesn\u0027t involve hardcoding what is essentially a bmcweb internal file.\n\nEventually it\u0027s my intention to enable StateDirectory and DynamicUser for bmcweb, and I suspect a hardcoded file isn\u0027t going to work with that directly.",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
