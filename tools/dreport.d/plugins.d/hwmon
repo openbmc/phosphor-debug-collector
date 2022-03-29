@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# config: 2 50
+# @brief: Collect hwmon information
+#
+
+. $DREPORT_INCLUDE/functions
+
+file_name="hwmon.log"
+if [ -d "/sys/class/hwmon/" ]; then
+    add_cmd_output "grep -r . /sys/class/hwmon/*" "$file_name" "hwmon"
+fi
