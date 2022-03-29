@@ -4,20 +4,7 @@
 # @brief: Collect hwmon information
 #
 
-#. $DREPORT_INCLUDE/functions
-
-function add_cmd_output()
-{
-    command="$1"
-    file_name="$2"
-    desc="$3"
-
-    eval $command >> "$file_name"
-    if [ $? -ne 0 ]; then
-        echo "failed to collect" 
-        return 1
-    fi  
-}
+. $DREPORT_INCLUDE/functions
 
 file_name="hwmon.log"
 if [ -e "/sys/class/hwmon/" ]; then
