@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# config: 2 50
+# @brief: Get PEL logs list
+#
+
+. $DREPORT_INCLUDE/functions
+
+# collect data only if peltool is present
+peltool="/usr/bin/peltool"
+
+if [ -e $peltool ]; then
+    desc="PEL logs list"
+    file_name="PEL_logs_list.json"
+
+    add_cmd_output "$peltool -l" "$file_name" "$desc"
+fi
