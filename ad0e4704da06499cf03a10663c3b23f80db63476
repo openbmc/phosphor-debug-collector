@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093759d6_a99e23d9",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-29T06:19:50Z",
+      "side": 1,
+      "message": "Add description on error case handling , by setting default data.",
+      "revId": "ad0e4704da06499cf03a10663c3b23f80db63476",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b58a6f1_ea309829",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-29T06:19:50Z",
+      "side": 1,
+      "message": "openpowerdump this function is used for updating file name also right? nnot seeing code related to this.",
+      "revId": "ad0e4704da06499cf03a10663c3b23f80db63476",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
