@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# config: 234 25
+# @brief: Collect PHAL devtree debug data
+#
+
+. $DREPORT_INCLUDE/functions
+
+attributes="/usr/bin/attributes"
+attr_list_file_name="PHAL_devtree.txt"
+
+#export attributes list to attribute_list.txt
+if [ -x $attributes ]; then
+    add_cmd_output "$attributes export" "$attr_list_file_name" "Attribute list"
+fi
+
+#copy PHAL device tree file to dump
+devtree_file_name="/media/hostfw/running/DEVTREE"
+if [ -f "$devtree_file_name" ]; then
+    add_copy_file "$devtree_file_name" "device tree"
+fi
+
+
+#copy PHAL export device tree to dump
+exp_dev_tree="/var/lib/phal/exportdevtree"
+if [ -f "$exp_dev_tree" ]; then
+    add_copy_file "$exp_dev_tree" "export device tree"
+fi
+
+#copy attribues info db to dump
+attr_info_db="/usr/share/pdata/attributes_info.db"
+if [ -f "$attr_info_db" ]; then
+    add_copy_file "$attr_info_db" "attribute info db"
+fi
