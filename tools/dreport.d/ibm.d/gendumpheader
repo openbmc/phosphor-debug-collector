@@ -34,8 +34,6 @@ declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/m
 #Variables
 declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
 declare -x modelNo
-modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
-    $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 #Variables
 declare -x serialNo
 serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
@@ -43,9 +41,6 @@ serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
 declare -x dDay
 dDay=$(date -d @"$EPOCHTIME" +'%Y%m%d%H%M%S')
 declare -x bmcSerialNo
-bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
-        org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
-    SerialNumber | cut -d " " -f 3 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 
 #Function to add NULL
 function add_null() {
@@ -104,6 +99,113 @@ function getbmc_serial() {
     nulltoadd=`expr $SIZE_12 - $x`
     printf $bmcSerialNo >> $FILE
     printf '%*s' $nulltoadd | tr ' ' "0" >> $FILE
+}
+
+#Function to fetch the hostname
+function system_name() {
+    name=$(hostname)
+    len=${#name}
+    nulltoadd=$(( SIZE_32 - len ))
+    printf "%s" "$name" >> "$FILE"
+    add_null "$nulltoadd"
+}
+
+#Function to get the errorlog ID
+function get_eid() {
+    # shellcheck disable=SC2154 # dump_type comes from elsewhere
+    if [ "$dump_type" = "$OP_DUMP" ]; then
+        # shellcheck disable=SC2154 # elog_id comes from elsewhere
+        x=${#elog_id}
+        msize=$(( x / 2 ))
+        msize=$(( SIZE_4 - msize ))
+        for ((i=0;i<x;i+=2));
+        do
+            printf "\\x${elog_id:$i:2}" >> "$FILE"
+        done
+        add_null "$msize"
+    else
+        add_null 4
+    fi
+}
+
+#Function to get the tar size of the dump
+function tar_size() {
+    printf -v hex "%x" "$size_dump"
+    x=${#hex}
+    if [ $((x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=$(( x / 2 ))
+    msize=$(( SIZE_4 - msize ))
+    add_null "$msize"
+    for ((i=0;i<x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'hex' as a variable is safe here.
+        printf "\\x${hex:$i:2}" >> "$FILE"
+    done
+}
+
+#Function will get the total size of the dump without header
+# i.e. Dump summary size i.e. 1024 bytes + the tar file size
+function total_size() {
+    size_dump=$(( size_dump + DUMP_SUMMARY_SIZE ))
+    printf -v hex "%x" "$size_dump"
+    x=${#hex}
+    if [ $((x % 2)) -eq 1 ]; then
+        hex=0$hex
+        x=${#hex}
+    fi
+    msize=$(( x / 2 ))
+    msize=$(( SIZE_8 - msize ))
+    add_null "$msize"
+    for ((i=0;i<x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'hex' as a variable is safe here.
+        printf "\\x${hex:$i:2}" >> "$FILE"
+    done
+}
+
+#Function to populate content type based on dump type
+function content_type() {
+    type="00000000"
+    # content type:
+    # Hostboot dump = "20"
+    # Hardware dump = "00"
+    # SBE dump = "30"
+    if [ "$dump_content_type" = "$HB_DUMP" ]; then
+        type="00000200"
+    elif [ "$dump_content_type" = "$HW_DUMP" ]; then
+        type="40000000"
+    elif [ "$dump_content_type" = "$SBE_DUMP" ]; then
+        type="02000000"
+    fi
+    x=${#type}
+    for ((i=0;i<$x;i+=2));
+    do
+        # shellcheck disable=SC2059 # using 'type' as a variable is safe here.
+        printf "\\x${type:$i:2}" >> "$FILE"
+    done
+}
+
+# @brief Fetching model number and serial number property from inventory
+#  If the busctl command fails, populating the model and serial number
+#  with default value i.e. 0
+function get_bmc_model_serial_number() {
+    modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+        $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+    if [ -z "$modelNo" ]; then
+        modelNo="00000000"
+    fi
+
+    bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
+            org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
+        SerialNumber | cut -d " " -f 3 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+    if [ -z "$bmcSerialNo" ]; then
+        bmcSerialNo="000000000000"
+    fi
 }
 
 #Function to add virtual file directory entry, consists of below entries
@@ -235,6 +337,8 @@ function gen_header_package() {
     dump_header
     dump_entry
 }
+
+get_bmc_model_serial_number
 
 #Run gen_header_package
 gen_header_package
