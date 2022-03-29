@@ -53,9 +53,7 @@ void Entry::delete_()
                                     "dump, id({}) srcdumpid({})",
                                     dumpId, srcDumpID)
                             .c_str());
-        elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
-            xyz::openbmc_project::Common::NotAllowed::REASON(
-                "Dump offload is progress"));
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",

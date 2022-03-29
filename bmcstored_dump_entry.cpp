@@ -26,8 +26,7 @@ void Entry::delete_()
         log<level::ERR>(
             fmt::format("Dump offload is in progress, cannot delete id({})", id)
                 .c_str());
-        elog<NotAllowed>(
-            Reason("Dump offload is in progress, please try later"));
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     // Delete Dump file from Permanent location
