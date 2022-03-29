@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# config: 2 25
+# @brief: Collect attribute list details.
+#
+
+. $DREPORT_INCLUDE/functions
+
+attributes="/usr/bin/attributes"
+devtree_file_name="/var/lib/phosphor-software-manager/pnor/rw/DEVTREE"
+attr_list_file_name="attribute_list.txt"
+
+if [ -x $attributes ]; then
+    add_cmd_output "$attributes export" "$attr_list_file_name" "Attribute list"
+
+    #if attribute list command fails copy the device tree
+    if [ $? -ne 0 ]; then
+        if [ -f "$devtree_file_name" ]; then
+            add_copy_file "$devtree_file_name" "device tree"
+        fi
+    fi
+fi
