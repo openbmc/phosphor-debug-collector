@@ -49,14 +49,11 @@ void Entry::delete_()
 
     if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
     {
-        log<level::ERR>(
-            fmt::format("Dump offload is in progress, cannot delete "
-                        "dump, id({}) srcdumpid({})",
-                        dumpId, srcDumpID)
-                .c_str());
-        elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
-            xyz::openbmc_project::Common::NotAllowed::REASON(
-                "Dump offload is in progress"));
+        log<level::ERR>(fmt::format("Dump offload in progress, cannot delete "
+                                    "dump, id({}) srcdumpid({})",
+                                    dumpId, srcDumpID)
+                            .c_str());
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",
