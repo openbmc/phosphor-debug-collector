@@ -25,13 +25,7 @@ declare -rx OP_DUMP="opdump"
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x modelNo
-modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
-$INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
-
 declare -x bmcSerialNo
-bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
-org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
-SerialNumber | cut -d " " -f 3 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 
 #Function to add NULL
 function add_null () {
@@ -176,6 +170,26 @@ function content_type () {
         # shellcheck disable=SC2059 # using 'type' as a variable is safe here.
         printf "\\x${type:$i:2}" >> "$FILE"
     done
+}
+
+# @brief Fetching model number and serial number property from inventory
+#  If the busctl command fails, populating the model and serial number
+#  with default value i.e. 0
+function get_bmc_model_serial_number () {
+    modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+      $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+    if [ -z "$modelNo" ]; then
+        modelNo="00000000"
+    fi
+
+    bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
+        org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
+        SerialNumber | cut -d " " -f 3 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+
+    if [ -z "$bmcSerialNo" ]; then
+        bmcSerialNo="000000000000"
+    fi
 }
 
 #Function to add virtual file directory entry, consists of below entries
@@ -464,6 +478,8 @@ function gen_header_package () {
         dump_entry
     fi
 }
+
+get_bmc_model_serial_number
 
 #Run gen_header_package
 gen_header_package
