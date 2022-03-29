@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2804dd20_0096e2e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-29T04:10:28Z",
+      "side": 1,
+      "message": "thanks ed, will check the security consequences of it and drop if required. we want to colect as much information as possible as part of user initiated dump to aid the user in debug. If this is going to have security consequences then will drop.\n\n@george",
+      "parentUuid": "9816ca05_ab930556",
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dabc5448_c6d5cd52",
         "filename": "tools/dreport.d/plugins.d/bmcweb",
         "patchSetId": 3
