@@ -34,14 +34,14 @@ void Entry::delete_()
     auto srcDumpID = sourceDumpId();
     auto dumpId = id;
 
+    // Offload URI will be set during dump offload
+    // Prevent delete when offload is in progress
     if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
     {
         lg2::error("Dump offload is in progress id: {DUMP_ID} "
                    "srcdumpid: {SRC_DUMP_ID}",
                    "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
-        elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
-            xyz::openbmc_project::Common::NotAllowed::REASON(
-                "Dump offload is in progress"));
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     lg2::info("System dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
