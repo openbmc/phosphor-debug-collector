@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "178524fd_9869d9f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-03-29T15:43:38Z",
+      "side": 1,
+      "message": "Understood.  If we wanted to do this, we\u0027d probably have to break up the bmcweb persistent data file into two files, one with the session credentials, and one without, then only the non-session file would be persisted.  This is pretty doable if you wanted to do that, and I\u0027d happily review and accept the patch to bmcweb to do that (please make sure that old files are migrated properly).",
+      "parentUuid": "2804dd20_0096e2e2",
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dabc5448_c6d5cd52",
         "filename": "tools/dreport.d/plugins.d/bmcweb",
         "patchSetId": 3
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "dabc5448_c6d5cd52",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676ed5ed_79d44359",
+        "filename": "tools/dreport.d/plugins.d/bmcweb",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2022-03-29T15:43:38Z",
+      "side": 1,
+      "message": "Also, FWIW, these are arguably the wrong spots for these, they should be going in /var.",
+      "parentUuid": "697f5082_a9dae083",
       "range": {
         "startLine": 9,
         "startChar": 24,
