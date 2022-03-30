@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc6b160c_37435a2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T16:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d464bfd0_6f593563",
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef7614fa_ea9c6b03",
@@ -89,6 +107,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5bacbe5_e569213c",
+        "filename": "tools/dreport.d/plugins.d/dumpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T16:44:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62167cbb_b53a82db",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 81
+      },
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14b2f582_e331e71e",
@@ -150,6 +192,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "88f08e6c_43106759",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 94
+      },
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b298042_6124bd92",
+        "filename": "tools/dreport.d/plugins.d/dumpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T16:44:34Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "8a76faf9_f32348c9",
       "range": {
         "startLine": 19,
         "startChar": 1,
