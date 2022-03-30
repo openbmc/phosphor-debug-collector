@@ -20,6 +20,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1d1ae2e_20642d97",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:16:51Z",
+      "side": 1,
+      "message": "can you please put into the openpower.d instead of the ibm.d - it is openpower specific tool and anybody can use who wants to use the OpenPOWER project.",
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f69f56_fe2a76c6",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:16:51Z",
+      "side": 1,
+      "message": "it is good to include for elog and checkstop type",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b3d0d3c_9ef158e1",
         "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
         "patchSetId": 3
@@ -60,6 +100,46 @@
         "endLine": 10,
         "endChar": 70
       },
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea99a70_1aef755b",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:16:51Z",
+      "side": 1,
+      "message": "`attributes export` entire device tree not just the attributes, can please change the name as PHAL_devtree.txt?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e578eeb7_1fc336a6",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:16:51Z",
+      "side": 1,
+      "message": "Please include errors, it helps if there is any failure while executing the command.\n\n```\ncmd \u003e\u003e file.txt 2\u003e\u00261\n```",
       "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -123,6 +203,24 @@
       "writtenOn": "2022-03-30T06:36:03Z",
       "side": 1,
       "message": "Copy /var/lib/phal/exportdevtree\u0027,  this is usefull for debugging. .",
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555c7813_d8bad23a",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:16:51Z",
+      "side": 1,
+      "message": "and also `/usr/share/pdata/attributes_info.db` to get to know the targets and attributes metadata details that are present in the driver.",
+      "parentUuid": "40c78958_164fde1f",
       "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
