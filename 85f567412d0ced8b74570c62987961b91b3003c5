@@ -16,6 +16,24 @@
       "message": "Already collecting journalpretty also openbmc tool support tool to convert journal  no pager equivalent. . Looks like collecting same adat in twop place. This is going to be issue with system got smaller falsh size.",
       "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea923ca_a75a34e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:34:35Z",
+      "side": 1,
+      "message": "+1\n\nhttps://github.com/openbmc/openbmc-tools/blob/master/pretty-journal/pretty-journal.py",
+      "parentUuid": "a3fc42a9_0b7b1726",
+      "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
