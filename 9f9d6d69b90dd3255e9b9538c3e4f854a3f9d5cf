@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d464bfd0_6f593563",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T06:51:10Z",
+      "side": 1,
+      "message": "dreport:",
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7614fa_ea9c6b03",
+        "filename": "tools/dreport.d/plugins.d/dumpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T06:51:10Z",
+      "side": 1,
+      "message": "Copy the core files instead of listing. This will help to debug issues , core files , which is not ahving associated core type dump cretade due to issues. Make sure only copy valid core files, don\u0027t copy hidden /tmp files from thsi folder.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 81
+      },
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14b2f582_e331e71e",
+        "filename": "tools/dreport.d/plugins.d/dumpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T06:51:10Z",
+      "side": 1,
+      "message": "These should go ibm.d folder.",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 94
+      },
+      "revId": "9f9d6d69b90dd3255e9b9538c3e4f854a3f9d5cf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
