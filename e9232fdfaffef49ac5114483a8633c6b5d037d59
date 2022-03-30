@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f470b2a2_bb6dddad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T10:03:14Z",
+      "side": 1,
+      "message": "should I change the title to this? here we are listing attribute list",
+      "parentUuid": "579bed7f_2e2b703b",
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1d1ae2e_20642d97",
         "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
         "patchSetId": 3
@@ -94,6 +112,30 @@
       "writtenOn": "2022-03-30T06:36:03Z",
       "side": 1,
       "message": "us this path /media/hostfw/running/DEVTREE",
+      "range": {
+        "startLine": 10,
+        "startChar": 18,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6bfaf25_b926b906",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T10:03:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "df7588b6_dfbd2483",
       "range": {
         "startLine": 10,
         "startChar": 18,
@@ -192,6 +234,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c23cd09_698e3090",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T10:03:14Z",
+      "side": 1,
+      "message": "\"device tree\" is just description not the file name",
+      "parentUuid": "7afa75c6_92933899",
+      "range": {
+        "startLine": 19,
+        "startChar": 48,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40c78958_164fde1f",
         "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
         "patchSetId": 3
@@ -221,6 +287,24 @@
       "side": 1,
       "message": "and also `/usr/share/pdata/attributes_info.db` to get to know the targets and attributes metadata details that are present in the driver.",
       "parentUuid": "40c78958_164fde1f",
+      "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "355cf997_1c8ada9e",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/devtree",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T10:03:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "555c7813_d8bad23a",
       "revId": "e9232fdfaffef49ac5114483a8633c6b5d037d59",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
