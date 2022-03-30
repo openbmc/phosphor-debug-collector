@@ -16,6 +16,75 @@
       "message": "dreport: Add fanctl dump output to dump",
       "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29cd63e_7e08989e",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T08:37:49Z",
+      "side": 1,
+      "message": "@Shawn McCarney is it ok to include only in the user requested BMC dump? or Do we need other types of BMC dumps too?\n\nFYR: https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/sample.conf#L7",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b211b7d6_f2e2f8c2",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T08:37:49Z",
+      "side": 1,
+      "message": "I think `-r` is not required",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f574cdee_63bef1c7",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T08:37:49Z",
+      "side": 1,
+      "message": "I think `-r` is not required",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
