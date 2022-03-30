@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c42423bb_723b915c",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/pelloglist",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:28:12Z",
+      "side": 1,
+      "message": "It is good include openpower.d and push all openpower specific plugin in that folder rather than specific into IBM name.",
+      "revId": "5ebd9219adc7ab07d395f29781925f5d9b6d31c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb0a2bf9_55774694",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/pelloglist",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:28:12Z",
+      "side": 1,
+      "message": "@Matt do we need to include any other type of dump other than the user requested?\n\nFYR: https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/sample.conf#L7",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "5ebd9219adc7ab07d395f29781925f5d9b6d31c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e106ae5_3ae9e559",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/pelloglist",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:28:12Z",
+      "side": 1,
+      "message": "@Matt is it good to include `-f` to get an informational PELs list?\n\nI hope, `-l` and `-f` just return the list of PELs header so, is it good enough? if we are already displaying it somewhere else then, we are good here.",
+      "revId": "5ebd9219adc7ab07d395f29781925f5d9b6d31c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
