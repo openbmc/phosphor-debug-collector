@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94bb8132_d9a991ed",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000331
+      },
+      "writtenOn": "2022-03-30T20:38:03Z",
+      "side": 1,
+      "message": "Hi.  I was added as a maintainer to phosphor-fan-presence to help with reviews, but I haven\u0027t been too involved lately.  Whatever Matt Spinler thinks is correct is fine with me.",
+      "parentUuid": "5872c0fa_b58d6a28",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b211b7d6_f2e2f8c2",
         "filename": "tools/dreport.d/plugins.d/fanctldump",
         "patchSetId": 6
