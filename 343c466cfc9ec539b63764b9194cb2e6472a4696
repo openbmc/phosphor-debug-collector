@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd6365af_406e90ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:33:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f524ddf5_fe5e10cb",
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a29cd63e_7e08989e",
@@ -64,6 +82,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1440d6_a865536a",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:33:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b211b7d6_f2e2f8c2",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 16
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f574cdee_63bef1c7",
@@ -77,6 +119,30 @@
       "writtenOn": "2022-03-30T08:37:49Z",
       "side": 1,
       "message": "I think `-r` is not required",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8008457_9fd3c904",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:33:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f574cdee_63bef1c7",
       "range": {
         "startLine": 21,
         "startChar": 6,
