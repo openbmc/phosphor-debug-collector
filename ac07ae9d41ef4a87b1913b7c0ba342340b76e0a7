@@ -16,6 +16,46 @@
       "message": "dreport:",
       "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e00dcf7_fc03be4c",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:00:24Z",
+      "side": 1,
+      "message": "is it good to add for InternalFailure type?",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c4fa74_b21d9de0",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T09:00:24Z",
+      "side": 1,
+      "message": "is good to add `/proc/*/cmdline` that gives the name of the PID, and also the user id who started that process\n\n```\ncat /proc/441/cmdline \nphosphor-dump-manager\u0000root\n```",
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
