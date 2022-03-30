@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# config: 2 30
+# @brief: List the bmc generated and core dumps list
+#
+
+. $DREPORT_INCLUDE/functions
+
+file_name="dumplist.log"
+
+#core files
+add_cmd_output "echo $'[core files]'" "$file_name" "core files"
+add_cmd_output "ls -AX /var/lib/systemd/coredump/core*" "$file_name" "core files"
+
+#bmc dumps
+add_cmd_output "echo $'\n[BMC dumps]'" "$file_name" "BMC dumps"
+add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/dumps/*/*" "$file_name" "BMC dumps"
+
+#hardware dumps
+add_cmd_output "echo $'\n[Hardware dumps]'" "$file_name" "Hardware dumps"
+add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/hardwaredump/*/*" "$file_name" "Hardware dumps"
+
+#hostboot dumps
+add_cmd_output "echo $'\n[Hostboot dumps]'" "$file_name" "Hostboot dumps"
+add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/hostbootdump/*/*" "$file_name" "Hostboot dumps"
+
+#sbe dumps
+add_cmd_output "echo $'\n[SBE dumps]'" "$file_name" "SBE dumps"
+add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/sbedump/*/*" "$file_name" "SBE dumps"
