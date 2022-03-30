@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de9a34f3_bcff8378",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "Keep this plugin specific to \"time\" related.\nPease check with time manager owner any addition data helpful for debugging time manager  issues.",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f78ba61_f83bbd82",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "Name should be function specific . Here you are trying to get Time related info . As i mentioned in the previous reveiwtry to avoid duplicate data.",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8346c496_54efa7e1",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "This is already part of dump filename . Also manifest file also icludes  log_summary \"Epochtime:     $EPOCHTIME\"\nAlso timedatectl already conatins same info.",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6afcb6_e28f5d90",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "timedatectl already got same info",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fb39bf7_21627019",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "Should move to different plugin. and am not sure this is really usefull , ebmc is linix based.",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3825017a_fb09f107",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T05:11:34Z",
+      "side": 1,
+      "message": "Both data seems to be similiar , can you point me the diff here , or any specific reason for collecting same data for diffrent format , which would help for debug",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 2
+      },
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
