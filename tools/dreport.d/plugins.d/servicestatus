@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# config: 2 60
+# @brief: Collect services status information.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="services status list"
+file_name="services_status.txt"
+
+command="systemctl status --all"
+
+add_cmd_output "$command" "$file_name" "$desc"
