@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3ef7e24_9e4ad1a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T16:46:53Z",
+      "side": 1,
+      "message": "Team wants this details in the dump, it will be removed if we run into space constraints",
+      "revId": "78e4aca57c45c30cb0606e14cc30c89e4d67785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
