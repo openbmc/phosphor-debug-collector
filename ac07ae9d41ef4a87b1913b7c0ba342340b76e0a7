@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8bdcc68f_9544e5b6",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:42:30Z",
+      "side": 1,
+      "message": "this is not a failure case so do not see it should go into error log",
+      "parentUuid": "1e00dcf7_fc03be4c",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61c4fa74_b21d9de0",
         "filename": "tools/dreport.d/plugins.d/procfd",
         "patchSetId": 7
@@ -54,6 +78,24 @@
       "writtenOn": "2022-03-30T09:00:24Z",
       "side": 1,
       "message": "is good to add `/proc/*/cmdline` that gives the name of the PID, and also the user id who started that process\n\n```\ncat /proc/441/cmdline \nphosphor-dump-manager\u0000root\n```",
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee71fa1b_b69b051b",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:42:30Z",
+      "side": 1,
+      "message": "-r--r--r--    1 root     root             0 Mar 30 08:33 /proc/8/cmdline\n-r--r--r--    1 root     root             0 Mar 30 08:33 /proc/9/cmdline\n-r--r--r--    1 root     root             0 Mar 30 08:33 /proc/93/cmdline\n-r--r--r--    1 root     root             0 Mar 30 08:33 /proc/94/cmdline\n\nit is giving different output, not sure if this is what george wants",
+      "parentUuid": "61c4fa74_b21d9de0",
       "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
