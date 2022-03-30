@@ -34,6 +34,24 @@
       "parentUuid": "a3fc42a9_0b7b1726",
       "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f299ee8_4f0aff24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T09:59:08Z",
+      "side": 1,
+      "message": "will discuss with the team again, I had informed about pretty, but they compared the files and said it is good to jave no-pager details too.\n\nIf journal log is going to be very big then pretty log will be 20 times bigger as it has so many extra fields.",
+      "parentUuid": "4ea923ca_a75a34e5",
+      "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
