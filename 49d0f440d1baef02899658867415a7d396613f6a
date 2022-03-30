@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808bcb25_cde88d2d",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-30T08:18:16Z",
+      "side": 1,
+      "message": "@Sunitha is it ok to include only in the user requested BMC dump? or Do we need other types of BMC dumps too? \n\nFYR: https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/sample.conf#L7",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "49d0f440d1baef02899658867415a7d396613f6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
