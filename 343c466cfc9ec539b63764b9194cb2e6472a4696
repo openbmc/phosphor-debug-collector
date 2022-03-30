@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f524ddf5_fe5e10cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-30T06:09:41Z",
+      "side": 1,
+      "message": "dreport: Add fanctl dump output to dump",
+      "revId": "343c466cfc9ec539b63764b9194cb2e6472a4696",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
