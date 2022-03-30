@@ -95,6 +95,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "258d9550_44dbda07",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:23:08Z",
+      "side": 1,
+      "message": "we had discused in the meeting, it has been said it is good to have time and date in the file, will discuss it is same as the timedatactl again.",
+      "parentUuid": "8346c496_54efa7e1",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f6afcb6_e28f5d90",
         "filename": "tools/dreport.d/plugins.d/general",
         "patchSetId": 4
@@ -106,6 +124,24 @@
       "writtenOn": "2022-03-30T05:11:34Z",
       "side": 1,
       "message": "timedatectl already got same info",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "391154c0_d58f15c5",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f6afcb6_e28f5d90",
       "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -145,6 +181,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7347847_9c8f827b",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1297677a_dc8e5351",
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3825017a_fb09f107",
@@ -158,6 +212,30 @@
       "writtenOn": "2022-03-30T05:11:34Z",
       "side": 1,
       "message": "Both data seems to be similiar , can you point me the diff here , or any specific reason for collecting same data for diffrent format , which would help for debug",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 2
+      },
+      "revId": "97ab5ae4d8400f4dabc7be11cfb2ed9666cb0ab7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0d570a9_9176ded0",
+        "filename": "tools/dreport.d/plugins.d/general",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-30T11:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3825017a_fb09f107",
       "range": {
         "startLine": 26,
         "startChar": 0,
