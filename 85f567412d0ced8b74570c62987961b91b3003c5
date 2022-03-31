@@ -88,6 +88,24 @@
       "parentUuid": "b0f2ff94_4f807382",
       "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e8ed5e_7d33644d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-31T06:39:21Z",
+      "side": 1,
+      "message": "This is common code used for all types of systems. BMCdump size is limited in smaller flash systems. . like 32mB flash boxes BMC dump max size is limited to 200K  for i individual dumps and max size is 1MB. Here you are trying copy same set of data with higher priority in two different files.This will impact falsh usage and performance front.  Also this is going to be issue the system which is not enabled auto offload.\nThe direction used here to collect full journal and use the tool available here to  https://github.com/openbmc/openbmc-tools/tree/master/pretty-journal  convert.\n\nIncase \"team\" wants this support feel free to enable system specific plugin and only enable this pluggin in the required boxes not for all boxes.\n\nAs mentioned by Ramesh if all the rpos start using lg2 based login we can switch the journal to this.",
+      "parentUuid": "885c24aa_cf0885bb",
+      "revId": "85f567412d0ced8b74570c62987961b91b3003c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
