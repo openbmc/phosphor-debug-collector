@@ -56,6 +56,24 @@
       "message": "guard tool return error message if some failure, please include error message too like I mentioned some other patch.\n\nFor example, -e is not supported now so we need to see the error but, looks commit message didn\u0027t show that? I am missing missing something?",
       "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c549438e_e58ab528",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-31T10:13:45Z",
+      "side": 1,
+      "message": "https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/include.d/functions#L16\n\nIf the command fails we are logging error as shown above if we want to capture stderr in the output file we need to modify that and it will affect all the places it is used\n\nroot@p10bmc:~# guard -l 2\u003e\u00261 \u003e /tmp/tmp\nroot@p10bmc:~# cat /tmp/tmp \nNo unresolved records to display\n\n@ojayanth can i modify the add_cmd_output to write the error returned from the command to the log file? Do you see any impact",
+      "parentUuid": "aca405c3_6298cb90",
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
