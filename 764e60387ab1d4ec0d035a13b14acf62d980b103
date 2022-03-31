@@ -87,6 +87,24 @@
       "parentUuid": "c227a76e_39050939",
       "revId": "764e60387ab1d4ec0d035a13b14acf62d980b103",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e2b3d5_75618bdf",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/obmcconsole1",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T04:25:03Z",
+      "side": 1,
+      "message": "Ok, I think it is the hypervisor console to execute some commands so we can enable it if somebody needs it for other types of BMC dump.",
+      "parentUuid": "d07db26c_2d9b44b1",
+      "revId": "764e60387ab1d4ec0d035a13b14acf62d980b103",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
