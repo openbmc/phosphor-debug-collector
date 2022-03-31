@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30279725_94e5080c",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T08:34:11Z",
+      "side": 1,
+      "message": "please include for elog and checkstop too.",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5e5234_917f0d5f",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T08:34:11Z",
+      "side": 1,
+      "message": "Looks your are using old path, please refer here https://github.com/open-power/guard/blob/main/meson_options.txt#L5\n\n@Adriana, is it acceptable path to use or is there plan to change it?",
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aca405c3_6298cb90",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T08:34:11Z",
+      "side": 1,
+      "message": "guard tool return error message if some failure, please include error message too like I mentioned some other patch.\n\nFor example, -e is not supported now so we need to see the error but, looks commit message didn\u0027t show that? I am missing missing something?",
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
