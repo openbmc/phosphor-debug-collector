@@ -81,6 +81,30 @@
       },
       "revId": "153de4f3fadbb48fddf2ed90735821f4ec2d4126",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e98c3c_ecf0ee41",
+        "filename": "tools/dreport.d/plugins.d/hwmon",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T05:45:36Z",
+      "side": 1,
+      "message": "OK, we can enable it if needed.",
+      "parentUuid": "f2159367_4f8feef5",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "153de4f3fadbb48fddf2ed90735821f4ec2d4126",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
