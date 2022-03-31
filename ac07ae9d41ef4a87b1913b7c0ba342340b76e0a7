@@ -107,6 +107,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9797ba_c039cd28",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T05:08:57Z",
+      "side": 1,
+      "message": "I think, if needed we can add in the future, no harm since FDs will go away if the process is terminated. Also, the community is not interested in internal failure.",
+      "parentUuid": "90d6d70e_130d428a",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61c4fa74_b21d9de0",
@@ -156,6 +180,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ee71fa1b_b69b051b",
+      "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363d26e4_26e1b2e5",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T05:08:57Z",
+      "side": 1,
+      "message": "`cat cmdline` gives the process name, but, I think you are trying to list it out?\n\nIMO, it helps but, I will leave it to you.",
+      "parentUuid": "e99a472a_ac1019f3",
       "revId": "ac07ae9d41ef4a87b1913b7c0ba342340b76e0a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
