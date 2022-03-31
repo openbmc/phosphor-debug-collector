@@ -22,6 +22,30 @@
       },
       "revId": "49d0f440d1baef02899658867415a7d396613f6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c59d467_3c7d2530",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T04:11:42Z",
+      "side": 1,
+      "message": "I think we can go with the user-requested BMC dump, if somebody needs for different bmc type, they can add the support.",
+      "parentUuid": "808bcb25_cde88d2d",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "49d0f440d1baef02899658867415a7d396613f6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
