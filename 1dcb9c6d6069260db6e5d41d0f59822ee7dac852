@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "812f8b6e_cd50f4bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T05:55:26Z",
+      "side": 1,
+      "message": "can you change plugin name as phal_devtree instead of devtree?",
+      "revId": "1dcb9c6d6069260db6e5d41d0f59822ee7dac852",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
