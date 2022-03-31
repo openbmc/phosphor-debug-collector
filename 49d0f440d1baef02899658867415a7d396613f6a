@@ -46,6 +46,30 @@
       },
       "revId": "49d0f440d1baef02899658867415a7d396613f6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43ec320_b82c87f3",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-03-31T06:07:44Z",
+      "side": 1,
+      "message": "This is needed for internally triggered bmcdump as well. That is the dump we usually get from the field",
+      "parentUuid": "1c59d467_3c7d2530",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "49d0f440d1baef02899658867415a7d396613f6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
