@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7954076b_ec39f981",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/dumpfilelist",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-03-31T06:01:30Z",
+      "side": 1,
+      "message": "If you want to list the dump alone in this plugin, this could go into common plugin.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "becfec85c35398d218ef32d68f5a4479ea22e724",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
