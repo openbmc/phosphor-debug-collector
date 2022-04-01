@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44124d7b_9b31cbbd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000388
+      },
+      "writtenOn": "2022-04-01T18:18:02Z",
+      "side": 1,
+      "message": "I guess this is the output of \"hwmon.log\"?\n\nMight help to just add 1 line here something like:\n\n```\n$ cat hwmon.log\n...\n/sys/class/hwmon/hwmon0/in1_max_alarm: 0\n/sys/class/hwmon/hwmon0/curr2_crit_alarm: 0\n/sys/class/hwmon/hwmon0/temp5_crit: -500\n...\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 40
+      },
+      "revId": "4cf21ab5a54dd988f279aff8fc08955bb6c5e8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
