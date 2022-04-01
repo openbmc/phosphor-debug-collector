@@ -60,7 +60,7 @@ class Entry : public EntryIfaces
     Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
           Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), true),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
         parent(parent), id(dumpId)
     {
         size(dumpSize);
