@@ -74,6 +74,24 @@
       "parentUuid": "aca405c3_6298cb90",
       "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f87b96_5b990a55",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-01T06:13:14Z",
+      "side": 1,
+      "message": "This is good to have , since dd_cmd_output is common api and consumed by different plugin you should tested it properly. Better to get diffrent commit for this enhancement.",
+      "parentUuid": "c549438e_e58ab528",
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
