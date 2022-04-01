@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60ee3cde_54392e87",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001082
+      },
+      "writtenOn": "2022-04-01T15:35:41Z",
+      "side": 1,
+      "message": "nit: the binary for fanctl has full path but the rm command doesnt. I doubt rm would ever move on us, but for consistency\u0027s sake, I\u0027d use the full path in both places (or neither - since fanctl should be in the path also)",
+      "revId": "255151d63072357051305f06f5c5a1b670e2402e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8611f994_5157eab1",
         "filename": "tools/dreport.d/plugins.d/fanctldump",
         "patchSetId": 9
