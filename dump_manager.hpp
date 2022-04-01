@@ -41,7 +41,7 @@ class Manager : public Iface
      */
     Manager(sdbusplus::bus::bus& bus, const char* path,
             const std::string& baseEntryPath) :
-        Iface(bus, path, true),
+        Iface(bus, path, Iface::action::defer_emit),
         bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
     {}
 

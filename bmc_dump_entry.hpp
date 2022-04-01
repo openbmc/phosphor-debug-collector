@@ -56,7 +56,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status,
           phosphor::dump::Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), true),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               status, parent),
         file(file)
