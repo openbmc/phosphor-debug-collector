@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8611f994_5157eab1",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-04-01T13:32:37Z",
+      "side": 1,
+      "message": "it\u0027s standard operation to cat the file into the new one of the same name instead of copying it I guess?",
+      "revId": "255151d63072357051305f06f5c5a1b670e2402e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
