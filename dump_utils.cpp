@@ -112,6 +112,7 @@ bool isHostRunning()
     // is running.
     BootProgress bootProgressStatus = phosphor::dump::getBootProgress();
     if ((bootProgressStatus == BootProgress::SystemInitComplete) ||
+        (bootProgressStatus == BootProgress::SystemSetup) ||
         (bootProgressStatus == BootProgress::OSStart) ||
         (bootProgressStatus == BootProgress::OSRunning) ||
         (bootProgressStatus == BootProgress::PCIInit))
