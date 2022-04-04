@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "758fc9f0_830ebd1e",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T07:42:10Z",
+      "side": 1,
+      "message": "fanctl component may be build or not depends on configuration MACHINE type and e.t.c but rm, cat and e.t.c comes from busy box so they are assumed they will exist.",
+      "parentUuid": "60ee3cde_54392e87",
+      "revId": "255151d63072357051305f06f5c5a1b670e2402e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8611f994_5157eab1",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-01T13:32:37Z",
       "side": 1,
       "message": "it\u0027s standard operation to cat the file into the new one of the same name instead of copying it I guess?",
+      "revId": "255151d63072357051305f06f5c5a1b670e2402e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df9785cf_f3a48526",
+        "filename": "tools/dreport.d/plugins.d/fanctldump",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T07:42:10Z",
+      "side": 1,
+      "message": "yes for generated files we are following this approach, for existing files we could do copy though.",
+      "parentUuid": "8611f994_5157eab1",
       "revId": "255151d63072357051305f06f5c5a1b670e2402e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
