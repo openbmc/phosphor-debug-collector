@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00d5004_3c9bd4c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-04-04T15:16:22Z",
+      "side": 1,
+      "message": "Also from an external user perspective, it may be surprising that a \"bmc\" dump contains \"host firmware\" data. There are already host dumps, including a hostboot type of dump, wouldn\u0027t it make more sense to leave host firmware data out of the bmc dump?",
+      "revId": "9e56b5f5d7a8cfefbe329faa6e77b32d7183334a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
