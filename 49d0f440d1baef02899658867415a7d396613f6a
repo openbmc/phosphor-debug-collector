@@ -94,6 +94,30 @@
       },
       "revId": "49d0f440d1baef02899658867415a7d396613f6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66d35d01_45070674",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-04-04T04:47:20Z",
+      "side": 1,
+      "message": "Network information is needed to be part of BMC dump collected in any scenario. I am not sure why the reason for the BMC dump needs to be checked for collecting any data. There should not be any differentiation make based on dump trigger scenarios",
+      "parentUuid": "f07f12f0_6b86ebf2",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "49d0f440d1baef02899658867415a7d396613f6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
