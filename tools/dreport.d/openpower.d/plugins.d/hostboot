@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# config: 234 60
+# @brief: Collect host firmware preserved partitions to BMC dump
+#
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE"/functions
+
+#HBEL=Hostboot Error log
+#HBD_RW=Hostboot preserved attributes
+#EECACHE=Hostboot VPD EECACHE
+partitions=("HBEL" "HBD_RW" "EECACHE")
+for i in "${partitions[@]}"; do
+  filename="/var/lib/phosphor-software-manager/hostfw/running/$i"
+  echo $filename
+  if [ -f "$filename" ]; then
+      add_copy_file "$filename" "$partition"
+      echo "came to copy $filename"
+  fi
+done
