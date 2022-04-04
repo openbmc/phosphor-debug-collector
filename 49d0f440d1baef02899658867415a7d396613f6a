@@ -118,6 +118,30 @@
       },
       "revId": "49d0f440d1baef02899658867415a7d396613f6a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8dfc03f_c43c95bc",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-04T05:14:02Z",
+      "side": 1,
+      "message": "+1 - need this info for elog, checkstop \u0026 core as well",
+      "parentUuid": "66d35d01_45070674",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "49d0f440d1baef02899658867415a7d396613f6a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

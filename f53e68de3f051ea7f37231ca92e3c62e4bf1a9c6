@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc67950_9767c96d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-04T05:14:02Z",
+      "side": 1,
+      "message": "Please address the comments",
+      "revId": "f53e68de3f051ea7f37231ca92e3c62e4bf1a9c6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b07fb91_3840b832",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-04T05:14:02Z",
+      "side": 1,
+      "message": "Please change options from -r to -rn \n\n\u003e\u003e\u003e\n-n\nShow numerical addresses instead of trying to determine symbolic host, port or user names. \n\u003c\u003c\u003c\nNumeric values are easy to comprehend",
+      "revId": "f53e68de3f051ea7f37231ca92e3c62e4bf1a9c6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
