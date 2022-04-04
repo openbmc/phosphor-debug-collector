@@ -16,6 +16,24 @@
       "message": "I could def seeing this be useful. On a rainier, I see the text file generated from this output is 410KB, which is quite a bit of data. But it was generated fairly quickly (less then 10s).",
       "revId": "5b2a2ec936c0a9da1ac2bb5639371b3521ed483a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0348ec5_44ab6934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-04T03:02:29Z",
+      "side": 1,
+      "message": "Devender This should packaged as part of system type plugin. 410KB seems to be be issue with smaller flash size systems ( max allowed is 200K compresed) . Another option is to change priority to 60 ,so that this is going to get it ignored during packaging for smaller flash systems.",
+      "parentUuid": "85b27980_aa99e4f5",
+      "revId": "5b2a2ec936c0a9da1ac2bb5639371b3521ed483a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
