@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2643de_266092a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-04-04T14:49:41Z",
+      "side": 1,
+      "message": "If you\u0027re looking to save all the preserved partitions, they\u0027re listed in this pldm json file: https://github.com/openbmc/pldm/blob/master/oem/ibm/configurations/fileTable.json\n\nOtherwise the title could be something like \"Save specific preserved partitons\", and describe why those were chosen to be part of the dump.",
+      "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608d2876_c264c9cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-04-04T14:49:41Z",
+      "side": 1,
+      "message": "Any concerns about how much the size of the BMC dump would increase by?",
+      "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
