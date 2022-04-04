@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# config: 234 60
+# @brief: Collect specific host firmware preserved partitions to BMC dump
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+#copy HBEL(Hostboot error log) partition file to BMC dump
+hbel_file_name="/var/lib/phosphor-software-manager/hostfw/running/HBEL"
+if [ -f "$hbel_file_name" ]; then
+    add_copy_file "$hbel_file_name" "HBEL"
+fi
+
+#copy HBD_RW  (Hostboot preserved attributes) file to BMC dump
+hb_rw_attrib="/var/lib/phosphor-software-manager/hostfw/running/HBD_RW"
+if [ -f "$hb_rw_attrib" ]; then
+    add_copy_file "$hb_rw_attrib" "HBD_RW"
+fi
+
+#copy EECACHE (Hostboot VPD cache) partition file to BMC dump
+hb_vpd_eecache="/var/lib/phosphor-software-manager/hostfw/running/EECACHE"
+if [ -f "$hb_vpd_eecache" ]; then
+    add_copy_file "$hb_vpd_eecache" "EECACHE"
+fi
