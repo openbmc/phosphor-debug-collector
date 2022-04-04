@@ -16,6 +16,24 @@
       "message": "nit: \nopenpower:dreport:\n\nalso change dump to BMC dump",
       "revId": "36308ccf75332261952bb9f275b6a72aa0128ea6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36bbce0_4b86fc0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T12:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d37ef325_3b2c7158",
+      "revId": "36308ccf75332261952bb9f275b6a72aa0128ea6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
