@@ -16,6 +16,24 @@
       "message": "How much time it takes to list for 100 Pels. , Max pel supported is 3000, need approximate time taken info.",
       "revId": "44c99ef541ef0563e931d76b9291d7525c0d8c3e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8582f09_5786c04e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T09:48:47Z",
+      "side": 1,
+      "message": "it is taking around a sec per PEL\n\nroot@p10bmc:~# date; time; peltool -l; date; time\nMon Apr  4 09:46:44 UTC 2022\nuser\t0m0.49s\nsys\t0m0.15s\n\n--- 18 pels\n\nMon Apr  4 09:46:44 UTC 2022\nuser\t0m0.64s\nsys\t0m0.18s",
+      "parentUuid": "9532f2f6_8f194d32",
+      "revId": "44c99ef541ef0563e931d76b9291d7525c0d8c3e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
