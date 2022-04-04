@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6be5acba_692bedeb",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T09:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30279725_94e5080c",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e5e5234_917f0d5f",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-03-31T08:34:11Z",
       "side": 1,
       "message": "Looks your are using old path, please refer here https://github.com/open-power/guard/blob/main/meson_options.txt#L5\n\n@Adriana, is it acceptable path to use or is there plan to change it?",
+      "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23df2725_7f7e2942",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T09:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5e5234_917f0d5f",
       "revId": "5275293b13a3c04bfcf4173e23816b35b14e853f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
