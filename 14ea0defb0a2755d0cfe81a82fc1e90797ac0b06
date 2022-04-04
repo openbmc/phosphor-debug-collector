@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1dcf742_d737285d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-04T14:58:01Z",
+      "side": 1,
+      "message": "at present nick is looking for these https://w3.rchland.ibm.com/projects/bestquest/?defect\u003dSW547550 \nHBEL    (Hostboot error logs)  \nHBD_FW  (Hostboot preserved attributes)\nEECACHE (Hostboot VPD cache)\n\nSo saving these files \nHBEL - /media/hostfw/running/HBEL\nEECACHE -  /media/hostfw/running/EECACHE\n\nnot sure which file to save for  (HBD_FW  (Hostboot preserved attributes)), is it all the files listed in the Json file? @adriana",
+      "parentUuid": "9f2643de_266092a1",
+      "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "608d2876_c264c9cb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
