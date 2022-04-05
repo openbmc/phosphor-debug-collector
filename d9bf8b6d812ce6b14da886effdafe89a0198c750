@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db01c340_81ef1512",
+        "filename": "tools/dreport.d/plugins.d/servicestatus",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-05T14:31:06Z",
+      "side": 1,
+      "message": "Not required this for elog type , trying to get light weight dump for elog type. failed service info is good for debugging elg type.",
+      "range": {
+        "startLine": 3,
+        "startChar": 11,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "d9bf8b6d812ce6b14da886effdafe89a0198c750",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
