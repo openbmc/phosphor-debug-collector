@@ -22,6 +22,30 @@
       },
       "revId": "b713393c41fa763598b802df6953ca9d88b0b98c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7cbdaaa_931a0cbc",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-04-05T05:34:28Z",
+      "side": 1,
+      "message": "What kind of impact do you mean?  The objects are still created.\n\nObjects are not supposed to be signaled as created on startup. When you claim the busname, mapper will discover everything you have available at that point.",
+      "parentUuid": "bf61c0b9_a2b6269d",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 9
+      },
+      "revId": "b713393c41fa763598b802df6953ca9d88b0b98c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
