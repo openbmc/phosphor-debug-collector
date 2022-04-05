@@ -46,6 +46,30 @@
       },
       "revId": "324b92033f56d49cbf86c740e4f78cc23c240e47",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8d421d_be89206c",
+        "filename": "tools/dreport.d/plugins.d/pldmfrurecord",
+        "patchSetId": 13
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-04-05T15:46:39Z",
+      "side": 1,
+      "message": "can\u0027t we do something like :\n\npldmtool fru getfrurecordtable \u003e /tmp/pldm_get_fru_record_table \u0026\nsleep 5\nkill \"$!\"\ncopy /tmp/pldm_get_fru_record_table  /dump\n\n? \n\nI am not an expert in dump - but i guess i am okay if we dont have a way to handle time out for now.",
+      "parentUuid": "4002cadb_d54bc58b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "324b92033f56d49cbf86c740e4f78cc23c240e47",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
