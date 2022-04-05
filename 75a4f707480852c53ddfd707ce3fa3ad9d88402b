@@ -22,6 +22,30 @@
       },
       "revId": "75a4f707480852c53ddfd707ce3fa3ad9d88402b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae7ae055_119c0496",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/guardlist",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-05T04:49:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3df7ff02_a27a03d2",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 2
+      },
+      "revId": "75a4f707480852c53ddfd707ce3fa3ad9d88402b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
