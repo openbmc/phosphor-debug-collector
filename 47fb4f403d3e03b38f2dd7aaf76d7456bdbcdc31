@@ -16,6 +16,23 @@
       "message": "I am ok to push a new patch to include error messages if the given command failed to execute or to capture the error message that was added by the command.",
       "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de40b1af_0f2ece83",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/phal_devtree",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-05T14:16:21Z",
+      "side": 1,
+      "message": "This build specific r/o data . Not required in the dump.",
+      "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
