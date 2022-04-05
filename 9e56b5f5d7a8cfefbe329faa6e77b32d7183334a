@@ -16,6 +16,24 @@
       "message": "Also from an external user perspective, it may be surprising that a \"bmc\" dump contains \"host firmware\" data. There are already host dumps, including a hostboot type of dump, wouldn\u0027t it make more sense to leave host firmware data out of the bmc dump?",
       "revId": "9e56b5f5d7a8cfefbe329faa6e77b32d7183334a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae73b85_beae8c44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-05T04:16:43Z",
+      "side": 1,
+      "message": "+1. Hostbootdump is packaged BMC  using custom tool opderport. These host specific data should be packaged as part of hostbootdump , by moving this plugins consumption to opdreport. \nDirection used is , BMC dump includes only BMC consumed host data ( DEVTREE/GUARD etc)  any other host specific data should packages respecting host type dumps.",
+      "parentUuid": "b00d5004_3c9bd4c2",
+      "revId": "9e56b5f5d7a8cfefbe329faa6e77b32d7183334a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
