@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d220d5_78b925bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-05T08:10:27Z",
+      "side": 1,
+      "message": "Thanks for pushing the plugin to capture the guard records.\n\nI am ok to push a new patch to include error messages if the given command failed to execute or to capture the error message that was added by the command.\n\n",
+      "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867d1bce_eec9cff9",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-05T08:10:27Z",
+      "side": 1,
+      "message": "I am not sure about the path, Please check with @Adriana on this.",
+      "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
