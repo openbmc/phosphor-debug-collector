@@ -51,6 +51,24 @@
       "parentUuid": "de40b1af_0f2ece83",
       "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7837a2f2_c70d3e42",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/phal_devtree",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-06T09:11:39Z",
+      "side": 1,
+      "message": "Good point , good for development time.",
+      "parentUuid": "c684d197_d2dc9269",
+      "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
