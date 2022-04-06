@@ -33,6 +33,24 @@
       "message": "I am not sure about the path, Please check with @Adriana on this.",
       "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "403722aa_f448b602",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-06T04:58:34Z",
+      "side": 1,
+      "message": "this path is working if there is a change we will change it.",
+      "parentUuid": "867d1bce_eec9cff9",
+      "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
