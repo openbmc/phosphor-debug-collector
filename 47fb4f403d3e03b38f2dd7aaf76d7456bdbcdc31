@@ -33,6 +33,24 @@
       "message": "This build specific r/o data . Not required in the dump.",
       "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c684d197_d2dc9269",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/phal_devtree",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-06T05:06:09Z",
+      "side": 1,
+      "message": "IMO it helps if there is a situation i.e we just bumped the hostfw (pdata changes) but, did not make the changes in the openbmc side for the pdata - What we lose without this supports - we won\u0027t know why the specific attribute did not dump through attribute during export.",
+      "parentUuid": "de40b1af_0f2ece83",
+      "revId": "47fb4f403d3e03b38f2dd7aaf76d7456bdbcdc31",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
