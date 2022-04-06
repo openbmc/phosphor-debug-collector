@@ -22,6 +22,30 @@
       },
       "revId": "d9bf8b6d812ce6b14da886effdafe89a0198c750",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e8f68ae_060f804a",
+        "filename": "tools/dreport.d/plugins.d/servicestatus",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-06T04:48:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db01c340_81ef1512",
+      "range": {
+        "startLine": 3,
+        "startChar": 11,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "d9bf8b6d812ce6b14da886effdafe89a0198c750",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
