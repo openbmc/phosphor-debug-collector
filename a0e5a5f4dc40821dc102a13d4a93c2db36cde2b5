@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c309f5f6_ebcfe0cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-06T10:41:25Z",
+      "side": 1,
+      "message": "There is already plugin in meta-openpower/recipes-phosphor/dump/phosphor-debug-collector_%.bbappend , you should remove this plugin, please share gerrit link. for same.",
+      "revId": "a0e5a5f4dc40821dc102a13d4a93c2db36cde2b5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
