@@ -51,6 +51,24 @@
       "parentUuid": "e39f4343_3c88de68",
       "revId": "c85474c2b1e4cead41a74a28cbe22a09b021683f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2edcc14_4f3e6844",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-07T13:16:39Z",
+      "side": 1,
+      "message": "Is there a way to list the errors in brief, and expand the one we are interested, if we have a way we can drop assuming duplicate work. We should see that when we get field defects we have enough info to debug some or the other way",
+      "parentUuid": "4fb8da02_90d01027",
+      "revId": "c85474c2b1e4cead41a74a28cbe22a09b021683f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
