@@ -51,6 +51,24 @@
       "parentUuid": "867d1bce_eec9cff9",
       "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b58ae3_10ffcde0",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-08T03:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "403722aa_f448b602",
+      "revId": "504a4c39edd36fc02d935cc00ad01da4b2e3a028",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
