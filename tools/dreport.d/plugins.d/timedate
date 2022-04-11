@@ -9,7 +9,7 @@
 file_name="timedate.log"
 
 timedatectl="/usr/bin/timedatectl"
-if [ -f $timedatectl]; then
+if [ -f $timedatectl ]; then
     add_cmd_output "echo $'\n[timedatectl]'" "$file_name" "timedatectl"
     add_cmd_output "$timedatectl" "$file_name" "timedatectl"
 fi
