@@ -4,7 +4,7 @@
 # @brief: Collect network information
 #
 
-#. $DREPORT_INCLUDE/functions
+. $DREPORT_INCLUDE/functions
 
 file_name="network.log"
 
