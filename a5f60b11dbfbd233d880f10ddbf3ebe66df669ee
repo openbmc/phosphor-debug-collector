@@ -16,6 +16,24 @@
       "message": "Run busctl call if it is failed collect the raw data. \n\nSantosh/dvenender  data file includes any additionla information , which is not included in the inventory.log?",
       "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b477f11e_0b8e2f6f",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-12T14:08:06Z",
+      "side": 1,
+      "message": "I looked briefly it was different kind of data, but will take a closer look.",
+      "parentUuid": "03151763_90574688",
+      "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
