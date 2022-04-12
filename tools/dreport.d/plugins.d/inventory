@@ -17,3 +17,10 @@ command="busctl call --verbose --no-pager \
 file_name="inventory.log"
 
 add_cmd_output "$command" "$file_name" "$desc"
+
+if [ $? -ne 0 ]; then
+    inventory_dir="/var/lib/phosphor-inventory-manager"
+    if [ -d "$inventory_dir" ]; then
+          add_copy_file "$inventory_dir" "$desc"
+    fi
+fi
