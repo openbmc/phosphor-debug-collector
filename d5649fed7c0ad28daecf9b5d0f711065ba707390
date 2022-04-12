@@ -22,6 +22,30 @@
       },
       "revId": "d5649fed7c0ad28daecf9b5d0f711065ba707390",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa91e64_1469c0b1",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-12T04:51:43Z",
+      "side": 1,
+      "message": "sunitha wants it to be available for all the dumps",
+      "parentUuid": "50f52012_d060edaf",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "d5649fed7c0ad28daecf9b5d0f711065ba707390",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
