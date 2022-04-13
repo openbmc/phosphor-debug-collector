@@ -106,6 +106,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6940fa64_20709356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-13T12:49:45Z",
+      "side": 1,
+      "message": "BMC dump plugin design is to supported multiple types of dumps.  Can you provide the performance impact with this plugin approch?",
+      "parentUuid": "8b083137_230ca3d9",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
