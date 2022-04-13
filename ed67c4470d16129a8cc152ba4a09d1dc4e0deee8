@@ -88,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b083137_230ca3d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T11:49:20Z",
+      "side": 1,
+      "message": "The change being proposed here is to fix the issues(data duplication)/improve the quality of the code in upstream. In the current BMC dump framework, every new plugin is going to increase the processing time due to the parsing of plugin config headers. It doesn\u0027t also make sense to define multiple plugin files which collects data of a similar type. \n\nCan you please add specific reviewers who might have impacts/concerns on what is being done here? We can also discuss this in discord if you think this small improvement requires a much wider discussion.",
+      "parentUuid": "49795c6c_5fd37b15",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
