@@ -8,8 +8,16 @@
 
 file_name="network.log"
 
+#ip addr
+add_cmd_output "echo $'[ip addr]'" "$file_name" "ip addr"
+add_cmd_output "ip addr" "$file_name" "ip addr"
+
+#ip link
+add_cmd_output "echo $'\n[ip link]'" "$file_name" "ip link"
+add_cmd_output "ip link" "$file_name" "ip link"
+
 #netstat
-add_cmd_output "echo $'[netstat]'" "$file_name" "netstat"
+add_cmd_output "echo $'\n[netstat]'" "$file_name" "netstat"
 add_cmd_output "netstat -nr" "$file_name" "netstat"
 
 #eth0
