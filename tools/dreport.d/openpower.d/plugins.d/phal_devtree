@@ -11,11 +11,11 @@ attr_list_file_name="PHAL_devtree.txt"
 
 #export attributes list to attribute_list.txt
 if [ -x $attributes ]; then
-    add_cmd_output "$attributes export" "$attr_list_file_name" "Attribute list"
+    add_cmd_output "/usr/bin/attributes export" "$attr_list_file_name" "Attribute list"
 fi
 
 #copy PHAL device tree file to dump
-devtree_file_name="/media/hostfw/running/DEVTREE"
+devtree_file_name="/var/lib/phosphor-software-manager/hostfw/running/DEVTREE"
 if [ -f "$devtree_file_name" ]; then
     add_copy_file "$devtree_file_name" "device tree"
 fi
