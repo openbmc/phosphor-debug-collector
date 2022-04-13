@@ -7,7 +7,7 @@
 . $DREPORT_INCLUDE/functions
 
 desc="GUARD Records"
-guard_part_file="/media/hostfw/running/GUARD"
+guard_part_file="/var/lib/phosphor-software-manager/hostfw/running/GUARD"
 
 # Check file is present and not empty.
 if [ -e "$guard_part_file" ]; then
