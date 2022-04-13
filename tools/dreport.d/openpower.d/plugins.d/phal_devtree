@@ -15,7 +15,7 @@ if [ -x $attributes ]; then
 fi
 
 #copy PHAL device tree file to dump
-devtree_file_name="/media/hostfw/running/DEVTREE"
+devtree_file_name="/var/lib/phosphor-software-manager/hostfw/running/DEVTREE"
 if [ -f "$devtree_file_name" ]; then
     add_copy_file "$devtree_file_name" "device tree"
 fi
