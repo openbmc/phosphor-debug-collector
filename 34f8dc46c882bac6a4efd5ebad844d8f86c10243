@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b808b620_d25624af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T08:30:19Z",
+      "side": 1,
+      "message": "Reword it as,\nopenpower:dreport: save specific host firmware preserved partitions to the BMC dump",
+      "revId": "34f8dc46c882bac6a4efd5ebad844d8f86c10243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5a30e4_9cc23d9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T08:30:19Z",
+      "side": 1,
+      "message": "Rename this to HBD_RW",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "34f8dc46c882bac6a4efd5ebad844d8f86c10243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5095f2b_81eea4bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T08:30:19Z",
+      "side": 1,
+      "message": "Please address the unresolved \u0026 new comments. ",
+      "revId": "34f8dc46c882bac6a4efd5ebad844d8f86c10243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
