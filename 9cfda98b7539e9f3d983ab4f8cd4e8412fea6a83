@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d69d01b_24cb9784",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-13T04:50:35Z",
+      "side": 1,
+      "message": "@ojayanth @matt in /var/lib/phosphor-inventory-manager we are using to serialize inventory objects using cereal, as we are already collecting inventory data using busctl command this data might not be releavant and not easy to interpret.\n\nprobably whould abandon this commit.",
+      "revId": "9cfda98b7539e9f3d983ab4f8cd4e8412fea6a83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
