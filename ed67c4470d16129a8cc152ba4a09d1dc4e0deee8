@@ -33,6 +33,58 @@
       "message": "You shouldn\u0027t be deleting the existing plugin. This is going to break the BMC dump backward compatibility.Not finding any good reason for breaking the opensource coding line here.",
       "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "081e52c4_e2c26a51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T10:04:07Z",
+      "side": 1,
+      "message": "Jayanth - Can you please elaborate how backwards compatibility gets broken by collating plugins that are serving the common purpose?  Also, please explain what do you exactly mean by \"breaking the opensource coding\" ?",
+      "parentUuid": "58f6a00c_0e114edf",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d62634_edabae13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T10:04:07Z",
+      "side": 1,
+      "message": "Please address the comment on deprecating \"ip link\" ",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "968e1056_3d589c70",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T10:04:07Z",
+      "side": 1,
+      "message": "On second look, this data is duplicate. We only need to capture ip addr which covers the link information too",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
