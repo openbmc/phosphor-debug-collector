@@ -70,6 +70,24 @@
       "parentUuid": "8a59ce0c_2bb25f2b",
       "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae79a4ff_5605764b",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T03:58:07Z",
+      "side": 1,
+      "message": "What happens if we are trying to call the above busctl command, and it might fail if PIM is not running for some reason while collecting the BMC dump so, we will lose the preserved data, right? OR preserved data is not required in that case?",
+      "parentUuid": "ce1617c1_cc229b44",
+      "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
