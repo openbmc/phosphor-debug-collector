@@ -124,6 +124,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37082eac_5874e525",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-13T14:58:42Z",
+      "side": 1,
+      "message": "The impact/overhead I\u0027m pointing out is 3 plugins which are ideally required for ALL kinds of dumps being processed independently \n\nFile:iplink\n#!/bin/bash\n#\n# config: 2 30\n# @brief: Collect ip link information.\n\nFile:ipaddr\n#!/bin/bash\n#\n# config: 2 30\n# @brief: Collect ip addr information.\n\nFile:network\n#!/usr/bin/env bash\n#\n# config: 1234 30\n# @brief: Collect network information\n\nNetwork folks have already commented in one of the commits that they require all these data to be collected for all kinds of dumps. It doesn\u0027t make sense to have three plugin files and running the parsing logic for each, instead of clubbing them together. I also pointed out a duplication of data where and we should get rid of the iplink plugin file itself - this is addressed in Devender\u0027s latest patch",
+      "parentUuid": "6940fa64_20709356",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
