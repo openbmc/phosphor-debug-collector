@@ -16,6 +16,24 @@
       "message": "GUARD partition is already part of \nhttps://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/52479",
       "revId": "1faec1d16f1ef5f0640ff94fd242f879ef251a92",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ade731_47055785",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/hostboot_partitions",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-13T13:56:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e708a7ae_6c8233f8",
+      "revId": "1faec1d16f1ef5f0640ff94fd242f879ef251a92",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
