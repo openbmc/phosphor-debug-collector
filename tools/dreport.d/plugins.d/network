@@ -8,8 +8,12 @@
 
 file_name="network.log"
 
+#ip addr
+add_cmd_output "echo $'[ip addr]'" "$file_name" "ip addr"
+add_cmd_output "ip addr" "$file_name" "ip addr"
+
 #netstat
-add_cmd_output "echo $'[netstat]'" "$file_name" "netstat"
+add_cmd_output "echo $'\n[netstat]'" "$file_name" "netstat"
 add_cmd_output "netstat -nr" "$file_name" "netstat"
 
 #eth0
@@ -37,13 +41,13 @@ fi
 #active tcp connections
 activetcp="/proc/net/tcp"
 if [ -f $activetcp ]; then
-    add_cmd_output "echo $'\n[activetcp]'" "$file_name" "activetcp"
-    add_cmd_output "cat $activetcp" "$file_name" "activetcp"
+    add_cmd_output "echo $'\n[activetcp]'" "$file_name" "active tcp"
+    add_cmd_output "cat $activetcp" "$file_name" "active tcp"
 fi
 
 #Load average
-loadavg="cat /proc/loadavg"
-if [ -f $activetcp ]; then
-    add_cmd_output "echo $'\n[Load average]'" "$file_name" "loadaverage"
-    add_cmd_output "cat $loadavg" "$file_name" "loadaverage"
+loadavg="/proc/loadavg"
+if [ -f $loadavg ]; then
+    add_cmd_output "echo $'\n[Load average]'" "$file_name" "load average"
+    add_cmd_output "cat $loadavg" "$file_name" "load average"
 fi
