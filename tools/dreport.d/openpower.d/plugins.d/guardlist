@@ -4,25 +4,28 @@
 # @brief: Collect GUARD record information.
 #
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
-desc="GUARD Records"
-guard_part_file="/media/hostfw/running/GUARD"
+desc="GUARD partition"
+guard_part_file="/var/lib/phosphor-software-manager/hostfw/running/GUARD"
 
 # Check file is present and not empty.
 if [ -e "$guard_part_file" ]; then
-    add_copy_file "$guard_part_file" "GUARD partition"
+    add_copy_file "$guard_part_file" "$desc"
 fi
 
 # collect guarded list
 guard_log_file=guard.log
 if [ -e "/usr/bin/guard" ]; then
-    add_cmd_output "echo $'\n[Guard List]'" "$guard_log_file" "guard"
-    add_cmd_output "/usr/bin/guard -l" "$guard_log_file" "guard -l"
+    desc="Guard list"
+    add_cmd_output "echo $'[$desc]'" "$guard_log_file" "$desc"
+    add_cmd_output "/usr/bin/guard -l" "$guard_log_file" "$desc"
 
-    add_cmd_output "echo $'\n[Guard resolved records]'" "$guard_log_file" "guard"
-    add_cmd_output "/usr/bin/guard -a" "$guard_log_file" "guard -a"
+    desc="Guard resolved records"
+    add_cmd_output "echo $'\n[$desc]'" "$guard_log_file" "$desc"
+    add_cmd_output "/usr/bin/guard -a" "$guard_log_file" "$desc"
 
-    add_cmd_output "echo $'\n[Guard ephemeral records]'" "$guard_log_file" "guard"
-    add_cmd_output "/usr/bin/guard -e" "$guard_log_file" "guard -e"
+    desc="Guard ephemeral records"
+    add_cmd_output "echo $'\n[$desc]'" "$guard_log_file" "$desc"
+    add_cmd_output "/usr/bin/guard -e" "$guard_log_file" "$desc"
 fi
