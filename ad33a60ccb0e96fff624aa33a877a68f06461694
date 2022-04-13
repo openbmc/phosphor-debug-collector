@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98d5db5f_34cffe51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T15:57:55Z",
+      "side": 1,
+      "message": "Can you please update for the DEVTREE too? https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/openpower.d/plugins.d/phal_devtree#L18",
+      "revId": "ad33a60ccb0e96fff624aa33a877a68f06461694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
