@@ -142,6 +142,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d2747ce_908230a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-13T17:00:13Z",
+      "side": 1,
+      "message": "I have raised same concerns in the previous review, Network team requested  to add this additional info. See https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/52299/2..7//COMMIT_MSG#b7 for details.Better to remove the duplicate data from the new network plugin. existing ip add/link can enable for required dfump types. This will help to support backward compatibility.",
+      "parentUuid": "37082eac_5874e525",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
