@@ -34,6 +34,24 @@
       "parentUuid": "03151763_90574688",
       "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a59ce0c_2bb25f2b",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T01:25:27Z",
+      "side": 1,
+      "message": "+1\nI think we can copy only if the xyz.openbmc_project.Inventory.Manager is not running for some reason i.e busctl will throw an error",
+      "parentUuid": "b477f11e_0b8e2f6f",
+      "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
