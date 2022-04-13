@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d66656_cfdb46fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-13T13:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1dcf742_d737285d",
+      "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "608d2876_c264c9cb",
@@ -49,6 +67,24 @@
       "writtenOn": "2022-04-04T14:49:41Z",
       "side": 1,
       "message": "Any concerns about how much the size of the BMC dump would increase by?",
+      "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "977ba3de_0b3c5a8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-13T13:56:18Z",
+      "side": 1,
+      "message": "I add these 3 partition files and the size of the BMC dump is less than 1MB after compression even though the original HBEL+HBD_RW+EEACHE was around 4.4mb.",
+      "parentUuid": "608d2876_c264c9cb",
       "revId": "14ea0defb0a2755d0cfe81a82fc1e90797ac0b06",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
