@@ -70,6 +70,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49795c6c_5fd37b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-13T10:48:45Z",
+      "side": 1,
+      "message": "This is going to be issues with BMC users using infrastructure on top of existing BMC dump content based analysis going to fail. As a good practice we should avoid these situation in  open source coding.  Incase there is strong reason to remove this either usee Dump version based approach or  communicate to community before deprecating the exiting functionality.",
+      "parentUuid": "081e52c4_e2c26a51",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
@@ -83,6 +101,24 @@
       "writtenOn": "2022-04-13T10:04:07Z",
       "side": 1,
       "message": "On second look, this data is duplicate. We only need to capture ip addr which covers the link information too",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d3e28c4_9b13b5ca",
+        "filename": "tools/dreport.d/plugins.d/network",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-13T10:48:45Z",
+      "side": 1,
+      "message": "+1 i have already pointed same in earlier review. Lot of data seem tyo be duplicate here.",
+      "parentUuid": "968e1056_3d589c70",
       "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
