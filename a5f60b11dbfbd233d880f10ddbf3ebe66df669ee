@@ -88,6 +88,24 @@
       "parentUuid": "ce1617c1_cc229b44",
       "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee1f02a_3098d380",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-14T11:50:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae79a4ff_5605764b",
+      "revId": "a5f60b11dbfbd233d880f10ddbf3ebe66df669ee",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
