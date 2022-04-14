@@ -178,6 +178,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3263812b_2d495a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-14T06:20:02Z",
+      "side": 1,
+      "message": "Summary: We should keep the existing plugin to support backward compatibility. Incase Network functional owner believes, need to keep common place for all plugin am fine , approved  https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/52299/2..7//COMMIT_MSG#b7  with my concerns. Now bringing the same concern after merging original code , you should follow the guide lines on deprecating the features from existing code. Initiate the discussion in mailing list on the plan, and if community is ok or no response with in 2 weeks, initiate review to deprecate the plugins. \nSince this is not performance or memory critical am not seeing any harm in keeping the behavior same way.",
+      "parentUuid": "4b6ba60e_2053395b",
+      "revId": "ed67c4470d16129a8cc152ba4a09d1dc4e0deee8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968e1056_3d589c70",
