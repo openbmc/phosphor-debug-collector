@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# config: 2 20
+# @brief: Collect LED groups details
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+desc="led groups"
+
+command="busctl call --verbose --no-pager \
+        xyz.openbmc_project.LED.GroupManager \
+        /xyz/openbmc_project/led/groups \
+        org.freedesktop.DBus.ObjectManager \
+        GetManagedObjects"
+
+file_name="ledgroups.log"
+
+add_cmd_output "$command" "$file_name" "$desc"
+retval=$?
+if [ $retval -ne 0 ]; then
+    dir_name="/var/lib/phosphor-led-manager/"
+    if [ -d "$dir_name" ]; then
+          add_copy_file "$dir_name" "$desc"
+    fi
+fi
