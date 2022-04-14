@@ -51,6 +51,24 @@
       "message": "Devender, It is good to update plugin as suggested , by adding raw inventory information to suppoirt PIM service related failures or any busctl related failure.",
       "revId": "9cfda98b7539e9f3d983ab4f8cd4e8412fea6a83",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a54a98_09fd0a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-14T04:22:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "81c6dfa9_089bbf86",
+      "revId": "9cfda98b7539e9f3d983ab4f8cd4e8412fea6a83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
