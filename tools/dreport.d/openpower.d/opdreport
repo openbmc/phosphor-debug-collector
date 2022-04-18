@@ -65,6 +65,7 @@ declare -x serialNo="0000000"
 declare -x dDay
 dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
 declare -x dump_content_type=""
+declare -x FILE=""
 
 # @brief get serial number property from inventory
 function fetch_serial_number() {
@@ -118,6 +119,8 @@ function initialize()
 # @brief Packaging the dump and transferring to dump location.
 function package()
 {
+    # shellcheck disable=SC2154 # dump_id populated
+    FILE="/tmp/dumpheader_${dump_id}_${EPOCHTIME}"
     if ! mkdir -p "$dump_dir" ; then
         echo "Could not create the destination directory $dump_dir"
         dump_dir="/tmp"
@@ -157,19 +160,20 @@ function package()
     echo "Adding Dump Header :""$HEADER_EXTENSION"
     ("$HEADER_EXTENSION")
     #Applying header to the file
-    cat "$name" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
-    mv "/tmp/dumpheader_$EPOCHTIME" "$name"
+    # shellcheck disable=SC2002
+    cat "$name" | tee -a "$FILE" > /dev/null
+    mv "$FILE" "$name"
     # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
         echo "$($TIME_STAMP)" "Could not create the compressed file"
-        rm -rf "$name" "/tmp/dumpheader_$EPOCHTIME"
+        rm -rf "$name" "$FILE"
         return "$INTERNAL_FAILURE"
     fi
 
     mv "$name" "$dump_dir"
 
-    rm -rf "/tmp/dumpheader_$EPOCHTIME" "$name"
     rm -rf "$content_path"
+    rm -rf "$FILE" "$name"
 
     return "$SUCCESS"
 }
