@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "424a8c7d_3601a1d8",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/pels",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-04-18T13:54:20Z",
+      "side": 1,
+      "message": "As long as it can handle that directory not being there I\u0027m fine either way.  For example Mowgli and the yadro systems are openpower but don\u0027t have the PEL code enabled.",
+      "parentUuid": "1568ae47_d36ec4a0",
+      "revId": "f87473e137654e6d86a7adad625b6cfc1c9284e2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "07e0422c_c760ac3b",
         "filename": "tools/dreport.d/ibm.d/plugins.d/pels",
         "patchSetId": 2
