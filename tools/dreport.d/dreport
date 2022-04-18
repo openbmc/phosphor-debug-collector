@@ -82,6 +82,7 @@ declare -x pid=$ZERO
 declare -x elog_id=""
 declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
 declare -x serialNo=""
+declare -x FILE=""
 
 #Source dreport common functions
 . $DREPORT_INCLUDE/functions
