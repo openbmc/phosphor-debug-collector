@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3117463a_89910f94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-18T09:01:07Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e64726_bf08f741",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-18T09:01:07Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3592f483_94ccc540",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-18T09:01:07Z",
+      "side": 1,
+      "message": "Please look the below warnings\n\nIn tools/dreport.d/openpower.d/plugins.d/guardlist line 7:\n. $DREPORT_INCLUDE/functions\n  ^------------------------^ SC1090: Can\u0027t follow non-constant source. Use a directive to specify location.\n  ^--------------^ SC2086: Double quote to prevent globbing and word splitting.\n\nDid you mean: \n. \"$DREPORT_INCLUDE\"/functions\n\n\nIn tools/dreport.d/openpower.d/plugins.d/guardlist line 9:\ndesc\u003d\"GUARD Records\"\n^--^ SC2034: desc appears unused. Verify use (or export if used externally).",
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bfc9e5_8ab6b42d",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-18T09:01:07Z",
+      "side": 1,
+      "message": "Adriana , Need your inputs",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 73
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
