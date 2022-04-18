@@ -20,28 +20,24 @@ declare -rx DUMP_SUMMARY_SIZE='1024'
 declare -rx HW_DUMP='00'
 declare -rx HB_DUMP='20'
 declare -rx SBE_DUMP='30'
-
-#Variables
-declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
-declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
-declare -x modelNo
-modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
-    $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
 declare -rx OP_DUMP="opdump"
 declare -rx INVENTORY_MANAGER='xyz.openbmc_project.Inventory.Manager'
 declare -rx INVENTORY_PATH='/xyz/openbmc_project/inventory/system'
 declare -rx INVENTORY_ASSET_INT='xyz.openbmc_project.Inventory.Decorator.Asset'
 declare -rx INVENTORY_BMC_BOARD='/xyz/openbmc_project/inventory/system/chassis/motherboard'
 
+
 #Variables
-declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
+declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
+declare -x modelNo
+modelNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
+    $INVENTORY_ASSET_INT Model | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
+#Variables
 declare -x serialNo
 serialNo=$(busctl get-property $INVENTORY_MANAGER $INVENTORY_PATH \
     $INVENTORY_ASSET_INT SerialNumber | cut -d " " -f 2 | sed "s/^\(\"\)\(.*\)\1\$/\2/g")
-
 declare -x dDay
 dDay=$(date -d @"$EPOCHTIME" +'%Y%m%d%H%M%S')
-
 declare -x bmcSerialNo
 bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
         org.freedesktop.DBus.Properties Get ss $INVENTORY_ASSET_INT \
