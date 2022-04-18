@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e22a2c3_eb7614c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-18T05:00:40Z",
+      "side": 1,
+      "message": "I think this plugin is required for other systems that might use something else instead of the \"MMC\". @Adriana Any thoughts?\n\nThere is a git issue already for this: https://github.com/openbmc/phosphor-debug-collector/issues/17",
+      "revId": "262275eaf33c42c597e8ad51bd6e9c01e8bf4cd3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
