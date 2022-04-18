@@ -16,6 +16,24 @@
       "message": "I think you need to validate based on the return value of the add_cmd_output function, right?",
       "revId": "69b5ea8da7a5485b07eb24431016d24838c23ff2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bec762_7b15ee93",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-18T03:46:57Z",
+      "side": 1,
+      "message": "I think it worked, I made the busctl command in add_cmd_output to fail and I could see the inventory files being copied, you can check the output in the commit message.",
+      "parentUuid": "3d834f4e_3b87eb30",
+      "revId": "69b5ea8da7a5485b07eb24431016d24838c23ff2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
