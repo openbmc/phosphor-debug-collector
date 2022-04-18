@@ -23,7 +23,6 @@ declare -rx DUMP_SUMMARY_SIZE='1024'
 declare -rx OP_DUMP="opdump"
 
 #Variables
-declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x modelNo
 declare -x bmcSerialNo
 
