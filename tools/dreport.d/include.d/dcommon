@@ -31,6 +31,7 @@ declare -x quiet=$FALSE
 declare -x verbose=$FALSE
 declare -x serialNo="0000000"
 declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+declare -x FILE=""
 
 # @brief get serial number property from inventory
 function fetch_serial_number () {
