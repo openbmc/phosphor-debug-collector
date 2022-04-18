@@ -4,6 +4,7 @@
 # and transferring to dump location.
 function custom_package()
 {
+    FILE="$TMP_DIR/dumpheader_${dump_id}_${EPOCHTIME}"
     tar -Jcf "$name_dir.bin" -C \
         "$(dirname "$name_dir")" "$(basename "$name_dir")"
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
@@ -16,10 +17,10 @@ function custom_package()
     echo "Adding Dump Header :"$HEADER_EXTENSION
     ("$HEADER_EXTENSION")
 
-    cat "$name_dir.bin" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
+    cat "$name_dir.bin" | tee -a "$FILE" > /dev/null
     #remove the temporary name specific directory
-    rm -rf "$name_dir"
-    mv "/tmp/dumpheader_$EPOCHTIME" "$name_dir"
+    rm -rf "$name_dir" "$name_dir.bin"
+    mv "$FILE" "$name_dir"
 
     echo "$($TIME_STAMP)" "Report is available in $dump_dir"
     if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
@@ -30,12 +31,12 @@ function custom_package()
     cp "$name_dir" "$dump_dir"
     if [ $? -ne 0 ]; then
         echo "Failed to copy the $name_dir to $dump_dir"
-        rm "$name_dir.bin"
+        rm "$name_dir"
         return "$INTERNAL_FAILURE"
     fi
 
     #Remove the temporary copy of the file
-    rm -rf "$name_dir.bin" "$name_dir"
+    rm -rf "$name_dir"
 }
 
 # Executing function
