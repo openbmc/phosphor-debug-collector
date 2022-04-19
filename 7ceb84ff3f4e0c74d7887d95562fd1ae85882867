@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b68c87_15b5d83d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-19T03:48:24Z",
+      "side": 1,
+      "message": "Remove system name info , replace with \u003cxxxx\u003e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 19
+      },
+      "revId": "7ceb84ff3f4e0c74d7887d95562fd1ae85882867",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b0aacd_c2039d79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-19T03:48:24Z",
+      "side": 1,
+      "message": "Remove system name info , replace with \u003cxxxx\u003e",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "7ceb84ff3f4e0c74d7887d95562fd1ae85882867",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022c03b5_2ef74c41",
+        "filename": "tools/dreport.d/plugins.d/ledgroup",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-19T03:48:24Z",
+      "side": 1,
+      "message": "Fix warnings:\n\nIn tools/dreport.d/plugins.d/ledgroup line 7:\n. $DREPORT_INCLUDE/functions\n  ^------------------------^ SC1090: Can\u0027t follow non-constant source. Use a directive to specify location.\n  ^--------------^ SC2086: Double quote to prevent globbing and word splitting.\n\nDid you mean: \n. \"$DREPORT_INCLUDE\"/functions\n\n\nIn tools/dreport.d/plugins.d/ledgroup line 21:\nif [ $? -ne 0 ]; then\n     ^-- SC2181: Check exit code directly with e.g. \u0027if mycmd;\u0027, not indirectly with $?.",
+      "revId": "7ceb84ff3f4e0c74d7887d95562fd1ae85882867",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
