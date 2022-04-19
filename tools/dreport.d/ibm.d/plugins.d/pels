@@ -7,7 +7,7 @@
 
 # @brief: Collect the PEL files
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
 dir="/var/lib/phosphor-logging/extensions/pels/logs"
 desc="PEL Files"
