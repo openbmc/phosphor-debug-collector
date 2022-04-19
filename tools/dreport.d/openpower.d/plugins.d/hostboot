@@ -4,7 +4,7 @@
 # @brief: Collect specific host firmware preserved partitions to BMC dump
 #
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
 #copy HBEL(Hostboot error log) partition file to BMC dump
 hbel_file_name="/var/lib/phosphor-software-manager/hostfw/running/HBEL"
