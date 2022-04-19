@@ -4,7 +4,7 @@
 # @brief: Collect PHAL devtree debug data
 #
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
 attributes="/usr/bin/attributes"
 attr_list_file_name="PHAL_devtree.txt"
