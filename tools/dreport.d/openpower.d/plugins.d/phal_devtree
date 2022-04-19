@@ -4,14 +4,14 @@
 # @brief: Collect PHAL devtree debug data
 #
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
 attributes="/usr/bin/attributes"
 attr_list_file_name="PHAL_devtree.txt"
 
 #export attributes list to attribute_list.txt
 if [ -x $attributes ]; then
-    add_cmd_output "$attributes export" "$attr_list_file_name" "Attribute list"
+    add_cmd_output "/usr/bin/attributes export" "$attr_list_file_name" "Attribute list"
 fi
 
 #copy PHAL device tree file to dump
