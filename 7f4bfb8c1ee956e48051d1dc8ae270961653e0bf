@@ -16,6 +16,24 @@
       "message": "Intentionally removed f [ $? -ne 0 ]; then check?",
       "revId": "7f4bfb8c1ee956e48051d1dc8ae270961653e0bf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b95d85_3d254dfb",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-19T03:51:17Z",
+      "side": 1,
+      "message": "yes as per santosh some times setproperty is not getting reflected it seems so he preferred both the logs. Yes intentionally removed",
+      "parentUuid": "8cc1548e_26740624",
+      "revId": "7f4bfb8c1ee956e48051d1dc8ae270961653e0bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
