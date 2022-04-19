@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "451271fd_235bff89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-19T04:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3117463a_89910f94",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72e64726_bf08f741",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-18T09:01:07Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06f775f_b9142d92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-19T04:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72e64726_bf08f741",
       "range": {
         "startLine": 9,
         "startChar": 46,
@@ -77,6 +125,30 @@
       "writtenOn": "2022-04-18T09:01:07Z",
       "side": 1,
       "message": "Adriana , Need your inputs",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 73
+      },
+      "revId": "89792ed25404296f7ded328300fb550e066f9125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91667ac1_fcc49a36",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-19T04:34:23Z",
+      "side": 1,
+      "message": "yes @anoo confirmed this path",
+      "parentUuid": "c7bfc9e5_8ab6b42d",
       "range": {
         "startLine": 10,
         "startChar": 0,
