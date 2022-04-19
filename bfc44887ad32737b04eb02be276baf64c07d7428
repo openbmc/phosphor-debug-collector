@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3a5e936_74321d87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-19T05:35:05Z",
+      "side": 1,
+      "message": "I think we need to look at why PIM is not persisting the few properties to avoid duplicate data except the non-persisted data.",
+      "revId": "bfc44887ad32737b04eb02be276baf64c07d7428",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
