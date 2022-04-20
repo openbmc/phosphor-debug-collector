@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eb70a40_bd89a5b4",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-04-20T06:21:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36c03353_81e83ab8",
+      "revId": "4e37176a69a18b1682982653b9a4e81d92255e71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33ca0f48_51e7a92b",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "839a1eb3_9e8380d9",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-04-20T06:21:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33ca0f48_51e7a92b",
+      "revId": "4e37176a69a18b1682982653b9a4e81d92255e71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07ec328a_59856f5e",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-04-19T03:36:26Z",
       "side": 1,
       "message": "How this is diffrent fromhttps://gerrit.openbmc-project.xyz/c/openbmc/phosphor-debug-collector/+/53027/2/dump-extensions/openpower-dumps/opdreport#43 ?\nUse definition in common place.",
+      "revId": "4e37176a69a18b1682982653b9a4e81d92255e71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd82d6e9_1480dfdf",
+        "filename": "tools/dreport.d/ibm.d/package",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-04-20T06:21:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07ec328a_59856f5e",
       "revId": "4e37176a69a18b1682982653b9a4e81d92255e71",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
