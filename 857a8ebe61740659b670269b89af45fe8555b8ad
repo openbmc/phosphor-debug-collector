@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4355c7d_dd6ff3ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-21T15:19:13Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "857a8ebe61740659b670269b89af45fe8555b8ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "571de947_e1f63275",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-04-21T07:37:59Z",
       "side": 1,
       "message": "JS: You can capture the return value of the add_cmd_output so that we can rely on that since the $? store status of the last executed command",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "857a8ebe61740659b670269b89af45fe8555b8ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a5a93f8_d33ea395",
+        "filename": "tools/dreport.d/plugins.d/ledgroup",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000503
+      },
+      "writtenOn": "2022-04-21T15:19:13Z",
+      "side": 1,
+      "message": "Agree, nice to have optimization. We are planning to do an overall refactor for all the scripts - this can be also addressed as part of that new commit.",
+      "parentUuid": "571de947_e1f63275",
       "range": {
         "startLine": 20,
         "startChar": 0,
