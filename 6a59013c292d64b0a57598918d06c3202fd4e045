@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fb9be0e_357f3033",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 16
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-21T05:14:46Z",
+      "side": 1,
+      "message": "reverting back the code, I will fix all the bash warnings in another commit. warnings are there for existing plugins too",
+      "parentUuid": "ac1c5f56_3a452a63",
+      "revId": "6a59013c292d64b0a57598918d06c3202fd4e045",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21627cd1_c5d4eb9e",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-21T05:05:10Z",
       "side": 1,
       "message": "white space",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "6a59013c292d64b0a57598918d06c3202fd4e045",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e231879e_47735241",
+        "filename": "tools/dreport.d/plugins.d/inventory",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-21T05:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21627cd1_c5d4eb9e",
       "range": {
         "startLine": 27,
         "startChar": 2,
