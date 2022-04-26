@@ -7,4 +7,6 @@
 . $DREPORT_INCLUDE/functions
 
 file_name="procfd.log"
-add_cmd_output "ls -Al /proc/*/fd/" "$file_name" "procfd"
+desc="proc fd"
+cmd="ls -Al /proc/*/fd/ 2> /dev/null"
+add_cmd_output "$cmd" "$file_name" "$desc"
