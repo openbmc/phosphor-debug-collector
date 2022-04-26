@@ -6,29 +6,33 @@
 
 . "$DREPORT_INCLUDE/functions"
 
-attributes="/usr/bin/attributes"
-attr_list_file_name="PHAL_devtree.txt"
+source /etc/profile.d/power-target.sh
 
 #export attributes list to attribute_list.txt
+attributes="/usr/bin/attributes"
+file_name="PHAL_devtree.txt"
+attr_cmd="$attributes export"
+desc="Attribute list"
 if [ -x $attributes ]; then
-    add_cmd_output "$attributes export" "$attr_list_file_name" "Attribute list"
+    add_cmd_output "$attr_cmd" "$file_name" "$desc"
 fi
-
 #copy PHAL device tree file to dump
-devtree_file_name="/var/lib/phosphor-software-manager/hostfw/running/DEVTREE"
-if [ -f "$devtree_file_name" ]; then
-    add_copy_file "$devtree_file_name" "device tree"
+file_name="$PDBG_DTB"
+desc="Device tree file"
+if [ -e "$file_name" ]; then
+    add_copy_file "$file_name" "$desc"
 fi
-
 
 #copy PHAL export device tree to dump
-exp_dev_tree="/var/lib/phal/exportdevtree"
-if [ -f "$exp_dev_tree" ]; then
-    add_copy_file "$exp_dev_tree" "export device tree"
+file_name="/var/lib/phal/exportdevtree"
+desc="Exported device tree file"
+if [ -e "$file_name" ]; then
+    add_copy_file "$file_name" "$desc"
 fi
 
 #copy attribues info db to dump
-attr_info_db="/usr/share/pdata/attributes_info.db"
-if [ -f "$attr_info_db" ]; then
-    add_copy_file "$attr_info_db" "attribute info db"
+file_name="$PDATA_INFODB"
+desc="Attribute info db"
+if [ -e "$file_name" ]; then
+    add_copy_file "$file_name" "$desc"
 fi
