@@ -1,29 +1,70 @@
 #!/usr/bin/env bash
 #
 # config: 2 30
-# @brief: List the bmc generated and core dumps list
+# @brief: Get the dump and core file information
 #
 
-. $DREPORT_INCLUDE/functions
-
-file_name="dumplist.log"
+. "$DREPORT_INCLUDE/functions"
 
 #core files
-add_cmd_output "echo $'[core files]'" "$file_name" "core files"
-add_cmd_output "ls -AX /var/lib/systemd/coredump/core*" "$file_name" "core files"
+file_name="dumplist.log"
+desc="Dumps"
+command="busctl call --verbose --no-pager \
+                xyz.openbmc_project.Dump.Manager \
+                /xyz/openbmc_project/dump \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+if ! add_cmd_output "$command" "$file_name" "$desc"; then
+    #bmc dumps
+    dir="/var/lib/phosphor-debug-collector/dumps/"
+    desc="BMC dumps"
+    if [ -d "$dir" ] && [ -n "$(ls -A $dir/)" ]; then
+        add_cmd_output "echo $'[$desc]'" "$file_name" "$desc"
+        add_cmd_output "ls -AX $dir/*/*" "$file_name" "$desc"
+    else
+        log_info "$desc directory is empty"
+    fi
 
-#bmc dumps
-add_cmd_output "echo $'\n[BMC dumps]'" "$file_name" "BMC dumps"
-add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/dumps/*/*" "$file_name" "BMC dumps"
+    #hardware dumps
+    dir="/var/lib/phosphor-debug-collector/hardwaredump/"
+    desc="Hardware dumps"
+    if [ -d "$dir" ] && [ -n "$(ls -A $dir/)" ]; then
+        add_cmd_output "echo $'\n[$desc]'" "$file_name" "$desc"
+        add_cmd_output "ls -AX $dir/*/*" "$file_name" "$desc"
+    else
+        log_info "$desc directory is empty"
+    fi
 
-#hardware dumps
-add_cmd_output "echo $'\n[Hardware dumps]'" "$file_name" "Hardware dumps"
-add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/hardwaredump/*/*" "$file_name" "Hardware dumps"
 
-#hostboot dumps
-add_cmd_output "echo $'\n[Hostboot dumps]'" "$file_name" "Hostboot dumps"
-add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/hostbootdump/*/*" "$file_name" "Hostboot dumps"
+    #hostboot dumps
+    dir="/var/lib/phosphor-debug-collector/hostbootdump/"
+    desc="Hostboot dumps"
+    if [ -d "$dir" ] && [ -n "$(ls -A $dir/)" ]; then
+        add_cmd_output "echo $'\n[$desc]'" "$file_name" "$desc"
+        add_cmd_output "ls -AX $dir/*/*" "$file_name" "$desc"
+    else
+        log_info "$desc directory is empty"
+    fi
 
-#sbe dumps
-add_cmd_output "echo $'\n[SBE dumps]'" "$file_name" "SBE dumps"
-add_cmd_output "ls -AX /var/lib/phosphor-debug-collector/sbedump/*/*" "$file_name" "SBE dumps"
+
+    #sbe dumps
+    dir="/var/lib/phosphor-debug-collector/sbedump/"
+    desc="SBE dumps"
+    if [ -d "$dir" ] && [ -n "$(ls -A $dir/)" ]; then
+        add_cmd_output "echo $'\n[$desc]'" "$file_name" "$desc"
+        add_cmd_output "ls -AX $dir/*/*" "$file_name" "$desc"
+    else
+        log_info "$desc directory is empty"
+    fi
+fi
+
+#capture core file list
+dir="/var/lib/systemd/coredump/"
+desc="core files"
+if [ -d "$dir" ] && [ -n "$(ls -A $dir/)" ] && [ -n "$(ls -A $dir/core*)" ]; then
+    add_cmd_output "echo $'[$desc]'" "$file_name" "$desc"
+    add_cmd_output "ls -AX $dir/core*" "$file_name" "$desc"
+else
+    log_info "$desc directory is empty"
+fi
+
