@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# config: 234 20
+# @brief: Get the bios information.
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+file_name="bios.log"
+desc="bios"
+command="busctl call --verbose --no-pager \
+                xyz.openbmc_project.BIOSConfigManager \
+                / \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+
+add_cmd_output "$command" "$file_name" "$desc"
