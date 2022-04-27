@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d04a69be_71d75b90",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/occ",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-27T15:20:23Z",
+      "side": 1,
+      "message": "are we collecting sensor data only if the control data collected? if so, any reason?",
+      "range": {
+        "startLine": 27,
+        "startChar": 41,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "c16426246a23ca536f61c7c86315364214a2a05b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
