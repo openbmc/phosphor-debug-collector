@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# config: 234 10
+# @brief: Get the occ information.
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+#fetch occ control data
+file_name="occ.log"
+
+desc="occ control"
+command="busctl call --verbose --no-pager \
+                org.open_power.OCC.Control \
+                /org/open_power/control \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+
+add_cmd_output "$command" "$file_name" "$desc"
+
+#fetch occ control host data
+desc="occ conrol host"
+command="busctl call --verbose --no-pager \
+                org.open_power.OCC.Control \
+                /xyz/openbmc_project/control \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+add_cmd_output "$command" "$file_name" "$desc"
+
+#fetch occ sensors data
+desc="occ sensor"
+command="busctl call --verbose --no-pager \
+                org.open_power.OCC.Control \
+                /xyz/openbmc_project/sensors \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+add_cmd_output "$command" "$file_name" "$desc"
+
+occ_dir="/var/lib/openpower-occ-control"
+if [ -d "$occ_dir" ]; then
+    add_copy_file "$occ_dir" "$desc"
+fi
