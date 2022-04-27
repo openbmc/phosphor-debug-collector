@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# config: 234 20
+# @brief: Get the settings information.
+#
+
+. "$DREPORT_INCLUDE/functions"
+
+#fetch settings data
+file_name="settings.log"
+
+desc="settings"
+command="busctl call --verbose --no-pager \
+                xyz.openbmc_project.Settings \
+                / \
+                org.freedesktop.DBus.ObjectManager \
+                GetManagedObjects"
+
+#if busctl commands fail capture persistent data
+if ! add_cmd_output "$command" "$file_name" "$desc"; then
+    settings_dir="/var/lib/phosphor-settings-manager/settings"
+    if [ -d "$settings_dir" ]; then
+        add_copy_file "$settings_dir" "$desc"
+    fi
+fi
