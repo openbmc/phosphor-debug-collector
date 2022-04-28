@@ -224,6 +224,30 @@
       },
       "revId": "f277fbc6a2a07384854906221697efa12596ebe8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94faf428_174ac67b",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-28T10:38:07Z",
+      "side": 1,
+      "message": "You could just redirect into the collected file rather than skipping - Anyhow, I think you are working on it for the all plugin to capture errors too so nothing wrong here.",
+      "parentUuid": "20f90822_65e77f6d",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "f277fbc6a2a07384854906221697efa12596ebe8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
