@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b083ec_e1333453",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-28T10:18:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec923cd_12c46e03",
+      "revId": "f277fbc6a2a07384854906221697efa12596ebe8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d6c28e5_fa17414f",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-27T12:23:42Z",
       "side": 1,
       "message": "JS: Alternative\n`source /etc/profile.d/power-target.sh` so that we can avoid path changes in the future",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "f277fbc6a2a07384854906221697efa12596ebe8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4890785_5c8f6ff3",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/phal_devtree",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-28T10:18:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d6c28e5_fa17414f",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -126,6 +168,30 @@
       "side": 1,
       "message": "in journal",
       "parentUuid": "21fbc91b_95cdb350",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 36
+      },
+      "revId": "f277fbc6a2a07384854906221697efa12596ebe8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd675a1a_40215c4f",
+        "filename": "tools/dreport.d/plugins.d/procfd",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-28T10:18:31Z",
+      "side": 1,
+      "message": "Apr 18 08:27:39 perfrain86bmc phosphor-dump-manager[16593]: ls: /proc/self/fd/3: cannot read link: No such file or directory\nApr 18 08:27:39 perfrain86bmc phosphor-dump-manager[16593]: ls: /proc/thread-self/fd/3: cannot read link: No such file or directory\n\nwe are getting most of the data but for some links we are not getting the data, ppl do not want to see these errors in the journal",
+      "parentUuid": "36f2ce18_a6586b29",
       "range": {
         "startLine": 11,
         "startChar": 24,
