@@ -34,6 +34,24 @@
       "parentUuid": "138f7920_e615fe4e",
       "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2306977f_9f8f10bf",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-28T10:48:56Z",
+      "side": 1,
+      "message": "are you looking for this https://github.com/openbmc/bios-settings-mgr/blob/master/meson_options.txt#L1 ?",
+      "parentUuid": "d8203388_fc435fa6",
+      "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
