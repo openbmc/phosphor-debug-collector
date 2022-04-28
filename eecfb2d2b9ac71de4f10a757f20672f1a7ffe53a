@@ -16,6 +16,24 @@
       "message": "No need to collect persisted BIOS settings if busctl failed like other plugin? or we did not persist the BIOS settings?",
       "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8203388_fc435fa6",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-28T10:21:07Z",
+      "side": 1,
+      "message": "I could not find persistent data for bios",
+      "parentUuid": "138f7920_e615fe4e",
+      "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
