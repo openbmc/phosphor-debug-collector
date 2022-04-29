@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bbc395c_0bae4154",
+        "filename": "tools/dreport.d/plugins.d/settings",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-29T05:42:53Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "55a9fdf4b5859e7df91d84f6f39158687103f3c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
