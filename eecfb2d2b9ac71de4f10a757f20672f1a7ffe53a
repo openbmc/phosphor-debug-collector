@@ -52,6 +52,24 @@
       "parentUuid": "d8203388_fc435fa6",
       "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a145fa3_939cff4a",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-04-29T07:00:37Z",
+      "side": 1,
+      "message": "+1 I looked at the file on raininer and it is not yet all in readable format, probably it is not persisted using cereal, no point including the file, may be you can confirm",
+      "parentUuid": "2306977f_9f8f10bf",
+      "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
