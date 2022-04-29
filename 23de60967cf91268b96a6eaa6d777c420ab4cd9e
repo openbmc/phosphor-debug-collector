@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea2f410_5f54896b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-29T05:18:13Z",
+      "side": 1,
+      "message": "Fix warnings:\n\nIn tools/dreport.d/openpower.d/plugins.d/dumpfilelist line 18:\nif [ $? -ne 0 ]; then\n     ^-- SC2181: Check exit code directly with e.g. \u0027if mycmd;\u0027, not indirectly with $?.\n\n\nIn tools/dreport.d/openpower.d/plugins.d/dumpfilelist line 44:\n        add_cmd_output \"echo $\u0027\\n[$desc]\u0027\" \"$file_name\" \"$dec\"\n                                                         ^--^ SC2154: dec is referenced but not assigned (did you mean \u0027desc\u0027?).",
+      "revId": "23de60967cf91268b96a6eaa6d777c420ab4cd9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80f5e7c7_42343424",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/dumpfilelist",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-29T05:18:13Z",
+      "side": 1,
+      "message": "Dreport is executed in the dump manager context , better to avoid d bus call back .Try to do file copy in this case is safer approach.\nAre you lookin g any additional info for debug with this approch?",
+      "revId": "23de60967cf91268b96a6eaa6d777c420ab4cd9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
