@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ea3021_9a857903",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-29T05:09:21Z",
+      "side": 1,
+      "message": "Fix warning \nIn tools/dreport.d/openpower.d/plugins.d/phal_devtree line 9:\nsource /etc/profile.d/power-target.sh\n       ^----------------------------^ SC1091: Not following: /etc/profile.d/power-target.sh: openBinaryFile: does not exist (No such file or directory)",
+      "revId": "fcb18e16824a3b160588a89b1587787821f1cac5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
