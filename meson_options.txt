@@ -276,3 +276,7 @@ option('FILENAME_EPOCHTIME_POS', type : 'integer',
         value : 2,
         description : 'Position of timestamp in dump filename'
       )
+option('TIMESTAMP_FORMAT', type : 'integer',
+        value : 1,
+        description : 'Timestamp format in filename: 0-epoch 1-human readable'
+      )
