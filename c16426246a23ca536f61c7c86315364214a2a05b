@@ -94,6 +94,30 @@
       },
       "revId": "c16426246a23ca536f61c7c86315364214a2a05b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a20e73_27397ed3",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/occ",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000238
+      },
+      "writtenOn": "2022-04-29T13:08:47Z",
+      "side": 1,
+      "message": "Depends on the failure, but I would recommend you treat them as separate and include the second even if the first fails.\n\nWould be good to include these also:\nbusctl get-property org.open_power.OCC.Control /xyz/openbmc_project/control/host0/power_mode xyz.openbmc_project.Control.Power.Mode PowerMode\nbusctl call org.open_power.OCC.Control /xyz/openbmc_project/control/host0/power_ips org.freedesktop.DBus.Properties GetAll s xyz.openbmc_project.Control.Power.IdlePowerSaver\nbusctl call xyz.openbmc_project.Settings /xyz/openbmc_project/control/host0/power_cap org.freedesktop.DBus.Properties GetAll s xyz.openbmc_project.Control.Power.Cap",
+      "parentUuid": "9a1c32f2_a58fbcd8",
+      "range": {
+        "startLine": 27,
+        "startChar": 41,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "c16426246a23ca536f61c7c86315364214a2a05b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
