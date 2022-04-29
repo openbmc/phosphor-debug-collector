@@ -27,6 +27,18 @@ namespace bmc_stored
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using namespace phosphor::logging;
 
+uint64_t timeToEpoch(std::string timeStr)
+{
+    std::tm t{};
+    std::istringstream ss(timeStr);
+    ss >> std::get_time(&t, "%Y%m%d%H%M%S");
+    if (ss.fail())
+    {
+        throw std::runtime_error{"Invalid human readable time value"};
+    }
+    return mktime(&t);
+}
+
 void Manager::createEntry(const std::filesystem::path& file)
 {
     std::regex file_regex(dumpFilenameFormat.c_str());
@@ -43,7 +55,17 @@ void Manager::createEntry(const std::filesystem::path& file)
     }
 
     auto idString = match[FILENAME_DUMP_ID_POS];
-    uint64_t timestamp = stoull(match[FILENAME_EPOCHTIME_POS]) * 1000 * 1000;
+    auto ts = match[FILENAME_EPOCHTIME_POS];
+
+    uint64_t timestamp = 1000 * 1000;
+    if (TIMESTAMP_FORMAT == 1)
+    {
+        timestamp *= timeToEpoch(ts);
+    }
+    else
+    {
+        timestamp *= stoull(ts);
+    }
 
     auto id = stoul(idString);
 
