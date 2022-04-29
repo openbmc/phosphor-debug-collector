@@ -400,8 +400,8 @@ function mainstore_dump_section () {
 #systemSerialNumber      7
 #Dump Creator BMC        1
 #eventLogId              4
-####################DATA NOT AVAIABLE##########
 #fileHeaderSize          2
+####################DATA NOT AVAIABLE##########
 #srcSize                 2
 #dumpSrc                 332
 #toolType                4
@@ -456,7 +456,9 @@ function plat_dump_header () {
     printf "%s" "$serialNo" >> "$FILE"
     printf '\x01' >> "$FILE"   #Dump Creator BMC
     get_eid
-    add_null 500
+    add_null 1
+    printf '\xd0' >> "$FILE" #File Header size
+    add_null 498
     content_type # 4 bytes
     add_null 44
     printf '\x01' >> "$FILE"  # BMC indicator
