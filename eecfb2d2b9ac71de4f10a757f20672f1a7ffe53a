@@ -70,6 +70,24 @@
       "parentUuid": "2306977f_9f8f10bf",
       "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f9fb3b1_730e9e5a",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-02T10:55:25Z",
+      "side": 1,
+      "message": "\u003e it is not yet all in readable format,\n\nI am not sure, what you meant by `not readable format`, I have checked some Rainer systems and it is readable format but, the alignment is not good. - are you referring to that?\n\n\u003e probably it is not persisted using cereal, no point including the file, may be you can confirm\n\nIt is using the cereal framework to persist: https://github.com/openbmc/bios-settings-mgr/blob/master/src/manager_serialize.cpp",
+      "parentUuid": "6a145fa3_939cff4a",
+      "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
