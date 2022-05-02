@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c476658_d6b340d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-02T13:53:23Z",
+      "side": 1,
+      "message": "Can you provides the use cases for use case for dump file name in \"human readable format\"?\n\nAlready supported two format\u0027s used here option, \n\n(\u0027BMC_DUMP_FILENAME_REGEX\u0027, type: \u0027string\u0027,\n        value: \u0027BMCDUMP.([a-zA-Z0-9]+).([0-9]+).([0-9]+)\u0027,\n         description : \u0027BMC dump file format\u0027\n       )\noption(\u0027SYS_DUMP_FILENAME_REGEX\u0027, type: \u0027string\u0027,\n         value: \u0027SYSDUMP.([a-zA-Z0-9]+).([0-9]+).([0-9]+)\u0027,\n         description : \u0027System dump file format\u0027\n       )",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 6
+      },
+      "revId": "07dfba52803642d67290f66110a54bd1ee1bb383",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d6f965ab_266fa37c",
