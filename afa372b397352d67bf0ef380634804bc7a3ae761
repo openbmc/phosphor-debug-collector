@@ -45,6 +45,30 @@
       },
       "revId": "afa372b397352d67bf0ef380634804bc7a3ae761",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f8110ce_b0a393ad",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/guardlist",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-05-03T20:06:47Z",
+      "side": 1,
+      "message": "The flash chips on P9 are NOR and the ones in P10 are eMMC, so the paths are different, \"/var/lib/phosphor-software-manager/pnor/\" for NOR and \"/var/lib/phosphor-software-manager/hostfw/\" for eMMC",
+      "parentUuid": "1ae43041_e1bee972",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 73
+      },
+      "revId": "afa372b397352d67bf0ef380634804bc7a3ae761",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
