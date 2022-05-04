@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8171a7bb_bd4b0b93",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/cfam",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-04T09:38:36Z",
+      "side": 1,
+      "message": "Please check , need to set environment variables related PDBG_DTB.",
+      "revId": "ff5fcc2321b082f7e01ca35686575b1652daabce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2f1a114_08300a1e",
         "filename": "tools/dreport.d/openpower.d/plugins.d/cfam",
         "patchSetId": 1
@@ -37,6 +54,30 @@
       "writtenOn": "2022-05-04T05:11:28Z",
       "side": 1,
       "message": "Just question: are we able to read those register always? or is there a restriction on the specific window where we cannot read?",
+      "range": {
+        "startLine": 13,
+        "startChar": 27,
+        "endLine": 13,
+        "endChar": 48
+      },
+      "revId": "ff5fcc2321b082f7e01ca35686575b1652daabce",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f982f69_c4e4895b",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/cfam",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-04T09:38:36Z",
+      "side": 1,
+      "message": "Scope is is to collect the CFAM data , if available. There is no restriction read , if fsi is up and working these cfam register is accessible.",
+      "parentUuid": "bc5d1e2d_582865c0",
       "range": {
         "startLine": 13,
         "startChar": 27,
