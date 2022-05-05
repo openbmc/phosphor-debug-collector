@@ -22,6 +22,30 @@
       },
       "revId": "3342eafb3df0236bc8e716b759aa9fb508d2d431",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a373f1_767a99e3",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-05T07:26:33Z",
+      "side": 1,
+      "message": "there is no object path for bios",
+      "parentUuid": "6d23d03d_f1917472",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "3342eafb3df0236bc8e716b759aa9fb508d2d431",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
