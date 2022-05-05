@@ -88,6 +88,24 @@
       "parentUuid": "6a145fa3_939cff4a",
       "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c39659b_73bcbcb7",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-05T05:04:48Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "3f9fb3b1_730e9e5a",
+      "revId": "eecfb2d2b9ac71de4f10a757f20672f1a7ffe53a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
