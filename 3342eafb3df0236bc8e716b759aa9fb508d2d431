@@ -46,6 +46,23 @@
       },
       "revId": "3342eafb3df0236bc8e716b759aa9fb508d2d431",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d86883_ace6e26d",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-05T07:49:47Z",
+      "side": 1,
+      "message": "Looks like the limitation from the \"xyz.openbmc_project.BIOSConfigManager\" service\n(guessing they did not include \"GetManagedObjects\" that comes from \"org.freedesktop.DBus.ObjectManager\" interface\"\n\n```\n\u003e busctl call xyz.openbmc_project.BIOSConfigManager /xyz/openbmc_project/bios_config/manager org.freedesktop.DBus.ObjectManager GetManagedObjects -j\nCall failed: Unknown method GetManagedObjects or interface org.freedesktop.DBus.ObjectManager.\n\u003e\n\u003e busctl introspect xyz.openbmc_project.BIOSConfigManager /xyz/openbmc_project/bios_config/manager\nNAME                                   TYPE      SIGNATURE          RESULT/VALUE                             FLAGS\norg.freedesktop.DBus.Introspectable    interface -                  -                                        -\n.Introspect                            method    -                  s                                        -\norg.freedesktop.DBus.Peer              interface -                  -                                        -\n.GetMachineId                          method    -                  s                                        -\n.Ping                                  method    -                  -                                        -\norg.freedesktop.DBus.Properties        interface -                  -                                        -\n.Get                                   method    ss                 v                                        -\n.GetAll                                method    s                  a{sv}                                    -\n.Set                                   method    ssv                -                                        -\n.PropertiesChanged                     signal    sa{sv}as           -                                        -\nxyz.openbmc_project.BIOSConfig.Manager interface -                  -                                        -\n.GetAttribute                          method    s                  svv                                      -\n.SetAttribute                          method    sv                 -                                        -\n.BaseBIOSTable                         property  a{s(sbsssvva(sv))} 69 \"fw_boot_side\" \"xyz.openbmc_project.… emits-change writable\n.PendingAttributes                     property  a{s(sv)}           0                                        emits-change writable\n.ResetBIOSSettings                     property  s                  \"xyz.openbmc_project.BIOSConfig.Manager… emits-change writable\n```",
+      "revId": "3342eafb3df0236bc8e716b759aa9fb508d2d431",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
