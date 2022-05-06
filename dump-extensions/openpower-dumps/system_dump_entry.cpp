@@ -71,6 +71,13 @@ void Entry::delete_()
         }
     }
 
+    // Log PEL for dump delete/offload
+    log<level::INFO>("Log PEL for dump delete or offload");
+    phosphor::dump::createPEL(
+        path, "System Dump", dumpId,
+        "xyz.openbmc_project.Logging.Entry.Level.Informational",
+        "xyz.openbmc_project.Dump.Error.Invalidate");
+
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 }

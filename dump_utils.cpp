@@ -120,5 +120,47 @@ bool isHostRunning()
     }
     return false;
 }
+
+void createPEL(const std::string& dumpFilePath, const std::string& dumpFileType,
+               const int dumpId, const std::string& pelSev,
+               const std::string& errIntf)
+{
+    try
+    {
+        constexpr auto loggerObjectPath = "/xyz/openbmc_project/logging";
+        constexpr auto loggerCreateInterface =
+            "xyz.openbmc_project.Logging.Create";
+        constexpr auto loggerService = "xyz.openbmc_project.Logging";
+        constexpr auto dumpFileString = "File Name";
+        constexpr auto dumpFileTypeString = "Dump Type";
+        constexpr auto dumpIdString = "Dump ID";
+
+        sd_bus* pBus = nullptr;
+        sd_bus_default(&pBus);
+
+        // Implies this is a call from Manager. Hence we need to make an async
+        // call to avoid deadlock with Phosphor-logging.
+        auto retVal = sd_bus_call_method_async(
+            pBus, nullptr, loggerService, loggerObjectPath,
+            loggerCreateInterface, "Create", nullptr, nullptr, "ssa{ss}",
+            errIntf.c_str(), pelSev.c_str(), 3, dumpIdString,
+            std::to_string(dumpId).c_str(), dumpFileString,
+            dumpFilePath.c_str(), dumpFileTypeString, dumpFileType.c_str());
+
+        if (retVal < 0)
+        {
+            log<level::ERR>("Error calling sd_bus_call_method_async",
+                            entry("retVal=%d", retVal),
+                            entry("MSG=%s", strerror(-retVal)));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        log<level::ERR>(
+            "Error in calling creating PEL. Standard exception caught",
+            entry("ERROR=%s", e.what()));
+    }
+}
+
 } // namespace dump
 } // namespace phosphor
