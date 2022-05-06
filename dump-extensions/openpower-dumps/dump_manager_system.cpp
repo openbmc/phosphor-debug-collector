@@ -136,9 +136,14 @@ sdbusplus::message::object_path
 
     try
     {
-        // Allow creating system dump only when the host is up.
-        if (!(((phosphor::dump::isHostRunning()) ||
-               (phosphor::dump::isHostQuiesced()))))
+        bool isHostRunning = phosphor::dump::isHostRunning();
+	auto hostState = phosphor::dump::getHostState();
+        bool isHostQuiesced = hostState == phosphor::dump::HostState::Quiesced;
+        bool isHostTransitioningToOff =
+            hostState == phosphor::dump::HostState::TransitioningToOff;
+
+        // Check if the host is in a state that allows system dump
+        if (!isHostRunning && !isHostQuiesced && !isHostTransitioningToOff)
         {
             elog<NotAllowed>(Reason(
                 "System dump can be initiated only when the host is up"));
@@ -149,8 +154,9 @@ sdbusplus::message::object_path
     {
         lg2::error(
             "System state cannot be determined, system dump is not allowed");
-        elog<NotAllowed>(Reason(
-            "System dump can be initiated only when the system is correct state"));
+        elog<NotAllowed>(
+            Reason("System dump can be initiated only when the system is "
+                   "in correct state"));
         return std::string();
     }
 
