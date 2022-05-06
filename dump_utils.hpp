@@ -92,5 +92,16 @@ BootProgress getBootProgress();
  */
 bool isHostRunning();
 
+/**
+ * @brief Create a PEL
+ *
+ * @param[in] additionalData - dump id, name and type.
+ * @param[in] sev - severity.
+ * @param[in] errIntf - D-Bus interface name.
+ * @return create a new PEL
+ **/
+void createPEL(const std::map<std::string, std::string>& additionalData,
+               const std::string& sev, const std::string& errIntf);
+
 } // namespace dump
 } // namespace phosphor

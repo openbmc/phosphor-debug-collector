@@ -119,5 +119,31 @@ bool isHostRunning()
     }
     return false;
 }
+
+void createPEL(const std::map<std::string, std::string>& additionalData,
+               const std::string& sev, const std::string& errIntf)
+{
+    try
+    {
+        constexpr auto loggerObjectPath = "/xyz/openbmc_project/logging";
+        constexpr auto loggerCreateInterface =
+            "xyz.openbmc_project.Logging.Create";
+        std::string pelSeverity =
+            "xyz.openbmc_project.Logging.Entry.Level.Error";
+        auto bus = sdbusplus::bus::new_default();
+        auto service = getService(bus, loggerObjectPath, loggerCreateInterface);
+        auto method = bus.new_method_call(service.c_str(), loggerObjectPath,
+                                          loggerCreateInterface, "Create");
+
+        method.append(errIntf, sev, additionalData);
+        bus.call_noreply(method);
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("Error in calling create method to create PEL",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
 } // namespace dump
 } // namespace phosphor
