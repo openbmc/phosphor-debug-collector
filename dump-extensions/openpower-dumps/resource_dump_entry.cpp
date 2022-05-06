@@ -82,6 +82,13 @@ void Entry::delete_()
 
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
+
+    // Log PEL for dump /offload
+    auto dBus = sdbusplus::bus::new_default();
+    phosphor::dump::createPEL(
+        bus, dumpPathOffLoadUri, "Resource Dump", dumpId,
+        "xyz.openbmc_project.Logging.Entry.Level.Informational",
+        "xyz.openbmc_project.Dump.Error.Invalidate");
 }
 } // namespace resource
 } // namespace dump
