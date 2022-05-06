@@ -68,6 +68,24 @@ class Entry :
         // Emit deferred signal.
         this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
     }
+
+#ifdef LOG_PEL_ON_DUMP_DELETE
+    /** @brief Delete the dump and D-Bus object
+     */
+    void delete_() override
+    {
+        auto dumpId = id;
+        auto dumpPath = path();
+        phosphor::dump::bmc_stored::Entry::delete_();
+
+        auto bus = sdbusplus::bus::new_default();
+        // Log PEL for dump delete/offload
+        phosphor::dump::createPEL(
+            bus, dumpPath, "BMC Dump", dumpId,
+            "xyz.openbmc_project.Logging.Entry.Level.Informational",
+            "xyz.openbmc_project.Dump.Error.Invalidate");
+    }
+#endif
 };
 
 } // namespace bmc
