@@ -70,6 +70,17 @@ void Entry::delete_()
             elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
         }
     }
+    // Log PEL for dump delete
+    log<level::INFO>("Log PEL for dump delete or offload");
+
+    std::map<std::string, std::string> additionalData;
+    additionalData.emplace("Dump ID", std::to_string(id));
+    additionalData.emplace("Filename", uri);
+    additionalData.emplace("Dump type", "System dump");
+    constexpr auto severity =
+        "xyz.openbmc_project.Logging.Entry.Level.Informational";
+    createPEL(additionalData, severity,
+              "xyz.openbmc_project.Dump.Error.Invalidate");
 
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
