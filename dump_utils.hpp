@@ -3,6 +3,7 @@
 #include "dump_manager.hpp"
 
 #include <fmt/core.h>
+#include <fmt/format.h>
 #include <systemd/sd-event.h>
 #include <unistd.h>
 
