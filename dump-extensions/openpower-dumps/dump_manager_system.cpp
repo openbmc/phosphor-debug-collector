@@ -170,14 +170,17 @@ sdbusplus::message::object_path
         return std::string();
     }
     bool isHostQuiesced = hostState == phosphor::dump::HostState::Quiesced;
+    bool isHostTransitioningToOff =
+        hostState == phosphor::dump::HostState::TransitioningToOff;
     // Allow creating system dump only when the host is up or quiesced
-    if (!isHostRunning && !isHostQuiesced)
+    // starting to power off
+    if (!isHostRunning && !isHostQuiesced && !isHostTransitioningToOff)
     {
         lg2::error("System dump can be initiated only when the host is up "
-                   "or quiesced");
+                   "or quiesced or starting to poweroff");
         elog<NotAllowed>(
             Reason("System dump can be initiated only when the host is up "
-                   "or quiesced"));
+                   "or quiesced or starting to poweroff"));
         return std::string();
     }
 
