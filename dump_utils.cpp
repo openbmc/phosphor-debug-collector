@@ -139,5 +139,52 @@ bool isHostQuiesced()
 {
     return (phosphor::dump::getHostState() == HostState::Quiesced);
 }
+
+void createPEL(sdbusplus::bus::bus& dBus, const std::string& dumpFilePath,
+               const std::string& dumpFileType, const int dumpId,
+               const std::string& pelSev, const std::string& errIntf)
+{
+    try
+    {
+        constexpr auto loggerObjectPath = "/xyz/openbmc_project/logging";
+        constexpr auto loggerCreateInterface =
+            "xyz.openbmc_project.Logging.Create";
+        constexpr auto loggerService = "xyz.openbmc_project.Logging";
+
+        constexpr auto dumpFileString = "File Name";
+        constexpr auto dumpFileTypeString = "Dump Type";
+        constexpr auto dumpIdString = "Dump ID";
+
+        const std::unordered_map<std::string_view, std::string_view>
+            userDataMap = {{dumpIdString, std::to_string(dumpId)},
+                           {dumpFileString, dumpFilePath},
+                           {dumpFileTypeString, dumpFileType}};
+
+        // Set up a connection to D-Bus object
+        auto busMethod = dBus.new_method_call(loggerService, loggerObjectPath,
+                                              loggerCreateInterface, "Create");
+        busMethod.append(errIntf, pelSev, userDataMap);
+
+        // Implies this is a call from Manager. Hence we need to make an async
+        // call to avoid deadlock with Phosphor-logging.
+        auto retVal = busMethod.call_async(
+            [&](sdbusplus::message::message&& reply) {
+            if (reply.is_method_error())
+            {
+                log<level::ERR>("Error in calling async method to create PEL");
+            }
+        });
+        if (!retVal)
+        {
+            log<level::ERR>("Return object contains null pointer");
+        }
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>("Error in calling creating PEL. Exception caught",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
 } // namespace dump
 } // namespace phosphor
