@@ -102,72 +102,34 @@ BootProgress getBootProgress();
  */
 bool isHostRunning();
 
-inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
-                                        std::string& originatorId,
-                                        originatorTypes& originatorType)
+/**
+ *  @brief PEL Message severities for Dump related operations. Default is
+ * Informational
+ *
+ */
+enum class PelSeverity
 {
-    using InvalidArgument =
-        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
-    using Argument = xyz::openbmc_project::Common::InvalidArgument;
-    using CreateParametersXYZ =
-        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+    NOTICE,
+    INFORMATIONAL,
+    DEBUG,
+    WARNING,
+    CRITICAL,
+    EMERGENCY,
+    ALERT,
+    ERROR
+};
 
-    auto iter = params.find(
-        sdbusplus::xyz::openbmc_project::Dump::server::Create::
-            convertCreateParametersToString(CreateParametersXYZ::OriginatorId));
-    if (iter == params.end())
-    {
-        log<level::INFO>("OriginatorId is not provided");
-    }
-    else
-    {
-        try
-        {
-            originatorId = std::get<std::string>(iter->second);
-        }
-        catch (const std::bad_variant_access& e)
-        {
-            // Exception will be raised if the input is not string
-            log<level::ERR>(
-                fmt::format(
-                    "An invalid  originatorId passed. It should be a string, "
-                    "errormsg({})",
-                    e.what())
-                    .c_str());
-            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_ID"),
-                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
-        }
-    }
-
-    iter = params.find(sdbusplus::xyz::openbmc_project::Dump::server::Create::
-                           convertCreateParametersToString(
-                               CreateParametersXYZ::OriginatorType));
-    if (iter == params.end())
-    {
-        log<level::INFO>("OriginatorType is not provided. Replacing the string "
-                         "with the default value");
-        originatorType = originatorTypes::Internal;
-    }
-    else
-    {
-        try
-        {
-            std::string type = std::get<std::string>(iter->second);
-            originatorType = sdbusplus::xyz::openbmc_project::Common::server::
-                OriginatedBy::convertOriginatorTypesFromString(type);
-        }
-        catch (const std::bad_variant_access& e)
-        {
-            // Exception will be raised if the input is not string
-            log<level::ERR>(fmt::format("An invalid originatorType passed, "
-                                        "errormsg({})",
-                                        e.what())
-                                .c_str());
-            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_TYPE"),
-                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
-        }
-    }
-}
+/**
+ * @brief Create a new PEL message for dump Delete/Offload
+ *
+ * @param[in] additionalData - dump id, name and type.
+ * @param[in] sev - severity.
+ * @param[in] errIntf - D-Bus interface name.
+ * @return Returns void on success throws exception on error
+ **/
+void createPEL(
+    const std::unordered_map<std::string, std::string>& additionalData,
+    const PelSeverity& sev, const std::string& errIntf);
 
 } // namespace dump
 } // namespace phosphor

@@ -120,5 +120,79 @@ bool isHostRunning()
     }
     return false;
 }
+
+// mapping of severity enum to severity interface
+static std::unordered_map<PelSeverity, std::string> sevMap = {
+    {PelSeverity::INFORMATIONAL,
+     "xyz.openbmc_project.Logging.Entry.Level.Informational"},
+    {PelSeverity::DEBUG, "xyz.openbmc_project.Logging.Entry.Level.Debug"},
+    {PelSeverity::NOTICE, "xyz.openbmc_project.Logging.Entry.Level.Notice"},
+    {PelSeverity::WARNING, "xyz.openbmc_project.Logging.Entry.Level.Warning"},
+    {PelSeverity::CRITICAL, "xyz.openbmc_project.Logging.Entry.Level.Critical"},
+    {PelSeverity::EMERGENCY,
+     "xyz.openbmc_project.Logging.Entry.Level.Emergency"},
+    {PelSeverity::ERROR, "xyz.openbmc_project.Logging.Entry.Level.Error"},
+    {PelSeverity::ALERT, "xyz.openbmc_project.Logging.Entry.Level.Alert"}};
+
+void createPEL(
+    const std::unordered_map<std::string, std::string>& additionalData,
+    const PelSeverity& sev, const std::string& errIntf)
+{
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+        constexpr auto loggerObjectPath = "/xyz/openbmc_project/logging";
+        constexpr auto loggerCreateInterface =
+            "xyz.openbmc_project.Logging.Create";
+        constexpr auto loggerService = "xyz.openbmc_project.Logging";
+        std::string pelSeverity =
+            "xyz.openbmc_project.Logging.Entry.Level.Informational";
+        auto itr = sevMap.find(sev);
+        if (itr != sevMap.end())
+            pelSeverity = itr->second;
+
+        sd_bus* pSD_Bus = nullptr;
+        ;
+        sd_bus_default(&pSD_Bus);
+
+        // Implies this is a call from Manager. Hence we need to make an async
+        // call to avoid deadlock with Phosphor-logging.
+        if (additionalData.empty() || additionalData.size() < 3)
+        {
+            log<level::WARNING>(
+                fmt::format("User data map's size(({})) is not sufficient to "
+                            "create a PEL message for dump delete/offload",
+                            additionalData.size())
+                    .c_str());
+            throw std::runtime_error("Dump delete/offload PEL not created due "
+                                     "to insufficient info passed");
+        }
+        auto itrToAdditionalData = additionalData.begin();
+        auto retVal = sd_bus_call_method_async(
+            pSD_Bus, nullptr, loggerService, loggerObjectPath,
+            loggerCreateInterface, "Create", nullptr, nullptr, "ssa{ss}",
+            errIntf.c_str(), pelSeverity.c_str(), 3,
+            itrToAdditionalData->first.c_str(),
+            itrToAdditionalData->second.c_str(),
+            (++itrToAdditionalData)->first.c_str(),
+            itrToAdditionalData->second.c_str(),
+            (++itrToAdditionalData)->first.c_str(),
+            itrToAdditionalData->second.c_str());
+
+        if (retVal < 0)
+        {
+            log<level::ERR>("Error calling sd_bus_call_method_async",
+                            entry("retVal=%d", retVal),
+                            entry("MSG=%s", strerror(-retVal)));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        log<level::ERR>(
+            "Error in calling creating PEL. Standard exception caught",
+            entry("ERROR=%s", e.what()));
+    }
+}
+
 } // namespace dump
 } // namespace phosphor

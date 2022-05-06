@@ -66,25 +66,22 @@ void Entry::delete_()
     // Remove resource dump when host is up by using source dump id
 
     // which is present in resource dump entry dbus object as a property.
-    if ((phosphor::dump::isHostRunning()) && (srcDumpID != INVALID_SOURCE_ID))
+    if ((phosphor::dump::isHostRunning())
     {
-        try
-        {
-            phosphor::dump::host::requestDelete(srcDumpID,
-                                                TRANSPORT_DUMP_TYPE_IDENTIFIER);
-        }
-        catch (const std::exception& e)
-        {
-            log<level::ERR>(fmt::format("Error deleting dump from host id({}) "
-                                        "host id({}) error({})",
-                                        dumpId, srcDumpID, e.what())
-                                .c_str());
-            elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
-        }
+        phosphor::dump::host::requestDelete(srcDumpID,
+                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
     }
 
-    // Remove Dump entry D-bus object
-    phosphor::dump::Entry::delete_();
+    // Log PEL for dump delete/offload
+    log<level::INFO>("Log PEL for dump delete or offload");
+
+    std::unordered_map<std::string, std::string> additionalData = {
+        {"Dump ID", std::to_string(dumpId)},
+        {"Filename", path},
+        {"Dump Type", "System Dump"}};
+    phosphor::dump::createPEL(additionalData,
+                              phosphor::dump::PelSeverity::INFORMATIONAL,
+                              "xyz.openbmc_project.Dump.Error.Invalidate");
 }
 } // namespace resource
 } // namespace dump
