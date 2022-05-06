@@ -4,6 +4,7 @@
 
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
+#include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -117,6 +118,14 @@ sdbusplus::message::object_path
     if (!params.empty())
     {
         log<level::WARNING>("System dump accepts no additional parameters");
+    }
+
+    if (openpower::dump::util::isSystemDumpInProgress())
+    {
+        log<level::ERR>(
+            fmt::format("Another dump in progress or available to offload")
+                .c_str());
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
     }
 
     using NotAllowed =
