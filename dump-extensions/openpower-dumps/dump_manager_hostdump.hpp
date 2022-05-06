@@ -75,7 +75,7 @@ class Manager :
      *  @param[in] baseEntryPath - Base path for dump entry.
      *  @param[in] startingId - Starting dump id
      *  @param[in] filePath - Path where the dumps are stored.
-     *  @param[in] dumpNamePrefix - Prefix to the dump filename
+     *  @param[in] dumpName - Name of the dump
      *  @param[in] dumpTempFileDir - Temporary location of dump files
      *  @param[in] maxDumpSize - Maximum allowed size of dump file
      *  @param[in] minDumpSize - Minimum size of a usable dump
@@ -84,14 +84,14 @@ class Manager :
     Manager(sdbusplus::bus::bus& bus, const phosphor::dump::EventPtr& event,
             const char* path, const std::string& baseEntryPath,
             uint32_t startingId, const char* filePath,
-            const std::string dumpNamePrefix, const std::string dumpTempFileDir,
+            const std::string dumpName, const std::string dumpTempFileDir,
             const uint64_t maxDumpSize, const uint64_t minDumpSize,
             const uint64_t allocatedSize) :
         CreateIface(bus, path),
         phosphor::dump::bmc_stored::Manager(
             bus, event, path, baseEntryPath, startingId, filePath,
             SYS_DUMP_FILENAME_REGEX, maxDumpSize, minDumpSize, allocatedSize),
-        dumpNamePrefix(dumpNamePrefix), dumpTempFileDir(dumpTempFileDir)
+        dumpName(dumpName), dumpTempFileDir(dumpTempFileDir)
     {}
 
     /** @brief Implementation for CreateDump
@@ -130,9 +130,7 @@ class Manager :
 
         log<level::INFO>(fmt::format("Create dump type({}) with id({}) "
                                      "available space: ({}) kilobytes",
-                                     dumpNamePrefix, id, size)
-                             .c_str());
-
+                                     dumpName, id, size)
         std::time_t timeStamp = std::time(nullptr);
         createEntry(id, objPath, timeStamp, 0, std::string(),
                     phosphor::dump::OperationStatus::InProgress, std::string(),
@@ -183,7 +181,7 @@ class Manager :
             entries.insert(std::make_pair(
                 id, std::make_unique<openpower::dump::hostdump::Entry<T>>(
                         bus, objPath.c_str(), id, ms, fileSize, file, status,
-                        originatorId, originatorType, *this)));
+                        originatorId, originatorType, dumpName, *this)));
         }
         catch (const std::invalid_argument& e)
         {
@@ -196,7 +194,7 @@ class Manager :
     }
 
   private:
-    std::string dumpNamePrefix;
+    std::string dumpName;
     std::string dumpTempFileDir;
 
     void captureDump(uint32_t dumpId)
@@ -229,7 +227,7 @@ class Manager :
             dumpPath /= idStr;
             execl("/usr/bin/opdreport", "opdreport", "-d", dumpPath.c_str(),
                   "-i", idStr.c_str(), "-s", std::to_string(size).c_str(), "-p",
-                  dumpTempPath.c_str(), "-n", dumpNamePrefix.c_str(), nullptr);
+                  dumpTempPath.c_str(), nullptr);
 
             // opdreport script execution is failed.
             auto error = errno;
@@ -238,7 +236,7 @@ class Manager :
                     "Dump capture: Error occurred during "
                     "opdreport function execution, errno({}), dumpPrefix({}), "
                     "dumpPath({}), dumpSourcePath({}), allowedSize({})",
-                    error, dumpNamePrefix.c_str(), dumpPath.c_str(),
+                    error, dumpName.c_str(), dumpPath.c_str(),
                     dumpTempPath.c_str(), size)
                     .c_str());
             throw std::runtime_error("Dump capture: Error occured during "
