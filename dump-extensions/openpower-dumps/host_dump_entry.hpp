@@ -52,22 +52,43 @@ class Entry :
      *  @param[in] status - status of the dump.
      *  @param[in] originatorId - Id of the originator of the dump
      *  @param[in] originatorType - Originator type
+     *  @param[in] dumpName - Name of the dump
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::Manager& parent) :
+          originatorTypes originatorType, std::string& dumpName,
+          phosphor::dump::Manager& parent) :
         EntryIfaces<T>(bus, objPath.c_str(),
                        EntryIfaces<T>::action::emit_object_added),
         phosphor::dump::bmc_stored::Entry(bus, objPath.c_str(), dumpId,
                                           timeStamp, fileSize, file, status,
-                                          originatorId, originatorType, parent)
+                                          originatorId, originatorType, parent),
+        dumpName(dumpName)
     {
         // Emit deferred signal.
         this->openpower::dump::hostdump::EntryIfaces<T>::emit_object_added();
     }
+
+    /** @brief Delete the dump and D-Bus object
+     */
+    void delete_() override
+    {
+        phosphor::dump::bmc_stored::Entry::delete_();
+
+        // Log PEL for dump delete/offload
+        phosphor::dump::createPEL(
+            bus, path(), dumpName, id,
+            "xyz.openbmc_project.Logging.Entry.Level.Informational",
+            "xyz.openbmc_project.Dump.Error.Invalidate");
+    }
+
+  private:
+    /** @brief Name of the dump
+     */
+    std::string dumpName;
 };
 
 } // namespace hostdump

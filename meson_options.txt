@@ -90,6 +90,11 @@ option('dump_rotate_config', type: 'feature',
         description : 'Enable rotate config for bmc dump'
       )
 
+option('log_pel_on_delete', type: 'feature',
+        value : 'disabled',
+        description : 'Log PEL on deleting the dump'
+      )
+
 # Fault log options
 
 option('FAULTLOG_DUMP_PATH', type : 'string',
