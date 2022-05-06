@@ -46,6 +46,7 @@ void Entry::delete_()
 {
     auto srcDumpID = sourceDumpId();
     auto dumpId = id;
+    auto dumpPathOffLoadUri = offloadUri();
 
     if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
     {
@@ -82,6 +83,13 @@ void Entry::delete_()
 
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
+
+    auto bus = sdbusplus::bus::new_default();
+    // Log PEL for dump /offload
+    phosphor::dump::createPEL(
+        bus, dumpPathOffLoadUri, "Resource Dump", dumpId,
+        "xyz.openbmc_project.Logging.Entry.Level.Informational",
+        "xyz.openbmc_project.Dump.Error.Invalidate");
 }
 } // namespace resource
 } // namespace dump
