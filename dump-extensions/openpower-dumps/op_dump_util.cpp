@@ -1,5 +1,6 @@
 #include "op_dump_util.hpp"
 
+#include "dump_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
@@ -50,6 +51,60 @@ bool isOPDumpsEnabled(sdbusplus::bus::bus& bus)
                    "ERROR", e);
     }
     return isEnabled;
+}
+
+BIOSAttrValueType readBIOSAttribute(const std::string& attrName)
+{
+    std::tuple<std::string, BIOSAttrValueType, BIOSAttrValueType> attrVal;
+    auto bus = sdbusplus::bus::new_default();
+    auto method = bus.new_method_call(
+        "xyz.openbmc_project.BIOSConfigManager",
+        "/xyz/openbmc_project/bios_config/manager",
+        "xyz.openbmc_project.BIOSConfig.Manager", "GetAttribute");
+    method.append(attrName);
+    try
+    {
+        auto result = bus.call(method);
+        result.read(std::get<0>(attrVal), std::get<1>(attrVal),
+                    std::get<2>(attrVal));
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        lg2::error("Failed to read BIOS Attribute: {ATTRIBUTE_NAME}",
+                   "ATTRIBUTE_NAME", attrName);
+        throw;
+    }
+    return std::get<1>(attrVal);
+}
+
+bool isSystemDumpInProgress()
+{
+    try
+    {
+        auto dumpInProgress =
+            std::get<std::string>(readBIOSAttribute("pvm_sys_dump_active"));
+        if (dumpInProgress == "Enabled")
+        {
+            lg2::info("A system dump is already in progress");
+            return true;
+        }
+    }
+    catch (const std::bad_variant_access& ex)
+    {
+        lg2::error("Failed to read pvm_sys_dump_active property value due "
+                   "to bad variant access error:{ERROR}",
+                   "ERROR", ex);
+        return false;
+    }
+    catch (const sdbusplus::exception::SdBusError& ex)
+    {
+        lg2::error("Failed to read pvm_sys_dump_active error:{ERROR}", "ERROR",
+                   ex);
+        return false;
+    }
+
+    lg2::info("Another system dump is not in progress");
+    return false;
 }
 
 } // namespace util
