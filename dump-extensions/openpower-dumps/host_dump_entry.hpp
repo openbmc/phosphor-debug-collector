@@ -1,5 +1,7 @@
 #pragma once
 
+#include "dump-extensions/openpower-dumps/openpower_dumps_config.h"
+
 #include "bmcstored_dump_entry.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -67,6 +69,40 @@ class Entry :
     {
         // Emit deferred signal.
         this->openpower::dump::hostdump::EntryIfaces<T>::emit_object_added();
+    }
+
+    /** @brief Delete the dump and D-Bus object
+     */
+    void delete_() override
+    {
+        auto dumpId = id;
+        auto dumpPath = path();
+        phosphor::dump::bmc_stored::Entry::delete_();
+
+        std::string dumpName;
+        if (dumpId > SBE_DUMP_START_ID)
+        {
+            dumpName = "SBE Dump";
+        }
+        else if (dumpId > HOSTBOOT_DUMP_START_ID)
+        {
+            dumpName = "Hostboot Dump";
+        }
+        else if (dumpId > HARDWARE_DUMP_START_ID)
+        {
+            dumpName = "Hardware Dump";
+        }
+        else
+        {
+            dumpName = "Unknown Dump";
+        }
+
+        auto bus = sdbusplus::bus::new_default();
+        // Log PEL for dump delete/offload
+        phosphor::dump::createPEL(
+            bus, dumpPath, dumpName, dumpId,
+            "xyz.openbmc_project.Logging.Entry.Level.Informational",
+            "xyz.openbmc_project.Dump.Error.Invalidate");
     }
 };
 
