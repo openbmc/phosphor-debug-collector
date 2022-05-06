@@ -83,6 +83,17 @@ void Entry::delete_()
         }
     }
 
+    // Log PEL for dump delete/offload
+    log<level::INFO>("Log PEL for dump delete or offload");
+
+    std::unordered_map<std::string, std::string> additionalData = {
+        {"Dump ID", std::to_string(dumpId)},
+        {"Filename", path},
+        {"Dump Type", "System Dump"}};
+    phosphor::dump::createPEL(additionalData,
+                              phosphor::dump::PelSeverity::INFORMATIONAL,
+                              "xyz.openbmc_project.Dump.Error.Invalidate");
+
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 }

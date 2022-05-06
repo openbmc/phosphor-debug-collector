@@ -169,5 +169,34 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
     }
 }
 
+/**
+ *  @brief PEL Message severities for Dump related operations. Default is
+ * Informational
+ *
+ */
+enum class PelSeverity
+{
+    NOTICE,
+    INFORMATIONAL,
+    DEBUG,
+    WARNING,
+    CRITICAL,
+    EMERGENCY,
+    ALERT,
+    ERROR
+};
+
+/**
+ * @brief Create a new PEL message for dump Delete/Offload
+ *
+ * @param[in] additionalData - dump id, name and type.
+ * @param[in] sev - severity.
+ * @param[in] errIntf - D-Bus interface name.
+ * @return Returns void on success throws exception on error
+ **/
+void createPEL(
+    const std::unordered_map<std::string, std::string>& additionalData,
+    const PelSeverity& sev, const std::string& errIntf);
+
 } // namespace dump
 } // namespace phosphor
