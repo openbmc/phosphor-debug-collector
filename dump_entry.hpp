@@ -68,7 +68,7 @@ class Entry : public EntryIfaces
           uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
-        parent(parent), id(dumpId)
+        bus(bus), parent(parent), id(dumpId)
     {
         originatorId(originId);
         originatorType(originType);
@@ -116,6 +116,9 @@ class Entry : public EntryIfaces
     }
 
   protected:
+    /** @brief sdbusplus DBus bus connection. */
+    sdbusplus::bus_t& bus;
+
     /** @brief This entry's parent */
     Manager& parent;
 
