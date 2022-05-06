@@ -119,6 +119,14 @@ sdbusplus::message::object_path
         log<level::WARNING>("System dump accepts no additional parameters");
     }
 
+    if (isSystemDumpInProgress())
+    {
+        log<level::ERR>(
+            fmt::format("Another dump in progress or available to offload")
+                .c_str());
+        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
+    }
+
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
