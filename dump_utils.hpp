@@ -3,11 +3,13 @@
 #include "dump_manager.hpp"
 
 #include <fmt/core.h>
+#include <fmt/format.h>
 #include <systemd/sd-event.h>
 #include <unistd.h>
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -200,6 +202,45 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
  *         Throw exception on failure.
  */
 bool isHostQuiesced();
+
+/**
+ * @brief Read property value from the specified object and interface
+ * @param[in] bus D-Bus handle
+ * @param[in] service service which has implemented the interface
+ * @param[in] object object having has implemented the interface
+ * @param[in] intf interface having the property
+ * @param[in] prop name of the property to read
+ * @return property value
+ */
+template <typename T>
+T readDBusProperty(sdbusplus::bus::bus& bus, const std::string& service,
+                   const std::string& object, const std::string& intf,
+                   const std::string& prop)
+{
+    using ::phosphor::logging::level;
+    using ::phosphor::logging::log;
+    T retVal{};
+    try
+    {
+        auto properties =
+            bus.new_method_call(service.c_str(), object.c_str(),
+                                "org.freedesktop.DBus.Properties", "Get");
+        properties.append(intf);
+        properties.append(prop);
+        auto result = bus.call(properties);
+        result.read(retVal);
+    }
+    catch (const std::exception& ex)
+    {
+        log<level::ERR>(
+            fmt::format("Failed to get the property ({}) interface ({}) "
+                        "object path ({}) error ({}) ",
+                        prop.c_str(), intf.c_str(), object.c_str(), ex.what())
+                .c_str());
+        throw;
+    }
+    return retVal;
+}
 
 } // namespace dump
 } // namespace phosphor
