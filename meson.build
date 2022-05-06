@@ -131,6 +131,9 @@ conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
 conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled(),
                description : 'Turn on rotate config for bmc dump'
              )
+conf_data.set('LOG_PEL_ON_DUMP_DELETE', get_option('log_pel_on_dump_delete').enabled(),
+               description : 'Turn on to log PEL while deleting the dump'
+             )
 
 conf_data.set('TIMESTAMP_FORMAT', get_option('TIMESTAMP_FORMAT'),
                description : 'Timestamp format in filename: 0-epoch 1-human readable'
