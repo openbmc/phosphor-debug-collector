@@ -210,9 +210,19 @@ void Manager::watchCallback(const UserMap& fileInfo)
         // and associated inotify watch.
         if (IN_CLOSE_WRITE == i.second)
         {
-            removeWatch(i.first);
+            if (!std::filesystem::is_directory(i.first))
+            {
+                // Don't require filename to be passed, as the path
+                // of dump directory is stored in the childWatchMap
+                removeWatch(i.first.parent_path());
 
-            createEntry(i.first);
+                // dump file is written now create D-Bus entry
+                createEntry(i.first);
+            }
+            else
+            {
+                removeWatch(i.first);
+            }
         }
         // Start inotify watch on newly created directory.
         else if ((IN_CREATE == i.second) &&
