@@ -84,6 +84,11 @@ class Manager :
      */
     void watchCallback(const UserMap& fileInfo);
 
+    /** @brief Implementation of dump watch call back
+     *  @param [in] fileInfo - map of file info  path:event
+     */
+    void watchChildCallback(const UserMap& fileInfo);
+
     /** @brief Construct dump d-bus objects from their persisted
      *        representations.
      */

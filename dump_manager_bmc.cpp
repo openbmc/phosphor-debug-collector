@@ -185,7 +185,7 @@ void Manager::createEntry(const std::filesystem::path& file)
     }
 }
 
-void Manager::watchCallback(const UserMap& fileInfo)
+void Manager::watchChildCallback(const UserMap& fileInfo)
 {
     for (const auto& i : fileInfo)
     {
@@ -193,18 +193,27 @@ void Manager::watchCallback(const UserMap& fileInfo)
         // and associated inotify watch.
         if (IN_CLOSE_WRITE == i.second)
         {
-            removeWatch(i.first);
+            // Don't require filename to be passed, as the path
+            // of dump directory is stored in the childWatchMap
+            removeWatch(i.first.parent_path());
 
             createEntry(i.first);
         }
+    }
+}
+
+void Manager::watchCallback(const UserMap& fileInfo)
+{
+    for (const auto& i : fileInfo)
+    {
         // Start inotify watch on newly created directory.
-        else if ((IN_CREATE == i.second) &&
-                 std::filesystem::is_directory(i.first))
+        if ((IN_CREATE == i.second) && std::filesystem::is_directory(i.first))
         {
             auto watchObj = std::make_unique<Watch>(
                 eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE, EPOLLIN, i.first,
                 std::bind(
-                    std::mem_fn(&phosphor::dump::bmc::Manager::watchCallback),
+                    std::mem_fn(
+                        &phosphor::dump::bmc::Manager::watchChildCallback),
                     this, std::placeholders::_1));
 
             childWatchMap.emplace(i.first, std::move(watchObj));
