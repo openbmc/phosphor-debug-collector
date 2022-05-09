@@ -215,7 +215,7 @@ void Manager::watchCallback(const UserMap& fileInfo)
 void Manager::removeWatch(const std::filesystem::path& path)
 {
     // Delete Watch entry from map.
-    childWatchMap.erase(path);
+    childWatchMap.erase(path.parent_path());
 }
 
 void Manager::restore()
