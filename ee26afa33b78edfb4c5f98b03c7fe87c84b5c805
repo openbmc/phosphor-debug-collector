@@ -34,6 +34,24 @@
       "parentUuid": "c418724d_d283db90",
       "revId": "ee26afa33b78edfb4c5f98b03c7fe87c84b5c805",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "522e136d_43d161b5",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-10T09:32:34Z",
+      "side": 1,
+      "message": "https://en.cppreference.com/w/cpp/filesystem/path/remove_filename\n\nprobably use remove_filename method that way file name added as part of https://github.com/openbmc/phosphor-debug-collector/blob/master/watch.cpp#L123 came be removed, if it is direcoty nothing changes",
+      "parentUuid": "325a8c68_636e6753",
+      "revId": "ee26afa33b78edfb4c5f98b03c7fe87c84b5c805",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
