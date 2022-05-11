@@ -22,6 +22,30 @@
       },
       "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d1467d_1d3699dc",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-11T04:52:44Z",
+      "side": 1,
+      "message": "That\u0027s right, params is basically ignored in this initial version of fault log. In a future version when we start using params we may decide to exit early if we don\u0027t receive the expected params.",
+      "parentUuid": "6727757d_cfa4aa35",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
