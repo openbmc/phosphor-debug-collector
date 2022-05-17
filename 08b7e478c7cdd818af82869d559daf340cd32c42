@@ -46,6 +46,47 @@
       },
       "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ffca79f_5bf34675",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:32:22Z",
+      "side": 1,
+      "message": "need to add a TODO, to better captur above explanation",
+      "parentUuid": "73d1467d_1d3699dc",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce6faff_616d87e6",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:32:22Z",
+      "side": 1,
+      "message": "do we need to continue to create dump entry if failut log file is not created?",
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
