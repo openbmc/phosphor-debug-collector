@@ -122,6 +122,9 @@ conf_data.set_quoted('FAULTLOG_DUMP_OBJPATH', get_option('FAULTLOG_DUMP_OBJPATH'
 conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
                       description : 'Directory where fault logs are placed'
                     )
+conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled(),
+               description : 'Turn on rotate config for bmc dump'
+             )
 
 configure_file(configuration : conf_data,
                output : 'config.h'

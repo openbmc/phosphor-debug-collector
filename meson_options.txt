@@ -85,6 +85,11 @@ option('openpower-dumps-extension', type: 'feature',
         description : 'Enable Open Power specific dumps'
       )
 
+option('dump_rotate_config', type: 'feature',
+        value : 'disabled',
+        description : 'Enable rotate config for bmc dump'
+      )
+
 # Fault log options
 
 option('FAULTLOG_DUMP_PATH', type : 'string',
