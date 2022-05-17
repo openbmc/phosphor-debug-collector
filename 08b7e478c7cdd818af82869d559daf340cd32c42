@@ -74,6 +74,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1b555c7_f8b25177",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:45:31Z",
+      "side": 1,
+      "message": "should this be called for every dump? can\u0027t we do as part of the constructor of the manager",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 58
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45474fe9_c37dd8a0",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:45:31Z",
+      "side": 1,
+      "message": "I guess errno is not set for ofstream open, is_open check is good enough I guess",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ce6faff_616d87e6",
         "filename": "dump_manager_faultlog.cpp",
         "patchSetId": 5
@@ -85,6 +131,69 @@
       "writtenOn": "2022-05-17T14:32:22Z",
       "side": 1,
       "message": "do we need to continue to create dump entry if failut log file is not created?",
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65553ffa_6e95b482",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:45:31Z",
+      "side": 1,
+      "message": "not required",
+      "range": {
+        "startLine": 98,
+        "startChar": 53,
+        "endLine": 98,
+        "endChar": 61
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4b655cb_e6c7fb68",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:45:31Z",
+      "side": 1,
+      "message": "manager implementing other manager do not look proper inheritance close coupling. but I guess we are following other dumps",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f702d6ff_df6d345e",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-17T14:45:31Z",
+      "side": 1,
+      "message": "add TODO and point to an issue, you can create new issue these tracs will never be noticed",
       "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
