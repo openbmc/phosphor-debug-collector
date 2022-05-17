@@ -248,32 +248,43 @@ void Manager::restore()
     }
 }
 
-size_t Manager::getAllowedSize()
+size_t getDirectorySize(const std::string dir)
 {
-    using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
-    using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
-
     auto size = 0;
-
-    // Get current size of the dump directory.
-    for (const auto& p : std::filesystem::recursive_directory_iterator(dumpDir))
+    for (const auto& p : std::filesystem::recursive_directory_iterator(dir))
     {
         if (!std::filesystem::is_directory(p))
         {
             size += std::ceil(std::filesystem::file_size(p) / 1024.0);
         }
     }
+    return size;
+}
+
+size_t Manager::getAllowedSize()
+{
+    // Get current size of the dump directory.
+    auto size = getDirectorySize(dumpDir);
 
     // Set the Dump size to Maximum  if the free space is greater than
     // Dump max size otherwise return the available size.
 
     size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
 
-    if (size < BMC_DUMP_MIN_SPACE_REQD)
+    // Delete the first existing file until the space is enough
+    while (size < BMC_DUMP_MIN_SPACE_REQD)
     {
-        // Reached to maximum limit
-        elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
+        auto delEntry = min_element(
+            entries.begin(), entries.end(),
+            [](const auto& l, const auto& r) { return l.first < r.first; });
+        auto delPath =
+            std::filesystem::path(dumpDir) / std::to_string(delEntry->first);
+
+        size += getDirectorySize(delPath);
+
+        delEntry->second->delete_();
     }
+
     if (size > BMC_DUMP_MAX_SIZE)
     {
         size = BMC_DUMP_MAX_SIZE;
