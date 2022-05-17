@@ -52,16 +52,27 @@ void Entry::delete_()
                                  dumpId, srcDumpID)
                          .c_str());
 
-    // Remove Dump entry D-bus object
-    phosphor::dump::Entry::delete_();
-
     // Remove host system dump when host is up by using source dump id
     // which is present in system dump entry dbus object as a property.
     if ((phosphor::dump::isHostRunning()) && (srcDumpID != INVALID_SOURCE_ID))
     {
-        phosphor::dump::host::requestDelete(srcDumpID,
-                                            TRANSPORT_DUMP_TYPE_IDENTIFIER);
+        try
+        {
+            phosphor::dump::host::requestDelete(srcDumpID,
+                                                TRANSPORT_DUMP_TYPE_IDENTIFIER);
+        }
+        catch (const std::exception& e)
+        {
+            log<level::ERR>(fmt::format("Error deleting dump from host id({}) "
+                                        "host id({}) error({})",
+                                        dumpId, srcDumpID, e.what())
+                                .c_str());
+            elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
+        }
     }
+
+    // Remove Dump entry D-bus object
+    phosphor::dump::Entry::delete_();
 }
 } // namespace system
 } // namespace dump
