@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65eb5751_fd24e58b",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-19T04:48:45Z",
+      "side": 1,
+      "message": "I am not sure on this, so ignore my comment, but would be good if we can print strerr(errno) too.",
+      "parentUuid": "45474fe9_c37dd8a0",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ce6faff_616d87e6",
         "filename": "dump_manager_faultlog.cpp",
         "patchSetId": 5
