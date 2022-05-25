@@ -89,6 +89,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89ce45b_ccb3e65b",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ffca79f_5bf34675",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1b555c7_f8b25177",
@@ -126,6 +150,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "d1b555c7_f8b25177",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 58
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41e572a_5a0f041f",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Moved it to the constructor. Note that if someone manually deletes the FAULTLOG_DUMP_PATH directory and it doesn\u0027t exist at the time createDump() is called, then createDump() will fail.",
+      "parentUuid": "3afd5cfa_2f094b98",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -183,6 +231,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fbea251_c55587af",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "During testing I did see errno is indeed set if there\u0027s an open error (tested by creating a directory with the same name as the file that it\u0027s trying to open). Added strerr(errno) logging.",
+      "parentUuid": "65eb5751_fd24e58b",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 5
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ce6faff_616d87e6",
@@ -200,6 +272,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b035289_587492d2",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Added code to exit early (throwing error via elog\u003cOpen\u003e)",
+      "parentUuid": "5ce6faff_616d87e6",
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65553ffa_6e95b482",
@@ -213,6 +303,30 @@
       "writtenOn": "2022-05-17T14:45:31Z",
       "side": 1,
       "message": "not required",
+      "range": {
+        "startLine": 98,
+        "startChar": 53,
+        "endLine": 98,
+        "endChar": 61
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a08cccd_3f70d9e4",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Doesn\u0027t compile if \".c_str()\" is removed.",
+      "parentUuid": "65553ffa_6e95b482",
       "range": {
         "startLine": 98,
         "startChar": 53,
@@ -246,6 +360,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2f7370_3f5a8910",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Yes following other dumps.",
+      "parentUuid": "c4b655cb_e6c7fb68",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f702d6ff_df6d345e",
@@ -259,6 +397,24 @@
       "writtenOn": "2022-05-17T14:45:31Z",
       "side": 1,
       "message": "add TODO and point to an issue, you can create new issue these tracs will never be noticed",
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d33f1fc_dd969975",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-05-25T07:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f702d6ff_df6d345e",
       "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
