@@ -125,6 +125,10 @@ class Manager :
      */
     size_t getAllowedSize();
 
+    /** @brief Check if any core files present and create BMC core dump
+     */
+    void checkAndCreateCoreDump();
+
     /** @brief sdbusplus Dump event loop */
     EventPtr eventLoop;
 
