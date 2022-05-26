@@ -27,7 +27,10 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 {
 
     // Get the timestamp
-    std::time_t timeStamp = std::time(nullptr);
+    uint64_t timeStamp =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count();
 
     // System dump can get created due to a fault in server
     // or by request from user. A system dump by fault is
