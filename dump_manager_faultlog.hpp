@@ -62,6 +62,13 @@ class Manager :
         }
     }
 
+    /** @brief Perform any post restore operations after claiming
+     *  the bus name. Any new D-Bus dump objects created will be
+     *  notified to the subscribers.
+     */
+    void checkAndInitialize() override
+    {}
+
     void restore() override
     {
         // TODO phosphor-debug-collector/issues/21: Restore fault log entries
