@@ -22,8 +22,6 @@ using namespace std;
 
 void Manager::watchCallback(const UserMap& fileInfo)
 {
-    vector<string> files;
-
     for (const auto& i : fileInfo)
     {
         std::filesystem::path file(i.first);
@@ -46,11 +44,11 @@ void Manager::watchCallback(const UserMap& fileInfo)
 
     if (!files.empty())
     {
-        createHelper(files);
+        createHelper();
     }
 }
 
-void Manager::createHelper(const vector<string>& files)
+void Manager::createHelper()
 {
     constexpr auto MAPPER_BUSNAME = "xyz.openbmc_project.ObjectMapper";
     constexpr auto MAPPER_PATH = "/xyz/openbmc_project/object_mapper";
@@ -69,32 +67,48 @@ void Manager::createHelper(const vector<string>& files)
     {
         auto mapperResponseMsg = b.call(mapper);
         mapperResponseMsg.read(mapperResponse);
-    }
-    catch (const sdbusplus::exception::exception& e)
-    {
-        log<level::ERR>(
-            fmt::format("Failed to GetObject on Dump.Internal: {}", e.what())
-                .c_str());
-        return;
-    }
-    if (mapperResponse.empty())
-    {
-        log<level::ERR>("Error reading mapper response");
-        return;
-    }
+        if (mapperResponse.empty())
+        {
+            log<level::ERR>("Error reading mapper response");
+            throw std::runtime_error("Error reading mapper response");
+        }
 
-    const auto& host = mapperResponse.cbegin()->first;
-    auto m =
-        b.new_method_call(host.c_str(), OBJ_INTERNAL, IFACE_INTERNAL, "Create");
-    m.append(APPLICATION_CORED, files);
-    try
-    {
+        const auto& host = mapperResponse.cbegin()->first;
+        auto m = b.new_method_call(host.c_str(), OBJ_INTERNAL, IFACE_INTERNAL,
+                                   "Create");
+        m.append(APPLICATION_CORED, files);
         b.call_noreply(m);
+        files.clear();
+        retryCounter = 0;
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const std::exception& e)
     {
         log<level::ERR>(
             fmt::format("Failed to create dump: {}", e.what()).c_str());
+
+        // core could be from phosphor-dump-manager, so retry after few seconds
+        // so that dump manager service is back to create core dump
+        if (!files.empty() && retryCounter < retryCount)
+        {
+            retryCounter++;
+            retryTimer.restartOnce(retryTimeInSec);
+            log<level::INFO>(
+                fmt::format("Retry core dump: after 5 sec  counter {}",
+                            retryCounter)
+                    .c_str());
+        }
+    }
+}
+
+void Manager::retryCoreDump()
+{
+    log<level::INFO>(fmt::format("retryCoreDump counter {} files size {}",
+                                 retryCounter, files.size())
+                         .c_str());
+    // check if another core dump did not pick the files before timer expiry
+    if (!files.empty())
+    {
+        createHelper();
     }
 }
 
