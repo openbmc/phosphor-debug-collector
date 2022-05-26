@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b0c2d7_963f9125",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-05-26T05:03:28Z",
+      "side": 1,
+      "message": "Here we may be deleting dumps which may not be offloaded to the client. The original behaviour is to reject any new dump if the dump storage is full. Is there any reason we are changing that behaviour?\nCan you please point to any discussion related to this?",
+      "revId": "694883242b02df05afa81e2ccbc3ab44db358aba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
