@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd715042_b0a69adf",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "I can remove",
+      "parentUuid": "9745a3d6_0940e597",
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "587d34ee_360b301d",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2022-05-26T11:21:41Z",
       "side": 1,
       "message": "Do we need to recursively walk all sub directory and creates the dump?\n\nI think systemd just put in the specified directory, right?\n\n(no harm, just checking)",
+      "range": {
+        "startLine": 294,
+        "startChar": 30,
+        "endLine": 294,
+        "endChar": 58
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489d554c_3cf52562",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "following original code from core_manager.cpp, I do not know the complete requirement here. but I guess you are correct, but will leave as is as I do not know the history.",
+      "parentUuid": "587d34ee_360b301d",
       "range": {
         "startLine": 294,
         "startChar": 30,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3d40391_7d6189f9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "took original code from core_manager.cpp but yes we can improve",
+      "parentUuid": "39b98749_669c84e6",
+      "range": {
+        "startLine": 298,
+        "startChar": 16,
+        "endLine": 299,
+        "endChar": 61
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffbc99b9_37eb87b1",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 1
@@ -77,6 +143,30 @@
       "writtenOn": "2022-05-26T11:21:41Z",
       "side": 1,
       "message": "collecting the BMC dump with?",
+      "range": {
+        "startLine": 311,
+        "startChar": 42,
+        "endLine": 311,
+        "endChar": 50
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e026ad8_a950b70f",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "it is either user, core, checkstop, rmoops dump",
+      "parentUuid": "ffbc99b9_37eb87b1",
       "range": {
         "startLine": 311,
         "startChar": 42,
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e926fcd_73bbdd1a",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "may be BMC core dump",
+      "parentUuid": "d2bc023a_2a578409",
+      "range": {
+        "startLine": 100,
+        "startChar": 43,
+        "endLine": 100,
+        "endChar": 59
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ad5ad16_150e8d85",
         "filename": "dump_manager_bmc.hpp",
         "patchSetId": 1
@@ -123,6 +237,30 @@
       "writtenOn": "2022-05-26T11:21:41Z",
       "side": 1,
       "message": "JS: createBMCDumpForCoreFiles?",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 32
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "564c60ae_4abc6859",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "checkAndCreateCoreDumps leaving as is, internally bmc dump can be core, user, checkstop and rmoops so..",
+      "parentUuid": "2ad5ad16_150e8d85",
       "range": {
         "startLine": 102,
         "startChar": 9,
@@ -146,6 +284,24 @@
       "writtenOn": "2022-05-26T11:21:41Z",
       "side": 1,
       "message": "- are deleting the core file after the BMC dump is collected? If so, can you point to the code (could not find it) just checking for \"whether we will collect the BMC dump again for the collected core files?\" since you are adding in the restore path and currently, the dump monitor just watching for a new core file and requesting to collect a BMC dump with all core files. - Correct me If I am wrong.\n\n- How the application (who wants to offload) knows that we have created a new BMC dump for the core files since in the restore path we are not emitting the D-Bus object create signal, right? (You are trying to fix the dump manager core cases so, checking the offload path)",
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b05ad6_bfde5e55",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T12:48:28Z",
+      "side": 1,
+      "message": "corefile - plugin does the copy and remove",
+      "parentUuid": "c2637444_4d59e063",
       "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
