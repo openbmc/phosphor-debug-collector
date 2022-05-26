@@ -5,7 +5,9 @@
 #include "dump_utils.hpp"
 #include "watch.hpp"
 
-#include <map>
+#include <vector>
+#include <sdeventplus/clock.hpp>
+#include <sdeventplus/utility/timer.hpp>
 
 namespace phosphor
 {
@@ -13,8 +15,12 @@ namespace dump
 {
 namespace core
 {
-using Watch = phosphor::dump::inotify::Watch;
-using UserMap = phosphor::dump::inotify::UserMap;
+
+using ::phosphor::dump::inotify::Watch;
+using ::phosphor::dump::inotify::UserMap;
+using ::sdeventplus::ClockId::Monotonic;
+using ::sdeventplus::utility::Timer;
+
 
 /** workaround: Watches for IN_CLOSE_WRITE event for the
  *  jffs filesystem based systemd-coredump core path
@@ -28,6 +34,8 @@ static constexpr auto coreFileEvent = IN_CLOSE_WRITE;
 #else
 static constexpr auto coreFileEvent = IN_CREATE;
 #endif
+
+static constexpr auto retryCount = 3;
 
 /** @class Manager
  *  @brief OpenBMC Core manager implementation.
@@ -50,15 +58,24 @@ class Manager
         coreWatch(eventLoop, IN_NONBLOCK, coreFileEvent, EPOLLIN, CORE_FILE_DIR,
                   std::bind(std::mem_fn(
                                 &phosphor::dump::core::Manager::watchCallback),
-                            this, std::placeholders::_1))
-    {}
+                            this, std::placeholders::_1)),
+        retryTimer(event.get(), std::bind(std::mem_fn(
+                                &phosphor::dump::core::Manager::retryCoreDump),
+                            this), retryTimeInSec)                            
+    {
+        retryTimer.setEnabled(false);
+    }
 
   private:
     /** @brief Helper function for initiating dump request using
      *         D-bus internal create interface.
-     *  @param [in] files - Core files list
      */
-    void createHelper(const std::vector<std::string>& files);
+    void createHelper();
+
+    /**
+     * @brief Helper method to retry core dump
+     */
+    void retryCoreDump();
 
     /** @brief Implementation of core watch call back
      * @param [in] fileInfo - map of file info  path:event
@@ -70,6 +87,18 @@ class Manager
 
     /** @brief Core watch object */
     Watch coreWatch;
+    
+    /** @brief Core files */
+    std::vector<std::string> files;
+    
+    /** @brief Retry time to attempt core dump */
+    const std::chrono::seconds retryTimeInSec{2};
+
+    /** @brief Retry core dump */
+    Timer<Monotonic> retryTimer;
+
+    /** retry counter - to keep track of no of retries */
+    uint16_t retryCounter = 0;
 };
 
 } // namespace core

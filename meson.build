@@ -57,6 +57,11 @@ if not has_cereal
     cereal_dep = cereal_proj.dependency('cereal')
 endif
 
+sdeventplus_dep = dependency(
+    'sdeventplus',
+    fallback: ['sdeventplus', 'sdeventplus_dep'],
+)
+
 # Disable FORTIFY_SOURCE when compiling with no optimization
 if(get_option('optimization') == '0')
   add_project_arguments('-U_FORTIFY_SOURCE',language:['cpp','c'])
@@ -184,7 +189,8 @@ phosphor_dump_monitor_sources = [
 phosphor_dump_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
         phosphor_logging_dep,
-        fmt_dep
+        fmt_dep,
+        sdeventplus_dep
     ]
 
 phosphor_dump_monitor_install = true
