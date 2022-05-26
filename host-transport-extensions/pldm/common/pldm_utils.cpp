@@ -38,6 +38,8 @@ int openPLDM()
 uint8_t getPLDMInstanceID(uint8_t eid)
 {
 
+    log<level::INFO>(
+        fmt::format("Get instance id from PLDM eid({})", eid).c_str());
     constexpr auto pldmRequester = "xyz.openbmc_project.PLDM.Requester";
     constexpr auto pldm = "/xyz/openbmc_project/pldm";
 
@@ -52,6 +54,7 @@ uint8_t getPLDMInstanceID(uint8_t eid)
     uint8_t instanceID = 0;
     reply.read(instanceID);
 
+    log<level::INFO>(fmt::format("Got instaceid({})", instanceID).c_str());
     return instanceID;
 }
 
