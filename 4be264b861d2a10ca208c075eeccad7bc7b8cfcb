@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9745a3d6_0940e597",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "JS: Do we really need this trace?",
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "587d34ee_360b301d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "Do we need to recursively walk all sub directory and creates the dump?\n\nI think systemd just put in the specified directory, right?\n\n(no harm, just checking)",
+      "range": {
+        "startLine": 294,
+        "startChar": 30,
+        "endLine": 294,
+        "endChar": 58
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b98749_669c84e6",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "JS: You could use string::starts_with()\n\n```\nif (file.path().filename().string().starts_with(\"core.\"))\n{\n}\n```",
+      "range": {
+        "startLine": 298,
+        "startChar": 16,
+        "endLine": 299,
+        "endChar": 61
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffbc99b9_37eb87b1",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "collecting the BMC dump with?",
+      "range": {
+        "startLine": 311,
+        "startChar": 42,
+        "endLine": 311,
+        "endChar": 50
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2bc023a_2a578409",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "collect the BMC dump?",
+      "range": {
+        "startLine": 100,
+        "startChar": 43,
+        "endLine": 100,
+        "endChar": 59
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad5ad16_150e8d85",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "JS: createBMCDumpForCoreFiles?",
+      "range": {
+        "startLine": 102,
+        "startChar": 9,
+        "endLine": 102,
+        "endChar": 32
+      },
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2637444_4d59e063",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-26T11:21:41Z",
+      "side": 1,
+      "message": "- are deleting the core file after the BMC dump is collected? If so, can you point to the code (could not find it) just checking for \"whether we will collect the BMC dump again for the collected core files?\" since you are adding in the restore path and currently, the dump monitor just watching for a new core file and requesting to collect a BMC dump with all core files. - Correct me If I am wrong.\n\n- How the application (who wants to offload) knows that we have created a new BMC dump for the core files since in the restore path we are not emitting the D-Bus object create signal, right? (You are trying to fix the dump manager core cases so, checking the offload path)",
+      "revId": "4be264b861d2a10ca208c075eeccad7bc7b8cfcb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
