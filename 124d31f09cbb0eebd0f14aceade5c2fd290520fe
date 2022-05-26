@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be421f74_604c4573",
+        "filename": "core_manager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-26T08:25:58Z",
+      "side": 0,
+      "message": "we need to retry for any of these D-Bus errors, as Dump manager might be in the process of restart",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 0
+      },
+      "revId": "124d31f09cbb0eebd0f14aceade5c2fd290520fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
