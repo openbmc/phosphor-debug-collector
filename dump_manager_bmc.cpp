@@ -282,6 +282,38 @@ size_t Manager::getAllowedSize()
     return size;
 }
 
+void Manager::checkAndCreateCoreDumps()
+{
+    log<level::INFO>("checkAndCreateCoreDumps");
+    std::vector<std::string> files;
+
+    if (std::filesystem::exists(CORE_FILE_DIR) &&
+        std::filesystem::is_directory(CORE_FILE_DIR))
+    {
+        for (auto const& file :
+             std::filesystem::recursive_directory_iterator(CORE_FILE_DIR))
+        {
+            if (std::filesystem::is_regular_file(file))
+            {
+                std::string name = file.path().filename();
+                if ("core" == name.substr(0, name.find('.')))
+                {
+                    // Consider only file name start with "core."
+                    files.push_back(file.path().string());
+                }
+            }
+        }
+    }
+
+    if (!files.empty())
+    {
+        log<level::INFO>(
+            fmt::format("Core file found, creating core dump size {}",
+                        files.size())
+                .c_str());
+        captureDump(Type::ApplicationCored, files);
+    }
+}
 } // namespace bmc
 } // namespace dump
 } // namespace phosphor

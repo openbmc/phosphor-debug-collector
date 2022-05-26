@@ -97,6 +97,10 @@ class Manager :
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
 
+    /** @brief Check if any core files and create core dump
+     */
+    void checkAndCreateCoreDumps();
+
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name

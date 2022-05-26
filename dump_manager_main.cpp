@@ -76,6 +76,7 @@ int main()
 
         phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
                                                    OBJ_INTERNAL);
+        bmcDumpMgr->checkAndCreateCoreDumps();
         dumpMgrList.push_back(std::move(bmcDumpMgr));
 
         phosphor::dump::loadExtensions(bus, dumpMgrList);
