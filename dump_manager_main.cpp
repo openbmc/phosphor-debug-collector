@@ -99,6 +99,12 @@ int main()
         // Daemon is all set up so claim the busname now.
         bus.request_name(DUMP_BUSNAME);
 
+        // check and initialize
+        for (auto& dmpMgr : dumpMgrList)
+        {
+            dmpMgr->checkAndInitialize();
+        }
+
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
         {
