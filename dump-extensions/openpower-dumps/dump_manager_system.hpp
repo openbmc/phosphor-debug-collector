@@ -55,6 +55,13 @@ class Manager :
         // after the service restart.
     }
 
+    /** @brief Perform any post restore operations after claiming
+     *  the bus name. Any new D-Bus dump objects created will be
+     *  notified to the subscribers.
+     */
+    void checkAndInitialize() override
+    {}
+
     /** @brief Notify the system dump manager about creation of a new dump.
      *  @param[in] dumpId - Id from the source of the dump.
      *  @param[in] size - Size of the dump.
