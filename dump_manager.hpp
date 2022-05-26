@@ -52,6 +52,12 @@ class Manager : public Iface
      */
     virtual void restore() = 0;
 
+    /** @brief Perform any post restore operations after claiming
+     *  the bus name. Any new D-Bus dump objects created will be
+     *  notified to the subscribers.
+     */
+    virtual void checkAndInitialize() = 0;
+
   protected:
     /** @brief Erase specified entry d-bus object
      *
