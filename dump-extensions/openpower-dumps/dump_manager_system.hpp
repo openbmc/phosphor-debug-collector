@@ -55,6 +55,9 @@ class Manager :
         // after the service restart.
     }
 
+    void checkAndInitialize() override
+    {}
+
     /** @brief Notify the system dump manager about creation of a new dump.
      *  @param[in] dumpId - Id from the source of the dump.
      *  @param[in] size - Size of the dump.
