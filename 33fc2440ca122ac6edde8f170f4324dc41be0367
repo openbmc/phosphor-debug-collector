@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fb40458_5eeaab65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-27T02:56:26Z",
+      "side": 1,
+      "message": "Can you please include the test case of the D-Bus emit signal?",
+      "revId": "33fc2440ca122ac6edde8f170f4324dc41be0367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc91b41_6a9ef367",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-27T02:56:26Z",
+      "side": 1,
+      "message": "I think still, we won\u0027t emit a D-Bus object creation signal because the D-Bus service name was requested after the restore call. can please confirm it?\n\nhttps://github.com/openbmc/phosphor-debug-collector/blob/master/dump_manager_main.cpp#L93\n\nFYR: https://www.stwcx.xyz/blog/2022/04/01/sdbusplus-object-signals.html",
+      "revId": "33fc2440ca122ac6edde8f170f4324dc41be0367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d4b5f0f_9d92905c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-05-27T02:56:26Z",
+      "side": 1,
+      "message": "JS: You could move LN 288 and this block into the above if block.",
+      "range": {
+        "startLine": 305,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 5
+      },
+      "revId": "33fc2440ca122ac6edde8f170f4324dc41be0367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
