@@ -184,6 +184,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30686d7a_ec4fd4ba",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-02T05:08:06Z",
+      "side": 1,
+      "message": "We cannot cater for that",
+      "parentUuid": "c41e572a_5a0f041f",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 58
+      },
+      "revId": "08b7e478c7cdd818af82869d559daf340cd32c42",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45474fe9_c37dd8a0",
