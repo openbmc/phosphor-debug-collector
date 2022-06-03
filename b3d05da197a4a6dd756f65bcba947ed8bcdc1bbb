@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278d2c97_6a311edc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-03T06:40:32Z",
+      "side": 1,
+      "message": "It is not for 2 BMC systems, This is related to multiple flash  side supported boxes.",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "b3d05da197a4a6dd756f65bcba947ed8bcdc1bbb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f311fec_96ee727e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-03T06:40:32Z",
+      "side": 1,
+      "message": "Considering backward compatibility , instead of printing errors , run the plugin only if the file is present.",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "b3d05da197a4a6dd756f65bcba947ed8bcdc1bbb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
