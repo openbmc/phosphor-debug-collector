@@ -16,6 +16,24 @@
       "message": "Confusing statement. Better add what is the issue how you fixed.",
       "revId": "d676fdecac6d033d28f5832f967d8ff50d100ff4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01f3170b_e41beef5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T13:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56bc4b2e_7602d175",
+      "revId": "d676fdecac6d033d28f5832f967d8ff50d100ff4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
