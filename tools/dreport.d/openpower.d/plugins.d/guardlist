@@ -4,7 +4,10 @@
 # @brief: Collect GUARD record information.
 #
 
+# shellcheck disable=SC1091
 . "$DREPORT_INCLUDE/functions"
+
+source /etc/profile.d/power-target.sh
 
 desc="GUARD partition"
 guard_part_file="/var/lib/phosphor-software-manager/hostfw/running/GUARD"
