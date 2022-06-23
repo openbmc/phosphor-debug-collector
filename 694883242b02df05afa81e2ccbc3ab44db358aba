@@ -34,6 +34,24 @@
       "parentUuid": "64b0c2d7_963f9125",
       "revId": "694883242b02df05afa81e2ccbc3ab44db358aba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ad88262_84e30192",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-23T07:16:10Z",
+      "side": 1,
+      "message": "We had similar discussion during initial design time and the input from team is to keep the old file to support debug the base issue , for smaller flash supported systems. Another approach is policy based like use some Settings property related to this instead of build level control . can you please initaite discussion in discord to get team view on this?",
+      "parentUuid": "63e7f803_ceff10b8",
+      "revId": "694883242b02df05afa81e2ccbc3ab44db358aba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
