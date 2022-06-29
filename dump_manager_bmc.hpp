@@ -5,9 +5,12 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
+#include <sdeventplus/source/child.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 #include <filesystem>
+#include <map>
+
 namespace phosphor
 {
 namespace dump
@@ -30,7 +33,7 @@ using Type =
     sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
 
 using Watch = phosphor::dump::inotify::Watch;
-
+using ::sdeventplus::source::Child;
 // Type to dreport type  string map
 static const std::map<Type, std::string> TypeMap = {
     {Type::ApplicationCored, "core"},
@@ -110,24 +113,6 @@ class Manager :
      */
     uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
 
-    /** @brief sd_event_add_child callback
-     *
-     *  @param[in] s - event source
-     *  @param[in] si - signal info
-     *  @param[in] userdata - pointer to Watch object
-     *
-     *  @returns 0 on success, -1 on fail
-     */
-    static int callback(sd_event_source*, const siginfo_t*, void* type)
-    {
-        Type* ptr = reinterpret_cast<Type*>(type);
-        if (*ptr == Type::UserRequested)
-        {
-            fUserDumpInProgress = false;
-        }
-        delete ptr;
-        return 0;
-    }
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map
@@ -157,6 +142,9 @@ class Manager :
      *        [path:watch object]
      */
     std::map<std::filesystem::path, std::unique_ptr<Watch>> childWatchMap;
+
+    /** @brief map of SDEventPlus child pointer added to event loop */
+    std::map<pid_t, std::unique_ptr<Child>> childPtrMap;
 };
 
 } // namespace bmc
