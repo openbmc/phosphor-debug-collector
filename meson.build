@@ -27,6 +27,7 @@ libsystemd = dependency('libsystemd', version : '>=221')
 sdbusplus_dep = dependency('sdbusplus')
 sdbusplusplus_prog = find_program('sdbus++')
 sdbuspp_gen_meson_prog = find_program('sdbus++-gen-meson')
+sdeventplus_dep = dependency('sdeventplus')
 
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
@@ -177,6 +178,7 @@ phosphor_dump_manager_sources = [
 phosphor_dump_manager_dependency = [
         phosphor_dbus_interfaces_dep,
         sdbusplus_dep,
+        sdeventplus_dep,
         phosphor_logging_dep,
         fmt_dep,
         cereal_dep,
