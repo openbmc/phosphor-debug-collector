@@ -16,6 +16,24 @@
       "message": "will this handle multiple dump request at the same time?",
       "revId": "b964a42bcc21d91770f730981519472a9a7f29ac",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6549e07_953cb467",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-29T04:41:32Z",
+      "side": 1,
+      "message": "yeah it will not handle, do we need to cater for it",
+      "parentUuid": "b231dc98_b26bca3a",
+      "revId": "b964a42bcc21d91770f730981519472a9a7f29ac",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
