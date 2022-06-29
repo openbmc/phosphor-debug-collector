@@ -13,6 +13,8 @@
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <sdeventplus/exception.hpp>
+#include <sdeventplus/source/base.hpp>
 
 #include <cmath>
 #include <ctime>
@@ -124,20 +126,31 @@ uint32_t Manager::captureDump(Type type,
     }
     else if (pid > 0)
     {
-        // local variable goes out of scope using pointer, callback method
-        // need to dellocate the pointer
-        Type* typePtr = new Type();
-        *typePtr = type;
-        int rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                    WEXITED | WSTOPPED, callback,
-                                    reinterpret_cast<void*>(typePtr));
-        if (0 > rc)
+        Child::Callback callback = [this, type, pid](Child&, const siginfo_t*) {
+            if (type == Type::UserRequested)
+            {
+                log<level::INFO>(
+                    "User initiated dump completed, resetting flag");
+                Manager::fUserDumpInProgress = false;
+            }
+            this->childPtrMap.erase(pid);
+        };
+        try
+        {
+            childPtrMap.emplace(pid,
+                                std::make_unique<Child>(eventLoop.get(), pid,
+                                                        WEXITED | WSTOPPED,
+                                                        std::move(callback)));
+        }
+        catch (const sdeventplus::SdEventError& ex)
         {
             // Failed to add to event loop
-            log<level::ERR>(fmt::format("Error occurred during the "
-                                        "sd_event_add_child call, rc({})",
-                                        rc)
-                                .c_str());
+            log<level::ERR>(
+                fmt::format(
+                    "Error occurred during the sdeventplus::source::Child "
+                    "creation ex({})",
+                    ex.what())
+                    .c_str());
             elog<InternalFailure>();
         }
     }
