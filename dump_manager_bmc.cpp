@@ -13,6 +13,8 @@
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <sdeventplus/exception.hpp>
+#include <sdeventplus/source/base.hpp>
 
 #include <cmath>
 #include <ctime>
@@ -104,15 +106,25 @@ uint32_t Manager::captureDump(Type type,
     }
     else if (pid > 0)
     {
-        auto rc = sd_event_add_child(eventLoop.get(), nullptr, pid,
-                                     WEXITED | WSTOPPED, callback, nullptr);
-        if (0 > rc)
+        try
+        {
+            Child::Callback callback = [this, type, pid](Child&,
+                                                         const siginfo_t*) {
+                this->childPtrMap.erase(pid);
+            };
+            childPtrMap.emplace(pid,
+                                std::make_unique<Child>(eventLoop.get(), pid,
+                                                        WEXITED | WSTOPPED,
+                                                        std::move(callback)));
+        }
+        catch (const sdeventplus::SdEventError& ex)
         {
             // Failed to add to event loop
             log<level::ERR>(
                 fmt::format(
-                    "Error occurred during the sd_event_add_child call, rc({})",
-                    rc)
+                    "Error occurred during the sdeventplus::source::Child "
+                    "creation ex({})",
+                    ex.what())
                     .c_str());
             elog<InternalFailure>();
         }
