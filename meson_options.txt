@@ -80,11 +80,6 @@ option('host-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
 
-option('openpower-dumps-extension', type: 'feature',
-        value : 'disabled',
-        description : 'Enable Open Power specific dumps'
-      )
-
 # Fault log options
 
 option('FAULTLOG_DUMP_PATH', type : 'string',
@@ -126,4 +121,21 @@ option('RESOURCE_DUMP_OBJPATH', type : 'string',
 option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/resource/entry',
         description : 'The resource dump entry D-Bus object path'
+      )
+
+# Dump type selection
+
+option('bmc-dump-feature', type: 'feature',
+        value : 'enabled',
+        description : 'Enable BMC dumps'
+      )
+
+option('faultlog-dump-feature', type: 'feature',
+        value : 'enabled',
+        description : 'Enable Fault Log dumps'
+      )
+
+option('openpower-dumps-extension', type: 'feature',
+        value : 'disabled',
+        description : 'Enable Open Power specific dumps'
       )

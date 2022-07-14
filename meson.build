@@ -63,6 +63,14 @@ if(get_option('optimization') == '0')
   message('Disabling FORTIFY_SOURCE as optimization is set to 0')
 endif
 
+if (get_option('bmc-dump-feature').enabled())
+  add_project_arguments('-DBMC_DUMP_ENABLED', language : 'cpp')
+endif
+
+if (get_option('faultlog-dump-feature').enabled())
+  add_project_arguments('-DFAULTLOG_DUMP_ENABLED', language : 'cpp')
+endif
+
 # Configuration header file(config.h) generation
 
 conf_data = configuration_data()
