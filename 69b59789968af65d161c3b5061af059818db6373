@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92a2024_42471dcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-07-14T02:01:49Z",
+      "side": 1,
+      "message": "I’m interested in providing a way to selectively enable/disable the bmc dump and fault log dump at compile time. Here I am starting with a simple approach. Please advise if there is another preferred approach, such as following the previous commit “Make OpenPower specific dump an optional feature” (8b9b4690a4460ada5bf60a285ff6065eda6d5d4a) to split the dump types into separate subdirectories.\n\nAlso, a couple questions: \n1) Are openpower dumps dependent on the bmc dump manager, or should it be possible to enable openpower dumps when bmc dumps are disabled?\n2) What is the meaning of the “internal” namespace? Could someone help me understand the purpose of phosphor::dump::bmc::internal::Manager being distinct from phosphor::dump::bmc::Manager?",
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
