@@ -70,6 +70,8 @@ int main()
     try
     {
         phosphor::dump::DumpManagerList dumpMgrList{};
+
+#if BMC_DUMP_ENABLED
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
                 bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY,
@@ -78,12 +80,15 @@ int main()
         phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
                                                    OBJ_INTERNAL);
         dumpMgrList.push_back(std::move(bmcDumpMgr));
+#endif
 
+#if FAULTLOG_DUMP_ENABLED
         std::unique_ptr<phosphor::dump::faultlog::Manager> faultLogMgr =
             std::make_unique<phosphor::dump::faultlog::Manager>(
                 bus, FAULTLOG_DUMP_OBJPATH, FAULTLOG_DUMP_OBJ_ENTRY,
                 FAULTLOG_DUMP_PATH);
         dumpMgrList.push_back(std::move(faultLogMgr));
+#endif
 
         phosphor::dump::loadExtensions(bus, dumpMgrList);
 
@@ -93,7 +98,9 @@ int main()
             dmpMgr->restore();
         }
 
+#if BMC_DUMP_ENABLED
         phosphor::dump::elog::Watch eWatch(bus, mgr);
+#endif
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
         // Daemon is all set up so claim the busname now.
