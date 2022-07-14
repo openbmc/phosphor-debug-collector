@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd7bb49_ef866588",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-14T13:33:09Z",
+      "side": 1,
+      "message": "Can you provide  background on why BMC dump need to selectively control at build level?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf2c11b_8b66c6cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-14T13:33:09Z",
+      "side": 1,
+      "message": "BMC dump supports multiple dump sub types core,  refer dreport.d/sample.conf for details of dump types. Proposed code is going to fail other than user/elog type dumps.",
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a92a2024_42471dcd",
