@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0773c7e_1c774753",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-07-15T07:44:49Z",
+      "side": 1,
+      "message": "On some systems we might want to just have BMC dumps and not fault log, or vice versa.\n\nTo be honest, on my test system I\u0027m seeing many BMC core dumps being quickly generated and filling the storage quota, and I haven\u0027t gotten around to debugging the issue. So in the meantime I\u0027m looking for a way to disable BMC dumps, while keeping fault log enabled.\n\nIf it is not practical to disable BMC dump at the build level, is there a convenient way to do it at runtime?",
+      "parentUuid": "5cd7bb49_ef866588",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cf2c11b_8b66c6cf",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -43,6 +67,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4af0bc8b_c8beeb7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-07-15T07:44:49Z",
+      "side": 1,
+      "message": "Acknowledged, thanks for pointing it out.",
+      "parentUuid": "7cf2c11b_8b66c6cf",
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a92a2024_42471dcd",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +96,24 @@
       "writtenOn": "2022-07-14T02:01:49Z",
       "side": 1,
       "message": "I’m interested in providing a way to selectively enable/disable the bmc dump and fault log dump at compile time. Here I am starting with a simple approach. Please advise if there is another preferred approach, such as following the previous commit “Make OpenPower specific dump an optional feature” (8b9b4690a4460ada5bf60a285ff6065eda6d5d4a) to split the dump types into separate subdirectories.\n\nAlso, a couple questions: \n1) Are openpower dumps dependent on the bmc dump manager, or should it be possible to enable openpower dumps when bmc dumps are disabled?\n2) What is the meaning of the “internal” namespace? Could someone help me understand the purpose of phosphor::dump::bmc::internal::Manager being distinct from phosphor::dump::bmc::Manager?",
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c632914_2cef436e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-07-15T07:44:49Z",
+      "side": 1,
+      "message": "Marking as unresolved to get some attention on the questions in this thread.",
+      "parentUuid": "a92a2024_42471dcd",
       "revId": "69b59789968af65d161c3b5061af059818db6373",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
