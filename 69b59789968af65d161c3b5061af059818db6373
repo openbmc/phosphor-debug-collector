@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9d04dcc_12c09edd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-18T07:04:48Z",
+      "side": 1,
+      "message": "Existing BMC deump manager support various dump sub types. If there is real use case for controlling individual dumps we can look settings based option to enable/disable instead of build level control ( which required more work to restructring the xisting code).",
+      "parentUuid": "e0773c7e_1c774753",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cf2c11b_8b66c6cf",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -114,6 +138,24 @@
       "side": 1,
       "message": "Marking as unresolved to get some attention on the questions in this thread.",
       "parentUuid": "a92a2024_42471dcd",
+      "revId": "69b59789968af65d161c3b5061af059818db6373",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf73c350_51e71ca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-18T07:04:48Z",
+      "side": 1,
+      "message": "1) Are openpower dumps dependent on the bmc dump manager, or should it be possible to enable openpower dumps when bmc dumps are disabled?\nopenpower dump manager is not depened on BMC dump manager.\n\nhttps://github.com/openbmc/docs/blob/master/designs/dump-manager.md provides the high level flow of existing dump manager design",
+      "parentUuid": "7c632914_2cef436e",
       "revId": "69b59789968af65d161c3b5061af059818db6373",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
