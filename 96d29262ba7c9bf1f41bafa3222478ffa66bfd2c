@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47c807a5_4a2ecf75",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Refer previous comment related to todo",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6e73482_ee59d0f1",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 6
@@ -20,6 +37,64 @@
         "endLine": 62,
         "endChar": 45
       },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c0ad06_281e3829",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Same comment in https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/48337/6/dump_manager_bmc.cpp#238",
+      "parentUuid": "a6e73482_ee59d0f1",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 45
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f9a18b_6ad75686",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Refer previous comments",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3626ccf1_ac8238bd",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Refer: ttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/48337/6/dump_manager_bmc.cpp#238",
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -49,6 +124,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46cd2de1_f3d426e9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Looks like common code used in two place , can you make this as utility function?",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55eede43_61c5d37e",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 6
@@ -65,6 +157,63 @@
         "startChar": 24,
         "endLine": 44,
         "endChar": 25
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1228e64_fdc1a875",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "Genaral design direction related: BMC dump manager supports various internal dump typesother than user type fault logs and internal d-bus interfaces.phosphor-debug-collector/xyz/openbmc_project/Dump/Internal/Create.interface.yaml .  What is the general direction you are planing follow here.\nSome of the dumps are used internal create d-bus interface. It is better to be consistent in all types of dumps in from use case point.",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31985342_7f61fa10",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "is this commit is going to enable by separate commit, Better to get This support also in place before merging this commit,",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e3ed074_83dc10f2",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-22T06:44:57Z",
+      "side": 1,
+      "message": "why here setting to internal , be consistent on default behaviour.  incase user missed to provide the type other places your are setting to empty string.",
+      "range": {
+        "startLine": 238,
+        "startChar": 19,
+        "endLine": 238,
+        "endChar": 46
       },
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
