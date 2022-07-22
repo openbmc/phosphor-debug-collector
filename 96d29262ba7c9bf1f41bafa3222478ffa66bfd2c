@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e73482_ee59d0f1",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-07-22T05:37:46Z",
+      "side": 1,
+      "message": "Is Internal is the default value for every dump ? Please mention this in the comments",
+      "range": {
+        "startLine": 62,
+        "startChar": 20,
+        "endLine": 62,
+        "endChar": 45
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c0a3ee5_40924bda",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-07-22T05:37:46Z",
+      "side": 1,
+      "message": "This should be 2 here. The same Macro. If originator type is passed, that will be the 2nd input parameter",
+      "range": {
+        "startLine": 85,
+        "startChar": 24,
+        "endLine": 85,
+        "endChar": 25
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55eede43_61c5d37e",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2022-07-22T05:37:46Z",
+      "side": 1,
+      "message": "Can you add a macro for this and use that macro here ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 24,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
