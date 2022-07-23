@@ -19,7 +19,7 @@ namespace faultlog
 
 using namespace phosphor::logging;
 
-using CreateIface = sdbusplus::server::object::object<
+using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 /** @class Manager
@@ -43,7 +43,7 @@ class Manager :
      *  @param[in] baseEntryPath - Base path for dump entry.
      *  @param[in] filePath - Path where the dumps are stored.
      */
-    Manager(sdbusplus::bus::bus& bus, const char* path,
+    Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath, const char* filePath) :
         CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath), dumpDir(filePath)

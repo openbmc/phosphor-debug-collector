@@ -41,7 +41,7 @@ class Watch
      *  @param[in] bus -  The Dbus bus object
      *  @param[in] intMgr - Dump internal Manager object
      */
-    Watch(sdbusplus::bus::bus& bus, IMgr& iMgr);
+    Watch(sdbusplus::bus_t& bus, IMgr& iMgr);
 
   private:
     friend class cereal::access;
@@ -67,12 +67,12 @@ class Watch
      *           Internal error type dump request.
      *  @param[in] msg  - Data associated with subscribed signal
      */
-    void addCallback(sdbusplus::message::message& msg);
+    void addCallback(sdbusplus::message_t& msg);
 
     /** @brief Callback function for error log delete.
      *  @param[in] msg  - Data associated with subscribed signal
      */
-    void delCallback(sdbusplus::message::message& msg);
+    void delCallback(sdbusplus::message_t& msg);
 
     /** @brief get elog ID from elog entry object string.
      *  @param[in] objectPath  - elog entry object path.

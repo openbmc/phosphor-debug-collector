@@ -22,7 +22,7 @@ class Manager;
 
 } // namespace internal
 
-using CreateIface = sdbusplus::server::object::object<
+using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 using UserMap = phosphor::dump::inotify::UserMap;
@@ -66,7 +66,7 @@ class Manager :
      *  @param[in] baseEntryPath - Base path for dump entry.
      *  @param[in] filePath - Path where the dumps are stored.
      */
-    Manager(sdbusplus::bus::bus& bus, const EventPtr& event, const char* path,
+    Manager(sdbusplus::bus_t& bus, const EventPtr& event, const char* path,
             const std::string& baseEntryPath, const char* filePath) :
         CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath),

@@ -72,7 +72,7 @@ struct CustomFd
  * @param[in] interface - D-Bus interface name.
  * @return the bus service as a string
  **/
-std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
+std::string getService(sdbusplus::bus_t& bus, const std::string& path,
                        const std::string& interface);
 
 /**
