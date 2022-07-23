@@ -11,7 +11,7 @@ namespace dump
 
 using namespace phosphor::logging;
 
-std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
+std::string getService(sdbusplus::bus_t& bus, const std::string& path,
                        const std::string& interface)
 {
     constexpr auto objectMapperName = "xyz.openbmc_project.ObjectMapper";
@@ -38,7 +38,7 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& path,
             return std::string{};
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("Error in mapper method call, "
                                     "errormsg({}), PATH({}), INTERFACE({})",
@@ -84,7 +84,7 @@ BootProgress getBootProgress()
         bootProgessStage = sdbusplus::xyz::openbmc_project::State::Boot::
             server::Progress::convertProgressStagesFromString(bootPgs);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("D-Bus call exception, OBJPATH({}), "
                                     "INTERFACE({}), EXCEPTION({})",

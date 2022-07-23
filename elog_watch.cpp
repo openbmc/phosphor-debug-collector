@@ -34,7 +34,7 @@ using AttributeMap = std::map<AttributeName, Attributes>;
 using PropertyName = std::string;
 using PropertyMap = std::map<PropertyName, AttributeMap>;
 
-Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr) :
+Watch::Watch(sdbusplus::bus_t& bus, IMgr& iMgr) :
     iMgr(iMgr),
     addMatch(bus,
              sdbusplus::bus::match::rules::interfacesAdded() +
@@ -58,7 +58,7 @@ Watch::Watch(sdbusplus::bus::bus& bus, IMgr& iMgr) :
     }
 }
 
-void Watch::addCallback(sdbusplus::message::message& msg)
+void Watch::addCallback(sdbusplus::message_t& msg)
 {
     using QuotaExceeded =
         sdbusplus::xyz::openbmc_project::Dump::Create::Error::QuotaExceeded;
@@ -69,7 +69,7 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     {
         msg.read(objectPath, propertyMap);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(
             fmt::format(
@@ -158,14 +158,14 @@ void Watch::addCallback(sdbusplus::message::message& msg)
     return;
 }
 
-void Watch::delCallback(sdbusplus::message::message& msg)
+void Watch::delCallback(sdbusplus::message_t& msg)
 {
     sdbusplus::message::object_path objectPath;
     try
     {
         msg.read(objectPath);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(
             fmt::format(

@@ -13,7 +13,7 @@ namespace dump
 
 using DumpCreateParams =
     std::map<std::string, std::variant<std::string, uint64_t>>;
-using Iface = sdbusplus::server::object::object<
+using Iface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll>;
 
 /** @class Manager
@@ -39,7 +39,7 @@ class Manager : public Iface
      *  @param[in] path - Path to attach at.
      *  @param[in] baseEntryPath - Base path of the dump entry.
      */
-    Manager(sdbusplus::bus::bus& bus, const char* path,
+    Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
         Iface(bus, path, Iface::action::defer_emit),
         bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
@@ -64,7 +64,7 @@ class Manager : public Iface
     void deleteAll() override;
 
     /** @brief sdbusplus DBus bus connection. */
-    sdbusplus::bus::bus& bus;
+    sdbusplus::bus_t& bus;
 
     /** @brief Dump Entry dbus objects map based on entry id */
     std::map<uint32_t, std::unique_ptr<Entry>> entries;

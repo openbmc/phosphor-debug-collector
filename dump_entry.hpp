@@ -16,13 +16,13 @@ namespace dump
 {
 
 template <typename T>
-using ServerObject = typename sdbusplus::server::object::object<T>;
+using ServerObject = typename sdbusplus::server::object_t<T>;
 
 // TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
 // still needed in dump entry since start time and completed time are available
 // from sdbusplus::xyz::openbmc_project::Common::server::Progress
 // #ibm-openbmc/2809
-using EntryIfaces = sdbusplus::server::object::object<
+using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
     sdbusplus::xyz::openbmc_project::Object::server::Delete,
@@ -57,7 +57,7 @@ class Entry : public EntryIfaces
      *  @param[in] dumpSize - Dump file size in bytes.
      *  @param[in] parent - The dump entry's parent.
      */
-    Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
           Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),

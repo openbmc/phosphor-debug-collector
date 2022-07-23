@@ -18,9 +18,9 @@ namespace dump
 namespace bmc
 {
 template <typename T>
-using ServerObject = typename sdbusplus::server::object::object<T>;
+using ServerObject = typename sdbusplus::server::object_t<T>;
 
-using EntryIfaces = sdbusplus::server::object::object<
+using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
 
 class Manager;
@@ -51,7 +51,7 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] status - status of the dump.
      *  @param[in] parent - The dump entry's parent.
      */
-    Entry(sdbusplus::bus::bus& bus, const std::string& objPath, uint32_t dumpId,
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status,

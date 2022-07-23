@@ -16,6 +16,6 @@ using DumpManagerList = std::vector<std::unique_ptr<phosphor::dump::Manager>>;
  * @param[out] dumpMgrList - list dump manager objects.
  *
  */
-void loadExtensions(sdbusplus::bus::bus& bus, DumpManagerList& dumpMgrList);
+void loadExtensions(sdbusplus::bus_t& bus, DumpManagerList& dumpMgrList);
 } // namespace dump
 } // namespace phosphor
