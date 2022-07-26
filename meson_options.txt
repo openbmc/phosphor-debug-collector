@@ -107,6 +107,36 @@ option('FAULTLOG_DUMP_OBJ_ENTRY', type : 'string',
         description : 'The fault log dump entry D-Bus object path'
       )
 
+option('CPER_LOG_PATH', type : 'string',
+        value : '/run/bmcweb/redfish/v1/Systems/system/LogServices/',
+        description : 'File system path containing CPER logs'
+      )
+
+option('CPER_LOG_ID_STRING_LEN', type : 'integer',
+        value : 81,
+        description : 'Length of ID string identifying a CPER log'
+      )
+
+option('MAX_TOTAL_FAULT_LOG_ENTRIES', type : 'integer',
+        value : 1000,
+        description : 'Maximum number of fault log entries including those specially saved'
+      )
+
+option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES', type : 'integer',
+        value : 1,
+        description : 'Maximum number of specially saved crashdump entries'
+      )
+
+option('MAX_NUM_SAVED_CPER_LOG_ENTRIES', type : 'integer',
+        value : 20,
+        description : 'Maximum number of specially saved CPER log entries'
+      )
+
+option('HOST_CPER_LOGGER_BUSNAME', type : 'string',
+        value : 'xyz.openbmc_project.bios_bmc_smm_error_logger',
+        description : 'Dbus bus name of service which receives and saves CPER logs from the host'
+      )
+
 # Configurations for openpower-dump extension
 
 # System dump options

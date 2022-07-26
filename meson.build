@@ -131,10 +131,34 @@ conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
 conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled(),
                description : 'Turn on rotate config for bmc dump'
              )
+conf_data.set_quoted('CPER_LOG_PATH', get_option('CPER_LOG_PATH'),
+                      description : 'File system path containing CPER logs'
+                    )
+conf_data.set('CPER_LOG_ID_STRING_LEN', get_option('CPER_LOG_ID_STRING_LEN'),
+                      description : 'Length of GUID string identifying a CPER log'
+                    )
+conf_data.set('MAX_TOTAL_FAULT_LOG_ENTRIES', get_option('MAX_TOTAL_FAULT_LOG_ENTRIES'),
+                      description : 'Maximum number of fault log entries including those specially saved'
+                    )
+conf_data.set('MAX_NUM_SAVED_CRASHDUMP_ENTRIES', get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES'),
+                      description : 'Maximum number of specially saved crashdump entries'
+                    )
+conf_data.set('MAX_NUM_SAVED_CPER_LOG_ENTRIES', get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES'),
+                      description : 'Maximum number of specially saved CPER log entries'
+                    )
+conf_data.set_quoted('HOST_CPER_LOGGER_BUSNAME', get_option('HOST_CPER_LOGGER_BUSNAME'),
+                      description : 'Dbus bus name of service which receives and saves CPER logs from the host'
+                    )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
+
+assert(get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES') >= 0, 'MAX_TOTAL_FAULT_LOG_ENTRIES >= 0')
+assert(get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES') >= 0, 'MAX_NUM_SAVED_CRASHDUMP_ENTRIES >= 0')
+assert(get_option('MAX_TOTAL_FAULT_LOG_ENTRIES') >= 0, 'MAX_TOTAL_FAULT_LOG_ENTRIES >= 0')
+assert(get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES') + get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES') < get_option('MAX_TOTAL_FAULT_LOG_ENTRIES'),
+       'MAX_TOTAL_FAULT_LOG_ENTRIES must be greater than the maximum total of number of saved entries of all types')
 
 subdir('xyz/openbmc_project/Dump/Internal/Create')
 

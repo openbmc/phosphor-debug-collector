@@ -59,11 +59,11 @@ class Manager : public Iface
      */
     void erase(uint32_t entryId);
 
-    /** @brief  Erase all BMC dump entries and  Delete all Dump files
-     * from Permanent location
+    /** @brief  Erase all dump entries and delete all dump files
+     * from permanent location
      *
      */
-    void deleteAll() override;
+    virtual void deleteAll() override;
 
     /** @brief sdbusplus DBus bus connection. */
     sdbusplus::bus_t& bus;
