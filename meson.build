@@ -130,10 +130,64 @@ conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
 conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled(),
                description : 'Turn on rotate config for bmc dump'
              )
+conf_data.set_quoted('CPER_LOG_PATH', get_option('CPER_LOG_PATH'),
+                      description : 'File system path containing CPER logs'
+                    )
+conf_data.set('CPER_LOG_ID_STRING_LEN', get_option('CPER_LOG_ID_STRING_LEN'),
+                      description : 'Length of GUID string identifying a CPER log'
+                    )
+conf_data.set('MAX_TOTAL_FAULT_LOG_ENTRIES', get_option('MAX_TOTAL_FAULT_LOG_ENTRIES'),
+                      description : 'Maximum number of fault log entries including those specially saved'
+                    )
+conf_data.set('MAX_NUM_SAVED_CRASHDUMP_ENTRIES', get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES'),
+                      description : 'Maximum number of specially saved crashdump entries'
+                    )
+conf_data.set('MAX_NUM_SAVED_CPER_LOG_ENTRIES', get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES'),
+                      description : 'Maximum number of specially saved CPER log entries'
+                    )
+conf_data.set_quoted('BIOS_BMC_SMM_ERROR_LOGGER_BUSNAME', get_option('BIOS_BMC_SMM_ERROR_LOGGER_BUSNAME'),
+                      description : 'Dbus bus name of service which provides notification of BIOS logs'
+                    )
+conf_data.set_quoted('BIOS_BMC_SMM_ERROR_LOGGER_OBJPATH_NAMESPACE', get_option('BIOS_BMC_SMM_ERROR_LOGGER_OBJPATH_NAMESPACE'),
+                      description : 'Dbus object path namespace for BIOS log objects'
+                    )
+conf_data.set('faultlog_match_bios_bmc_smm_error_logger', get_option('faultlog_match_bios_bmc_smm_error_logger').enabled(),
+               description : 'Enable Dbus match rule for detecting that a new error log has been received from BIOS'
+             )
+conf_data.set_quoted('INTEL_CRASHDUMP_BUSNAME', get_option('INTEL_CRASHDUMP_BUSNAME'),
+                      description : 'Dbus bus name of service which provides notification of Intel crashdumps'
+                    )
+conf_data.set_quoted('INTEL_CRASHDUMP_OBJPATH_NAMESPACE', get_option('INTEL_CRASHDUMP_OBJPATH_NAMESPACE'),
+                      description : 'Dbus object path namespace for Intel crashdump objects'
+                    )
+conf_data.set_quoted('INTEL_CRASHDUMP_INTERFACE', get_option('INTEL_CRASHDUMP_INTERFACE'),
+                      description : 'Dbus interface for Intel crashdump'
+                    )
+conf_data.set('faultlog_match_intel_crashdump', get_option('faultlog_match_intel_crashdump').enabled(),
+               description : 'Enable Dbus match rule for detecting that a new crashdump is available'
+             )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
+
+assert(get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES') >= 0, 'MAX_TOTAL_FAULT_LOG_ENTRIES >= 0')
+assert(get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES') >= 0, 'MAX_NUM_SAVED_CRASHDUMP_ENTRIES >= 0')
+assert(get_option('MAX_TOTAL_FAULT_LOG_ENTRIES') >= 0, 'MAX_TOTAL_FAULT_LOG_ENTRIES >= 0')
+assert(get_option('MAX_NUM_SAVED_CPER_LOG_ENTRIES') + get_option('MAX_NUM_SAVED_CRASHDUMP_ENTRIES') < get_option('MAX_TOTAL_FAULT_LOG_ENTRIES'),
+       'MAX_TOTAL_FAULT_LOG_ENTRIES must be greater than the maximum total of number of saved entries of all types')
+
+faultlog_match_map = {
+  'faultlog_match_bios_bmc_smm_error_logger' : '-DFAULTLOG_MATCH_BIOS_BMC_SMM_ERROR_LOGGER',
+  'faultlog_match_intel_crashdump'           : '-DFAULTLOG_MATCH_INTEL_CRASHDUMP'
+}
+
+foreach key, value : faultlog_match_map
+  if(get_option(key).enabled())
+    add_project_arguments(value, language:'cpp')
+    summary(key, value, section : 'Enabled FaultLog Matches')
+  endif
+endforeach
 
 subdir('xyz/openbmc_project/Dump/Internal/Create')
 
