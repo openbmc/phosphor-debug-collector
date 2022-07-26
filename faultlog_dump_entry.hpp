@@ -4,6 +4,8 @@
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
+#include <xyz/openbmc_project/Dump/Entry/FaultLog/server.hpp>
+#include <xyz/openbmc_project/Dump/Entry/server.hpp>
 #include <xyz/openbmc_project/Object/Delete/server.hpp>
 #include <xyz/openbmc_project/Time/EpochTime/server.hpp>
 
@@ -18,7 +20,11 @@ namespace faultlog
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-using EntryIfaces = sdbusplus::server::object_t<>;
+using EntryIfaces = sdbusplus::server::object_t<
+    sdbusplus::xyz::openbmc_project::Dump::Entry::server::FaultLog>;
+
+using FaultDataType = sdbusplus::xyz::openbmc_project::Dump::Entry::server::
+    FaultLog::FaultDataType;
 
 class Manager;
 
@@ -49,13 +55,16 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
-          phosphor::dump::OperationStatus status,
-          phosphor::dump::Manager& parent) :
+          phosphor::dump::OperationStatus status, FaultDataType entryType,
+          const std::string& mainLogIdStr, phosphor::dump::Manager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               status, parent),
         file(file)
     {
+        type(entryType);
+        mainLogId(mainLogIdStr);
+
         // Emit deferred signal.
         this->phosphor::dump::faultlog::EntryIfaces::emit_object_added();
     }

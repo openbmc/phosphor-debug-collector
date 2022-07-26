@@ -7,6 +7,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/bus.hpp>
+#include <sdbusplus/bus/match.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
@@ -62,6 +63,10 @@ class Manager :
         }
     }
 
+    /** @brief Initialization including registering D-Bus matches
+     */
+    void init();
+
     void restore() override
     {
         // TODO phosphor-debug-collector/issues/21: Restore fault log entries
@@ -80,6 +85,12 @@ class Manager :
   private:
     /** @brief Path to the dump file*/
     std::string dumpDir;
+
+    /** @brief D-Bus match for crashdump completion signal*/
+    std::unique_ptr<sdbusplus::bus::match::match> crashdumpMatch;
+
+    /** @brief D-Bus match for CPER log added signal*/
+    std::unique_ptr<sdbusplus::bus::match::match> cperLogMatch;
 };
 
 } // namespace faultlog

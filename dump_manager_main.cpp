@@ -83,6 +83,9 @@ int main()
             std::make_unique<phosphor::dump::faultlog::Manager>(
                 bus, FAULTLOG_DUMP_OBJPATH, FAULTLOG_DUMP_OBJ_ENTRY,
                 FAULTLOG_DUMP_PATH);
+
+        faultLogMgr->init();
+
         dumpMgrList.push_back(std::move(faultLogMgr));
 
         phosphor::dump::loadExtensions(bus, dumpMgrList);

@@ -122,6 +122,12 @@ conf_data.set_quoted('FAULTLOG_DUMP_OBJPATH', get_option('FAULTLOG_DUMP_OBJPATH'
 conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
                       description : 'Directory where fault logs are placed'
                     )
+conf_data.set_quoted('CPER_LOG_PATH', get_option('CPER_LOG_PATH'),
+                      description : 'File system path containing CPER logs'
+                    )
+conf_data.set('CPER_LOG_ID_STRING_LEN', get_option('CPER_LOG_ID_STRING_LEN'),
+                      description : 'Length of GUID string identifying a CPER log'
+                    )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
