@@ -14,8 +14,6 @@ using namespace phosphor::logging;
 
 void Entry::delete_()
 {
-    log<level::INFO>("In faultlog_dump_entry.cpp delete_()");
-
     // Delete Dump file from Permanent location
     try
     {
@@ -30,7 +28,7 @@ void Entry::delete_()
     }
 
     // Remove Dump entry D-bus object
-    phosphor::dump::Entry::delete_();
+    parentMap->erase(id);
 }
 
 } // namespace faultlog
