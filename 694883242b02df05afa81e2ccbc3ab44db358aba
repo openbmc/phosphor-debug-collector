@@ -52,6 +52,24 @@
       "parentUuid": "63e7f803_ceff10b8",
       "revId": "694883242b02df05afa81e2ccbc3ab44db358aba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72d220c4_65764540",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001372
+      },
+      "writtenOn": "2022-07-29T02:31:16Z",
+      "side": 1,
+      "message": "config such as \"dump_rotate_config\" was added",
+      "parentUuid": "7ad88262_84e30192",
+      "revId": "694883242b02df05afa81e2ccbc3ab44db358aba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
