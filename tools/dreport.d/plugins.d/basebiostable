@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# config: 1234 50
+# @brief: Get the base bios table information.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Base BIOS table"
+
+command="busctl --json=pretty get-property \
+                xyz.openbmc_project.BIOSConfigManager \
+                /xyz/openbmc_project/bios_config/manager \
+                xyz.openbmc_project.BIOSConfig.Manager BaseBIOSTable"
+
+file_name="basebiostable.log"
+
+add_cmd_output "$command" "$file_name" "$desc"
+if [ $? -ne 0 ]; then
+    basebios_dir="/var/lib/bios-settings-manager"
+    if [ -d "$basebios_dir" ]; then
+        add_copy_file "$basebios_dir" "$desc"
+    fi
+fi
