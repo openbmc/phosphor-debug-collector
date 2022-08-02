@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# config: 2 20
+# @brief: Save the entity manager configuration
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="entity-manager configuration"
+file_name="em-system.json"
+
+if [ -e "/var/configuration/system.json" ]; then
+  command="cat /var/configuration/system.json"
+  add_cmd_output "$command" "$file_name" "$desc"
+fi
