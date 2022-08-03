@@ -33,6 +33,24 @@
       "message": "I didn\u0027t see a function that could rename a file when it copies it in, so I just used \u0027cat\u0027 instead.  Let me know if there\u0027s a more desired way.\n\nI guess I could also just leave it called system.json, but that didn\u0027t seem like a unique enough name.",
       "revId": "aa6a3599cad8352b5088dc04e6429a101a002051",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6dd6f9f_eb8d1ed7",
+        "filename": "tools/dreport.d/plugins.d/emconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-08-03T06:48:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "768be0b7_2c1ad0f2",
+      "revId": "aa6a3599cad8352b5088dc04e6429a101a002051",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
