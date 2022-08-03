@@ -9,6 +9,7 @@ namespace phosphor
 namespace dump
 {
 
+
 using namespace phosphor::logging;
 
 void Entry::delete_()
