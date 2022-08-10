@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd1e5cc_3c244ee6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-10T16:46:06Z",
+      "side": 1,
+      "message": "I believe the build failed because the corresponding fault log entry interface changes haven\u0027t been merged to phosphor-dbus-interfaces yet (https://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/53018/).",
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
