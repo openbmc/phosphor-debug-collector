@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41af14da_fb705be1",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-08-11T19:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b75f1548_5d8aa41d",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47c807a5_4a2ecf75",
@@ -223,6 +247,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36b70ba_4389ddc6",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-08-11T19:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c0a3ee5_40924bda",
+      "range": {
+        "startLine": 85,
+        "startChar": 24,
+        "endLine": 85,
+        "endChar": 25
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46cd2de1_f3d426e9",
@@ -281,6 +329,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa31475_d9a89bcb",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-08-11T19:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55eede43_61c5d37e",
+      "range": {
+        "startLine": 44,
+        "startChar": 24,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1228e64_fdc1a875",
@@ -312,6 +384,24 @@
       "side": 1,
       "message": "So, now I have implemented this Originated interface in the bmc dump, system dump, and resource dump dbus object, for which user will be able to trigger (changes: https://gerrit.openbmc.org/c/openbmc/bmcweb/+/38982/46) and create a dump, basically for all the user-generated dump types.\nIf the user generates the dump, then user details would be stored in the properties of this interface, else \"Internal\" would be stored (as I mentioned in https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/48337/6/dump_manager_bmc.cpp#238)",
       "parentUuid": "a1228e64_fdc1a875",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a696fc_a057c46e",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-08-11T19:39:07Z",
+      "side": 1,
+      "message": "Done.\n(fyr: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/48337/comment/b75f1548_5d8aa41d/)",
+      "parentUuid": "49afb259_ceaa386b",
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
