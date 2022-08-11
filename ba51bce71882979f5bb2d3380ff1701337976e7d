@@ -16,6 +16,115 @@
       "message": "I believe the build failed because the corresponding fault log entry interface changes haven\u0027t been merged to phosphor-dbus-interfaces yet (https://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/53018/).",
       "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39574541_bb75fd04",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001387
+      },
+      "writtenOn": "2022-08-11T03:35:30Z",
+      "side": 1,
+      "message": "nit: can this happen at the very end of the while block? i.e. do this after `entry-\u003edelete_()`. It seems bug prone to do it this way because if there\u0027s any logic added to this block in the future, `iter` is already going to be the next item.",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 15
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "552ead0f_debbb005",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1001387
+      },
+      "writtenOn": "2022-08-11T03:35:30Z",
+      "side": 1,
+      "message": "Same comment as above",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 15
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0e0dd6_1e507514",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1001387
+      },
+      "writtenOn": "2022-08-11T03:35:30Z",
+      "side": 1,
+      "message": "The reasoning for this part isn\u0027t super clear to me just by reading the code. Why are we replacing the `std::chrono` time with the latest entry\u0027s timestamp + 1? What if the entry that we\u0027re calling `generateTimestamp()` for came much, much later than the latest entry in the map?\n\nA comment to explain is probably a good idea to have.",
+      "range": {
+        "startLine": 408,
+        "startChar": 4,
+        "endLine": 419,
+        "endChar": 5
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7a6515_efa79ba4",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1001387
+      },
+      "writtenOn": "2022-08-11T03:35:30Z",
+      "side": 1,
+      "message": "nit: This bool seems a bit redundant to have. Could do `entry-\u003edelete_()` and then return early here instead.",
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c97f5c52_d6bd5c7a",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1001387
+      },
+      "writtenOn": "2022-08-11T03:35:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `entry-\u003edelete_()` also be called here if the entry didn\u0027t have a valid type?\n\nAlso, doesn\u0027t `entry-\u003edelete_()` already do the erase from the parentmap? Doing it twice (line 474 and then line 479) would throw an exception when the key isn\u0027t found in the second try.",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 479,
+        "endChar": 34
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
