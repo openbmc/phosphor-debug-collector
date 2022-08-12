@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "480cdf35_82d94e50",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-12T00:31:36Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "39574541_bb75fd04",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 15
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "552ead0f_debbb005",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-11T03:35:30Z",
       "side": 1,
       "message": "Same comment as above",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 15
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8758d6b7_11df17f1",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-12T00:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "552ead0f_debbb005",
       "range": {
         "startLine": 145,
         "startChar": 8,
@@ -87,6 +135,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25644d1_dbdcb95c",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-12T00:31:36Z",
+      "side": 1,
+      "message": "Added an explanation and modified the code (I realized the previous code doesn\u0027t work correctly if accounting for user-initiated entry deletion). The important line is the if-statement before the increment. The increment is expected to be a rare case (e.g. more than one fault log entry created within the same microsecond, or BMC clock being set backwards.)",
+      "parentUuid": "8f0e0dd6_1e507514",
+      "range": {
+        "startLine": 408,
+        "startChar": 4,
+        "endLine": 419,
+        "endChar": 5
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a7a6515_efa79ba4",
@@ -104,6 +176,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f998b7a9_33cc2d9a",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-12T00:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a7a6515_efa79ba4",
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c97f5c52_d6bd5c7a",
@@ -117,6 +207,30 @@
       "writtenOn": "2022-08-11T03:35:30Z",
       "side": 1,
       "message": "Shouldn\u0027t `entry-\u003edelete_()` also be called here if the entry didn\u0027t have a valid type?\n\nAlso, doesn\u0027t `entry-\u003edelete_()` already do the erase from the parentmap? Doing it twice (line 474 and then line 479) would throw an exception when the key isn\u0027t found in the second try.",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 479,
+        "endChar": 34
+      },
+      "revId": "ba51bce71882979f5bb2d3380ff1701337976e7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8113449a_b8849470",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-08-12T00:31:36Z",
+      "side": 1,
+      "message": "Good catches, thanks! (The second erase didn\u0027t throw an exception so I didn\u0027t notice the redundancy during testing.)",
+      "parentUuid": "c97f5c52_d6bd5c7a",
       "range": {
         "startLine": 479,
         "startChar": 4,
