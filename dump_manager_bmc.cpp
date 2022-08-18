@@ -53,7 +53,11 @@ sdbusplus::message::object_path
 
     try
     {
-        std::time_t timeStamp = std::time(nullptr);
+        uint64_t timeStamp =
+            std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::system_clock::now().time_since_epoch())
+                .count();
+
         entries.insert(std::make_pair(
             id, std::make_unique<bmc::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, std::string(),

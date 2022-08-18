@@ -26,7 +26,10 @@ using InternalFailure =
 void Manager::notify(uint32_t dumpId, uint64_t size)
 {
     // Get the timestamp
-    std::time_t timeStamp = std::time(nullptr);
+    uint64_t timeStamp =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count();
 
     // If there is an entry with invalid id update that.
     // If there a completed one with same source id ignore it
@@ -128,7 +131,10 @@ sdbusplus::message::object_path
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
-    std::time_t timeStamp = std::time(nullptr);
+    uint64_t timeStamp =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count();
 
     std::string vspString;
     auto iter = params.find(
