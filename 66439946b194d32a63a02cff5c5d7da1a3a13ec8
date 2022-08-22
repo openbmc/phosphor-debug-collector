@@ -16,6 +16,23 @@
       "message": "This patchset is a result of discussion at https://gerrit.openbmc.org/c/openbmc/bmcweb/+/55402. Could I get some help with validating the timestamp changes for openpower dump types?\n\nIt would have been nice to update dreport (EPOCHTIME\u003d$(date +\"%s\")) to capture microseconds but it seems the \"date\" command from busybox doesn\u0027t always have the nanoseconds option(\"%N\") enabled to get more precision.",
       "revId": "66439946b194d32a63a02cff5c5d7da1a3a13ec8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59df6b52_fb2b27b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-08-22T04:39:11Z",
+      "side": 1,
+      "message": "Thanks for initiating the reveiw",
+      "revId": "66439946b194d32a63a02cff5c5d7da1a3a13ec8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
