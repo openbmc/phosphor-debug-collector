@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ceb4bc_f5673fa1",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-08-22T17:09:03Z",
+      "side": 1,
+      "message": "Is this function throw any exception if no matching type is found? If it is throwing, please catch that too",
+      "revId": "9180ac576753bd2ad0aa83ae02c32a2d0cdc4dc0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
