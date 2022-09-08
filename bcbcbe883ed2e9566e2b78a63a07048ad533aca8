@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64addeff_ec894380",
+        "filename": "tools/dreport.d/plugins.d/fanmondump",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-08T16:00:18Z",
+      "side": 1,
+      "message": "sleep time is mandatory here? \nPldm flight recorder plugin also keeps 5 seconds sleep. wondering any better way to avoid the sleep during collection path.",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "bcbcbe883ed2e9566e2b78a63a07048ad533aca8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
