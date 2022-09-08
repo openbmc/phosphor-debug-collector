@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# config: 2 20
+# @brief: Get the fan monitor dump
+#
+
+. $DREPORT_INCLUDE/functions
+
+# collect data only if phosphor-fan-monitor is enabled
+if [ -e "/usr/bin/phosphor-fan-monitor" ]; then
+  command="rm -rf /tmp/fan_monitor_dump.json; \
+           killall -s SIGUSR1 phosphor-fan-monitor; \
+           sleep 3; cat /tmp/fan_monitor_dump.json"
+
+  file_name="fan_monitor_dump.json"
+  desc="fan monitor dump"
+
+  add_cmd_output "$command" "$file_name" "$desc"
+
+  rm -rf /tmp/fan_monitor_dump.json
+fi
