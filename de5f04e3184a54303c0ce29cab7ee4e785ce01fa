@@ -22,6 +22,30 @@
       },
       "revId": "de5f04e3184a54303c0ce29cab7ee4e785ce01fa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d415fa_04c04b64",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-22T04:46:19Z",
+      "side": 1,
+      "message": "https://github.com/ibm-openbmc/dev/issues/2858 is still open  state.",
+      "parentUuid": "5069f959_2125f360",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 18
+      },
+      "revId": "de5f04e3184a54303c0ce29cab7ee4e785ce01fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
