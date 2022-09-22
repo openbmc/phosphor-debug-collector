@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9963f541_6edab92f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-22T04:53:20Z",
+      "side": 1,
+      "message": "openpower dump type chnages , start with OpenPOWER, in the commit message.",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ee27ea_1f832a0c",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-22T04:53:20Z",
+      "side": 1,
+      "message": "It will be good add log message for debug message , saying invalid ID , and sending request to host.",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd90c86b_36db1b92",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-22T04:53:20Z",
+      "side": 1,
+      "message": "It will be good add log message for debug message , saying invalid ID , and sending request to host.",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
