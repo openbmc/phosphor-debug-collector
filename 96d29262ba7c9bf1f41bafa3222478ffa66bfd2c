@@ -306,6 +306,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fef0ac4_d021fb74",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-29T03:59:47Z",
+      "side": 1,
+      "message": "Still  seeing common code in multiple places.",
+      "parentUuid": "994f1820_b08e552f",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55eede43_61c5d37e",
@@ -437,6 +455,24 @@
       "side": 1,
       "message": "Okay, right now I haven\u0027t started on the persistance code for this field.",
       "parentUuid": "31985342_7f61fa10",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4580b1ef_a53cd6f6",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-29T03:59:47Z",
+      "side": 1,
+      "message": "After application/bmc reboot , all these information is going to loose right?\nNow seems to be alway\u0027s say\u0027s originated by internal and what is the no real use for this feature right after BMC/application reboot?",
+      "parentUuid": "cb839748_68e9bcae",
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
