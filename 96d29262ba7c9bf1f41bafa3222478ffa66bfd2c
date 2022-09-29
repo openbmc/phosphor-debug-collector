@@ -324,6 +324,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f5a46e3_e3b3eef3",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-09-29T07:25:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9fef0ac4_d021fb74",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55eede43_61c5d37e",
@@ -473,6 +491,24 @@
       "side": 1,
       "message": "After application/bmc reboot , all these information is going to loose right?\nNow seems to be alway\u0027s say\u0027s originated by internal and what is the no real use for this feature right after BMC/application reboot?",
       "parentUuid": "cb839748_68e9bcae",
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1d2bb3_1760f29a",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-09-29T07:25:25Z",
+      "side": 1,
+      "message": "I anm working on persisting this property currently. I was planning to have a separate commit on top of this one, since it may also have more changes if put in the same commit.\n\nTill then, can we have reviews and merge this change in?",
+      "parentUuid": "4580b1ef_a53cd6f6",
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
