@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784f6ed9_caa6a7b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-02T08:43:03Z",
+      "side": 1,
+      "message": "should we return error and do not delete the dump entry if host is not in running state?",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50ee27ea_1f832a0c",
@@ -31,6 +48,24 @@
       "writtenOn": "2022-09-22T04:53:20Z",
       "side": 1,
       "message": "It will be good add log message for debug message , saying invalid ID , and sending request to host.",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf26938_6147b0c9",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-02T08:43:03Z",
+      "side": 1,
+      "message": "what happens if we delete the resource dump enty when host is not running? will the resuource dump entry still exist on the host? i am concerned about the isHostRunning check.\n\nWe are deleting the entry at 43 but may or maynot delete the dump based on isHostRunning check, will there be dumps whose entries are deleted but dump file exist on host?",
+      "parentUuid": "50ee27ea_1f832a0c",
       "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
