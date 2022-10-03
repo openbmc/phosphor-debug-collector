@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "16b9eafd_dce2a432",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-03T03:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9963f541_6edab92f",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "784f6ed9_caa6a7b3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -105,6 +123,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a4d637_44d4132e",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-03T03:39:06Z",
+      "side": 1,
+      "message": "This commit has additional traces \n50884: Do not wait for response deleting host dump | https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/50884",
+      "parentUuid": "0876f49f_337d1060",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd90c86b_36db1b92",
@@ -118,6 +154,24 @@
       "writtenOn": "2022-09-22T04:53:20Z",
       "side": 1,
       "message": "It will be good add log message for debug message , saying invalid ID , and sending request to host.",
+      "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f5e5a16_beb5c02c",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-03T03:39:06Z",
+      "side": 1,
+      "message": "50884: Do not wait for response deleting host dump | https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/50884",
+      "parentUuid": "dd90c86b_36db1b92",
       "revId": "0ed6d917e39adbac38f8c40f82211b0cd58bf197",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
