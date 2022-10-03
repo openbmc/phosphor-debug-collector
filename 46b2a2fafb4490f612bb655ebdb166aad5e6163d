@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f06775_fc0e11a1",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000349
+      },
+      "writtenOn": "2022-10-03T04:28:53Z",
+      "side": 1,
+      "message": "\"offload is in progress\"",
+      "range": {
+        "startLine": 58,
+        "startChar": 22,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "46b2a2fafb4490f612bb655ebdb166aad5e6163d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e1b554_e83baa8a",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000349
+      },
+      "writtenOn": "2022-10-03T04:28:53Z",
+      "side": 1,
+      "message": "\"offload (is) in progress\"",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "46b2a2fafb4490f612bb655ebdb166aad5e6163d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
