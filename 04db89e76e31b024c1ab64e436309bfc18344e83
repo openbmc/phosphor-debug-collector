@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "994d2a85_6ddaa61b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-11T06:37:19Z",
+      "side": 1,
+      "message": "How this is different from https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/56612 ?",
+      "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "461b4315_16d45313",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -20,6 +37,23 @@
         "endLine": 11,
         "endChar": 5
       },
+      "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716e6b3f_b30eee00",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-11T06:37:19Z",
+      "side": 1,
+      "message": "Use different commit to add these additionla log data",
       "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
