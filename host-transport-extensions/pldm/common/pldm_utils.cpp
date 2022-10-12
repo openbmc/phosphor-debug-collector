@@ -40,18 +40,32 @@ uint8_t getPLDMInstanceID(uint8_t eid)
 
     constexpr auto pldmRequester = "xyz.openbmc_project.PLDM.Requester";
     constexpr auto pldm = "/xyz/openbmc_project/pldm";
-
-    auto bus = sdbusplus::bus::new_default();
-    auto service = phosphor::dump::getService(bus, pldm, pldmRequester);
-
-    auto method = bus.new_method_call(service.c_str(), pldm, pldmRequester,
-                                      "GetInstanceId");
-    method.append(eid);
-    auto reply = bus.call(method);
-
     uint8_t instanceID = 0;
-    reply.read(instanceID);
 
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+        auto service = phosphor::dump::getService(bus, pldm, pldmRequester);
+
+        auto method = bus.new_method_call(service.c_str(), pldm, pldmRequester,
+                                          "GetInstanceId");
+        method.append(eid);
+        auto reply = bus.call(method);
+
+        reply.read(instanceID);
+
+        log<level::INFO>(
+            fmt::format("Got instanceId({}) from PLDM eid({})", instanceID, eid)
+                .c_str());
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>(
+            fmt::format("Failed to get instance id error({})", e.what())
+                .c_str());
+        elog<NotAllowed>(Reason("Failure in communicating with pldm service, "
+                                "service may not be running"));
+    }
     return instanceID;
 }
 
