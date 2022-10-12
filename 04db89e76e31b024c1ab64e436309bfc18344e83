@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5aa6bf4_f881a34d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:04:27Z",
+      "side": 1,
+      "message": "This commit pushed before that.. so this change is no more needed",
+      "parentUuid": "994d2a85_6ddaa61b",
+      "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "461b4315_16d45313",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -54,6 +72,24 @@
       "writtenOn": "2022-10-11T06:37:19Z",
       "side": 1,
       "message": "Use different commit to add these additionla log data",
+      "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869cf25d_aeebfbd8",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:04:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716e6b3f_b30eee00",
       "revId": "04db89e76e31b024c1ab64e436309bfc18344e83",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
