@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42318525_2f1893c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6a8866_97b1aa02",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "3ca46282b8fa09dbfc1d9560f15e2d54a9d5be56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a47f0b8_50cd7d6d",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa9ebb44_1f1339af",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a47f0b8_50cd7d6d",
+      "range": {
+        "startLine": 77,
+        "startChar": 47,
+        "endLine": 77,
+        "endChar": 56
+      },
+      "revId": "3ca46282b8fa09dbfc1d9560f15e2d54a9d5be56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20978b6d_66bb48f7",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-12T06:46:51Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 66,
+        "startChar": 47,
+        "endLine": 66,
+        "endChar": 56
+      },
+      "revId": "3ca46282b8fa09dbfc1d9560f15e2d54a9d5be56",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e2ceeef_1ce0cff9",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20978b6d_66bb48f7",
       "range": {
         "startLine": 66,
         "startChar": 47,
