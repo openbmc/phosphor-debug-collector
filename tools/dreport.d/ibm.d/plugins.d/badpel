@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# config: 2 20
+# @brief: Save the 'badPEL' file
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Bad PEL file"
+file_name="/var/lib/phosphor-logging/extensions/pels/badPEL"
+
+if [ -e "$file_name" ]; then
+  add_copy_file "$file_name" "$desc"
+fi
