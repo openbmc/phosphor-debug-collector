@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c80b662a_b1c0c2eb",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-12T06:43:04Z",
+      "side": 1,
+      "message": "\"offload is in\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 42,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "46b2a2fafb4490f612bb655ebdb166aad5e6163d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3f06775_fc0e11a1",
         "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
         "patchSetId": 12
@@ -19,6 +42,29 @@
         "startChar": 22,
         "endLine": 58,
         "endChar": 41
+      },
+      "revId": "46b2a2fafb4490f612bb655ebdb166aad5e6163d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f60568bb_efcb21d4",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-12T06:43:04Z",
+      "side": 1,
+      "message": "Offload is in",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 40
       },
       "revId": "46b2a2fafb4490f612bb655ebdb166aad5e6163d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
