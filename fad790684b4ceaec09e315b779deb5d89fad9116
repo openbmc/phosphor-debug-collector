@@ -16,6 +16,24 @@
       "message": "Duplicate:   requestDelete() also got similair logs.",
       "revId": "fad790684b4ceaec09e315b779deb5d89fad9116",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c48e063b_ffc5977c",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-12T08:08:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "522246de_19ac9991",
+      "revId": "fad790684b4ceaec09e315b779deb5d89fad9116",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
