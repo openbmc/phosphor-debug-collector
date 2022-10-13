@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a72a6dae_d06ab654",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T04:14:14Z",
+      "side": 1,
+      "message": "sdbus exception hadnling is missing here. it will be good to add here.",
+      "revId": "99971dad7e8f2224090582c4d0b8946b5445cf1d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5332bd35_5409573c",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T04:14:14Z",
+      "side": 1,
+      "message": "Keep one log message at end and capture required data.",
+      "revId": "99971dad7e8f2224090582c4d0b8946b5445cf1d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
