@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a42d981c_7b8e31ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T08:05:41Z",
+      "side": 1,
+      "message": "Design approaches:\nOption 1. Introduce new dump type , which kind of subset type of elog type dump ( refer phosphor-debug-collector/example_errors_watch.yaml xyz.openbmc_project.Common.Error.InternalFailure ). Add new plugin to copy all core files into dump package. Also add important additional info like , journal/ drive in fo etc plugin also in this new dump type.\n   During dump manager application start time check core path and create new elog ( which is unique for capture additional core).  \n   \noption 2: Instead of add new dump type , use user initiated dump and include core files as part of this dump. \nCons: any user initated dump duing boot/runtime and external user i nitated type is going to copy core files. This can lead confusion incase any core dump packaging is in progress. Also usre initaietd dump is heavy weight  and most of the current data is not relevent for debugging problem.\n\noption 3: call core file level core dump packaging. This can lead performance issue in time and resource. same set of journal data is going to be present in all core dumps. \n\n\nIncase of dump quota full use case , i think we don\u0027t need to delete cores from the systemd-core path. Systemd-coredump is alway\u0027s manages directory specific to core path based on the config setting. default is 10% of max size.",
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72fa8d41_c3df186b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T08:05:41Z",
+      "side": 1,
+      "message": "Need to include the additional use case info here.\n\nThis is applicable for core monitor crash use case and any application crashes prior to dump manager service starts.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3c70c2_4b83be2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T08:05:41Z",
+      "side": 1,
+      "message": "This approch is broken for multiple core dump use cases. \n\nExisting core dump type supports processing only one core not supports multiple core inputs. Also deos the special logic to extract additional information from core dump file.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
