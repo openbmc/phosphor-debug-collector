@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "484a9145_65a14808",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-13T12:26:35Z",
+      "side": 1,
+      "message": "It is not broken if called before restore, each core will be processed and created a dump and the entries will be created during the restore",
+      "parentUuid": "dfaa2a42_bf0c4b4a",
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72fa8d41_c3df186b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
