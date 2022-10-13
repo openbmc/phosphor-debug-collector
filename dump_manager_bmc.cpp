@@ -329,7 +329,18 @@ void Manager::checkAndCreateCoreDump()
             log<level::INFO>(
                 fmt::format("Core file found, files size {}", files.size())
                     .c_str());
-            captureDump(Type::ApplicationCored, files);
+            try
+            {
+                captureDump(Type::ApplicationCored, files);
+            }
+            catch (const std::exception& excp)
+            {
+                log<level::ERR>(
+                    fmt::format("Exception received while capturing dump: "
+                                "{}",
+                                excp.what())
+                        .c_str());
+            }
         }
     }
 }
