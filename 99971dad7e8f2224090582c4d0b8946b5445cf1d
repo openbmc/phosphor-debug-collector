@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de9a74c3_5dc576d9",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-13T04:33:02Z",
+      "side": 1,
+      "message": "If the exception is captured here, will have to throw another exception to notify the failure.",
+      "parentUuid": "a72a6dae_d06ab654",
+      "revId": "99971dad7e8f2224090582c4d0b8946b5445cf1d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5332bd35_5409573c",
         "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-13T04:14:14Z",
       "side": 1,
       "message": "Keep one log message at end and capture required data.",
+      "revId": "99971dad7e8f2224090582c4d0b8946b5445cf1d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e4eb88_72cfbccf",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-13T04:33:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5332bd35_5409573c",
       "revId": "99971dad7e8f2224090582c4d0b8946b5445cf1d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
