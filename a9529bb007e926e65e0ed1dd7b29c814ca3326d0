@@ -192,6 +192,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7bad416_031c885a",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T10:31:59Z",
+      "side": 1,
+      "message": "@dhruv please close this conversation.",
+      "parentUuid": "bdd8ad23_0f1ce1db",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "a9529bb007e926e65e0ed1dd7b29c814ca3326d0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cb6b81a_1dcdf05b",
