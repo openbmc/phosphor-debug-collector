@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d822416_d69abf90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-10-13T08:29:02Z",
+      "side": 1,
+      "message": "The only problem I see in this is that checking for cores and creating dumps should happen before deserializing and creating entries. If that is done, dumps will be created for each core, and the entries for those will be created during the restore",
+      "parentUuid": "593fd475_2a2b90bc",
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72fa8d41_c3df186b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
