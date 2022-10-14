@@ -5,6 +5,7 @@ tools/dreport.d/ibm.d/plugins.d/vpd_data
 tools/dreport.d/include.d/functions
 tools/dreport.d/openpower.d/plugins.d/obmcconsole1
 tools/dreport.d/plugins.d/altfwprintenv
+tools/dreport.d/plugins.d/auditlog
 tools/dreport.d/plugins.d/bmcstate
 tools/dreport.d/plugins.d/chassisstate
 tools/dreport.d/plugins.d/corefile
