@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# config: 2 40
+# @brief: Save the audit log
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Audit Log"
+file_name="audit-log.log"
+
+if [ -e "/var/log/audit/audit.log" ]; then
+  add_copy_file "$file_name" "$desc"
+fi
