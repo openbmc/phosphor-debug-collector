@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# config: 2 40
+# @brief: Save the audit log
+#
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE"/functions
+
+# Multiple audit.log files can exist in the $log_path
+# directory. Copy all that exist to the dump.
+desc="Audit Log"
+log_path="/var/log/audit/"
+
+if [ -e "$log_path" ]; then
+    add_copy_file "$log_path" "$desc"
+fi
