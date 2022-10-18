@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dba9d5d_40e17a0f",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ea05706_f2f28b3f",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 52
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60e794a8_b17697a5",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-10-18T05:16:42Z",
       "side": 1,
       "message": "Is this required?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23f54eb_c898fda8",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e794a8_b17697a5",
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af4d3cc_1f4cfbed",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d6b6e1_e1bd538a",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78ae1167_002d944a",
@@ -75,6 +135,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf13bc8_47f87760",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78ae1167_002d944a",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc1d419a_a39edf87",
@@ -88,6 +166,30 @@
       "writtenOn": "2022-10-18T06:24:30Z",
       "side": 1,
       "message": "cater for new parameters",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc1dd49_f7679b03",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc1d419a_a39edf87",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -121,6 +223,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6509bd44_1e50de2e",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff32ee0_43c136cc",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 52
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "787a5941_ae83e8bb",
@@ -134,6 +260,24 @@
       "writtenOn": "2022-10-18T05:16:42Z",
       "side": 1,
       "message": "why this is added here?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "313e2acd_c6e19ec5",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787a5941_ae83e8bb",
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -173,6 +317,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f687670_49447cf3",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ab9b25_226be669",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4096acc_b98efb8e",
@@ -208,6 +370,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92562b2d_ff8f5bdd",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6791a0e0_95c408dd",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a18959e2_37cc3cdf",
@@ -238,6 +418,24 @@
       "writtenOn": "2022-10-18T06:24:30Z",
       "side": 1,
       "message": "we are not setting it to null and cannot set it to null as it is not a pointer rather reference, just change the message.\n\"Originator id is not provided\" is sufficient and it should be ERR type",
+      "parentUuid": "a18959e2_37cc3cdf",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae9b41d3_9c45fc71",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "std::string are initialized to empty string (\"\") automatically by default (default constructor).\n\nempty() method checks if the length of the string is 0.\n\nI have tested it -\u003e irrespective of whether a string is initialized with \"\" or not, empty() returns true.",
       "parentUuid": "a18959e2_37cc3cdf",
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -290,6 +488,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cca9647d_56115f7c",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9c99274_48ffa03e",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 49
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0785ea3_9a71b2ae",
@@ -303,6 +525,24 @@
       "writtenOn": "2022-10-18T06:24:30Z",
       "side": 1,
       "message": "should this be ERR?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e5aa34_ee366650",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "This need not be, right?\nif the type is not provided, then we are replacing it with the default. Just logging the same here",
+      "parentUuid": "f0785ea3_9a71b2ae",
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -354,6 +594,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0811d546_044e7b5a",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99eddf8d_78c7d56b",
+      "range": {
+        "startLine": 161,
+        "startChar": 28,
+        "endLine": 161,
+        "endChar": 61
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a6cdde1_ae170253",
@@ -367,6 +631,30 @@
       "writtenOn": "2022-10-18T06:24:30Z",
       "side": 1,
       "message": "cater for new paramenters",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 7
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2749a401_c633aec1",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-18T10:39:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a6cdde1_ae170253",
       "range": {
         "startLine": 46,
         "startChar": 0,
