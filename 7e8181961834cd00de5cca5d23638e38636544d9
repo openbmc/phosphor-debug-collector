@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ea05706_f2f28b3f",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "new parameters are not specified here",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 55,
+        "endChar": 52
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60e794a8_b17697a5",
         "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
         "patchSetId": 13
@@ -31,6 +54,69 @@
       "writtenOn": "2022-10-18T05:16:42Z",
       "side": 1,
       "message": "Is this required?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ae1167_002d944a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "can this go into a generic file as i see this constant duplicated in multiple places",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc1d419a_a39edf87",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "cater for new parameters",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff32ee0_43c136cc",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "new parameters not documented",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 52
+      },
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -71,6 +157,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29ab9b25_226be669",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "1edaeac6_46ed0c84",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4096acc_b98efb8e",
         "filename": "dump_manager_faultlog.hpp",
         "patchSetId": 13
@@ -88,6 +192,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6791a0e0_95c408dd",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a4096acc_b98efb8e",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a18959e2_37cc3cdf",
         "filename": "dump_utils.hpp",
         "patchSetId": 13
@@ -99,6 +221,24 @@
       "writtenOn": "2022-10-18T05:16:42Z",
       "side": 1,
       "message": "Std:: string default is empty , not null , better to initialize o_string with null here.",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4491f1_14e22a68",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "we are not setting it to null and cannot set it to null as it is not a pointer rather reference, just change the message.\n\"Originator id is not provided\" is sufficient and it should be ERR type",
+      "parentUuid": "a18959e2_37cc3cdf",
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -128,6 +268,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c068d4e_1841b46c",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a9c99274_48ffa03e",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 49
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0785ea3_9a71b2ae",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "should this be ERR?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99eddf8d_78c7d56b",
         "filename": "dump_utils.hpp",
         "patchSetId": 13
@@ -144,6 +325,53 @@
         "startChar": 28,
         "endLine": 161,
         "endChar": 61
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "135aac1f_6e69995a",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "99eddf8d_78c7d56b",
+      "range": {
+        "startLine": 161,
+        "startChar": 28,
+        "endLine": 161,
+        "endChar": 61
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a6cdde1_ae170253",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-18T06:24:30Z",
+      "side": 1,
+      "message": "cater for new paramenters",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 7
       },
       "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
