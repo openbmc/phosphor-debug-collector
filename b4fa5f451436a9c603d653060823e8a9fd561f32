@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d01270_d8a3bb42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001194
+      },
+      "writtenOn": "2022-10-18T21:00:35Z",
+      "side": 1,
+      "message": "Dbus logs are not in the visible format.",
+      "revId": "b4fa5f451436a9c603d653060823e8a9fd561f32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc8f580_4bdd4664",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001194
+      },
+      "writtenOn": "2022-10-18T21:00:35Z",
+      "side": 1,
+      "message": "Instead of declaring as oId can we declare it as originatorId?",
+      "revId": "b4fa5f451436a9c603d653060823e8a9fd561f32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f728ab8_15ddffdf",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001194
+      },
+      "writtenOn": "2022-10-18T21:00:35Z",
+      "side": 1,
+      "message": "Same as above.",
+      "revId": "b4fa5f451436a9c603d653060823e8a9fd561f32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
