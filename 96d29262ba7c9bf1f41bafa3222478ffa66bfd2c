@@ -576,6 +576,30 @@
       },
       "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a15cf42_44790ce0",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b34fb0ef_abdcb8b0",
+      "range": {
+        "startLine": 238,
+        "startChar": 19,
+        "endLine": 238,
+        "endChar": 46
+      },
+      "revId": "96d29262ba7c9bf1f41bafa3222478ffa66bfd2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

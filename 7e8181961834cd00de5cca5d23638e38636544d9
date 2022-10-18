@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e794a8_b17697a5",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "Is this required?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d6b6e1_e1bd538a",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "Is this required?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787a5941_ae83e8bb",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "why this is added here?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1edaeac6_46ed0c84",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "is this required here?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4096acc_b98efb8e",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "This is used only cpp files right? move to to cpp?",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18959e2_37cc3cdf",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "Std:: string default is empty , not null , better to initialize o_string with null here.",
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c99274_48ffa03e",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "use fmt::format",
+      "range": {
+        "startLine": 134,
+        "startChar": 15,
+        "endLine": 134,
+        "endChar": 49
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99eddf8d_78c7d56b",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-18T05:16:42Z",
+      "side": 1,
+      "message": "use fmt::format",
+      "range": {
+        "startLine": 161,
+        "startChar": 28,
+        "endLine": 161,
+        "endChar": 61
+      },
+      "revId": "7e8181961834cd00de5cca5d23638e38636544d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
