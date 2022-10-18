@@ -2,6 +2,9 @@
 Phosphor Debug Collector provides mechanisms to collect various log files and
 system parameters. Used to troubleshoot problems in OpenBMC based systems.
 
+One such mechanism is [dreport](tools/dreport.d/README.md), a script that
+collects debug data and packages it into an archive file.
+
 ## To Build
 To build this package with meson, do the following steps:
 ```
