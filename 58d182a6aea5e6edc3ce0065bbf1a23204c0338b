@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa78a50_b290e66b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2022-10-19T15:02:00Z",
+      "side": 1,
+      "message": "Thank you for adding this detail, it is very helpful.",
+      "revId": "58d182a6aea5e6edc3ce0065bbf1a23204c0338b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f13432_483a4783",
+        "filename": "tools/dreport.d/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2022-10-19T15:02:00Z",
+      "side": 1,
+      "message": "The tools/dreport.d/dreport script usage statement does not list all of these types. Should it be updated also?",
+      "revId": "58d182a6aea5e6edc3ce0065bbf1a23204c0338b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
