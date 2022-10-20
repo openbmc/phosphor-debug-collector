@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a69af3c_091f43f5",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-20T11:48:59Z",
+      "side": 1,
+      "message": "originator id and definition descrion is missing.",
+      "revId": "09aae079a98a2427ded695f544fb639904ce3188",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b19a7c7_455a3e76",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-20T11:48:59Z",
+      "side": 1,
+      "message": "replace with originatorId",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 22
+      },
+      "revId": "09aae079a98a2427ded695f544fb639904ce3188",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ff08a9_30e28828",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-20T11:48:59Z",
+      "side": 1,
+      "message": "Please make sure description should match with definitions.\n\nreplace with originatorType.",
+      "range": {
+        "startLine": 69,
+        "startChar": 53,
+        "endLine": 69,
+        "endChar": 68
+      },
+      "revId": "09aae079a98a2427ded695f544fb639904ce3188",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
