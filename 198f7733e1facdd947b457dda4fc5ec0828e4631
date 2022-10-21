@@ -22,6 +22,30 @@
       },
       "revId": "198f7733e1facdd947b457dda4fc5ec0828e4631",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06636ab3_a42aae4b",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/phal_devtree",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-21T05:50:45Z",
+      "side": 1,
+      "message": "not relevant now",
+      "parentUuid": "f4df3ce3_1258d4ee",
+      "range": {
+        "startLine": 14,
+        "startChar": 20,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "198f7733e1facdd947b457dda4fc5ec0828e4631",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
