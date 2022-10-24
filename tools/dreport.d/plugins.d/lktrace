@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# config: 12 70
+# @brief: Collect Linux Kernel trace
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Linux Kernel trace"
+file_name="/sys/kernel/tracing/trace"
+
+add_copy_file "$file_name" "$desc"
