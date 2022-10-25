@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a32f07eb_5dadad99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-25T08:51:18Z",
+      "side": 1,
+      "message": "changed to systems with 2 BMC chips",
+      "parentUuid": "278d2c97_6a311edc",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "b3d05da197a4a6dd756f65bcba947ed8bcdc1bbb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f311fec_96ee727e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-03T06:40:32Z",
       "side": 1,
       "message": "Considering backward compatibility , instead of printing errors , run the plugin only if the file is present.",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "b3d05da197a4a6dd756f65bcba947ed8bcdc1bbb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee35c7b0_553f7282",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-25T08:51:18Z",
+      "side": 1,
+      "message": "for now, removing it as per Adriana comment above",
+      "parentUuid": "3f311fec_96ee727e",
       "range": {
         "startLine": 9,
         "startChar": 1,
