@@ -141,6 +141,30 @@
       },
       "revId": "b09d94c61554fb17f663287d9adee13f738b72c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edfa8a99_f7087bd8",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-26T06:38:38Z",
+      "side": 1,
+      "message": "replace with originId, to support openbmc coding guidelines follwed.",
+      "parentUuid": "7d957991_fe4fc7e9",
+      "range": {
+        "startLine": 69,
+        "startChar": 53,
+        "endLine": 69,
+        "endChar": 68
+      },
+      "revId": "b09d94c61554fb17f663287d9adee13f738b72c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
