@@ -51,6 +51,24 @@
       "parentUuid": "d5f13432_483a4783",
       "revId": "58d182a6aea5e6edc3ce0065bbf1a23204c0338b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3262cd44_f23735fe",
+        "filename": "tools/dreport.d/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-26T08:56:10Z",
+      "side": 1,
+      "message": "Looks like newly added dump types are missing from drepport help.\n\n -t, —-type \u003ctype\u003e     Data collection type. Valid types are\n                              user, core, elog.\n                              Default type is user initiated.\n                              \n As mentioned by Matt this will address using separate commmit.",
+      "parentUuid": "98836517_4bb3b928",
+      "revId": "58d182a6aea5e6edc3ce0065bbf1a23204c0338b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
