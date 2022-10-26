@@ -45,6 +45,54 @@
       },
       "revId": "b09d94c61554fb17f663287d9adee13f738b72c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d957991_fe4fc7e9",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-26T06:29:47Z",
+      "side": 1,
+      "message": "same as above",
+      "parentUuid": "d9702637_ba08baba",
+      "range": {
+        "startLine": 69,
+        "startChar": 53,
+        "endLine": 69,
+        "endChar": 68
+      },
+      "revId": "b09d94c61554fb17f663287d9adee13f738b72c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a89ee64_7c2657da",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-10-26T06:29:47Z",
+      "side": 1,
+      "message": "the CI throws errors since originatorId and originatorType are the actual constructors. Having originatorId(originatorId) and originatorType(originatorType) threw errors, due to which i renamed it to originator_\u003cid/type\u003e",
+      "parentUuid": "0ba00dd5_11b3b982",
+      "range": {
+        "startLine": 69,
+        "startChar": 22,
+        "endLine": 69,
+        "endChar": 35
+      },
+      "revId": "b09d94c61554fb17f663287d9adee13f738b72c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
