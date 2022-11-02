@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82cf764e_fc7b46f1",
+        "filename": "tools/dreport.d/plugins.d/bios",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2022-11-02T04:56:05Z",
+      "side": 1,
+      "message": "empty space.",
+      "range": {
+        "startLine": 19,
+        "startChar": 52,
+        "endLine": 19,
+        "endChar": 53
+      },
+      "revId": "95f9ee744ff690b3c3f99caebe657aa9483a11b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
