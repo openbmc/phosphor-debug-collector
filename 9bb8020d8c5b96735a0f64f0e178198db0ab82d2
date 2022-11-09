@@ -16,6 +16,24 @@
       "message": "there is one same already at line 96",
       "revId": "9bb8020d8c5b96735a0f64f0e178198db0ab82d2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0b8b1c_20382c20",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000401
+      },
+      "writtenOn": "2022-11-09T08:38:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a44a0c3_77c343f0",
+      "revId": "9bb8020d8c5b96735a0f64f0e178198db0ab82d2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
