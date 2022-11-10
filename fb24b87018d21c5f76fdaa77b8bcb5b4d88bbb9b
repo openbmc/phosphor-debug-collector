@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb950662_3a55e1c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-11-10T07:52:01Z",
+      "side": 1,
+      "message": "Not required for ramoops type?",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "fb24b87018d21c5f76fdaa77b8bcb5b4d88bbb9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
