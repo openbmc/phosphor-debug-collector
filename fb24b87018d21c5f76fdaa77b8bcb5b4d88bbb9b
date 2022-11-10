@@ -22,6 +22,30 @@
       },
       "revId": "fb24b87018d21c5f76fdaa77b8bcb5b4d88bbb9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9df14b9d_33fe4a8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2022-11-10T19:04:46Z",
+      "side": 1,
+      "message": "The ramoops type will automatically include all files in the optional_path specified when captured. The SYSTEMD_PSTORE_PATH is used so everything in /var/lib/systemd/pstore would be included, which should include the kernel trace.\n\nI was not able to prove this. I talked to Eddie James and he believes there is another problem preventing the trace being captured, but that it should be corrected under a different change.",
+      "parentUuid": "cb950662_3a55e1c2",
+      "range": {
+        "startLine": 9,
+        "startChar": 25,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "fb24b87018d21c5f76fdaa77b8bcb5b4d88bbb9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
