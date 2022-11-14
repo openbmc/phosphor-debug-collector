@@ -34,7 +34,8 @@ void save(Archive& a, const openpower::dump::resource::Entry& e,
           uint32_t /*version*/)
 {
     a(e.getID(), e.elapsed(), e.startTime(), e.completedTime(), e.size(),
-      e.sourceDumpId(), e.vspString(), e.password(), e.status());
+      e.sourceDumpId(), e.vspString(), e.password(), e.status(),
+      e.originatorId(), e.originatorType());
 }
 
 /** @brief Function required by Cereal to perform deserialization.
@@ -56,9 +57,11 @@ void load(Archive& a, openpower::dump::resource::Entry& e, uint32_t /*version*/)
     std::string vspStr{};
     std::string pwd{};
     phosphor::dump::OperationStatus status{};
+    std::string originatorId{};
+    phosphor::dump::originatorTypes originatorType{};
 
     a(dumpId, elapsed, startTime, completedTime, dumpSize, sourceId, vspStr,
-      pwd, status);
+      pwd, status, originatorId, originatorType);
 
     e.setID(dumpId);
     e.elapsed(elapsed, true);
@@ -69,6 +72,8 @@ void load(Archive& a, openpower::dump::resource::Entry& e, uint32_t /*version*/)
     e.vspString(vspStr);
     e.password(pwd);
     e.status(status, true);
+    e.originatorId(originatorId, true);
+    e.originatorType(originatorType, true);
 }
 
 fs::path serialize(const openpower::dump::resource::Entry& e,

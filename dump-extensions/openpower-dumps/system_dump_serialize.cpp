@@ -34,7 +34,7 @@ void save(Archive& a, const openpower::dump::system::Entry& e,
 {
     // Variables saved should be retrieved in the same order in load
     a(e.getID(), e.elapsed(), e.startTime(), e.completedTime(), e.size(),
-      e.sourceDumpId(), e.status());
+      e.sourceDumpId(), e.status(), e.originatorId(), e.originatorType());
 }
 
 /** @brief Function required by Cereal to perform deserialization.
@@ -54,9 +54,12 @@ void load(Archive& a, openpower::dump::system::Entry& e, uint32_t /*version*/)
     uint64_t dumpSize{};
     uint32_t sourceId{};
     phosphor::dump::OperationStatus status{};
+    std::string originatorId{};
+    phosphor::dump::originatorTypes originatorType{};
 
     // Variables loaded should be in the same order as in save
-    a(dumpId, elapsed, startTime, completedTime, dumpSize, sourceId, status);
+    a(dumpId, elapsed, startTime, completedTime, dumpSize, sourceId, status,
+      originatorId, originatorType);
 
     e.setID(dumpId);
     e.elapsed(elapsed, true);
@@ -65,6 +68,8 @@ void load(Archive& a, openpower::dump::system::Entry& e, uint32_t /*version*/)
     e.size(dumpSize, true);
     e.sourceDumpId(sourceId, true);
     e.status(status, true);
+    e.originatorId(originatorId, true);
+    e.originatorType(originatorType, true);
 }
 
 fs::path serialize(const openpower::dump::system::Entry& e, const fs::path& dir)

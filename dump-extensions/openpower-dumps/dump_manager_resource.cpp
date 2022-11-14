@@ -249,8 +249,8 @@ void Manager::restore()
             auto objPath = std::filesystem::path(baseEntryPath) / idString;
             auto entry = std::make_unique<Entry>(
                 bus, objPath, 0, 0, 0, 0, " ", " ",
-                phosphor::dump::OperationStatus::InProgress, baseEntryPath,
-                *this, false);
+                phosphor::dump::OperationStatus::InProgress, std::string(),
+                originatorTypes::Internal, baseEntryPath, *this, false);
             if (deserialize(file.path(), *entry))
             {
                 entries.insert(std::make_pair(idNum, std::move(entry)));

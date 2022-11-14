@@ -34,7 +34,8 @@ void Entry::initiateOffload(std::string uri)
 }
 
 void Entry::update(uint64_t timeStamp, uint64_t dumpSize,
-                   const uint32_t sourceId)
+                   const uint32_t sourceId, const std::string& originId,
+                   originatorTypes originType)
 {
     elapsed(timeStamp);
     size(dumpSize);
@@ -43,6 +44,8 @@ void Entry::update(uint64_t timeStamp, uint64_t dumpSize,
     // #bm-openbmc/2808
     status(OperationStatus::Completed);
     completedTime(timeStamp);
+    originatorId(originId);
+    originatorType(originType);
 
     // serialize as dump is successfully completed
     serialize(*this);

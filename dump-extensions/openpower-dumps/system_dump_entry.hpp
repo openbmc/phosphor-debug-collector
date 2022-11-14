@@ -82,7 +82,8 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId);
+    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+                std::string originId, originatorTypes originType);
 
     /**
      * @brief Delete host system dump and it entry dbus object

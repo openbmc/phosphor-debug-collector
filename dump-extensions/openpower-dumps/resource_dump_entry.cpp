@@ -43,7 +43,8 @@ void Entry::initiateOffload(std::string uri)
     phosphor::dump::host::requestOffload(sourceDumpId());
 }
 
-void Entry::update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
+void Entry::update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId,
+                   const std::string& originId, originatorTypes originType)
 {
     sourceDumpId(sourceId);
     elapsed(timeStamp);
@@ -52,6 +53,8 @@ void Entry::update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
     // #bm-openbmc/2808
     status(OperationStatus::Completed);
     completedTime(timeStamp);
+    originatorId(originId);
+    originatorType(originType);
 
     // serialize as dump is successfully completed
     serialize(*this);
