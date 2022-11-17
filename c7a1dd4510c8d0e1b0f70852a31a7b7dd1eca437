@@ -16,6 +16,24 @@
       "message": "make the logic generic.\nKeep the partion name in an array and loop through the array capture data , This approch will help to add any additional partition in future.",
       "revId": "c7a1dd4510c8d0e1b0f70852a31a7b7dd1eca437",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d174ed_d2d277dc",
+        "filename": "tools/dreport.d/openpower.d/plugins.d/hostboot",
+        "patchSetId": 40
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-11-17T07:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9119c853_094af595",
+      "revId": "c7a1dd4510c8d0e1b0f70852a31a7b7dd1eca437",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
