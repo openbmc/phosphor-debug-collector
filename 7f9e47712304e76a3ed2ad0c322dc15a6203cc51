@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2273853c_d3e32563",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-11-17T09:01:25Z",
+      "side": 1,
+      "message": "there will be only 1 core file, I tested by crashing the debug collector.",
+      "parentUuid": "eac303b5_6cd1d82b",
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72fa8d41_c3df186b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -151,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea357584_f89269b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-11-17T09:01:25Z",
+      "side": 1,
+      "message": "core monitor crash should be a different use case and if required should be handled differently, this commit is to cater for debug collector crash",
+      "parentUuid": "72fa8d41_c3df186b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc3c70c2_4b83be2c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -162,6 +204,30 @@
       "writtenOn": "2022-10-13T08:05:41Z",
       "side": 1,
       "message": "This approch is broken for multiple core dump use cases. \n\nExisting core dump type supports processing only one core not supports multiple core inputs. Also deos the special logic to extract additional information from core dump file.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a417ef_c18bce04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-11-17T09:01:25Z",
+      "side": 1,
+      "message": "what is multiple core dump use cases? this is to cater for only debug-collector itself crashes and generates core, this core will be ignored as the debug-collector is not around.",
+      "parentUuid": "dc3c70c2_4b83be2c",
       "range": {
         "startLine": 13,
         "startChar": 0,
