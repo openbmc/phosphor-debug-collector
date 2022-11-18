@@ -6,7 +6,6 @@
 #include <systemd/sd-event.h>
 #include <unistd.h>
 
-#include <com/ibm/Dump/Create/server.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/bus.hpp>
