@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da37a9a_6a57b675",
+        "filename": "elog_watch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2022-11-22T01:16:43Z",
+      "side": 1,
+      "message": "When testing this, it appeared the sender rule didn\u0027t actually have an effect (addCallback() was still called when there was a different sender than PHOSPHOR_LOGGING_BUSNAME), but I don\u0027t understand why.",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 79
+      },
+      "revId": "03348871734af7c98a4c79f37e4b35d81bb49faa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
