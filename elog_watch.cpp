@@ -38,12 +38,14 @@ Watch::Watch(sdbusplus::bus_t& bus, IMgr& iMgr) :
     iMgr(iMgr),
     addMatch(bus,
              sdbusplus::bus::match::rules::interfacesAdded() +
-                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING),
+                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING) +
+                 sdbusplus::bus::match::rules::sender(PHOSPHOR_LOGGING_BUSNAME),
              std::bind(std::mem_fn(&Watch::addCallback), this,
                        std::placeholders::_1)),
     delMatch(bus,
              sdbusplus::bus::match::rules::interfacesRemoved() +
-                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING),
+                 sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING) +
+                 sdbusplus::bus::match::rules::sender(PHOSPHOR_LOGGING_BUSNAME),
              std::bind(std::mem_fn(&Watch::delCallback), this,
                        std::placeholders::_1))
 {

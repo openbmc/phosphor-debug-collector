@@ -109,6 +109,9 @@ conf_data.set_quoted('OBJ_LOGGING', '/xyz/openbmc_project/logging',
 conf_data.set_quoted('ELOG_ID_PERSIST_PATH', get_option('ELOG_ID_PERSIST_PATH'),
                       description : 'Path of file for storing elog id\'s, which have associated dumps'
                     )
+conf_data.set_quoted('PHOSPHOR_LOGGING_BUSNAME', get_option('PHOSPHOR_LOGGING_BUSNAME'),
+                      description : 'D-Bus well-known name of the phosphor logging service'
+                    )
 conf_data.set('CLASS_VERSION', get_option('CLASS_VERSION'),
                description : 'Class version to register with Cereal'
              )
