@@ -67,7 +67,7 @@ class Entry : public EntryIfaces
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         parent(parent), id(dumpId)
     {
         originatorId(originId);
@@ -93,6 +93,7 @@ class Entry : public EntryIfaces
             startTime(timeStamp);
             completedTime(0);
         }
+        emit_object_added();
     };
 
     /** @brief Delete this d-bus object.
