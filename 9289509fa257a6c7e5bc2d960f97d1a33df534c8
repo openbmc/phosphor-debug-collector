@@ -16,6 +16,24 @@
       "message": "With this change, I am not sure if the inherited objects (e.g. bmc_dump_entry) should keep using `defer_emit` or should be modified to use `emit_no_signals`?",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed68935_6be4498f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-23T12:48:11Z",
+      "side": 1,
+      "message": "This commit is not correct as-is.  Something else must be going on.\n\nWhat kind of Entry was it you were having trouble with?  A `bmc_dump_entry.hpp:Entry`?\n\nThe constructor of dump_entry::Entry purposefully does no-emit because the expectation is that it is always inherited from (with additional interfaces added).\nThe bmc::Entry correctly does defer-emit and then at the end of the constructor does an `emit_object_added` call, which will trigger the creation signals.  Having called `emit_object_added` it should also trigger the destruction signals when the object is destructed.  This is what you don\u0027t seem to be seeing?",
+      "parentUuid": "412f1b79_d53af293",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
