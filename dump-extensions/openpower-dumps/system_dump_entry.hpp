@@ -28,7 +28,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
+class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -55,10 +55,10 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               std::string(), status, originatorId,
-                              originatorType, parent)
+                              originatorType, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
     {
         sourceDumpId(sourceId);
         // Emit deferred signal.

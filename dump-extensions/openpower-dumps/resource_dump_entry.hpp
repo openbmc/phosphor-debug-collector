@@ -31,7 +31,7 @@ class Manager;
  *  A concrete implementation for the
  *  com::ibm::Dump::Entry::Resource DBus API
  */
-class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
+class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -61,10 +61,10 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           std::string vspStr, std::string pwd,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               std::string(), status, originatorId,
-                              originatorType, parent)
+                              originatorType, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
     {
         sourceDumpId(sourceId);
         vspString(vspStr);
