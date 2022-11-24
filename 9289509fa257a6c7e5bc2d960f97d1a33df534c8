@@ -52,6 +52,24 @@
       "parentUuid": "2ed68935_6be4498f",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c80b8fa_b3f67629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-11-24T06:36:41Z",
+      "side": 1,
+      "message": "As mentioend by Patrick , https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/40518 is used for this support.  @dhruvaraj verified also.",
+      "parentUuid": "71ded2f4_470fb911",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
