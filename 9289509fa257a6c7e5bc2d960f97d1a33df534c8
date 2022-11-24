@@ -88,6 +88,24 @@
       "parentUuid": "9c80b8fa_b3f67629",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5940cf13_cbf8dbdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-11-24T06:59:32Z",
+      "side": 1,
+      "message": "I attempted to create a BMC dump and delete it, and the interface removed signal is coming, please provide details\n\n‣ Type\u003dsignal  Endian\u003dl  Flags\u003d1  Version\u003d1 Cookie\u003d96  Timestamp\u003d\"Thu 2022-11-24 06:56:06.070563 UTC\"\n  Sender\u003d:1.116  Path\u003d/xyz/openbmc_project/dump  Interface\u003dorg.freedesktop.DBus.ObjectManager  Member\u003dInterfacesRemoved\n  UniqueName\u003d:1.116\n  MESSAGE \"oas\" {\n          OBJECT_PATH \"/xyz/openbmc_project/dump/bmc/entry/2\";\n          ARRAY \"s\" {\n                  STRING \"org.freedesktop.DBus.Peer\";\n                  STRING \"org.freedesktop.DBus.Introspectable\";\n                  STRING \"org.freedesktop.DBus.Properties\";\n                  STRING \"xyz.openbmc_project.Dump.Entry.BMC\";\n                  STRING \"xyz.openbmc_project.Common.GeneratedBy\";\n          };\n  };",
+      "parentUuid": "3b0df710_e8db5c1d",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
