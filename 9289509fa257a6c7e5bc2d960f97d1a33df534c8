@@ -34,6 +34,24 @@
       "parentUuid": "412f1b79_d53af293",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ded2f4_470fb911",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2022-11-24T05:22:30Z",
+      "side": 1,
+      "message": "\u003e it should also trigger the destruction signals when the object is destructed.  This is what you don\u0027t seem to be seeing?\n\nNo, it\u0027s not working as expected. As noted in the \"Tested\", the destruction does not emit signal, that leaves the mapper still see the object, while it\u0027s gone on DBus.\n\nYou should be able to reproduce the issue by just creating a dump and delete it.",
+      "parentUuid": "2ed68935_6be4498f",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
