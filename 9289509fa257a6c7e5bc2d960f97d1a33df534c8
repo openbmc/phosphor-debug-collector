@@ -106,6 +106,24 @@
       "parentUuid": "3b0df710_e8db5c1d",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e676b679_984b9316",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2022-11-24T09:50:30Z",
+      "side": 1,
+      "message": "Tried to monitor the signal, it does emit the above signal, but mapper still does not erase the object.\nChecking the code https://github.com/openbmc/phosphor-objmgr/blob/master/src/main.cpp#L764, it does only erase the interfaces, and because the above signal does not indicate that all interfaces are removed, it still keep the object `/xyz/openbmc_project/dump/bmc/entry/2`.\n\nTo properly make mapper to erase the object, a service should emit \"interfacesRemoved\" signal for **all** the interfaces. With `emit_no_signals` here, it fails to do so and cause the issue.\n\n@Patrick @Dhruvaraj",
+      "parentUuid": "5940cf13_cbf8dbdf",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
