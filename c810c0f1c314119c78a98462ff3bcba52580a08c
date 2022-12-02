@@ -70,6 +70,24 @@
       "parentUuid": "46886005_601fa3b4",
       "revId": "c810c0f1c314119c78a98462ff3bcba52580a08c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f8cfed_5e17bced",
+        "filename": "tools/dreport.d/include.d/dcommon",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-02T06:27:14Z",
+      "side": 1,
+      "message": "Thanks, Looking at the changes here , looks minimal common code also only cli function future enhancement point not seeing any real benefit here.",
+      "parentUuid": "9ff86b24_17807507",
+      "revId": "c810c0f1c314119c78a98462ff3bcba52580a08c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
