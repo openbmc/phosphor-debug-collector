@@ -34,6 +34,24 @@
       "parentUuid": "3f9bc238_cee15380",
       "revId": "c810c0f1c314119c78a98462ff3bcba52580a08c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46886005_601fa3b4",
+        "filename": "tools/dreport.d/include.d/dcommon",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-02T06:14:23Z",
+      "side": 1,
+      "message": "Sorry for the typo/minimal decription. \n\nNeed to provide background, why this new script introduced. Looking at the later commits i can see this is introduce re-use some of the consists and cli interface function re-use ibm specific custom dreport. Looking at dreport code readability point prefer to keep dreport same way and duplicate the code in the custom script. that will help in future to introduce custom options in the script.Looking at the changes here common code is minimal here . Let me know you got any string point to split dreport to support your custom script.",
+      "parentUuid": "6a10d508_afb93b12",
+      "revId": "c810c0f1c314119c78a98462ff3bcba52580a08c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
