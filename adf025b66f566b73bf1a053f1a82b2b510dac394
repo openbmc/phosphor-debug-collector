@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "b76583c5_94ef128a",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 38
       },
       "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "17879485_c79e2856",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,34 @@
         "endChar": 38
       },
       "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79867ed2_f172446f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T06:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17879485_c79e2856",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d38ab279_bad52b8a",
         "filename": "/COMMIT_MSG",
@@ -61,10 +86,10 @@
       "side": 1,
       "message": "Add name chjnage with some explane name old vs new.",
       "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c82b9129_c00344a8",
         "filename": "/COMMIT_MSG",
@@ -79,8 +104,25 @@
       "message": "Adding info:-\nold dump name -\u003e \u003cdump name\u003e_\u003cdump id\u003e_\u003ctime\u003e.tar.gz\nnew dump name -\u003e \u003cdump name\u003e_\u003cdump id\u003e_\u003ctime\u003e.gz",
       "parentUuid": "d38ab279_bad52b8a",
       "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "446d5797_2a9f895d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T06:23:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c82b9129_c00344a8",
+      "revId": "adf025b66f566b73bf1a053f1a82b2b510dac394",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
