@@ -16,6 +16,24 @@
       "message": "we shouldn\u0027t enforcing custom naming in dreport. either move cutomize code in opderport ( ibm custom one) or use flag level control for this. here assuming thers is header available force to use custom format , this is going to break incase some one to to use ther custom headers if any. Please move these logic in ibm.d folder , that will be cleanr approch.",
       "revId": "5d26ac2638c88da4a4c9e3d44ae4032c19c2b57d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e091932_9a64b1d4",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T07:51:16Z",
+      "side": 1,
+      "message": "This is BMC dump name change can\u0027t be moved to opdreport.",
+      "parentUuid": "79588562_4122dc91",
+      "revId": "5d26ac2638c88da4a4c9e3d44ae4032c19c2b57d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

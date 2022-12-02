@@ -22,6 +22,30 @@
       },
       "revId": "0b6c1a924d8cd051ee585ee4a8d46faeff7ad125",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0663277a_966d50de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T07:51:16Z",
+      "side": 1,
+      "message": "Yes it is related to IBM only and the changes are only related to IBM packing and name.",
+      "parentUuid": "57d62c25_730beb82",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "0b6c1a924d8cd051ee585ee4a8d46faeff7ad125",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
