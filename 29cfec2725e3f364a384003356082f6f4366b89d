@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "875255ae_766df9f3",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 25
       },
       "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "49020488_9cfe804c",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,34 @@
         "endChar": 25
       },
       "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed144899_c3d59a69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T06:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49020488_9cfe804c",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e5785192_86a09829",
         "filename": "tools/dreport.d/dreport",
@@ -61,10 +86,10 @@
       "side": 1,
       "message": "General design direction should minmizze if check , you can write cutsom package funtion util functions for packah\u003dging.\nlike if( extension )\n- cutsom packaging\nelse \n{\n  existing flow\n}",
       "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e9895d85_0cbaac01",
         "filename": "tools/dreport.d/dreport",
@@ -79,8 +104,25 @@
       "message": "created package script which will handle the packaging steps for dumps having header.",
       "parentUuid": "e5785192_86a09829",
       "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "170c48cf_f48579fd",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-02T06:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9895d85_0cbaac01",
+      "revId": "29cfec2725e3f364a384003356082f6f4366b89d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
