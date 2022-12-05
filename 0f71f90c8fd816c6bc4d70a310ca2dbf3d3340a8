@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec13272_1b5a1100",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-05T09:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df66c306_72bb8428",
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa3da4f5_9e9d9712",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-02-18T07:24:43Z",
       "side": 1,
       "message": "are you wondering about the dump manager consuming more CPU resources when multiple dumps collection happen in parallel? If so, what about other type of dumps? Or you are adding for some other reason? can you please elaborate?",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f512281_73154dfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-05T09:49:49Z",
+      "side": 1,
+      "message": "other dumps happens only on error but this type user can trigger using GUI.",
+      "parentUuid": "fa3da4f5_9e9d9712",
       "range": {
         "startLine": 9,
         "startChar": 3,
@@ -102,6 +144,30 @@
       "side": 1,
       "message": "\u003e New error code means changes here and also the redfish,\n\nIf the end-user needs to take some action then, we need to make a change in the Redfish as well. If no action required by the end-user then, I am fine.",
       "parentUuid": "2e04b34e_83b94913",
+      "range": {
+        "startLine": 13,
+        "startChar": 15,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "0f71f90c8fd816c6bc4d70a310ca2dbf3d3340a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9e3fa9_b1c0bdf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-05T09:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f28a0014_9981b74f",
       "range": {
         "startLine": 13,
         "startChar": 15,
