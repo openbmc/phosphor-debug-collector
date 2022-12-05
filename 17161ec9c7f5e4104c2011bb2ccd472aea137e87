@@ -16,6 +16,24 @@
       "message": "Looks like lot of file name are duplicated here.",
       "revId": "17161ec9c7f5e4104c2011bb2ccd472aea137e87",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b9d60de_b8bdf262",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-05T12:16:28Z",
+      "side": 1,
+      "message": "Sorry.  I thought I generated this file from a shell one-liner based on the failures that shellcheck was seeing, but obviously I did something wrong.  Removed the duplicate entries.",
+      "parentUuid": "157ac1fc_4ed75b1c",
+      "revId": "17161ec9c7f5e4104c2011bb2ccd472aea137e87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
