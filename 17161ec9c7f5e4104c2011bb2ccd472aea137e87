@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "157ac1fc_4ed75b1c",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-05T05:07:47Z",
+      "side": 1,
+      "message": "Looks like lot of file name are duplicated here.",
+      "revId": "17161ec9c7f5e4104c2011bb2ccd472aea137e87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
