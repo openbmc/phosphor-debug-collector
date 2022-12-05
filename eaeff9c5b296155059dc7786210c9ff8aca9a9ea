@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "549cfa09_9290f00b",
         "filename": "dump-extensions/openpower-dumps/opdreport",
@@ -20,10 +21,34 @@
         "endChar": 35
       },
       "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "251f881a_cd3ca4e1",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-05T07:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "549cfa09_9290f00b",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 35
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "1355b1de_bf5e2508",
         "filename": "dump-extensions/openpower-dumps/opdreport",
@@ -43,10 +68,58 @@
         "endChar": 44
       },
       "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5886106_c3b79b08",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-05T07:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1355b1de_bf5e2508",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 44
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c8552e_2479c322",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-05T07:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1355b1de_bf5e2508",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 44
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "987d56e7_8b09d271",
         "filename": "tools/dreport.d/ibm.d/gendumpheader",
@@ -66,10 +139,34 @@
         "endChar": 30
       },
       "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04020af7_b8ffaa45",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-05T07:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "987d56e7_8b09d271",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6af44aa7_4e9697ba",
         "filename": "tools/dreport.d/ibm.d/gendumpheader",
@@ -89,8 +186,31 @@
         "endChar": 33
       },
       "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efde8b4c_e2ecfa7b",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-05T07:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af44aa7_4e9697ba",
+      "range": {
+        "startLine": 119,
+        "startChar": 26,
+        "endLine": 119,
+        "endChar": 33
+      },
+      "revId": "eaeff9c5b296155059dc7786210c9ff8aca9a9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
