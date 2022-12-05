@@ -144,6 +144,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed10718_641a9fbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-05T10:54:49Z",
+      "side": 1,
+      "message": "I had tested and see that after a core is generated, core dump file is packaged as part of the dump and removed.\n\nDec 05 08:38:55 p10bmc systemd[1]: Started Process Core Dump (PID 4001/UID 0).\nDec 05 08:38:55 p10bmc systemd-coredump[4002]: [🡕] Process 4000 (pvm_dump_offloa) of user 0 dumped core.\n\nroot@p10bmc:/var/lib/systemd/coredump# ls\ncore.pvm_dump_offloa.0.c43cfdb15d2b44099942379926cc9301.4000.1670229535000000.zst\nroot@p10bmc:/var/lib/systemd/coredump# ls",
+      "parentUuid": "2273853c_d3e32563",
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72fa8d41_c3df186b",
