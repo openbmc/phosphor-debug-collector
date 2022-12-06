@@ -209,6 +209,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "996cfa7c_8b588181",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-06T07:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea357584_f89269b1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc3c70c2_4b83be2c",
@@ -246,6 +270,30 @@
       "side": 1,
       "message": "what is multiple core dump use cases? this is to cater for only debug-collector itself crashes and generates core, this core will be ignored as the debug-collector is not around.",
       "parentUuid": "dc3c70c2_4b83be2c",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "7f9e47712304e76a3ed2ad0c322dc15a6203cc51",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f68149a_c376bcf5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-06T07:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3a417ef_c18bce04",
       "range": {
         "startLine": 13,
         "startChar": 0,
