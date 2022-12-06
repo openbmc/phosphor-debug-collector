@@ -29,7 +29,6 @@ tools/dreport.d/plugins.d/meminfo
 tools/dreport.d/plugins.d/obmcconsole
 tools/dreport.d/plugins.d/osrelease
 tools/dreport.d/plugins.d/pldmflightrecorder
-tools/dreport.d/plugins.d/ramoops
 tools/dreport.d/plugins.d/timedate
 tools/dreport.d/plugins.d/top
 tools/dreport.d/plugins.d/uptime
