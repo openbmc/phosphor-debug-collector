@@ -16,6 +16,24 @@
       "message": "Instead of dump type use dump id",
       "revId": "d72ab1f81c5fe59982d8a46ab0e8c709b263019c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1bf3eb2_456b1d09",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 9
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-07T06:10:50Z",
+      "side": 1,
+      "message": "I am using dump id only the type variable name is because of content type field.\nIf you check line 177-179 I have added the values in comment and this content type I am fetching in opdreport script.",
+      "parentUuid": "b55677a9_713cf22e",
+      "revId": "d72ab1f81c5fe59982d8a46ab0e8c709b263019c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
