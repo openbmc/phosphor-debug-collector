@@ -70,6 +70,30 @@
       },
       "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0b9faee_89d5cfc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-07T07:11:52Z",
+      "side": 1,
+      "message": "----child becoming zombie---\nIf the child process becomes a zombie, i,e if the parent phosphor-debug-collector crashes when child is generating dump, we are safe as the flag is reset when phosphor-debug-collector restarts.\n\n---child process hang for ever---\ndo not see this happening as we do not have a loop logic, so it got to end with either success/failure",
+      "parentUuid": "1db14e15_35b61d52",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
