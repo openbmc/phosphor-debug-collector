@@ -22,6 +22,30 @@
       },
       "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e332f8d2_8772efec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-07T07:03:43Z",
+      "side": 1,
+      "message": "sd_event_add_child is added on the process id of the child process that is forked to create the dump file, and not on the actual dump file. If the child process ix EXITED/STOPPED the callback method is called which will clear the flag.\n\nI guess we are safe here.",
+      "parentUuid": "4268a1b2_4aff239b",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
