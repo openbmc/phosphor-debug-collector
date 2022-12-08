@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "c8ddfba3_da9f55b7",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 7
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "ffa14bde_7d5b071d",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 7
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "69f164c6_e2a62b47",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
@@ -61,10 +62,28 @@
       "side": 1,
       "message": "Which component triggering the hardware dump? is it PDC (phosphor-debug-collector) or ODC (openpower-debug-collector)?\n\nIf ODC then, I guess this policy check should go there right?",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0879b9cc_ee3e9a92",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hardware.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "dump policies can be handled in a common place ie PDC",
+      "parentUuid": "69f164c6_e2a62b47",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "69b1f3e5_f71da376",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
@@ -78,10 +97,28 @@
       "side": 1,
       "message": "Which component triggering the hardware dump? is it PDC (phosphor-debug-collector) or ODC (openpower-debug-collector)?\n\nIf ODC then, I guess this policy check should go there right?",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db128cd7_ec7bbd28",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "PDC is handling policy for dumps which are not collected by ODC so keeping in a common place",
+      "parentUuid": "69b1f3e5_f71da376",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "58d40649_f1fba6bd",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
@@ -101,10 +138,34 @@
         "endChar": 73
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "903302b7_cfb59659",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "all host dumps",
+      "parentUuid": "58d40649_f1fba6bd",
+      "range": {
+        "startLine": 101,
+        "startChar": 55,
+        "endLine": 101,
+        "endChar": 73
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "24953140_f084c3da",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
@@ -124,10 +185,34 @@
         "endChar": 18
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3c667f_8d52ba17",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "24953140_f084c3da",
+      "range": {
+        "startLine": 104,
+        "startChar": 10,
+        "endLine": 104,
+        "endChar": 18
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e0b2b871_de7004e1",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
@@ -141,10 +226,10 @@
       "side": 1,
       "message": "I don\u0027t think this should be an ERR? Probably just INFO",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7fe5eb6f_f851d96e",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
@@ -159,10 +244,10 @@
       "message": "Done",
       "parentUuid": "e0b2b871_de7004e1",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b10cd9c0_dc0a84bb",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
@@ -176,10 +261,28 @@
       "side": 1,
       "message": "Do we really need this trace?",
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "922ad97e_0397390b",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "Yes, this trace is useful",
+      "parentUuid": "b10cd9c0_dc0a84bb",
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4810c3fa_7c03b345",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
@@ -199,10 +302,34 @@
         "endChar": 51
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "637fd052_b5461cc8",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "THe dump is actually disabled by user, so we can give that return\nNo",
+      "parentUuid": "4810c3fa_7c03b345",
+      "range": {
+        "startLine": 27,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "02c9cd13_199a7812",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
@@ -222,8 +349,31 @@
         "endChar": 21
       },
       "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9746ef4d_d86bc34f",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T06:32:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "02c9cd13_199a7812",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "2d41709ce9e5d50177db4ccda66828a88c18f8a8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
