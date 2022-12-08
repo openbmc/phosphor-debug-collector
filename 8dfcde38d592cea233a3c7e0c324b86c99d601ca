@@ -39,6 +39,30 @@
       },
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aed65bb_d2c6b2cf",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 24
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-08T06:12:48Z",
+      "side": 1,
+      "message": "if that happens, x will be 0.\nmsize will be 4 and we will end up adding 4 bytes with 0\u0027s",
+      "parentUuid": "d51162cb_c4d3e38f",
+      "range": {
+        "startLine": 123,
+        "startChar": 13,
+        "endLine": 123,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
