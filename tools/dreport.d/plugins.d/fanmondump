@@ -7,7 +7,7 @@
 . $DREPORT_INCLUDE/functions
 
 if [ ! -e "/usr/bin/phosphor-fan-monitor" ]; then
-  exit 0
+    exit 0
 fi
 
 file_name="/tmp/fan_monitor_dump.json"

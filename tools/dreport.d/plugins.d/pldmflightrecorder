@@ -10,14 +10,14 @@ desc="pldm flight recorder"
 
 # collect data only if pldmd is enabled
 if [ -e "/usr/bin/pldmd" ]; then
-  command="rm -rf /tmp/pldm_flight_recorder; killall -s SIGUSR1 pldmd; \
+    command="rm -rf /tmp/pldm_flight_recorder; killall -s SIGUSR1 pldmd; \
            sleep 5; cat /tmp/pldm_flight_recorder"
 
-  file_name="pldmflightrecorder.log"
+    file_name="pldmflightrecorder.log"
 
-  add_cmd_output "$command" "$file_name" "$desc"
+    add_cmd_output "$command" "$file_name" "$desc"
 
-  rm -rf /tmp/pldm_flight_recorder
+    rm -rf /tmp/pldm_flight_recorder
 else
-  log_warning "skipping pldm flight recorder:  pldmd is not enabled"
+    log_warning "skipping pldm flight recorder:  pldmd is not enabled"
 fi

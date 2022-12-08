@@ -88,7 +88,7 @@ function check_size()
     #get the file or directory size
     if [[ -d $source ]] && [[ -n $source ]]; then
         tar -cf "$source.tar" -C \
-                 $(dirname "$source") $(basename "$source")
+            $(dirname "$source") $(basename "$source")
         size=$(stat -c%s "$source.tar")
         rm "$source.tar"
     else
@@ -99,7 +99,7 @@ function check_size()
         #Exceed the allowed limit,
         #tar and compress the files and check the size
         tar -Jcf "$name_dir.tar.xz" -C \
-                  $(dirname "$name_dir") $(basename "$name_dir")
+            $(dirname "$name_dir") $(basename "$name_dir")
         size=$(stat -c%s "$name_dir.tar.xz")
         if [ $size -gt $dump_size ]; then
             #Remove the the specific data from the name_dir and continue
@@ -118,10 +118,10 @@ function check_size()
 # @param error message
 function log_error()
 {
-   echo $($TIME_STAMP) "ERROR: $*" >> $dreport_log
-   if ((quiet != TRUE)); then
-      echo $($TIME_STAMP) "ERROR: $*" >&2
-   fi
+    echo $($TIME_STAMP) "ERROR: $*" >> $dreport_log
+    if ((quiet != TRUE)); then
+        echo $($TIME_STAMP) "ERROR: $*" >&2
+    fi
 }
 
 # @brief log warning message

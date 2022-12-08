@@ -15,7 +15,7 @@ command="busctl call --verbose --no-pager \
                 /xyz/openbmc_project/dump \
                 org.freedesktop.DBus.ObjectManager \
                 GetManagedObjects"
-if ! add_cmd_output "$command" "$file_name" "$desc"; 
+if ! add_cmd_output "$command" "$file_name" "$desc";
 then
     #bmc dumps
     dir="/var/lib/phosphor-debug-collector/dumps/"
