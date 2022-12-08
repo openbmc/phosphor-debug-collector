@@ -16,6 +16,24 @@
       "message": "Squash with base changes",
       "revId": "934f3922a9a4d8c834eeafbb9d5a83c9b1c41628",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef83c5c_217f2fee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-08T05:55:36Z",
+      "side": 1,
+      "message": "Can\u0027t be done. keeping it.",
+      "parentUuid": "29af5e95_06e9b441",
+      "revId": "934f3922a9a4d8c834eeafbb9d5a83c9b1c41628",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
