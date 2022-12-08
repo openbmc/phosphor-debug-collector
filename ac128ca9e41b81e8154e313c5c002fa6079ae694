@@ -170,6 +170,24 @@
       "parentUuid": "96bdfbc8_b9466a3c",
       "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc68f844_8172c815",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-08T05:46:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd274a08_fa88191b",
+      "revId": "ac128ca9e41b81e8154e313c5c002fa6079ae694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
