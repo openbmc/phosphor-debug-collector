@@ -10,6 +10,6 @@ desc="entity-manager configuration"
 file_name="em-system.json"
 
 if [ -e "/var/configuration/system.json" ]; then
-  command="cat /var/configuration/system.json"
-  add_cmd_output "$command" "$file_name" "$desc"
+    command="cat /var/configuration/system.json"
+    add_cmd_output "$command" "$file_name" "$desc"
 fi

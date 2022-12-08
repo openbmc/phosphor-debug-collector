@@ -1,6 +1,6 @@
 #! /bin/bash
 
-help=$"
+help=$(cat << EOF
         dreport creates an archive(xz compressed) consisting of the following:
                 * Configuration information
                 * Debug information
@@ -33,7 +33,8 @@ Options:
         -V, --version         Output version information.
         -q, —-quiet           Only log fatal errors to stderr
         -h, —-help            Display this help and exit.
-"
+EOF
+)
 
 #CONSTANTS
 declare -rx TRUE=1
@@ -126,7 +127,7 @@ function collect_data()
 
     #Executes plugins based on the type.
     for i in $plugin_path/* ; do
-       $i
+        $i
     done
 }
 
@@ -151,24 +152,24 @@ function set_core_pid()
 function set_elog_pid()
 {
     additional_data=$(busctl get-property xyz.openbmc_project.Logging \
-                             $optional_path \
-                             xyz.openbmc_project.Logging.Entry \
-                             AdditionalData)
+            $optional_path \
+            xyz.openbmc_project.Logging.Entry \
+        AdditionalData)
 
     #read _PID data.
     if [ ! -z "$additional_data" ]; then
         pid=$(echo $additional_data | \
-                   awk -F _PID= '{ print ($2+0)}')
+            awk -F _PID= '{ print ($2+0)}')
     fi
 }
 
 # @brief Initial version of the summary log
-init_summary()
+function init_summary()
 {
-   log_summary "Name:          $name.tar.xz"
-   log_summary "Epochtime:     $EPOCHTIME"
-   log_summary "ID:            $dump_id"
-   log_summary "Type:          $dump_type"
+    log_summary "Name:          $name.tar.xz"
+    log_summary "Epochtime:     $EPOCHTIME"
+    log_summary "ID:            $dump_id"
+    log_summary "Type:          $dump_type"
 }
 
 # @brief Check the validity of user inputs and initialize global
@@ -199,22 +200,22 @@ function initialize()
     summary_log="$name_dir/$SUMMARY_LOG"
 
     #Type
-    if [[ ! ($dump_type = $TYPE_USER || \
-             $dump_type = $TYPE_CORE || \
-             $dump_type = $TYPE_ELOG || \
-             $dump_type = $TYPE_RAMOOPS || \
-             $dump_type = $TYPE_CHECKSTOP) ]]; then
-       log_error "Invalid -type, Only summary log is available"
-       dump_type=$SUMMARY_DUMP
+    if [[ $dump_type != $TYPE_USER ]] || \
+        [[ $dump_type != $TYPE_CORE ]] || \
+        [[ $dump_type != $TYPE_ELOG ]] || \
+        [[ $dump_type != $TYPE_RAMOOPS ]] || \
+        [[ $dump_type != $TYPE_CHECKSTOP ]]; then
+        log_error "Invalid -type, Only summary log is available"
+        dump_type=$SUMMARY_DUMP
     fi
 
     #Size
     #Check the input is integer.
     if [ "$dump_size" -eq "$dump_size" ] 2>/dev/null; then
-       #Converts in to bytes.
-       dump_size="$((dump_size * 1024))"
+        #Converts in to bytes.
+        dump_size="$((dump_size * 1024))"
     else
-       dump_size=$UNLIMITED
+        dump_size=$UNLIMITED
     fi
 
     return $SUCCESS
@@ -232,14 +233,14 @@ function package()
     #tar and compress the files.
     if [ -f "$HEADER_EXTENSION" ]; then
         tar -Jcf "$name_dir.tar.xz" -C \
-                 $(dirname "$name_dir") $(basename "$name_dir")
+            $(dirname "$name_dir") $(basename "$name_dir")
         echo "Adding Dump Header :"$HEADER_EXTENSION
         ("$HEADER_EXTENSION")
         cat "$name_dir.tar.xz" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
         mv "/tmp/dumpheader_$EPOCHTIME" "$name_dir.tar.xz"
     else
         tar -Jcf "$name_dir.tar.xz" -C \
-                 $(dirname "$name_dir") $(basename "$name_dir")
+            $(dirname "$name_dir") $(basename "$name_dir")
     fi
 
     if [ $? -ne 0 ]; then
@@ -254,7 +255,7 @@ function package()
     echo $($TIME_STAMP) "Report is available in $dump_dir"
 
     if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
-       return $SUCCESS
+        return $SUCCESS
     fi
 
     #copy the compressed tar file into the destination
@@ -298,8 +299,8 @@ function main()
 }
 
 TEMP=`getopt -o n:d:i:t:s:p:vVqh \
-      --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
-      -- "$@"`
+    --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
+    -- "$@"`
 
 if [ $? -ne 0 ]
 then
@@ -314,37 +315,37 @@ while [[ $# -gt 1 ]]; do
     case $key in
         -n|--name)
             name=$2
-            shift 2;;
+            shift 2 ;;
         -d|--dir)
             dump_dir=$2
-            shift 2;;
+            shift 2 ;;
         -i|--dumpid)
             dump_id=$2
-            shift 2;;
+            shift 2 ;;
         -t|--type)
             dump_type=$2
-            shift 2;;
+            shift 2 ;;
         -s|--size)
             dump_size=$2
-            shift 2;;
+            shift 2 ;;
         -p|--path)
             optional_path=$2
-            shift 2;;
+            shift 2 ;;
         -v|—-verbose)
             verbose=$TRUE
-            shift;;
+            shift ;;
         -V|--version)
-            shift;;
+            shift ;;
         -q|—-quiet)
             quiet=$TRUE
-            shift;;
+            shift ;;
         -h|--help)
             echo "$help"
-            exit;;
+            exit ;;
         *) # unknown option
             log_error "Unknown argument: $1"
             log_info "$help"
-            exit 1;;
+            exit 1 ;;
     esac
 done
 

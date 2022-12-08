@@ -7,10 +7,10 @@ Collects various FFDC files and system parameters and places them in a .tar
 usage: ffdc [OPTION]
 
 Options:
-   -d, --dir <directory>  Specify destination directory. Defaults to /tmp if
-                          invalid or unspecified.
-   -D, --disable_dreport  Disable dreport based dump collection
-   -h, --help             Display this help text and exit.
+-d, --dir <directory>  Specify destination directory. Defaults to /tmp if
+invalid or unspecified.
+-D, --disable_dreport  Disable dreport based dump collection
+-h, --help             Display this help text and exit.
 '
 
 declare -a arr=(

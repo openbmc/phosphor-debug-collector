@@ -21,6 +21,6 @@ if add_cmd_output "$command" "$file_name" "$desc";
 then
     dir_name="/var/lib/phosphor-led-manager/"
     if [ -d "$dir_name" ]; then
-          add_copy_file "$dir_name" "$desc"
+        add_copy_file "$dir_name" "$desc"
     fi
 fi

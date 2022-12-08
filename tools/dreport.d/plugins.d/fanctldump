@@ -12,10 +12,10 @@ file_name="fan_control_dump.json"
 # collect data only if fanctl is present
 if [ -e "/usr/bin/fanctl" ]; then
 
-  command="rm -f /tmp/fan_control_dump.json; /usr/bin/fanctl dump; \
+    command="rm -f /tmp/fan_control_dump.json; /usr/bin/fanctl dump; \
            cat /tmp/fan_control_dump.json"
 
-  add_cmd_output "$command" "$file_name" "$desc"
-  rm -f /tmp/fan_control_dump.json
+    add_cmd_output "$command" "$file_name" "$desc"
+    rm -f /tmp/fan_control_dump.json
 
 fi
