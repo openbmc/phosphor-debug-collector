@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f33f3db_2092056c",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-08T06:20:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67551b59_291f2733",
+      "range": {
+        "startLine": 70,
+        "startChar": 37,
+        "endLine": 70,
+        "endChar": 45
+      },
+      "revId": "e2a7a291c06d45f7fa061666a8c6dfc32283ce39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d1609bc_0c7cef5d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-25T04:01:46Z",
       "side": 1,
       "message": "FYI: fmt will support string so, we no need to convert into c_str.",
+      "range": {
+        "startLine": 61,
+        "startChar": 37,
+        "endLine": 61,
+        "endChar": 45
+      },
+      "revId": "e2a7a291c06d45f7fa061666a8c6dfc32283ce39",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbeea1d7_485963c0",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-08T06:20:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d1609bc_0c7cef5d",
       "range": {
         "startLine": 61,
         "startChar": 37,
