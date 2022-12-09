@@ -20,6 +20,252 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df149331_dc151b98",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Why this tool is not keeping in phosphor-debug-collector/tools/dreport.d/openpower.d path? This is more like IBM specific dump packaging tool.",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e43d7a_9ab67b03",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Not used",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02ef277d_b17066a9",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Unused Variable?",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6786b56_3b91d5bb",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Unused Variable?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb225e0e_65f58efd",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Unused Variable?",
+      "range": {
+        "startLine": 67,
+        "startChar": 11,
+        "endLine": 67,
+        "endChar": 16
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80044423_4a76adb9",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "why dump_dir is not keeping in /tmp?",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c29f9e0b_3a7b3291",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "elog_id\u003d$(basename \"$optional_path\") logic is not going to extract required info here?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a43dcea_83aca765",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Error log is not mandatory for  system dump? incase failed to pass optional parameter should we go with some default ID?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f9d7da3_355ff38a",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Here you are assuming plat_dump/*Sbe* is going to be part of current dir. it will be good to use full path optional files instead of assuming you are in actual path.",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2adbd0_f496cf98",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Can you add some comments here dump data is stored in plat_dump? \nPlat_dump is going to have only the data assicated to this dump request , wondering any dump ID based data storage implmented in application code?",
+      "range": {
+        "startLine": 139,
+        "startChar": 22,
+        "endLine": 139,
+        "endChar": 37
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5b01e5d_1407b853",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Any specific reason for keeping plat_dump/*Sbe* after packaging , should be removed?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb11a77_bd032f80",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Not used?",
+      "range": {
+        "startLine": 231,
+        "startChar": 5,
+        "endLine": 238,
+        "endChar": 18
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d51162cb_c4d3e38f",
         "filename": "tools/dreport.d/ibm.d/gendumpheader",
         "patchSetId": 24
@@ -61,6 +307,23 @@
         "endLine": 123,
         "endChar": 20
       },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe5666b_03c8d9d9",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 24
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T03:59:40Z",
+      "side": 1,
+      "message": "Commit message say\u0027s only hostbootdump enabled. Looking at the comment here it say\u0027s Harwdare dump section. am missing something here?",
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
