@@ -37,6 +37,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44067a89_0cca8429",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "Is this optional or required input?",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 70
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a4efc40_4a6ddf81",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "Is the required or optional input?",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef75833_3254bdb6",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "Is this required or optional ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 65
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b9e43d7a_9ab67b03",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 24
@@ -100,6 +169,23 @@
         "endLine": 64,
         "endChar": 25
       },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d11d1dd5_5b952b5d",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "Fix Build warning\nIn dump-extensions/openpower-dumps/opdreport line 66:\ndeclare -x dDay\u003d$(date -d @$EPOCHTIME +\u0027%Y%m%d%H%M%S\u0027)\n           ^--^ SC2155 (warning): Declare and assign separately to avoid masking return values.\n                           ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.",
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -226,6 +312,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4ceccb4_8bde47c4",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "Build warning:\n\nIn dump-extensions/openpower-dumps/opdreport line 157:\n    cat \"$name\" | tee -a \"/tmp/dumpheader_$EPOCHTIME\" \u003e /dev/null\n        ^-----^ SC2002 (style): Useless cat. Consider \u0027cmd \u003c file | ..\u0027 or \u0027cmd file | ..\u0027 instead.",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5b01e5d_1407b853",
         "filename": "dump-extensions/openpower-dumps/opdreport",
         "patchSetId": 24
@@ -237,6 +340,29 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Any specific reason for keeping plat_dump/*Sbe* after packaging , should be removed?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c7ddff_75be22be",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T05:16:04Z",
+      "side": 1,
+      "message": "This is not matching with help description.",
+      "range": {
+        "startLine": 214,
+        "startChar": 12,
+        "endLine": 214,
+        "endChar": 29
+      },
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
