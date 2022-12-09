@@ -94,6 +94,47 @@
       },
       "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7e97f13_ff23314a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T04:26:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a0b9faee_89d5cfc4",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869a1049_c8c8ae3c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-09T04:26:13Z",
+      "side": 1,
+      "message": "It is better to reset this variable at common place , create dump itself right ? catching excption at create dump context , that is more readable.",
+      "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
