@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f4e61be_26867819",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-12T07:28:39Z",
+      "side": 1,
+      "message": "This code is common for both 32MB flash and higher flash size systems. xz is always providing the best compression ratio compare to zstd . better to keep xz for low flash size systems and zstd for higher flash size. Righ appraoch here is to use recipe driven appraoch instead hardcoded to zstd for all systems.",
+      "revId": "a23e0934ecf890378d8353ebf32e742909464099",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e83bc42_46c26dfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-12T07:28:39Z",
+      "side": 1,
+      "message": "xz?",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "a23e0934ecf890378d8353ebf32e742909464099",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8752d042_6d073256",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-12T07:28:39Z",
+      "side": 1,
+      "message": "xz?",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "a23e0934ecf890378d8353ebf32e742909464099",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
