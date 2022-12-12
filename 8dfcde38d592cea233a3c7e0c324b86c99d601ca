@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b1d0d93_e27cb68b",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "This this related to openpower dump. That\u0027s why we decided to keep it in dump-extension path.",
+      "parentUuid": "df149331_dc151b98",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44067a89_0cca8429",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-12-09T05:16:04Z",
       "side": 1,
       "message": "Is this optional or required input?",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 70
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6a8292b_36435514",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "optional.",
+      "parentUuid": "44067a89_0cca8429",
       "range": {
         "startLine": 12,
         "startChar": 7,
@@ -81,6 +123,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b291388d_7c06cf61",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "optional. If input is not provided will place in current working directory.",
+      "parentUuid": "5a4efc40_4a6ddf81",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef75833_3254bdb6",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-12-09T05:16:04Z",
       "side": 1,
       "message": "Is this required or optional ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 65
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65833eb6_1f9ac4a6",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "required.",
+      "parentUuid": "8ef75833_3254bdb6",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -127,6 +217,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b809a712_da497afc",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/e4a2bde2_dab42303",
+      "parentUuid": "b9e43d7a_9ab67b03",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02ef277d_b17066a9",
@@ -140,6 +254,30 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Unused Variable?",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f91e35f_dabb907e",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "used in header script.",
+      "parentUuid": "02ef277d_b17066a9",
       "range": {
         "startLine": 51,
         "startChar": 11,
@@ -173,6 +311,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6c09fb1_39187810",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/e4a2bde2_dab42303\n\nAnyways removed.",
+      "parentUuid": "f6786b56_3b91d5bb",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 25
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d11d1dd5_5b952b5d",
@@ -190,6 +352,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b988ef9d_22885a27",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d11d1dd5_5b952b5d",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb225e0e_65f58efd",
@@ -203,6 +383,30 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Unused Variable?",
+      "range": {
+        "startLine": 67,
+        "startChar": 11,
+        "endLine": 67,
+        "endChar": 16
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53a1c1e8_433ec0ca",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb225e0e_65f58efd",
       "range": {
         "startLine": 67,
         "startChar": 11,
@@ -236,6 +440,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e963128b_a5179927",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/59142992_d83a99b1",
+      "parentUuid": "80044423_4a76adb9",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c29f9e0b_3a7b3291",
@@ -253,6 +481,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bef5bf_4eefcdaa",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Nope. We need Errorlog file path. There can be a possibility that its not even there.",
+      "parentUuid": "c29f9e0b_3a7b3291",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a43dcea_83aca765",
@@ -266,6 +512,24 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Error log is not mandatory for  system dump? incase failed to pass optional parameter should we go with some default ID?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb50c4e2_9233a765",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a43dcea_83aca765",
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -310,6 +574,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1d3d1c7_415e587a",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "added comment\nIt will contain data related to platform dump. Nope no dump id related dump will be stored, which ever data is present in platdump will be in *Sbe* format. We will pick it and zip the same.",
+      "parentUuid": "2c2adbd0_f496cf98",
+      "range": {
+        "startLine": 139,
+        "startChar": 22,
+        "endLine": 139,
+        "endChar": 37
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24daf328_6484e145",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Nope, no assumption made. Script will \"cd\" to that path and look for the files.",
+      "parentUuid": "6f9d7da3_355ff38a",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4ceccb4_8bde47c4",
@@ -327,6 +633,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9030e4b0_e44a5849",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "We are trying to append the data i.e. tar files to header.",
+      "parentUuid": "b4ceccb4_8bde47c4",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5b01e5d_1407b853",
@@ -340,6 +664,24 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Any specific reason for keeping plat_dump/*Sbe* after packaging , should be removed?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3747e281_81d321f9",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Getting removed in line 169.",
+      "parentUuid": "d5b01e5d_1407b853",
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -367,6 +709,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fcbd52e_c7c38a28",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c7ddff_75be22be",
+      "range": {
+        "startLine": 214,
+        "startChar": 12,
+        "endLine": 214,
+        "endChar": 29
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fb11a77_bd032f80",
@@ -380,6 +746,30 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Not used?",
+      "range": {
+        "startLine": 231,
+        "startChar": 5,
+        "endLine": 238,
+        "endChar": 18
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2a77ad5_0d39dbc4",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/e4a2bde2_dab42303",
+      "parentUuid": "8fb11a77_bd032f80",
       "range": {
         "startLine": 231,
         "startChar": 5,
@@ -450,6 +840,24 @@
       "writtenOn": "2022-12-09T03:59:40Z",
       "side": 1,
       "message": "Commit message say\u0027s only hostbootdump enabled. Looking at the comment here it say\u0027s Harwdare dump section. am missing something here?",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b475da63_7370c9f8",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 24
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-12T12:01:18Z",
+      "side": 1,
+      "message": "http://fstone07p1.aus.stglabs.ibm.com:8080/source/xref/fips1010/src/dump/fsp/dumpSummary.H?r\u003d892f485d#145\n\nThis is section name, like we have File section, hardware dump section etc.",
+      "parentUuid": "ffe5666b_03c8d9d9",
       "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
