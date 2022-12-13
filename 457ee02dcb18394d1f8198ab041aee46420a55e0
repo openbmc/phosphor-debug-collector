@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f62b2423_380131e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:37:56Z",
+      "side": 1,
+      "message": "Just a few suggestions from CPP coding perspective.",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c9b777b_5ccfd681",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:37:56Z",
+      "side": 1,
+      "message": "auto enabled \u003d true; better, auto bEnabled \u003d true; Just a suggestion",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c931bc_05d5029e",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:37:56Z",
+      "side": 1,
+      "message": "enabled can be declared and initialized here only rather than doing it at line no 26. Advantage, the variable is less scoped thus less chance of missing it and also the purpose gets very clear since the beginning",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a120cce2_1fabb7bd",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:37:56Z",
+      "side": 1,
+      "message": "Can we use header guard instead of pragma once? Reason being, 1) pragma once isn\u0027t a standard one yet (although since GCC 3.4 it is supported) but if someday we plan to make OpenPower for any other compiler which doesn\u0027t support pragma then there might be a problem. 2) If the same header file is copied into two places then it considers the pragma as different and multiple inclusion might happen.",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760b7506_7ed6201c",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:37:56Z",
+      "side": 1,
+      "message": "A line break here may make it a bit more nice looking :-)",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
