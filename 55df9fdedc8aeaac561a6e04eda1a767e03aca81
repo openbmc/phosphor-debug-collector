@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b4ef863_5d4012a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T15:14:12Z",
+      "side": 1,
+      "message": "\"if a system dump is in progress already or available in host memory\"--\u003eJust a bit more accurate",
+      "revId": "55df9fdedc8aeaac561a6e04eda1a767e03aca81",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69b33436_96dc237e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T15:14:12Z",
+      "side": 1,
+      "message": "A few minor observations ",
+      "revId": "55df9fdedc8aeaac561a6e04eda1a767e03aca81",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c6834a_bb888446",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T15:14:12Z",
+      "side": 1,
+      "message": "auto bus \u003d sdbusplus::bus::new_default();",
+      "revId": "55df9fdedc8aeaac561a6e04eda1a767e03aca81",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6dc0578_81c5ad11",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T15:14:12Z",
+      "side": 1,
+      "message": "const auto attributeName \u003d std::get\u003c0\u003e(item); as it is been used in a comparison operator at line no 107 as a left hand value.",
+      "revId": "55df9fdedc8aeaac561a6e04eda1a767e03aca81",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
