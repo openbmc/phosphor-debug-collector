@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe53b2f3_ba1b91ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "cases it should be I guess. There is an \u0027e\u0027 missing in cass",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b82593a8_21820281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "Some observations from coding perspective",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a6a4f8_5fecbefb",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "auto value \u003d getStateValue(****) if getStateValue returns a string itself",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20eed9b3_6eb18d08",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "I guess we can directly write the return statement on convertProgressStagesFromString method. No need to use an extra variable bootProgessStage declared at line no 54 (thus avoiding invoking a function call to it\u0027s default constructor)",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cceca2c8_80ebd9a8",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "Same comment as on line no 63",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc6c7bb5_7ea8a06f",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "Make the params as const std::string\u0026 if they are I/P in nature",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e3a933_342ce26a",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "if (phosphor::dump::getHostState() \u003d\u003d HostState::Quiesced)\n    return true;\nreturn false;\n\nLess number of lines + avoiding invoking copy constructor of HostState class\u0027s object at line no 143",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87cc7852_12018dbf",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-13T14:59:45Z",
+      "side": 1,
+      "message": "If all the parameters are input params then can we make them as const std::string\u0026 for better clarity and avoid any accidental misuse/modification?",
+      "revId": "5e056b08bdb1316ce9227e6d9856e4a1d4052f5e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
