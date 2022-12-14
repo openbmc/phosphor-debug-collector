@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fac77c0_c96726ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2022-12-14T11:17:41Z",
+      "side": 1,
+      "message": "For my comments it is ok now although Devender\u0027s comments are still pending it seems ",
+      "revId": "3b7b3ef1b2a61ae8fb5e972bf0e2e45efdc0c6bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30d5b824_fb86f629",
