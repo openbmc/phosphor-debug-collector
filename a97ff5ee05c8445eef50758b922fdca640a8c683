@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b947372_6363ca34",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 11
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:37:00Z",
+      "side": 1,
+      "message": "Line 132 already using loic to extract dump_type from dump_id , this direct assign is kind of misleading. How this dump_content_type differnt from dump_type parameter?",
+      "range": {
+        "startLine": 223,
+        "startChar": 12,
+        "endLine": 223,
+        "endChar": 38
+      },
+      "revId": "a97ff5ee05c8445eef50758b922fdca640a8c683",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
