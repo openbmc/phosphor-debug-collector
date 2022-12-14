@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2669381_17598bf0",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "openpower.d  path is intended to keep all the openpower specific tools. Any limitation in keepthis here?",
+      "parentUuid": "3b1d0d93_e27cb68b",
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44067a89_0cca8429",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "optional.",
       "parentUuid": "44067a89_0cca8429",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 70
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bf99b38_68969356",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Better to update docuemntation saying optional parameter.",
+      "parentUuid": "e6a8292b_36435514",
       "range": {
         "startLine": 12,
         "startChar": 7,
@@ -147,6 +189,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72e9011_c3390925",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Better to update docuemntation saying optional parameter.",
+      "parentUuid": "b291388d_7c06cf61",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef75833_3254bdb6",
@@ -184,6 +250,30 @@
       "side": 1,
       "message": "required.",
       "parentUuid": "8ef75833_3254bdb6",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 65
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a04a71f_73f0e1cb",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Documentation say\u0027s \"Optional contents \" . updated required.",
+      "parentUuid": "65833eb6_1f9ac4a6",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -241,6 +331,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf21842_8676d0a4",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Only enable the implemented option, am not seeing any valid reason to add options, which is not enabled here.",
+      "parentUuid": "b809a712_da497afc",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 61
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02ef277d_b17066a9",
@@ -278,6 +392,30 @@
       "side": 1,
       "message": "used in header script.",
       "parentUuid": "02ef277d_b17066a9",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1b0905_511a342b",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Be consistent then. using diffrent varibale name is in header and this script. TYPE_OPDUMP\u003d\"opdump\" vs OP_DUMP\u003d\"opdump\"",
+      "parentUuid": "0f91e35f_dabb907e",
       "range": {
         "startLine": 51,
         "startChar": 11,
@@ -454,6 +592,30 @@
       "side": 1,
       "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/59142992_d83a99b1",
       "parentUuid": "80044423_4a76adb9",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 20
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bce9c381_c72a2036",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Since this is temporary file , better to keep in /tmp path as default . this will help to avoid cleaning up of file automatically after the consumption. Incase user got specific reason for keeping cutom path they should use the optional parameter.",
+      "parentUuid": "e963128b_a5179927",
       "range": {
         "startLine": 105,
         "startChar": 6,
@@ -770,6 +932,30 @@
       "side": 1,
       "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42746/comments/e4a2bde2_dab42303",
       "parentUuid": "8fb11a77_bd032f80",
+      "range": {
+        "startLine": 231,
+        "startChar": 5,
+        "endLine": 238,
+        "endChar": 18
+      },
+      "revId": "8dfcde38d592cea233a3c7e0c324b86c99d601ca",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebf61a69_951d5343",
+        "filename": "dump-extensions/openpower-dumps/opdreport",
+        "patchSetId": 24
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T05:18:15Z",
+      "side": 1,
+      "message": "Remove unused options",
+      "parentUuid": "f2a77ad5_0d39dbc4",
       "range": {
         "startLine": 231,
         "startChar": 5,
