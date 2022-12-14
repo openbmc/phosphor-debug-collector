@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a68845_f502a5a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-14T08:48:40Z",
+      "side": 1,
+      "message": "CI is failing, probably some formatting issue?",
+      "revId": "3c7f43ea97bdca8ed020ba6d99b0c2666cdc980a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3895e49e_6ff80785",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-14T08:48:40Z",
+      "side": 1,
+      "message": "isOPDumpsEnabled()\n\ndid you miss adding this check?",
+      "revId": "3c7f43ea97bdca8ed020ba6d99b0c2666cdc980a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
