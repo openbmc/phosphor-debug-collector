@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "353cac00_e6b64c07",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T06:12:04Z",
+      "side": 1,
+      "message": "ModelNo and SerialNo size check is required?",
+      "range": {
+        "startLine": 201,
+        "startChar": 14,
+        "endLine": 201,
+        "endChar": 21
+      },
+      "revId": "fabf1bcf4f7aeebb6d787934ba097e6aec0ed1d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
