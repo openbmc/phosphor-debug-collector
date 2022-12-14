@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c871d34f_fcdd3895",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-14T04:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c9b777b_5ccfd681",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71c931bc_05d5029e",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-12-13T14:37:56Z",
       "side": 1,
       "message": "enabled can be declared and initialized here only rather than doing it at line no 26. Advantage, the variable is less scoped thus less chance of missing it and also the purpose gets very clear since the beginning",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46788e3_b8710245",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-14T04:59:58Z",
+      "side": 1,
+      "message": "It is used outside this scope",
+      "parentUuid": "71c931bc_05d5029e",
       "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -69,6 +105,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8848009e_2f34f4c1",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-14T04:59:58Z",
+      "side": 1,
+      "message": "that is being used in otherfiles.. we may need a separate commit if we decided to change that",
+      "parentUuid": "a120cce2_1fabb7bd",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "760b7506_7ed6201c",
@@ -82,6 +136,42 @@
       "writtenOn": "2022-12-13T14:37:56Z",
       "side": 1,
       "message": "A line break here may make it a bit more nice looking :-)",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dad3316_91e04a47",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-14T04:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760b7506_7ed6201c",
+      "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03f8f85_ad015cc0",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-14T04:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760b7506_7ed6201c",
       "revId": "457ee02dcb18394d1f8198ab041aee46420a55e0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
