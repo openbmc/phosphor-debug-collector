@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62d3d9ff_4b4f56c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T06:15:08Z",
+      "side": 1,
+      "message": "This seems to be Good improvement for generic point also.\nLike set xz as default compression, and incase user want switch compression type as zstd switch to that.\n Like in dreport tool provide compression type option and do accordingly. In the application code use can decide based machine specific by using build parameter.",
+      "revId": "a23e0934ecf890378d8353ebf32e742909464099",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8752d042_6d073256",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7
