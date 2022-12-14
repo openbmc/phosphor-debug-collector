@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264a38fb_7ace3f1e",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-14T11:12:24Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 104,
+        "startChar": 52,
+        "endLine": 104,
+        "endChar": 60
+      },
+      "revId": "dccb6c1959f4d36574724906df3e298dcd89275f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbfc07c6_efcd6f72",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-14T11:12:24Z",
+      "side": 1,
+      "message": "as this is generic method should it be state?",
+      "range": {
+        "startLine": 107,
+        "startChar": 48,
+        "endLine": 107,
+        "endChar": 58
+      },
+      "revId": "dccb6c1959f4d36574724906df3e298dcd89275f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c59541c8_3a933248",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-12-14T11:12:24Z",
+      "side": 1,
+      "message": "this method can be placed in the internal state or on .cpp file as we want users to call getHostState and getBootProgress and e.t.c. but ok if you want users to call this method for other states",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 52
+      },
+      "revId": "dccb6c1959f4d36574724906df3e298dcd89275f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
