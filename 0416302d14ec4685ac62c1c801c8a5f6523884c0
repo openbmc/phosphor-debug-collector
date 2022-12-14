@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f25352a2_f70106db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T06:05:01Z",
+      "side": 1,
+      "message": "This is IBM specific chage , update commit message accordingly.\nlike dreport:IBM \u003c\u003e",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1adcf5_7f458b73",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T06:05:01Z",
+      "side": 1,
+      "message": "This is IBM/Custom format. Better not to keep this info here. you can add generic statement saying custom format is also supported .",
+      "range": {
+        "startLine": 16,
+        "startChar": 30,
+        "endLine": 17,
+        "endChar": 65
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1568b2bd_47e5dc59",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 11
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-12-14T06:05:01Z",
+      "side": 1,
+      "message": "\"HEADER_EXTENSION\" provides user to add cutom header in the dump package. That deosn\u0027t mean, the same user has to follow the name convention recomented here. Incase user want to use differnt format this logic is broken. This should be customized in ibm.d path",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 57
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
