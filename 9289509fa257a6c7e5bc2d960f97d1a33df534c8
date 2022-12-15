@@ -142,6 +142,24 @@
       "parentUuid": "e676b679_984b9316",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40377f3b_774f298b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-15T18:03:14Z",
+      "side": 1,
+      "message": "What interfaces were not emitted by an \"emit_object_removed\" in the parent class?  I am not understanding what the scope of the bug is.  I see a busctl monitor output from Dhruv and he says it appears to be working, but I don\u0027t see data from you (Lei YU) on what is not working on your machine.  What interface is still left around in \"entry/2\"?",
+      "parentUuid": "3866fa75_e1705c7a",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
