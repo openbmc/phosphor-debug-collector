@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "933cffa4_a22fce68",
+        "filename": "tools/dreport.d/ibm.d/gendumpinfo",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-15T09:27:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0936855c_8a45077b",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 28
+      },
+      "revId": "4bb745b0b31b557509bc5490233044252208333b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de130e79_b961925e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-14T05:43:52Z",
       "side": 1,
       "message": "Is it is includes time zone information?",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "4bb745b0b31b557509bc5490233044252208333b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28679b2f_ae7fa01a",
+        "filename": "tools/dreport.d/ibm.d/gendumpinfo",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2022-12-15T09:27:22Z",
+      "side": 1,
+      "message": "nope.",
+      "parentUuid": "de130e79_b961925e",
       "range": {
         "startLine": 47,
         "startChar": 3,
