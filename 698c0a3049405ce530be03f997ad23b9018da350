@@ -33,6 +33,24 @@
       "message": "I don\u0027t see path as a member variable of Entry class then I guess it is a member of the base class it inherits. In that case it is better to initialize this variable via constructor call of the base class in the initializer list itself.",
       "revId": "698c0a3049405ce530be03f997ad23b9018da350",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd3b5d5_9bd37198",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-12-16T07:04:26Z",
+      "side": 1,
+      "message": "Path is from sdbusplus::xyz::openbmc_project::Common::server::FilePath the interface inherited by this class,",
+      "parentUuid": "69b94a64_1771bf8f",
+      "revId": "698c0a3049405ce530be03f997ad23b9018da350",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
