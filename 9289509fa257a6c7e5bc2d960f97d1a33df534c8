@@ -160,6 +160,24 @@
       "parentUuid": "3866fa75_e1705c7a",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc51dd7_3754f9f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2022-12-16T02:14:25Z",
+      "side": 1,
+      "message": "We do see below interfaces are removed via InterfacesRemoved signal:\n```\n                 STRING \"org.freedesktop.DBus.Peer\";\n                  STRING \"org.freedesktop.DBus.Introspectable\";\n                  STRING \"org.freedesktop.DBus.Properties\";\n                  STRING \"xyz.openbmc_project.Dump.Entry.BMC\";\n                  STRING \"xyz.openbmc_project.Common.GeneratedBy\";\n```\nBut the object has other interfaces:\n```\nxyz.openbmc_project.Common.OriginatedBy\nxyz.openbmc_project.Common.Progress\nxyz.openbmc_project.Dump.Entry\nxyz.openbmc_project.Object.Delete\nxyz.openbmc_project.Time.EpochTime\n```\n\nThese interfaces do not emit InterfacesRemoved signal.\n\nAnd see mapper\u0027s code https://github.com/openbmc/phosphor-objmgr/blob/master/src/main.cpp#L764, as long as an object has interfaces, the object is not deleted.\n\nSo this results in the inconsistency between DBus and mapper:\n* The object is deleted on DBus, part of the interfaces emit removed signal.\n* mapper keeps the object because not all the interfaces are removed.",
+      "parentUuid": "40377f3b_774f298b",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
