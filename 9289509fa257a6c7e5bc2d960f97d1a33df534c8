@@ -196,6 +196,24 @@
       "parentUuid": "2bc51dd7_3754f9f7",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f6a1df_7ff29ca7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-21T12:59:05Z",
+      "side": 1,
+      "message": "I suspect part of the issue is that the bmc::Entry class has \"virtual children\" but not a virtual destructor.  There is likely something funny going on with this diamond inheritance structure.",
+      "parentUuid": "8f117b59_3e5b53ac",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
