@@ -250,6 +250,24 @@
       "parentUuid": "1e853bc3_00340524",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983bd965_5925ba4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-21T14:02:32Z",
+      "side": 1,
+      "message": "\u003e Common.GeneratedBy is already in the master right?\n\nIt is not.\n\n\u003e There is likely something funny going on with this diamond inheritance structure.\n\nI hacked at this a bit so I could run the constructor/destructor and see what was going on.  The issue is that the `phosphor::dump::Entry` destructor runs before the `EntryIfaces`, but `EntryIfaces` is what we called emit_object_added on.  The result is that the `dump::Entry` destructor has already cleaned up the sd_bus slots and sd_bus doesn\u0027t know anything about that interface anymore by the time the `emit_object_removed` is called.\n\nSomething needs to be adjusted in either the inheritance order or which underlying interface(s) we call `emit_object_added` against.  The `emit_object_added` needs to be called on the first object_t to be destructed.",
+      "parentUuid": "e3f5e537_d3a8f093",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
