@@ -16,6 +16,24 @@
       "message": "Unique interfaces for each dump were added for BMCweb to differentiate between dumps, but if the fault log is not having an interface like xyz.openbmc_project.Dump.Entry.BMC then EntryIfacs itself was not needed, right? \n\nWe can get rid of these interfaces if we have a different method to indicate the type of the dump, maybe a dump-type property to the entry.",
       "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e43ba6_e2300f5d",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2023-01-09T18:03:42Z",
+      "side": 1,
+      "message": "I\u0027m having a little trouble parsing the above, and what it has to do with this patchset.  Can this patchset go forward as-written, or is there some other change that\u0027s needed?",
+      "parentUuid": "6853c7af_c768e140",
+      "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
