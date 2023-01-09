@@ -18,14 +18,12 @@ namespace faultlog
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-using EntryIfaces = sdbusplus::server::object_t<>;
-
 class Manager;
 
 /** @class Entry
  *  @brief OpenBMC Fault Log Dump Entry implementation.
  */
-class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
+class Entry : virtual public phosphor::dump::Entry
 {
   public:
     Entry() = delete;
@@ -53,14 +51,10 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               status, originatorId, originatorType, parent),
         file(file)
-    {
-        // Emit deferred signal.
-        this->phosphor::dump::faultlog::EntryIfaces::emit_object_added();
-    }
+    {}
 
     /** @brief Delete this d-bus object.
      */
