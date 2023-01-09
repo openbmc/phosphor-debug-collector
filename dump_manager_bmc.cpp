@@ -210,7 +210,7 @@ void Manager::watchCallback(const UserMap& fileInfo)
         // and associated inotify watch.
         if (IN_CLOSE_WRITE == i.second)
         {
-            removeWatch(i.first);
+            removeWatch(i.first.parent_path());
 
             createEntry(i.first);
         }
