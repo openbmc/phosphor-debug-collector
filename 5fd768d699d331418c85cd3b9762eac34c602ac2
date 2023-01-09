@@ -70,6 +70,24 @@
       "parentUuid": "9359ad00_bb7939c7",
       "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f439410_17096564",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-01-09T19:05:22Z",
+      "side": 1,
+      "message": "Sure, in the commit message, I read it as to why EntryIfaces are needed, so I was trying to explain why the BMC dump currently requires it.",
+      "parentUuid": "820e9a2f_9f768dd8",
+      "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
