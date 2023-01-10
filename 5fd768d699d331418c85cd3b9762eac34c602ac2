@@ -160,6 +160,24 @@
       "parentUuid": "8e440eee_55fd64b8",
       "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da311cc_c87cab3a",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2023-01-10T17:57:26Z",
+      "side": 1,
+      "message": "It\u0027s blocking sdbusplus, which is now failing because of the double inheritence (given the destruction no longer override).  While we could back it out, I don\u0027t think this change has any ill effects, and I think can go in?",
+      "parentUuid": "698c08c8_e9151673",
+      "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
