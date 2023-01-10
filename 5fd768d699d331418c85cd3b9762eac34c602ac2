@@ -124,6 +124,24 @@
       "parentUuid": "50165137_881410f2",
       "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e440eee_55fd64b8",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-01-10T08:44:14Z",
+      "side": 1,
+      "message": "Looks like this double declaration is not really required . I think we can remove this virtual inheritance also here. Discussion related to this. https://stackoverflow.com/questions/23231342/can-you-inherit-the-same-class-twice",
+      "parentUuid": "50165137_881410f2",
+      "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
