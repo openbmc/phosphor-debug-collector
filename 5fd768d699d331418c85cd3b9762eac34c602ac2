@@ -178,6 +178,24 @@
       "parentUuid": "698c08c8_e9151673",
       "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca663694_baeebafe",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-01-10T19:52:38Z",
+      "side": 1,
+      "message": "It should be fine to remove Entry\u0027s inheritance from EntryIfaces for now. I\u0027ll be able to add it back when adding the dbus interface xyz.openbmc_project.Dump.Entry.FaultLog, right? (Similar to what we have in bmc_dump_entry.hpp for BMC dump, which I assume does not generate the destructor ordering warning.)",
+      "parentUuid": "5da311cc_c87cab3a",
+      "revId": "5fd768d699d331418c85cd3b9762eac34c602ac2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
