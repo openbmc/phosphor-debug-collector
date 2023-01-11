@@ -34,6 +34,24 @@
       "parentUuid": "5f34ad05_5718abd4",
       "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb288d6f_1b147277",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-01-11T09:44:15Z",
+      "side": 1,
+      "message": "please look Manager::createEntry(const std::filesystem::path\u0026 file) defintion. this function expects dump file name as input. if it is directory path , it logs error message.",
+      "parentUuid": "b1bf174f_797ffa7d",
+      "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
