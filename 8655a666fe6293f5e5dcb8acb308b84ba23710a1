@@ -16,6 +16,24 @@
       "message": "Incase of directory we don\u0027t need to createEntry . in this case you are going to see error messages in journal.",
       "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bf174f_797ffa7d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-01-11T09:30:58Z",
+      "side": 1,
+      "message": "this watch is instantiated 2 times one on the directory and the other on the dump file created.\n\nwe are worried about the dump file created watch not been getting cleared. \n\nthis is he key that is stored so we need to remove corresponding watch.\n/var/lib/phosphor-debug-collector/dumps/1\n\nother watch I guess it is created on /var/lib/phosphor-debug-collector\n\nthis is what I remember.\n\nthere will not be any error message in the journal",
+      "parentUuid": "5f34ad05_5718abd4",
+      "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
