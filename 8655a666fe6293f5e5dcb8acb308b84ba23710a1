@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f34ad05_5718abd4",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-01-11T04:30:30Z",
+      "side": 1,
+      "message": "Incase of directory we don\u0027t need to createEntry . in this case you are going to see error messages in journal.",
+      "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
