@@ -14,6 +14,7 @@ function add_cmd_output()
     eval $command >> "$name_dir/$file_name"
     if [ $? -ne 0 ]; then
         log_error "Failed to collect $desc"
+        rm -f "$name_dir/$file_name"
         return 1
     fi
 
@@ -36,6 +37,7 @@ function add_copy_file()
     cp -Lr $file_name $name_dir
     if [ $? -ne 0 ]; then
         log_error "Failed to copy $desc $file_name"
+        rm -fr "$name_dir/$file_name"
         return $RESOURCE_UNAVAILABLE
     fi
     if check_size "$name_dir/$(basename "$file_name")"; then
@@ -58,6 +60,7 @@ function add_copy_sym_link_file()
     cp $file_name $name_dir
     if [ $? -ne 0 ]; then
         log_error "Failed to copy $desc $file_name"
+        rm -fr "$name_dir/$file_name"
         return $RESOURCE_UNAVAILABLE
     fi
     if check_size "$name_dir/$(basename "$file_name")"; then
