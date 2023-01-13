@@ -22,6 +22,30 @@
       },
       "revId": "3598158b90a69177f25f2ff6aab05c385c8fc987",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0253f25_e8518608",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000219
+      },
+      "writtenOn": "2023-01-13T08:07:58Z",
+      "side": 1,
+      "message": "Yep, this is my mistake. But seems it\u0027s too late to fix it.",
+      "parentUuid": "f8c1c3f2_8705e884",
+      "range": {
+        "startLine": 7,
+        "startChar": 28,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "3598158b90a69177f25f2ff6aab05c385c8fc987",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
