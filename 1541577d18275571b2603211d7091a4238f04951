@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91eb176c_088667de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "In case....",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59710d94_79d7a29c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "Typo \"already\" becomes \"alreadsy\"",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99f770c3_bf10f59e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "Some observations",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51f78a6_9f64a9e7",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "nullptr in place of NULL",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "332e3254_e9f6309f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "first it should be I guess. Typo",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f92bb0_2b183041",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "nullptr",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc7d286_f6e27123",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-01-16T13:36:51Z",
+      "side": 1,
+      "message": "nullptr",
+      "revId": "1541577d18275571b2603211d7091a4238f04951",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
