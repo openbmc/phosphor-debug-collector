@@ -104,6 +104,24 @@
       "message": "@chirag this line should go in after 217\n\nAs I understand this watch class is used for 2 purposes watching on the dump main directory and on the individual /dumps/1 directory. \n\nwe should not be calling createEntry when we are removing watchh for the main directory, we might hit that when we are stopping the service, i.e when phsophor-debug-collector bianry exits.",
       "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac99381_91489ba7",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-01-20T10:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d3bed68_edc123ee",
+      "revId": "8655a666fe6293f5e5dcb8acb308b84ba23710a1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
