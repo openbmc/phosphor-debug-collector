@@ -135,6 +135,24 @@
       "message": "It is better to reset this variable at common place , create dump itself right ? catching excption at create dump context , that is more readable.",
       "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d58682_9853d34d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-01-20T08:54:37Z",
+      "side": 1,
+      "message": "yeah better, i should have thought of it",
+      "parentUuid": "869a1049_c8c8ae3c",
+      "revId": "f38e3e2c65598baab25b45a6176be3bba8e2ae27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
