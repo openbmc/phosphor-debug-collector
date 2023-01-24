@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afee4ca9_05984d05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-01-24T15:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f25352a2_f70106db",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b1adcf5_7f458b73",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-14T06:05:01Z",
       "side": 1,
       "message": "This is IBM/Custom format. Better not to keep this info here. you can add generic statement saying custom format is also supported .",
+      "range": {
+        "startLine": 16,
+        "startChar": 30,
+        "endLine": 17,
+        "endChar": 65
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89f9d691_ef1841a3",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-01-24T15:14:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b1adcf5_7f458b73",
       "range": {
         "startLine": 16,
         "startChar": 30,
