@@ -116,6 +116,30 @@
       },
       "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7e3da6_7be3de8d",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 11
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-01-30T08:42:58Z",
+      "side": 1,
+      "message": "HEADER_EXTENSION is already used and merged in master. So why can\u0027t we use the same for more checks? This is for IBM specific systems.",
+      "parentUuid": "1568b2bd_47e5dc59",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 57
+      },
+      "revId": "0416302d14ec4685ac62c1c801c8a5f6523884c0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
