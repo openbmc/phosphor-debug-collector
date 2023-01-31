@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6461cd6_a2bb5c1d",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 11
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-01-31T12:11:42Z",
+      "side": 1,
+      "message": "why we need this we already setting model no in the beginning, we are calling busctl command twice",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 1
+      },
+      "revId": "1dc3847cbb192e38e875c867759f34c4f4b21060",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
