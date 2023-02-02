@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4094e151_50a505c1",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T04:10:35Z",
+      "side": 1,
+      "message": "Better to get resolve the shell check issues. intriduced this shell check files for initial migration , not for regular purpose. New files better to get isues resolved initially.",
+      "revId": "65ad49f68eadb17e827102920328fcf98184c6bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
