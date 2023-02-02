@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13b307b_a48b5e73",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 31
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "is this still required? already added ignore shell check in most of the places.",
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "989707b9_edf3a9fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "Change to Hardware",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3adf173b_67adf2e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "OpenPOWER specific?",
+      "range": {
+        "startLine": 19,
+        "startChar": 29,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c695fbf5_483c57ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "opdreport?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd21a9aa_05464a44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "dump id?",
+      "range": {
+        "startLine": 32,
+        "startChar": 43,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c57257_89af9716",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 31
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T03:55:09Z",
+      "side": 1,
+      "message": "what is the diff between BMCDUMP vs DUMP here?",
+      "range": {
+        "startLine": 218,
+        "startChar": 32,
+        "endLine": 218,
+        "endChar": 44
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
