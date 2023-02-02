@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b00228fb_093dcd16",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T04:10:58Z",
+      "side": 1,
+      "message": "Better to get resolve the shell check issues. intriduced this shell check files for initial migration , not for regular purpose. New files better to get isues resolved initially.",
+      "revId": "0e909ad1ed968640a9b015a03d01e4a79f53ff29",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26cf2517_4afa2902",
         "filename": "/COMMIT_MSG",
         "patchSetId": 10
