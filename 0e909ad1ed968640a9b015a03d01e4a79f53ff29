@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26cf2517_4afa2902",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-02T04:00:25Z",
+      "side": 1,
+      "message": "OpenPOWER specific dumps?",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "0e909ad1ed968640a9b015a03d01e4a79f53ff29",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
