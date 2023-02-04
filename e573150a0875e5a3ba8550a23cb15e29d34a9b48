@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0586b6_625220c6",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T15:26:43Z",
+      "side": 1,
+      "message": "because we are using FILE in this file",
+      "parentUuid": "2e342091_3df4bed7",
+      "revId": "e573150a0875e5a3ba8550a23cb15e29d34a9b48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80712f8f_f0dc9786",
@@ -41,6 +59,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34dfdf2_69a40f4a",
+        "filename": "tools/dreport.d/ibm.d/package",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T15:26:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80712f8f_f0dc9786",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "e573150a0875e5a3ba8550a23cb15e29d34a9b48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebbedefc_ec52a126",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-02-02T04:17:30Z",
       "side": 1,
       "message": "replace with TMP_DIR?",
+      "range": {
+        "startLine": 123,
+        "startChar": 9,
+        "endLine": 123,
+        "endChar": 15
+      },
+      "revId": "e573150a0875e5a3ba8550a23cb15e29d34a9b48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2663dad2_a64e1405",
+        "filename": "tools/dreport.d/openpower.d/opdreport",
+        "patchSetId": 9
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T15:26:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebbedefc_ec52a126",
       "range": {
         "startLine": 123,
         "startChar": 9,
