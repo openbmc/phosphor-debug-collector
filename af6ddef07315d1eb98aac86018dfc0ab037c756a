@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "127acb66_cd1f05ed",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 31
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "Will fix the shellcheck related issues for newly introduced scripts in a new commit.",
+      "parentUuid": "b13b307b_a48b5e73",
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "989707b9_edf3a9fe",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-02T03:55:09Z",
       "side": 1,
       "message": "Change to Hardware",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3adc55f_c9e8550d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "989707b9_edf3a9fe",
       "range": {
         "startLine": 10,
         "startChar": 10,
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98ec378_45884f8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3adf173b_67adf2e8",
+      "range": {
+        "startLine": 19,
+        "startChar": 29,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c695fbf5_483c57ce",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-02-02T03:55:09Z",
       "side": 1,
       "message": "opdreport?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aacabca_080304ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c695fbf5_483c57ce",
       "range": {
         "startLine": 26,
         "startChar": 6,
@@ -110,6 +200,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3120bf8_1e281c0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd21a9aa_05464a44",
+      "range": {
+        "startLine": 32,
+        "startChar": 43,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c57257_89af9716",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-02-02T03:55:09Z",
       "side": 1,
       "message": "what is the diff between BMCDUMP vs DUMP here?",
+      "range": {
+        "startLine": 218,
+        "startChar": 32,
+        "endLine": 218,
+        "endChar": 44
+      },
+      "revId": "af6ddef07315d1eb98aac86018dfc0ab037c756a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efebed53_0d081849",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 31
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T14:32:24Z",
+      "side": 1,
+      "message": "BMC dump:-\n-----------\n00000060  42 4d 43 44 55 4d 50 00  00 00 00 00 00 00 00 00  |BMCDUMP.........|\n\nPlatform dumps:-\n---------------\n00000060  44 55 4d 50 20 53 55 4d  4d 41 52 59 00 00 00 00  |DUMP SUMMARY....|",
+      "parentUuid": "b0c57257_89af9716",
       "range": {
         "startLine": 218,
         "startChar": 32,
