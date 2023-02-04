@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a91a88e_ffc3a8d9",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T15:02:41Z",
+      "side": 1,
+      "message": "Will fix shellcheck in a new commit.",
+      "parentUuid": "4094e151_50a505c1",
+      "revId": "65ad49f68eadb17e827102920328fcf98184c6bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5f62873_a6b10114",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-02T04:12:58Z",
       "side": 1,
       "message": "Please add verfication for generic BMC dumps,",
+      "revId": "65ad49f68eadb17e827102920328fcf98184c6bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08c774bb_59c63e53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-04T15:02:41Z",
+      "side": 1,
+      "message": "generic openBMC dumps will not come through this path. No impact on that.",
+      "parentUuid": "f5f62873_a6b10114",
       "revId": "65ad49f68eadb17e827102920328fcf98184c6bf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
