@@ -184,6 +184,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0818760b_9268d483",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-02-06T03:12:24Z",
+      "side": 1,
+      "message": "How zstd compression can cause any issue for low end systems with less flash? \nWe want to keep the packaging consistent across IBM systems.",
+      "parentUuid": "3baa641b_ec8c4510",
+      "revId": "a23e0934ecf890378d8353ebf32e742909464099",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8752d042_6d073256",
