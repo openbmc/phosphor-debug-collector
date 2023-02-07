@@ -64,7 +64,7 @@ declare -x content_path=""
 declare -x name_dir=""
 declare -x serialNo="0000000"
 declare -x dDay
-dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+dDay=$(date -d @"$EPOCHTIME" +'%Y%m%d%H%M%S')
 declare -x dump_content_type=""
 declare -x FILE=""
 
