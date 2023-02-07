@@ -33,6 +33,3 @@ tools/dreport.d/plugins.d/timedate
 tools/dreport.d/plugins.d/traceevents
 tools/dreport.d/plugins.d/top
 tools/dreport.d/plugins.d/uptime
-tools/dreport.d/openpower.d/opdreport
-tools/dreport.d/ibm.d/gendumpinfo
-tools/dreport.d/ibm.d/package

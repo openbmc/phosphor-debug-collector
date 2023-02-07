@@ -4,7 +4,9 @@
 # and transferring to dump location.
 function custom_package()
 {
+    # shellcheck disable=SC2154 # dump_id is defined in dreport
     FILE="$TMP_DIR/dumpheader_${dump_id}_${EPOCHTIME}"
+    # shellcheck disable=SC2154 # name_dir is defined in dreport
     echo "performing dump compression $name_dir"
     tar cf - -C "$(dirname "$name_dir")" "$(basename "$name_dir")"  | zstd > "$name_dir.bin"
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
@@ -14,14 +16,17 @@ function custom_package()
         return "$INTERNAL_FAILURE"
     fi
 
-    echo "Adding Dump Header :"$HEADER_EXTENSION
+    # shellcheck disable=SC2154 # HEADER_EXTENSION is defined in dreport
+    echo "Adding Dump Header :" "$HEADER_EXTENSION"
     ("$HEADER_EXTENSION")
 
+    # shellcheck disable=SC2002
     cat "$name_dir.bin" | tee -a "$FILE" > /dev/null
     #remove the temporary name specific directory
     rm -rf "$name_dir" "$name_dir.bin"
     mv "$FILE" "$name_dir"
 
+    # shellcheck disable=SC2154 # dump_dir is defined in dreport
     echo "$($TIME_STAMP)" "Report is available in $dump_dir"
     if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
         return "$SUCCESS"
@@ -29,6 +34,7 @@ function custom_package()
 
     #copy the compressed tar file into the destination
     cp "$name_dir" "$dump_dir"
+    # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
         echo "Failed to copy the $name_dir to $dump_dir"
         rm "$name_dir"
