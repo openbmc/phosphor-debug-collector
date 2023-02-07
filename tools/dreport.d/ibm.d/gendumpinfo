@@ -10,8 +10,10 @@ declare -rx HW_DUMP='00'
 declare -rx SBE_DUMP='30'
 
 #Fetching the driver
-declare -x DRIVER=$(cat /etc/os-release | grep VERSION_ID | \
-    awk -F = '{ print $2}' | cut -d'(' -f 1)
+# shellcheck disable=SC2155
+declare -x DRIVER=$(grep "^VERSION_ID=" /etc/os-release | \
+    awk -F "=" '{print $2}' | sed -e 's/^"//' -e 's/"$//')
+# shellcheck disable=SC2154
 declare -x YAML_FILE="$content_path/info.yaml"
 declare -x ADDL_DATA_PATH="$content_path/plat_dump/additional_data/"
 declare -x START_TIME=''
@@ -19,37 +21,40 @@ declare -x END_TIME=''
 
 #Function to get the dump start and completed time
 function dump_time_details() {
+    # shellcheck disable=SC2154
     if [ "$dump_content_type" = "$HB_DUMP" ]; then
-        START_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/$dump_id \
+        # shellcheck disable=SC2154 # dump_id is defined in opdreport
+        START_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/"$dump_id" \
             $DUMP_PROP StartTime | awk '{print $2}')
-        END_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/$dump_id \
+        END_TIME=$(busctl get-property $DUMP_MANAGER $HB_DUMP_PATH/"$dump_id" \
             $DUMP_PROP CompletedTime | awk '{print $2}')
     elif [ "$dump_content_type" = "$HW_DUMP" ]; then
-        START_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/$dump_id \
+        START_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/"$dump_id" \
             $DUMP_PROP StartTime | awk '{print $2}')
-        END_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/$dump_id \
+        END_TIME=$(busctl get-property $DUMP_MANAGER $HW_DUMP_PATH/"$dump_id" \
             $DUMP_PROP CompletedTime | awk '{print $2}')
     elif [ "$dump_content_type" = "$SBE_DUMP" ]; then
-        START_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/$dump_id \
+        START_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/"$dump_id" \
             $DUMP_PROP StartTime | awk '{print $2}')
-        END_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/$dump_id \
+        END_TIME=$(busctl get-property $DUMP_MANAGER $SBE_DUMP_PATH/"$dump_id" \
             $DUMP_PROP CompletedTime | awk '{print $2}')
     fi
 
+    # shellcheck disable=SC2181
     if [ $? -ne 0 ]; then
         echo "Could not fetch start time for $dump_id"
-        return $INTERNAL_FAILURE
+        return "$INTERNAL_FAILURE"
     fi
 
-    start=$(date -d @$START_TIME +'%Y-%m-%d %H:%M:%S')
-    if [ $END_TIME -eq 0 ]; then
+    start=$(date -d @"$START_TIME" +'%Y-%m-%d %H:%M:%S')
+    if [ "$END_TIME" -eq 0 ]; then
         END_TIME=$(date +"%s")
-        end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
+        end=$(date -d @"$END_TIME" +'%Y-%m-%d %H:%M:%S')
     else
-        end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
+        end=$(date -d @"$END_TIME" +'%Y-%m-%d %H:%M:%S')
     fi
-    printf "dump-start-time: %s\n" "$start" >> $YAML_FILE
-    printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
+    printf "dump-start-time: %s\n" "$start" >> "$YAML_FILE"
+    printf "dump-end-time: %s\n" "$end" >> "$YAML_FILE"
 }
 
 #Function to fetch additional details
@@ -58,19 +63,20 @@ function get_addl_data() {
         for entry in "$ADDL_DATA_PATH"/*
         do
             while IFS= read -r line; do
-                echo "$line" >> $YAML_FILE
-            done < $entry
+                echo "$line" >> "$YAML_FILE"
+            done < "$entry"
         done
     fi
 }
 
 #Function to write data to info.yaml file
 function write_to_info_file() {
-    printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> $YAML_FILE
-    printf "%s\n" "%YAML 1.2" >> $YAML_FILE
-    printf "%s\n\n" "---" >> $YAML_FILE
-    printf "generation: p10\n" >> $YAML_FILE
-    printf "driver: %s\n" "$DRIVER" >> $YAML_FILE
+    # shellcheck disable=SC2129
+    printf "%s\n" "# SPDX-License-Identifier: GPL-2.0" >> "$YAML_FILE"
+    printf "%s\n" "%YAML 1.2" >> "$YAML_FILE"
+    printf "%s\n\n" "---" >> "$YAML_FILE"
+    printf "generation: p10\n" >> "$YAML_FILE"
+    printf "driver: %s\n" "$DRIVER" >> "$YAML_FILE"
     dump_time_details
     get_addl_data
 }
