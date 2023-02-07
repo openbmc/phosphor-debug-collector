@@ -119,12 +119,8 @@ class Manager :
      *
      *  @returns 0 on success, -1 on fail
      */
-    static int callback(sd_event_source*, const siginfo_t*, void*)
-    {
-        // No specific action required in
-        // the sd_event_add_child callback.
-        return 0;
-    }
+    static int callback(sd_event_source* s, const siginfo_t*, void*);
+
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map

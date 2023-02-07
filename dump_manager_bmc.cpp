@@ -85,6 +85,14 @@ sdbusplus::message::object_path
     return objPath.string();
 }
 
+int Manager::callback(sd_event_source* s, const siginfo_t*, void*)
+{
+    // free the sd_event_source
+    // the sd_event_add_child callback.
+    sd_event_source_disable_unref(s);
+    return 0;
+}
+
 uint32_t Manager::captureDump(Type type,
                               const std::vector<std::string>& fullPaths)
 {
