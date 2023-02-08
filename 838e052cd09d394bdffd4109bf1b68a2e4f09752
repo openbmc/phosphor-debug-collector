@@ -16,6 +16,24 @@
       "message": "line length needs to be less than 80",
       "revId": "838e052cd09d394bdffd4109bf1b68a2e4f09752",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0d10d7_92e88263",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-02-08T11:53:20Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "8777b1a9_417d883c",
+      "revId": "838e052cd09d394bdffd4109bf1b68a2e4f09752",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
