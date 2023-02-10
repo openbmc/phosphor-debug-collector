@@ -24,6 +24,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a4e008_4126c84d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-10T15:54:19Z",
+      "side": 1,
+      "message": "A few suggestions and queries only",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9107663e_3545d8e4",
@@ -37,6 +54,57 @@
       "writtenOn": "2023-02-09T03:41:31Z",
       "side": 1,
       "message": "need a rebase?",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad42f3ad_4ab57e81",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-10T15:54:19Z",
+      "side": 1,
+      "message": "Can we use unique pointer here to avoid manual new? We can release the pointer to call back method to delete it",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe9f1ed_bafc843d",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-10T15:54:19Z",
+      "side": 1,
+      "message": "auto ptr \u003d reinterpret_cast\u003cType*\u003e(type);",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81251e91_7c8a9aff",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-10T15:54:19Z",
+      "side": 1,
+      "message": "Can we use an unique pointer here to avoid manual delete?",
       "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
