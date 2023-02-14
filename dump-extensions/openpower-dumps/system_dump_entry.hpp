@@ -1,7 +1,6 @@
 #pragma once
 
 #include "dump_entry.hpp"
-#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -17,7 +16,6 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
 using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
