@@ -2,7 +2,6 @@
 
 #include "com/ibm/Dump/Entry/Resource/server.hpp"
 #include "dump_entry.hpp"
-#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -19,7 +18,6 @@ template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
 using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::com::ibm::Dump::Entry::server::Resource>;
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
