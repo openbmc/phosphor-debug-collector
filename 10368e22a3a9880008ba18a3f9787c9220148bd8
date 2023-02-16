@@ -60,6 +60,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f16896f_4ac31d40",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:53:54Z",
+      "side": 1,
+      "message": "it is already at latest",
+      "parentUuid": "9107663e_3545d8e4",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad42f3ad_4ab57e81",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 16
@@ -71,6 +89,24 @@
       "writtenOn": "2023-02-10T15:54:19Z",
       "side": 1,
       "message": "Can we use unique pointer here to avoid manual new? We can release the pointer to call back method to delete it",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66668ce6_b20e020b",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:53:54Z",
+      "side": 1,
+      "message": "this code is removed in next commit",
+      "parentUuid": "ad42f3ad_4ab57e81",
       "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
