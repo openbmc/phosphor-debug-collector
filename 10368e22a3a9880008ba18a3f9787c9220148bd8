@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8905a4d5_76d163e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1b6624_2d1074e0",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "88a4e008_4126c84d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 16
@@ -76,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da14534b_3925fbf2",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f16896f_4ac31d40",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad42f3ad_4ab57e81",
@@ -111,6 +153,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d88fdb51_4e1578e8",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:54:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66668ce6_b20e020b",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbe9f1ed_bafc843d",
@@ -141,6 +201,24 @@
       "writtenOn": "2023-02-10T15:54:19Z",
       "side": 1,
       "message": "Can we use an unique pointer here to avoid manual delete?",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913915f0_f28c9bc3",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:54:45Z",
+      "side": 1,
+      "message": "this code is removed in next commit adding it as this is defect fix in downstream",
+      "parentUuid": "81251e91_7c8a9aff",
       "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
