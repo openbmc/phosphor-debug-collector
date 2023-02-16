@@ -188,6 +188,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38a42b6_bfd58d94",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:55:11Z",
+      "side": 1,
+      "message": "removed in next commit",
+      "parentUuid": "dbe9f1ed_bafc843d",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81251e91_7c8a9aff",
@@ -219,6 +237,24 @@
       "side": 1,
       "message": "this code is removed in next commit adding it as this is defect fix in downstream",
       "parentUuid": "81251e91_7c8a9aff",
+      "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80f8cce_d9cfcb7a",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-16T08:55:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "913915f0_f28c9bc3",
       "revId": "10368e22a3a9880008ba18a3f9787c9220148bd8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
