@@ -20,6 +20,97 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4ba4cef_cbe1409a",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "set this at the  end of the function",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b234a261_425160f9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "Why this is changed?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c590041_511787cc",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "clang change?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f63b593_59afcf80",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "better to use c++ style cast?",
+      "range": {
+        "startLine": 143,
+        "startChar": 61,
+        "endLine": 143,
+        "endChar": 68
+      },
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f486521d_43de8a49",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "clang?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2a72924_cb51f52d",
         "filename": "dump_manager_bmc.hpp",
         "patchSetId": 17
@@ -31,6 +122,24 @@
       "writtenOn": "2023-02-16T12:48:57Z",
       "side": 1,
       "message": "Can we use an unique pointer here?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00fa34fe_680a7513",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-02-22T04:22:35Z",
+      "side": 1,
+      "message": "I don\u0027t think so, since we need explicit allocation and deallocation is required for this pointer",
+      "parentUuid": "c2a72924_cb51f52d",
       "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
