@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7253d9_22128ede",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:23:22Z",
+      "side": 1,
+      "message": "you will have bus stored in base class which you can directly use no need to call new_default",
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "685c94ea_c75c0353",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:23:22Z",
+      "side": 1,
+      "message": "you will have bus stored in base class which you can use directly",
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee17fda5_b52f8357",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:23:22Z",
+      "side": 1,
+      "message": "retVal we should not use p, f, m flags",
+      "range": {
+        "startLine": 152,
+        "startChar": 13,
+        "endLine": 152,
+        "endChar": 20
+      },
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
