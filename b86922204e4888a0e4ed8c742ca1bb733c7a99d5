@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf5de95_abb6a46e",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:20:05Z",
+      "side": 1,
+      "message": "why can\u0027t this be simple string, caller can simply pass \"xyz.openbmc_project.Logging.Entry.Level.Informational\" we are writing too much code for a simple thing.",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 21
+      },
+      "revId": "b86922204e4888a0e4ed8c742ca1bb733c7a99d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a80636d_c618ba28",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:20:05Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 49
+      },
+      "revId": "b86922204e4888a0e4ed8c742ca1bb733c7a99d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82b3b9a5_6f82ac5f",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:20:05Z",
+      "side": 1,
+      "message": "get bus parameter from caller",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 33
+      },
+      "revId": "b86922204e4888a0e4ed8c742ca1bb733c7a99d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179387c4_5815e86d",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T10:20:05Z",
+      "side": 1,
+      "message": "this code is not readable ,it would have been better if we had passed dumpId, path, dumpType as parameter and here we do\n\n\"Dump ID\", dumpId, \"Filename\", filename, \"Dump Type\", dumpType)",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 49
+      },
+      "revId": "b86922204e4888a0e4ed8c742ca1bb733c7a99d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
