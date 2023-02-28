@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "625a655c_048e3e15",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ba4cef_cbe1409a",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b234a261_425160f9",
@@ -52,6 +70,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a802aa06_9040b174",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "as per review i need to do try catch and set the flag to false if in case of exception",
+      "parentUuid": "b234a261_425160f9",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c590041_511787cc",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-02-22T04:22:35Z",
       "side": 1,
       "message": "clang change?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88fae4f8_2109cec7",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c590041_511787cc",
       "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -92,6 +146,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c14c06_dd011718",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f63b593_59afcf80",
+      "range": {
+        "startLine": 143,
+        "startChar": 61,
+        "endLine": 143,
+        "endChar": 68
+      },
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f486521d_43de8a49",
@@ -105,6 +183,24 @@
       "writtenOn": "2023-02-22T04:22:35Z",
       "side": 1,
       "message": "clang?",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e0c0145_b8cff286",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "already done",
+      "parentUuid": "f486521d_43de8a49",
       "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -140,6 +236,24 @@
       "side": 1,
       "message": "I don\u0027t think so, since we need explicit allocation and deallocation is required for this pointer",
       "parentUuid": "c2a72924_cb51f52d",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5847eb15_9d428688",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T06:20:07Z",
+      "side": 1,
+      "message": "this code is removed in next commit https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/55008/14 and using better approach",
+      "parentUuid": "00fa34fe_680a7513",
       "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
