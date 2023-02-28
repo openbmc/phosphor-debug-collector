@@ -106,6 +106,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4224af60_f5913c05",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-02-28T09:22:58Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "3ba07fda_d1f1a144",
+      "revId": "a05ea308af9107a789616f48bf0dacc04d755954",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c590041_511787cc",
