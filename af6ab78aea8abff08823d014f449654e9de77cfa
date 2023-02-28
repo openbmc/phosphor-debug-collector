@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f1a2ff_dd0645b1",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-28T12:42:56Z",
+      "side": 1,
+      "message": "Although the bus object is a part of the base class EntryIFaces but that\u0027s not available in the derived class by any means. So new_default() is the only way for now.",
+      "parentUuid": "8c7253d9_22128ede",
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "685c94ea_c75c0353",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6ef980_907fe2f5",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-28T12:42:56Z",
+      "side": 1,
+      "message": "Although the bus object is a part of the base class EntryIFaces but that\u0027s not available in the derived class by any means. So new_default() is the only way for now.",
+      "parentUuid": "685c94ea_c75c0353",
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee17fda5_b52f8357",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-02-28T10:23:22Z",
       "side": 1,
       "message": "retVal we should not use p, f, m flags",
+      "range": {
+        "startLine": 152,
+        "startChar": 13,
+        "endLine": 152,
+        "endChar": 20
+      },
+      "revId": "af6ab78aea8abff08823d014f449654e9de77cfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da89b29_d3c96b7a",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-02-28T12:42:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ee17fda5_b52f8357",
       "range": {
         "startLine": 152,
         "startChar": 13,
