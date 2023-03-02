@@ -16,14 +16,19 @@ Options:
         -d, —-dir <directory> Archive directory to copy the compressed report.
                               Default output directory is current working
                               directory. Optional parameter.
-        -i, —-id <id>         Dump identifier to associate with the archive.
+        -i, —-dumpid <id>         Dump identifier to associate with the archive.
                               Identifiers include numeric characters.
                               Default dump identifier is 0
-        -p, —-path <path>     Contents to be included in the archive.
-                              Valid paths are absolute file path.
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
                               Report will be truncated in case size exceeds
                               this limit. Default size is unlimited.
+        -f, --failingunit     The id of the failed unit
+        -e, --eid             Error log associated with the failure
+        -t, --type            Type of the dump to be collected
+                              1  -  Hardware dump
+                              3  -  Performance dump
+                              5  -  Hostboot dump
+                              10 -  SBE Dump
         -h, —-help            Display this help and exit.
 EOF
 )
@@ -51,8 +56,8 @@ declare -rx RESOURCE_UNAVAILABLE="2"
 
 #VARIABLES
 declare -x dump_type="$OP_DUMP"
+declare -x dump_sbe_type=100
 declare -x size_dump=""
-declare -x eid_dir=""
 declare -x elog_id="00000000"
 declare -x EPOCHTIME
 EPOCHTIME=$(date +"%s")
@@ -94,8 +99,8 @@ function initialize()
     name="${name}.${serialNo}.${id}.${dDay}"
 
     #Source files path
-    if [ -z "$content_path" ]; then
-        echo "Error: Source file path is not provided."
+    if [ -z "$dump_sbe_type" ]; then
+        echo "Error: Dump type is not provided."
         return "$RESOURCE_UNAVAILABLE";
     fi
 
@@ -117,6 +122,19 @@ function initialize()
     return "$SUCCESS"
 }
 
+# @brief collect the dump
+function collect()
+{
+    content_path="$TMP_DIR/dump_${dump_id}_${EPOCHTIME}"
+    dump_outpath="$content_path/plat_dump"
+    if ! mkdir -p "$dump_outpath" ; then
+        echo "Could not create the destination directory $dump_outpath"
+        return "$INTERNAL_FAILURE"
+    fi
+
+    dump-collect --type $dump_sbe_type --id "$dump_id" --failingunit "$failing_unit" --path "$dump_outpath"
+}
+
 # @brief Packaging the dump and transferring to dump location.
 function package()
 {
@@ -131,17 +149,9 @@ function package()
 
     dump_content_type=${dump_id:0:2}
 
-    eid_dir=$(find "$content_path" -type f -name ErrorLog)
-
     ("$FILE_SCRIPT")
 
-    eid_dir=$(find "$content_path" -type f -name ErrorLog)
-    # shellcheck disable=SC2181 # need output from `find` in above if cond
-    if [ $? -ne 0 ]; then
-        echo "Could not find ErrorLog file"
-    else
-        elog_id=$(cut -d' ' -f1 "$eid_dir")
-    fi
+    elog_id=eid
 
     tar -cvzf "$name" plat_dump/*Sbe* info.yaml
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
@@ -190,6 +200,14 @@ function main()
         exit;
     fi
 
+    #Collect the dump
+    collect
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo "$($TIME_STAMP)" "Error: Failed to collect dump, Exiting"
+        exit;
+    fi
+
     package  #package the dump
     result=$?
     if [[ ${result} -ne $SUCCESS ]]; then
@@ -201,8 +219,8 @@ function main()
 }
 
 # shellcheck disable=SC2034  # Variable is used elsewhere
-TEMP=$(getopt -o n:d:i:s:p:h \
-        --long name:,dir:,dumpid:,size:,path:,help \
+TEMP=$(getopt -o n:d:i:s:t:e:f:h \
+        --long name:,dir:,dumpid:,size:,type:,eid:,failingunit:,help \
     -- "$@")
 
 # shellcheck disable=SC2181
@@ -226,11 +244,17 @@ while [[ $# -gt 1 ]]; do
         -i|--dumpid)
             dump_id=$2
             shift 2 ;;
-        -p|--path)
-            content_path=$2
-            shift 2 ;;
         -s|--size)
             dump_size=$2
+            shift 2 ;;
+        -f|--failingunit)
+            failing_unit=$2
+            shift 2 ;;
+        -e|--eid)
+            eid=$2
+            shift 2 ;;
+        -t|--type)
+            dump_sbe_type=$2
             shift 2 ;;
         -h|--help)
             echo "$help"
