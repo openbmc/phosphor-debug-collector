@@ -12,6 +12,7 @@
 #include "dump_manager_system.hpp"
 #include "dump_utils.hpp"
 #include "host_dump_entry.hpp"
+#include "op_dump_util.hpp"
 
 #include <fmt/core.h>
 
@@ -48,8 +49,9 @@ void loadExtensions(sdbusplus::bus::bus& bus,
                            sdbusplus::com::ibm::Dump::Entry::server::Hostboot>>(
         bus, event, HOSTBOOT_DUMP_OBJPATH, HOSTBOOT_DUMP_OBJ_ENTRY,
         HOSTBOOT_DUMP_START_ID, HOSTBOOT_DUMP_PATH, "Hostboot Dump",
-        HOSTBOOT_DUMP_TMP_FILE_DIR, HOSTBOOT_DUMP_MAX_SIZE,
-        HOSTBOOT_DUMP_MIN_SPACE_REQD, HOSTBOOT_DUMP_TOTAL_SIZE));
+        HOSTBOOT_DUMP_MAX_SIZE, HOSTBOOT_DUMP_MIN_SPACE_REQD,
+        HOSTBOOT_DUMP_TOTAL_SIZE,
+        openpower::dump::util::SBE_DUMP_TYPE_HOSTBOOT));
 
     try
     {
@@ -68,8 +70,9 @@ void loadExtensions(sdbusplus::bus::bus& bus,
                            sdbusplus::com::ibm::Dump::Entry::server::Hardware>>(
         bus, event, HARDWARE_DUMP_OBJPATH, HARDWARE_DUMP_OBJ_ENTRY,
         HARDWARE_DUMP_START_ID, HARDWARE_DUMP_PATH, "Hardware Dump",
-        HARDWARE_DUMP_TMP_FILE_DIR, HARDWARE_DUMP_MAX_SIZE,
-        HARDWARE_DUMP_MIN_SPACE_REQD, HARDWARE_DUMP_TOTAL_SIZE));
+        HARDWARE_DUMP_MAX_SIZE, HARDWARE_DUMP_MIN_SPACE_REQD,
+        HARDWARE_DUMP_TOTAL_SIZE,
+        openpower::dump::util::SBE_DUMP_TYPE_HARDWARE));
 
     try
     {
@@ -86,8 +89,8 @@ void loadExtensions(sdbusplus::bus::bus& bus,
     dumpList.push_back(std::make_unique<openpower::dump::hostdump::Manager<
                            sdbusplus::com::ibm::Dump::Entry::server::SBE>>(
         bus, event, SBE_DUMP_OBJPATH, SBE_DUMP_OBJ_ENTRY, SBE_DUMP_START_ID,
-        SBE_DUMP_PATH, "SBE Dump", SBE_DUMP_TMP_FILE_DIR, SBE_DUMP_MAX_SIZE,
-        SBE_DUMP_MIN_SPACE_REQD, SBE_DUMP_TOTAL_SIZE));
+        SBE_DUMP_PATH, "SBE Dump", SBE_DUMP_MAX_SIZE, SBE_DUMP_MIN_SPACE_REQD,
+        SBE_DUMP_TOTAL_SIZE, openpower::dump::util::SBE_DUMP_TYPE_SBE));
 }
 } // namespace dump
 } // namespace phosphor
