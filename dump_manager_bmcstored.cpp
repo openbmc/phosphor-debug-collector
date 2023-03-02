@@ -195,11 +195,11 @@ size_t Manager::getAllowedSize()
     // Set the Dump size to Maximum  if the free space is greater than
     // Dump max size otherwise return the available size.
 
-    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
+    size = (size > allocatedSize ? 0 : allocatedSize - size);
 
 #ifdef BMC_DUMP_ROTATE_CONFIG
     // Delete the first existing file until the space is enough
-    while (size < BMC_DUMP_MIN_SPACE_REQD)
+    while (size < minDumpSize)
     {
         auto delEntry = min_element(
             entries.begin(), entries.end(),
@@ -215,16 +215,21 @@ size_t Manager::getAllowedSize()
     using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
     using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
 
-    if (size < BMC_DUMP_MIN_SPACE_REQD)
+    if (size < minDumpSize)
     {
+        log<level::ERR>(fmt::format("Not enough space available({}) miniumum "
+                                    "needed({}) filled({}) allocated({})",
+                                    size, minDumpSize,
+                                    getDirectorySize(dumpDir), allocatedSize)
+                            .c_str());
         // Reached to maximum limit
         elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
     }
 #endif
 
-    if (size > BMC_DUMP_MAX_SIZE)
+    if (size > maxDumpSize)
     {
-        size = BMC_DUMP_MAX_SIZE;
+        size = maxDumpSize;
     }
 
     return size;
