@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "types.hpp"
 #include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -13,8 +14,6 @@ namespace phosphor
 namespace dump
 {
 
-using DumpCreateParams =
-    std::map<std::string, std::variant<std::string, uint64_t>>;
 using Iface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll>;
 
