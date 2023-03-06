@@ -16,6 +16,24 @@
       "message": "Fix merge issue.",
       "revId": "11d6cc14467b177bf0965ad8505dd5c0ffaf195a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b0ad58_4212109b",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2023-03-06T15:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3dc3aa6_49f203a5",
+      "revId": "11d6cc14467b177bf0965ad8505dd5c0ffaf195a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
