@@ -169,5 +169,20 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
     }
 }
 
+/**
+ * @brief Create a new PEL message for dump Delete/Offload
+ *
+ * @param[in] dBus - Handle to D-Bus object
+ * @param[in] dumpFilePath - Deleted dump file path/name
+ * @param[in] dumpFileType - Deleted dump file type (BMC/Resource/System)
+ * @param[in] dumpId - The dump ID
+ * @param[in] pelSev - PEL severity (Informational by default)
+ * @param[in] errIntf - D-Bus interface name.
+ * @return Returns void
+ **/
+void createPEL(sdbusplus::bus::bus&& dBus, const std::string& dumpFilePath,
+               const std::string& dumpFileType, const int dumpId,
+               const std::string& pelSev, const std::string& errIntf);
+
 } // namespace dump
 } // namespace phosphor
