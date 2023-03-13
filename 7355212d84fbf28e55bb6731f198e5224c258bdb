@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6872b9_04ae0f74",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-03-13T07:40:01Z",
+      "side": 1,
+      "message": "bus already available as a member variable right?",
+      "revId": "7355212d84fbf28e55bb6731f198e5224c258bdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88a9da3d_0f8ba9e3",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-03-13T07:40:01Z",
+      "side": 1,
+      "message": "ERR trace",
+      "revId": "7355212d84fbf28e55bb6731f198e5224c258bdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ba06e6_e73320d4",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-03-13T07:40:01Z",
+      "side": 1,
+      "message": "INFO",
+      "revId": "7355212d84fbf28e55bb6731f198e5224c258bdb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
