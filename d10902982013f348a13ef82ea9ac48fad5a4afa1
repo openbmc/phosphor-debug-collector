@@ -34,6 +34,24 @@
       "parentUuid": "e53bc181_7fe419cd",
       "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3963b00e_4676074d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-03-24T02:57:30Z",
+      "side": 1,
+      "message": "dreport plugin is designed to support single core at a time, Basically the dump request trigger is based in file availability.",
+      "parentUuid": "e5095313_c84c9e93",
+      "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
