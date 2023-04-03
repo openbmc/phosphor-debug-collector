@@ -189,6 +189,19 @@ function package()
     return "$SUCCESS"
 }
 
+function initiateBMCDump()
+{
+    bmcDumpPath="$(busctl call xyz.openbmc_project.Dump.Manager \
+               /xyz/openbmc_project/dump/bmc \
+               xyz.openbmc_project.Dump.Create CreateDump a\{sv\} 0)"
+    result=$?
+    if [[ ${result} -ne $SUCCESS ]]; then
+        echo "Error in creating BMC dump associated with system dump"
+    else
+        echo "BMC dump initiated ${bmcDumpPath}"
+    fi
+}
+
 # @brief Main function
 function main()
 {
@@ -216,6 +229,9 @@ function main()
         echo "$($TIME_STAMP)" "Successfully completed"
         exit;
     fi
+
+    #Initiate a BMC dump to capture the logs from BMC
+    initiateBMCDump
 }
 
 # shellcheck disable=SC2034  # Variable is used elsewhere
