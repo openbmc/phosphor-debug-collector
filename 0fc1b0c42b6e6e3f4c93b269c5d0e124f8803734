@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "398bd3a8_f565e33d",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2023-04-05T12:49:45Z",
+      "side": 1,
+      "message": "I\u0027ve seen the error fixed using either the disable comment for the specific error or the option adding a definition for source. Which method is preferred?\n\nE.g. plugins.d/settings vs plugins.d/ramoops",
+      "parentUuid": "1c70a25c_cbc1f1a0",
+      "revId": "0fc1b0c42b6e6e3f4c93b269c5d0e124f8803734",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "670d44e6_e9f5b05b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
