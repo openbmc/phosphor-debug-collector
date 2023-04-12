@@ -2,7 +2,7 @@
 
 project('phosphor-debug-collector',
         'cpp',
-        meson_version: '>= 0.57.0',
+        meson_version: '>= 0.58.0',
         default_options: [
                           'cpp_std=c++20',
                           'warning_level=3',
@@ -260,7 +260,7 @@ endforeach
 
 unit_subs = configuration_data()
 unit_subs.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
-systemd_system_unit_dir = dependency('systemd').get_pkgconfig_variable(
+systemd_system_unit_dir = dependency('systemd').get_variable(
     'systemdsystemunitdir',
     define_variable: ['prefix', get_option('prefix')])
 foreach u : unit_files
