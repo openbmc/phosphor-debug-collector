@@ -146,6 +146,9 @@ void extractDumpCreateParams(const phosphor::dump::DumpCreateParams& params,
         sdbusplus::com::ibm::Dump::server::Create::CreateParameters;
     using Argument = xyz::openbmc_project::Common::InvalidArgument;
 
+    eid = 0;
+    failingUnit = 0;
+
     constexpr auto MAX_FAILING_UNIT = 0x20;
     constexpr auto MAX_ERROR_LOG_ID = 0xFFFFFFFF;
 
