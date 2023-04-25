@@ -63,7 +63,41 @@ sdbusplus::message::object_path
                                                 originatorType);
 
     std::vector<std::string> paths;
-    auto id = captureDump(Type::UserRequested, paths);
+
+    Type dumpType = Type::UserRequested;
+#ifdef FAULT_DATA_DUMP
+    constexpr auto BMC_DUMP_TYPE =
+        "xyz.openbmc_project.Dump.Internal.Create.Type";
+    constexpr auto FAULT_DATA_DUMP_TYPE =
+        "xyz.openbmc_project.Dump.Internal.Create.Type.FaultData";
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+    auto iter = params.find(BMC_DUMP_TYPE);
+    if (iter != params.end())
+    {
+        if (!std::holds_alternative<std::string>(iter->second))
+        {
+            log<level::ERR>("An invalid dump type passed");
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("BMC_DUMP_TYPE"),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+
+        auto strDumpType = std::get<std::string>(iter->second);
+        // Only Fault data dump is supported
+        if (strDumpType != FAULT_DATA_DUMP_TYPE)
+        {
+            log<level::ERR>(
+                fmt::format("An invalid dump type passed ({})", strDumpType)
+                    .c_str());
+            elog<InvalidArgument>(
+                Argument::ARGUMENT_NAME("BMC_DUMP_TYPE"),
+                Argument::ARGUMENT_VALUE(strDumpType.c_str()));
+        }
+        dumpType = Type::FaultData;
+    }
+#endif
+    auto id = captureDump(dumpType, paths);
 
     // Entry Object path.
     auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
@@ -114,7 +148,16 @@ uint32_t Manager::captureDump(Type type,
     if (pid == 0)
     {
         std::filesystem::path dumpPath(dumpDir);
-        auto id = std::to_string(lastEntryId + 1);
+        auto idInt = lastEntryId + 1;
+#ifdef FAULT_DATA_DUMP
+        if (type == Type::FaultData)
+        {
+            // Fault Data dumps will start with 90000000
+            idInt += 90000000;
+        }
+#endif
+        auto id = std::to_string(idInt);
+
         dumpPath /= id;
 
         // get dreport type map entry
@@ -170,7 +213,9 @@ uint32_t Manager::captureDump(Type type,
                 .c_str());
         elog<InternalFailure>();
     }
-    return ++lastEntryId;
+    // Increment dump id
+    ++lastEntryId;
+    return idInt;
 }
 
 } // namespace bmc
