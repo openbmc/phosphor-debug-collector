@@ -16,7 +16,7 @@ Options:
         -d, —-dir <directory> Archive directory to copy the compressed report.
                               Default output directory is current working
                               directory. Optional parameter.
-        -i, —-dumpid <id>         Dump identifier to associate with the archive.
+        -i, —-dumpid <id>     Dump identifier to associate with the archive.
                               Identifiers include numeric characters.
                               Default dump identifier is 0
         -s, --size <size>     Maximum allowed size(in KB) of the archive.
@@ -147,11 +147,11 @@ function package()
 
     cd "$content_path" || exit
 
-    dump_content_type=${dump_id:0:2}
+    dump_content_type=${id:0:2}
 
     ("$FILE_SCRIPT")
 
-    elog_id=eid
+    elog_id=$eid
 
     tar -cvzf "$name" plat_dump/*Sbe* info.yaml
     # shellcheck disable=SC2181 # need output from `tar` in above if cond.
