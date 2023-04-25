@@ -33,11 +33,9 @@ using ::sdeventplus::source::Child;
 
 // Type to dreport type  string map
 static const std::map<Type, std::string> TypeMap = {
-    {Type::ApplicationCored, "core"},
-    {Type::UserRequested, "user"},
-    {Type::InternalFailure, "elog"},
-    {Type::Checkstop, "checkstop"},
-    {Type::Ramoops, "ramoops"}};
+    {Type::ApplicationCored, "core"}, {Type::UserRequested, "user"},
+    {Type::InternalFailure, "elog"}, {Type::Checkstop, "checkstop"},
+    {Type::Ramoops, "ramoops"}, {Type::FaultData, "faultdata"};
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
