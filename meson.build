@@ -135,6 +135,10 @@ conf_data.set('LOG_PEL_ON_DUMP_DELETE', get_option('log_pel_on_dump_delete').ena
                description : 'Turn on to log PEL while deleting the dump'
              )
 
+conf_data.set('FAULT_DATA_DUMP', get_option('fault_data_dump').enabled(),
+               description : 'Turn on to enable fault data dump'
+             )
+
 conf_data.set_quoted('BMC_DUMP_FILENAME_REGEX', get_option('BMC_DUMP_FILENAME_REGEX'),
                       description: 'BMC Dump filename format'
             )
