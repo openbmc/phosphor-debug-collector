@@ -47,6 +47,7 @@ declare -rx TYPE_CORE="core"
 declare -rx TYPE_ELOG="elog"
 declare -rx TYPE_CHECKSTOP="checkstop"
 declare -rx TYPE_RAMOOPS="ramoops"
+declare -rx TYPE_FAULTDATA="faultdata"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
@@ -110,6 +111,8 @@ function collect_data()
             log_summary "CHECKSTOP: $optional_path"
             elog_id=$(basename "$optional_path")
             set_elog_pid
+            ;;
+        $TYPE_FAULTDATA)
             ;;
 
         $SUMMARY_DUMP)
@@ -192,7 +195,11 @@ function initialize()
         if [ -f "$HEADER_EXTENSION" ]; then
             fetch_serial_number
             dump_id=$(printf %07d $dump_id)
-            name="BMCDUMP.${serialNo}.${dump_id}.${dDay}"
+            if [ $dump_type = "$TYPE_FAULTDATA" ]; then
+                name="NAGDUMP.${serialNo}.${dump_id}.${dDay}"
+            else
+                name="BMCDUMP.${serialNo}.${dump_id}.${dDay}"
+            fi
         else
             name=$"obmcdump_"$dump_id"_$EPOCHTIME"
         fi
@@ -219,6 +226,7 @@ function initialize()
             [[ $dump_type = "$TYPE_CORE" ]] || \
             [[ $dump_type = "$TYPE_ELOG" ]] || \
             [[ $dump_type = "$TYPE_RAMOOPS" ]] || \
+            [[ $dump_type = "$TYPE_FAULTDATA" ]] || \
             [[ $dump_type = "$TYPE_CHECKSTOP" ]]; }; then
         log_error "Invalid -type, Only summary log is available"
         dump_type=$SUMMARY_DUMP
