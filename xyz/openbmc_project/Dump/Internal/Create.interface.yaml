@@ -40,5 +40,6 @@ enumerations:
           - name: Ramoops
             description: >
                 Dump triggered due to Ramoops type error commit.
-
+          - name: FaultData
+            description: < Dump contains the information about failed units
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
