@@ -188,6 +188,11 @@ conf_data.set(
     get_option('TIMESTAMP_FORMAT'),
     description: 'Timestamp format in filename: 0-epoch 1-human readable',
 )
+conf_data.set(
+    'FAULT_DATA_DUMP',
+    get_option('fault_data_dump').enabled(),
+    description: 'Turn on to enable fault data dump',
+)
 conf_data.set_quoted(
     'SYSTEM_DUMP_OBJPATH',
     get_option('SYSTEM_DUMP_OBJPATH'),
