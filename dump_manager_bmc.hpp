@@ -1,4 +1,5 @@
 #pragma once
+#include "config.h"
 
 #include "dump_manager_bmcstored.hpp"
 #include "dump_utils.hpp"
@@ -10,6 +11,12 @@
 
 #include <filesystem>
 #include <map>
+
+#ifdef FAULT_DATA_DUMP
+#define CREATE_BMC_DUMP_MAX_PARAMS 3
+#else
+#define CREATE_BMC_DUMP_MAX_PARAMS 2
+#endif
 
 namespace phosphor
 {
@@ -33,11 +40,9 @@ using ::sdeventplus::source::Child;
 
 // Type to dreport type  string map
 static const std::map<Type, std::string> TypeMap = {
-    {Type::ApplicationCored, "core"},
-    {Type::UserRequested, "user"},
-    {Type::InternalFailure, "elog"},
-    {Type::Checkstop, "checkstop"},
-    {Type::Ramoops, "ramoops"}};
+    {Type::ApplicationCored, "core"}, {Type::UserRequested, "user"},
+    {Type::InternalFailure, "elog"},  {Type::Checkstop, "checkstop"},
+    {Type::Ramoops, "ramoops"},       {Type::FaultData, "faultdata"}};
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
