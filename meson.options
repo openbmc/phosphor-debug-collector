@@ -155,6 +155,13 @@ option(
     description: 'Log PEL on deleting the dump',
 )
 
+option(
+    'fault_data_dump',
+    type: 'feature',
+    value: 'disabled',
+    description: 'Dump to store system fault data',
+)
+
 # Fault log options
 
 option(
