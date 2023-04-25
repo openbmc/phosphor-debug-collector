@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# config: 6 10
+# @brief: Collect faultlog command output.
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="faultlog"
+file_name="faultlog.json"
+command="faultlog -f"
+
+add_cmd_output "$command" "$file_name" "$desc"
