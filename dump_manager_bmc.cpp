@@ -170,7 +170,7 @@ uint32_t Manager::captureDump(Type type,
     else if (pid > 0)
     {
         Child::Callback callback = [this, type, pid](Child&, const siginfo_t*) {
-            if (type == Type::UserRequested)
+            if (Manager::fUserDumpInProgress)
             {
                 log<level::INFO>(
                     "User initiated dump completed, resetting flag");
