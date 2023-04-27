@@ -166,6 +166,7 @@ phosphor_dump_manager_sources = [
         'elog_watch.cpp',
         errors_map_hpp,
         server_hpp,
+        common_hpp,
         server_cpp,
         'watch.cpp',
         'bmc_dump_entry.cpp',

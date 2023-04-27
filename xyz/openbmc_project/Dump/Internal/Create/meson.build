@@ -28,3 +28,18 @@ server_cpp = custom_target(
                 capture : true,
                 output : 'server.cpp'
             )
+
+common_hpp = custom_target(
+                'common.hpp',
+                command : [
+                    sdbusplusplus_prog, '-r', meson.project_source_root(),
+                    'interface',
+                    'common-header',
+                    'xyz.openbmc_project.Dump.Internal.Create',
+                ],
+                input : '../Create.interface.yaml',
+                capture : true,
+                output : 'common.hpp',
+                install : true,
+                install_dir: get_option('includedir') / 'xyz/openbmc_project/Dump/Internal/Create'
+            )
