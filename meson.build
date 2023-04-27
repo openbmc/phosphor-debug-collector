@@ -165,6 +165,7 @@ phosphor_dump_manager_sources = [
         'dump_serialize.cpp',
         'elog_watch.cpp',
         errors_map_hpp,
+        common_hpp,
         server_hpp,
         server_cpp,
         'watch.cpp',

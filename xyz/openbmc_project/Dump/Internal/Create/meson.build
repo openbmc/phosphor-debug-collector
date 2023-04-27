@@ -1,5 +1,20 @@
 # SPDX-License-Identifier: Apache-2.0
 
+common_hpp = custom_target(
+                'common.hpp',
+                command : [
+                    sdbusplusplus_prog, '-r', meson.project_source_root(),
+                    'interface',
+                    'common-header',
+                    'xyz.openbmc_project.Dump.Internal.Create',
+                ],
+                input : '../Create.interface.yaml',
+                capture : true,
+                output : 'common.hpp',
+                install : true,
+                install_dir: get_option('includedir') / 'xyz/openbmc_project/Dump/Internal/Create'
+            )
+
 server_hpp = custom_target(
                 'server.hpp',
                 command : [
@@ -9,6 +24,7 @@ server_hpp = custom_target(
                     'xyz.openbmc_project.Dump.Internal.Create',
                 ],
                 input : '../Create.interface.yaml',
+                depends: common_hpp,
                 capture : true,
                 output : 'server.hpp',
                 install : true,
