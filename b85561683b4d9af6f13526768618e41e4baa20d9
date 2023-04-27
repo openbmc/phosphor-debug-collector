@@ -16,6 +16,23 @@
       "message": "I had pushed one commit for this since CI was failing\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/62913\n\nCI Passed But the build failed with following error\n| sdbus++: error: argument PROCESS: invalid choice: \u0027common-header\u0027 (choose from \u0027markdown\u0027, \u0027server-header\u0027, \u0027server-cpp\u0027, \u0027exception-header\u0027, \u0027exception-cpp\u0027, \u0027client-header\u0027)\n|",
       "revId": "b85561683b4d9af6f13526768618e41e4baa20d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "054edfc5_e6eae9de",
+        "filename": "xyz/openbmc_project/Dump/Internal/Create/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-04-27T17:33:50Z",
+      "side": 1,
+      "message": "common-header was giving this error while building.\n| sdbus++: error: argument PROCESS: invalid choice: \u0027common-header\u0027 (choose from \u0027markdown\u0027, \u0027server-header\u0027, \u0027server-cpp\u0027, \u0027exception-header\u0027, \u0027exception-cpp\u0027, \u0027client-header\u0027)\n|",
+      "revId": "b85561683b4d9af6f13526768618e41e4baa20d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
