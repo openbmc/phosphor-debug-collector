@@ -16,6 +16,24 @@
       "message": "https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/62922 already merged with same support",
       "revId": "9d1d3b4b94d5dd7a2bbc97f87109c7cb5079c003",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87aaaf59_d7d35b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-05-02T03:31:19Z",
+      "side": 1,
+      "message": "But this was pushed first",
+      "parentUuid": "53fdd80b_e2c7b822",
+      "revId": "9d1d3b4b94d5dd7a2bbc97f87109c7cb5079c003",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
