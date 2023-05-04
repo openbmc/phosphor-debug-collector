@@ -34,7 +34,14 @@ uint64_t timeToEpoch(std::string timeStr)
     ss >> std::get_time(&t, "%Y%m%d%H%M%S");
     if (ss.fail())
     {
-        throw std::runtime_error{"Invalid human readable time value"};
+        // Dump will not be listed if the time is not format
+        // but to get the dump listed, setting the current time.
+        log<level::ERR>(
+            fmt::format("Invalid human readable time value({})", timeStr)
+                .c_str());
+        return std::chrono::duration_cast<std::chrono::microseconds>(
+                   std::chrono::system_clock::now().time_since_epoch())
+            .count();
     }
     return mktime(&t);
 }
