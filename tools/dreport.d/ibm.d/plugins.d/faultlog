@@ -5,6 +5,7 @@
 #
 
 . $DREPORT_INCLUDE/functions
+export PDBG_DTB=/var/lib/phosphor-software-manager/hostfw/running/DEVTREE
 
 desc="faultlog"
 file_name="faultlog.json"
