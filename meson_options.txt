@@ -273,7 +273,7 @@ option('BMC_DUMP_FILENAME_REGEX', type: 'string',
       )
 
 option('SYS_DUMP_FILENAME_REGEX', type: 'string',
-        value: 'SYSDUMP.([a-zA-Z0-9]+).([0-9]+).([0-9]+)',
+        value: '(SYSDUMP).([a-zA-Z0-9]+).([0-9]+).([0-9]+)',
         description : 'System dump file format'
       )
 
