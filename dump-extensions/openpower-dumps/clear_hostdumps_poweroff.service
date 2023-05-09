@@ -14,4 +14,4 @@ ExecStart=/usr/bin/busctl call xyz.openbmc_project.Dump.Manager /xyz/openbmc_pro
 RemainAfterExit=yes
 
 [Install]
-WantedBy=obmc-host-stop@0.target
+#WantedBy=obmc-host-stop@0.target
