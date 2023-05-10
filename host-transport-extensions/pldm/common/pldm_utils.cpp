@@ -37,7 +37,6 @@ int openPLDM()
 
 uint8_t getPLDMInstanceID(uint8_t eid)
 {
-
     constexpr auto pldmRequester = "xyz.openbmc_project.PLDM.Requester";
     constexpr auto pldm = "/xyz/openbmc_project/pldm";
     uint8_t instanceID = 0;

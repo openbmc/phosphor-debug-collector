@@ -14,8 +14,7 @@ namespace fs = std::filesystem;
 class TestDumpSerial : public ::testing::Test
 {
   public:
-    TestDumpSerial()
-    {}
+    TestDumpSerial() {}
 
     void SetUp()
     {

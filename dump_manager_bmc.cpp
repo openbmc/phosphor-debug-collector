@@ -286,8 +286,8 @@ void Manager::restore()
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
-            lastEntryId =
-                std::max(lastEntryId, static_cast<uint32_t>(std::stoul(idStr)));
+            lastEntryId = std::max(lastEntryId,
+                                   static_cast<uint32_t>(std::stoul(idStr)));
             auto fileIt = std::filesystem::directory_iterator(p.path());
             // Create dump entry d-bus object.
             if (fileIt != std::filesystem::end(fileIt))
@@ -325,11 +325,12 @@ size_t Manager::getAllowedSize()
     // Delete the first existing file until the space is enough
     while (size < BMC_DUMP_MIN_SPACE_REQD)
     {
-        auto delEntry = min_element(
-            entries.begin(), entries.end(),
-            [](const auto& l, const auto& r) { return l.first < r.first; });
-        auto delPath =
-            std::filesystem::path(dumpDir) / std::to_string(delEntry->first);
+        auto delEntry = min_element(entries.begin(), entries.end(),
+                                    [](const auto& l, const auto& r) {
+            return l.first < r.first;
+        });
+        auto delPath = std::filesystem::path(dumpDir) /
+                       std::to_string(delEntry->first);
 
         size += getDirectorySize(delPath);
 

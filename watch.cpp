@@ -53,8 +53,8 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
         elog<InternalFailure>();
     }
 
-    auto rc =
-        sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback, this);
+    auto rc = sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback,
+                              this);
     if (0 > rc)
     {
         // Failed to add to event loop

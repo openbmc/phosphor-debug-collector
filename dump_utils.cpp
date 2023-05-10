@@ -63,9 +63,9 @@ BootProgress getBootProgress()
         auto bus = sdbusplus::bus::new_default();
         auto service = getService(bus, hostStateObjPath, bootProgressInterface);
 
-        auto method =
-            bus.new_method_call(service.c_str(), hostStateObjPath,
-                                "org.freedesktop.DBus.Properties", "Get");
+        auto method = bus.new_method_call(service.c_str(), hostStateObjPath,
+                                          "org.freedesktop.DBus.Properties",
+                                          "Get");
 
         method.append(bootProgressInterface, "BootProgress");
 

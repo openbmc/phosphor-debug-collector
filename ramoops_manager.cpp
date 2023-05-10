@@ -66,8 +66,8 @@ void Manager::createHelper(const std::vector<std::string>& files)
     }
 
     const auto& host = mapperResponse.cbegin()->first;
-    auto m =
-        b.new_method_call(host.c_str(), OBJ_INTERNAL, IFACE_INTERNAL, "Create");
+    auto m = b.new_method_call(host.c_str(), OBJ_INTERNAL, IFACE_INTERNAL,
+                               "Create");
     m.append(RAMOOPS, files);
     try
     {

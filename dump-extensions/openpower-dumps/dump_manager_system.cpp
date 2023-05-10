@@ -24,7 +24,6 @@ using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 void Manager::notify(uint32_t dumpId, uint64_t size)
 {
-
     // Get the timestamp
     uint64_t timeStamp =
         std::chrono::duration_cast<std::chrono::microseconds>(
