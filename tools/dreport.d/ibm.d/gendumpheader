@@ -123,13 +123,17 @@ function get_eid() {
     if [ "$dump_type" = "$OP_DUMP" ]; then
         # shellcheck disable=SC2154 # elog_id comes from elsewhere
         x=${#elog_id}
-        msize=$(( x / 2 ))
-        msize=$(( SIZE_4 - msize ))
-        for ((i=0;i<x;i+=2));
-        do
-            printf "\\x${elog_id:$i:2}" >> "$FILE"
-        done
-        add_null "$msize"
+        if [ "$x" = 8 ]; then
+            msize=$(( x / 2 ))
+            msize=$(( SIZE_4 - msize ))
+            for ((i=0;i<x;i+=2));
+            do
+                printf "\\x${elog_id:$i:2}" >> "$FILE"
+            done
+            add_null "$msize"
+        else
+            add_null 4
+        fi
     else
         add_null 4
     fi
