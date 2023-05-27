@@ -52,6 +52,24 @@
       "parentUuid": "e5095313_c84c9e93",
       "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc77033_18e1687c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-05-27T20:52:18Z",
+      "side": 1,
+      "message": "Each unrelated core file should be in a separate dump, but creating many dumps here may slow down the starting of the service\nanother approach we can do in the core monitor is to set an event and wait for the dump manager path to be active if it is not available.\nCollecting the left-over core dumps should be the responsibility of the core monitor instead of the dump manager right?",
+      "parentUuid": "3963b00e_4676074d",
+      "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
