@@ -106,6 +106,24 @@
       "parentUuid": "2f341e63_af6010a5",
       "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ceb083_09933ac5",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-05-30T12:29:14Z",
+      "side": 1,
+      "message": "And to cover the crash scenario of dump manager, a wait may be needed when the dump manager is not available",
+      "parentUuid": "61b2d77c_1d3a6ce2",
+      "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
