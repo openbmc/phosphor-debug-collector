@@ -70,6 +70,24 @@
       "parentUuid": "3963b00e_4676074d",
       "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f341e63_af6010a5",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-05-30T05:46:08Z",
+      "side": 1,
+      "message": "Discussed generic design approach here https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/54041/9..30//COMMIT_MSG#b7.  \n\nIncase you want to go with simplest approach , without creating new dump type.\nAnother approch you can look here is \n- Start  obmc-dump-monitor.service , after xyz.openbmc_project.Dump.Manager.service.\n-  In the phosphor-dump-monitor  create individual dumps based on each core\n-  Start core watch activity after dump creation.\n\nSince the core directory size is systemd policy controlled ,  not seeing much  issues related to  performance, like not expecting too many core files present in the path due to application crashes.",
+      "parentUuid": "fcc77033_18e1687c",
+      "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
