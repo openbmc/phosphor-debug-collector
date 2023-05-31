@@ -3,7 +3,6 @@
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
-#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
 #include <sdeventplus/source/child.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -17,30 +16,14 @@ namespace dump
 {
 namespace bmc
 {
-namespace internal
-{
-
-class Manager;
-
-} // namespace internal
 
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 using UserMap = phosphor::dump::inotify::UserMap;
 
-using Type =
-    sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
-
 using Watch = phosphor::dump::inotify::Watch;
 using ::sdeventplus::source::Child;
-// Type to dreport type  string map
-static const std::map<Type, std::string> TypeMap = {
-    {Type::ApplicationCored, "core"},
-    {Type::UserRequested, "user"},
-    {Type::InternalFailure, "elog"},
-    {Type::Checkstop, "checkstop"},
-    {Type::Ramoops, "ramoops"}};
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -51,8 +34,6 @@ class Manager :
     virtual public CreateIface,
     virtual public phosphor::dump::Manager
 {
-    friend class internal::Manager;
-
   public:
     Manager() = delete;
     Manager(const Manager&) = default;
@@ -104,14 +85,6 @@ class Manager :
      *  @param[in] fullPath - Full path of the Dump file name
      */
     void createEntry(const std::filesystem::path& fullPath);
-
-    /**  @brief Capture BMC Dump based on the Dump type.
-     *  @param[in] type - Type of the Dump.
-     *  @param[in] fullPaths - List of absolute paths to the files
-     *             to be included as part of Dump package.
-     *  @return id - The Dump entry id number.
-     */
-    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
 
     /** @brief Capture BMC Dump based on the Dump type.
      *  @param[in] type - Type of the dump to pass to dreport
