@@ -2,7 +2,6 @@
 
 #include "elog_watch.hpp"
 
-#include "dump_internal.hpp"
 #include "dump_serialize.hpp"
 #include "errors_map.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
@@ -12,6 +11,7 @@
 #include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <sdbusplus/exception.hpp>
+#include <xyz/openbmc_project/Dump/Create/common.hpp>
 
 #include <fstream>
 
@@ -34,8 +34,8 @@ using AttributeMap = std::map<AttributeName, Attributes>;
 using PropertyName = std::string;
 using PropertyMap = std::map<PropertyName, AttributeMap>;
 
-Watch::Watch(sdbusplus::bus_t& bus, IMgr& iMgr) :
-    iMgr(iMgr),
+Watch::Watch(sdbusplus::bus_t& bus, Mgr& mgr) :
+    mgr(mgr),
     addMatch(bus,
              sdbusplus::bus::match::rules::interfacesAdded() +
                  sdbusplus::bus::match::rules::path_namespace(OBJ_LOGGING),
@@ -130,8 +130,19 @@ void Watch::addCallback(sdbusplus::message_t& msg)
         return;
     }
 
-    std::vector<std::string> fullPaths;
-    fullPaths.push_back(objectPath);
+    DumpCreateParams params;
+    using DumpIntr = sdbusplus::common::xyz::openbmc_project::dump::Create;
+    using CreateParameters =
+        sdbusplus::common::xyz::openbmc_project::dump::Create::CreateParameters;
+    using DumpType =
+        sdbusplus::common::xyz::openbmc_project::dump::Create::DumpType;
+    params[DumpIntr::convertCreateParametersToString(
+        CreateParameters::FilePath)] = objectPath;
+    params[DumpIntr::convertCreateParametersToString(
+        CreateParameters::DumpType)] =
+        DumpIntr::convertDumpTypeToString(DumpType::ErrorLog);
+    params[DumpIntr::convertCreateParametersToString(
+        CreateParameters::ErrorType)] = errorType;
 
     try
     {
@@ -140,16 +151,7 @@ void Watch::addCallback(sdbusplus::message_t& msg)
         elogList.insert(eId);
 
         phosphor::dump::elog::serialize(elogList);
-
-        auto item = std::find_if(phosphor::dump::bmc::TypeMap.begin(),
-                                 phosphor::dump::bmc::TypeMap.end(),
-                                 [errorType](const auto& err) {
-            return (err.second == errorType);
-        });
-        if (item != phosphor::dump::bmc::TypeMap.end())
-        {
-            iMgr.IMgr::create((*item).first, fullPaths);
-        }
+        mgr.Mgr::createDump(params);
     }
     catch (const QuotaExceeded& e)
     {
