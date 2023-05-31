@@ -122,7 +122,6 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
-subdir('xyz/openbmc_project/Dump/Internal/Create')
 
 dump_types_yaml_files = []
 
@@ -199,9 +198,6 @@ phosphor_dump_manager_sources = [
         'dump_manager_main.cpp',
         'dump_serialize.cpp',
         'elog_watch.cpp',
-        common_hpp,
-        server_hpp,
-        server_cpp,
         dump_types_hpp,
         dump_types_cpp,
         'watch.cpp',
