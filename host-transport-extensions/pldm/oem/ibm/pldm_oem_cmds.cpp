@@ -110,18 +110,28 @@ void requestOffload(uint32_t id)
 
     mctp_eid_t eid = readEID();
 
-    auto instanceID = getPLDMInstanceID(eid);
-
-    auto rc = encode_set_numeric_effecter_value_req(
-        instanceID, effecterId, PLDM_EFFECTER_DATA_SIZE_UINT32,
-        effecterValue.data(), request,
-        requestMsg.size() - sizeof(pldm_msg_hdr));
-
-    if (rc != PLDM_SUCCESS)
+    try
     {
-        lg2::error("Message encode failure. RC: {RC}", "RC", rc);
-        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
-                                "allowed due to encode failed"));
+        // gets the PLDM instance id using RAII. It will be released at the end
+        // of the try block
+        PLDMInstanceIdDb pldmInstanceIdDB;
+
+        auto rc = encode_set_numeric_effecter_value_req(
+            pldmInstanceIdDB.getInstanceID(), effecterId,
+            PLDM_EFFECTER_DATA_SIZE_UINT32, effecterValue.data(), request,
+            requestMsg.size() - sizeof(pldm_msg_hdr));
+
+        if (rc != PLDM_SUCCESS)
+        {
+            lg2::error("Message encode failure. RC: {RC}", "RC", rc);
+            elog<NotAllowed>(Reason("Host dump offload via pldm is not "
+                                    "allowed due to encode failed"));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Get PLDM InstanceId failed due to {WHAT}", "WHAT",
+                   e.what());
     }
 
     CustomFd fd(openPLDM());
@@ -129,7 +139,7 @@ void requestOffload(uint32_t id)
     lg2::info("Sending request to offload dump id: {ID}, eid: {EID}", "ID", id,
               "EID", eid);
 
-    rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
+    int rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
     if (rc < 0)
     {
         auto e = errno;
@@ -161,33 +171,44 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
 
     mctp_eid_t mctpEndPointId = readEID();
 
-    auto pldmInstanceId = getPLDMInstanceID(mctpEndPointId);
-
-    // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
-    //   no longer host dump is not required so, initiate deletion from
-    //   host memory
-    int retCode =
-        encode_file_ack_req(pldmInstanceId, pldmDumpType, dumpId, PLDM_SUCCESS,
-                            reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
-
-    if (retCode != PLDM_SUCCESS)
+    try
     {
-        lg2::error(
-            "Failed to encode pldm FileAck to delete host dump, "
-            "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
-            "PLDM_RETURN_CODE: {RET_CODE}",
-            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE",
-            static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
-                pldmDumpType),
-            "RET_CODE", retCode);
-        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
-                                "allowed due to encode fileack failed"));
+        // gets the PLDM instance id using RAII. It will be released at the end
+        // of the try block
+        PLDMInstanceIdDb pldmInstanceIdDB(mctpEndPointId);
+
+        // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user
+        // decided,
+        //   no longer host dump is not required so, initiate deletion from
+        //   host memory
+        int retCode = encode_file_ack_req(
+            pldmInstanceIdDB.getInstanceID(), pldmDumpType, dumpId,
+            PLDM_SUCCESS, reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
+
+        if (retCode != PLDM_SUCCESS)
+        {
+            lg2::error(
+                "Failed to encode pldm FileAck to delete host dump, "
+                "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
+                "PLDM_RETURN_CODE: {RET_CODE}",
+                "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE",
+                static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
+                    pldmDumpType),
+                "RET_CODE", retCode);
+            elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
+                                    "allowed due to encode fileack failed"));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Get PLDM InstanceId failed due to {WHAT}", "WHAT",
+                   e.what());
     }
 
     CustomFd pldmFd(openPLDM());
 
-    retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
-                        fileAckReqMsg.size());
+    int retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
+                             fileAckReqMsg.size());
     if (retCode != PLDM_REQUESTER_SUCCESS)
     {
         auto errorNumber = errno;
