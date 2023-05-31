@@ -1,7 +1,6 @@
 #include "config.h"
 
 #include "dump-extensions.hpp"
-#include "dump_internal.hpp"
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
 #include "dump_manager_faultlog.hpp"
@@ -69,8 +68,6 @@ int main()
                 bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY,
                 BMC_DUMP_PATH);
 
-        phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
-                                                   OBJ_INTERNAL);
         phosphor::dump::bmc::Manager* ptrBmcDumpMgr = bmcDumpMgr.get();
 
         dumpMgrList.push_back(std::move(bmcDumpMgr));
