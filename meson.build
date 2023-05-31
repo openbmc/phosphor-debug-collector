@@ -135,8 +135,6 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
-subdir('xyz/openbmc_project/Dump/Internal/Create')
-
 python = find_program('python3')
 errors_map_gen_file_loc = meson.project_source_root()
 errors_map_gen_file_loc += '/errors_map_gen.py'
@@ -164,9 +162,6 @@ phosphor_dump_manager_sources = [
         'dump_serialize.cpp',
         'elog_watch.cpp',
         errors_map_cpp,
-	server_hpp,
-	common_hpp,
-	server_cpp,
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
