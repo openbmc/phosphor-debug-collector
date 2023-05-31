@@ -55,7 +55,7 @@ class Manager
 
   private:
     /** @brief Helper function for initiating dump request using
-     *         D-bus internal create interface.
+     *         createDump D-Bus interface.
      *  @param [in] files - Core files list
      */
     void createHelper(const std::vector<std::string>& files);

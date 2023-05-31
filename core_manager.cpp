@@ -67,7 +67,7 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        lg2::error("Failed to GetObject on Dump.Internal: {ERROR}", "ERROR", e);
+        lg2::error("Failed to GetObject on Dump.Create: {ERROR}", "ERROR", e);
         return;
     }
     if (mapperResponse.empty())

@@ -26,11 +26,6 @@ option('CORE_FILE_DIR', type : 'string',
         description : 'Directory where core dumps are placed'
       )
 
-option('OBJ_INTERNAL', type : 'string',
-        value : '/xyz/openbmc_project/dump/internal/manager',
-        description : 'Internal dump manager D-Bus object path'
-      )
-
 option('BMC_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/bmc/entry',
         description : 'The BMC dump entry D-Bus object path'
