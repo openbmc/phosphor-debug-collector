@@ -44,9 +44,9 @@ uint8_t getPLDMInstanceID(uint8_t eid)
     try
     {
         auto bus = sdbusplus::bus::new_default();
-        auto service = phosphor::dump::getService(bus, pldm, pldmRequester);
+        auto service = "xyz.openbmc_project.PLDM";
 
-        auto method = bus.new_method_call(service.c_str(), pldm, pldmRequester,
+        auto method = bus.new_method_call(service, pldm, pldmRequester,
                                           "GetInstanceId");
         method.append(eid);
         auto reply = bus.call(method);
