@@ -40,7 +40,7 @@ class Watch
 
     /** @brief constructs watch for elog add and delete signals.
      *  @param[in] bus -  The Dbus bus object
-     *  @param[in] intMgr - Dump internal Manager object
+     *  @param[in] mgr - Dump internal Manager object
      */
     Watch(sdbusplus::bus_t& bus, Mgr& mgr);
 
