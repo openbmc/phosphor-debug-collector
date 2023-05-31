@@ -2,7 +2,6 @@
 
 #include "elog_watch.hpp"
 
-#include "dump_internal.hpp"
 #include "dump_serialize.hpp"
 #include "errors_map.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
@@ -11,6 +10,7 @@
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/exception.hpp>
+#include <xyz/openbmc_project/Dump/Create/common.hpp>
 
 #include <fstream>
 
