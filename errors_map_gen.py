@@ -19,17 +19,24 @@ def main():
         default="errors_watch.yaml",
         help="input errors watch yaml file to parse",
     )
+
+    parser.add_argument(
+        "-c",
+        "--cpp_file",
+        dest="cpp_file",
+        default="errors_map.cpp",
+        help="output cpp file",
+    )
     args = parser.parse_args()
 
     with open(os.path.join(script_dir, args.errors_map_yaml), "r") as fd:
         yamlDict = yaml.safe_load(fd)
 
-        # Render the mako template
-        template = os.path.join(script_dir, "errors_map.mako.hpp")
+        # Render the mako template for cpp file
+        template = os.path.join(script_dir, "errors_map.mako.cpp")
         t = Template(filename=template)
-        with open("errors_map.hpp", "w") as fd:
+        with open(args.cpp_file, "w") as fd:
             fd.write(t.render(errDict=yamlDict))
-
 
 if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.realpath(__file__))
