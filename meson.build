@@ -122,26 +122,25 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
-
 subdir('xyz/openbmc_project/Dump/Internal/Create')
 
 python = find_program('python3')
 errors_map_gen_file_loc = meson.project_source_root()
 errors_map_gen_file_loc += '/errors_map_gen.py'
 
-errors_map_hpp = custom_target(
-                    'errors_map.hpp',
+errors_map_cpp = custom_target(
+                    'errors_map.cpp',
                     command : [
                         python,
                         errors_map_gen_file_loc,
                         '-i',
                         get_option('ERROR_MAP_YAML')
                     ],
-                    depend_files : [ 'errors_map.mako.hpp',
+                    depend_files : [ 'errors_map.mako.cpp',
                                      'errors_map_gen.py',
                                      get_option('ERROR_MAP_YAML')
                                    ],
-                    output : 'errors_map.hpp'
+                    output : 'errors_map.cpp'
                  )
 
 phosphor_dump_manager_sources = [
@@ -151,7 +150,7 @@ phosphor_dump_manager_sources = [
         'dump_manager_main.cpp',
         'dump_serialize.cpp',
         'elog_watch.cpp',
-        errors_map_hpp,
+        errors_map_cpp,
         common_hpp,
         server_hpp,
         server_cpp,
