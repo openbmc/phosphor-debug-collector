@@ -3,7 +3,6 @@
 #include "dump_manager_bmc.hpp"
 
 #include "bmc_dump_entry.hpp"
-#include "dump_internal.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
@@ -33,16 +32,6 @@ using namespace phosphor::logging;
 bool Manager::fUserDumpInProgress = false;
 constexpr auto BMC_DUMP = "BMC_DUMP";
 
-namespace internal
-{
-
-void Manager::create(Type type, std::vector<std::string> fullPaths)
-{
-    dumpMgr.phosphor::dump::bmc::Manager::captureDump(type, fullPaths);
-}
-
-} // namespace internal
-
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
@@ -57,7 +46,6 @@ sdbusplus::message::object_path
 
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
-
     using CreateParameters =
         sdbusplus::common::xyz::openbmc_project::dump::Create::CreateParameters;
 
@@ -118,13 +106,6 @@ sdbusplus::message::object_path
     return objPath.string();
 }
 
-uint32_t Manager::captureDump(Type type,
-                              const std::vector<std::string>& fullPaths)
-{
-    // get dreport type map entry
-    auto tempType = TypeMap.find(type);
-    return captureDump(tempType->second, fullPaths.front());
-}
 uint32_t Manager::captureDump(const std::string& type, const std::string& path)
 {
     // Get Dump size.
