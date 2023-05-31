@@ -2,8 +2,8 @@
 
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
+#include "errors_map.hpp"
 #include "watch.hpp"
-#include "xyz/openbmc_project/Dump/Internal/Create/server.hpp"
 
 #include <sdeventplus/source/child.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -17,30 +17,14 @@ namespace dump
 {
 namespace bmc
 {
-namespace internal
-{
-
-class Manager;
-
-} // namespace internal
 
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 
 using UserMap = phosphor::dump::inotify::UserMap;
 
-using Type =
-    sdbusplus::xyz::openbmc_project::Dump::Internal::server::Create::Type;
-
 using Watch = phosphor::dump::inotify::Watch;
 using ::sdeventplus::source::Child;
-// Type to dreport type  string map
-static const std::map<Type, std::string> TypeMap = {
-    {Type::ApplicationCored, "core"},
-    {Type::UserRequested, "user"},
-    {Type::InternalFailure, "elog"},
-    {Type::Checkstop, "checkstop"},
-    {Type::Ramoops, "ramoops"}};
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -51,8 +35,6 @@ class Manager :
     virtual public CreateIface,
     virtual public phosphor::dump::Manager
 {
-    friend class internal::Manager;
-
   public:
     Manager() = delete;
     Manager(const Manager&) = default;
@@ -99,6 +81,15 @@ class Manager :
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
 
+    // Type to dreport type  string map
+    static inline const std::unordered_map<std::string, std::string>
+        dumpTypeMap = {
+            {"xyz.openbmc_project.Dump.Create.DumpType.ErrorLog", "elog"},
+            {"xyz.openbmc_project.Dump.Create.DumpType.ApplicationCored",
+             "core"},
+            {"xyz.openbmc_project.Dump.Create.DumpType.UserRequested", "user"},
+            {"xyz.openbmc_project.Dump.Create.DumpType.Ramoops", "ramoops"}};
+
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
@@ -107,11 +98,11 @@ class Manager :
 
     /**  @brief Capture BMC Dump based on the Dump type.
      *  @param[in] type - Type of the Dump.
-     *  @param[in] fullPaths - List of absolute paths to the files
+     *  @param[in] path - An absolute paths to the file
      *             to be included as part of Dump package.
      *  @return id - The Dump entry id number.
      */
-    uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
+    uint32_t captureDump(std::string& type, const std::string& path);
 
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
@@ -124,6 +115,84 @@ class Manager :
      *  @returns dump size in kilobytes.
      */
     size_t getAllowedSize();
+
+    /** @brief extract the dump create parameters
+     *  @param[in] The name of the parameter
+     *  @param[in] The map of parameters passed as input
+     *
+     *  @return The parameter value
+     */
+    template <typename T>
+    T extractParameter(const std::string& key,
+                       phosphor::dump::DumpCreateParams& params)
+    {
+        using InvalidArgument =
+            sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+        using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+        auto it = params.find(key);
+        if (it != params.end())
+        {
+            const auto& [foundKey, variantValue] = *it;
+            if (std::holds_alternative<T>(variantValue))
+            {
+                return std::get<T>(variantValue);
+            }
+            else
+            {
+                lg2::error("An invalid input  passed for key: {KEY}", "KEY",
+                           key);
+                elog<InvalidArgument>(
+                    Argument::ARGUMENT_NAME(key.c_str()),
+                    Argument::ARGUMENT_VALUE("INVALID INPUT"));
+            }
+        }
+        return T{};
+    }
+
+    /** @brief This function validates the dump type and return correct type for
+     * elog dump
+     * @param[in] type The dump type recieved
+     * @param[in] params The map of parameters passed as input
+     *
+     * @return A correct dump type will be returned
+     */
+    std::string validateDumpType(const std::string& type,
+                                 phosphor::dump::DumpCreateParams& params)
+    {
+        using InvalidArgument =
+            sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+        using Argument = xyz::openbmc_project::Common::InvalidArgument;
+        std::string dumpType = "user";
+        if (type.empty())
+        {
+            return dumpType;
+        }
+        const auto mapIt = dumpTypeMap.find(type);
+        if (mapIt != dumpTypeMap.end())
+        {
+            dumpType = mapIt->second;
+        }
+        else
+        {
+            lg2::error("An invalid dump type: {TYPE} passed", "TYPE", type);
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME("BMC_DUMP_TYPE"),
+                                  Argument::ARGUMENT_VALUE(type.c_str()));
+        }
+
+        if (dumpType == "elog")
+        {
+            std::string errorType = extractParameter<std::string>(
+                convertCreateParametersToString(CreateParameters::ErrorType),
+                params);
+            const auto elogIt = errorMap.find(errorType);
+            if (elogIt != errorMap.end())
+            {
+                dumpType = errorType;
+            }
+        }
+        return dumpType;
+    }
 
     /** @brief sdbusplus Dump event loop */
     EventPtr eventLoop;
