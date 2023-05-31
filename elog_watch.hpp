@@ -18,7 +18,7 @@ namespace dump
 namespace elog
 {
 
-using IMgr = phosphor::dump::bmc::internal::Manager;
+using Mgr = phosphor::dump::bmc::Manager;
 using EId = uint32_t;
 using ElogList = std::set<EId>;
 
@@ -39,9 +39,9 @@ class Watch
 
     /** @brief constructs watch for elog add and delete signals.
      *  @param[in] bus -  The Dbus bus object
-     *  @param[in] intMgr - Dump internal Manager object
+     *  @param[in] mgr - Dump internal Manager object
      */
-    Watch(sdbusplus::bus_t& bus, IMgr& iMgr);
+    Watch(sdbusplus::bus_t& bus, Mgr& mgr);
 
   private:
     friend class cereal::access;
@@ -84,8 +84,8 @@ class Watch
         return std::stoul(path.filename());
     }
 
-    /**  @brief Dump internal Manager object. */
-    IMgr& iMgr;
+    /**  @brief BMC Dump Manager object. */
+    Mgr& mgr;
 
     /** @brief sdbusplus signal match for elog add */
     sdbusplus::bus::match_t addMatch;
