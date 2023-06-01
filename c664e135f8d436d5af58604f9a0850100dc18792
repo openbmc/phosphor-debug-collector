@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f865c8_e9703e9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-01T21:33:32Z",
+      "side": 1,
+      "message": "nit: don\u0027t repeat the title, explain \"why\" this change is needed (most likely because you want to make use of it in future commits?)",
+      "revId": "c664e135f8d436d5af58604f9a0850100dc18792",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
