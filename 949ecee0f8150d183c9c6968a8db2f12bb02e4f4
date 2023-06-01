@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8123ad2c_4600318f",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-01T16:24:32Z",
+      "side": 1,
+      "message": "As mentioned in the D-Bus interface definition, if nothing is sent it will be considered as elog, will add a comment for clarity",
+      "parentUuid": "05f945df_65e48baa",
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a321cea8_d007128f",
