@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "8b0f5fb2_67037cec",
         "filename": "dump_manager_bmc.hpp",
@@ -20,10 +21,10 @@
         "endChar": 69
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bab807e0_6ef56632",
         "filename": "dump_manager_bmc.hpp",
@@ -44,10 +45,10 @@
         "endChar": 69
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3b8262a1_74d46c7b",
         "filename": "dump_manager_bmcstored.cpp",
@@ -67,10 +68,10 @@
         "endChar": 50
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "853178ea_b8da49ca",
         "filename": "dump_manager_bmcstored.cpp",
@@ -91,10 +92,34 @@
         "endChar": 50
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ef3fd5a_3ba2cd90",
+        "filename": "dump_manager_bmcstored.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-01T15:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853178ea_b8da49ca",
+      "range": {
+        "startLine": 68,
+        "startChar": 33,
+        "endLine": 68,
+        "endChar": 50
+      },
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4e903c1d_918cb389",
         "filename": "dump_manager_bmcstored.cpp",
@@ -114,10 +139,10 @@
         "endChar": 34
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "06767b29_5cb4074e",
         "filename": "dump_manager_bmcstored.cpp",
@@ -138,10 +163,10 @@
         "endChar": 34
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "7a931886_a9ac8ab6",
         "filename": "dump_manager_bmcstored.hpp",
@@ -155,10 +180,10 @@
       "side": 1,
       "message": "Restoring mechanism is common for all locally stored dumps?",
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8404734b_a72421fe",
         "filename": "dump_manager_bmcstored.hpp",
@@ -173,10 +198,28 @@
       "message": "fixed creating the BMC stored object instead of respective derived class entry objects, now the restored should work right?",
       "parentUuid": "7a931886_a9ac8ab6",
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bc5657b_bdc0dfe5",
+        "filename": "dump_manager_bmcstored.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-01T15:24:18Z",
+      "side": 1,
+      "message": "The mechanism is common across all the locally stored dumps",
+      "parentUuid": "8404734b_a72421fe",
+      "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "97bbb073_2949e615",
         "filename": "dump_manager_bmcstored.hpp",
@@ -196,10 +239,10 @@
         "endChar": 27
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "6442c8dd_649c1690",
         "filename": "dump_manager_bmcstored.hpp",
@@ -220,8 +263,7 @@
         "endChar": 27
       },
       "revId": "96627dcf9ac3247238a898029d2f1fe826f1a5ec",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
