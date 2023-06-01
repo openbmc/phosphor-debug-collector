@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "57b2900c_e5071986",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 22
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d7512291_f9811217",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 22
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "60063417_df7295b9",
         "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
@@ -67,10 +68,34 @@
         "endChar": 1
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150b281f_5dc21474",
+        "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-01T15:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60063417_df7295b9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "09ab2feb_3d334798",
         "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
@@ -90,10 +115,10 @@
         "endChar": 47
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b208202e_0eac0689",
         "filename": "dump-extensions/openpower-dumps/dump-extensions.cpp",
@@ -114,10 +139,10 @@
         "endChar": 47
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "2af99663_66a6cf2c",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -137,10 +162,10 @@
         "endChar": 65
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "3d375b56_21fb055e",
         "filename": "dump-extensions/openpower-dumps/meson.build",
@@ -161,8 +186,7 @@
         "endChar": 65
       },
       "revId": "86336d3bd8aa3b09ff23f0c57bccf1ffaf48915d",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
