@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "6c2916ec_5ab0ca28",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
@@ -20,10 +21,10 @@
         "endChar": 67
       },
       "revId": "85795fd66678d85ac20e180025281556add695bb",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "0e52fe46_f953dede",
         "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
@@ -44,8 +45,31 @@
         "endChar": 67
       },
       "revId": "85795fd66678d85ac20e180025281556add695bb",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c595eec_4e760e6d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_hostboot.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-01T15:39:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e52fe46_f953dede",
+      "range": {
+        "startLine": 121,
+        "startChar": 65,
+        "endLine": 121,
+        "endChar": 67
+      },
+      "revId": "85795fd66678d85ac20e180025281556add695bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
