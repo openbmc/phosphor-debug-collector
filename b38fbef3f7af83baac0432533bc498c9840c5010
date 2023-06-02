@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "07a231f2_cb55c07e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-02T03:55:22Z",
+      "side": 1,
+      "message": "Yes,and PLDM also needs this for offloading to host",
+      "parentUuid": "9ab862c7_348fe712",
+      "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9ba2b025_6fc946b4",
         "filename": "bmc_dump_entry.cpp",
         "patchSetId": 29
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-01T21:31:42Z",
       "side": 1,
       "message": "Be great to get this repo over to lg2",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a0bd31c_0ec69b0e",
+        "filename": "bmc_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-02T03:55:22Z",
+      "side": 1,
+      "message": "What is lg2? is it about using std::format?",
+      "parentUuid": "9ba2b025_6fc946b4",
       "range": {
         "startLine": 30,
         "startChar": 12,
