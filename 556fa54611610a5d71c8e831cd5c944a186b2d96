@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e3e1af_b4b7a59e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T08:59:21Z",
+      "side": 1,
+      "message": "repeating , same as commit message.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "948e5ba0_f9a34d74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T08:59:21Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb93103c_5e60a3f8",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T08:59:21Z",
+      "side": 1,
+      "message": "Use lg2 based logging.",
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688fd5a4_fd97f766",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T08:59:21Z",
+      "side": 1,
+      "message": "InternalFailure error creates dump, Really required dump here?",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "549a1f6a_745b5ff8",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T08:59:21Z",
+      "side": 1,
+      "message": "why this is error type log , this is not really errror right ? just saying dump is disabled.",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 65
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
