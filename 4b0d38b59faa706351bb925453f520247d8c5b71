@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a2d48b_1215fcab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T11:29:26Z",
+      "side": 1,
+      "message": "when the dumpprogress is getting to reset?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bc543c4_dea19f5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T11:29:26Z",
+      "side": 1,
+      "message": "It is good to add test case , in the double fault scenario , back to back TIs.",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e622158d_171a02e3",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T11:29:26Z",
+      "side": 1,
+      "message": "Similiar function i was mentioning earlier in getStateValue related changes review. move this function to the other commit.",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f3f004_e4bb5649",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T11:29:26Z",
+      "side": 1,
+      "message": "Also throwing exception in the error case.",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
