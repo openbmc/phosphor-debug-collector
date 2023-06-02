@@ -1,6 +1,74 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a1e615_411a81f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-06-02T06:49:15Z",
+      "side": 1,
+      "message": "Some minor comments",
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372396d2_772da0c4",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-06-02T06:49:15Z",
+      "side": 1,
+      "message": "If params is an I/P param better to change it to a const one",
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e90f080_3c4a3feb",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-06-02T06:49:15Z",
+      "side": 1,
+      "message": "What if key is an empty string? Better to check that and return early",
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bf59a0f_cef33dad",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2023-06-02T06:49:15Z",
+      "side": 1,
+      "message": "If params is an I/P param then better to make it as const",
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa62713_1142977c",
