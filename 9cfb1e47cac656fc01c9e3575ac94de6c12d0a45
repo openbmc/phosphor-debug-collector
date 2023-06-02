@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36cc3822_4cf7b6ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T09:10:01Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7,
+        "startChar": 48,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "734cc432_3d9b378e",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T09:10:01Z",
+      "side": 1,
+      "message": "should handle file system exceptions.",
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae274e0_b23cacf9",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T09:10:01Z",
+      "side": 1,
+      "message": "in progress?",
+      "range": {
+        "startLine": 23,
+        "startChar": 50,
+        "endLine": 23,
+        "endChar": 59
+      },
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91e5e513_bd2c5673",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T09:10:01Z",
+      "side": 1,
+      "message": "Incase double fault case TI followed by another TI , how the entry delete works fpor the first one?",
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
