@@ -1,0 +1,8 @@
+Code-Review+2: Jayanth Othayoth <ojayanth@in.ibm.com>
+Code-Review+1: Andrew Geissler <geissonator@yahoo.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Dhruvaraj S <dhruvaraj@gmail.com>
+Submitted-at: Fri, 02 Jun 2023 05:28:40 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/60923
+Project: openbmc/phosphor-debug-collector
+Branch: refs/heads/master
