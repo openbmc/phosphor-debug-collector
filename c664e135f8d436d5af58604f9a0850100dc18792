@@ -16,6 +16,24 @@
       "message": "nit: don\u0027t repeat the title, explain \"why\" this change is needed (most likely because you want to make use of it in future commits?)",
       "revId": "c664e135f8d436d5af58604f9a0850100dc18792",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb02c6fe_16bdcae3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T06:46:59Z",
+      "side": 1,
+      "message": "+1.\nAs a good practice, add this changes with commit you are implementing which requires to reuse this type.",
+      "parentUuid": "32f865c8_e9703e9a",
+      "revId": "c664e135f8d436d5af58604f9a0850100dc18792",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
