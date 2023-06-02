@@ -36,6 +36,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "535c1620_62b08393",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T06:43:43Z",
+      "side": 1,
+      "message": "Add testing details.",
+      "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ba2b025_6fc946b4",
@@ -78,6 +95,53 @@
         "startChar": 12,
         "endLine": 30,
         "endChar": 23
+      },
+      "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a10e865b_7f5410b6",
+        "filename": "bmc_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T06:43:43Z",
+      "side": 1,
+      "message": "See mailing details for https://lore.kernel.org/openbmc/YQBrbuQFz4JihBAE@heinlein/\n\nAlso you can refer https://gerrit.openbmc.org/c/openbmc/pldm/+/61383 review from implementation point,\nIt is better  to start migrating to lg2 for newly added files/code. lg2 got better logging capability from debug point.",
+      "parentUuid": "5a0bd31c_0ec69b0e",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d95816_9e7150fc",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-02T06:43:43Z",
+      "side": 1,
+      "message": "Update documentation saying it is full path",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 43
       },
       "revId": "b38fbef3f7af83baac0432533bc498c9840c5010",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
