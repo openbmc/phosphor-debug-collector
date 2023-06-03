@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a11a6862_3b20a261",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "If the state cannot be returned, we cannot continue from this point, but there is a concern if at all state manager is not available or failed, a user invocation can crash dump manager, any suggestions?\ninstead of crashing, return not allowed, since the system may not be in the right state?",
+      "parentUuid": "81fdacc8_b6dbd584",
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90d2cf47_40a6977e",
         "filename": "dump_utils.hpp",
         "patchSetId": 32
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-02T11:06:17Z",
       "side": 1,
       "message": "Provide the exception details, will help function users to catch/handle exceptions.",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 37
+      },
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a335a90_cd1c8c59",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d2cf47_40a6977e",
       "range": {
         "startLine": 94,
         "startChar": 10,
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa4c7c6_2cdf8dc3",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ba8c008_253db805",
+      "range": {
+        "startLine": 109,
+        "startChar": 10,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a5092ab_75a0c018",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-06-02T11:06:17Z",
       "side": 1,
       "message": "Provide the exception details, will help function users to catch/handle exceptions.",
+      "range": {
+        "startLine": 116,
+        "startChar": 11,
+        "endLine": 116,
+        "endChar": 37
+      },
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a760b4f6_d54cbefe",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a5092ab_75a0c018",
       "range": {
         "startLine": 116,
         "startChar": 11,
@@ -110,6 +200,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb66132_83639cfb",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "Added a generic get property but keeping this function since it has additional checking and retrival",
+      "parentUuid": "9d47da8e_60e62b98",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 119,
+        "endChar": 52
+      },
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9853bccf_03125b8c",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-06-02T11:06:17Z",
       "side": 1,
       "message": "Provide the exception details, will help function users to catch/handle exceptions.",
+      "range": {
+        "startLine": 200,
+        "startChar": 11,
+        "endLine": 200,
+        "endChar": 38
+      },
+      "revId": "cb4af989f15a5305d90cef77b26abfde0ed005b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "893456c6_3f991623",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T09:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9853bccf_03125b8c",
       "range": {
         "startLine": 200,
         "startChar": 11,
