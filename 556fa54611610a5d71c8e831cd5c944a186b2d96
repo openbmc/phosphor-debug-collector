@@ -112,6 +112,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f372698_9e21a65d",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T17:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb93103c_5e60a3f8",
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "688fd5a4_fd97f766",
@@ -149,6 +167,30 @@
       "side": 1,
       "message": "getting a snapshot of the BMC may be good, but can be removed",
       "parentUuid": "688fd5a4_fd97f766",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae0a5821_76129e70",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T17:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c802916_3e5405c5",
       "range": {
         "startLine": 54,
         "startChar": 7,
