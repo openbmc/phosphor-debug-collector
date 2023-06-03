@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7c9b46_fbffe836",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T02:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e3e1af_b4b7a59e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "948e5ba0_f9a34d74",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-02T08:59:21Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4645622_1604389a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T02:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948e5ba0_f9a34d74",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c802916_3e5405c5",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T02:23:06Z",
+      "side": 1,
+      "message": "getting a snapshot of the BMC may be good, but can be removed",
+      "parentUuid": "688fd5a4_fd97f766",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "549a1f6a_745b5ff8",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
         "patchSetId": 38
@@ -100,6 +172,30 @@
       "writtenOn": "2023-06-02T08:59:21Z",
       "side": 1,
       "message": "why this is error type log , this is not really errror right ? just saying dump is disabled.",
+      "range": {
+        "startLine": 59,
+        "startChar": 8,
+        "endLine": 59,
+        "endChar": 65
+      },
+      "revId": "556fa54611610a5d71c8e831cd5c944a186b2d96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2dfbe12_3e1732b9",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-03T02:23:06Z",
+      "side": 1,
+      "message": "changing to info",
+      "parentUuid": "549a1f6a_745b5ff8",
       "range": {
         "startLine": 59,
         "startChar": 8,
