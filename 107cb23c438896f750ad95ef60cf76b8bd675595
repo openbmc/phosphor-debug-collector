@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "f8f5dcdc_0f77e946",
         "filename": "/COMMIT_MSG",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "please initiate class diagram reveiw considering all the new use cases. That will help finalize the direction  on\n-better code usage\n- reduce the impact for future enhancement due to base class changes\n- Unit testing support\n\nAlready shared inputs to next commit related to this.",
       "revId": "107cb23c438896f750ad95ef60cf76b8bd675595",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db70213_9ca46fc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-05T04:51:05Z",
+      "side": 1,
+      "message": "Refactoring required design document updates/reveiw. As mentioned earlier please include the details.",
+      "parentUuid": "f8f5dcdc_0f77e946",
+      "revId": "107cb23c438896f750ad95ef60cf76b8bd675595",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
