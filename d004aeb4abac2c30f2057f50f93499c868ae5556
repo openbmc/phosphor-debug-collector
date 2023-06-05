@@ -16,6 +16,24 @@
       "message": "High level this commit seems to be ensuring there is only one active dump during an MPIPL? i.e. you\u0027ve changed the service do always run now, even during an MPIPL. I\u0027m not sure how it being a user initiated or host initiated makes a difference here? The service will always run and clear any dumps that are not \"phosphor::dump::OperationStatus::InProgress\"?",
       "revId": "d004aeb4abac2c30f2057f50f93499c868ae5556",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a7b9d59_b4ce4c88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T15:49:40Z",
+      "side": 1,
+      "message": "yes there is only one possible system dump at a time, need to delete all dump entries during a system power off because those will be stale except the newly created entry which triggered mpipl",
+      "parentUuid": "bed018ef_7c6526d4",
+      "revId": "d004aeb4abac2c30f2057f50f93499c868ae5556",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
