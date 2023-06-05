@@ -87,6 +87,24 @@
       "message": "Better to starting  lg2, for new logs.",
       "revId": "94dad7996102033e7631a6e5f5af7817c919845e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfcd8d2a_f2ba79cd",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T07:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbffec2c_24bf771d",
+      "revId": "94dad7996102033e7631a6e5f5af7817c919845e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
