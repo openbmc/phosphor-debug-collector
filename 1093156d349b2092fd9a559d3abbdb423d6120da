@@ -16,6 +16,24 @@
       "message": "So just to confirm, if it has the same ID, but it\u0027s not completed, the expected behavior is to create a new dump with the same ID? The code will all handle that ok? Or do we need to delete the dump with the same ID first?",
       "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4af6cb_4d35d618",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T15:30:51Z",
+      "side": 1,
+      "message": "Another dump with same name won\u0027t come because only one dump at a time and this dump needs to be deleted to create a new one",
+      "parentUuid": "a3aa9cc3_65f8731b",
+      "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
