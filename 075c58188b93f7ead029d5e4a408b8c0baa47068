@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bea3ad5_8678af24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "nit: commit message crosses 80 char limit on a few lines. You can setup vim to auto fix this for you.",
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8879715_85f4b8ca",
+        "filename": "dump-extensions/openpower-dumps/meson.build",
+        "patchSetId": 40
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "nit: tab introduced here",
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2e4838_a39a3ed6",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "If calling functions already have a sdbusplus::bus object stashed away, they should just pass into this function by reference.",
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e26b775_cc0df912",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "nit: lg2 handles printing the exceptions appropriately with just the \"e\" (.what() not needed)",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68def763_28daa951",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "Probably best to make this a debug. You\u0027ll know if disabled with above log, and as this path is the default, it seems like an unnecessary journal entry.",
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d091d93_4d05dc9c",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-05T15:33:28Z",
+      "side": 1,
+      "message": "It\u0027s a bit off to me that this just isn\u0027t a bool function returning true/false. Why the \"throw an exception vs. do nothing\" behavior?",
+      "revId": "075c58188b93f7ead029d5e4a408b8c0baa47068",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
