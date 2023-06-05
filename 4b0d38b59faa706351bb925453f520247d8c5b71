@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b0f898_95e1853e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T07:23:14Z",
+      "side": 1,
+      "message": "It will reset once the dump is deleted or offloaded",
+      "parentUuid": "93a2d48b_1215fcab",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bc543c4_dea19f5d",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-06-02T11:29:26Z",
       "side": 1,
       "message": "It is good to add test case , in the double fault scenario , back to back TIs.",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ce8a82_4a8f630d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T07:23:14Z",
+      "side": 1,
+      "message": "double TI may not be possible, and this applies only to the user-initiated dumps, updating commit message",
+      "parentUuid": "9bc543c4_dea19f5d",
       "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f07a44d4_ab5e7b21",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T07:23:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e622158d_171a02e3",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11f3f004_e4bb5649",
@@ -71,6 +131,24 @@
       "writtenOn": "2023-06-02T11:29:26Z",
       "side": 1,
       "message": "Also throwing exception in the error case.",
+      "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d808f0ff_8cd49030",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-05T07:23:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11f3f004_e4bb5649",
       "revId": "4b0d38b59faa706351bb925453f520247d8c5b71",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
