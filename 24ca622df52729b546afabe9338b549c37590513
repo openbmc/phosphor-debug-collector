@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57ea778e_c75a4670",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-06T16:28:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0805f4ad_431bf370",
+      "revId": "24ca622df52729b546afabe9338b549c37590513",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48e638b2_b652b130",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-06T15:21:55Z",
       "side": 1,
       "message": "We\u0027ve got a design goal of not doing InternalFailure anymore. If we don\u0027t want to handle this, just throw it and let the app crash and let the standard FFDC collection work.",
+      "revId": "24ca622df52729b546afabe9338b549c37590513",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c9af260_e771ea1e",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-06T16:28:41Z",
+      "side": 1,
+      "message": "This internal fauilure is catching on the caller side.. but will throw and catch in the main caller",
+      "parentUuid": "48e638b2_b652b130",
       "revId": "24ca622df52729b546afabe9338b549c37590513",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
