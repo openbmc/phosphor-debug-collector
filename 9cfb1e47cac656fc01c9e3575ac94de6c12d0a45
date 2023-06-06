@@ -181,6 +181,24 @@
       "parentUuid": "f8947d61_4579ad00",
       "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e0444c_1e6a13c8",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-06T07:25:01Z",
+      "side": 1,
+      "message": "That TI will be after MPIPL, not in sequence before starting MPIPL,  and in such cases old dump will be lost and a new dump will be created.\nanother important point is this is applicable only for user initiated dump since a dump entry will not be created in TI case",
+      "parentUuid": "b463d217_1385d781",
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
