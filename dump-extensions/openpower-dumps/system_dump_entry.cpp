@@ -4,9 +4,8 @@
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
 namespace openpower
@@ -23,11 +22,10 @@ using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
 {
-    log<level::INFO>(
-        fmt::format(
-            "System dump offload request id({}) uri({}) source dumpid()", id,
-            uri, sourceDumpId())
-            .c_str());
+    lg2::info(
+        "System dump offload request id: {ID} uri: {URI} "
+	"source dumpid: {SOURCE_DUMP_ID}",
+        "ID", id, "URI", uri, "SOURCE_DUMP_ID", sourceDumpId());
     phosphor::dump::Entry::initiateOffload(uri);
     phosphor::dump::host::requestOffload(sourceDumpId());
 }
@@ -39,18 +37,17 @@ void Entry::delete_()
 
     if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
     {
-        log<level::ERR>(
-            fmt::format("Dump offload is in progress id({}) srcdumpid({})",
-                        dumpId, srcDumpID)
-                .c_str());
+        lg2::error(
+            "Dump offload is in progress id: {DUMP_ID} "
+	    "srcdumpid: {SRC_DUMP_ID}",
+            "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
         elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
             xyz::openbmc_project::Common::NotAllowed::REASON(
                 "Dump offload is in progress"));
     }
 
-    log<level::INFO>(fmt::format("System dump delete id({}) srcdumpid({})",
-                                 dumpId, srcDumpID)
-                         .c_str());
+    lg2::info("System dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
+              "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
 
     // Remove host system dump when host is up by using source dump id
     // which is present in system dump entry dbus object as a property.
@@ -63,10 +60,10 @@ void Entry::delete_()
         }
         catch (const std::exception& e)
         {
-            log<level::ERR>(fmt::format("Error deleting dump from host id({}) "
-                                        "host id({}) error({})",
-                                        dumpId, srcDumpID, e.what())
-                                .c_str());
+            lg2::error(
+                "Error deleting dump from host id: {DUMP_ID} "
+		"host id: {SRC_DUMP_ID} error: {ERROR_MSG}",
+                "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID, "ERROR_MSG", e);
             elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
         }
     }

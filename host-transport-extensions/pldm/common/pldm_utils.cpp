@@ -5,9 +5,8 @@
 #include "dump_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <phosphor-logging/log.hpp>
 
 namespace phosphor
@@ -27,14 +26,11 @@ int openPLDM()
     if (fd < 0)
     {
         auto e = errno;
-        log<level::ERR>(
-            fmt::format(
-                "pldm_open failed, errno({}), FD({})", e,
-                static_cast<
-                    std::underlying_type<pldm_requester_error_codes>::type>(fd))
-                .c_str());
-        elog<NotAllowed>(Reason("Required host dump action via pldm is not "
-                                "allowed due to pldm_open failed"));
+        lg2::error("pldm_open failed, errno: {ERRNO}, FD: FD", "ERRNO", e,
+                   "FD", static_cast<std::underlying_type<pldm_requester_error_codes>::type>(fd));
+        elog<NotAllowed>(Reason(
+            "Required host dump action via pldm is not allowed due "
+	    "to pldm_open failed"));
     }
     return fd;
 }
@@ -57,15 +53,13 @@ uint8_t getPLDMInstanceID(uint8_t eid)
 
         reply.read(instanceID);
 
-        log<level::INFO>(
-            fmt::format("Got instanceId({}) from PLDM eid({})", instanceID, eid)
-                .c_str());
+        lg2::info("Got instanceId: {INSTANCE_ID} from PLDM eid: {EID}",
+                  "INSTANCE_ID", instanceID, "EID", eid);
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to get instance id error({})", e.what())
-                .c_str());
+        lg2::error("Failed to get instance id error: {ERROR_MSG}", "ERROR_MSG",
+                   e);
         elog<NotAllowed>(Reason("Failure in communicating with pldm service, "
                                 "service may not be running"));
     }

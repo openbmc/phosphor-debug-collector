@@ -1,9 +1,8 @@
 #include "dump_serialize.hpp"
 
-#include <fmt/core.h>
-
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/set.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <phosphor-logging/log.hpp>
 
 #include <fstream>
@@ -39,9 +38,8 @@ bool deserialize(const std::filesystem::path& path, ElogList& list)
     }
     catch (const cereal::Exception& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to deserialize, errormsg({})", e.what())
-                .c_str());
+        lg2::error("Failed to deserialize, errormsg: {ERROR_MSG}", "ERROR_MSG",
+                   e);
         std::filesystem::remove(path);
         return false;
     }

@@ -2,8 +2,7 @@
 
 #include "core_manager.hpp"
 
-#include <fmt/core.h>
-
+#include <phosphor-logging/lg2.hpp>
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/exception.hpp>
 
@@ -72,14 +71,13 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to GetObject on Dump.Internal: {}", e.what())
-                .c_str());
+        lg2::error("Failed to GetObject on Dump.Internal: {ERROR_MSG}",
+                   "ERROR_MSG", e);
         return;
     }
     if (mapperResponse.empty())
     {
-        log<level::ERR>("Error reading mapper response");
+        lg2::error("Error reading mapper response");
         return;
     }
 
@@ -93,8 +91,7 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to create dump: {}", e.what()).c_str());
+        lg2::error("Failed to create dump: {ERROR_MSG}", "ERROR_MSG", e);
     }
 }
 

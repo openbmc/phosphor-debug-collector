@@ -7,10 +7,9 @@
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 namespace openpower
 {
@@ -64,12 +63,12 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(
-            fmt::format(
-                "Error in creating system dump entry, errormsg({}), "
-                "OBJECTPATH({}), ID({}), TIMESTAMP({}),SIZE({}), SOURCEID({})",
-                e.what(), objPath.c_str(), id, timeStamp, size, dumpId)
-                .c_str());
+        lg2::error(
+            "Error in creating system dump entry, errormsg: {ERROR_MSG}, "
+	    "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
+	    "SIZE: {SIZE}, SOURCEID: {SOURCE_ID}",
+            "ERROR_MSG", e, "OBJECT_PATH", objPath.c_str(), "ID", id,
+            "TIMESTAMP", timeStamp, "SIZE", size, "SOURCE_ID", dumpId);
         report<InternalFailure>();
         return;
     }
@@ -87,7 +86,7 @@ sdbusplus::message::object_path
 
     if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
-        log<level::WARNING>(
+        lg2::warning(
             "System dump accepts not more than 2 additional parameters");
     }
 
@@ -135,11 +134,10 @@ sdbusplus::message::object_path
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(
-            fmt::format("Error in creating system dump entry, errormsg({}), "
-                        "OBJECTPATH({}), ID({})",
-                        e.what(), objPath.c_str(), id)
-                .c_str());
+        lg2::error(
+            "Error in creating system dump entry, errormsg: {ERROR_MSG}, "
+	    "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
+            "ERROR_MSG", e, "OBJECT_PATH", objPath.c_str(), "ID", id);
         elog<InternalFailure>();
         return std::string();
     }
