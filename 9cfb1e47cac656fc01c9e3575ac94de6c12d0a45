@@ -163,6 +163,24 @@
       "parentUuid": "91e5e513_bd2c5673",
       "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b463d217_1385d781",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-06T05:28:10Z",
+      "side": 1,
+      "message": "It is possible , TI(1) trigger MPIPL , during MPIPL , Phyp initialization window , can trigger another TI , we seen these scenarios mutiple tim e, in phyp got some critical issues.",
+      "parentUuid": "f8947d61_4579ad00",
+      "revId": "9cfb1e47cac656fc01c9e3575ac94de6c12d0a45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
