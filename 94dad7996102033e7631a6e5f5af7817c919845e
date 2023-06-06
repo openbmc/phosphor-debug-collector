@@ -120,6 +120,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9589b6a_face84cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-06T07:28:01Z",
+      "side": 1,
+      "message": "can you please check the commit message, the reason is already there\n\nThis issue arises particularly during internal failure recovery\nin the host, where it notifies all the pending dumps again.\nIn cases where entries are already available for such dumps on the BMC,\nduplicate entries may be created, potentially leading to confusion\nfor users. This change prevents the creation of new entries if an entry\nalready exists for the same dump.",
+      "parentUuid": "2ed3a88c_ae8b381b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "94dad7996102033e7631a6e5f5af7817c919845e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbffec2c_24bf771d",
