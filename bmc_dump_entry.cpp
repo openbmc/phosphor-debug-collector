@@ -3,8 +3,7 @@
 #include "dump_manager.hpp"
 #include "dump_offload.hpp"
 
-#include <fmt/core.h>
-
+#include <phosphor-logging/lg2.hpp>
 #include <phosphor-logging/log.hpp>
 
 namespace phosphor
@@ -25,9 +24,7 @@ void Entry::delete_()
     catch (const std::filesystem::filesystem_error& e)
     {
         // Log Error message and continue
-        log<level::ERR>(
-            fmt::format("Failed to delete dump file, errormsg({})", e.what())
-                .c_str());
+        lg2::error("Failed to delete dump file, errormsg: {ERROR}", "ERROR", e);
     }
 
     // Remove Dump entry D-bus object

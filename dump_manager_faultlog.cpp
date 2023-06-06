@@ -5,10 +5,9 @@
 #include "dump_utils.hpp"
 #include "faultlog_dump_entry.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/Common/File/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
@@ -33,18 +32,18 @@ using PathOpen = xyz::openbmc_project::Common::File::Open::PATH;
 sdbusplus::message::object_path
     Manager::createDump(phosphor::dump::DumpCreateParams params)
 {
-    log<level::INFO>("In dump_manager_fault.cpp createDump");
+    lg2::info("In dump_manager_fault.cpp createDump");
 
     // Currently we ignore the parameters.
     // TODO phosphor-debug-collector/issues/22: Check parameter values and
     // exit early if we don't receive the expected parameters
     if (params.empty())
     {
-        log<level::INFO>("No additional parameters received");
+        lg2::info("No additional parameters received");
     }
     else
     {
-        log<level::INFO>("Got additional parameters");
+        lg2::info("Got additional parameters");
     }
 
     // Get the originator id and type from params
@@ -70,7 +69,7 @@ sdbusplus::message::object_path
 
     if (faultLogFile.is_open())
     {
-        log<level::INFO>("faultLogFile is open");
+        lg2::info("faultLogFile is open");
 
         faultLogFile << "This is faultlog file #" << idString << " at "
                      << std::string(FAULTLOG_DUMP_PATH) + idString << std::endl;
@@ -79,18 +78,17 @@ sdbusplus::message::object_path
     }
     else
     {
-        log<level::ERR>(fmt::format("Failed to open fault log file at {}, "
-                                    "errno({}), strerror(\"{}\"), "
-                                    "OBJECTPATH({}), ID({})",
-                                    faultLogFilePath.c_str(), errno,
-                                    strerror(errno), objPath.c_str(), id)
-                            .c_str());
+        lg2::error(
+            "Failed to open fault log file at {FILE_PATH}, errno: {ERRNO}, "
+            "strerror: {STRERROR}, OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
+            "FILE_PATH", faultLogFilePath, "ERRNO", errno, "STRERROR",
+            strerror(errno), "OBJECT_PATH", objPath, "ID", id);
         elog<Open>(ErrnoOpen(errno), PathOpen(objPath.c_str()));
     }
 
     try
     {
-        log<level::INFO>("dump_manager_faultlog.cpp: add faultlog entry");
+        lg2::info("dump_manager_faultlog.cpp: add faultlog entry");
 
         uint64_t timestamp =
             std::chrono::duration_cast<std::chrono::microseconds>(
@@ -107,16 +105,15 @@ sdbusplus::message::object_path
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(fmt::format("Error in creating dump entry, "
-                                    "errormsg({}), OBJECTPATH({}), ID({})",
-                                    e.what(), objPath.c_str(), id)
-                            .c_str());
+        lg2::error("Error in creating dump entry, errormsg: {ERROR}, "
+                   "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
+                   "ERROR", e, "OBJECT_PATH", objPath, "ID", id);
         elog<InternalFailure>();
     }
 
     lastEntryId++;
 
-    log<level::INFO>("End of dump_manager_faultlog.cpp createDump");
+    lg2::info("End of dump_manager_faultlog.cpp createDump");
     return objPath.string();
 }
 

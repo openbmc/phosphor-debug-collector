@@ -4,9 +4,8 @@
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
 namespace openpower
@@ -26,11 +25,9 @@ void Entry::initiateOffload(std::string uri)
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-    log<level::INFO>(
-        fmt::format(
-            "Resource dump offload request id({}) uri({}) source dumpid({})",
-            id, uri, sourceDumpId())
-            .c_str());
+    lg2::info("Resource dump offload request id: {ID} uri: {URI} "
+              "source dumpid: {SOURCE_DUMP_ID}",
+              "ID", id, "URI", uri, "SOURCE_DUMP_ID", sourceDumpId());
 
     if (!phosphor::dump::isHostRunning())
     {
@@ -49,19 +46,16 @@ void Entry::delete_()
 
     if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
     {
-        log<level::ERR>(
-            fmt::format("Dump offload is in progress, cannot delete "
-                        "dump, id({}) srcdumpid({})",
-                        dumpId, srcDumpID)
-                .c_str());
+        lg2::error("Dump offload is in progress, cannot delete dump, "
+                   "id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
+                   "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
         elog<sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed>(
             xyz::openbmc_project::Common::NotAllowed::REASON(
                 "Dump offload is in progress"));
     }
 
-    log<level::INFO>(fmt::format("Resource dump delete id({}) srcdumpid({})",
-                                 dumpId, srcDumpID)
-                         .c_str());
+    lg2::info("Resource dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
+              "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
 
     // Remove resource dump when host is up by using source dump id
 
@@ -75,10 +69,9 @@ void Entry::delete_()
         }
         catch (const std::exception& e)
         {
-            log<level::ERR>(fmt::format("Error deleting dump from host id({}) "
-                                        "host id({}) error({})",
-                                        dumpId, srcDumpID, e.what())
-                                .c_str());
+            lg2::error("Error deleting dump from host id: {DUMP_ID} "
+                       "host id: {SRC_DUMP_ID} error: {ERROR}",
+                       "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID, "ERROR", e);
             elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
         }
     }

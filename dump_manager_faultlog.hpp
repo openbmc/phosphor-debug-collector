@@ -2,10 +2,9 @@
 
 #include "dump_manager.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -54,11 +53,12 @@ class Manager :
 
         if (ec)
         {
-            log<level::ERR>(fmt::format("dump_manager_faultlog directory {} "
-                                        "not created. error_code = {} ({})",
-                                        FAULTLOG_DUMP_PATH, ec.value(),
-                                        ec.message())
-                                .c_str());
+            auto dir = FAULTLOG_DUMP_PATH;
+            lg2::error(
+                "dump_manager_faultlog directory {DIRECTORY} not created. "
+                "error_code = {ERRNO} ({ERROR_MESSAGE})",
+                "DIRECTORY", dir, "ERRNO", ec.value(), "ERROR_MESSAGE",
+                ec.message());
         }
     }
 
@@ -66,7 +66,7 @@ class Manager :
     {
         // TODO phosphor-debug-collector/issues/21: Restore fault log entries
         // after service restart
-        log<level::INFO>("dump_manager_faultlog restore not implemented");
+        lg2::info("dump_manager_faultlog restore not implemented");
     }
 
     /** @brief Method to create a new fault log dump entry

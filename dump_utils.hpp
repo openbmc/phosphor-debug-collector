@@ -1,13 +1,12 @@
 #pragma once
-
 #include "dump_manager.hpp"
 
-#include <fmt/core.h>
 #include <systemd/sd-event.h>
 #include <unistd.h>
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
@@ -116,7 +115,7 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
             convertCreateParametersToString(CreateParametersXYZ::OriginatorId));
     if (iter == params.end())
     {
-        log<level::INFO>("OriginatorId is not provided");
+        lg2::info("OriginatorId is not provided");
     }
     else
     {
@@ -127,12 +126,9 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
         catch (const std::bad_variant_access& e)
         {
             // Exception will be raised if the input is not string
-            log<level::ERR>(
-                fmt::format(
-                    "An invalid  originatorId passed. It should be a string, "
-                    "errormsg({})",
-                    e.what())
-                    .c_str());
+            lg2::error("An invalid originatorId passed. It should be a string, "
+                       "errormsg: {ERROR}",
+                       "ERROR", e);
             elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_ID"),
                                   Argument::ARGUMENT_VALUE("INVALID INPUT"));
         }
@@ -143,8 +139,8 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
                                CreateParametersXYZ::OriginatorType));
     if (iter == params.end())
     {
-        log<level::INFO>("OriginatorType is not provided. Replacing the string "
-                         "with the default value");
+        lg2::info("OriginatorType is not provided. Replacing the string "
+                  "with the default value");
         originatorType = originatorTypes::Internal;
     }
     else
@@ -158,10 +154,8 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
         catch (const std::bad_variant_access& e)
         {
             // Exception will be raised if the input is not string
-            log<level::ERR>(fmt::format("An invalid originatorType passed, "
-                                        "errormsg({})",
-                                        e.what())
-                                .c_str());
+            lg2::error("An invalid originatorType passed, errormsg: {ERROR}",
+                       "ERROR", e);
             elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_TYPE"),
                                   Argument::ARGUMENT_VALUE("INVALID INPUT"));
         }
