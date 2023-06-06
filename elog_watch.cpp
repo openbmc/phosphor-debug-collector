@@ -7,10 +7,9 @@
 #include "errors_map.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
-#include <fmt/core.h>
-
 #include <cereal/cereal.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/exception.hpp>
 
 #include <fstream>
@@ -52,7 +51,7 @@ Watch::Watch(sdbusplus::bus_t& bus, IMgr& iMgr) :
     {
         if (!deserialize(ELOG_ID_PERSIST_PATH, elogList))
         {
-            log<level::ERR>("Error occurred during error id deserialize");
+            lg2::error("Error occurred during error id deserialize");
         }
     }
 }
@@ -70,11 +69,9 @@ void Watch::addCallback(sdbusplus::message_t& msg)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format(
-                "Failed to parse elog add signal, errormsg({}), REPLY_SIG({})",
-                e.what(), msg.get_signature())
-                .c_str());
+        lg2::error("Failed to parse elog add signal, errormsg: {ERROR_MSG}, "
+                   "REPLY_SIG: {REPLY_SIG}",
+                   "ERROR_MSG", e, "REPLY_SIG", msg.get_signature());
         return;
     }
 
@@ -167,11 +164,9 @@ void Watch::delCallback(sdbusplus::message_t& msg)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format(
-                "Failed to parse elog del signal, errormsg({}), REPLY_SIG({})",
-                e.what(), msg.get_signature())
-                .c_str());
+        lg2::error("Failed to parse elog del signal, errormsg: {ERROR_MSG}, "
+                   "REPLY_SIG: {REPLY_SIG}",
+                   "ERROR_MSG", e, "REPLY_SIG", msg.get_signature());
         return;
     }
 

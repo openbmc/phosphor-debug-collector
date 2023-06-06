@@ -7,12 +7,12 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
-#include <fmt/core.h>
 #include <sys/inotify.h>
 #include <unistd.h>
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdeventplus/exception.hpp>
 #include <sdeventplus/source/base.hpp>
 
@@ -47,8 +47,7 @@ sdbusplus::message::object_path
 {
     if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
-        log<level::WARNING>(
-            "BMC dump accepts not more than 2 additional parameters");
+        lg2::warning("BMC dump accepts not more than 2 additional parameters");
     }
 
     if (Manager::fUserDumpInProgress == true)
@@ -84,10 +83,9 @@ sdbusplus::message::object_path
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(fmt::format("Error in creating dump entry, "
-                                    "errormsg({}), OBJECTPATH({}), ID({})",
-                                    e.what(), objPath.c_str(), id)
-                            .c_str());
+        lg2::error("Error in creating dump entry, errormsg: {ERROR_MSG}, "
+                   "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
+                   "ERROR_MSG", e, "OBJECT_PATH", objPath.c_str(), "ID", id);
         elog<InternalFailure>();
     }
 
@@ -118,10 +116,9 @@ uint32_t Manager::captureDump(Type type,
 
         // dreport script execution is failed.
         auto error = errno;
-        log<level::ERR>(fmt::format("Error occurred during dreport "
-                                    "function execution, errno({})",
-                                    error)
-                            .c_str());
+        lg2::error("Error occurred during dreport function execution, "
+                   "errno: {ERROR_CODE}",
+                   "ERROR_CODE", error);
         elog<InternalFailure>();
     }
     else if (pid > 0)
@@ -129,8 +126,7 @@ uint32_t Manager::captureDump(Type type,
         Child::Callback callback = [this, type, pid](Child&, const siginfo_t*) {
             if (type == Type::UserRequested)
             {
-                log<level::INFO>(
-                    "User initiated dump completed, resetting flag");
+                lg2::info("User initiated dump completed, resetting flag");
                 Manager::fUserDumpInProgress = false;
             }
             this->childPtrMap.erase(pid);
@@ -145,21 +141,18 @@ uint32_t Manager::captureDump(Type type,
         catch (const sdeventplus::SdEventError& ex)
         {
             // Failed to add to event loop
-            log<level::ERR>(
-                fmt::format(
-                    "Error occurred during the sdeventplus::source::Child "
-                    "creation ex({})",
-                    ex.what())
-                    .c_str());
+            lg2::error(
+                "Error occurred during the sdeventplus::source::Child creation "
+                "ex: {EXCEPTION_MSG}",
+                "EXCEPTION_MSG", ex);
             elog<InternalFailure>();
         }
     }
     else
     {
         auto error = errno;
-        log<level::ERR>(
-            fmt::format("Error occurred during fork, errno({})", error)
-                .c_str());
+        lg2::error("Error occurred during fork, errno: {ERROR_CODE}",
+                   "ERROR_CODE", error);
         elog<InternalFailure>();
     }
     return ++lastEntryId;
@@ -177,9 +170,8 @@ void Manager::createEntry(const std::filesystem::path& file)
 
     if (!((std::regex_search(name, match, file_regex)) && (match.size() > 0)))
     {
-        log<level::ERR>(fmt::format("Invalid Dump file name, FILENAME({})",
-                                    file.filename().c_str())
-                            .c_str());
+        lg2::error("Invalid Dump file name, FILENAME: {FILENAME}", "FILENAME",
+                   file.filename().c_str());
         return;
     }
 
@@ -213,14 +205,13 @@ void Manager::createEntry(const std::filesystem::path& file)
     }
     catch (const std::invalid_argument& e)
     {
-        log<level::ERR>(
-            fmt::format("Error in creating dump entry, errormsg({}), "
-                        "OBJECTPATH({}), "
-                        "ID({}), TIMESTAMP({}), SIZE({}), FILENAME({})",
-                        e.what(), objPath.c_str(), id, timestamp,
-                        std::filesystem::file_size(file),
-                        file.filename().c_str())
-                .c_str());
+        lg2::error(
+            "Error in creating dump entry, errormsg: {ERROR_MSG}, "
+            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
+            "SIZE: {SIZE}, FILENAME: {FILENAME}",
+            "ERROR_MSG", e, "OBJECT_PATH", objPath.c_str(), "ID", id,
+            "TIMESTAMP", timestamp, "SIZE", std::filesystem::file_size(file),
+            "FILENAME", file.filename().c_str());
         return;
     }
 }

@@ -2,8 +2,7 @@
 
 #include "ramoops_manager.hpp"
 
-#include <fmt/core.h>
-
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/exception.hpp>
 
 #include <filesystem>
@@ -53,15 +52,13 @@ void Manager::createHelper(const std::vector<std::string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to parse dump create message, error({})",
-                        e.what())
-                .c_str());
+        lg2::error("Failed to parse dump create message, error: {ERROR_MSG}",
+                   "ERROR_MSG", e);
         return;
     }
     if (mapperResponse.empty())
     {
-        log<level::ERR>("Error reading mapper response");
+        lg2::error("Error reading mapper response");
         return;
     }
 
@@ -75,9 +72,8 @@ void Manager::createHelper(const std::vector<std::string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(
-            fmt::format("Failed to create ramoops dump, errormsg({})", e.what())
-                .c_str());
+        lg2::error("Failed to create ramoops dump, errormsg: {ERROR_MSG}",
+                   "ERROR_MSG", e);
     }
 }
 
