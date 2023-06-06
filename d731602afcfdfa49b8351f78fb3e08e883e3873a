@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c894e6_5a2e0e1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001303
+      },
+      "writtenOn": "2023-06-06T21:14:35Z",
+      "side": 1,
+      "message": "This concern comes from a discussion with Ed on the associated bmcweb patch for retrieving the dump https://gerrit.openbmc.org/c/openbmc/bmcweb/+/61957/comment/f1e52fe4_4a7e6e0b/\n\nShould we be exposing a file descriptor instead of a filepath? \n That\u0027s what the xyz.openbmc_project.Logging service does and bmcweb interacts accordingly https://github.com/openbmc/bmcweb/blob/master/redfish-core/lib/log_services.hpp#L1960-L1982\n\nThere are also discussions around moving bmcweb to non-root.  If that happens then bmcweb won\u0027t be able to retrieve the dump from just a filepath.",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "d731602afcfdfa49b8351f78fb3e08e883e3873a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
