@@ -9,9 +9,8 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 
 #include <memory>
@@ -28,10 +27,8 @@ int main()
     auto rc = sd_event_default(&event);
     if (rc < 0)
     {
-        log<level::ERR>(
-            fmt::format("Error occurred during the sd_event_default, rc({})",
-                        rc)
-                .c_str());
+        lg2::error("Error occurred during the sd_event_default, rc: {RC}", "RC",
+                   rc);
         report<InternalFailure>();
         return rc;
     }
@@ -42,25 +39,22 @@ int main()
     sigset_t mask;
     if (sigemptyset(&mask) < 0)
     {
-        log<level::ERR>(
-            fmt::format("Unable to initialize signal set, errno({})", errno)
-                .c_str());
+        lg2::error("Unable to initialize signal set, errno: {ERRNO}", "ERRNO",
+                   errno);
         return EXIT_FAILURE;
     }
 
     if (sigaddset(&mask, SIGCHLD) < 0)
     {
-        log<level::ERR>(
-            fmt::format("Unable to add signal to signal set, errno({})", errno)
-                .c_str());
+        lg2::error("Unable to add signal to signal set, errno: {ERRNO}",
+                   "ERRNO", errno);
         return EXIT_FAILURE;
     }
 
     // Block SIGCHLD first, so that the event loop can handle it
     if (sigprocmask(SIG_BLOCK, &mask, nullptr) < 0)
     {
-        log<level::ERR>(
-            fmt::format("Unable to block signal, errno({})", errno).c_str());
+        lg2::error("Unable to block signal, errno: {ERRNO}", "ERRNO", errno);
         return EXIT_FAILURE;
     }
 
@@ -102,10 +96,8 @@ int main()
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
         {
-            log<level::ERR>(
-                fmt::format("Error occurred during the sd_event_loop, rc({})",
-                            rc)
-                    .c_str());
+            lg2::error("Error occurred during the sd_event_loop, rc: {RC}",
+                       "RC", rc);
             elog<InternalFailure>();
         }
     }
