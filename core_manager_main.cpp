@@ -4,9 +4,8 @@
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
-#include <fmt/core.h>
-
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 
 int main()
@@ -20,10 +19,8 @@ int main()
     auto rc = sd_event_default(&event);
     if (rc < 0)
     {
-        log<level::ERR>(
-            fmt::format("Error occurred during the sd_event_default, rc({})",
-                        rc)
-                .c_str());
+        lg2::error("Error occurred during the sd_event_default, rc: {RC}", "RC",
+                   rc);
         report<InternalFailure>();
         return -1;
     }
@@ -37,10 +34,8 @@ int main()
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)
         {
-            log<level::ERR>(
-                fmt::format("Error occurred during the sd_event_loop, rc({})",
-                            rc)
-                    .c_str());
+            lg2::error("Error occurred during the sd_event_loop, rc: {RC}",
+                       "RC", rc);
             elog<InternalFailure>();
         }
     }
