@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb82c4f1_b451ce5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:58:37Z",
+      "side": 1,
+      "message": "Ideally this is 52 chars, but you gotta at least keep under 80 char",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "121adfba_bce8d599",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:58:37Z",
+      "side": 1,
+      "message": "nit: just keep this all on the same line above",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09344b2c_c1e5ef8e",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:58:37Z",
+      "side": 1,
+      "message": "What\u0027s this for? lg2 for new stuff?",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
