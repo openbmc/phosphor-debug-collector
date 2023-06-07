@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2ea4d6b_3ce60bc5",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-07T03:05:10Z",
+      "side": 1,
+      "message": "This variable is used in multiple places. mainly in services , openbmc,openpower-proc-control  repos. Usually services uses environment file base approach to use variables. \n@andrewg how this handled in generally by services?",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33f800e_f628da7e",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-07T03:05:10Z",
+      "side": 1,
+      "message": "is this formating is done manually?",
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2fb0dd3_adf1b091",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-07T03:05:10Z",
+      "side": 1,
+      "message": "replace with e?",
+      "range": {
+        "startLine": 66,
+        "startChar": 62,
+        "endLine": 66,
+        "endChar": 70
+      },
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
