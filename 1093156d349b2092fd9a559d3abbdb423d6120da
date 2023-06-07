@@ -70,6 +70,24 @@
       "parentUuid": "e6656862_30687f9f",
       "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93f98cf_093f6605",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:42:04Z",
+      "side": 1,
+      "message": "Yeah, instead of trying to be absolutely sure the host never sends down a dump that does not get into a Completed state, lets just at least leave a bread crumb for us in the journal doing an \"else if (sysEntry-\u003esourceDumpId() \u003d\u003d dumpId) {lg2::info (\"System dump entry with ... is already present but not Completed\"}\" and then just continue. At least we\u0027ll have a debug point if it were to ever happen.",
+      "parentUuid": "5b2e725c_e05d066b",
+      "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
