@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8bc2e6a_a49b1618",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:48:42Z",
+      "side": 1,
+      "message": "Yeah, be great to have this only coming from one place within this repo. But in general, this file path is considered an API so it will not be changed (it\u0027s hard coded in services). Where things will get confusing is if we some day support multiple host instances (or composed systems). Then there may be a file per instance....but if this code is just running on a single satellite then it\u0027s still only in one instance. So... a lot TBD there but for now it\u0027s ok to hard code. Wrapping it in a utility function like isInMpReboot() is a good idea so it if it does change we can just change in one place.",
+      "parentUuid": "b2df53c7_9c544822",
+      "range": {
+        "startLine": 21,
+        "startChar": 32,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c33f800e_f628da7e",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
         "patchSetId": 32
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "No, but lg2 is not getting formatted properly with clang-16",
       "parentUuid": "c33f800e_f628da7e",
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89a8a1b_fef1428a",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-07T15:48:42Z",
+      "side": 1,
+      "message": "That\u0027s weird formatting. May want to ping Patrick to see if he has any ideas.",
+      "parentUuid": "186a8669_892bb3aa",
       "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
