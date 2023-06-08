@@ -50,6 +50,41 @@
       "message": "I don’t think changing it here is a good idea. This is really non-obvious that you’ve done a cast.",
       "revId": "8334eeef4d926fe701caace0ace2b1aa6e8561b5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071b76fa_1984957c",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-08T13:35:43Z",
+      "side": 1,
+      "message": "yes the cast can be done in the log function",
+      "parentUuid": "1299146e_770b082d",
+      "revId": "8334eeef4d926fe701caace0ace2b1aa6e8561b5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a878a5c7_43836dea",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-08T13:35:43Z",
+      "side": 1,
+      "message": "tracing input dump type is an alternate option to casting, both will help in debugging",
+      "revId": "8334eeef4d926fe701caace0ace2b1aa6e8561b5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
