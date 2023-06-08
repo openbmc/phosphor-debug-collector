@@ -16,6 +16,24 @@
       "message": "Why the move to the .hpp? Please explain in commmit msg, if this is needed by dump-extensions, my vote would be to just include the .cpp and .hpp in it\u0027s binary vs. putting large functions in .hpp.",
       "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7567fb03_4951f42b",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-08T16:32:27Z",
+      "side": 0,
+      "message": "BootProgress getBootProgress() is a small function now",
+      "parentUuid": "50aeb2d9_cf93b012",
+      "revId": "8294fc2a35f85be6c4c70066140a8ddf91daadc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
