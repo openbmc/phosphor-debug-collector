@@ -23,7 +23,7 @@ using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
 int openPLDM()
 {
-    auto fd = pldm_open();
+    int fd = pldm_open();
     if (fd < 0)
     {
         auto e = errno;

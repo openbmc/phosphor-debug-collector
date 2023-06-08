@@ -180,7 +180,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
             fmt::format("Failed to encode pldm FileAck to delete host "
                         "dump,SRC_DUMP_ID({}), "
                         "PLDM_FILE_IO_TYPE({}),PLDM_RETURN_CODE({})",
-                        dumpId, pldmDumpType, retCode)
+                        dumpId, static_cast<int>(pldmDumpType), retCode)
                 .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to encode fileack failed"));
@@ -197,8 +197,8 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
             fmt::format("Failed to send pldm FileAck to delete host dump, "
                         "SRC_DUMP_ID({}), PLDM_FILE_IO_TYPE({}), "
                         "PLDM_RETURN_CODE({}), ERRNO({}), ERRMSG({})",
-                        dumpId, pldmDumpType, retCode, errorNumber,
-                        strerror(errorNumber))
+                        dumpId, static_cast<int>(pldmDumpType), retCode,
+                        errorNumber, strerror(errorNumber))
                 .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to fileack send failed"));
