@@ -106,6 +106,24 @@
       "parentUuid": "d93f98cf_093f6605",
       "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a022c8_958efb62",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-08T05:08:29Z",
+      "side": 1,
+      "message": "As per our design, a dump is marked as completed only when both the dump id and size are successfully received from the host. so, we only have one active dump at any given time. Because a new dump cannot be generated unless the existing one is deleted first, the possibility of having an incomplete dump entry with the same id is nearly negligible.\n\nBut, as per our discussion, to catch any errors, I will add an \u0027else\u0027 clause for logging incomplete dump entry with the same id is detected.",
+      "parentUuid": "1fbdcb34_c5541be2",
+      "revId": "1093156d349b2092fd9a559d3abbdb423d6120da",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
