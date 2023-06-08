@@ -28,6 +28,10 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
+extern "C"
+{
+#include <libpldm/pldm.h>
+}
 
 #include <fstream>
 
@@ -177,10 +181,14 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
     if (retCode != PLDM_SUCCESS)
     {
         log<level::ERR>(
-            fmt::format("Failed to encode pldm FileAck to delete host "
-                        "dump,SRC_DUMP_ID({}), "
-                        "PLDM_FILE_IO_TYPE({}),PLDM_RETURN_CODE({})",
-                        dumpId, pldmDumpType, retCode)
+            fmt::format(
+                "Failed to encode pldm FileAck to delete host "
+                "dump,SRC_DUMP_ID({}), "
+                "PLDM_FILE_IO_TYPE({}),PLDM_RETURN_CODE({})",
+                dumpId,
+                static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
+                    pldmDumpType),
+                retCode)
                 .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to encode fileack failed"));
@@ -194,11 +202,14 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
     {
         auto errorNumber = errno;
         log<level::ERR>(
-            fmt::format("Failed to send pldm FileAck to delete host dump, "
-                        "SRC_DUMP_ID({}), PLDM_FILE_IO_TYPE({}), "
-                        "PLDM_RETURN_CODE({}), ERRNO({}), ERRMSG({})",
-                        dumpId, pldmDumpType, retCode, errorNumber,
-                        strerror(errorNumber))
+            fmt::format(
+                "Failed to send pldm FileAck to delete host dump, "
+                "SRC_DUMP_ID({}), PLDM_FILE_IO_TYPE({}), "
+                "PLDM_RETURN_CODE({}), ERRNO({}), ERRMSG({})",
+                dumpId,
+                static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
+                    pldmDumpType),
+                retCode, errorNumber, strerror(errorNumber))
                 .c_str());
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to fileack send failed"));
