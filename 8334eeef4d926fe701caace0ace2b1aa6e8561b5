@@ -121,6 +121,24 @@
       "parentUuid": "a878a5c7_43836dea",
       "revId": "8334eeef4d926fe701caace0ace2b1aa6e8561b5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb40efbe_887b1704",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-08T23:59:36Z",
+      "side": 1,
+      "message": "What I meant is changing to the dumpType will work without a cast",
+      "parentUuid": "1cc1f0b1_cee18a9a",
+      "revId": "8334eeef4d926fe701caace0ace2b1aa6e8561b5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
