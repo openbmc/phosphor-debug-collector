@@ -46,6 +46,30 @@
       },
       "revId": "d731602afcfdfa49b8351f78fb3e08e883e3873a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9e96251_ac26de53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-09T01:41:57Z",
+      "side": 1,
+      "message": "Carson \"There are also discussions around moving bmcweb to non-root. If that happens then bmcweb won\u0027t be able to retrieve the dump from just a filepath\" \nThis is not supported yet right? i would prefer the changes once this support is in.\n\n@dhruv, Please include test results , including pldm/BMcweb path dump offloads , and make sure working as designed.",
+      "parentUuid": "a22c11c3_304ddf44",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "d731602afcfdfa49b8351f78fb3e08e883e3873a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
