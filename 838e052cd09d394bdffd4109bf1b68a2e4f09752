@@ -69,6 +69,23 @@
       "parentUuid": "76ac4ba3_0c30f1a2",
       "revId": "838e052cd09d394bdffd4109bf1b68a2e4f09752",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04bdb4c7_e9fdb3a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-09T01:48:22Z",
+      "side": 1,
+      "message": "Please abndon this patch incase you are ojk with  https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/55008 fix",
+      "revId": "838e052cd09d394bdffd4109bf1b68a2e4f09752",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
