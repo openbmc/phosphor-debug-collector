@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "141ccc36_0bd2af10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T08:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb82c4f1_b451ce5d",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "121adfba_bce8d599",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "870f32eb_1363537f",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.hpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T08:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "121adfba_bce8d599",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09344b2c_c1e5ef8e",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-06-07T15:58:37Z",
       "side": 1,
       "message": "What\u0027s this for? lg2 for new stuff?",
+      "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a59282f_1bd59a43",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T08:57:28Z",
+      "side": 1,
+      "message": "Still needed for unchanged code, testing a complete change to lg2 here separately \nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/64011",
+      "parentUuid": "09344b2c_c1e5ef8e",
       "revId": "42278a0dc6bdb3292df99b42f4c7d456143d665e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
