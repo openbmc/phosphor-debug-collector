@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a547b3ba_6b4c41a1",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T19:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac3abe96_b4233ecd",
+      "range": {
+        "startLine": 147,
+        "startChar": 33,
+        "endLine": 147,
+        "endChar": 42
+      },
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c29d4329_ba194ef9",
@@ -41,6 +65,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad8ae51_52ab6740",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T19:39:05Z",
+      "side": 1,
+      "message": "No it was giving error",
+      "parentUuid": "c29d4329_ba194ef9",
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b277bfd3_425348da",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-06-12T19:16:27Z",
       "side": 1,
       "message": "Does lg2 handle this any better or is this still needed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 79
+      },
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bda02c4_ba4519a9",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-12T19:39:05Z",
+      "side": 1,
+      "message": "Yes this still needed for lg2 too",
+      "parentUuid": "b277bfd3_425348da",
       "range": {
         "startLine": 31,
         "startChar": 12,
