@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac3abe96_b4233ecd",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-12T19:16:27Z",
+      "side": 1,
+      "message": "nit: shouldn\u0027t need the \".what()\"",
+      "range": {
+        "startLine": 147,
+        "startChar": 33,
+        "endLine": 147,
+        "endChar": 42
+      },
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c29d4329_ba194ef9",
+        "filename": "dump_manager_faultlog.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-12T19:16:27Z",
+      "side": 1,
+      "message": "I guess lg2 didn\u0027t accept just passing in FAULTLOG_DUMP_PATH directly?",
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b277bfd3_425348da",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-12T19:16:27Z",
+      "side": 1,
+      "message": "Does lg2 handle this any better or is this still needed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 79
+      },
+      "revId": "3646030ab7a5e19042284fa38326f8c1f32f8135",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
