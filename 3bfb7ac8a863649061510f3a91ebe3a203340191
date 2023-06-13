@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cc3a23e_712d46de",
+        "filename": "bmc_dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f5190d_71cf5ab8",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 68
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8022b9fd_6bf5b413",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 101,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f32b898_add11002",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8022b9fd_6bf5b413",
       "range": {
         "startLine": 101,
         "startChar": 50,
@@ -87,6 +135,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "143e86b6_e1b2f2d6",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24ec104c_9b04ec56",
+      "range": {
+        "startLine": 211,
+        "startChar": 51,
+        "endLine": 211,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "019e018a_9f6fefdd",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 70,
+        "startChar": 50,
+        "endLine": 70,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed2ec2c_a820cf58",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "019e018a_9f6fefdd",
       "range": {
         "startLine": 70,
         "startChar": 50,
@@ -133,6 +229,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a19ac911_d1c16ce9",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "688afb45_225897ae",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "372ced8b_b9d4db1e",
@@ -156,6 +276,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf83123_91221a8e",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372ced8b_b9d4db1e",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7348af0b_ccf18a70",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "Definitely be consistent within the repo.  You\u0027ve used ERROR_MSG and EXCEPTION_MSG in the same code.",
+      "range": {
+        "startLine": 146,
+        "startChar": 22,
+        "endLine": 146,
+        "endChar": 35
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2945cd89_90f0da52",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7348af0b_ccf18a70",
       "range": {
         "startLine": 146,
         "startChar": 22,
@@ -225,6 +393,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0360f1_ccf6cb47",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "it is working",
+      "parentUuid": "afac9b75_f748f991",
+      "range": {
+        "startLine": 174,
+        "startChar": 19,
+        "endLine": 174,
+        "endChar": 34
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0f9c411_a8ddeacf",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5913043_4fccff99",
+      "range": {
+        "startLine": 174,
+        "startChar": 34,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac9b4d08_f93437bf",
@@ -238,6 +454,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "Drop `.c_str()`.",
+      "range": {
+        "startLine": 214,
+        "startChar": 39,
+        "endLine": 214,
+        "endChar": 47
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe774a2f_fc620713",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac9b4d08_f93437bf",
       "range": {
         "startLine": 214,
         "startChar": 39,
@@ -271,6 +511,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be5bf47c_11d385fa",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29f17e1b_1fc8bd2b",
+      "range": {
+        "startLine": 85,
+        "startChar": 51,
+        "endLine": 85,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ff5db40_2b1836be",
@@ -284,6 +548,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 110,
+        "startChar": 57,
+        "endLine": 110,
+        "endChar": 65
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5907e306_689c7703",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff5db40_2b1836be",
       "range": {
         "startLine": 110,
         "startChar": 57,
@@ -317,6 +605,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "846c2dfd_5c430076",
+        "filename": "dump_offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3094e072_6ddcbbba",
+      "range": {
+        "startLine": 214,
+        "startChar": 58,
+        "endLine": 214,
+        "endChar": 66
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df8bbd58_5d408bfb",
@@ -340,6 +652,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99830694_81d2cefe",
+        "filename": "dump_offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df8bbd58_5d408bfb",
+      "range": {
+        "startLine": 224,
+        "startChar": 57,
+        "endLine": 224,
+        "endChar": 65
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e89cf82_8996d254",
@@ -353,6 +689,30 @@
       "writtenOn": "2023-06-13T16:16:39Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 44
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "392faf7a_4febcfed",
+        "filename": "watch.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T17:44:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e89cf82_8996d254",
       "range": {
         "startLine": 38,
         "startChar": 36,
