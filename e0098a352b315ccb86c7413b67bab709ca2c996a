@@ -16,6 +16,24 @@
       "message": "To me this used to make a lot more sense. If we\u0027re in a mpreboot, don\u0027t call DeleteAll. But now, we call DeleteAll, but it actually doesn\u0027t delete everything. It goes against the principal of least surprise. Was there a specific bug we\u0027re fixing here where there were multiple dumps present? Could we instead ensure that before we get to this step, there is only one dump and then leave this service how it was?",
       "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b119f895_1d9eecbe",
+        "filename": "dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service",
+        "patchSetId": 37
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T15:20:21Z",
+      "side": 0,
+      "message": "We are almost there now\nOriginally, during an mpreboot, the DeleteAll function was not executed because we didn\u0027t want to delete the user-initiated dump entry. The intention here was to preserve any user-requested dumps.\n\nA defect was identified when old dumps were not deleted as expected if a user requested a new dump while an existing one was present. \n\nSubsequently, we added code to disallow the initiation of user-requested dumps when one already exists. This effectively ensures that we cannot have more than one dump entry at any given time.\n\nThe remaining challenge lies in handling scenarios where an mpreboot fails. If a user had requested a dump and an entry was created, but the mpreboot subsequently fails, that entry will remain. Consequently, if the user requests another dump, we end up with two unfinished entries.\n\nI  think that this issue should be handled separately. One possible solution is to implement a method that marks any in-progress system dump entries as failed during a normal boot. A normal boot is the likely scenario following a failed mpreboot.",
+      "parentUuid": "080841e1_c68f7fe6",
+      "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
