@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bb8f67_c63f3705",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 46
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-13T14:29:38Z",
+      "side": 1,
+      "message": "Now that we\u0027ve done all the work on renaming this, I noticed it doesn\u0027t seem to be used anywhere?",
+      "revId": "fb1e2d28ea457c710d7e14753658d7ea965b6d47",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
