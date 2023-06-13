@@ -16,6 +16,24 @@
       "message": "Now that we\u0027ve done all the work on renaming this, I noticed it doesn\u0027t seem to be used anywhere?",
       "revId": "fb1e2d28ea457c710d7e14753658d7ea965b6d47",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef102b95_af18e3bb",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 46
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-13T14:56:51Z",
+      "side": 1,
+      "message": "yes this is moved to the caller since this function is not throwing the exception, will remove",
+      "parentUuid": "73bb8f67_c63f3705",
+      "revId": "fb1e2d28ea457c710d7e14753658d7ea965b6d47",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
