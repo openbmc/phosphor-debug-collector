@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdff7371_06d70f96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "A bunch of nits.  Overall looks good.  Thank you for doing the conversion.",
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7f5190d_71cf5ab8",
+        "filename": "bmc_dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "For consistency with other repos, I\u0027d suggest just \"ERROR\" here.  We\u0027ve typically used ERROR for exceptions and ERRNO for errnos.",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 68
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8022b9fd_6bf5b413",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 101,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24ec104c_9b04ec56",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_resource.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 211,
+        "startChar": 51,
+        "endLine": 211,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "019e018a_9f6fefdd",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 70,
+        "startChar": 50,
+        "endLine": 70,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688afb45_225897ae",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 140,
+        "startChar": 50,
+        "endLine": 140,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372ced8b_b9d4db1e",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "Suggest ERRNO for consistency.",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 38
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7348af0b_ccf18a70",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "Definitely be consistent within the repo.  You\u0027ve used ERROR_MSG and EXCEPTION_MSG in the same code.",
+      "range": {
+        "startLine": 146,
+        "startChar": 22,
+        "endLine": 146,
+        "endChar": 35
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5913043_4fccff99",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "Drop `.c_str()`.",
+      "range": {
+        "startLine": 174,
+        "startChar": 34,
+        "endLine": 174,
+        "endChar": 42
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afac9b75_f748f991",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "If lg2 doesn\u0027t already support simply doing `file` here, please open an issue to phosphor-logging and I\u0027ll add it.",
+      "range": {
+        "startLine": 174,
+        "startChar": 19,
+        "endLine": 174,
+        "endChar": 34
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac9b4d08_f93437bf",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "Drop `.c_str()`.",
+      "range": {
+        "startLine": 214,
+        "startChar": 39,
+        "endLine": 214,
+        "endChar": 47
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f17e1b_1fc8bd2b",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop `.c_str()`.",
+      "range": {
+        "startLine": 85,
+        "startChar": 51,
+        "endLine": 85,
+        "endChar": 58
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff5db40_2b1836be",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 110,
+        "startChar": 57,
+        "endLine": 110,
+        "endChar": 65
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3094e072_6ddcbbba",
+        "filename": "dump_offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 214,
+        "startChar": 58,
+        "endLine": 214,
+        "endChar": 66
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df8bbd58_5d408bfb",
+        "filename": "dump_offload.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 224,
+        "startChar": 57,
+        "endLine": 224,
+        "endChar": 65
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e89cf82_8996d254",
+        "filename": "watch.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-13T16:16:39Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 44
+      },
+      "revId": "3bfb7ac8a863649061510f3a91ebe3a203340191",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
