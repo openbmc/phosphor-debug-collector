@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "595fdf90_ba7f4509",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-13T14:37:33Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is the recommended way by PLDM to get BIOS values but this seems simpler to me:\n```\nbusctl call xyz.openbmc_project.BIOSConfigManager /xyz/openbmc_project/bios_config/manager xyz.openbmc_project.BIOSConfig.Manager GetAttribute s pvm_sys_dump_active\n```",
+      "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e36d13_12e191b7",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-13T14:37:33Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "range": {
+        "startLine": 112,
+        "startChar": 62,
+        "endLine": 112,
+        "endChar": 63
+      },
+      "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb8c144c_0c95b836",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-13T14:37:33Z",
+      "side": 1,
+      "message": "nit: just \"ex\"",
+      "range": {
+        "startLine": 124,
+        "startChar": 32,
+        "endLine": 124,
+        "endChar": 41
+      },
+      "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
