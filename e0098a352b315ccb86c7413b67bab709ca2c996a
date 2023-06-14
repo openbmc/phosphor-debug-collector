@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3ce80612_f136eac1",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-14T12:57:15Z",
+      "side": 1,
+      "message": "You were correct, getting the entire table was an overkill, updated to get only the attribute value",
+      "parentUuid": "7bbc677f_68e75938",
+      "revId": "e0098a352b315ccb86c7413b67bab709ca2c996a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f4592958_fd1079c1",
         "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
         "patchSetId": 33
