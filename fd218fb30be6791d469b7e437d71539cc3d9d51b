@@ -22,6 +22,30 @@
       },
       "revId": "fd218fb30be6791d469b7e437d71539cc3d9d51b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8842f1a9_e6405b82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 47
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-14T10:23:44Z",
+      "side": 1,
+      "message": "The enabling of system dump is based on specific feature flags and is limited to systems that support this functionality. The disabling of this feature is mainly intended for debugging scenarios, such as when developers or customer engineers need to perform live debugging on the system.\n\nIn field operations, the system dump functionality is enabled by default. This is part of our strategy to collect as much data as possible in the case of a failure. Based on that strategy I think even if the settings cannot provide the actual value, we have to collect the system dump during failure scenarios.\n\nThis ensures we don\u0027t miss critical debug data due to a support service failure.",
+      "parentUuid": "6592d551_fa1ebfff",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "fd218fb30be6791d469b7e437d71539cc3d9d51b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
