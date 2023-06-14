@@ -2,14 +2,11 @@
 
 #include "config.h"
 
-#include <phosphor-logging/log.hpp>
-
 #include <filesystem>
 #include <string>
 #include <vector>
 
 namespace fs = std::filesystem;
-using namespace phosphor::logging;
 
 namespace phosphor
 {

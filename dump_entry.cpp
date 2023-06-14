@@ -2,14 +2,10 @@
 
 #include "dump_manager.hpp"
 
-#include <phosphor-logging/log.hpp>
-
 namespace phosphor
 {
 namespace dump
 {
-
-using namespace phosphor::logging;
 
 void Entry::delete_()
 {

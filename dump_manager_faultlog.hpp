@@ -16,8 +16,6 @@ namespace dump
 namespace faultlog
 {
 
-using namespace phosphor::logging;
-
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
 

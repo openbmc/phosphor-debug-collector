@@ -3,7 +3,6 @@
 #include <cereal/archives/binary.hpp>
 #include <cereal/types/set.hpp>
 #include <phosphor-logging/lg2.hpp>
-#include <phosphor-logging/log.hpp>
 
 #include <fstream>
 
@@ -13,8 +12,6 @@ namespace dump
 {
 namespace elog
 {
-
-using namespace phosphor::logging;
 
 void serialize(const ElogList& list, const std::filesystem::path& dir)
 {

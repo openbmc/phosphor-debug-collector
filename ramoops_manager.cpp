@@ -3,9 +3,11 @@
 #include "ramoops_manager.hpp"
 
 #include <phosphor-logging/lg2.hpp>
+#include <sdbusplus/bus.hpp>
 #include <sdbusplus/exception.hpp>
 
 #include <filesystem>
+#include <set>
 
 namespace phosphor
 {

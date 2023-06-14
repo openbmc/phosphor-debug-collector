@@ -1,7 +1,6 @@
 #include "faultlog_dump_entry.hpp"
 
 #include <phosphor-logging/lg2.hpp>
-#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
@@ -9,7 +8,6 @@ namespace dump
 {
 namespace faultlog
 {
-using namespace phosphor::logging;
 
 void Entry::delete_()
 {

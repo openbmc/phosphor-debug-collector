@@ -4,7 +4,6 @@
 #include "dump_offload.hpp"
 
 #include <phosphor-logging/lg2.hpp>
-#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
@@ -12,7 +11,6 @@ namespace dump
 {
 namespace bmc
 {
-using namespace phosphor::logging;
 
 void Entry::delete_()
 {

@@ -3,7 +3,6 @@
 #include "core_manager.hpp"
 
 #include <phosphor-logging/lg2.hpp>
-#include <phosphor-logging/log.hpp>
 #include <sdbusplus/exception.hpp>
 
 #include <filesystem>
@@ -16,7 +15,6 @@ namespace dump
 namespace core
 {
 
-using namespace phosphor::logging;
 using namespace std;
 
 void Manager::watchCallback(const UserMap& fileInfo)

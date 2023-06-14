@@ -1,14 +1,11 @@
 #include "dump_utils.hpp"
 
 #include <phosphor-logging/lg2.hpp>
-#include <phosphor-logging/log.hpp>
 
 namespace phosphor
 {
 namespace dump
 {
-
-using namespace phosphor::logging;
 
 std::string getService(sdbusplus::bus_t& bus, const std::string& path,
                        const std::string& interface)
