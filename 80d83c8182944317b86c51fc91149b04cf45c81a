@@ -51,6 +51,24 @@
       "parentUuid": "a035f2f5_35b1c026",
       "revId": "80d83c8182944317b86c51fc91149b04cf45c81a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f731c4d_07700944",
+        "filename": "errors_map.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-14T17:37:02Z",
+      "side": 1,
+      "message": "I didnt get this, this is an hpp file right?",
+      "parentUuid": "83e036b5_b42bd0be",
+      "revId": "80d83c8182944317b86c51fc91149b04cf45c81a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
