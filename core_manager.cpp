@@ -49,6 +49,30 @@ void Manager::watchCallback(const UserMap& fileInfo)
     }
 }
 
+void Manager::checkAndCreateCoreDumps()
+{
+    vector<string> files;
+
+    for (const auto& i : fileInfo)
+    {
+        std::filesystem::path file(i.first);
+        std::string name = file.filename();
+        if ("core" == name.substr(0, name.find('.')))
+        {
+            // Consider only file name start with "core."
+            files.push_back(file);
+        }
+    }
+
+    // create core dump for all the cores present in the system
+    for (const auto& file : files)
+    {
+        // dreport takes a vector but acts on the first file so
+        // passing file by file here
+        vector<string> coreFile{file};
+        createHelper(coreFile);
+    }
+}
 void Manager::createHelper(const vector<string>& files)
 {
     constexpr auto MAPPER_BUSNAME = "xyz.openbmc_project.ObjectMapper";

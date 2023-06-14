@@ -30,6 +30,7 @@ int main()
     try
     {
         phosphor::dump::core::Manager manager(eventP);
+        manager.checkAndCreateCoreDumps();
 
         auto rc = sd_event_loop(eventP.get());
         if (rc < 0)

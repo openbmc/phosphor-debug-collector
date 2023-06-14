@@ -53,6 +53,11 @@ class Manager
                             this, std::placeholders::_1))
     {}
 
+    /** @brief Create dumps for all the cores present in the system
+     *
+     */
+    void checkAndCreateCoreDumps();
+
   private:
     /** @brief Helper function for initiating dump request using
      *         D-bus internal create interface.
