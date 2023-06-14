@@ -124,6 +124,24 @@
       "parentUuid": "61b2d77c_1d3a6ce2",
       "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f21ca11e_4426e189",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 29
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-14T14:01:02Z",
+      "side": 1,
+      "message": "If i need to handle in core monitor which is still running I need to do this\n1) Add conficts for core monitor service to dump manager service so when dump manager service goes down core monitor service also goes down\n2) During core-monitor restart check for any dumps present in the path and create that many dumps\n\nIs this approach ok?",
+      "parentUuid": "d5ceb083_09933ac5",
+      "revId": "d10902982013f348a13ef82ea9ac48fad5a4afa1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
