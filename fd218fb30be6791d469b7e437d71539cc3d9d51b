@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6592d551_fa1ebfff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 47
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-14T05:04:56Z",
+      "side": 1,
+      "message": "Since the system dump is enabled only on selected systems and dependency on back-end support, it better to set default as disabled. Also this approach will help to disable dump incase the system doesn\u0027t support this settings.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 59
+      },
+      "revId": "fd218fb30be6791d469b7e437d71539cc3d9d51b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
