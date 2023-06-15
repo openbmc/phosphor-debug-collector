@@ -191,6 +191,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "453d75fa_d4507562",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:07:21Z",
+      "side": 1,
+      "message": "sdbusplus::message::unix_fd to be consistent",
+      "range": {
+        "startLine": 139,
+        "startChar": 17,
+        "endLine": 139,
+        "endChar": 20
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ccd9c724_7ee62e8e",
         "filename": "dump_entry.hpp",
         "patchSetId": 38
@@ -255,6 +278,29 @@
         "startChar": 4,
         "endLine": 158,
         "endChar": 13
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d45b9244_57d9df49",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:07:21Z",
+      "side": 1,
+      "message": "dbusplus::message::unix_fd to be consistent",
+      "range": {
+        "startLine": 158,
+        "startChar": 13,
+        "endLine": 158,
+        "endChar": 16
       },
       "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
