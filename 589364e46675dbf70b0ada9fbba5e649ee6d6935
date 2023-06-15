@@ -68,6 +68,24 @@
       "message": "One possible reason to switch away from the mapper is to eliminate the latency of the DBus IPC latency. However, if we\u0027re looking to reduce latency here, we can skip the DBus entirely.\n\nAs of [7c1dc7ea0b3e (\"pldmd: move to libpldm instance ID alloc/free\")][1] we can use the libpldm APIs directly to acquire an appropriate instance ID. A rough sketch of the code is as follows (you\u0027ll need to add error handling and such):\n\n```\nstruct pldm_instance_db *db \u003d NULL;\nplmd_instance_id_t iid;\n\npldm_instance_db_init_default(\u0026db);\n...\npldm_instance_id_alloc(db, tid, \u0026iid);\n...\n/* Do things with `iid` */\n...\npldm_instance_id_free(db, tid, iid);\n...\npldm_instance_db_destroy(db);\n```\n\nAnd that\u0027s it. No DBus at all for allocating an instance ID, and allocations are correctly coordinated across all processes on the system ([here\u0027s a blog post with more details on how it works][2]).\n\nIf we\u0027re going to change this code, I much prefer we fix it properly by removing access to the `pldmd`\u0027s `GetInstanceId` DBus API entirely. Also Rashmica will thank you (as it\u0027s one less conversion she will need to do) 😊\n\n[1]: https://github.com/openbmc/pldm/commit/7c1dc7ea0b3eec79518b6dcb9552256bfc1cec15\n[2]: https://amboar.github.io/notes/2023/03/29/a-global-pldm-instance-id-allocator-for-libpldm.html",
       "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ad1024_b369229e",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2023-06-15T05:21:36Z",
+      "side": 1,
+      "message": "I am trying this. As these about library calls are not in downstream, I am pulling them in and trying to call them.\nThank you!",
+      "parentUuid": "c8cd2b74_0e149ce4",
+      "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
