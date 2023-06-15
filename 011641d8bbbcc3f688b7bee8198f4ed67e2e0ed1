@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1de4002f_814de9d8",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T10:35:29Z",
+      "side": 1,
+      "message": "we could as well pass fs::path() to avoid conversion from string to fs::path",
+      "range": {
+        "startLine": 66,
+        "startChar": 30,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1b74a3_1ba2f0a7",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T10:35:29Z",
+      "side": 1,
+      "message": "we could as well pass fs::path() to avoid conversion from string to fs::path",
+      "range": {
+        "startLine": 60,
+        "startChar": 30,
+        "endLine": 60,
+        "endChar": 43
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8ba77c_66f0431d",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T10:35:29Z",
+      "side": 1,
+      "message": "path?",
+      "range": {
+        "startLine": 36,
+        "startChar": 52,
+        "endLine": 36,
+        "endChar": 58
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d5514c_17966edf",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T10:35:29Z",
+      "side": 1,
+      "message": "not on same starting column",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 31
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd9c724_7ee62e8e",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T10:35:29Z",
+      "side": 1,
+      "message": "why can\u0027t we use pair here and if multiple clients call getFileHandle we can return the same fd?\n\nalso assuming we are using map and we call 3 times then there will be 3 fds in this map, now when the entry is deleted it will try to iterate through the map and as part of delete it will call closeFD which will reset the element of the map it invalidates the iterator, probably the delete method of entry interface should have a logic to delete elements in order.\n\nif we use std::pair we will have only 1 fd and we will not have this issue.",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 13
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
