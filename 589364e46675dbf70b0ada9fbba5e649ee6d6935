@@ -86,6 +86,24 @@
       "parentUuid": "c8cd2b74_0e149ce4",
       "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee609b11_e9feb373",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-06-15T05:29:13Z",
+      "side": 1,
+      "message": "Great, thanks!",
+      "parentUuid": "a1ad1024_b369229e",
+      "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
