@@ -33,6 +33,24 @@
       "message": "If we are closing the FD on our own and any client try to close it on their side separately then what would be the result? Can we do something like\nconst sdbusplus::message::unix_fd\u0026 Entry::getFileHandle() where we take fd as std::unique_ptr\u003cint\u003e fd; ?",
       "revId": "4b6632af3e5f8dc84ff40079623fa734c64fba83",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d1fa53_02f55545",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-15T12:36:05Z",
+      "side": 1,
+      "message": "what is the advantage of having std::unique_ptr\u003cint\u003e fd when returning across dbus?\n\nand in the client implementations,  clients dup the fd and close it independently so the fd opened by this function will be closed by this function.",
+      "parentUuid": "c0edb644_ad86c8f0",
+      "revId": "4b6632af3e5f8dc84ff40079623fa734c64fba83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
