@@ -237,6 +237,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31d1cfcf_f09b33a9",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:11:49Z",
+      "side": 1,
+      "message": "should we mention that the caller should not close the fds here as a note.",
+      "parentUuid": "7e4f5fff_3441a8fa",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 31
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "453d75fa_d4507562",
@@ -344,6 +368,30 @@
       "writtenOn": "2023-06-15T14:07:21Z",
       "side": 1,
       "message": "dbusplus::message::unix_fd to be consistent",
+      "range": {
+        "startLine": 158,
+        "startChar": 13,
+        "endLine": 158,
+        "endChar": 16
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924ea9cd_0a274665",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:11:49Z",
+      "side": 1,
+      "message": "not critical but u can change if required",
+      "parentUuid": "d45b9244_57d9df49",
       "range": {
         "startLine": 158,
         "startChar": 13,
