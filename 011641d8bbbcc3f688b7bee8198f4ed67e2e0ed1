@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6debf86_d82700d8",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:10:09Z",
+      "side": 1,
+      "message": "k",
+      "parentUuid": "8e5b0d89_6bf5bfc5",
+      "range": {
+        "startLine": 66,
+        "startChar": 30,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f1b74a3_1ba2f0a7",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Keeping like this will have the advantage not adding a filesystem dependency here",
       "parentUuid": "2f1b74a3_1ba2f0a7",
+      "range": {
+        "startLine": 60,
+        "startChar": 30,
+        "endLine": 60,
+        "endChar": 43
+      },
+      "revId": "011641d8bbbcc3f688b7bee8198f4ed67e2e0ed1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88985808_0b02a2e6",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-06-15T14:10:09Z",
+      "side": 1,
+      "message": "makes sense",
+      "parentUuid": "06d5dca2_1d42a400",
       "range": {
         "startLine": 60,
         "startChar": 30,
