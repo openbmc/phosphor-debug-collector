@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f86da764_dea49859",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T18:33:02Z",
+      "side": 1,
+      "message": "I\u0027ve done a bit of digging but I don\u0027t understand sdeventplus::source::Defer. Will this automatically be called on our next event loop? If so, how do we ensure we don\u0027t close this file descriptor before the caller is done with it?",
+      "revId": "4b6632af3e5f8dc84ff40079623fa734c64fba83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0edb644_ad86c8f0",
         "filename": "dump_entry.cpp",
         "patchSetId": 40
