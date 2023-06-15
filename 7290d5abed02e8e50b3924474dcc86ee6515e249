@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "530d50ae_57a4d04a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 47
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T19:16:32Z",
+      "side": 1,
+      "message": "nit: put results of test in sentence",
+      "revId": "7290d5abed02e8e50b3924474dcc86ee6515e249",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
