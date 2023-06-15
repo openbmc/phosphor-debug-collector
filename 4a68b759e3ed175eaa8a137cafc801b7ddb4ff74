@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "337fc439_7092e43a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 40
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T19:14:06Z",
+      "side": 1,
+      "message": "nit: Include the testing results. i.e. \"Initiated system dump when another dump was in progress and verified a Unavailable was returned\"",
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dbcb9d6_0ef9b1b5",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T19:14:06Z",
+      "side": 1,
+      "message": "nit: Below you have the \"using ...\" for the errors. Be consistent and do the same for this error or don\u0027t use them at all.",
+      "range": {
+        "startLine": 148,
+        "startChar": 13,
+        "endLine": 148,
+        "endChar": 72
+      },
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bc3845_9534b359",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T19:14:06Z",
+      "side": 1,
+      "message": "Should be passing in the bus if caller already has one.",
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8cea4fc_75f989b4",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-15T19:14:06Z",
+      "side": 1,
+      "message": "nit: I honestly would just catch everything and just have one catch block. The exception should provide enough info on what in particular failed.",
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
