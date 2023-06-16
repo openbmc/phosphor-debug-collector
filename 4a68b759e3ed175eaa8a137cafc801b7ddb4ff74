@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "694f7c6e_366d6197",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_system.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-16T10:56:16Z",
+      "side": 1,
+      "message": "Below one will be very long since there parameter also need to be given, that\u0027s why I used \"using\" there",
+      "parentUuid": "9dbcb9d6_0ef9b1b5",
+      "range": {
+        "startLine": 148,
+        "startChar": 13,
+        "endLine": 148,
+        "endChar": 72
+      },
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73bc3845_9534b359",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-06-15T19:14:06Z",
       "side": 1,
       "message": "Should be passing in the bus if caller already has one.",
+      "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4081db66_3152d0fe",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-16T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73bc3845_9534b359",
       "revId": "4a68b759e3ed175eaa8a137cafc801b7ddb4ff74",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
