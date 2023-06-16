@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "127c9084_da5504c4",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-16T10:52:20Z",
+      "side": 1,
+      "message": "I was also digging on that, Jay is making a pldm change to test this\nbut when I am testing with busctl getting a different value than in the actual fd\n\n:~# busctl call  xyz.openbmc_project.Dump.Manager  /xyz/openbmc_project/dump/bmc/entry/1 xyz.openbmc_project.Dump.Entry GetFileHandle\n\u003c6\u003e file handle request \u003c- A debug trace\n\u003c6\u003e Request file: /var/lib/phosphor-debug-collector/dumps/1/BMCDUMP.13BE990.0000001.20230616083932 \u003c- Requested for this file\n\u003c3\u003e Value 11 \u003c-- fd value in the server\nh 4 \u003c-- fd value retuned\n:~# \u003c6\u003e File closed file: /var/lib/phosphor-debug-collector/dumps/1/BMCDUMP.13BE990.0000001.20230616083932 fd: 11\n\nso there is a mismatch in this number, I may have to ask around",
+      "parentUuid": "f86da764_dea49859",
+      "revId": "4b6632af3e5f8dc84ff40079623fa734c64fba83",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0edb644_ad86c8f0",
         "filename": "dump_entry.cpp",
         "patchSetId": 40
