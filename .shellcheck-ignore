@@ -30,5 +30,6 @@ tools/dreport.d/plugins.d/obmcconsole
 tools/dreport.d/plugins.d/osrelease
 tools/dreport.d/plugins.d/pldmflightrecorder
 tools/dreport.d/plugins.d/timedate
+tools/dreport.d/plugins.d/traceevents
 tools/dreport.d/plugins.d/top
 tools/dreport.d/plugins.d/uptime
