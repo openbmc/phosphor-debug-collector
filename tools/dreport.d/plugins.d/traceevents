@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# config: 2 99
+# @brief: Collect kernel event tracing
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="Kernel event traces"
+file_name="/sys/kernel/tracing/trace"
+
+add_copy_file "$file_name" "$desc"
