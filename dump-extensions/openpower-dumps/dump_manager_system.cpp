@@ -4,7 +4,6 @@
 
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
-#include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -140,14 +139,6 @@ sdbusplus::message::object_path
     {
         lg2::warning(
             "System dump accepts not more than 2 additional parameters");
-    }
-    using Unavailable =
-        sdbusplus::xyz::openbmc_project::Common::Error::Unavailable;
-
-    if (openpower::dump::util::isSystemDumpInProgress(bus))
-    {
-        lg2::error("Another dump in progress or available to offload");
-        elog<Unavailable>();
     }
 
     using NotAllowed =
