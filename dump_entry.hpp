@@ -115,6 +115,20 @@ class Entry : public EntryIfaces
         return id;
     }
 
+    /** @brief Retrieves the file handle associated with the dump entry.
+     * This function is a stub implementation and does not provide the
+     * actual file handle. It always throws the
+     * sdbusplus::xyz::openbmc_project::Common::Error::Unavailable exception
+     * to indicate that the getFileHandle functionality is not available
+     * at this time.
+     *
+     * @return The file handle associated with the dump entry.
+     * @throws sdbusplus::xyz::openbmc_project::Common::Error::Unavailable
+     * Always thrown to indicate the unavailability of getFileHandle
+     * functionality.
+     */
+    sdbusplus::message::unix_fd getFileHandle() override;
+
   protected:
     /** @brief This entry's parent */
     Manager& parent;
