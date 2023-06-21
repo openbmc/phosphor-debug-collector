@@ -82,7 +82,7 @@ bool isSystemDumpInProgress(sdbusplus::bus::bus& bus)
     try
     {
         auto dumpInProgress = std::get<std::string>(
-            readBIOSAttribute("pvm_sys_dump_active"), bus);
+            readBIOSAttribute("pvm_sys_dump_active", bus));
         if (dumpInProgress == "Enabled")
         {
             lg2::info("A system dump is already in progress");
