@@ -4,7 +4,7 @@
 # @brief: Save the 'badPEL' file
 #
 
-. $DREPORT_INCLUDE/functions
+. "$DREPORT_INCLUDE/functions"
 
 desc="Bad PEL file"
 file_name="/var/lib/phosphor-logging/extensions/pels/badPEL"
