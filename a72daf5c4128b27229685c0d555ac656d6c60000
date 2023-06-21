@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e884fa6_efff2416",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-21T20:07:29Z",
+      "side": 1,
+      "message": "All we really need here is a confirmation that you\u0027ve built this code against upstream master with the appropriate compile flag enabled to build it.",
+      "revId": "a72daf5c4128b27229685c0d555ac656d6c60000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
