@@ -24,7 +24,7 @@ They can call [provided functions](include.d/functions) to add data to the dump
 archive. Each plugin needs a comment line like the following to specify which
 dump types should trigger it:
 
-```
+```bash
 # config A B
 ```
 
@@ -34,7 +34,7 @@ dump types should trigger it:
 
 For example, the `bmcstate` plugin has:
 
-```
+```bash
 # config: 12345 5
 ```
 
@@ -44,7 +44,7 @@ It will run on dump types 1 (core), 2 (user), 3 (checkstop), 4 (checkstop), and
 During the bitbake build, the script will be linked into a directory based on
 the dump type, with the priority built into the name:
 
-```
+```bash
 /usr/share/dreport.d# find /usr/share/dreport.d/ -name *bmcstate
 /usr/share/dreport.d/plugins.d/bmcstate
 /usr/share/dreport.d/pl_user.d/E5bmcstate

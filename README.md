@@ -10,7 +10,7 @@ collects debug data and packages it into an archive file.
 
 To build this package with meson, do the following steps:
 
-```
+```bash
     1. meson builddir
     2. ninja -C builddir
 ```
@@ -24,7 +24,7 @@ Tests can be run in the CI docker container, refer
 
 or with an OpenBMC x86 sdk(see below for x86 steps).
 
-```
+```bash
 meson -Dtests=enabled build
 ninja -C build test
 ```
