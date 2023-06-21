@@ -32,3 +32,4 @@ tools/dreport.d/plugins.d/pldmflightrecorder
 tools/dreport.d/plugins.d/timedate
 tools/dreport.d/plugins.d/top
 tools/dreport.d/plugins.d/uptime
+tools/dreport.d/ibm.d/plugins.d/badpel

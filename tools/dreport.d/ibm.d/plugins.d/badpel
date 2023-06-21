@@ -10,5 +10,5 @@ desc="Bad PEL file"
 file_name="/var/lib/phosphor-logging/extensions/pels/badPEL"
 
 if [ -e "$file_name" ]; then
-  add_copy_file "$file_name" "$desc"
+    add_copy_file "$file_name" "$desc"
 fi
