@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ddcc280_9d9baf55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-21T17:41:22Z",
+      "side": 1,
+      "message": "This commit is failing in p10bmc machine fullbuild.\n\n```\u003c@786934051264004126\u003e \u003c@776479015158022224\u003e looking better but we\u0027ve got something new here on p10bmc:\n```\n16:16:46 | ../git/dump-extensions/openpower-dumps/op_dump_util.cpp: In function \u0027bool openpower::dump::util::isSystemDumpInProgress(sdbusplus::bus::bus\u0026)\u0027:\n16:16:46 | ../git/dump-extensions/openpower-dumps/op_dump_util.cpp:85:30: error: too few arguments to function \u0027openpower::dump::util::BIOSAttrValueType openpower::dump::util::readBIOSAttribute(const std::string\u0026, sdbusplus::bus::bus\u0026)\u0027\n16:16:46 |    85 |             readBIOSAttribute(\"pvm_sys_dump_active\"), bus);\n16:16:46 |       |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~\n```\nhttps://gerrit.openbmc.org/c/openbmc/openbmc/+/64195 is the commit that combines the 2.",
+      "revId": "1ddb006b8bbb8294c402fe774e077528fd54d7fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ],
   "submitRequirementResults": []
 }
