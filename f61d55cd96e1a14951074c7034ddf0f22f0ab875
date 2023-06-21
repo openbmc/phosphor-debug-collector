@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8079928_c7c0f11c",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-21T06:39:57Z",
+      "side": 1,
+      "message": "Better to use \"UnsupportedRequest\".",
+      "range": {
+        "startLine": 25,
+        "startChar": 57,
+        "endLine": 25,
+        "endChar": 69
+      },
+      "revId": "f61d55cd96e1a14951074c7034ddf0f22f0ab875",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
