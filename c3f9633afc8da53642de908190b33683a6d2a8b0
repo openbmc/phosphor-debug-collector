@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c4da57_8176beb1",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-22T04:32:20Z",
+      "side": 1,
+      "message": "The space is there patch 50",
+      "parentUuid": "7b89ef2d_537e1a54",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "c3f9633afc8da53642de908190b33683a6d2a8b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f257404_98ac6c79",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Missing in latest comit",
       "parentUuid": "18a439ed_1cc5cf51",
+      "range": {
+        "startLine": 188,
+        "startChar": 48,
+        "endLine": 188,
+        "endChar": 57
+      },
+      "revId": "c3f9633afc8da53642de908190b33683a6d2a8b0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ee8d72_70fcdcb1",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-22T04:32:20Z",
+      "side": 1,
+      "message": "This code is no more there please check",
+      "parentUuid": "9c3cc817_6222bb99",
       "range": {
         "startLine": 188,
         "startChar": 48,
