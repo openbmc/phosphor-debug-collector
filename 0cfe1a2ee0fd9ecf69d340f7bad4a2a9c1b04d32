@@ -22,6 +22,30 @@
       },
       "revId": "0cfe1a2ee0fd9ecf69d340f7bad4a2a9c1b04d32",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe631e2b_f6197e09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-22T10:15:35Z",
+      "side": 1,
+      "message": "This is added for CI failure on this commit\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/64339/5?usp\u003drelated-change\n\nIn tools/dreport.d/ibm.d/plugins.d/badpel line 7:\n. $DREPORT_INCLUDE/functions\n  ^------------------------^ SC1091 (info): Not following: ./functions: openBinaryFile: does not exist (No such file or directory)\n  ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.\n\nhttps://jenkins.openbmc.org/job/ci-repository/69296/console",
+      "parentUuid": "47e80b27_f12a4df3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 58
+      },
+      "revId": "0cfe1a2ee0fd9ecf69d340f7bad4a2a9c1b04d32",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
