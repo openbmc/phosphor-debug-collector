@@ -105,6 +105,30 @@
       },
       "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68dbf87_8bc55872",
+        "filename": "tools/dreport.d/plugins.d/traceevents",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000025
+      },
+      "writtenOn": "2023-06-22T15:13:15Z",
+      "side": 1,
+      "message": "Ok, thanks.\nNo, it\u0027s not required for all dump types, so I\u0027ll set to user only.\nNo I don\u0027t think the max size is proportional to flash size - it\u0027s only configurable by linux kernel config, so I\u0027ll make it lowest priority.",
+      "parentUuid": "469682f7_d4c3f697",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
