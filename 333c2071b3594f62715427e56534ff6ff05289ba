@@ -81,6 +81,30 @@
       },
       "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469682f7_d4c3f697",
+        "filename": "tools/dreport.d/plugins.d/traceevents",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-22T14:07:26Z",
+      "side": 1,
+      "message": "config: 1234 means this particular plugin is enabled for core, user, elog, checkstop type dumps . Since the size f dump data file is high this can be issue with lower flash size ( 32 mb) systems, which got maximu dump size 200K. \nQuestion :\n1. is this required for all types of dump?\n2. how the file size is managed in smaller flash supported systems.\n      -- if the max file size is proportional to flash size we may be ok here\n       \nSince we don\u0027t cleaner solution to support plugins based on system type , one option to reduce the priority to \"50\" range and enable only for required dump may solve the issue tempoarily. we may need to relook the design to support system with flash size based logic  later,",
+      "parentUuid": "ea8ccd41_65a99dbd",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
