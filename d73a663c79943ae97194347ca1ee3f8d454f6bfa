@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a0b5c2_a26daca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-22T05:01:42Z",
+      "side": 1,
+      "message": "I think badpel needed to add in the shell check ignore, CIs are failing for other commits pushed a commit https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/64343",
+      "revId": "d73a663c79943ae97194347ca1ee3f8d454f6bfa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
