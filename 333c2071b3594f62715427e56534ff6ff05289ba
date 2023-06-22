@@ -16,6 +16,24 @@
       "message": "CI failure appears unrelated?\n\nFAILED: phosphor-dump-manager.p/dump_manager_faultlog.cpp.o \nc++ -Iphosphor-dump-manager.p -I. -I.. -Ixyz/openbmc_project/Dump/Internal/Create -I/usr/local/include -fdiagnostics-color\u003dnever -D_FILE_OFFSET_BITS\u003d64 -Wall -Winvalid-pch -Wextra -Wpedantic -Werror -std\u003dc++20 -Og -g -DBOOST_ASIO_DISABLE_THREADS -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_NO_DEPRECATED -DBOOST_ERROR_CODE_HEADER_ONLY -DBOOST_COROUTINES_NO_DEPRECATION_WARNING -MD -MQ phosphor-dump-manager.p/dump_manager_faultlog.cpp.o -MF phosphor-dump-manager.p/dump_manager_faultlog.cpp.o.d -o phosphor-dump-manager.p/dump_manager_faultlog.cpp.o -c ../dump_manager_faultlog.cpp\nIn file included from /usr/include/c++/13/bits/shared_ptr_base.h:59,\n                 from /usr/include/c++/13/bits/shared_ptr.h:53,\n                 from /usr/include/c++/13/chrono:49,\n                 from /usr/local/include/sdbusplus/sdbus.hpp:5,\n                 from /usr/local/include/xyz/openbmc_project/Common/OriginatedBy/server.hpp:4,\n                 from ../dump_entry.hpp:3,\n                 from ../dump_manager.hpp:3,\n                 from ../dump_manager_faultlog.hpp:3,\n                 from ../dump_manager_faultlog.cpp:3:\n/usr/include/c++/13/bits/unique_ptr.h: In instantiation of ‘std::__detail::__unique_ptr_t\u003c_Tp\u003e std::make_unique(_Args\u0026\u0026 ...) [with _Tp \u003d phosphor::dump::faultlog::Entry; _Args \u003d {sdbusplus::bus::bus\u0026, const char*, unsigned int\u0026, long unsigned int\u0026, long unsigned int, filesystem::__cxx11::path\u0026, sdbusplus::common::xyz::openbmc_project::common::Progress::OperationStatus, __cxx11::basic_string\u003cchar, char_traits\u003cchar\u003e, allocator\u003cchar\u003e \u003e\u0026, sdbusplus::common::xyz::openbmc_project::common::OriginatedBy::OriginatorTypes\u0026, phosphor::dump::faultlog::Manager\u0026}; __detail::__unique_ptr_t\u003c_Tp\u003e \u003d __detail::__unique_ptr_t\u003cphosphor::dump::faultlog::Entry\u003e]’:\n../dump_manager_faultlog.cpp:99:65:   required from here\n/usr/include/c++/13/bits/unique_ptr.h:1070:30: error: invalid new-expression of abstract class type ‘phosphor::dump::faultlog::Entry’\n 1070 |     { return unique_ptr\u003c_Tp\u003e(new _Tp(std::forward\u003c_Args\u003e(__args)...)); }\n      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from ../dump_manager_faultlog.cpp:6:\n../faultlog_dump_entry.hpp:26:7: note:   because the following virtual functions are pure within ‘phosphor::dump::faultlog::Entry’:\n   26 | class Entry : virtual public phosphor::dump::Entry\n      |       ^~~~~\nIn file included from ../dump_entry.hpp:5:\n/usr/local/include/xyz/openbmc_project/Dump/Entry/server.hpp:80:45: note:     ‘virtual sdbusplus::message::unix_fd sdbusplus::server::xyz::openbmc_project::dump::Entry::getFileHandle()’\n   80 |         virtual sdbusplus::message::unix_fd getFileHandle(\n      |                                             ^~~~~~~~~~~~~",
       "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0a6ace_62f93410",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-22T05:13:44Z",
+      "side": 1,
+      "message": "I took and built the latest master and I didnt get this fail, I think you may have to rebase and push again",
+      "parentUuid": "7eb0c1a7_e6c5497c",
+      "revId": "333c2071b3594f62715427e56534ff6ff05289ba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
