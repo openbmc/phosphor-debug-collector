@@ -16,6 +16,24 @@
       "message": "we could simplify to directly read HostState enum value rather than reading string and coverting back to enum\n\nhttps://github.com/ibm-openbmc/openpower-hw-isolation/blob/main/src/faultlog/util.cpp#L63",
       "revId": "ba56efe5e112bef5a652ca00a4ba17315cd1344d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58f56dd_e1106a48",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 51
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-23T12:03:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e553a833_b542e2ac",
+      "revId": "ba56efe5e112bef5a652ca00a4ba17315cd1344d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
