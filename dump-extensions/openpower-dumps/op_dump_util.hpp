@@ -17,7 +17,7 @@ namespace util
  * the dumps are enabled.
  * @return true - if dumps are enabled, false - if dumps are not enabled
  */
-bool isOPDumpsEnabled(sdbusplus::bus::bus& bus);
+bool isOPDumpsEnabled(sdbusplus::bus_t& bus);
 
 using BIOSAttrValueType = std::variant<int64_t, std::string>;
 
@@ -31,7 +31,7 @@ using BIOSAttrValueType = std::variant<int64_t, std::string>;
  *  @throws sdbusplus::exception::SdBusError if failed to read the attribute
  */
 BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
-                                    sdbusplus::bus::bus& bus);
+                                    sdbusplus::bus_t& bus);
 
 /** @brief Check whether a system is in progress or available to offload.
  *
@@ -40,7 +40,7 @@ BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
  *  @return true - A dump is in progress or available to offload
  *          false - No dump in progress
  */
-bool isSystemDumpInProgress(sdbusplus::bus::bus& bus);
+bool isSystemDumpInProgress(sdbusplus::bus_t& bus);
 } // namespace util
 } // namespace dump
 } // namespace openpower

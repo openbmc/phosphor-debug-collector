@@ -19,7 +19,7 @@ namespace dump
 namespace util
 {
 
-bool isOPDumpsEnabled(sdbusplus::bus::bus& bus)
+bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
 {
     // Set isEnabled as true by default. In a field deployment, the system dump
     // feature is usually enabled to facilitate effective debugging in the event
@@ -54,7 +54,7 @@ bool isOPDumpsEnabled(sdbusplus::bus::bus& bus)
 }
 
 BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
-                                    sdbusplus::bus::bus& bus)
+                                    sdbusplus::bus_t& bus)
 {
     std::tuple<std::string, BIOSAttrValueType, BIOSAttrValueType> attrVal;
     auto method = bus.new_method_call(
@@ -77,7 +77,7 @@ BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
     return std::get<1>(attrVal);
 }
 
-bool isSystemDumpInProgress(sdbusplus::bus::bus& bus)
+bool isSystemDumpInProgress(sdbusplus::bus_t& bus)
 {
     try
     {
