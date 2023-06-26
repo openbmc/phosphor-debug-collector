@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f816dd5_cbdc8b08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 49
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-26T14:57:55Z",
+      "side": 1,
+      "message": "Please add p10bmc build status of this commit chain. Once youconfirmed build is clean we can merge all 3 commits in this chaain.\nAso noticed some weird issue like seeimg merged commit on top of this commit. not sure it is gerrit specifc issue ..",
+      "revId": "f828a8cae6238b0ef157f53c0de3e27f42627657",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
