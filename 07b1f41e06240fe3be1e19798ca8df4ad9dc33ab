@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a47b6a7_e14bcfcd",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-26T08:29:20Z",
+      "side": 1,
+      "message": "sdbusplus use shorter type aliases bus_t",
+      "range": {
+        "startLine": 103,
+        "startChar": 19,
+        "endLine": 103,
+        "endChar": 43
+      },
+      "revId": "07b1f41e06240fe3be1e19798ca8df4ad9dc33ab",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
