@@ -1,0 +1,243 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49b76a20_3b8303be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 35
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Are there co-req changes with other people calling this Internal interface or is it all contained within this repo?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfa27da4_2c1d7e07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 35
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "nit: 80 char",
+      "range": {
+        "startLine": 27,
+        "startChar": 65,
+        "endLine": 27,
+        "endChar": 75
+      },
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c383b17_bc81bc71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 35
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Any time you start adding \"Additional\" comments to a commit message, it\u0027s usually a good sign it should be a separate commit. A commit should focus on one thing for reviewability. This commit has already been through quite a bit so I think we\u0027ll just leave as-is but something to watch going forward.",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc3686d6_6b34f0ec",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Is this doing what you think it is? Looks like it\u0027s redeclaring dumpType in just this if clause.",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e59ec4_1056a16c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Why can\u0027t we have multiple dumps running in parallel? Why do only user dumps have this restriction?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5db174f_0062b294",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Special case code is always where the bugs show up, do we really need this?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fccccb6_a25e502b",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "nit:path",
+      "range": {
+        "startLine": 101,
+        "startChar": 38,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae4c53e_f68e820d",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Should note that if no type is passed then a default \"user\" will be returned.",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eecb964_94544daf",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "nit: This seems a bit lengthy for a .hpp",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a19e69fe_feef3fa7",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "defaultDumpType to make it clear this is the default returned if nothing is type is empty?",
+      "range": {
+        "startLine": 166,
+        "startChar": 20,
+        "endLine": 166,
+        "endChar": 28
+      },
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb59eef4_4b0e3b2a",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Be nice to have a comment here that explains this special case where \"elog\" types actually have sub-types?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b323371c_ca5be48f",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "Is there an error path here or the expectation is it just return \"elog\" in this case if no ErrorType is found?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46358ef2_d70c7c74",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-28T17:44:47Z",
+      "side": 1,
+      "message": "nit: Why was this moved?",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
