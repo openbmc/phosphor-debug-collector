@@ -238,6 +238,30 @@
       },
       "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "333a4c06_8b846c26",
+        "filename": "elog_watch.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-28T13:49:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8363ebf5_4b845df6",
+      "range": {
+        "startLine": 44,
+        "startChar": 33,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "949ecee0f8150d183c9c6968a8db2f12bb02e4f4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
