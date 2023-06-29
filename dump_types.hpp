@@ -22,6 +22,7 @@ using DUMP_COLLECTION_TYPE = std::string;
 enum class DumpTypes
 {
     USER,
+    CORE,
 };
 
 // A table of dump types
