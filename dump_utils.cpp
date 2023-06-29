@@ -1,5 +1,7 @@
 #include "dump_utils.hpp"
 
+#include "dump_types.hpp"
+
 #include <phosphor-logging/lg2.hpp>
 
 namespace phosphor
@@ -42,6 +44,37 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& path,
         throw;
     }
     return response[0].first;
+}
+
+DumpTypes validateDumpType(const std::string& type, const std::string& category)
+{
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+    // Dump type user will be return if type is empty
+    DumpTypes dumpType = DumpTypes::USER;
+    if (type.empty())
+    {
+        return dumpType;
+    }
+
+    // Find any matching dump collection type for the category
+    auto it = std::find_if(dumpTypeTable.begin(), dumpTypeTable.end(),
+                           [&](const auto& pair) {
+        return pair.first == type && pair.second.second == category;
+    });
+
+    if (it != dumpTypeTable.end())
+    {
+        dumpType = it->second.first;
+    }
+    else
+    {
+        lg2::error("An invalid dump type: {TYPE} passed", "TYPE", type);
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("BMC_DUMP_TYPE"),
+                              Argument::ARGUMENT_VALUE(type.c_str()));
+    }
+    return dumpType;
 }
 
 } // namespace dump
