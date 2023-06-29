@@ -16,6 +16,24 @@
       "message": "Hmm, not sure I\u0027m really sold on this one. Is there any other reasons? Some future commit that will take advantage of this? Why did we need to add a new optional parameter to pass in the cpp file name when only this code calls it and we just use the default name anyway? What does a cpp really get us for such a minimal amount of code?",
       "revId": "051f357a36bcf532addfcc0db3684c1e710c3394",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537d25c4_15ec80af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-29T03:38:43Z",
+      "side": 1,
+      "message": "Yes it is for the next commit too, when defining the map in the hpp, getting the duplicate definition error, I belive we overlooked this problem when originally merging the code",
+      "parentUuid": "0eb2ffde_bba58a80",
+      "revId": "051f357a36bcf532addfcc0db3684c1e710c3394",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
