@@ -71,6 +71,8 @@ int main()
 
         phosphor::dump::bmc::internal::Manager mgr(bus, *bmcDumpMgr,
                                                    OBJ_INTERNAL);
+
+        phosphor::dump::elog::Watch eWatch(bus, *bmcDumpMgr);
         dumpMgrList.push_back(std::move(bmcDumpMgr));
 
         std::unique_ptr<phosphor::dump::faultlog::Manager> faultLogMgr =
@@ -87,7 +89,6 @@ int main()
             dmpMgr->restore();
         }
 
-        phosphor::dump::elog::Watch eWatch(bus, mgr);
         bus.attach_event(eventP.get(), SD_EVENT_PRIORITY_NORMAL);
 
         // Daemon is all set up so claim the busname now.
