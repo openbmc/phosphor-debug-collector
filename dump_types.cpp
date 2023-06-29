@@ -7,10 +7,15 @@ DUMP_TYPE_TABLE dumpTypeTable = {
     {"xyz.openbmc_project.Dump.Create.DumpType.UserRequested",
      {DumpTypes::USER, "BMC_DUMP"}},
     {"xyz.openbmc_project.Dump.Create.DumpType.ApplicationCored",
-     {DumpTypes::CORE, "BMC_DUMP"}}};
+     {DumpTypes::CORE, "BMC_DUMP"}},
+    {"xyz.openbmc_project.Dump.Create.DumpType.Ramoops",
+     {DumpTypes::RAMOOPS, "BMC_DUMP"}}};
 
-DUMP_TYPE_TO_STRING_MAP dumpTypeToStringMap = {{DumpTypes::USER, "user"},
-                                               {DumpTypes::CORE, "core"}};
+DUMP_TYPE_TO_STRING_MAP dumpTypeToStringMap = {
+    {DumpTypes::USER, "user"},
+    {DumpTypes::CORE, "core"},
+    {DumpTypes::RAMOOPS, "ramoops"},
+};
 
 std::optional<std::string> dumpTypeToString(const DumpTypes& dt)
 {
