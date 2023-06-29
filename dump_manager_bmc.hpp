@@ -113,6 +113,15 @@ class Manager :
      */
     uint32_t captureDump(Type type, const std::vector<std::string>& fullPaths);
 
+    /** @brief Capture BMC Dump based on the Dump type.
+     *  @param[in] type - Type of the dump to pass to dreport
+     *  @param[in] path - An absolute path to the file
+     *             to be included as part of Dump package.
+     *  @return id - The Dump entry id number.
+     */
+    uint32_t captureDump(const std::string& type,
+                         const std::string& path);
+
     /** @brief Remove specified watch object pointer from the
      *        watch map and associated entry from the map.
      *        @param[in] path - unique identifier of the map

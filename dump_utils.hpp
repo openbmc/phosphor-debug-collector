@@ -300,5 +300,58 @@ inline bool isHostQuiesced()
     return (getHostState() == HostState::Quiesced);
 }
 
+/**
+ * @brief Validates the dump type and returns the corresponding dump collection
+ * type. If the dump type is empty, returns "user" by default. If the dump type
+ * does not exist or does not match the specified category, an error is logged,
+ *        and an InvalidArgument exception is thrown.
+ *
+ * @param[in] type - The dump type to validate.
+ * @param[in] category - The category to match with the dump type.
+ *
+ * @return The corresponding dump collection type if the dump type and category
+ * match an entry in the dumpTypeTable. If the type is empty or does not match
+ * any entry, returns "user".
+ *
+ * @throws InvalidArgument - If the type does not match the specified category
+ * or does not exist in the table.
+ */
+std::string validateDumpType(const std::string& type,
+                             const std::string& category);
+
+/** @brief Extract the dump create parameters
+ *  @param[in] key - The name of the parameter
+ *  @param[in] params - The map of parameters passed as input
+ *
+ *  @return On success, a std::optional containing the value of the parameter
+ * (of type T). On failure (key not found in the map or the value is not of type
+ * T), returns an empty std::optional.
+ */
+template <typename T>
+T extractParameter(const std::string& key,
+                   phosphor::dump::DumpCreateParams& params)
+{
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+    auto it = params.find(key);
+    if (it != params.end())
+    {
+        const auto& [foundKey, variantValue] = *it;
+        if (std::holds_alternative<T>(variantValue))
+        {
+            return std::get<T>(variantValue);
+        }
+        else
+        {
+            lg2::error("An invalid input  passed for key: {KEY}", "KEY", key);
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME(key.c_str()),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+    return T{};
+}
+
 } // namespace dump
 } // namespace phosphor
