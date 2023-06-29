@@ -68,6 +68,11 @@ sdbusplus::message::object_path
     {
         dumpType = validateDumpType(type, BMC_DUMP);
     }
+
+    if (dumpType == "elog")
+    {
+        dumpType = getErrorDumpType(params);
+    }
     std::string path = extractParameter<std::string>(
         convertCreateParametersToString(CreateParameters::FilePath), params);
 
