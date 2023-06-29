@@ -1,5 +1,7 @@
 #include "dump_utils.hpp"
 
+#include "dump_types.hpp"
+
 #include <phosphor-logging/lg2.hpp>
 
 namespace phosphor
