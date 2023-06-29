@@ -5,6 +5,8 @@ namespace dump
 {
 DUMP_TYPE_TABLE dumpTypeTable = {
     {"xyz.openbmc_project.Dump.Create.DumpType.UserRequested",
-     {"user", "BMC"}}};
+     {"user", "BMC_DUMP"}},
+    {"xyz.openbmc_project.Dump.Create.DumpType.ApplicationCored",
+     {"core", "BMC_DUMP"}}};
 }
 } // namespace phosphor
