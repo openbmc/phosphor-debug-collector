@@ -23,6 +23,7 @@ enum class DumpTypes
 {
     USER,
     CORE,
+    RAMOOPS,
 };
 
 // A table of dump types
