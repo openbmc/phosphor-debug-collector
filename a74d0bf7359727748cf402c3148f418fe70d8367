@@ -225,6 +225,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "411edf05_c23dd246",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-06-29T13:12:17Z",
+      "side": 1,
+      "message": "And we are allowing only one user requested bmc dump at a time - debatable",
+      "parentUuid": "532feff1_a384ae84",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fccccb6_a25e502b",
         "filename": "dump_manager_bmc.hpp",
         "patchSetId": 35
