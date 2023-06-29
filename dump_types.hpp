@@ -24,6 +24,7 @@ enum class DumpTypes
     USER,
     CORE,
     RAMOOPS,
+    ELOG,
 };
 
 // A table of dump types
