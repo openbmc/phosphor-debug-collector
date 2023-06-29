@@ -5,11 +5,13 @@
 #include <systemd/sd-event.h>
 #include <unistd.h>
 
+#include <errors_map.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
+#include <xyz/openbmc_project/Dump/Create/common.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 #include <xyz/openbmc_project/State/Boot/Progress/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
@@ -333,6 +335,36 @@ T extractParameter(const std::string& key,
         }
     }
     return T{};
+}
+
+/**
+ * @brief This function fetches the dump type associated with a particular
+ * error.
+ *
+ * @param[in] params The map of parameters passed as input.
+ *
+ * @return The dump type associated with the error. If no additional error type
+ * is specified a generic elog type dump will be generated.
+ */
+inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
+{
+    using CreateParameters =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+    using DumpIntr = sdbusplus::common::xyz::openbmc_project::dump::Create;
+    DumpTypes dumpType = DumpTypes::ELOG;
+    std::string errorType = extractParameter<std::string>(
+        DumpIntr::convertCreateParametersToString(CreateParameters::ErrorType),
+        params);
+    const auto elogIt = errorMap.find(errorType);
+    if (elogIt != errorMap.end())
+    {
+        auto type = stringToDumpType(errorType);
+        if (type.has_value())
+        {
+            dumpType = type.value();
+        }
+    }
+    return dumpType;
 }
 
 } // namespace dump
