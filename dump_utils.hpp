@@ -1,5 +1,6 @@
 #pragma once
 #include "dump_manager.hpp"
+#include "dump_types.hpp"
 
 #include <systemd/sd-event.h>
 #include <unistd.h>
@@ -298,6 +299,40 @@ inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
 inline bool isHostQuiesced()
 {
     return (getHostState() == HostState::Quiesced);
+}
+
+/** @brief Extract the dump create parameters
+ *  @param[in] key - The name of the parameter
+ *  @param[in] params - The map of parameters passed as input
+ *
+ *  @return On success, a std::optional containing the value of the parameter
+ * (of type T). On failure (key not found in the map or the value is not of type
+ * T), returns an empty std::optional.
+ */
+template <typename T>
+T extractParameter(const std::string& key,
+                   phosphor::dump::DumpCreateParams& params)
+{
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+    auto it = params.find(key);
+    if (it != params.end())
+    {
+        const auto& [foundKey, variantValue] = *it;
+        if (std::holds_alternative<T>(variantValue))
+        {
+            return std::get<T>(variantValue);
+        }
+        else
+        {
+            lg2::error("An invalid input passed for key: {KEY}", "KEY", key);
+            elog<InvalidArgument>(Argument::ARGUMENT_NAME(key.c_str()),
+                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
+    return T{};
 }
 
 } // namespace dump
