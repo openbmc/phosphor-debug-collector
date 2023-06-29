@@ -9,6 +9,8 @@ DUMP_TYPE_TABLE dumpTypeTable = {
     {"xyz.openbmc_project.Dump.Create.DumpType.ApplicationCored",
      {"core", "BMC_DUMP"}},
     {"xyz.openbmc_project.Dump.Create.DumpType.Ramoops",
-     {"ramopps", "BMC_DUMP"}}};
+     {"ramopps", "BMC_DUMP"}},
+    {"xyz.openbmc_project.Dump.Create.DumpType.ErrorLog",
+     {"elog", "BMC_DUMP"}}};
 }
 } // namespace phosphor
