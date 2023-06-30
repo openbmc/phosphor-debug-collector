@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42bde57b_8f9461e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-30T13:38:15Z",
+      "side": 1,
+      "message": "Should always have a Tested: with new-function code. Can just say \"Detailed tests will be in last commit of this series\" if you just want to test it all at once.",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ab366a_a8b6f4c9",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-30T13:38:15Z",
+      "side": 1,
+      "message": "I\u0027d vote INFO here since we could see this happen in fail scenarios where multiple services are requesting dumps. Seeing error traces for this obfuscates the real error causing all the dump requests.",
+      "range": {
+        "startLine": 76,
+        "startChar": 19,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a262b90_4d9301e8",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-30T13:38:15Z",
+      "side": 1,
+      "message": "Why would we not just call the function above this with a single entry in the vector?",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a0227f_fc96d3b1",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-30T13:38:15Z",
+      "side": 1,
+      "message": "nit: It should be like a commit message. @brief is the 50 chars or less high level overview. Then you have an empty line, then you have descriptive text if needed describing the function. Then the params and return types.",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d4aea6_a77aea65",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-06-30T13:38:15Z",
+      "side": 1,
+      "message": "tab introduced",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
