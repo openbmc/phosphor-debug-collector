@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "967e0a00_1f9d3099",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "BMCDump: dump subtype input parameter support",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42bde57b_8f9461e6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -43,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3724771f_539b6152",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "35ab366a_a8b6f4c9",
+      "range": {
+        "startLine": 76,
+        "startChar": 19,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a262b90_4d9301e8",
         "filename": "dump_manager_bmc.hpp",
         "patchSetId": 2
@@ -60,6 +107,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acd83268_94ddc905",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "+1 \"const std::vector\u003cstd::string\u003e\u0026 fullPaths\" used to support mutiple files package option.",
+      "parentUuid": "3a262b90_4d9301e8",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa31d895_0797cdd1",
+        "filename": "dump_types.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "by defining const type map , you can move this initialization to hpp.",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35ab13b_6ec054d8",
+        "filename": "dump_types.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "Missing // namespace dump",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d61ecd1_6bcab010",
+        "filename": "dump_types.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "Clang should create empty line after header definition?",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7a0227f_fc96d3b1",
         "filename": "dump_utils.hpp",
         "patchSetId": 2
@@ -71,6 +187,29 @@
       "writtenOn": "2023-06-30T13:38:15Z",
       "side": 1,
       "message": "nit: It should be like a commit message. @brief is the 50 chars or less high level overview. Then you have an empty line, then you have descriptive text if needed describing the function. Then the params and return types.",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67281283_aa80e1f4",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-06-30T14:07:59Z",
+      "side": 1,
+      "message": "nit: remove extra space.",
+      "range": {
+        "startLine": 348,
+        "startChar": 40,
+        "endLine": 348,
+        "endChar": 42
+      },
       "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
