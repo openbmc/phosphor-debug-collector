@@ -104,6 +104,24 @@
       "parentUuid": "a1ad1024_b369229e",
       "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27f6d683_39f2a89c",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000207
+      },
+      "writtenOn": "2023-07-05T13:35:53Z",
+      "side": 1,
+      "message": "Hi Andrew/Deepa, had a discussion with team. We will bring this issue into BMC sos and decide on the plan to downstream the instance id change as multiple components are involved here.",
+      "parentUuid": "ee609b11_e9feb373",
+      "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
