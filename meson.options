@@ -56,6 +56,21 @@ option('BMC_DUMP_TOTAL_SIZE', type : 'integer',
         description : 'Total size of the dump in kilo bytes'
       )
 
+option('BMC_DUMP_FILENAME_REGEX', type: 'string',
+        value: 'obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)',
+        description : 'BMC dump file format'
+      )
+
+option('FILENAME_DUMP_ID_POS', type : 'integer',
+        value : 1,
+        description : 'Position of dump id in dump filename'
+      )
+
+option('FILENAME_EPOCHTIME_POS', type : 'integer',
+        value : 2,
+        description : 'Position of timestamp in dump filename'
+      )
+
 option('ELOG_ID_PERSIST_PATH', type : 'string',
         value : '/var/lib/phosphor-debug-collector/elogid',
         description : 'Path of file for storing elog id\'s, which have associated dumps'
