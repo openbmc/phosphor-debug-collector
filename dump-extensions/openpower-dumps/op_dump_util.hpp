@@ -107,6 +107,6 @@ inline void throwInvalidArgument(const std::string& argumentName,
     elog<InvalidArgument>(Argument::ARGUMENT_NAME(argumentName.c_str()),
                           Argument::ARGUMENT_VALUE(errorDetail.c_str()));
 }
-uint64_t timeToEpoch(std::string timeStr);
+
 } // namespace util
 } // namespace openpower::dump
