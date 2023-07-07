@@ -78,6 +78,49 @@ class Manager : public phosphor::dump::BaseManager
 
     void deleteAll() override;
 
+    /** @brief Create a Dump Entry Object
+     *  @param[in] id - Id of the dump
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] ms - Dump creation timestamp since the epoch.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
+     *  @param[in] originatorId - Originator id of the dump.
+     *  @param[in] originatorType - Originator type of the dump.
+     */
+
+    std::filesystem::path createEntry(const uint32_t id, const uint64_t ms,
+                                      uint64_t fileSize,
+                                      const std::filesystem::path& file,
+                                      phosphor::dump::OperationStatus status,
+                                      std::string originatorId,
+                                      OriginatorTypes originatorType);
+
+    std::filesystem::path createOrUpdateEntry(
+        const uint32_t id, const uint64_t timestamp, uint64_t fileSize,
+        const std::filesystem::path& file,
+        phosphor::dump::OperationStatus status, std::string originatorId,
+        OriginatorTypes originatorType);
+
+    uint64_t extractTimestamp(const std::string& matchString);
+
+    /** @brief Returns a specific entry based on the ID
+     *
+     * @param[in] id - unique identifier of the entry
+     *
+     * @return BaseEntry* - pointer to the requested entry
+     *
+     */
+    inline BaseEntry* getEntry(uint32_t id)
+    {
+        auto it = entries.find(id);
+        if (it == entries.end())
+        {
+            return nullptr;
+        }
+        return it->second.get();
+    }
+
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
