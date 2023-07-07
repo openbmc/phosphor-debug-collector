@@ -87,7 +87,7 @@ void Manager::updateEntry(const std::filesystem::path& fullPath)
 
     uint32_t dumpId = std::stoi(dumpIdStr, 0, 16);
 
-    uint64_t timestamp = util::timeToEpoch(timestampStr);
+    uint64_t timestamp = phosphor::dump::timeToEpoch(timestampStr);
 
     uint64_t fileSize = std::filesystem::file_size(fullPath);
 
