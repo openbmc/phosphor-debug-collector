@@ -186,10 +186,8 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
 
 void Manager::createEntry(const std::filesystem::path& file)
 {
-    // Dump File Name format obmcdump_ID_EPOCHTIME.EXT
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
-    std::regex file_regex("obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)");
+    // Default Dump File Name format obmcdump_ID_EPOCHTIME.EXT
+    std::regex file_regex(BMC_DUMP_FILENAME_REGEX);
 
     std::smatch match;
     std::string name = file.filename();
@@ -201,8 +199,8 @@ void Manager::createEntry(const std::filesystem::path& file)
         return;
     }
 
-    auto idString = match[ID_POS];
-    uint64_t timestamp = stoull(match[EPOCHTIME_POS]) * 1000 * 1000;
+    auto idString = match[FILENAME_DUMP_ID_POS];
+    uint64_t timestamp = stoull(match[FILENAME_EPOCHTIME_POS]) * 1000 * 1000;
 
     auto id = stoul(idString);
 
