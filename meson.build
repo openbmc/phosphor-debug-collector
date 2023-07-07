@@ -121,6 +121,15 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
 conf_data.set('DUMP_TYPES_YAML', get_option('DUMP_TYPES_YAML'),
                description : 'YAML filepath containing dump types'
              )
+conf_data.set_quoted('BMC_DUMP_FILENAME_REGEX', get_option('BMC_DUMP_FILENAME_REGEX'),
+                      description: 'BMC Dump filename format'
+            )
+conf_data.set('FILENAME_DUMP_ID_POS', get_option('FILENAME_DUMP_ID_POS'),
+               description : 'Position of dump id in the dump filename'
+             )
+conf_data.set('FILENAME_EPOCHTIME_POS', get_option('FILENAME_EPOCHTIME_POS'),
+               description : 'Position of timestamp in the dump filename'
+             )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
