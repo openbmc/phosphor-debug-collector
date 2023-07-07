@@ -164,6 +164,17 @@ conf_data.set(
     description: 'Turn on rotate config for bmc dump',
 )
 
+conf_data.set(
+    'FILENAME_EPOCHTIME_POS',
+    get_option('FILENAME_EPOCHTIME_POS'),
+    description: 'Position of timestamp in the dump filename',
+)
+conf_data.set(
+    'TIMESTAMP_FORMAT',
+    get_option('TIMESTAMP_FORMAT'),
+    description: 'Timestamp format in filename: 0-epoch 1-human readable',
+)
+
 conf_data.set_quoted(
     'SYSTEM_DUMP_OBJPATH',
     get_option('SYSTEM_DUMP_OBJPATH'),

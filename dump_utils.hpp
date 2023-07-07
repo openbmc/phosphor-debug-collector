@@ -389,5 +389,38 @@ inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
 std::optional<std::tuple<uint32_t, uint64_t, uint64_t>> extractDumpDetails(
     const std::filesystem::path& file);
 
+/**
+ * @brief Converts human-readable timestamp to epoch
+ *
+ * This function takes a human-readable timestamp in the format "%Y%m%d%H%M%S"
+ * and converts it to a UNIX timestamp.
+ *
+ * @param timeStr - A human-readable timestamp in the format "%Y%m%d%H%M%S".
+ *
+ * @return A uint64_t value representing the equivalent UNIX timestamp. If
+ *         input string is malformatted current time will be returned.
+ */
+inline uint64_t timeToEpoch(const std::string& timeStr)
+{
+    using namespace std::chrono;
+
+    std::tm t{};
+    std::istringstream ss(timeStr);
+    ss >> std::get_time(&t, "%Y%m%d%H%M%S");
+    if (ss.fail())
+    {
+        lg2::error("Invalid human readable time value {TIMESTRING}",
+                   "TIMESTRING", timeStr);
+        return std::chrono::duration_cast<std::chrono::microseconds>(
+                   std::chrono::system_clock::now().time_since_epoch())
+            .count();
+    }
+
+    auto sysTimeStamp = system_clock::from_time_t(std::mktime(&t));
+
+    // Return epoch time in microseconds
+    return duration_cast<microseconds>(sysTimeStamp.time_since_epoch()).count();
+}
+
 } // namespace dump
 } // namespace phosphor
