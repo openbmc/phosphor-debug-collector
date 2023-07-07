@@ -3,6 +3,10 @@
 #include "dump_types.hpp"
 
 #include <phosphor-logging/lg2.hpp>
+#include "xyz/openbmc_project/Common/error.hpp"
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/elog.hpp>
+#include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 namespace phosphor
 {
@@ -77,5 +81,53 @@ DumpTypes validateDumpType(const std::string& type, const std::string& category)
     return dumpType;
 }
 
+size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
+                               uint32_t minDumpSize, uint32_t allocatedSize)
+{
+    // Get current size of the dump directory.
+    auto size = getDirectorySize(dumpDir);
+
+    // Set the Dump size to Maximum  if the free space is greater than
+    // Dump max size otherwise return the available size.
+
+    size = (size > allocatedSize ? 0 : allocatedSize - size);
+
+#ifdef BMC_DUMP_ROTATE_CONFIG
+    // Delete the first existing file until the space is enough
+    while (size < minDumpSize)
+    {
+        auto delEntry = min_element(entries.begin(), entries.end(),
+                                    [](const auto& l, const auto& r) {
+            return l.first < r.first;
+        });
+        auto delPath = std::filesystem::path(dumpDir) /
+                       std::to_string(delEntry->first);
+
+        size += getDirectorySize(delPath);
+
+        delEntry->second->delete_();
+    }
+#else
+    using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
+    using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
+
+    if (size < minDumpSize)
+    {
+        lg2::error("Not enough space available {REQUIRED} miniumum "
+                   "needed {MINSPACE} filled {USED} allocated {ALLOCATED}",
+                   "REQUIRED", size, "MINSPACE", minDumpSize, "USED",
+                   getDirectorySize(dumpDir), "ALLOCATED", allocatedSize);
+        // Reached to maximum limit
+        elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
+    }
+#endif
+
+    if (size > maxDumpSize)
+    {
+        size = maxDumpSize;
+    }
+
+    return size;
+}
 } // namespace dump
 } // namespace phosphor
