@@ -1,6 +1,7 @@
 #pragma once
 
 #include "base_dump_manager.hpp"
+#include "dump_collector.hpp"
 #include "dump_file_helper.hpp"
 #include "dump_utils.hpp"
 #include "errors_map.hpp"
@@ -16,8 +17,6 @@ namespace dump
 {
 namespace bmc
 {
-
-using ::sdeventplus::source::Child;
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -44,7 +43,9 @@ class Manager : public phosphor::dump::BaseManager
     Manager(sdbusplus::bus_t& bus, const EventPtr& event, const char* path,
             const std::string& baseEntryPath, const char* filePath) :
         phosphor::dump::BaseManager(bus, path),
-        eventLoop(event.get()), dumpDir(filePath), baseEntryPath(baseEntryPath)
+        eventLoop(event.get()), dumpDir(filePath), baseEntryPath(baseEntryPath),
+        dumpCollector(event)
+
     {
         dumpWatch = std::make_unique<DumpStorageWatch<Manager>>(
             event, filePath, BMC_DUMP_FILENAME_REGEX, *this);
@@ -132,9 +133,6 @@ class Manager : public phosphor::dump::BaseManager
     // TODO: https://github.com/openbmc/phosphor-debug-collector/issues/19
     static bool fUserDumpInProgress;
 
-    /** @brief map of SDEventPlus child pointer added to event loop */
-    std::map<pid_t, std::unique_ptr<Child>> childPtrMap;
-
     /** @brief Id of the last Dump entry */
     uint32_t lastEntryId;
 
@@ -143,6 +141,8 @@ class Manager : public phosphor::dump::BaseManager
 
     /** @bried base object path for the entry object */
     std::string baseEntryPath;
+
+    DumpCollector dumpCollector;
 };
 
 } // namespace bmc
