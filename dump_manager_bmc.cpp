@@ -20,7 +20,6 @@
 
 #include <cmath>
 #include <ctime>
-#include <regex>
 
 namespace phosphor
 {
@@ -167,126 +166,9 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
     return ++lastEntryId;
 }
 
-void Manager::createEntry(const std::filesystem::path& file)
-{
-    // Dump File Name format obmcdump_ID_EPOCHTIME.EXT
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
-    std::regex file_regex("obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)");
-
-    std::string filename = file.filename();
-    std::smatch match;
-
-    if (!std::regex_search(filename, match, fileRegex) || match.size() < 2)
-    {
-        lg2::error("Invalid Dump file name, FILENAME: {FILENAME}", "FILENAME",
-                   file);
-        return;
-    }
-
-    try
-    {
-        // Extract ID and timestamp from the filename
-        uint64_t id = std::stoul(match[ID_POS]);
-        uint64_t timestamp = extractTimestamp(match[EPOCHTIME_POS]);
-
-        // If there is an existing entry update it or create a new one
-        createOrUpdateEntry(id, timestamp, std::filesystem::file_size(file),
-                            file, phosphor::dump::OperationStatus::Completed,
-                            std::string(), OriginatorTypes::Internal);
-    }
-    catch (const std::exception& e)
-    {
-        lg2::error("Unable to get id or timestamp from file name, "
-                   "FILENAME: {FILENAME} ERROR: {ERROR}",
-                   "FILENAME", file, "ERROR", e);
-        return;
-    }
-}
-
-uint64_t Manager::extractTimestamp(const std::string& matchString)
-{
-    const uint64_t multiplier = 1000000ULL; // To convert to microseconds
-
-    return std::stoull(matchString) * multiplier;
-}
-
-void Manager::watchCallback(const UserMap& fileInfo)
-{
-    for (const auto& i : fileInfo)
-    {
-        // For any new dump file create dump entry object
-        // and associated inotify watch.
-        if (IN_CLOSE_WRITE == i.second)
-        {
-            if (!std::filesystem::is_directory(i.first))
-            {
-                // Don't require filename to be passed, as the path
-                // of dump directory is stored in the childWatchMap
-                removeWatch(i.first.parent_path());
-
-                // dump file is written now create D-Bus entry
-                createEntry(i.first);
-            }
-            else
-            {
-                removeWatch(i.first);
-            }
-        }
-        // Start inotify watch on newly created directory.
-        else if ((IN_CREATE == i.second) &&
-                 std::filesystem::is_directory(i.first))
-        {
-            auto watchObj = std::make_unique<Watch>(
-                eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE, EPOLLIN, i.first,
-                std::bind(
-                    std::mem_fn(&phosphor::dump::bmc::Manager::watchCallback),
-                    this, std::placeholders::_1));
-
-            childWatchMap.emplace(i.first, std::move(watchObj));
-        }
-    }
-}
-
-void Manager::removeWatch(const std::filesystem::path& path)
-{
-    // Delete Watch entry from map.
-    childWatchMap.erase(path);
-}
-
-void Manager::restore()
-{
-    std::filesystem::path dir(dumpDir);
-    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
-    {
-        return;
-    }
-
-    // Dump file path: <DUMP_PATH>/<id>/<filename>
-    for (const auto& p : std::filesystem::directory_iterator(dir))
-    {
-        auto idStr = p.path().filename().string();
-
-        // Consider only directory's with dump id as name.
-        // Note: As per design one file per directory.
-        if ((std::filesystem::is_directory(p.path())) &&
-            std::all_of(idStr.begin(), idStr.end(), ::isdigit))
-        {
-            auto fileIt = std::filesystem::directory_iterator(p.path());
-            // Create dump entry d-bus object.
-            if (fileIt != std::filesystem::end(fileIt))
-            {
-                createEntry(fileIt->path());
-            }
-        }
-    }
-}
-
 void Manager::erase(uint32_t entryId)
 {
-    lg2::error("> dump manager erase");
     entries.erase(entryId);
-    lg2::error("< dump manager erase");
 }
 
 void Manager::deleteAll()
