@@ -15,6 +15,7 @@
 #include <xyz/openbmc_project/State/Boot/Progress/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
 
+#include <cmath>
 #include <memory>
 
 namespace phosphor
@@ -390,6 +391,26 @@ inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
     // it should be present in the dumpTypeToStringMap
     throw std::invalid_argument{"Dump type not found"};
 }
+
+inline size_t getDirectorySize(const std::string dir)
+{
+    auto size = 0;
+    for (const auto& p : std::filesystem::recursive_directory_iterator(dir))
+    {
+        if (!std::filesystem::is_directory(p))
+        {
+            size += std::ceil(std::filesystem::file_size(p) / 1024.0);
+        }
+    }
+    return size;
+}
+
+/** @brief Calculate per dump allowed size based on the available
+ *        size in the dump location.
+ *  @returns dump size in kilobytes.
+ */
+size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
+                      uint32_t minDumpSize, uint32_t allocatedSize);
 
 } // namespace dump
 } // namespace phosphor
