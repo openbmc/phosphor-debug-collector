@@ -228,68 +228,6 @@ inline bool isHostRunning()
     return false;
 }
 
-inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
-                                        std::string& originatorId,
-                                        OriginatorTypes& originatorType)
-{
-    using InvalidArgument =
-        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
-    using Argument = xyz::openbmc_project::Common::InvalidArgument;
-    using CreateParametersXYZ =
-        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
-
-    auto iter = params.find(
-        sdbusplus::xyz::openbmc_project::Dump::server::Create::
-            convertCreateParametersToString(CreateParametersXYZ::OriginatorId));
-    if (iter == params.end())
-    {
-        lg2::info("OriginatorId is not provided");
-    }
-    else
-    {
-        try
-        {
-            originatorId = std::get<std::string>(iter->second);
-        }
-        catch (const std::bad_variant_access& e)
-        {
-            // Exception will be raised if the input is not string
-            lg2::error("An invalid originatorId passed. It should be a string, "
-                       "errormsg: {ERROR}",
-                       "ERROR", e);
-            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_ID"),
-                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
-        }
-    }
-
-    iter = params.find(sdbusplus::xyz::openbmc_project::Dump::server::Create::
-                           convertCreateParametersToString(
-                               CreateParametersXYZ::OriginatorType));
-    if (iter == params.end())
-    {
-        lg2::info("OriginatorType is not provided. Replacing the string "
-                  "with the default value");
-        originatorType = OriginatorTypes::Internal;
-    }
-    else
-    {
-        try
-        {
-            std::string type = std::get<std::string>(iter->second);
-            originatorType = sdbusplus::xyz::openbmc_project::Common::server::
-                OriginatedBy::convertOriginatorTypesFromString(type);
-        }
-        catch (const std::bad_variant_access& e)
-        {
-            // Exception will be raised if the input is not string
-            lg2::error("An invalid originatorType passed, errormsg: {ERROR}",
-                       "ERROR", e);
-            elog<InvalidArgument>(Argument::ARGUMENT_NAME("ORIGINATOR_TYPE"),
-                                  Argument::ARGUMENT_VALUE("INVALID INPUT"));
-        }
-    }
-}
-
 /**
  * @brief Check whether host is quiesced
  *
@@ -353,6 +291,59 @@ T extractParameter(const std::string& key,
         }
     }
     return T{};
+}
+
+/**
+ * @brief Extracts the OriginatorId and OriginatorType properties from the
+ * provided phosphor::dump::DumpCreateParams object.
+ *
+ * @param[in] params A phosphor::dump::DumpCreateParams object which is
+ * essentially a map of property keys to property values associated with a dump.
+ * @param[out] originatorId A string reference that will store the OriginatorId
+ * obtained from the params object. OriginatorId provides the identifier for the
+ * source that initiated the dump.
+ * @param[out] originatorType A reference to OriginatorTypes enumerator that
+ * will store the OriginatorType obtained from the params object. OriginatorType
+ * provides the type or category of the source that initiated the dump.
+ *
+ * @throw InvalidArgument If an invalid value is provided in the params object,
+ * an InvalidArgument error will be thrown.
+ *
+ * @note If the OriginatorId or OriginatorType is not provided in the params
+ * object, this function will log a corresponding message and replace the
+ * OriginatorType with a default value of OriginatorTypes::Internal.
+ */
+inline void extractOriginatorProperties(phosphor::dump::DumpCreateParams params,
+                                        std::string& originatorId,
+                                        OriginatorTypes& originatorType)
+{
+    using CreateParametersXYZ =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+
+    std::string originatorIdKey =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::
+            convertCreateParametersToString(CreateParametersXYZ::OriginatorId);
+    originatorId = extractParameter<std::string>(originatorIdKey, params);
+    if (originatorId.empty())
+    {
+        lg2::info("OriginatorId is not provided");
+    }
+
+    std::string originatorTypeKey = sdbusplus::xyz::openbmc_project::Dump::
+        server::Create::convertCreateParametersToString(
+            CreateParametersXYZ::OriginatorType);
+    std::string type = extractParameter<std::string>(originatorTypeKey, params);
+    if (type.empty())
+    {
+        lg2::info("OriginatorType is not provided. Replacing the string "
+                  "with the default value");
+        originatorType = OriginatorTypes::Internal;
+    }
+    else
+    {
+        originatorType = sdbusplus::common::xyz::openbmc_project::common::
+            OriginatedBy::convertOriginatorTypesFromString(type);
+    }
 }
 
 /**
