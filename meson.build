@@ -130,6 +130,9 @@ conf_data.set('FILENAME_DUMP_ID_POS', get_option('FILENAME_DUMP_ID_POS'),
 conf_data.set('FILENAME_EPOCHTIME_POS', get_option('FILENAME_EPOCHTIME_POS'),
                description : 'Position of timestamp in the dump filename'
              )
+conf_data.set('TIMESTAMP_FORMAT', get_option('TIMESTAMP_FORMAT'),
+               description : 'Timestamp format in filename: 0-epoch 1-human readable'
+             )
 
 configure_file(configuration : conf_data,
                output : 'config.h'
