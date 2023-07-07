@@ -163,6 +163,26 @@ conf_data.set(
     get_option('dump_rotate_config').allowed(),
     description: 'Turn on rotate config for bmc dump',
 )
+conf_data.set_quoted(
+    'BMC_DUMP_FILENAME_REGEX',
+    get_option('BMC_DUMP_FILENAME_REGEX'),
+    description: 'BMC Dump filename format',
+)
+conf_data.set(
+    'FILENAME_DUMP_ID_POS',
+    get_option('FILENAME_DUMP_ID_POS'),
+    description: 'Position of dump id in the dump filename',
+)
+conf_data.set(
+    'FILENAME_EPOCHTIME_POS',
+    get_option('FILENAME_EPOCHTIME_POS'),
+    description: 'Position of timestamp in the dump filename',
+)
+conf_data.set(
+    'TIMESTAMP_FORMAT',
+    get_option('TIMESTAMP_FORMAT'),
+    description: 'Timestamp format in filename: 0-epoch 1-human readable',
+)
 
 conf_data.set_quoted(
     'SYSTEM_DUMP_OBJPATH',
