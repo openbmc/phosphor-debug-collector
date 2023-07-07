@@ -82,7 +82,7 @@ DumpTypes validateDumpType(const std::string& type, const std::string& category)
 }
 
 size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
-                               uint32_t minDumpSize, uint32_t allocatedSize)
+                      uint32_t minDumpSize, uint32_t allocatedSize)
 {
     // Get current size of the dump directory.
     auto size = getDirectorySize(dumpDir);
