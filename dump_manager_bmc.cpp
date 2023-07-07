@@ -77,9 +77,7 @@ sdbusplus::message::object_path
               dumpTypeToString(dumpType).value(), "PATH", path);
 
     auto id = captureDump(dumpType, path);
-
-    // Entry Object path.
-    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
+    std::filesystem::path objPath;
 
     try
     {
@@ -87,20 +85,15 @@ sdbusplus::message::object_path
             std::chrono::duration_cast<std::chrono::microseconds>(
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
-
-        entries.emplace(
-            id, std::make_unique<new_::Entry<
-                    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
-                    DumpEntryHelper>>(
-                    bus, objPath.c_str(), id, timeStamp, 0, std::string(),
-                    phosphor::dump::OperationStatus::InProgress, originatorId,
-                    originatorType, *this));
+        objPath = createEntry(id, timeStamp, 0, std::string(),
+                              phosphor::dump::OperationStatus::InProgress,
+                              originatorId, originatorType);
     }
     catch (const std::invalid_argument& e)
     {
         lg2::error("Error in creating dump entry, errormsg: {ERROR}, "
-                   "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
-                   "ERROR", e, "OBJECT_PATH", objPath, "ID", id);
+                   "ID: {ID}",
+                   "ERROR", e, "ID", id);
         elog<InternalFailure>();
     }
 
@@ -176,37 +169,29 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
 
 void Manager::createEntry(const std::filesystem::path& file)
 {
-    // Default Dump File Name format obmcdump_ID_EPOCHTIME.EXT
-    std::regex file_regex(BMC_DUMP_FILENAME_REGEX);
+    // The regex for dump file name: obmcdump_ID_EPOCHTIME.EXT
+    const std::regex fileRegex(BMC_DUMP_FILENAME_REGEX);
 
+    std::string filename = file.filename();
     std::smatch match;
-    std::string name = file.filename();
 
-    if (!((std::regex_search(name, match, file_regex)) && (match.size() > 0)))
+    if (!std::regex_search(filename, match, fileRegex) || match.size() < 2)
     {
         lg2::error("Invalid Dump file name, FILENAME: {FILENAME}", "FILENAME",
                    file);
         return;
     }
 
-    uint64_t id = 0;
-    uint64_t timestamp = 0;
     try
     {
-        id = std::stoul(match[FILENAME_DUMP_ID_POS]);
+        // Extract ID and timestamp from the filename
+        uint64_t id = std::stoul(match[FILENAME_DUMP_ID_POS]);
+        uint64_t timestamp = extractTimestamp(match[FILENAME_EPOCHTIME_POS]);
 
-        const uint64_t multiplier = 1000000ULL; // To convert to microseconds
-
-        if (TIMESTAMP_FORMAT == 1)              // Human-readable timestamp
-        {
-            timestamp = timeToEpoch(match[FILENAME_EPOCHTIME_POS]);
-        }
-        else
-        {
-            timestamp = std::stoull(match[FILENAME_EPOCHTIME_POS]);
-        }
-
-        timestamp *= multiplier;
+        // If there is an existing entry update it or create a new one
+        createOrUpdateEntry(id, timestamp, std::filesystem::file_size(file),
+                            file, phosphor::dump::OperationStatus::Completed,
+                            std::string(), OriginatorTypes::Internal);
     }
     catch (const std::exception& e)
     {
@@ -215,43 +200,23 @@ void Manager::createEntry(const std::filesystem::path& file)
                    "FILENAME", file, "ERROR", e);
         return;
     }
+}
 
-    // If there is an existing entry update it and return.
-    auto dumpEntry = entries.find(id);
-    if (dumpEntry != entries.end())
+uint64_t Manager::extractTimestamp(const std::string& matchString)
+{
+    const uint64_t multiplier = 1000000ULL; // To convert to microseconds
+    uint64_t timestamp = 0;
+
+    if (TIMESTAMP_FORMAT == 1) // Human-readable timestamp
     {
-        dumpEntry->second.get()->markComplete(
-            timestamp, std::filesystem::file_size(file), file);
-        return;
+        timestamp = timeToEpoch(matchString);
+    }
+    else
+    {
+        timestamp = std::stoull(matchString);
     }
 
-    // Entry Object path.
-    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
-
-    // TODO: Get the persisted originator id & type
-    // For now, replacing it with null
-    try
-    {
-        entries.emplace(
-            id, std::make_unique<new_::Entry<
-                    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
-                    DumpEntryHelper>>(
-                    bus, objPath.c_str(), id, timestamp,
-                    std::filesystem::file_size(file), file,
-                    phosphor::dump::OperationStatus::Completed, std::string(),
-                    OriginatorTypes::Internal, *this));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error(
-            "Error in creating dump entry, errormsg: {ERROR}, "
-            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
-            "SIZE: {SIZE}, FILENAME: {FILENAME}",
-            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
-            timestamp, "SIZE", std::filesystem::file_size(file), "FILENAME",
-            file);
-        return;
-    }
+    return timestamp * multiplier;
 }
 
 void Manager::watchCallback(const UserMap& fileInfo)
@@ -315,8 +280,6 @@ void Manager::restore()
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
-            lastEntryId = std::max(lastEntryId,
-                                   static_cast<uint32_t>(std::stoul(idStr)));
             auto fileIt = std::filesystem::directory_iterator(p.path());
             // Create dump entry d-bus object.
             if (fileIt != std::filesystem::end(fileIt))
@@ -345,6 +308,53 @@ void Manager::deleteAll()
     }
 }
 
+std::filesystem::path Manager::createEntry(
+    const uint32_t id, const uint64_t ms, uint64_t fileSize,
+    const std::filesystem::path& file, phosphor::dump::OperationStatus status,
+    std::string originatorId, OriginatorTypes originatorType)
+{
+    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
+    lastEntryId = std::max(lastEntryId, id);
+    try
+    {
+        entries.emplace(
+            id, std::make_unique<phosphor::dump::new_::Entry<
+                    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
+                    phosphor::dump::DumpEntryHelper>>(
+                    bus, objPath.c_str(), id, ms, fileSize, file, status,
+                    originatorId, originatorType, *this));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        lg2::error(
+            "Error in creating dump entry, errormsg: {ERROR}, "
+            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
+            "SIZE: {SIZE}, FILENAME: {FILENAME}",
+            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP", ms,
+            "SIZE", fileSize, "FILENAME", file);
+        throw;
+    }
+    return objPath;
+}
+
+std::filesystem::path Manager::createOrUpdateEntry(
+    const uint32_t id, const uint64_t timestamp, uint64_t fileSize,
+    const std::filesystem::path& file, phosphor::dump::OperationStatus status,
+    std::string originatorId, OriginatorTypes originatorType)
+{
+    auto dumpEntry = getEntry(id);
+    if (dumpEntry != nullptr)
+    {
+        dumpEntry->markComplete(timestamp, std::filesystem::file_size(file),
+                                file);
+    }
+    else
+    {
+        return createEntry(id, timestamp, fileSize, file, status, originatorId,
+                           originatorType);
+    }
+    return std::filesystem::path(baseEntryPath) / std::to_string(id);
+}
 } // namespace bmc
 } // namespace dump
 } // namespace phosphor
