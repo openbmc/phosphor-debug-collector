@@ -188,10 +188,32 @@ void Manager::createEntry(const std::filesystem::path& file)
         return;
     }
 
-    auto idString = match[FILENAME_DUMP_ID_POS];
-    uint64_t timestamp = stoull(match[FILENAME_EPOCHTIME_POS]) * 1000 * 1000;
+    uint64_t id = 0;
+    uint64_t timestamp = 0;
+    try
+    {
+        id = std::stoul(match[FILENAME_DUMP_ID_POS]);
 
-    auto id = stoul(idString);
+        const uint64_t multiplier = 1000000ULL; // To convert to microseconds
+
+        if (TIMESTAMP_FORMAT == 1)              // Human-readable timestamp
+        {
+            timestamp = timeToEpoch(match[FILENAME_EPOCHTIME_POS]);
+        }
+        else
+        {
+            timestamp = std::stoull(match[FILENAME_EPOCHTIME_POS]);
+        }
+
+        timestamp *= multiplier;
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error(
+            "Unable to get id or timestamp from file name, FILENAME: {FILENAME} ERROR: {ERROR}",
+            "FILENAME", file, "ERROR", e);
+        return;
+    }
 
     // If there is an existing entry update it and return.
     auto dumpEntry = entries.find(id);

@@ -79,7 +79,7 @@ std::string validateDumpType(const std::string& type,
 }
 
 size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
-                               uint32_t minDumpSize, uint32_t allocatedSize)
+                      uint32_t minDumpSize, uint32_t allocatedSize)
 {
     // Get current size of the dump directory.
     auto size = getDirectorySize(dumpDir);
@@ -110,11 +110,10 @@ size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
 
     if (size < minDumpSize)
     {
-        log<level::ERR>(fmt::format("Not enough space available({}) miniumum "
-                                    "needed({}) filled({}) allocated({})",
-                                    size, minDumpSize,
-                                    getDirectorySize(dumpDir), allocatedSize)
-                            .c_str());
+        lg2::error("Not enough space available {REQUIRED} miniumum "
+                   "needed {MINSPACE} filled {USED} allocated {ALLOCATED}",
+                   "REQUIRED", size, "MINSPACE", minDumpSize, "USED",
+                   getDirectorySize(dumpDir), "ALLOCATED", allocatedSize);
         // Reached to maximum limit
         elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
     }

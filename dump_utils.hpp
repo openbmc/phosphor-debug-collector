@@ -393,5 +393,30 @@ inline size_t getDirectorySize(const std::string dir)
 size_t getAllowedSize(const std::string& dumpDir, uint32_t maxDumpSize,
                       uint32_t minDumpSize, uint32_t allocatedSize);
 
+/**
+ * @brief Converts human-readable timestamp to epoch
+ *
+ * This function takes a human-readable timestamp in the format "%Y%m%d%H%M%S"
+ * and converts it to a UNIX timestamp.
+ *
+ * @param timeStr - A human-readable timestamp in the format "%Y%m%d%H%M%S".
+ *
+ * @return A uint64_t value representing the equivalent UNIX timestamp.
+ *
+ * @throw std::invalid_argument If the input string is not in the correct
+ * format.
+ */
+inline uint64_t timeToEpoch(std::string timeStr)
+{
+    std::tm t{};
+    std::istringstream ss(timeStr);
+    ss >> std::get_time(&t, "%Y%m%d%H%M%S");
+    if (ss.fail())
+    {
+        throw std::invalid_argument{"Invalid human readable time value"};
+    }
+    return mktime(&t);
+}
+
 } // namespace dump
 } // namespace phosphor
