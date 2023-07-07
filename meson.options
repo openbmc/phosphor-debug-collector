@@ -37,6 +37,20 @@ option(
 )
 
 option(
+    'FILENAME_EPOCHTIME_POS',
+    type: 'integer',
+    value: 2,
+    description: 'Position of timestamp in dump filename',
+)
+
+option(
+    'ELOG_ID_PERSIST_PATH',
+    type: 'string',
+    value: '/var/lib/phosphor-debug-collector/elogid',
+    description: 'Path of file for storing elog id\'s, which have associated dumps',
+)
+
+option(
     'BMC_DUMP_OBJ_ENTRY',
     type: 'string',
     value: '/xyz/openbmc_project/dump/bmc/entry',
@@ -118,6 +132,13 @@ option(
     type: 'feature',
     value: 'disabled',
     description: 'Enable rotate config for bmc dump',
+)
+
+option(
+    'TIMESTAMP_FORMAT',
+    type: 'integer',
+    value: 0,
+    description: 'Timestamp format in filename: 0-epoch 1-human readable',
 )
 
 # Fault log options
