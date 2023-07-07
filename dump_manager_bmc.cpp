@@ -114,7 +114,8 @@ sdbusplus::message::object_path
 uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
 {
     // Get Dump size.
-    auto size = getAllowedSize();
+    auto size = getAllowedSize(dumpDir, BMC_DUMP_MAX_SIZE,
+                               BMC_DUMP_MIN_SPACE_REQD, BMC_DUMP_TOTAL_SIZE);
 
     pid_t pid = fork();
 
@@ -324,63 +325,6 @@ void Manager::restore()
             }
         }
     }
-}
-
-size_t getDirectorySize(const std::string dir)
-{
-    auto size = 0;
-    for (const auto& p : std::filesystem::recursive_directory_iterator(dir))
-    {
-        if (!std::filesystem::is_directory(p))
-        {
-            size += std::ceil(std::filesystem::file_size(p) / 1024.0);
-        }
-    }
-    return size;
-}
-
-size_t Manager::getAllowedSize()
-{
-    // Get current size of the dump directory.
-    auto size = getDirectorySize(dumpDir);
-
-    // Set the Dump size to Maximum  if the free space is greater than
-    // Dump max size otherwise return the available size.
-
-    size = (size > BMC_DUMP_TOTAL_SIZE ? 0 : BMC_DUMP_TOTAL_SIZE - size);
-
-#ifdef BMC_DUMP_ROTATE_CONFIG
-    // Delete the first existing file until the space is enough
-    while (size < BMC_DUMP_MIN_SPACE_REQD)
-    {
-        auto delEntry = min_element(entries.begin(), entries.end(),
-                                    [](const auto& l, const auto& r) {
-            return l.first < r.first;
-        });
-        auto delPath = std::filesystem::path(dumpDir) /
-                       std::to_string(delEntry->first);
-
-        size += getDirectorySize(delPath);
-
-        delEntry->second->delete_();
-    }
-#else
-    using namespace sdbusplus::xyz::openbmc_project::Dump::Create::Error;
-    using Reason = xyz::openbmc_project::Dump::Create::QuotaExceeded::REASON;
-
-    if (size < BMC_DUMP_MIN_SPACE_REQD)
-    {
-        // Reached to maximum limit
-        elog<QuotaExceeded>(Reason("Not enough space: Delete old dumps"));
-    }
-#endif
-
-    if (size > BMC_DUMP_MAX_SIZE)
-    {
-        size = BMC_DUMP_MAX_SIZE;
-    }
-
-    return size;
 }
 
 } // namespace bmc
