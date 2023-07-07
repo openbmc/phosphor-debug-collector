@@ -215,42 +215,18 @@ void Manager::createEntry(const std::filesystem::path& file)
         return;
     }
 
-    // If there is an existing entry update it and return.
-    auto dumpEntry = entries.find(id);
-    if (dumpEntry != entries.end())
+    // If there is an existing entry update it or create a new one
+    auto dumpEntry = getEntry(id);
+    if (dumpEntry != nullptr)
     {
-        dumpEntry->second.get()->markComplete(
-            timestamp, std::filesystem::file_size(file), file);
-        return;
+        dumpEntry->markComplete(timestamp, std::filesystem::file_size(file),
+                                file);
     }
-
-    // Entry Object path.
-    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
-
-    // TODO: Get the persisted originator id & type
-    // For now, replacing it with null
-    try
+    else
     {
-        entries.emplace(
-            id,
-            std::make_unique<
-                Entry<sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
-                      DumpEntryHelper>>(
-                bus, objPath.c_str(), id, timestamp,
-                std::filesystem::file_size(file), file,
-                phosphor::dump::OperationStatus::Completed, std::string(),
-                OriginatorTypes::Internal, *this));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error(
-            "Error in creating dump entry, errormsg: {ERROR}, "
-            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
-            "SIZE: {SIZE}, FILENAME: {FILENAME}",
-            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
-            timestamp, "SIZE", std::filesystem::file_size(file), "FILENAME",
-            file);
-        return;
+        createEntry(id, timestamp, std::filesystem::file_size(file), file,
+                    phosphor::dump::OperationStatus::Completed, std::string(),
+                    OriginatorTypes::Internal);
     }
 }
 
@@ -327,6 +303,35 @@ void Manager::restore()
                 createEntry(fileIt->path());
             }
         }
+    }
+}
+
+void Manager::createEntry(const uint32_t id, const uint64_t ms,
+                          uint64_t fileSize, const std::filesystem::path& file,
+                          phosphor::dump::OperationStatus status,
+                          std::string originatorId,
+                          OriginatorTypes originatorType)
+{
+    auto objPath = std::filesystem::path(baseEntryPath) / std::to_string(id);
+    try
+    {
+        entries.emplace(
+            id,
+            std::make_unique<
+                Entry<sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC,
+                      DumpEntryHelper>>(bus, objPath.c_str(), id, ms, fileSize,
+                                        file, status, originatorId,
+                                        originatorType, *this));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        lg2::error(
+            "Error in creating dump entry, errormsg: {ERROR}, "
+            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
+            "SIZE: {SIZE}, FILENAME: {FILENAME}",
+            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP", ms,
+            "SIZE", fileSize, "FILENAME", file);
+        throw;
     }
 }
 

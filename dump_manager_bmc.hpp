@@ -81,6 +81,23 @@ class Manager :
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
 
+    /** @brief Create a Dump Entry Object
+     *  @param[in] id - Id of the dump
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] ms - Dump creation timestamp since the epoch.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     *  @param[in] status - status of the dump.
+     *  @param[in] originatorId - Originator id of the dump.
+     *  @param[in] originatorType - Originator type of the dump.
+     */
+
+    void createEntry(const uint32_t id,
+                     const uint64_t ms, uint64_t fileSize,
+                     const std::filesystem::path& file,
+                     phosphor::dump::OperationStatus status,
+                     std::string originatorId, OriginatorTypes originatorType);
+
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name

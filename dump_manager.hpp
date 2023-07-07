@@ -81,6 +81,23 @@ class Manager : public Iface
         return nextId;
     }
 
+    /** @brief Returns a specific entry based on the ID
+     *
+     * @param[in] id - unique identifier of the entry
+     *
+     * @return BaseEntry* - pointer to the requested entry
+     *
+     */
+    inline BaseEntry* getEntry(uint32_t id)
+    {
+        auto it = entries.find(id);
+        if (it == entries.end())
+        {
+            return nullptr;
+        }
+        return it->second.get();
+    }
+
   protected:
     /** @brief Erase specified entry d-bus object
      *
