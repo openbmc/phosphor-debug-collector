@@ -165,7 +165,7 @@ phosphor_dump_manager_sources = [
         'dump_utils.cpp',
         'dump_offload.cpp',
         'dump_manager_faultlog.cpp',
-	'dump_types.cpp'
+	      'dump_types.cpp'
     ]
 
 phosphor_dump_manager_dependency = [

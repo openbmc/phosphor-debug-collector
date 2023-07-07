@@ -69,6 +69,7 @@ class Manager :
      */
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
+
 };
 
 } // namespace resource
