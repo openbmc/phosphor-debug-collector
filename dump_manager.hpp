@@ -44,13 +44,42 @@ class Manager : public Iface
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
         Iface(bus, path, Iface::action::defer_emit),
-        bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
+        bus(bus), baseEntryPath(baseEntryPath), lastEntryId(0)
     {}
 
     /** @brief Construct dump d-bus objects from their persisted
      *        representations.
      */
     virtual void restore() = 0;
+
+    uint16_t getLastEntryId()
+    {
+        return lastEntryId;
+    }
+
+    void setLastEntryId(uint16_t id)
+    {
+        lastEntryId = id;
+    }
+
+    uint32_t currentEntryId(uint16_t mask = 0)
+    {
+        // Shift mask to upper 16 bits and combine with lastEntryId
+        uint32_t id = ((static_cast<uint32_t>(mask) << 16) | lastEntryId);
+
+        return id;
+    }
+
+    uint32_t incrementLastEntryId(uint16_t mask = 0)
+    {
+        // Increment lastEntryId for the next entry
+        lastEntryId++;
+
+        // Shift mask to upper 16 bits and combine with lastEntryId
+        uint32_t nextId = ((static_cast<uint32_t>(mask) << 16) | lastEntryId);
+
+        return nextId;
+    }
 
   protected:
     /** @brief Erase specified entry d-bus object
@@ -71,11 +100,12 @@ class Manager : public Iface
     /** @brief Dump Entry dbus objects map based on entry id */
     std::map<uint32_t, std::unique_ptr<BaseEntry>> entries;
 
-    /** @brief Id of the last Dump entry */
-    uint32_t lastEntryId;
-
     /** @bried base object path for the entry object */
     std::string baseEntryPath;
+
+  private:
+    /** @brief Last four digits of the last dump entry*/
+    uint16_t lastEntryId;
 };
 
 } // namespace dump

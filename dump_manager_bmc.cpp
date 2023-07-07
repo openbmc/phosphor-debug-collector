@@ -122,7 +122,7 @@ uint32_t Manager::captureDump(const std::string& type, const std::string& path)
     if (pid == 0)
     {
         std::filesystem::path dumpPath(dumpDir);
-        auto id = std::to_string(lastEntryId + 1);
+        auto id = std::to_string(currentEntryId() + 1);
         dumpPath /= id;
 
         execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
@@ -170,7 +170,7 @@ uint32_t Manager::captureDump(const std::string& type, const std::string& path)
                    error);
         elog<InternalFailure>();
     }
-    return ++lastEntryId;
+    return incrementLastEntryId();
 }
 
 void Manager::createEntry(const std::filesystem::path& file)
@@ -315,8 +315,11 @@ void Manager::restore()
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
-            lastEntryId = std::max(lastEntryId,
-                                   static_cast<uint32_t>(std::stoul(idStr)));
+            // Extract the last four digits of the id string
+            std::string lastFourDigits =
+                idStr.substr(std::max(int(idStr.size()) - 4, 0));
+            uint16_t id = static_cast<uint16_t>(std::stoul(lastFourDigits));
+            setLastEntryId(std::max(getLastEntryId(), id));
             auto fileIt = std::filesystem::directory_iterator(p.path());
             // Create dump entry d-bus object.
             if (fileIt != std::filesystem::end(fileIt))

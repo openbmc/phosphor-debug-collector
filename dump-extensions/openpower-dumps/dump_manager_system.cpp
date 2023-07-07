@@ -106,7 +106,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     }
 
     // Get the id
-    auto id = lastEntryId + 1;
+    auto id = currentEntryId() + 1;
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
@@ -137,7 +137,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
         report<InternalFailure>();
         return;
     }
-    lastEntryId++;
+    incrementLastEntryId();
     return;
 }
 
@@ -211,7 +211,7 @@ sdbusplus::message::object_path
     method.append("replace");
     bus.call_noreply(method);
 
-    auto id = lastEntryId + 1;
+    auto id = currentEntryId() + 1;
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
     uint64_t timeStamp =
@@ -238,7 +238,7 @@ sdbusplus::message::object_path
         elog<InternalFailure>();
         return std::string();
     }
-    lastEntryId++;
+    incrementLastEntryId();
     return objPath.string();
 }
 

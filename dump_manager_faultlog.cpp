@@ -54,7 +54,7 @@ sdbusplus::message::object_path
                                                 originatorType);
 
     // Get the id
-    auto id = lastEntryId + 1;
+    auto id = currentEntryId() + 1;
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
@@ -113,7 +113,7 @@ sdbusplus::message::object_path
         elog<InternalFailure>();
     }
 
-    lastEntryId++;
+    incrementLastEntryId();
 
     lg2::info("End of dump_manager_faultlog.cpp createDump");
     return objPath.string();
