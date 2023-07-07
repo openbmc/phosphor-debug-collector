@@ -101,12 +101,6 @@ class Manager :
      */
     void removeWatch(const std::filesystem::path& path);
 
-    /** @brief Calculate per dump allowed size based on the available
-     *        size in the dump location.
-     *  @returns dump size in kilobytes.
-     */
-    size_t getAllowedSize();
-
     /** @brief sdbusplus Dump event loop */
     EventPtr eventLoop;
 
