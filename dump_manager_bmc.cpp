@@ -112,63 +112,39 @@ sdbusplus::message::object_path
 
 uint32_t Manager::captureDump(const std::string& type, const std::string& path)
 {
+    using ::sdeventplus::source::Child;
     // Get Dump size.
     auto size = getAllowedSize(dumpDir, BMC_DUMP_MAX_SIZE,
                                BMC_DUMP_MIN_SPACE_REQD, BMC_DUMP_TOTAL_SIZE);
 
-    pid_t pid = fork();
+    std::filesystem::path dumpPath(dumpDir);
+    auto id = std::to_string(currentEntryId() + 1);
+    dumpPath /= id;
+    std::vector<std::string> commandAndArgs{"/usr/bin/dreport",
+                                            "dreport",
+                                            "-d",
+                                            dumpPath.string(),
+                                            "-i",
+                                            id,
+                                            "-s",
+                                            std::to_string(size),
+                                            "-q",
+                                            "-v",
+                                            "-p",
+                                            path.empty() ? "" : path,
+                                            "-t",
+                                            type};
 
-    if (pid == 0)
+    std::function<void()> userCallback;
+    if (type == "user")
     {
-        std::filesystem::path dumpPath(dumpDir);
-        auto id = std::to_string(currentEntryId() + 1);
-        dumpPath /= id;
-
-        execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
-              id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
-              path.empty() ? "" : path.c_str(), "-t", type.c_str(), nullptr);
-
-        // dreport script execution is failed.
-        auto error = errno;
-        lg2::error("Error occurred during dreport function execution, "
-                   "errno: {ERRNO}",
-                   "ERRNO", error);
-        elog<InternalFailure>();
-    }
-    else if (pid > 0)
-    {
-        Child::Callback callback = [this, type, pid](Child&, const siginfo_t*) {
-            if (type == "user")
-            {
-                lg2::info("User initiated dump completed, resetting flag");
-                Manager::fUserDumpInProgress = false;
-            }
-            this->childPtrMap.erase(pid);
+        userCallback = []() {
+            lg2::info("User initiated dump completed, resetting flag");
+            Manager::fUserDumpInProgress = false;
         };
-        try
-        {
-            childPtrMap.emplace(pid,
-                                std::make_unique<Child>(eventLoop.get(), pid,
-                                                        WEXITED | WSTOPPED,
-                                                        std::move(callback)));
-        }
-        catch (const sdeventplus::SdEventError& ex)
-        {
-            // Failed to add to event loop
-            lg2::error(
-                "Error occurred during the sdeventplus::source::Child creation "
-                "ex: {ERROR}",
-                "ERROR", ex);
-            elog<InternalFailure>();
-        }
     }
-    else
-    {
-        auto error = errno;
-        lg2::error("Error occurred during fork, errno: {ERRNO}", "ERRNO",
-                   error);
-        elog<InternalFailure>();
-    }
+
+    dumpCollector.collectDump(commandAndArgs, std::move(userCallback));
     return incrementLastEntryId();
 }
 

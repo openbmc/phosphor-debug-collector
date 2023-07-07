@@ -1,5 +1,6 @@
 #pragma once
 
+#include "dump_collector.hpp"
 #include "dump_file_helper.hpp"
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
@@ -20,8 +21,6 @@ namespace bmc
 
 using CreateIface = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create>;
-
-using ::sdeventplus::source::Child;
 
 /** @class Manager
  *  @brief OpenBMC Dump  manager implementation.
@@ -51,9 +50,10 @@ class Manager :
             const std::string& baseEntryPath, const char* filePath) :
         CreateIface(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath),
-        eventLoop(event.get()), dumpDir(filePath)
+        eventLoop(event.get()), dumpDir(filePath), dumpCollector(event)
     {
-        dumpWatch = std::make_unique<DumpStorageWatch<Manager>>(event, filePath, BMC_DUMP_FILENAME_REGEX, *this);
+        dumpWatch = std::make_unique<DumpStorageWatch<Manager>>(
+            event, filePath, BMC_DUMP_FILENAME_REGEX, *this);
     }
 
     /** @brief Construct dump d-bus objects from their persisted
@@ -109,8 +109,7 @@ class Manager :
     // TODO: https://github.com/openbmc/phosphor-debug-collector/issues/19
     static bool fUserDumpInProgress;
 
-    /** @brief map of SDEventPlus child pointer added to event loop */
-    std::map<pid_t, std::unique_ptr<Child>> childPtrMap;
+    DumpCollector dumpCollector;
 };
 
 } // namespace bmc
