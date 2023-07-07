@@ -6,6 +6,8 @@
 #include "watch.hpp"
 
 #include <sdeventplus/source/child.hpp>
+#include <sdeventplus/exception.hpp>
+#include <sdeventplus/source/base.hpp>
 
 #include <regex>
 
