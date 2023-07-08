@@ -23,80 +23,31 @@ namespace system
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
-void Manager::notify(uint32_t dumpId, uint64_t size)
+void Manager::notifyDump(uint32_t dumpId, uint64_t size, ComDumpType /* type */,
+                     uint32_t token)
 {
     // Get the timestamp
     uint64_t timeStamp =
-        std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::system_clock::now().time_since_epoch())
-            .count();
-
+            std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::system_clock::now().time_since_epoch())
+                .count();
+    
     // A system dump can be created due to a fault in the server or by a user
     // request. A system dump by fault is first reported here, but for a
     // user-requested dump, an entry will be created first with an invalid
     // source id. Since only one system dump creation is allowed at a time, if
     // there's an entry with an invalid sourceId, we will update that entry.
-    phosphor::dump::Entry<
+    using DumpEntryType = phosphor::dump::Entry<
         sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
-        openpower::dump::DumpEntryHelper>* upEntry = nullptr;
-    for (auto& entry : entries)
-    {
-        phosphor::dump::Entry<
-            sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
-            openpower::dump::DumpEntryHelper>* sysEntry =
-            dynamic_cast<phosphor::dump::Entry<
-                sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
-                openpower::dump::DumpEntryHelper>*>(entry.second.get());
+        openpower::dump::DumpEntryHelper>;
 
-        // If there's already a completed entry with the input source id and
-        // size, ignore this notification
-        if ((sysEntry->sourceDumpId() == dumpId) && (sysEntry->size() == size))
-        {
-            if (sysEntry->status() ==
-                phosphor::dump::OperationStatus::Completed)
-            {
-                lg2::info(
-                    "System dump entry with source dump id:{SOURCE_ID} and "
-                    "size: {SIZE} is already present with entry id:{ID}",
-                    "SOURCE_ID", dumpId, "SIZE", size, "ID",
-                    sysEntry->getDumpId());
-                return;
-            }
-            else
-            {
-                lg2::error("A duplicate notification for an incomplete dump "
-                           "dump id: {SOURCE_ID} entry id: {ID}",
-                           "SOURCE_D", dumpId, "ID", sysEntry->getDumpId());
-                upEntry = sysEntry;
-                break;
-            }
-        }
-        else if (sysEntry->sourceDumpId() == dumpId)
-        {
-            // If the dump id is the same but the size is different, then this
-            // is a new dump. So, delete the stale entry and prepare to create a
-            // new one.
-            lg2::info("A previous dump entry found with same source id: "
-                      "{SOURCE_ID}, deleting it, entry id: {DUMP_ID}",
-                      "SOURCE_ID", dumpId, "DUMP_ID", sysEntry->getDumpId());
-            sysEntry->delete_();
-            // No 'break' here, as we need to continue checking other entries.
-        }
-
-        // Save the first entry with INVALID_SOURCE_ID, but continue in the loop
-        // to ensure the new entry is not a duplicate.
-        if ((sysEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
-            (upEntry == nullptr))
-        {
-            upEntry = sysEntry;
-        }
-    }
-
+    DumpEntryType* upEntry = getInProgressEntry<DumpEntryType>(dumpId, size,
+                                                               token);
     if (upEntry != nullptr)
     {
         lg2::info(
             "System Dump Notify: Updating dumpId:{ID} Source Id:{SOURCE_ID} "
-            "Size:{SIZE}",
+            "Size:{SIZE} ",
             "ID", upEntry->getDumpId(), "SOURCE_ID", dumpId, "SIZE", size);
         dynamic_cast<phosphor::dump::Entry<
             sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
@@ -104,41 +55,9 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             ->markComplete(timeStamp, size, dumpId);
         return;
     }
-
-    // Get the id
-    auto id = currentEntryId() + 1;
-    auto idString = std::to_string(id);
-    auto objPath = std::filesystem::path(baseEntryPath) / idString;
-
-    // TODO: Get the originator Id, Type from the persisted file.
-    // For now replacing it with null
-    try
-    {
-        lg2::info("System Dump Notify: creating new dump "
-                  "entry dumpId:{ID} Source Id:{SOURCE_ID} Size:{SIZE}",
-                  "ID", id, "SOURCE_ID", dumpId, "SIZE", size);
-        entries.emplace(
-            id,
-            std::make_unique<phosphor::dump::Entry<
-                sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
-                openpower::dump::DumpEntryHelper>>(
-                bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                phosphor::dump::OperationStatus::Completed, std::string(),
-                phosphor::dump::OriginatorTypes::Internal, 3, *this));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error(
-            "Error in creating system dump entry, errormsg: {ERROR}, "
-            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
-            "SIZE: {SIZE}, SOURCEID: {SOURCE_ID}",
-            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
-            timeStamp, "SIZE", size, "SOURCE_ID", dumpId);
-        report<InternalFailure>();
-        return;
-    }
-    incrementLastEntryId();
-    return;
+    createEntry<DumpEntryType>(dumpId, size,
+                               phosphor::dump::OperationStatus::Completed,
+                               std::string(), phosphor::dump::OriginatorTypes::Internal);
 }
 
 sdbusplus::message::object_path
@@ -157,9 +76,9 @@ sdbusplus::message::object_path
     using Unavailable =
         sdbusplus::xyz::openbmc_project::Common::Error::Unavailable;
 
-    if (openpower::dump::util::isSystemDumpInProgress(bus))
+    if (!isDumpAllowed())
     {
-        lg2::error("Another dump in progress or available to offload");
+        lg2::error("System dump is unavailable now");
         elog<Unavailable>();
     }
 
@@ -167,34 +86,13 @@ sdbusplus::message::object_path
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
-    auto isHostRunning = false;
-    phosphor::dump::HostState hostState;
-    try
-    {
-        isHostRunning = phosphor::dump::isHostRunning();
-        hostState = phosphor::dump::getHostState();
-    }
-    catch (const std::exception& e)
-    {
-        lg2::error(
-            "System state cannot be determined, system dump is not allowed: "
-            "{ERROR}",
-            "ERROR", e);
-        return std::string();
-    }
-    bool isHostQuiesced = hostState == phosphor::dump::HostState::Quiesced;
-    bool isHostTransitioningToOff =
-        hostState == phosphor::dump::HostState::TransitioningToOff;
-    // Allow creating system dump only when the host is up or quiesced
-    // starting to power off
-    if (!isHostRunning && !isHostQuiesced && !isHostTransitioningToOff)
+    if (!isHostStateValid())
     {
         lg2::error("System dump can be initiated only when the host is up "
                    "or quiesced or starting to poweroff");
         elog<NotAllowed>(
             Reason("System dump can be initiated only when the host is up "
                    "or quiesced or starting to poweroff"));
-        return std::string();
     }
 
     // Get the originator id and type from params
@@ -204,42 +102,18 @@ sdbusplus::message::object_path
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
 
-    auto b = sdbusplus::bus::new_default();
     auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
                                       SYSTEMD_INTERFACE, "StartUnit");
     method.append(DIAG_MOD_TARGET); // unit to activate
     method.append("replace");
     bus.call_noreply(method);
 
-    auto id = currentEntryId() + 1;
-    auto idString = std::to_string(id);
-    auto objPath = std::filesystem::path(baseEntryPath) / idString;
-    uint64_t timeStamp =
-        std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::system_clock::now().time_since_epoch())
-            .count();
-
-    try
-    {
-        entries.emplace(
-            id,
-            std::make_unique<phosphor::dump::Entry<
-                sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
-                openpower::dump::DumpEntryHelper>>(
-                bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                phosphor::dump::OperationStatus::InProgress, originatorId,
-                originatorType, 3, *this));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error("Error in creating system dump entry, errormsg: {ERROR}, "
-                   "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
-                   "ERROR", e, "OBJECT_PATH", objPath, "ID", id);
-        elog<InternalFailure>();
-        return std::string();
-    }
-    incrementLastEntryId();
-    return objPath.string();
+    using DumpEntryType = phosphor::dump::Entry<
+        sdbusplus::xyz::openbmc_project::Dump::Entry::server::System,
+        openpower::dump::DumpEntryHelper>;
+    return createEntry<DumpEntryType>(INVALID_SOURCE_ID, 0,
+                               phosphor::dump::OperationStatus::InProgress,
+                               originatorId, originatorType);
 }
 
 } // namespace system
