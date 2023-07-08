@@ -2,6 +2,7 @@
 
 #include "dump_manager_system.hpp"
 
+#include "dump_types.hpp"
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
@@ -25,9 +26,11 @@ using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 using SystemDumpEntry =
     phosphor::dump::new_::Entry<phosphor::dump::new_::SystemDump,
                                 openpower::dump::host::DumpEntryHelper>;
+std::map<NotifyDumpType, phosphor::dump::DumpTypes> notifyDumpTypeToEnum = {
+    {NotifyDumpType::System, phosphor::dump::DumpTypes::SYSTEM}};
 
-phosphor::dump::BaseEntry* Manager::getInProgressEntry(uint32_t dumpId,
-                                                       uint64_t size)
+phosphor::dump::BaseEntry*
+    Manager::getInProgressEntry(uint32_t dumpId, uint64_t size, uint32_t token)
 {
     SystemDumpEntry* upEntry = nullptr;
     for (auto& entry : entries)
@@ -37,47 +40,39 @@ phosphor::dump::BaseEntry* Manager::getInProgressEntry(uint32_t dumpId,
 
         // If there's already a completed entry with the input source id and
         // size, ignore this notification
-        if ((sysEntry->sourceDumpId() == dumpId) && (sysEntry->size() == size))
+        if (sysEntry->sourceDumpId() == dumpId && sysEntry->size() == size &&
+            (token == 0 || sysEntry->token() == token))
         {
             if (sysEntry->status() ==
                 phosphor::dump::OperationStatus::Completed)
             {
-                lg2::info(
-                    "System dump entry with source dump id:{SOURCE_ID} and "
-                    "size: {SIZE} is already present with entry id:{ID}",
-                    "SOURCE_ID", dumpId, "SIZE", size, "ID",
-                    sysEntry->getDumpId());
-                continue;
+                lg2::error("A completed entry with same details found "
+                           "probably due to a duplicate notification"
+                           "dump id: {SOURCE_ID} entry id: {ID}",
+                           "SOURCE_D", dumpId, "ID", upEntry->getDumpId());
+                return nullptr;
             }
             else
             {
-                lg2::error("A duplicate notification for an incomplete dump "
-                           "dump id: {SOURCE_ID} entry id: {ID}",
-                           "SOURCE_D", dumpId, "ID", sysEntry->getDumpId());
-                upEntry = sysEntry;
-                break;
+                return sysEntry;
             }
         }
-        else if (sysEntry->sourceDumpId() == dumpId)
+
+        // If the dump id is the same but the size is different, then this
+        // is a new dump. So, delete the stale entry.
+        if (sysEntry->sourceDumpId() == dumpId)
         {
-            // If the dump id is the same but the size is different, then this
-            // is a new dump. So, delete the stale entry and prepare to create a
-            // new one.
-            lg2::info("A previous dump entry found with same source id: "
-                      "{SOURCE_ID}, deleting it, entry id: {DUMP_ID}",
-                      "SOURCE_ID", dumpId, "DUMP_ID", sysEntry->getDumpId());
             sysEntry->delete_();
-            // No 'break' here, as we need to continue checking other entries.
         }
 
-        // Save the first entry with INVALID_SOURCE_ID, but continue in the loop
-        // to ensure the new entry is not a duplicate.
-        if ((sysEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
-            (upEntry == nullptr))
+        // Save the first entry with INVALID_SOURCE_ID, but don't return it
+        // until we've checked all entries.
+        if (sysEntry->sourceDumpId() == INVALID_SOURCE_ID && upEntry == nullptr)
         {
             upEntry = sysEntry;
         }
     }
+
     return upEntry;
 }
 
@@ -148,8 +143,20 @@ std::string
     return objPath.string();
 }
 
-void Manager::notify(uint32_t dumpId, uint64_t size)
+void Manager::notifyDump(uint32_t dumpId, uint64_t size, NotifyDumpType type,
+                         uint32_t token)
 {
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+    if (notifyDumpTypeToEnum.find(type) == notifyDumpTypeToEnum.end())
+    {
+        lg2::error("An invalid input passed for dump type");
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("DUMP_TYPE"),
+                              Argument::ARGUMENT_VALUE("INVALID INPUT"));
+    }
+
     // Get the timestamp
     uint64_t timeStamp =
         std::chrono::duration_cast<std::chrono::microseconds>(
@@ -162,7 +169,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // source id. Since only one system dump creation is allowed at a time, if
     // there's an entry with an invalid sourceId, we will update that entry.
     SystemDumpEntry* upEntry =
-        dynamic_cast<SystemDumpEntry*>(getInProgressEntry(dumpId, size));
+        dynamic_cast<SystemDumpEntry*>(getInProgressEntry(dumpId, size, token));
 
     if (upEntry != nullptr)
     {
@@ -207,6 +214,7 @@ sdbusplus::message::object_path
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+
     if (!isHostStateValid())
     {
         lg2::error("System dump can be initiated only when the host is up "
@@ -223,7 +231,6 @@ sdbusplus::message::object_path
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
 
-    auto b = sdbusplus::bus::new_default();
     auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
                                       SYSTEMD_INTERFACE, "StartUnit");
     method.append(DIAG_MOD_TARGET); // unit to activate
