@@ -122,20 +122,87 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
+
+# Dump types YAML file
+dump_types_yaml_files = {'input': 'example_dump_types.yaml',
+         'output': 'dump_types.yaml'}
+
+# Copy and combine YAML files
+concatenate_command = 'cat '
+combined_yaml_file = 'combined_dump_types.yaml'
+
+foreach yaml_file : dump_types_yaml_files
+    configure_file(input : yaml_file.get('input'),
+                   output : yaml_file.get('output'),
+                   copy : true)
+    concatenate_command += meson.build_root() + '/' + yaml_file.get('output') + ' '
+endforeach
+
+concatenate_command += '> ' + meson.build_root() + '/' + combined_yaml_file
+run_command('sh', '-c', concatenate_command)
+
 python = find_program('python3')
-errors_map_gen_file_loc = meson.project_source_root()
-errors_map_gen_file_loc += '/errors_map_gen.py'
+map_gen_file_loc = meson.project_source_root()
+map_gen_file_loc += '/map_gen.py'
+
+dump_types_hpp = custom_target(
+                    'dump_types.hpp',
+                    command : [
+                        python,
+                        map_gen_file_loc,
+                        '-i',
+                        meson.build_root() + '/' +  combined_yaml_file,
+                        '-t',
+                        'dump_types.mako.hpp',
+                        '-v',
+                        'DUMP_TYPE_TABLE',
+                        '-o',
+                        'dump_types.hpp'
+                    ],
+                    depend_files : [ 'dump_types.mako.hpp',
+                                     'map_gen.py',
+                                     meson.build_root() + '/' +  combined_yaml_file
+                                   ],
+                    output : 'dump_types.hpp'
+                 )
+
+dump_types_cpp = custom_target(
+                    'dump_types.cpp',
+                    command : [
+                        python,
+                        map_gen_file_loc,
+                        '-i',
+                        meson.build_root() + '/' +  combined_yaml_file,
+                        '-t',
+                        'dump_types.mako.cpp',
+			                  '-v',
+			                  'DUMP_TYPE_TABLE',
+                        '-o',
+                        'dump_types.cpp'
+                    ],
+                    depend_files : [ 'dump_types.mako.cpp',
+                                     'map_gen.py',
+                                     meson.build_root() + '/' +  combined_yaml_file
+                                   ],
+                    output : 'dump_types.cpp'
+                 )
 
 errors_map_cpp = custom_target(
                     'errors_map.cpp',
                     command : [
                         python,
-                        errors_map_gen_file_loc,
+                        map_gen_file_loc,
                         '-i',
-                        get_option('ERROR_MAP_YAML')
+                        get_option('ERROR_MAP_YAML'),
+                        '-t',
+                        'errors_map.mako.cpp',
+			                  '-v',
+                        'errDict',
+                        '-o',
+                        'errors_map.cpp'
                     ],
                     depend_files : [ 'errors_map.mako.cpp',
-                                     'errors_map_gen.py',
+                                     'map_gen.py',
                                      get_option('ERROR_MAP_YAML')
                                    ],
                     output : 'errors_map.cpp'
@@ -149,13 +216,14 @@ phosphor_dump_manager_sources = [
         'dump_serialize.cpp',
         'elog_watch.cpp',
         errors_map_cpp,
+        dump_types_hpp,
+	      dump_types_cpp,
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
         'dump_offload.cpp',
         'dump_manager_faultlog.cpp',
-        'faultlog_dump_entry.cpp',
-        'dump_types.cpp'
+        'faultlog_dump_entry.cpp'
     ]
 
 phosphor_dump_manager_dependency = [
