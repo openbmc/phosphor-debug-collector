@@ -1,3 +1,6 @@
+## This file is a template.  The comment below is emitted
+## into the rendered file; feel free to edit this file.
+// !!! WARNING: This is a GENERATED Code..Please do NOT Edit !!!
 #pragma once
 
 #include <optional>
@@ -19,11 +22,12 @@ using DUMP_TYPE = std::string;
 using DUMP_COLLECTION_TYPE = std::string;
 
 // Dump types
-enum class DumpTypes
-{
-    USER,
-    CORE,
-    RAMOOPS,
+enum class DumpTypes {
+% for item in DUMP_TYPE_TABLE:
+  % for key, values in item.items():
+    ${values[0].upper()},
+  % endfor
+% endfor
 };
 
 // A table of dump types
