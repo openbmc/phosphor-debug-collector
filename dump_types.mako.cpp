@@ -1,3 +1,6 @@
+## This file is a template.  The comment below is emitted
+## into the rendered file; feel free to edit this file.
+// !!! WARNING: This is a GENERATED Code..Please do NOT Edit !!!
 #include "dump_types.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -9,18 +12,21 @@ namespace phosphor
 {
 namespace dump
 {
+
 DUMP_TYPE_TABLE dumpTypeTable = {
-    {"xyz.openbmc_project.Dump.Create.DumpType.UserRequested",
-     {DumpTypes::USER, "BMC_DUMP"}},
-    {"xyz.openbmc_project.Dump.Create.DumpType.ApplicationCored",
-     {DumpTypes::CORE, "BMC_DUMP"}},
-    {"xyz.openbmc_project.Dump.Create.DumpType.Ramoops",
-     {DumpTypes::RAMOOPS, "BMC_DUMP"}}};
+% for item in DUMP_TYPE_TABLE:
+  % for key, values in item.items():
+    {"${key}", {DumpTypes::${values[0].upper()}, "${values[1]}"}},
+  % endfor
+% endfor
+};
 
 DUMP_TYPE_TO_STRING_MAP dumpTypeToStringMap = {
-    {DumpTypes::USER, "user"},
-    {DumpTypes::CORE, "core"},
-    {DumpTypes::RAMOOPS, "ramoops"},
+% for item in DUMP_TYPE_TABLE:
+  % for key, values in item.items():
+    {DumpTypes::${values[0].upper()}, "${values[0]}"},
+  % endfor
+% endfor
 };
 
 std::optional<std::string> dumpTypeToString(const DumpTypes& dumpType)
