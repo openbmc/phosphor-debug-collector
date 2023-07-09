@@ -76,6 +76,11 @@ option('ERROR_MAP_YAML', type : 'string',
         description : 'YAML filepath containing error object paths'
       )
 
+option('DUMP_TYPES_YAML', type : 'string',
+        value : 'example_dump_types.yaml',
+        description : 'YAML filepath containing error dump types'
+      )
+
 option('host-transport', type : 'string',
         value : 'default',
         description : 'To specify the host dump transport protocol')
