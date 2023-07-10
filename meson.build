@@ -212,6 +212,7 @@ errors_map_cpp = custom_target(
 
 phosphor_dump_manager_sources = [
         'dump_entry.cpp',
+        'base_dump_entry.cpp',
         'dump_manager.cpp',
         'dump_manager_bmc.cpp',
         'dump_manager_main.cpp',
@@ -219,7 +220,7 @@ phosphor_dump_manager_sources = [
         'elog_watch.cpp',
         errors_map_cpp,
         dump_types_hpp,
-	      dump_types_cpp,
+        dump_types_cpp,
         'watch.cpp',
         'bmc_dump_entry.cpp',
         'dump_utils.cpp',
