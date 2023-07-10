@@ -24,7 +24,7 @@ using namespace phosphor::logging;
 void Entry::delete_()
 {
     // Remove Dump entry D-bus object
-    parent.erase(id);
+    BaseEntry::delete_();
 }
 
 sdbusplus::message::unix_fd Entry::getFileHandle()
