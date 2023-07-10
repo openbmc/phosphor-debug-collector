@@ -227,6 +227,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36008e82_51eb688b",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-10T15:10:04Z",
+      "side": 1,
+      "message": "But there is no use for that since the dreport is not accepting it, and if there is any usecase in future, we should add a vector of paths as part of the variant in the create parameters. I dont think we need it until we have  that support.",
+      "parentUuid": "f7210745_3f718d38",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
