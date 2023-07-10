@@ -209,6 +209,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7210745_3f718d38",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-10T14:50:12Z",
+      "side": 1,
+      "message": "The initial design to support mutiples file based on dump type if required. I would like to keep the existing flow here.",
+      "parentUuid": "e790c709_0c256c8e",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
