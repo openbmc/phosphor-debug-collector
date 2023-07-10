@@ -1,9 +1,6 @@
 #pragma once
 
-#include "xyz/openbmc_project/Common/OriginatedBy/server.hpp"
-#include "xyz/openbmc_project/Common/Progress/server.hpp"
-#include "xyz/openbmc_project/Dump/Entry/server.hpp"
-#include "xyz/openbmc_project/Object/Delete/server.hpp"
+#include "base_dump_entry.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -20,12 +17,6 @@ namespace dump
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
-    sdbusplus::xyz::openbmc_project::Common::server::Progress,
-    sdbusplus::xyz::openbmc_project::Dump::server::Entry,
-    sdbusplus::xyz::openbmc_project::Object::server::Delete>;
-
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
 
@@ -39,7 +30,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : public EntryIfaces
+class Entry : public BaseEntry
 {
   public:
     Entry() = delete;
@@ -64,31 +55,9 @@ class Entry : public EntryIfaces
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
-        parent(parent), id(dumpId), file(file)
-    {
-        originatorId(originId);
-        originatorType(originType);
-
-        size(dumpSize);
-        status(dumpStatus);
-
-        // If the object is created after the dump creation keep
-        // all same as timeStamp
-        // if the object created before the dump creation, update
-        // only the start time. Completed and elapsed time will
-        // be updated once the dump is completed.
-        if (dumpStatus == OperationStatus::Completed)
-        {
-            startTime(timeStamp);
-            completedTime(timeStamp);
-        }
-        else
-        {
-            startTime(timeStamp);
-            completedTime(0);
-        }
-    };
+        BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, file, dumpStatus,
+                  originId, originType, parent)
+    {}
 
     /** @brief Delete this d-bus object.
      */
@@ -99,15 +68,7 @@ class Entry : public EntryIfaces
      */
     void initiateOffload(std::string uri) override
     {
-        offloadUri(uri);
-    }
-
-    /** @brief Returns the dump id
-     *  @return the id associated with entry
-     */
-    uint32_t getDumpId()
-    {
-        return id;
+        BaseEntry::initiateOffload(uri);
     }
 
     /** @brief Method to get the file handle of the dump
@@ -119,15 +80,28 @@ class Entry : public EntryIfaces
      */
     sdbusplus::message::unix_fd getFileHandle() override;
 
-  protected:
-    /** @brief This entry's parent */
-    Manager& parent;
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
+     */
+    virtual void markComplete(uint64_t /*timeStamp*/, uint64_t /*fileSize*/,
+                              const std::filesystem::path& /*filePath*/)
 
-    /** @brief This entry's id */
-    uint32_t id;
+    {}
 
-    /** @Dump file name */
-    std::filesystem::path file;
+    /** @brief Updates an existing dump entry once the dump creation is
+     * completed
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] dumpSize - Dump size in bytes.
+     *  @param[in] sourceId - DumpId provided by the source.
+     */
+    virtual void markCompleteWithSourceId(uint64_t /*timeStamp*/,
+                                          uint64_t /*fileSize*/,
+                                          uint32_t /*sourceId*/)
+    {}
 
   private:
     /** @brief Closes the file descriptor and removes the corresponding event
