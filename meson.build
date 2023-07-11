@@ -214,7 +214,7 @@ phosphor_dump_manager_sources = [
         dump_types_hpp,
         dump_types_cpp,
         'watch.cpp',
-        'bmc_dump_entry.cpp',
+	'bmc_dump_entry.cpp',
         'dump_utils.cpp',
         'dump_offload.cpp',
         'dump_manager_faultlog.cpp',
