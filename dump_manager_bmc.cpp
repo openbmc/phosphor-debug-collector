@@ -2,7 +2,6 @@
 
 #include "dump_manager_bmc.hpp"
 
-#include "bmc_dump_entry.hpp"
 #include "dump_types.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
