@@ -128,7 +128,7 @@ class Entry : public BaseEntry, public DumpEntryIface<T>
         size(fileSize);
         // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);
-        heleper.setFile(filePath);
+        helper.setFile(filePath);
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
