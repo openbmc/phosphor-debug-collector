@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4138aaf0_63713ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "Hi Deepa. Firstly, thanks for reworking the patch to use the libpldm APIs. This helps Rashmica out a lot with one less application for her to convert on her way to enabling in-kernel MCTP. That said, I have a few concerns that I\u0027ve outlined in the comments.",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce0e8cb8_8721b8ff",
@@ -79,6 +96,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04f3936c_73936f2e",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "I think use of RAII is questionable, as the resource being controlled (the instance ID) is extracted via the `getInstanceID()` method anyway. This opens it up to life-cycle violations, which is the kind of bug that RAII is meant to help manage.\n\nWe might as well just add the calls to allocate and free in the appropriate places. Overall I think that would also reduce the size of the patch. The size of the patch surprised me.",
+      "parentUuid": "5b4826a5_c5599031",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7110add3_9bb19bcf",
         "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
         "patchSetId": 10
@@ -113,6 +148,40 @@
       "writtenOn": "2023-07-11T14:09:13Z",
       "side": 1,
       "message": "Need to add the exception details",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702415b5_8c706fd1",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "We should not call this type `PLDMInstanceIdDb` if it maintains its current implementation. The object only ever allocates a single instance ID during its construction. This means it does not represent a database, it represents the actual allocated instance ID itself. Naming it `PLDMInstanceIdDb` is confusing given the implementation and is the kind of thing that will cause bugs.\n\nIf you really must have this implementation (where an instance ID is allocated in the constructor) then you must also rename the class to `PLDMInstanceId` (drop the `Db` suffix). Naming it `PLDMInstanceId` will tell the reader that an instance represents exactly one instance ID.",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04da4edb_0fec0751",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "It concerns me that we are setting up and tearing down the database for every ID allocation. BMCs aren\u0027t fast - this is unnecessary overhead and every operation counts. More importantly this makes any test cases interfere with the instance ID database of the system the tests are being run on.\n\nI suggest the database instance be passed into the constructor here as a dependency via a reference or pointer. The database itself should be instantiated in `main()`, as this is where the choice of the DB configuration matters (global database vs test-specific). If the code structure doesn\u0027t support that then it suggests the code needs some refactoring such that it can.\n\nHere\u0027s pldmd\u0027s approach:\n\nhttps://github.com/openbmc/pldm/blob/master/pldmd/pldmd.cpp#L201-L203\n\nThe `InstanceIdDb` class wraps up the libpldm APIs:\n\nhttps://github.com/openbmc/pldm/blob/master/pldmd/instance_id.hpp#L21\n\nReturning to the point on test cases, they should be implemented using an instance ID database instantiated using `pldm_instance_db_init()`. This way we can provide a path to a test-specific (temporary) database file and prevent interference with the system\u0027s global instance ID database. The pldmd codebase has an example of a class that provides this behaviour:\n\nhttps://github.com/openbmc/pldm/blob/master/test/test_instance_id.hpp",
       "revId": "f8eddabada877df2f326e4821a495eb088468526",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -177,6 +246,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e89375de_2f08834d",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "At this point the ID is no-longer properly managed via RAII. Because of this I don\u0027t think RAII is actually helping in this case.",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6455326b_2cbf5ad6",
         "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
         "patchSetId": 10
@@ -194,6 +280,23 @@
         "endLine": 110,
         "endChar": 69
       },
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df22362_7f61f59f",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-07-11T22:05:29Z",
+      "side": 1,
+      "message": "The current implementation of `getInstanceID()` always returns the same ID, as the ID it returns is allocated in the object constructor. If `pldmInstanceIdDb` truly represents the database then `getInstanceID()` must always allocate a newly available instance ID for each call. `getInstanceID()` must never reuse an allocated instance ID, no matter the context. Doing so entirely defeats their purpose (disambiguation of requests at the protocol level). See the commentary around instance IDs in sections 6.1 and 6.3 of DSP0240 (PLDM Base Specification) v1.0.0.",
       "revId": "f8eddabada877df2f326e4821a495eb088468526",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
