@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a62da93b_6984c78f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2023-07-11T08:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f079aa51_5ba542fc",
+      "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c186ff6d_2c73ac69",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Thanks.",
       "parentUuid": "50b53c88_8438cbab",
+      "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06b386e6_1b6d69b2",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2023-07-11T08:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28290f9d_523d5ebc",
       "revId": "589364e46675dbf70b0ada9fbba5e649ee6d6935",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
