@@ -20,6 +20,110 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0c1aa27_9f20158f",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "RAII",
+      "parentUuid": "1c8a4e5c_6270545a",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7110add3_9bb19bcf",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "rephrase",
+      "range": {
+        "startLine": 35,
+        "startChar": 45,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fce529a_6f6bc399",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "we can add the implementation of allocateInstanceId directly here for clarity,that method is not called else where to say for reuse.",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02a0e534_99ef79f3",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "we can add the implementation of freeInstanceId directly here for clarity,that method is not called else where to say for reuse.",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6455326b_2cbf5ad6",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "not recommended to throw exceptions from destructor as this method is called from destructor, if essential we need to add this to a public method and call it and caller should catch exception.\n\nifstream\nThe close() method can potentially throw an exception. The destructor calls close() if the file has been opened but makes sure that any exceptions do not propagate out of the destructor.\n\nSo if the user of a file object wants to do special handling for problems associated to closing the file they will manually call close() and handle any exceptions. If on the other hand they do not care then the destructor will be left to handle the situation.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 69
+      },
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02ef87a8_2c084212",
         "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
         "patchSetId": 10
@@ -37,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85d9df4c_00ce4b77",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "+1 encode_set_numeric_effecter_value_req this method does not throw any exceptions it is C code but I guess you added as PLDMInstanceIdDb can throw exceptions",
+      "parentUuid": "02ef87a8_2c084212",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af527bfe_fa335432",
         "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
         "patchSetId": 10
@@ -48,6 +170,24 @@
       "writtenOn": "2023-07-11T10:52:18Z",
       "side": 1,
       "message": "We wont be able to continue if there is a failure in getting instance id, need to return unavailable",
+      "revId": "f8eddabada877df2f326e4821a495eb088468526",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d423c0_eebc7470",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-07-11T13:55:36Z",
+      "side": 1,
+      "message": "+1 also this encode_file_ack_req is C code will not throw any exceptions I guess you added as PLDMInstanceIdDb can throw exceptions",
+      "parentUuid": "af527bfe_fa335432",
       "revId": "f8eddabada877df2f326e4821a495eb088468526",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
