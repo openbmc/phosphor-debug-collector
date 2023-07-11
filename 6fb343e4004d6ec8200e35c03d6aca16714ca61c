@@ -245,6 +245,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d7775dd_f4dba891",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-11T05:03:08Z",
+      "side": 1,
+      "message": "Here you are trying to remove the existing support. Unless there is strong reason for removing this , not a good idea to remove the existing working code. \nNote: There is already review in progress to package mutiple core file as part of dump, in this case we can use the existing interface with out any change.",
+      "parentUuid": "36008e82_51eb688b",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
