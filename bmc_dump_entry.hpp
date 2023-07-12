@@ -1,28 +1,33 @@
 #pragma once
 
 #include "dump_entry.hpp"
-#include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
+#include "xyz/openbmc_project/Dump/Entry/BMC/server.hpp"
+#include "xyz/openbmc_project/Dump/Entry/server.hpp"
+#include "xyz/openbmc_project/Object/Delete/server.hpp"
+#include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
-namespace openpower
+#include <filesystem>
+
+namespace phosphor
 {
 namespace dump
 {
-namespace system
+namespace bmc
 {
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
 using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
+    sdbusplus::xyz::openbmc_project::Dump::Entry::server::BMC>;
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
 
 /** @class Entry
- *  @brief System Dump Entry implementation.
+ *  @brief OpenBMC Dump Entry implementation.
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
@@ -42,54 +47,57 @@ class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry
      *  @param[in] dumpId - Dump id.
      *  @param[in] timeStamp - Dump creation timestamp
      *             since the epoch.
-     *  @param[in] dumpSize - Dump size in bytes.
-     *  @param[in] sourceId - DumpId provided by the source.
-     *  @param[in] status - status  of the dump.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Absolute path to the dump file.
+     *  @param[in] status - status of the dump.
      *  @param[in] originatorId - Id of the originator of the dump
      *  @param[in] originatorType - Originator type
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          uint64_t timeStamp, uint64_t fileSize,
+          const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::BaseManager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
-        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              std::string(), status, originatorId,
-                              originatorType, parent)
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
+                              file, status, originatorId, originatorType,
+                              parent)
     {
-        sourceDumpId(sourceId);
         // Emit deferred signal.
-        this->openpower::dump::system::EntryIfaces::emit_object_added();
-    };
+        this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
+    }
+
+    /** @brief Delete this d-bus object.
+     */
+    void delete_() override;
 
     /** @brief Method to initiate the offload of dump
-     *  @param[in] uri - URI to offload dump.
+     *  @param[in] uri - URI to offload dump
      */
     void initiateOffload(std::string uri) override;
 
-    /** @brief Method to update an existing dump entry
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
      *  @param[in] timeStamp - Dump creation timestamp
-     *  @param[in] dumpSize - Dump size in bytes.
-     *  @param[in] sourceId - DumpId provided by the source.
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
+    void update(uint64_t timeStamp, uint64_t fileSize,
+                const std::filesystem::path& filePath)
     {
         elapsed(timeStamp);
-        size(dumpSize);
-        sourceDumpId(sourceId);
-        // TODO: Handled dump failure case with
-        // #bm-openbmc/2808
+        size(fileSize);
+        // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);
+        file = filePath;
+        // TODO: serialization of this property will be handled with
+        // #ibm-openbmc/2597
         completedTime(timeStamp);
     }
-
-    /**
-     * @brief Delete host system dump and it entry dbus object
-     */
-    void delete_() override;
 };
 
-} // namespace system
+} // namespace bmc
 } // namespace dump
-} // namespace openpower
+} // namespace phosphor
