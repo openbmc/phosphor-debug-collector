@@ -21,8 +21,6 @@ using EntryIfaces = sdbusplus::server::object_t<
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
 
-class Manager;
-
 /** @class Entry
  *  @brief System Dump Entry implementation.
  *  @details A concrete implementation for the
@@ -54,7 +52,7 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::Manager& parent) :
+          originatorTypes originatorType, phosphor::dump::BaseManager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               std::string(), status, originatorId,
                               originatorType, parent),
