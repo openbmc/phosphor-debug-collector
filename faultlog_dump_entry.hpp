@@ -18,8 +18,6 @@ namespace faultlog
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-class Manager;
-
 /** @class Entry
  *  @brief OpenBMC Fault Log Dump Entry implementation.
  */
@@ -50,7 +48,7 @@ class Entry : virtual public phosphor::dump::Entry
           uint64_t timeStamp, uint64_t fileSize,
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::Manager& parent) :
+          originatorTypes originatorType, phosphor::dump::BaseManager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               file, status, originatorId, originatorType,
                               parent)
