@@ -1,3 +1,4 @@
+#include "base_dump_manager.hpp"
 #include "dump_manager.hpp"
 
 #include <memory>
@@ -8,7 +9,8 @@ namespace phosphor
 namespace dump
 {
 
-using DumpManagerList = std::vector<std::unique_ptr<phosphor::dump::Manager>>;
+using DumpManagerList =
+    std::vector<std::unique_ptr<phosphor::dump::BaseManager>>;
 /**
  * @brief load the dump extensions
  *
