@@ -6,7 +6,6 @@
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
-#include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 namespace openpower
 {
@@ -17,7 +16,6 @@ namespace system
 
 constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using NotifyIface = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::xyz::openbmc_project::Dump::server::NewDump>;
 
 /** @class Manager

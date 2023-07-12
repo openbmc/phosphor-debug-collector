@@ -1,7 +1,7 @@
 #pragma once
 
+#include "base_dump_manager.hpp"
 #include "dump_entry.hpp"
-#include "xyz/openbmc_project/Collection/DeleteAll/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -13,17 +13,12 @@ namespace phosphor
 namespace dump
 {
 
-using DumpCreateParams =
-    std::map<std::string, std::variant<std::string, uint64_t>>;
-using Iface = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Collection::server::DeleteAll>;
-
 /** @class Manager
  *  @brief Dump  manager base class.
  *  @details A concrete implementation for the
  *  xyz::openbmc_project::Collection::server::DeleteAll.
  */
-class Manager : public Iface
+class Manager : public BaseManager
 {
     friend class BaseEntry;
 
@@ -43,14 +38,9 @@ class Manager : public Iface
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
-        Iface(bus, path, Iface::action::defer_emit),
-        bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
+        BaseManager(bus, path),
+        lastEntryId(0), baseEntryPath(baseEntryPath)
     {}
-
-    /** @brief Construct dump d-bus objects from their persisted
-     *        representations.
-     */
-    virtual void restore() = 0;
 
   protected:
     /** @brief Erase specified entry d-bus object
@@ -63,10 +53,7 @@ class Manager : public Iface
      * from Permanent location
      *
      */
-    void deleteAll() override;
-
-    /** @brief sdbusplus DBus bus connection. */
-    sdbusplus::bus_t& bus;
+    virtual void deleteAll() override;
 
     /** @brief Dump Entry dbus objects map based on entry id */
     std::map<uint32_t, std::unique_ptr<BaseEntry>> entries;
