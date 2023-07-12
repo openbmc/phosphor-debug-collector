@@ -1,7 +1,7 @@
 #include "config.h"
 
+#include "base_dump_manager.hpp"
 #include "dump-extensions.hpp"
-#include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
 #include "dump_manager_faultlog.hpp"
 #include "elog_watch.hpp"
