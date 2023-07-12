@@ -74,7 +74,7 @@ class Entry : public BaseEntry, public DumpEntryIface<T>
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, OriginatorTypes originType,
-          phosphor::dump::Manager& parent) :
+          phosphor::dump::BaseManager& parent) :
         BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, file, dumpStatus,
                   originId, originType, parent),
         DumpEntryIface<T>(bus, objPath.c_str(),
