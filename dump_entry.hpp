@@ -89,7 +89,6 @@ class Entry : public BaseEntry
      */
     virtual void markComplete(uint64_t /*timeStamp*/, uint64_t /*fileSize*/,
                               const std::filesystem::path& /*filePath*/)
-
     {}
 
   private:

@@ -6,6 +6,7 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <sdeventplus/event.hpp>
@@ -117,6 +118,7 @@ class BaseEntry : public EntryIfaces
      */
     virtual void initiateOffload(std::string uri) override
     {
+        lg2::error(">Base entry offload");
         offloadUri(uri);
     }
 

@@ -81,6 +81,7 @@ class Entry : public BaseEntry, public DumpEntryIface<T>
                           DumpEntryIface<T>::action::emit_no_signals),
         helper(*this, file)
     {
+        lg2::error("Filename {FILE}", "FILE", file.string());
         this->phosphor::dump::new_::DumpEntryIface<T>::emit_object_added();
     };
 
@@ -88,8 +89,10 @@ class Entry : public BaseEntry, public DumpEntryIface<T>
      */
     void delete_() override
     {
+        lg2::error("> delete");
         helper.delete_();
         BaseEntry::delete_();
+        lg2::error("< delete");
     }
 
     /** @brief Method to initiate the offload of dump
@@ -97,9 +100,11 @@ class Entry : public BaseEntry, public DumpEntryIface<T>
      */
     void initiateOffload(std::string uri) override
     {
+        lg2::error("> offload");
         BaseEntry::initiateOffload(uri);
         helper.initiateOffload(id, uri);
         offloaded(true);
+        lg2::error("< offload");
     }
 
     /** @brief Method to get the file handle of the dump

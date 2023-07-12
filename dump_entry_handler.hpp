@@ -48,12 +48,16 @@ class DumpEntryHelper
      */
     DumpEntryHelper(BaseEntry& dumpEntry, const std::filesystem::path& file) :
         dumpEntry(dumpEntry), file(file)
-    {}
+    {
+        lg2::error("File name CTOR {DUMP_FILE}", "DUMP_FILE", file.string());
+    }
 
     /** @brief Delete this d-bus object.
      */
     void delete_()
     {
+        lg2::error("Dleting in helper delete");
+        lg2::error("File name {DUMP_FILE}", "DUMP_FILE", file.string());
         // Delete Dump file from Permanent location
         try
         {
@@ -66,6 +70,7 @@ class DumpEntryHelper
                 "Failed to delete dump file: {DUMP_FILE}, errormsg: {ERROR_MSG}",
                 "DUMP_FILE", file, "ERROR_MSG", e.what());
         }
+        lg2::error("< delete in helper");
     }
 
     /**
@@ -75,6 +80,8 @@ class DumpEntryHelper
      */
     void initiateOffload(uint32_t id, std::string uri)
     {
+        lg2::error("offload in helper offload");
+        lg2::error("File name {DUMP_FILE}", "DUMP_FILE", file.string());
         phosphor::dump::offload::requestOffload(file, id, uri);
     }
 

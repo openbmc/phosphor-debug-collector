@@ -1,5 +1,7 @@
 #include "dump_manager.hpp"
 
+#include <phosphor-logging/lg2.hpp>
+
 namespace phosphor
 {
 namespace dump
@@ -7,7 +9,9 @@ namespace dump
 
 void Manager::erase(uint32_t entryId)
 {
+    lg2::error("> dump manager erase");
     entries.erase(entryId);
+    lg2::error("< dump manager erase");
 }
 
 void Manager::deleteAll()

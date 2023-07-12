@@ -194,6 +194,7 @@ void Manager::createEntry(const std::filesystem::path& file)
     uint64_t timestamp = stoull(match[EPOCHTIME_POS]) * 1000 * 1000;
 
     auto id = stoul(idString);
+    lg2::error("create entry Filename {FILE}", "FILE", file.string());
 
     // If there is an existing entry update it and return.
     auto dumpEntry = entries.find(id);
