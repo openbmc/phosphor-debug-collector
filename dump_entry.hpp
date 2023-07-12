@@ -1,6 +1,7 @@
 #pragma once
 
 #include "base_dump_entry.hpp"
+#include "base_dump_manager.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -54,7 +55,8 @@ class Entry : public BaseEntry
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
-          std::string originId, originatorTypes originType, Manager& parent) :
+          std::string originId, originatorTypes originType,
+          BaseManager& parent) :
         BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, file, dumpStatus,
                   originId, originType, parent)
     {}

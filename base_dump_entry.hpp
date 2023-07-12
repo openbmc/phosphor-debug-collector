@@ -18,7 +18,7 @@ namespace phosphor
 namespace dump
 {
 
-class Manager;
+class BaseManager;
 
 // TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
 // still needed in dump entry since start time and completed time are available
@@ -79,7 +79,7 @@ class BaseEntry : public EntryIfaces
               uint32_t dumpId, uint64_t timeStamp, uint64_t dumpSize,
               const std::filesystem::path& file, OperationStatus dumpStatus,
               std::string originId, OriginatorTypes originType,
-              Manager& parent) :
+              BaseManager& parent) :
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
         parent(parent), id(dumpId), file(file)
     {
@@ -128,6 +128,14 @@ class BaseEntry : public EntryIfaces
         return id;
     }
 
+    /** @brief Returns the reference to dump manager
+     *  @return Reference to dump manager
+     */
+    BaseManager& getParent()
+    {
+        return parent;
+    }
+
     /** @brief Method to update an existing dump entry, once the dump creation
      *  is completed this function will be used to update the entry which got
      *  created during the dump request.
@@ -148,7 +156,7 @@ class BaseEntry : public EntryIfaces
                                           uint32_t sourceId) = 0;
   protected:
     /** @brief This entry's parent */
-    Manager& parent;
+    BaseManager& parent;
 
     /** @brief This entry's id */
     uint32_t id;
