@@ -7,7 +7,6 @@
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
-#include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 namespace phosphor
 {
@@ -16,15 +15,10 @@ namespace dump
 namespace faultlog
 {
 
-using CreateIface = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Dump::server::Create>;
-
 /** @class Manager
  *  @brief FaultLog Dump manager implementation.
  */
-class Manager :
-    virtual public CreateIface,
-    virtual public phosphor::dump::Manager
+class Manager : public phosphor::dump::Manager
 {
   public:
     Manager() = delete;
@@ -42,8 +36,8 @@ class Manager :
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath, const char* filePath) :
-        CreateIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath), dumpDir(filePath)
+        phosphor::dump::Manager(bus, path, baseEntryPath),
+        dumpDir(filePath)
     {
         std::error_code ec;
 
