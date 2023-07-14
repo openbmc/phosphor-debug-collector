@@ -196,6 +196,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "223972bd_3c8f8c23",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-14T14:54:21Z",
+      "side": 1,
+      "message": "missed",
+      "parentUuid": "36bc3d8c_a41ed49f",
+      "range": {
+        "startLine": 76,
+        "startChar": 19,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a262b90_4d9301e8",
@@ -341,6 +365,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fdc6358_c85cd2c7",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-14T14:54:21Z",
+      "side": 1,
+      "message": "The interface is internal and that is getting deleted in the future commit Addin to the overflow",
+      "parentUuid": "252faf13_c73081c1",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
@@ -352,6 +394,24 @@
       "writtenOn": "2023-06-30T14:07:59Z",
       "side": 1,
       "message": "by defining const type map , you can move this initialization to hpp.",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04bdaaa8_36dbe600",
+        "filename": "dump_types.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-14T14:54:21Z",
+      "side": 1,
+      "message": "The multiple definition issue will not go away even with const",
+      "parentUuid": "aa31d895_0797cdd1",
       "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
