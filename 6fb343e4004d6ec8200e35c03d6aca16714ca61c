@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a430dfa0_b83db703",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-14T13:13:57Z",
+      "side": 1,
+      "message": "ok, add \"Tested:\" to commit message?",
+      "parentUuid": "ce0c19c2_6624a3bf",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35ab366a_a8b6f4c9",
         "filename": "dump_manager_bmc.cpp",
         "patchSetId": 2
@@ -144,6 +162,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "3724771f_539b6152",
+      "range": {
+        "startLine": 76,
+        "startChar": 19,
+        "endLine": 76,
+        "endChar": 22
+      },
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36bc3d8c_a41ed49f",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-14T13:13:57Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem done?",
+      "parentUuid": "bd520397_b5c9111d",
       "range": {
         "startLine": 76,
         "startChar": 19,
@@ -275,6 +317,24 @@
       "side": 1,
       "message": "The current interface does support multiple paths, but the underlying implementation doesn\u0027t. When a commit to package multiple core dumps into a single dump was pushed, I asked this question to the community via Discord, the consensus was that there should be one core dump per dump. Thus, if there are multiple core dumps, the core monitor would need to initiate multiple calls to package each dump individually.\n\nGiven this, in our current use cases, only one file needs to be added to each dump. If a new type of dump requires packaging all files in a folder, the folder can be directly sent to the dreport, allowing the script to process the specific dump accordingly.\n\nShould we encounter a rare use case in the future where files from multiple locations need to be collected for packaging, we\u0027d need to discuss the best approach at that time. However, I think such a scenario is unlikely because a special dump type typically handles a specific use case and should package either a single file or multiple files from a specific folder.\n\nIn instances where multiple files must be packaged for a use case, a client application should collect the information from each file to be sent. In such cases, the client application can consolidate all the data in a temporary folder and send the folder name as part of the call.\n\nGiven these considerations, I don\u0027t see a compelling reason to maintain an array of files here",
       "parentUuid": "8d7775dd_f4dba891",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252faf13_c73081c1",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-14T13:13:57Z",
+      "side": 1,
+      "message": "ok, seems reasonable, but can we delete the interface above that takes the vector of files as input? Seems confusing to have both. May be a good topic to throw up on our overflow call if we just need to talk this one out a bit.",
+      "parentUuid": "fef57932_f3d1f49b",
       "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
