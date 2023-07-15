@@ -1,5 +1,6 @@
 #include "base_dump_manager.hpp"
 #include "dump_manager.hpp"
+#include "host_transport_exts.hpp"
 
 #include <memory>
 #include <vector>
@@ -18,6 +19,8 @@ using DumpManagerList =
  * @param[out] dumpMgrList - list dump manager objects.
  *
  */
-void loadExtensions(sdbusplus::bus_t& bus, DumpManagerList& dumpMgrList);
+void loadExtensions(sdbusplus::bus_t& bus,
+                    phosphor::dump::host::HostTransport& hostTransport,
+                    DumpManagerList& dumpMgrList);
 } // namespace dump
 } // namespace phosphor

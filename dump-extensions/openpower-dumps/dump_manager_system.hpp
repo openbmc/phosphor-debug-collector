@@ -2,6 +2,7 @@
 
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
+#include "host_transport_exts.hpp"
 #include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -42,9 +43,11 @@ class Manager :
      *  @param[in] baseEntryPath - Base path of the dump entry.
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
-            const std::string& baseEntryPath) :
+            const std::string& baseEntryPath,
+            phosphor::dump::host::HostTransport& hostTransport) :
         NotifyIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath)
+        phosphor::dump::Manager(bus, path, baseEntryPath),
+        hostTransport(hostTransport)
     {}
 
     void restore() override
@@ -67,6 +70,9 @@ class Manager :
      */
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
+
+  private:
+    phosphor::dump::host::HostTransport& hostTransport;
 };
 
 } // namespace system
