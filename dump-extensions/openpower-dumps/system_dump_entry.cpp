@@ -1,7 +1,7 @@
 #include "system_dump_entry.hpp"
 
+#include "dump_manager_system.hpp"
 #include "dump_utils.hpp"
-#include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -14,10 +14,6 @@ namespace dump
 {
 namespace system
 {
-// TODO #ibm-openbmc/issues/2859
-// Revisit host transport impelementation
-// This value is used to identify the dump in the transport layer to host,
-constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 3;
 using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
@@ -26,7 +22,7 @@ void Entry::initiateOffload(std::string uri)
               "source dumpid: {SOURCE_DUMP_ID}",
               "ID", id, "URI", uri, "SOURCE_DUMP_ID", sourceDumpId());
     phosphor::dump::Entry::initiateOffload(uri);
-    phosphor::dump::host::requestOffload(sourceDumpId());
+    hostTransport.requestOffload(sourceDumpId());
 }
 
 void Entry::delete_()
@@ -53,8 +49,8 @@ void Entry::delete_()
     {
         try
         {
-            phosphor::dump::host::requestDelete(srcDumpID,
-                                                TRANSPORT_DUMP_TYPE_IDENTIFIER);
+            hostTransport.requestDelete(srcDumpID,
+                                        phosphor::dump::DumpTypes::SYSTEM);
         }
         catch (const std::exception& e)
         {
