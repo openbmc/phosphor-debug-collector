@@ -3,6 +3,7 @@
 #include "dump_manager_system.hpp"
 
 #include "dump_utils.hpp"
+#include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 #include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
