@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "pldm_oem_cmds.hpp"
-
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
+#include "pldm_oem_cmds_util.hpp"
 #include "pldm_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -40,52 +39,19 @@ namespace host
 
 using namespace phosphor::logging;
 
-using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
-using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-
 void HostTransport::requestOffload(uint32_t id)
 {
-    uint16_t effecterId = 0x05; // TODO PhyP temporary Hardcoded value.
-
-    std::array<uint8_t, sizeof(pldm_msg_hdr) + sizeof(effecterId) + sizeof(id) +
-                            sizeof(uint8_t)>
-        requestMsg{};
-    auto request = reinterpret_cast<pldm_msg*>(requestMsg.data());
-
-    std::array<uint8_t, sizeof(id)> effecterValue{};
-
-    memcpy(effecterValue.data(), &id, sizeof(id));
-
-    mctp_eid_t eid = readEID();
-
-    auto instanceID = phosphor::dump::pldm::getPLDMInstanceID(eid);
-
-    auto rc = encode_set_numeric_effecter_value_req(
-        instanceID, effecterId, PLDM_EFFECTER_DATA_SIZE_UINT32,
-        effecterValue.data(), request,
-        requestMsg.size() - sizeof(pldm_msg_hdr));
-
-    if (rc != PLDM_SUCCESS)
-    {
-        lg2::error("Message encode failure. RC: {RC}", "RC", rc);
-        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
-                                "allowed due to encode failed"));
-    }
+    pldm_msg* request;
+    createRequestMsg(request, id);
 
     CustomFd fd(phosphor::dump::pldm::openPLDM());
+    mctp_eid_t eid = readEID();
 
     lg2::info("Sending request to offload dump id: {ID}, eid: {EID}", "ID", id,
               "EID", eid);
 
-    rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
-    if (rc < 0)
-    {
-        auto e = errno;
-        lg2::error("pldm_send failed, RC: {RC}, errno: {ERRNO}", "RC", rc,
-                   "ERRNO", e);
-        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
-                                "allowed due to fileack send failed"));
-    }
+    auto rc = pldm_send(eid, fd(), request, requestMsg.size());
+    handlePLDMSendFailure(rc);
     lg2::info("Done. PLDM message, id: {ID}, RC: {RC}", "ID", id, "RC", rc);
 }
 
@@ -104,59 +70,26 @@ void HostTransport::requestDelete(uint32_t dumpId)
             throw std::runtime_error("Unknown pldm dump file-io type to delete "
                                      "host dump");
     }
-    const size_t pldmMsgHdrSize = sizeof(pldm_msg_hdr);
-    std::array<uint8_t, pldmMsgHdrSize + PLDM_FILE_ACK_REQ_BYTES> fileAckReqMsg;
+
+    std::array<uint8_t, PLDM_MSG_HDR_SIZE + PLDM_FILE_ACK_REQ_BYTES>
+        fileAckReqMsg;
+    auto request = reinterpret_cast<pldm_msg*>(fileAckReqMsg.data());
 
     mctp_eid_t mctpEndPointId = readEID();
-
-    auto pldmInstanceId =
-        phosphor::dump::pldm::getPLDMInstanceID(mctpEndPointId);
-
-    // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
-    //   no longer host dump is not required so, initiate deletion from
-    //   host memory
-    int retCode =
-        encode_file_ack_req(pldmInstanceId, pldmDumpType, dumpId, PLDM_SUCCESS,
-                            reinterpret_cast<pldm_msg*>(fileAckReqMsg.data()));
-
-    if (retCode != PLDM_SUCCESS)
-    {
-        lg2::error(
-            "Failed to encode pldm FileAck to delete host dump, "
-            "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
-            "PLDM_RETURN_CODE: {RET_CODE}",
-            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE",
-            static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
-                pldmDumpType),
-            "RET_CODE", retCode);
-        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
-                                "allowed due to encode fileack failed"));
-    }
+    createFileAckReqMsg(request, pldmDumpType, dumpId, mctpEndPointId);
 
     CustomFd pldmFd(phosphor::dump::pldm::openPLDM());
 
-    retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
-                        fileAckReqMsg.size());
-    if (retCode != PLDM_REQUESTER_SUCCESS)
-    {
-        auto errorNumber = errno;
-        lg2::error(
-            "Failed to send pldm FileAck to delete host dump, "
-            "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
-            "PLDM_RETURN_CODE: {RET_CODE}, ERRNO: {ERRNO}, ERRMSG: {ERRMSG}",
-            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE",
-            static_cast<std::underlying_type<pldm_fileio_file_type>::type>(
-                pldmDumpType),
-            "RET_CODE", retCode, "ERRNO", errorNumber, "ERRMSG",
-            strerror(errorNumber));
-        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
-                                "allowed due to fileack send failed"));
-    }
+    auto retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
+                             fileAckReqMsg.size());
+
+    handlePLDMSendFailure(retCode);
 
     lg2::info(
         "Sent request to host to delete the dump, SRC_DUMP_ID: {SRC_DUMP_ID}",
         "SRC_DUMP_ID", dumpId);
 }
+
 } // namespace host
 } // namespace dump
 } // namespace phosphor
