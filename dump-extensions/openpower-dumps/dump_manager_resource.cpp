@@ -90,7 +90,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
                     std::string(), std::string(),
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+                    originatorTypes::Internal, hostTransport, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -201,7 +201,7 @@ sdbusplus::message::object_path
             id, std::make_unique<resource::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
                     vspString, pwd, phosphor::dump::OperationStatus::InProgress,
-                    originatorId, originatorType, *this)));
+                    originatorId, originatorType, hostTransport, *this)));
     }
     catch (const std::invalid_argument& e)
     {
