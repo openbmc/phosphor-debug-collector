@@ -3,6 +3,7 @@
 #include "dump_manager_system.hpp"
 
 #include "dump_utils.hpp"
+#include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 #include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
@@ -111,7 +112,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+                    originatorTypes::Internal, hostTransport, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -212,7 +213,7 @@ sdbusplus::message::object_path
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
                     phosphor::dump::OperationStatus::InProgress, originatorId,
-                    originatorType, *this)));
+                    originatorType, hostTransport, *this)));
     }
     catch (const std::invalid_argument& e)
     {

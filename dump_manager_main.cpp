@@ -5,6 +5,7 @@
 #include "dump_manager_bmc.hpp"
 #include "dump_manager_faultlog.hpp"
 #include "elog_watch.hpp"
+#include "host_transport_exts.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -63,6 +64,8 @@ int main()
     try
     {
         phosphor::dump::DumpManagerList dumpMgrList{};
+        phosphor::dump::host::HostTransport hostTransport;
+
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
                 bus, eventP, BMC_DUMP_OBJPATH, BMC_DUMP_OBJ_ENTRY,
@@ -78,7 +81,7 @@ int main()
                 FAULTLOG_DUMP_PATH);
         dumpMgrList.push_back(std::move(faultLogMgr));
 
-        phosphor::dump::loadExtensions(bus, dumpMgrList);
+        phosphor::dump::loadExtensions(bus, hostTransport, dumpMgrList);
 
         // Restore dbus objects of all dumps
         for (auto& dmpMgr : dumpMgrList)
