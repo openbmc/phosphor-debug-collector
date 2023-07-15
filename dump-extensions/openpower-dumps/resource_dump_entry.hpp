@@ -2,6 +2,7 @@
 
 #include "com/ibm/Dump/Entry/Resource/server.hpp"
 #include "dump_entry.hpp"
+#include "host_dump_entry_handler.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -58,11 +59,14 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           std::string vspStr, std::string pwd,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::BaseManager& parent) :
+          originatorTypes originatorType,
+          phosphor::dump::host::HostTransport& hostTransport,
+          phosphor::dump::BaseManager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               std::string(), status, originatorId,
                               originatorType, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
+        hostTransport(hostTransport)
     {
         sourceDumpId(sourceId);
         vspString(vspStr);
@@ -96,6 +100,9 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      * @brief Delete resource dump in host memory and the entry dbus object
      */
     void delete_() override;
+
+  private:
+    phosphor::dump::host::HostTransport& hostTransport;
 };
 
 } // namespace resource

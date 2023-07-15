@@ -1,6 +1,20 @@
 #pragma once
 
+#include "dump_utils.hpp"
+#include "pldm_utils.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
+
+#include <libpldm/base.h>
+#include <libpldm/file_io.h>
+#include <libpldm/platform.h>
 #include <libpldm/pldm.h>
+#include <unistd.h>
+
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
+#include <sdbusplus/bus.hpp>
+
+#include <fstream>
 
 namespace phosphor
 {
@@ -8,60 +22,46 @@ namespace dump
 {
 namespace host
 {
-/**
- * @brief Initiate offload of the dump with provided id
- *
- * @param[in] id - The Dump Source ID.
- *
- */
-void requestOffload(uint32_t id);
 
-/**
- * @brief Request to delete dump
- *
- * @param[in] id - The Dump Source ID.
- * @param[in] dumpType - Type of the dump.
- * @return NULL
- *
- */
-void requestDelete(uint32_t id, uint32_t dumpType);
-} // namespace host
-
-namespace pldm
-{
-
-/**
- * PLDMInterface
- *
- * Handles sending the SetNumericEffecterValue PLDM
- * command to the host to start dump offload.
- *
- */
-
-/**
- * @brief Kicks of the SetNumericEffecterValue command to
- *        start offload the dump
- *
- * @param[in] id - The Dump Source ID.
- *
- */
-
-void requestOffload(uint32_t id);
+using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+constexpr auto eidPath = "/usr/share/pldm/host_eid";
+constexpr mctp_eid_t defaultEIDValue = 9;
 
 /**
  * @brief Reads the MCTP endpoint ID out of a file
  */
-mctp_eid_t readEID();
+inline mctp_eid_t readEID()
+{
+    mctp_eid_t eid = defaultEIDValue;
 
-/**
- * @brief Request to delete dump
- *
- * @param[in] id - The Dump Source ID.
- * @param[in] dumpType - Type of the dump.
- * @return NULL
- *
- */
-void requestDelete(uint32_t id, uint32_t dumpType);
-} // namespace pldm
+    std::ifstream eidFile{eidPath};
+    if (!eidFile.good())
+    {
+        lg2::error("Could not open host EID file");
+        elog<NotAllowed>(Reason("Required host dump action via pldm is not "
+                                "allowed due to mctp end point read failed"));
+    }
+    else
+    {
+        std::string eid;
+        eidFile >> eid;
+        if (!eid.empty())
+        {
+            eid = strtol(eid.c_str(), nullptr, 10);
+        }
+        else
+        {
+            lg2::error("EID file was empty");
+            elog<NotAllowed>(
+                Reason("Required host dump action via pldm is not "
+                       "allowed due to mctp end point read failed"));
+        }
+    }
+
+    return eid;
+}
+
+} // namespace host
 } // namespace dump
 } // namespace phosphor
