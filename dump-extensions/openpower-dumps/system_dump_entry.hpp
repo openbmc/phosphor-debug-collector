@@ -52,11 +52,14 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::BaseManager& parent) :
+          originatorTypes originatorType,
+          phosphor::dump::host::HostTransport& hostTransport,
+          phosphor::dump::BaseManager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
                               std::string(), status, originatorId,
                               originatorType, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
+        hostTransport(hostTransport)
     {
         sourceDumpId(sourceId);
         // Emit deferred signal.
@@ -88,6 +91,9 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      * @brief Delete host system dump and it entry dbus object
      */
     void delete_() override;
+
+  private:
+    phosphor::dump::host::HostTransport& hostTransport;
 };
 
 } // namespace system
