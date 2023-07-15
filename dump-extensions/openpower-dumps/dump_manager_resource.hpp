@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_manager.hpp"
+#include "host_transport_exts.hpp"
 #include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
 #include <com/ibm/Dump/Create/server.hpp>
@@ -45,7 +46,8 @@ class Manager :
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
         NotifyIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath)
+        phosphor::dump::Manager(bus, path, baseEntryPath),
+        hostTransport(phosphor::dump::host::HostTransport::getInstance())
     {}
 
     void restore() override
@@ -67,6 +69,14 @@ class Manager :
      */
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
+
+    phosphor::dump::host::HostTransport* getHostTransport()
+    {
+        return hostTransport;
+    }
+
+  private:
+    phosphor::dump::host::HostTransport* hostTransport;
 };
 
 } // namespace resource
