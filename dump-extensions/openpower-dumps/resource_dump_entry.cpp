@@ -1,7 +1,7 @@
 #include "resource_dump_entry.hpp"
 
+#include "dump_manager_resource.hpp"
 #include "dump_utils.hpp"
-#include "host_transport_exts.hpp"
 #include "op_dump_consts.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -14,10 +14,7 @@ namespace dump
 {
 namespace resource
 {
-// TODO #ibm-openbmc/issues/2859
-// Revisit host transport impelementation
-// This value is used to identify the dump in the transport layer to host,
-constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 9;
+
 using namespace phosphor::logging;
 
 void Entry::initiateOffload(std::string uri)
@@ -36,7 +33,8 @@ void Entry::initiateOffload(std::string uri)
         return;
     }
     phosphor::dump::Entry::initiateOffload(uri);
-    phosphor::dump::host::requestOffload(sourceDumpId());
+    dynamic_cast<Manager&>(parent).getHostTransport()->requestOffload(
+        sourceDumpId());
 }
 
 void Entry::delete_()
@@ -62,8 +60,8 @@ void Entry::delete_()
     {
         try
         {
-            phosphor::dump::host::requestDelete(srcDumpID,
-                                                TRANSPORT_DUMP_TYPE_IDENTIFIER);
+            dynamic_cast<Manager&>(parent).getHostTransport()->requestDelete(
+                srcDumpID);
         }
         catch (const std::exception& e)
         {

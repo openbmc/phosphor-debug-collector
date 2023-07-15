@@ -16,6 +16,7 @@
 #include "pldm_oem_cmds.hpp"
 
 #include "dump_utils.hpp"
+#include "host_transport_exts.hpp"
 #include "pldm_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
@@ -36,66 +37,13 @@ namespace dump
 {
 namespace host
 {
-/**
- * @brief Initiate offload of the dump with provided id
- *
- * @param[in] id - The Dump Source ID.
- *
- */
-void requestOffload(uint32_t id)
-{
-    pldm::requestOffload(id);
-}
-
-void requestDelete(uint32_t id, uint32_t dumpType)
-{
-    pldm::requestDelete(id, dumpType);
-}
-} // namespace host
-
-namespace pldm
-{
 
 using namespace phosphor::logging;
-
-constexpr auto eidPath = "/usr/share/pldm/host_eid";
-constexpr mctp_eid_t defaultEIDValue = 9;
 
 using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
-mctp_eid_t readEID()
-{
-    mctp_eid_t eid = defaultEIDValue;
-
-    std::ifstream eidFile{eidPath};
-    if (!eidFile.good())
-    {
-        lg2::error("Could not open host EID file");
-        elog<NotAllowed>(Reason("Required host dump action via pldm is not "
-                                "allowed due to mctp end point read failed"));
-    }
-    else
-    {
-        std::string eid;
-        eidFile >> eid;
-        if (!eid.empty())
-        {
-            eid = strtol(eid.c_str(), nullptr, 10);
-        }
-        else
-        {
-            lg2::error("EID file was empty");
-            elog<NotAllowed>(
-                Reason("Required host dump action via pldm is not "
-                       "allowed due to mctp end point read failed"));
-        }
-    }
-
-    return eid;
-}
-
-void requestOffload(uint32_t id)
+void HostTransport::requestOffload(uint32_t id)
 {
     uint16_t effecterId = 0x05; // TODO PhyP temporary Hardcoded value.
 
@@ -110,7 +58,7 @@ void requestOffload(uint32_t id)
 
     mctp_eid_t eid = readEID();
 
-    auto instanceID = getPLDMInstanceID(eid);
+    auto instanceID = phosphor::dump::pldm::getPLDMInstanceID(eid);
 
     auto rc = encode_set_numeric_effecter_value_req(
         instanceID, effecterId, PLDM_EFFECTER_DATA_SIZE_UINT32,
@@ -124,7 +72,7 @@ void requestOffload(uint32_t id)
                                 "allowed due to encode failed"));
     }
 
-    CustomFd fd(openPLDM());
+    CustomFd fd(phosphor::dump::pldm::openPLDM());
 
     lg2::info("Sending request to offload dump id: {ID}, eid: {EID}", "ID", id,
               "EID", eid);
@@ -141,7 +89,7 @@ void requestOffload(uint32_t id)
     lg2::info("Done. PLDM message, id: {ID}, RC: {RC}", "ID", id, "RC", rc);
 }
 
-void requestDelete(uint32_t dumpId, uint32_t dumpType)
+void HostTransport::requestDelete(uint32_t dumpId)
 {
     pldm_fileio_file_type pldmDumpType;
     switch (dumpType)
@@ -161,7 +109,8 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
 
     mctp_eid_t mctpEndPointId = readEID();
 
-    auto pldmInstanceId = getPLDMInstanceID(mctpEndPointId);
+    auto pldmInstanceId =
+        phosphor::dump::pldm::getPLDMInstanceID(mctpEndPointId);
 
     // - PLDM_SUCCESS - To indicate dump was readed (offloaded) or user decided,
     //   no longer host dump is not required so, initiate deletion from
@@ -184,7 +133,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
                                 "allowed due to encode fileack failed"));
     }
 
-    CustomFd pldmFd(openPLDM());
+    CustomFd pldmFd(phosphor::dump::pldm::openPLDM());
 
     retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
                         fileAckReqMsg.size());
@@ -208,6 +157,6 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
         "Sent request to host to delete the dump, SRC_DUMP_ID: {SRC_DUMP_ID}",
         "SRC_DUMP_ID", dumpId);
 }
-} // namespace pldm
+} // namespace host
 } // namespace dump
 } // namespace phosphor

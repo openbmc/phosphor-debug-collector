@@ -2,6 +2,7 @@
 
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
+#include "host_transport_exts.hpp"
 #include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -14,6 +15,10 @@ namespace dump
 {
 namespace system
 {
+// TODO #ibm-openbmc/issues/2859
+// Revisit host transport impelementation
+// This value is used to identify the dump in the transport layer to host,
+constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 3;
 
 constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using NotifyIface = sdbusplus::server::object_t<
@@ -46,7 +51,9 @@ class Manager :
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
         NotifyIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath)
+        phosphor::dump::Manager(bus, path, baseEntryPath),
+        hostTransport(phosphor::dump::host::HostTransport::getInstance(
+            TRANSPORT_DUMP_TYPE_IDENTIFIER))
     {}
 
     void restore() override
@@ -69,6 +76,14 @@ class Manager :
      */
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
+
+    phosphor::dump::host::HostTransport* getHostTransport()
+    {
+        return hostTransport;
+    }
+
+  private:
+    phosphor::dump::host::HostTransport* hostTransport;
 };
 
 } // namespace system

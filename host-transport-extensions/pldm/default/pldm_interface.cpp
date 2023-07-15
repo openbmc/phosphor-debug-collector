@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
+#include "host_transport_exts.hpp"
+
 #include <stdint.h>
 
 #include <stdexcept>
@@ -16,12 +18,12 @@ namespace host
  * @param[in] id - The Dump Source ID.
  *
  */
-void requestOffload(uint32_t)
+void HostTransport::requestOffload(uint32_t)
 {
     throw std::runtime_error("PLDM: Hostdump offload method not specified");
 }
 
-void requestDelete(uint32_t, uint32_t)
+void HostTransport::requestDelete(uint32_t)
 {
     throw std::runtime_error("PLDM: Hostdump delete method not specified");
 }
