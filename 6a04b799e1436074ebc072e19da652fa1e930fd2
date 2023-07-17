@@ -16,6 +16,24 @@
       "message": "I feel like I made this comment before, and there was a reason for it. But it\u0027s weird to define tables in a cpp file and code in a hpp file (and then extern them in the hpp). Why can\u0027t the functions in here just go in the cpp file?",
       "revId": "6a04b799e1436074ebc072e19da652fa1e930fd2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3bce5ce_622da9e8",
+        "filename": "dump_types.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-17T15:26:33Z",
+      "side": 1,
+      "message": "I just added this code now to reduce string comparison will move to cpp",
+      "parentUuid": "665c2f20_287573b6",
+      "revId": "6a04b799e1436074ebc072e19da652fa1e930fd2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
