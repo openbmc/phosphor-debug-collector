@@ -3,6 +3,9 @@
 unit_files += {'input': 'dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service',
          'output': 'clear_hostdumps_poweroff.service'}
 
+dump_types_yaml_files += {'input': 'dump-extensions/openpower-dumps/op_dump_types.yaml',
+         'output': 'op_dump_types.yaml'}
+
 # Configuration header file(openpower_dumps_config.h) generation
 opconf_data = configuration_data()
 
