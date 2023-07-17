@@ -437,6 +437,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "384b2371_4ae8baac",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-17T14:49:05Z",
+      "side": 1,
+      "message": "Do you mean why this function is still kept? it is because we are moving step by step to the new interface, which is why still this is kept to avoid build errors and function breaks.",
+      "parentUuid": "a554cde1_1169fa96",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
