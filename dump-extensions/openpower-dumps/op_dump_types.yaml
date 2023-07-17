@@ -1,0 +1,6 @@
+- com.ibm.Dump.Create.DumpType.System:
+      - system
+      - SYSTEM_DUMP
+- com.ibm.Dump.Create.DumpType.Resource:
+      - resource
+      - SYSTEM_DUMP
