@@ -419,6 +419,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a554cde1_1169fa96",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-17T14:46:37Z",
+      "side": 1,
+      "message": "I originally pushed a commit with removing the interface and made it granular based on the comments, now I didn\u0027t get how just this change will be a separate commit, because that will end up with a compiler error right?",
+      "parentUuid": "4bb8b7b1_c9749aa7",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa31d895_0797cdd1",
         "filename": "dump_types.cpp",
         "patchSetId": 2
