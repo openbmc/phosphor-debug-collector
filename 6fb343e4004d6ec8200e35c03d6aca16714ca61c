@@ -453,6 +453,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38570f1_657128a3",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-17T15:08:12Z",
+      "side": 1,
+      "message": "Oh, I see, it gets deleted in https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/63877/43/dump_manager_bmc.hpp. Makes sense now. So initially we said we\u0027d support passing multiple files, so we created an interface for that. But in practice, we never did that and the back end doesn\u0027t support it. So we\u0027re moving to just accepting one file (which is all the back end supports). If we ever run into a use case where we need multiple files we\u0027ll revisit but...we\u0027ve been going for a long time now without needing it.",
+      "parentUuid": "384b2371_4ae8baac",
+      "revId": "6fb343e4004d6ec8200e35c03d6aca16714ca61c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa31d895_0797cdd1",
