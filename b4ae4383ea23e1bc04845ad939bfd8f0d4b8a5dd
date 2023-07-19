@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4c7160_a447bb26",
+        "filename": "dump_types.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-19T12:52:33Z",
+      "side": 1,
+      "message": "I think you can now remove these externs?",
+      "revId": "b4ae4383ea23e1bc04845ad939bfd8f0d4b8a5dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4442875_7a7a6d4a",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-19T12:52:33Z",
+      "side": 1,
+      "message": "I\u0027d prefer this just be a helper function in your new dump_type.cpp so we don\u0027t have to externalize this table (allowing for abstraction from it) in the surrounding code. In fact, maybe you just move this whole function in there.",
+      "range": {
+        "startLine": 62,
+        "startChar": 27,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "b4ae4383ea23e1bc04845ad939bfd8f0d4b8a5dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
