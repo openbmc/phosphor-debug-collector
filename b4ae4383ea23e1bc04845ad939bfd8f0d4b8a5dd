@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3cc8f83_833a163c",
+        "filename": "dump_types.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-19T19:31:59Z",
+      "side": 1,
+      "message": "Moving the functions using the table to dump_types.cpp",
+      "parentUuid": "eb4c7160_a447bb26",
+      "revId": "b4ae4383ea23e1bc04845ad939bfd8f0d4b8a5dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4442875_7a7a6d4a",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-19T12:52:33Z",
       "side": 1,
       "message": "I\u0027d prefer this just be a helper function in your new dump_type.cpp so we don\u0027t have to externalize this table (allowing for abstraction from it) in the surrounding code. In fact, maybe you just move this whole function in there.",
+      "range": {
+        "startLine": 62,
+        "startChar": 27,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "b4ae4383ea23e1bc04845ad939bfd8f0d4b8a5dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef3b510_2fdcc637",
+        "filename": "dump_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-19T19:31:59Z",
+      "side": 1,
+      "message": "yes that is better, will move this function to the dump_types.hpp/cpp",
+      "parentUuid": "b4442875_7a7a6d4a",
       "range": {
         "startLine": 62,
         "startChar": 27,
