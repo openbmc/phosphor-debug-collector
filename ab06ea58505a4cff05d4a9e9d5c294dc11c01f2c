@@ -18,6 +18,29 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6103990_f6166c04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-20T14:49:32Z",
+      "side": 1,
+      "message": "systemd doesn\u0027t provide core dump monitor. Core dump monitor is an app part of pdc. Remove systemd from this line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "ab06ea58505a4cff05d4a9e9d5c294dc11c01f2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1bed1249_03dcc3dc",
