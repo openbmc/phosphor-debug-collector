@@ -286,6 +286,24 @@
       "parentUuid": "983bd965_5925ba4b",
       "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5d9135_af60eb76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2023-07-20T06:30:17Z",
+      "side": 1,
+      "message": "The patch lost track for a long while, I am catching it back.\n\nThe issue here is that (for phosphor::dump::bmc::Entry)\n1. The InterfacesRemoved signal does not remove the interfaces created by the base class (phosphor::dump::Entry)\n2. This results in mapper does not clear the object when the object is deleted.\n\nThe fix in this patch makes sure the `emit_object_added()` is sent for the base class, so that the InterfacesRemoved signal could indicate that all the interfaces are removed.\n\n@Patrick you mentioned some \"virtual children\" without \"virtual destructor\", could you elaborate?",
+      "parentUuid": "2e1778f8_6cccdbc5",
+      "revId": "9289509fa257a6c7e5bc2d960f97d1a33df534c8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
