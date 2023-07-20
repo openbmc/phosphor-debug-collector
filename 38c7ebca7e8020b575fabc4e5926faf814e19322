@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9473e125_fefa94a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 46
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T14:37:25Z",
+      "side": 1,
+      "message": "nit: premature wrapping of lines",
+      "revId": "38c7ebca7e8020b575fabc4e5926faf814e19322",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

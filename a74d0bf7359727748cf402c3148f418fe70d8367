@@ -242,6 +242,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb34076_ab89a70c",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T14:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2ba19dd_ceadd8c6",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5db174f_0062b294",
@@ -291,6 +309,24 @@
       "side": 1,
       "message": "And we are allowing only one user requested bmc dump at a time - debatable",
       "parentUuid": "532feff1_a384ae84",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d62d54b_aebd3bb2",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T14:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "411edf05_c23dd246",
       "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -560,6 +596,24 @@
       "side": 1,
       "message": "This is needed here for near atomicity",
       "parentUuid": "46358ef2_d70c7c74",
+      "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5581e84_0437416d",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 35
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T14:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e67c244_bf9cef81",
       "revId": "a74d0bf7359727748cf402c3148f418fe70d8367",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
