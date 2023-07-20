@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78617a10_17a9c9ea",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T14:28:53Z",
+      "side": 1,
+      "message": "nit: this is always a bit hard on the eyes. A line feed between variables and code helps it be a bit more readable in my opinion (the more single line feeds between code blocks the better in IMO)",
+      "revId": "21db4afa55867308c49120dd1b5269b217107687",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
