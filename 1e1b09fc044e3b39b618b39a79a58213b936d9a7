@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c366e21c_fd2cedc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-20T16:30:14Z",
+      "side": 1,
+      "message": "dump::Entry is never intended to be created on its own, but always as a sub-class of some other dump type.  Since the class is inherited, `emit_no_signals` is correct because the child class should be the one emitting the signals.\n\n```\nbmc_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump-extensions/openpower-dumps/resource_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump-extensions/openpower-dumps/system_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump_entry.hpp:class Entry : public EntryIfaces\nfaultlog_dump_entry.hpp:class Entry : virtual public phosphor::dump::Entry\n```\n\nbmc_dump_entry.hpp as an example has `defer_emit` and a call to `emit_object_added` later in the constructor.\n\nI don\u0027t see this proposal as correct or solving the problem.  If you\u0027re missing the signal for the bmc::Entry, we need to investigate that.",
+      "revId": "1e1b09fc044e3b39b618b39a79a58213b936d9a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
