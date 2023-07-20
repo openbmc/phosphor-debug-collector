@@ -41,6 +41,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee2411c_716a9c05",
+        "filename": "dump_types.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-20T19:19:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f44f4a_207dc3d9",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 37
+      },
+      "revId": "376086eee94be90dcc2e090cf6d69f12ca21b51d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aba5aaa4_11ef6b0b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-20T14:44:07Z",
       "side": 1,
       "message": "Missed my previous reveiw , Please change \"dt\" to \"dumpType\". same in Cpp file.",
+      "range": {
+        "startLine": 41,
+        "startChar": 61,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "376086eee94be90dcc2e090cf6d69f12ca21b51d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df1cd948_807cb2c1",
+        "filename": "dump_types.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-20T19:19:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba5aaa4_11ef6b0b",
       "range": {
         "startLine": 41,
         "startChar": 61,
