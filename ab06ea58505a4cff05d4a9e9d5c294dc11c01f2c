@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e922123_6f013ff5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T13:42:16Z",
+      "side": 1,
+      "message": "nit: commit message lines prematurely ending",
+      "revId": "ab06ea58505a4cff05d4a9e9d5c294dc11c01f2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bed1249_03dcc3dc",
+        "filename": "core_manager.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-20T13:42:16Z",
+      "side": 1,
+      "message": "The interemediate \"params\" seems a bit unneeded here. You can just do \"m.append(\u003cfirst pair of parmas\u003e)\"\n\"m.append(\u003csecond pair of params\u003e)\"\n\nBut not a big deal.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 10
+      },
+      "revId": "ab06ea58505a4cff05d4a9e9d5c294dc11c01f2c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
