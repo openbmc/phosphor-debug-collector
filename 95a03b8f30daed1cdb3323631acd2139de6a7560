@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ddeadfa0_94891e3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-20T19:20:17Z",
+      "side": 1,
+      "message": "The problem is we have to support OpenPOWER specific dumps, Are there any good alternative ways to expand the dump types to support extended dumps?\nhere is the commit adding OpenPOWER dump types\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/65047",
+      "parentUuid": "1c5bc657_68d4ff02",
+      "revId": "95a03b8f30daed1cdb3323631acd2139de6a7560",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b00b608_9b05af86",
         "filename": "/COMMIT_MSG",
         "patchSetId": 14
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-20T14:41:25Z",
       "side": 1,
       "message": "nit: premature line wrapping",
+      "revId": "95a03b8f30daed1cdb3323631acd2139de6a7560",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2628ab3e_8f0da351",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-20T19:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b00b608_9b05af86",
       "revId": "95a03b8f30daed1cdb3323631acd2139de6a7560",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2023-07-20T14:41:25Z",
       "side": 1,
       "message": "nit: line feed needed",
+      "revId": "95a03b8f30daed1cdb3323631acd2139de6a7560",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbe7238_e86f1b7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-20T19:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "184f0cd2_b1500de1",
       "revId": "95a03b8f30daed1cdb3323631acd2139de6a7560",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
