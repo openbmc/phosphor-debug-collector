@@ -16,6 +16,24 @@
       "message": "dump::Entry is never intended to be created on its own, but always as a sub-class of some other dump type.  Since the class is inherited, `emit_no_signals` is correct because the child class should be the one emitting the signals.\n\n```\nbmc_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump-extensions/openpower-dumps/resource_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump-extensions/openpower-dumps/system_dump_entry.hpp:class Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\ndump_entry.hpp:class Entry : public EntryIfaces\nfaultlog_dump_entry.hpp:class Entry : virtual public phosphor::dump::Entry\n```\n\nbmc_dump_entry.hpp as an example has `defer_emit` and a call to `emit_object_added` later in the constructor.\n\nI don\u0027t see this proposal as correct or solving the problem.  If you\u0027re missing the signal for the bmc::Entry, we need to investigate that.",
       "revId": "1e1b09fc044e3b39b618b39a79a58213b936d9a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f5c595_bceb9cbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000044
+      },
+      "writtenOn": "2023-07-21T07:46:05Z",
+      "side": 1,
+      "message": "Tested with a minimal code example, it turns out that the \"virtual children\" without \"virtual destructor\" statement is true, that the inheritance sequence is critical here.\n\nSee below code\n\n\tclass BMCEntryOK : public Entry, public BMCEntryIfaces\n\t{\n\t  public:\n\t\tBMCEntryOK(sdbusplus::bus_t\u0026 bus, const std::string\u0026 objPath) :\n\t\t\tEntry(bus, objPath),\n\t\t\tBMCEntryIfaces(bus, objPath.c_str(), BMCEntryIfaces::action::defer_emit)\n\t\t{\n\t\t\tBMCEntryIfaces::emit_object_added();\n\t\t}\n\t};\n\tclass BMCEntryKO : public BMCEntryIfaces, public Entry\n\t{\n\t  public:\n\t\tBMCEntryKO(sdbusplus::bus_t\u0026 bus, const std::string\u0026 objPath) :\n\t\t\tBMCEntryIfaces(bus, objPath.c_str(),\n\t\t\t\t\t\t   BMCEntryIfaces::action::defer_emit),\n\t\t\tEntry(bus, objPath)\n\t\t{\n\t\t\tBMCEntryIfaces::emit_object_added();\n\t\t}\n\t};\n\nFor `BMCEntryKO`, we can NOT get InterfaceRemoved signal for `xyz.openbmc_project.Dump.Entry`, while for `BMCEntryOK`, its InterfaceRemoved signal removes all the interfaces as expected.\n\nWill submit a new patch for this.",
+      "parentUuid": "c366e21c_fd2cedc8",
+      "revId": "1e1b09fc044e3b39b618b39a79a58213b936d9a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
