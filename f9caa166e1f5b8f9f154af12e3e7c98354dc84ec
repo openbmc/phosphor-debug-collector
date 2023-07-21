@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79bc330a_faab6e0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-21T11:04:29Z",
+      "side": 1,
+      "message": "elog is a generic name for the error log dumps, right? if no additional types are specified default dump, ie InternalFailure dump will be generated",
+      "parentUuid": "3ffe7e49_038d8f78",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d784aa47_81817f07",
         "filename": "/COMMIT_MSG",
         "patchSetId": 12
@@ -60,6 +84,24 @@
       "writtenOn": "2023-07-21T10:53:13Z",
       "side": 1,
       "message": "Why this is moved before dump restore?",
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3faefe25_ece723db",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-21T11:04:29Z",
+      "side": 1,
+      "message": "Just moved it together with BMC dump, is there any issue in keeping it before restore, I didnt find any issue in testing",
+      "parentUuid": "1cffb6b4_78dbb0f8",
       "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
