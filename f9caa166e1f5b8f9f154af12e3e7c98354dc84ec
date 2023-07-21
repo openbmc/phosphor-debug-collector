@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ffe7e49_038d8f78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-21T10:53:13Z",
+      "side": 1,
+      "message": "elg dump will create event will only triggered , for predefined error log watch list. Dump create interface is not called , incase not find valid error type by elog watch call back function.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d784aa47_81817f07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-21T10:53:13Z",
+      "side": 1,
+      "message": "make sure?",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 35
+      },
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cffb6b4_78dbb0f8",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-21T10:53:13Z",
+      "side": 1,
+      "message": "Why this is moved before dump restore?",
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
