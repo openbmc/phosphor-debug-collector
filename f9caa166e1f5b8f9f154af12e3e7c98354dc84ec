@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08190372_6c0dd092",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-21T14:04:28Z",
+      "side": 1,
+      "message": "meta-openpower/recipes-phosphor/dump/phosphor-debug-errors-native/errors_watch.yaml supports additional types.\nAlso for any missing dump type should log error, not request default dump types.",
+      "parentUuid": "79bc330a_faab6e0a",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d784aa47_81817f07",
         "filename": "/COMMIT_MSG",
         "patchSetId": 12
@@ -102,6 +126,24 @@
       "side": 1,
       "message": "Just moved it together with BMC dump, is there any issue in keeping it before restore, I didnt find any issue in testing",
       "parentUuid": "1cffb6b4_78dbb0f8",
+      "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92992a20_44545851",
+        "filename": "dump_manager_main.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-21T14:04:28Z",
+      "side": 1,
+      "message": "Flow followed here First restore dump entries and start watching/accept new dump requests to make design cleaner.",
+      "parentUuid": "3faefe25_ece723db",
       "revId": "f9caa166e1f5b8f9f154af12e3e7c98354dc84ec",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
