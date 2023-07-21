@@ -34,6 +34,24 @@
       "parentUuid": "c366e21c_fd2cedc8",
       "revId": "1e1b09fc044e3b39b618b39a79a58213b936d9a7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffeed351_91af45fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-21T10:23:13Z",
+      "side": 1,
+      "message": "Do we need “virtual ~classname() \u003d default”?  I’m surprised that inheritance order matters when it should be the child-level destructor that does the signal. Must be that the destructor isn’t happening?",
+      "parentUuid": "e1f5c595_bceb9cbc",
+      "revId": "1e1b09fc044e3b39b618b39a79a58213b936d9a7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
