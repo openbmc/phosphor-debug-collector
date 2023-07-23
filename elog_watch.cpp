@@ -4,7 +4,7 @@
 
 #include "dump_internal.hpp"
 #include "dump_serialize.hpp"
-#include "errors_map.hpp"
+#include "dump_types.hpp"
 #include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 #include <cereal/cereal.hpp>
@@ -109,22 +109,14 @@ void Watch::addCallback(sdbusplus::message_t& msg)
         return;
     }
 
-    EType errorType;
-    for (const auto& [type, errorList] : errorMap)
+    auto etype = findErrorType(data);
+    if (!etype.has_value())
     {
-        auto error = std::find(errorList.begin(), errorList.end(), data);
-        if (error != errorList.end())
-        {
-            errorType = type;
-            break;
-        }
-    }
-
-    // error not supported in the configuration
-    if (errorType.empty())
-    {
+        // error not supported in the configuration
         return;
     }
+
+    auto errorType = etype.value();
 
     std::vector<std::string> fullPaths;
     fullPaths.push_back(objectPath);
