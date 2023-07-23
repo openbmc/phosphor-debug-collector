@@ -7,6 +7,7 @@
 #include <ranges>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 namespace phosphor
 {
@@ -21,12 +22,27 @@ using DUMP_TYPE = std::string;
 // Dump collection indicator
 using DUMP_COLLECTION_TYPE = std::string;
 
+using EType = std::string;
+using Error = std::string;
+using ErrorList = std::vector<Error>;
+using ErrorMap = std::unordered_map<EType, ErrorList>;
+
 // Dump types
+<% enum_values = set() %>
 enum class DumpTypes {
 % for item in DUMP_TYPE_TABLE:
   % for key, values in item.items():
-    ${values[0].upper()},
+    % if values[0].upper() not in enum_values:
+        ${values[0].upper()},
+        <% enum_values.add(values[0].upper()) %>
+    % endif
   % endfor
+% endfor
+% for key in ERROR_TYPE_DICT:
+    % if key.upper() not in enum_values:
+        ${key.upper()},
+        <% enum_values.add(key.upper()) %>
+    % endif
 % endfor
 };
 
@@ -75,6 +91,33 @@ std::optional<DumpTypes> stringToDumpType(const std::string& str);
  */
 DumpTypes validateDumpType(const std::string& type,
                            const std::string& category);
+
+/**
+ * @brief Checks if the provided error type is valid.
+ *
+ * This function verifies the validity of the error type by checking if it
+ * exists in the error map.
+ *
+ * @param[in] errorType - The string representation of the error type to
+ * validate.
+ *
+ * @return True if the error type exists in the error map, False otherwise.
+ */
+bool isErrorTypeValid(const std::string& errorType);
+
+/**
+ * @brief Finds the error type based on the provided error string.
+ *
+ * This function searches the error map for the provided error string.
+ * If it finds the string in the list of errors for a specific error type,
+ * it returns that error type.
+ *
+ * @param[in] errString - The string representation of the error to search for.
+ *
+ * @return An optional containing the error type if found. If the error string
+ * is not found in the map, returns an empty optional.
+ */
+std::optional<EType> findErrorType(const std::string& errString);
 
 } // namespace dump
 } // namespace phosphor

@@ -1,6 +1,6 @@
-## This file is a template.  The comment below is emitted
+## This file is a template.The comment below is emitted
 ## into the rendered file; feel free to edit this file.
-// !!! WARNING: This is a GENERATED Code..Please do NOT Edit !!!
+//  !!! WARNING: This is a GENERATED Code..Please do NOT Edit !!!
 #include "dump_types.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -21,11 +21,33 @@ DUMP_TYPE_TABLE dumpTypeTable = {
 % endfor
 };
 
+<%
+map_keys = set()
+%>
 DUMP_TYPE_TO_STRING_MAP dumpTypeToStringMap = {
 % for item in DUMP_TYPE_TABLE:
   % for key, values in item.items():
-    {DumpTypes::${values[0].upper()}, "${values[0]}"},
+    % if values[0].upper() not in map_keys:
+        {DumpTypes::${values[0].upper()}, "${values[0]}"},
+        <% map_keys.add(values[0].upper()) %>
+    % endif
   % endfor
+% endfor
+% for key, values in ERROR_TYPE_DICT.items():
+    % if key.upper() not in map_keys:
+        {DumpTypes::${key.upper()}, "${key}"},
+        <% map_keys.add(key.upper()) %>
+    % endif
+% endfor
+};
+
+const ErrorMap errorMap = {
+% for key, errors in ERROR_TYPE_DICT.items():
+    {"${key}", {
+    % for error in errors:
+        "${error}",
+    % endfor
+    }},
 % endfor
 };
 
@@ -83,6 +105,25 @@ DumpTypes validateDumpType(const std::string& type, const std::string& category)
                               Argument::ARGUMENT_VALUE(type.c_str()));
     }
     return dumpType;
+}
+
+bool isErrorTypeValid(const std::string& errorType)
+{
+    const auto it = errorMap.find(errorType);
+    return it != errorMap.end();
+}
+
+std::optional<EType> findErrorType(const std::string& errString)
+{
+    for (const auto& [type, errorList] : errorMap)
+    {
+        auto error = std::find(errorList.begin(), errorList.end(), errString);
+        if (error != errorList.end())
+        {
+            return type;
+        }
+    }
+    return std::nullopt;
 }
 
 } // namespace dump

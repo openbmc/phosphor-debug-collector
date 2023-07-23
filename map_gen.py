@@ -14,10 +14,18 @@ def main():
 
     parser.add_argument(
         "-i",
-        "--input_yaml",
-        dest="input_yaml",
-        default="example.yaml",
-        help="input yaml file to parse",
+        "--input_dump_type_yaml",
+        dest="input_dump_type_yaml",
+        default="example_dump_types.yaml",
+        help="input dump type yaml file to parse",
+    )
+
+    parser.add_argument(
+        "-j",
+        "--input_error_type_yaml",
+        dest="input_error_type_yaml",
+        default="example_errors_watch.yaml",
+        help="input error type yaml file to parse",
     )
 
     parser.add_argument(
@@ -36,26 +44,20 @@ def main():
         help="output cpp file",
     )
 
-    parser.add_argument(
-        "-v",
-        "--var_name",
-        dest="var_name",
-        default="mapping",
-        help="variable name to use in the template",
-    )
-
     args = parser.parse_args()
 
-    with open(os.path.join(script_dir, args.input_yaml), "r") as fd:
-        yaml_dict = yaml.safe_load(fd)
+    with open(os.path.join(script_dir, args.input_dump_type_yaml), "r") as fd:
+        yaml_dict1 = yaml.safe_load(fd)
+
+    with open(os.path.join(script_dir, args.input_error_type_yaml), "r") as fd:
+        yaml_dict2 = yaml.safe_load(fd)
 
     template = os.path.join(script_dir, args.template)
     t = Template(filename=template)
     with open(args.output_file, "w") as fd:
-        if args.var_name == "errDict":
-            fd.write(t.render(errDict=yaml_dict))
-        else:
-            fd.write(t.render(DUMP_TYPE_TABLE=yaml_dict))
+        fd.write(
+            t.render(DUMP_TYPE_TABLE=yaml_dict1, ERROR_TYPE_DICT=yaml_dict2)
+        )
 
 
 if __name__ == "__main__":
