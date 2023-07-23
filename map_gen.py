@@ -21,6 +21,14 @@ def main():
     )
 
     parser.add_argument(
+        "-j",
+        "--input_yaml2",
+        dest="input_yaml2",
+        default="example2.yaml",
+        help="second input yaml file to parse",
+    )
+
+    parser.add_argument(
         "-t",
         "--template",
         dest="template",
@@ -36,26 +44,18 @@ def main():
         help="output cpp file",
     )
 
-    parser.add_argument(
-        "-v",
-        "--var_name",
-        dest="var_name",
-        default="mapping",
-        help="variable name to use in the template",
-    )
-
     args = parser.parse_args()
 
     with open(os.path.join(script_dir, args.input_yaml), "r") as fd:
-        yaml_dict = yaml.safe_load(fd)
+        yaml_dict1 = yaml.safe_load(fd)
+
+    with open(os.path.join(script_dir, args.input_yaml2), "r") as fd:
+        yaml_dict2 = yaml.safe_load(fd)
 
     template = os.path.join(script_dir, args.template)
     t = Template(filename=template)
     with open(args.output_file, "w") as fd:
-        if args.var_name == "errDict":
-            fd.write(t.render(errDict=yaml_dict))
-        else:
-            fd.write(t.render(DUMP_TYPE_TABLE=yaml_dict))
+        fd.write(t.render(DUMP_TYPE_TABLE=yaml_dict1, ERROR_TYPE_DICT=yaml_dict2))
 
 
 if __name__ == "__main__":

@@ -335,5 +335,44 @@ T extractParameter(const std::string& key,
     return T{};
 }
 
+/**
+ * @brief This function fetches the dump type associated with a particular
+ * error.
+ *
+ * @param[in] params The map of parameters passed as input.
+ *
+ * @return The dump type associated with the error. If no additional error type
+ * is specified a generic elog type dump will be generated.
+ */
+inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
+{
+    using CreateParameters =
+        sdbusplus::xyz::openbmc_project::Dump::server::Create::CreateParameters;
+    using DumpIntr = sdbusplus::common::xyz::openbmc_project::dump::Create;
+    using InvalidArgument =
+        sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+    using Argument = xyz::openbmc_project::Common::InvalidArgument;
+
+    std::string errorType = extractParameter<std::string>(
+        DumpIntr::convertCreateParametersToString(CreateParameters::ErrorType),
+        params);
+    if (!isErrorTypeValid(errorType))
+    {
+        lg2::error("An invalid error type passed type: {ERROR_TYPE}",
+                   "ERROR_TYPE", errorType);
+        elog<InvalidArgument>(Argument::ARGUMENT_NAME("ERROR_TYPE"),
+                              Argument::ARGUMENT_VALUE(errorType.c_str()));
+    }
+    auto type = stringToDumpType(errorType);
+    if (type.has_value())
+    {
+        return type.value();
+    }
+
+    // Ideally this should never happen, because if the error type is valid
+    // it should be present in the dumpTypeToStringMap
+    throw std::invalid_argument{"Dump type not found"};
+}
+
 } // namespace dump
 } // namespace phosphor
