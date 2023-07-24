@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "dump_manager_system.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <sdbusplus/bus.hpp>
