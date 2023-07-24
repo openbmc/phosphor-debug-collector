@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56eeccc_39566f91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-24T11:44:44Z",
+      "side": 1,
+      "message": "Looking for a \"Why\" in here. Why specifically do we need this new feature?",
+      "revId": "7817d74a84a233bd233dcc0dc4356956047f245e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

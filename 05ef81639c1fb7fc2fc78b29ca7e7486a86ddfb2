@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe87395d_8583a68d",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-24T11:44:44Z",
+      "side": 0,
+      "message": "So someone is calling this API with a dump, and that dump has to match the appropriate regex and POS rules. How do we ensure whoever created this dump followed the rules that are now configured at build time in this repo? Before this, it was hard coded so everyone was on the same page with that hard coded rule.",
+      "revId": "05ef81639c1fb7fc2fc78b29ca7e7486a86ddfb2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
