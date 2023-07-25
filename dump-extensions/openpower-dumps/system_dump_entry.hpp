@@ -1,7 +1,6 @@
 #pragma once
 
 #include "dump_entry.hpp"
-#include "dump_manager_system.hpp"
 #include "host_dump_entry_handler.hpp"
 #include "new_dump_entry.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"

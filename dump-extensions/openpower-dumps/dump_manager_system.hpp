@@ -3,6 +3,7 @@
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
+#include "new_dump_entry.hpp"
 #include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -73,6 +74,15 @@ class Manager :
 
   private:
     phosphor::dump::host::HostTransport& hostTransport;
+
+    phosphor::dump::BaseEntry* getInProgressEntry(uint32_t dumpId,
+                                                  uint64_t size);
+    bool isHostStateValid();
+    std::string createEntry(uint32_t dumpId, uint64_t size,
+                            phosphor::dump::OperationStatus status,
+                            const std::string& originatorId,
+                            phosphor::dump::OriginatorTypes originatorType,
+                            phosphor::dump::host::HostTransport& hostTransport);
 };
 
 } // namespace system
