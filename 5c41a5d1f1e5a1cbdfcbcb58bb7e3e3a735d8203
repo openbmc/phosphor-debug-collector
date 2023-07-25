@@ -70,6 +70,30 @@
       },
       "revId": "5c41a5d1f1e5a1cbdfcbcb58bb7e3e3a735d8203",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248febfa_c428213e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-07-25T13:58:00Z",
+      "side": 1,
+      "message": "Now changing name will be done in the dreport script as part of the OEM specific part, instead of adding code for name change in the main dump code. Now the code is clean, otherwise a custom function to change the code needs to be called from main code and that will make it more complecated",
+      "parentUuid": "3318ec6b_d44d53b3",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "5c41a5d1f1e5a1cbdfcbcb58bb7e3e3a735d8203",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
