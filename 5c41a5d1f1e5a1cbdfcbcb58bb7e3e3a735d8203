@@ -46,6 +46,30 @@
       },
       "revId": "5c41a5d1f1e5a1cbdfcbcb58bb7e3e3a735d8203",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3318ec6b_d44d53b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-07-25T13:14:22Z",
+      "side": 1,
+      "message": "Code change is not in meson , based on your current approach , required changes in deport code , how you you are planing to share the meson defined format variable to  to dreport?\n\nAnother option you can look here is \nuse obmcdump_ID_EPOCHTIME.EXT dump initially ( no change in dreport ) and once dump created, and after  properties extraction required for d-bus object creation , use name specific override function to rename the file and create the dump entry. This will less code chnages compared to proposed approch.",
+      "parentUuid": "7bf39039_360b1b13",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "5c41a5d1f1e5a1cbdfcbcb58bb7e3e3a735d8203",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
