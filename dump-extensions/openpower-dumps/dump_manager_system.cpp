@@ -22,6 +22,9 @@ namespace system
 
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
+using SystemDumpEntry =
+    phosphor::dump::new_::Entry<phosphor::dump::new_::SystemDump,
+                                openpower::dump::host::DumpEntryHelper>;
 
 void Manager::notify(uint32_t dumpId, uint64_t size)
 {
@@ -36,11 +39,11 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     // user-requested dump, an entry will be created first with an invalid
     // source id. Since only one system dump creation is allowed at a time, if
     // there's an entry with an invalid sourceId, we will update that entry.
-    openpower::dump::system::Entry* upEntry = nullptr;
+    SystemDumpEntry* upEntry = nullptr;
     for (auto& entry : entries)
     {
-        openpower::dump::system::Entry* sysEntry =
-            dynamic_cast<openpower::dump::system::Entry*>(entry.second.get());
+        SystemDumpEntry* sysEntry =
+            dynamic_cast<SystemDumpEntry*>(entry.second.get());
 
         // If there's already a completed entry with the input source id and
         // size, ignore this notification
@@ -92,7 +95,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             "System Dump Notify: Updating dumpId:{ID} Source Id:{SOURCE_ID} "
             "Size:{SIZE}",
             "ID", upEntry->getDumpId(), "SOURCE_ID", dumpId, "SIZE", size);
-        upEntry->update(timeStamp, size, dumpId);
+        upEntry->markCompleteWithSourceId(timeStamp, size, dumpId);
         return;
     }
 
@@ -109,10 +112,11 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
                   "entry dumpId:{ID} Source Id:{SOURCE_ID} Size:{SIZE}",
                   "ID", id, "SOURCE_ID", dumpId, "SIZE", size);
         entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(
+            id, std::make_unique<SystemDumpEntry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, hostTransport, *this)));
+                    phosphor::dump::OriginatorTypes::Internal, hostTransport,
+                    *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -187,7 +191,7 @@ sdbusplus::message::object_path
 
     // Get the originator id and type from params
     std::string originatorId;
-    originatorTypes originatorType;
+    phosphor::dump::OriginatorTypes originatorType;
 
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
@@ -210,7 +214,7 @@ sdbusplus::message::object_path
     try
     {
         entries.insert(std::make_pair(
-            id, std::make_unique<system::Entry>(
+            id, std::make_unique<SystemDumpEntry>(
                     bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
                     phosphor::dump::OperationStatus::InProgress, originatorId,
                     originatorType, hostTransport, *this)));
