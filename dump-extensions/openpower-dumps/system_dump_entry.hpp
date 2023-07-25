@@ -2,33 +2,39 @@
 
 #include "dump_entry.hpp"
 #include "dump_manager_system.hpp"
+#include "host_dump_entry_handler.hpp"
+#include "new_dump_entry.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
-namespace openpower
+namespace phosphor
 {
 namespace dump
 {
-namespace system
+namespace new_
 {
-template <typename T>
-using ServerObject = typename sdbusplus::server::object_t<T>;
+using SystemDump = sdbusplus::xyz::openbmc_project::Dump::Entry::server::System;
 
-using EntryIfaces = sdbusplus::server::object_t<
-    sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
-
-using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
-    OriginatedBy::OriginatorTypes;
-
-/** @class Entry
- *  @brief System Dump Entry implementation.
- *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Entry DBus API
+/**
+ * @class Entry<SystemDump, DumpEntryHelper>
+ * @brief Specialized derived class for SystemDump Entry.
+ * @details This class provides a specialized concrete implementation for the
+ * xyz.openbmc_project.Dump.Entry DBus API for SystemDump type, derived from the
+ * BaseEntry class and instantiated with SystemDump as the dump type and
+ * DumpEntryHelper as the helper class.
+ *
+ * This specialization provides the necessary DBus API for handling SystemDump
+ * type dumps and utilizes DumpEntryHelper for additional functionalities.
  */
-class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
+template <>
+class Entry<SystemDump, openpower::dump::host::DumpEntryHelper> :
+    public BaseEntry,
+    public DumpEntryIface<SystemDump>
 {
+    friend openpower::dump::host::DumpEntryHelper;
+
   public:
     Entry() = delete;
     Entry(const Entry&) = delete;
@@ -56,31 +62,59 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
           originatorTypes originatorType,
           phosphor::dump::host::HostTransport& hostTransport,
           phosphor::dump::BaseManager& parent) :
-        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              std::string(), status, originatorId,
-                              originatorType, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit),
-        hostTransport(hostTransport)
+        BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, std::string(),
+                  status, originatorId, originatorType, parent),
+        DumpEntryIface<SystemDump>(
+            bus, objPath.c_str(),
+            DumpEntryIface<SystemDump>::action::emit_no_signals),
+        helper(hostTransport, DumpTypes::SYSTEM)
     {
         sourceDumpId(sourceId);
-        // Emit deferred signal.
-        this->openpower::dump::system::EntryIfaces::emit_object_added();
+        this->phosphor::dump::new_::DumpEntryIface<
+            SystemDump>::emit_object_added();
     };
 
-    /** @brief Method to initiate the offload of dump
-     *  @param[in] uri - URI to offload dump.
+    /** @brief Deletes the dump from the host and from the D-Bus
      */
-    void initiateOffload(std::string uri) override;
+    void delete_() override
+    {
+        helper.delete_(id, sourceDumpId(), offloadUri());
+        BaseEntry::delete_();
+    }
 
-    /** @brief Method to update an existing dump entry
+    /** @brief Initiates the offload process for the dump
+     *  @param[in] uri - URI to offload dump to
+     */
+    void initiateOffload(std::string uri) override
+    {
+        BaseEntry::initiateOffload(uri);
+        helper.initiateOffload(sourceDumpId());
+        offloaded(true);
+    }
+
+    /** @brief Returns a Unix file descriptor to the dump file
+     *  @returns A Unix file descriptor to the dump file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::File::Error::Open on
+     * failure to open the file
+     *  @throws sdbusplus::xyz::openbmc_project::Common::Error::Unavailable if
+     * the file string is empty
+     */
+    sdbusplus::message::unix_fd getFileHandle() override
+    {
+        return helper.getFileHandle(id);
+    }
+
+    /** @brief Updates an existing dump entry once the dump creation is
+     * completed
      *  @param[in] timeStamp - Dump creation timestamp
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
+    void markCompleteWithSourceId(uint64_t timeStamp, uint64_t fileSize,
+                                  uint32_t sourceId) override
     {
         elapsed(timeStamp);
-        size(dumpSize);
+        size(fileSize);
         sourceDumpId(sourceId);
         // TODO: Handled dump failure case with
         // #bm-openbmc/2808
@@ -88,15 +122,21 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         completedTime(timeStamp);
     }
 
-    /**
-     * @brief Delete host system dump and it entry dbus object
+    /** @brief Method to update an existing dump entry, once the dump creation
+     *  is completed this function will be used to update the entry which got
+     *  created during the dump request.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *  @param[in] fileSize - Dump file size in bytes.
+     *  @param[in] file - Name of dump file.
      */
-    void delete_() override;
+    virtual void markComplete(uint64_t /*timeStamp*/, uint64_t /*fileSize*/,
+                              const std::filesystem::path& /*filePath*/)
+    {}
 
   private:
-    phosphor::dump::host::HostTransport& hostTransport;
+    openpower::dump::host::DumpEntryHelper helper;
 };
 
-} // namespace system
+} // namespace new_
 } // namespace dump
-} // namespace openpower
+} // namespace phosphor
