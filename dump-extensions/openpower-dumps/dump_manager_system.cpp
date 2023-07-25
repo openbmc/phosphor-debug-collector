@@ -26,19 +26,9 @@ using SystemDumpEntry =
     phosphor::dump::new_::Entry<phosphor::dump::new_::SystemDump,
                                 openpower::dump::host::DumpEntryHelper>;
 
-void Manager::notify(uint32_t dumpId, uint64_t size)
+phosphor::dump::BaseEntry* Manager::getInProgressEntry(uint32_t dumpId,
+                                                       uint64_t size)
 {
-    // Get the timestamp
-    uint64_t timeStamp =
-        std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::system_clock::now().time_since_epoch())
-            .count();
-
-    // A system dump can be created due to a fault in the server or by a user
-    // request. A system dump by fault is first reported here, but for a
-    // user-requested dump, an entry will be created first with an invalid
-    // source id. Since only one system dump creation is allowed at a time, if
-    // there's an entry with an invalid sourceId, we will update that entry.
     SystemDumpEntry* upEntry = nullptr;
     for (auto& entry : entries)
     {
@@ -57,7 +47,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
                     "size: {SIZE} is already present with entry id:{ID}",
                     "SOURCE_ID", dumpId, "SIZE", size, "ID",
                     sysEntry->getDumpId());
-                return;
+                continue;
             }
             else
             {
@@ -88,6 +78,91 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             upEntry = sysEntry;
         }
     }
+    return upEntry;
+}
+
+bool Manager::isHostStateValid()
+{
+    using Unavailable =
+        sdbusplus::xyz::openbmc_project::Common::Error::Unavailable;
+    auto isHostRunning = false;
+    phosphor::dump::HostState hostState;
+    try
+    {
+        isHostRunning = phosphor::dump::isHostRunning();
+        hostState = phosphor::dump::getHostState();
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error(
+            "System state cannot be determined, system dump is not allowed: "
+            "{ERROR}",
+            "ERROR", e);
+        elog<Unavailable>();
+        return false;
+    }
+    bool isHostQuiesced = hostState == phosphor::dump::HostState::Quiesced;
+    bool isHostTransitioningToOff =
+        hostState == phosphor::dump::HostState::TransitioningToOff;
+    if (!isHostRunning && !isHostQuiesced && !isHostTransitioningToOff)
+    {
+        return false;
+    }
+    return true;
+}
+
+std::string
+    Manager::createEntry(uint32_t dumpId, uint64_t size,
+                         phosphor::dump::OperationStatus status,
+                         const std::string& originatorId,
+                         phosphor::dump::OriginatorTypes originatorType,
+                         phosphor::dump::host::HostTransport& hostTransport)
+{
+    auto id = lastEntryId + 1;
+    auto idString = std::to_string(id);
+    auto objPath = std::filesystem::path(baseEntryPath) / idString;
+    uint64_t timeStamp =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count();
+
+    try
+    {
+        entries.emplace(id, std::make_unique<SystemDumpEntry>(
+                                bus, objPath.c_str(), id, timeStamp, size,
+                                dumpId, status, originatorId, originatorType,
+                                hostTransport, *this));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        lg2::error(
+            "Error in creating system dump entry, errormsg: {ERROR}, "
+            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
+            "SIZE: {SIZE}, SOURCEID: {SOURCE_ID}",
+            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
+            timeStamp, "SIZE", size, "SOURCE_ID", dumpId);
+        elog<InternalFailure>();
+        return std::string();
+    }
+    lastEntryId++;
+    return objPath.string();
+}
+
+void Manager::notify(uint32_t dumpId, uint64_t size)
+{
+    // Get the timestamp
+    uint64_t timeStamp =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now().time_since_epoch())
+            .count();
+
+    // A system dump can be created due to a fault in the server or by a user
+    // request. A system dump by fault is first reported here, but for a
+    // user-requested dump, an entry will be created first with an invalid
+    // source id. Since only one system dump creation is allowed at a time, if
+    // there's an entry with an invalid sourceId, we will update that entry.
+    SystemDumpEntry* upEntry =
+        dynamic_cast<SystemDumpEntry*>(getInProgressEntry(dumpId, size));
 
     if (upEntry != nullptr)
     {
@@ -99,38 +174,12 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
         return;
     }
 
-    // Get the id
-    auto id = lastEntryId + 1;
-    auto idString = std::to_string(id);
-    auto objPath = std::filesystem::path(baseEntryPath) / idString;
-
-    // TODO: Get the originator Id, Type from the persisted file.
-    // For now replacing it with null
-    try
-    {
-        lg2::info("System Dump Notify: creating new dump "
-                  "entry dumpId:{ID} Source Id:{SOURCE_ID} Size:{SIZE}",
-                  "ID", id, "SOURCE_ID", dumpId, "SIZE", size);
-        entries.insert(std::make_pair(
-            id, std::make_unique<SystemDumpEntry>(
-                    bus, objPath.c_str(), id, timeStamp, size, dumpId,
-                    phosphor::dump::OperationStatus::Completed, std::string(),
-                    phosphor::dump::OriginatorTypes::Internal, hostTransport,
-                    *this)));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error(
-            "Error in creating system dump entry, errormsg: {ERROR}, "
-            "OBJECTPATH: {OBJECT_PATH}, ID: {ID}, TIMESTAMP: {TIMESTAMP}, "
-            "SIZE: {SIZE}, SOURCEID: {SOURCE_ID}",
-            "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
-            timeStamp, "SIZE", size, "SOURCE_ID", dumpId);
-        report<InternalFailure>();
-        return;
-    }
-    lastEntryId++;
-    return;
+    lg2::info("System Dump Notify: creating new dump "
+              "entry Source Id:{SOURCE_ID} Size:{SIZE}",
+              "SOURCE_ID", dumpId, "SIZE", size);
+    createEntry(dumpId, size, phosphor::dump::OperationStatus::Completed,
+                std::string(), phosphor::dump::OriginatorTypes::Internal,
+                hostTransport);
 }
 
 sdbusplus::message::object_path
@@ -158,35 +207,13 @@ sdbusplus::message::object_path
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-
-    auto isHostRunning = false;
-    phosphor::dump::HostState hostState;
-    try
-    {
-        isHostRunning = phosphor::dump::isHostRunning();
-        hostState = phosphor::dump::getHostState();
-    }
-    catch (const std::exception& e)
-    {
-        lg2::error(
-            "System state cannot be determined, system dump is not allowed: "
-            "{ERROR}",
-            "ERROR", e);
-        return std::string();
-    }
-    bool isHostQuiesced = hostState == phosphor::dump::HostState::Quiesced;
-    bool isHostTransitioningToOff =
-        hostState == phosphor::dump::HostState::TransitioningToOff;
-    // Allow creating system dump only when the host is up or quiesced
-    // starting to power off
-    if (!isHostRunning && !isHostQuiesced && !isHostTransitioningToOff)
+    if (!isHostStateValid())
     {
         lg2::error("System dump can be initiated only when the host is up "
                    "or quiesced or starting to poweroff");
         elog<NotAllowed>(
             Reason("System dump can be initiated only when the host is up "
                    "or quiesced or starting to poweroff"));
-        return std::string();
     }
 
     // Get the originator id and type from params
@@ -203,32 +230,9 @@ sdbusplus::message::object_path
     method.append("replace");
     bus.call_noreply(method);
 
-    auto id = lastEntryId + 1;
-    auto idString = std::to_string(id);
-    auto objPath = std::filesystem::path(baseEntryPath) / idString;
-    uint64_t timeStamp =
-        std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::system_clock::now().time_since_epoch())
-            .count();
-
-    try
-    {
-        entries.insert(std::make_pair(
-            id, std::make_unique<SystemDumpEntry>(
-                    bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
-                    phosphor::dump::OperationStatus::InProgress, originatorId,
-                    originatorType, hostTransport, *this)));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        lg2::error("Error in creating system dump entry, errormsg: {ERROR}, "
-                   "OBJECTPATH: {OBJECT_PATH}, ID: {ID}",
-                   "ERROR", e, "OBJECT_PATH", objPath, "ID", id);
-        elog<InternalFailure>();
-        return std::string();
-    }
-    lastEntryId++;
-    return objPath.string();
+    return createEntry(INVALID_SOURCE_ID, 0,
+                       phosphor::dump::OperationStatus::InProgress,
+                       originatorId, originatorType, hostTransport);
 }
 
 } // namespace system
