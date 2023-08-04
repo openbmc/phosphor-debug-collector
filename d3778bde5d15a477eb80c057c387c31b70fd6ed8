@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad30d409_5e9e84b8",
+        "filename": "dump_types.mako.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-04T11:07:16Z",
+      "side": 1,
+      "message": "return std::nullopt;",
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95a79e8_7f25a687",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-04T11:07:16Z",
+      "side": 1,
+      "message": "clang? spaces",
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b287a66_eb67a8d3",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-04T11:07:16Z",
+      "side": 1,
+      "message": "is this statment valid, from the code it does not look like that",
+      "range": {
+        "startLine": 344,
+        "startChar": 52,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efc79d75_ecfd0041",
+        "filename": "map_gen.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-04T11:07:16Z",
+      "side": 1,
+      "message": "suggest to rename it to \"example_errors_watch.yaml\" as this is the existing file, even though file name comes from meson_options.txt. For clarity as I was trying to look where is this yaml file.",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
