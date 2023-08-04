@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb88069_35985740",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85d178cd_a2cf1608",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3646a181_2864b1b7",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-03T19:54:35Z",
       "side": 1,
       "message": "Section doesn\u0027t make sense",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 10,
+        "endChar": 26
+      },
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e03f7209_8eeb6fa8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Modified",
+      "parentUuid": "3646a181_2864b1b7",
       "range": {
         "startLine": 9,
         "startChar": 62,
@@ -66,6 +114,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "652b77a4_dec7130a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "I added what is error type and why it should be considered as dump type too",
+      "parentUuid": "0274ff85_e51f1158",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd48a8d5_e1509696",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -77,6 +143,30 @@
       "writtenOn": "2023-08-03T19:54:35Z",
       "side": 1,
       "message": "generate",
+      "range": {
+        "startLine": 22,
+        "startChar": 59,
+        "endLine": 22,
+        "endChar": 66
+      },
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ef112fa_eef67ee7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd48a8d5_e1509696",
       "range": {
         "startLine": 22,
         "startChar": 59,
@@ -104,6 +194,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "133b1b44_2ef945c8",
+        "filename": "dump_types.mako.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd2dd90e_9dd44599",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c93fdf9_216975b0",
@@ -117,6 +225,24 @@
       "writtenOn": "2023-08-03T19:54:35Z",
       "side": 1,
       "message": "I\u0027m a bit confused on why we need this new check. There are situations where values in the DUMP_TYPE_TABLE can overlap with values in the ERROR_TYPE_DICT? Why is that?",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee1d5657_1c6ac7de",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Yes the each error type is considered as a dump type for eacmple elog error type is given as elog dump type and checkstop error type is checkstop dump type too. Updated commit message also",
+      "parentUuid": "7c93fdf9_216975b0",
       "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -138,6 +264,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79862b96_38e95518",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "584d2554_15e52c9f",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28aa794b_d79c2eae",
@@ -151,6 +295,24 @@
       "writtenOn": "2023-08-03T19:54:35Z",
       "side": 1,
       "message": "This feels a bit awkward. Either define specific names for yaml1 and yaml2 or just support multiple -i inputs for multiple yaml files.",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1b4231f_35688d39",
+        "filename": "map_gen.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T08:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28aa794b_d79c2eae",
       "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
