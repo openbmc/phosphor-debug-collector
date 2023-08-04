@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcc9714_9c680029",
+        "filename": "dump_types.mako.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T11:26:36Z",
+      "side": 1,
+      "message": "changed but means an empty optional",
+      "parentUuid": "ad30d409_5e9e84b8",
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e95a79e8_7f25a687",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-04T11:07:16Z",
       "side": 1,
       "message": "clang? spaces",
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b15e0e_6a19d338",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T11:26:36Z",
+      "side": 1,
+      "message": "need to run clang on this",
+      "parentUuid": "e95a79e8_7f25a687",
       "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +94,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8013456_5b378e9d",
+        "filename": "dump_utils.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T11:26:36Z",
+      "side": 1,
+      "message": "this is no more valid, will remove",
+      "parentUuid": "1b287a66_eb67a8d3",
+      "range": {
+        "startLine": 344,
+        "startChar": 52,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efc79d75_ecfd0041",
@@ -71,6 +131,30 @@
       "writtenOn": "2023-08-04T11:07:16Z",
       "side": 1,
       "message": "suggest to rename it to \"example_errors_watch.yaml\" as this is the existing file, even though file name comes from meson_options.txt. For clarity as I was trying to look where is this yaml file.",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "d3778bde5d15a477eb80c057c387c31b70fd6ed8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f622303f_7773bf1c",
+        "filename": "map_gen.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-04T11:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efc79d75_ecfd0041",
       "range": {
         "startLine": 27,
         "startChar": 17,
