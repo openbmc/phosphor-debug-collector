@@ -16,7 +16,7 @@ void loadExtensions(sdbusplus::bus_t& bus,
                     phosphor::dump::host::HostTransport& hostTransport,
                     DumpManagerList& dumpList)
 {
-    dumpList.push_back(std::make_unique<openpower::dump::system::Manager>(
+    dumpList.push_back(std::make_unique<openpower::dump::Manager>(
         bus, SYSTEM_DUMP_OBJPATH, SYSTEM_DUMP_OBJ_ENTRY, hostTransport));
     dumpList.push_back(std::make_unique<openpower::dump::resource::Manager>(
         bus, RESOURCE_DUMP_OBJPATH, RESOURCE_DUMP_OBJ_ENTRY, hostTransport));
