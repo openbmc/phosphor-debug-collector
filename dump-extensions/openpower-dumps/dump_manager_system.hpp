@@ -1,7 +1,9 @@
 #pragma once
 
+#include "base_dump_manager.hpp"
 #include "com/ibm/Dump/Notify/server.hpp"
-#include "dump_manager.hpp"
+#include "dump_helper.hpp"
+#include "dump_types.hpp"
 #include "dump_utils.hpp"
 #include "host_transport_exts.hpp"
 #include "new_dump_entry.hpp"
@@ -10,17 +12,21 @@
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
+#include <map>
+#include <unordered_map>
+
 namespace openpower
 {
 namespace dump
-{
-namespace system
 {
 
 constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using NotifyIface =
     sdbusplus::server::object_t<sdbusplus::com::ibm::Dump::server::Notify>;
 using NotifyDumpType = sdbusplus::common::com::ibm::dump::Notify::DumpType;
+
+template <typename T>
+concept DumpEntryClass = std::derived_from<T, phosphor::dump::BaseEntry>;
 
 /** @class Manager
  *  @brief System Dump  manager implementation.
@@ -29,7 +35,7 @@ using NotifyDumpType = sdbusplus::common::com::ibm::dump::Notify::DumpType;
  */
 class Manager :
     virtual public NotifyIface,
-    virtual public phosphor::dump::Manager
+    virtual public phosphor::dump::BaseManager
 {
   public:
     Manager() = delete;
@@ -47,11 +53,7 @@ class Manager :
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath,
-            phosphor::dump::host::HostTransport& hostTransport) :
-        NotifyIface(bus, path),
-        phosphor::dump::Manager(bus, path, baseEntryPath),
-        hostTransport(hostTransport)
-    {}
+            phosphor::dump::host::HostTransport& hostTransport);
 
     void restore() override
     {
@@ -75,19 +77,63 @@ class Manager :
     sdbusplus::message::object_path
         createDump(phosphor::dump::DumpCreateParams params) override;
 
+    inline uint32_t getNextId(phosphor::dump::DumpTypes type)
+    {
+        try
+        {
+            // Return the LastEntryId value associated with the given dump type.
+            return std::get<0>(dumpEntries.at(type)) + 1;
+        }
+        catch (const std::out_of_range&)
+        {
+            return 1;
+        }
+    }
+
+    inline std::string& getBaseEntryPath()
+    {
+        return baseEntryPath;
+    }
+
+    template <DumpEntryClass T>
+    inline void insertToDumpEntries(phosphor::dump::DumpTypes type,
+                                    std::unique_ptr<T> entry)
+    {
+        auto& [lastEntryId, entries] = dumpEntries[type];
+
+        // Determine the new last entry ID.
+        std::get<0>(dumpEntries[type]) = std::max(lastEntryId + 1, entry->getDumpId());
+
+        auto baseEntry =
+            std::unique_ptr<phosphor::dump::BaseEntry>(entry.release());
+        
+
+        // Insert the entry.
+        entries.emplace(baseEntry->getDumpId(), std::move(baseEntry));
+    }
+
   private:
     phosphor::dump::host::HostTransport& hostTransport;
 
     phosphor::dump::BaseEntry*
-        getInProgressEntry(uint32_t dumpId, uint64_t size, uint32_t token = 0);
-    bool isHostStateValid();
-    std::string createEntry(uint32_t dumpId, uint64_t size,
-                            phosphor::dump::OperationStatus status,
-                            const std::string& originatorId,
-                            phosphor::dump::OriginatorTypes originatorType,
-                            phosphor::dump::host::HostTransport& hostTransport);
+        getInProgressEntry(phosphor::dump::DumpTypes type, uint32_t dumpId,
+                           uint64_t size, uint32_t token = 0);
+
+    void erase(uint32_t /*entryId*/) override {}
+    void deleteAll() {}
+
+    using DumpEntryList =
+        std::map<uint32_t, std::unique_ptr<phosphor::dump::BaseEntry>>;
+    using LastEntryId = uint32_t;
+    std::unordered_map<phosphor::dump::DumpTypes,
+                       std::tuple<LastEntryId, DumpEntryList>>
+        dumpEntries;
+
+    std::map<phosphor::dump::DumpTypes, std::unique_ptr<DumpHelper>> helpers;
+
+    /** @brief base object path for the entry object */
+    std::string baseEntryPath;
 };
 
-} // namespace system
 } // namespace dump
 } // namespace openpower
