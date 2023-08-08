@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f29720_b02dded7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-08T04:43:47Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 13,
+        "endChar": 61
+      },
+      "revId": "5c562e487598d29e1c0ae19f2dd211ff25013dae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71edda0d_a9838c4f",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-08-08T04:43:47Z",
+      "side": 1,
+      "message": "dumpType is already of type ELOG why do we need to call again getErrorDumpType and assign it to same variable?\n\nDumpTypes\n{   USER,\n    CORE,\n    RAMOOPS,\n    ELOG\n}",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "5c562e487598d29e1c0ae19f2dd211ff25013dae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
