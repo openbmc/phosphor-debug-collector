@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79f87365_41dd0282",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-14T19:04:53Z",
+      "side": 1,
+      "message": "At a high level does this make sense to you? A checkstop dump to me is a dump that collects host/bios related data. Maybe the BMC also logs an error to indicate it has detected a checkstop and that generates a BMC dump. But those are 2 different dumps. Why not a checkstop and checkstop_bmc so we don\u0027t have this weird overlap issue?",
+      "parentUuid": "ee1d5657_1c6ac7de",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
