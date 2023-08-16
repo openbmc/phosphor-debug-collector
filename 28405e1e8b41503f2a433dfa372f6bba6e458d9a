@@ -321,6 +321,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b1ed6a0_1bd6e11b",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-16T11:09:36Z",
+      "side": 1,
+      "message": "\"Like errors which doesn\u0027t need custom data use elog type or use custom type for any custom data collection case.\"\nThat was the original change, if type elog is mentioned and no subtype is mentioned collect the default elog dump or the specific elog type. \nBased on the review comment I changed that.\n\nso we can do either of these\n- In the bus call dump type as elog and if there is no additional type, collect default dump, or if something is specified collect the particular dump\n\n- keep the current behavior, elog for InternalFailure, and for other error logs need to specify the type. Current behavior means whatever is merged and in this review \n\nis this documented anywhere?\n\"Like errors which doesn\u0027t need custom data use elog type or use custom type for any custom data collection case.\"",
+      "parentUuid": "0c1a123c_6dd9f4b0",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
