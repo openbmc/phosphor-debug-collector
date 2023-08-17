@@ -375,6 +375,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dec73d5_16698e2a",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-17T08:31:49Z",
+      "side": 1,
+      "message": "\"How you are planing to make the d-bus type and dreport configuration files definition common with this approach?\"\n\nNow there is one yaml parser which takes both input yamls and create appropriate maps and enum",
+      "parentUuid": "e69cf5f8_825c1069",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
