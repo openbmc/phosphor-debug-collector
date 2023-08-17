@@ -393,6 +393,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9eef6416_5ed5285d",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-08-17T09:51:25Z",
+      "side": 1,
+      "message": "Both dreport and plugin infrastructure is heavily depend on the dump type. Need to look the impact on the new d-bus based dump types. \ndreport plugin infrastructure uses https://github.com/openbmc/phosphor-debug-collector/blob/master/tools/dreport.d/sample.conf file to install plugin based on the dump type specific path. And this doesn’t support type-subtype based dump type numbering now. Since you’re trying to remove internal create interface definition, looking your plan to support the existing dump types with this approach. This is the disconnect am referring here.",
+      "parentUuid": "e69cf5f8_825c1069",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
