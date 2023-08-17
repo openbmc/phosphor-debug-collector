@@ -465,6 +465,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "666256ed_1cfc0c57",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-17T15:25:53Z",
+      "side": 1,
+      "message": "Ahh, so the example above helps. I think the confusing part is that we have a \"elog\" dump type, it can then be a elog dump type or a checkstop dump type. How does that make any sense? It should just be a \"elog\" dump type and we collect a generic set of data for all elog dumps. Or to be honest, we could look into just getting rid of elog dump types. We\u0027ve moved past the InternalFailure issues for the most part and most people just manually call PDC to create a BMC dump when they need it for their errors.",
+      "parentUuid": "ad20cf5c_39670dd3",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
