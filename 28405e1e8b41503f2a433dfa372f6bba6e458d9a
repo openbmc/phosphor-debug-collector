@@ -447,6 +447,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad20cf5c_39670dd3",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-17T13:52:50Z",
+      "side": 1,
+      "message": "This is basically covering all these existing scenraios, and without disrupting dreport\n\nDump Types\n   User, core, ramoops, elog\n   \nand if dump type is elog, the dump type can be\n   elog - right now only InternalFailure\n   checkstop - for checkstop and watchdog on openpower systems\n   \nand to dreport the input goes as -t \u003cuser/core/ramoops/elog/checkstop\u003e\n\nAnd addditionaly in future for an error log, complete user dump needs to be collected, that can be mentioned in the yaml like this\n\nuser:\n  - xyz.openbmc_project.Common.Error.\u003csome_failure\u003e\n  \nwithout adding the unique check that wont be possible",
+      "parentUuid": "5ad3af3f_232d9654",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
