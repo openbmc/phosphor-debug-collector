@@ -357,6 +357,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e69cf5f8_825c1069",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-17T08:29:06Z",
+      "side": 1,
+      "message": "\" Existing dreport plugin installation script is based on dump type. Considering the existing code support seeing some disconnect between the checkstop type dump and the d-bus definition\"\n\nThere is no disconnect, we don\u0027t need to define the same parameter in yaml and dbus, the only condition is additional parameters is, it should not be a free-form text, since the validation is done based on the yaml, I don\u0027t think that is an issue.\n\nhttps://github.com/openbmc/docs/blob/master/designs/dump-manager.md.\n\nThis is not a document created specifically to BMC dump but when adding other types of dumps over BMC dumps, means the functionality or assumption was existed before creating this document.",
+      "parentUuid": "5455186f_e605d31e",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
