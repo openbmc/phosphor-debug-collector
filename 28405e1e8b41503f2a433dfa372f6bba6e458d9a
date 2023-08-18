@@ -555,6 +555,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c995da99_1810b326",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-18T16:23:21Z",
+      "side": 1,
+      "message": "https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Dump/Create.interface.yaml\n\nWe already have that interface, but not yet implemented, planning to have that in future, an option to pass EID to the dump\n\n          - name: \"EventId\"\n            description: \u003e\n                The identifier for an event that triggers the BMC dump. When a\n                BMC dump is initiated as a response to a specific system event,\n                this parameter can be supplied with the unique ID associated\n                with that event. By linking the dump to an event ID, the system\n                can collate additional, relevant diagnostic data or add this\n                into the dump to aid in providing a clearer context.\n                \n                \nBut we still need to support this automatic dump capture for some of the errors right?",
+      "parentUuid": "950ad258_8cc66e49",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
