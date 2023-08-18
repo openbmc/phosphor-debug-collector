@@ -501,6 +501,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c22531d1_47e5634f",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-08-18T05:00:44Z",
+      "side": 1,
+      "message": "Andrew, elog type dump is introduced to capture additional data specific to SEL , due to the size limitation data capture of SEL. Currently in upstream code IBM meta layer extend this usage to open power specific data collection for Power9 version processor to capture Host failure . In the Power 10 version uses SystemDump type , which helps capture all data required to debug Host failure. We should Keep elog type Dump and enhance the infrastructure to align with new d-bus create interface  \"DumpType\" and \"ErrorType\". Also the dreport conf file dump type definition should align with this also.    Currently dreport plugin uses  below format , which is good to support dump type. we may need to enhance this format to support subtype like, will solve this issue. Like dump type is elog , read additional type , if it is present as 3rd parameter. \n config A B\n    \u0027A\u0027 is a sequence of the dump types from the mapping defined in sample.conf.\n    \u0027B\u0027 is a priority determines the order the plugins run in.\n    \n   This approach will help to contain subtype info inside PDC , some thing similar we did for internal dbus interface.",
+      "parentUuid": "7675e116_3e91f777",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
