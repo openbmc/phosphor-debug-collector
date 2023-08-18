@@ -573,6 +573,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5f3385d_97514a44",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-18T18:01:08Z",
+      "side": 1,
+      "message": "I feel like mixing this auto-capture on certain errors has really confused the code. I say lets drop it (and tell people to use the interface that you\u0027ll implement if they want a dump for an error log) or treat that whole function as a completely separate application that monitors for errors and calls the dump interface like everyone else will.",
+      "parentUuid": "c995da99_1810b326",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
