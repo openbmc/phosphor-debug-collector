@@ -627,6 +627,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17d3cf87_138f8a20",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-21T19:19:04Z",
+      "side": 1,
+      "message": "Can we just leave whatever we have as-is for now and add this commit to that TODO story?\n\nIn the end, I just think we\u0027ve found something that is pretty confusing with our implementation in this repo. We\u0027ve mixed having this code auto detect errors and create dumps and providing a mechanism for other applications to call this code and create dumps for error logs. The mako file change in this commit highlighted this.\n\nBut now that I understand it a bit better, I\u0027m ok if the maintainers wants to just merge this for now with the understanding that it\u0027s not adding anything new (but I don\u0027t plan on giving a +1 myself).",
+      "parentUuid": "15316f69_00319441",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
