@@ -645,6 +645,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8ec321d_e16b3f6f",
+        "filename": "dump_types.mako.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-08-22T02:31:39Z",
+      "side": 1,
+      "message": "But we can do either of these\n1- Drop elog type of dump, and implement the passing of eid as a parameter\nor\n2- All applications stop calling the user-initiated dumps and add corresponding errors to the watch list\nto be consistent?",
+      "parentUuid": "17d3cf87_138f8a20",
+      "revId": "28405e1e8b41503f2a433dfa372f6bba6e458d9a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "584d2554_15e52c9f",
         "filename": "dump_types.mako.hpp",
         "patchSetId": 6
