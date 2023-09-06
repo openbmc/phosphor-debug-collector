@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1161bee9_8288dfa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-06T15:09:28Z",
+      "side": 1,
+      "message": "Looks good to me, just need to address Devender comment on commit message typo",
+      "revId": "106dabf2cc00099f911f208826d794e23b74c319",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
