@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0250da25_69992bfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-06T15:25:51Z",
+      "side": 1,
+      "message": "Could you explain why the existing base class could not be used?",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06afd3c5_1454dc14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-06T15:25:51Z",
+      "side": 1,
+      "message": "I\u0027ve seen this a few times now. Does it mean \"built p10bmc out of master\" or something else? CI will build the p10bmc system out of master so I don\u0027t think this is neededd",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e2efbd_5b6e1434",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-06T15:25:51Z",
+      "side": 1,
+      "message": "If we\u0027re starting fresh here, be good to address TODO\u0027s vs. just copying into new class.",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
