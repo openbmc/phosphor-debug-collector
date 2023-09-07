@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca59ae1c_901c932e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-07T10:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0250da25_69992bfa",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06afd3c5_1454dc14",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2afc114_289de576",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-07T10:48:49Z",
+      "side": 1,
+      "message": "In master CI it may not be building p10bmc?\nI think it is somehow missing to build extensions folder, so any compile errors in that folder are not getting detected, doing an explicit build of p10bmc out of master to verify that.",
+      "parentUuid": "06afd3c5_1454dc14",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22e2efbd_5b6e1434",
         "filename": "base_dump_entry.hpp",
         "patchSetId": 21
@@ -48,6 +84,24 @@
       "writtenOn": "2023-09-06T15:25:51Z",
       "side": 1,
       "message": "If we\u0027re starting fresh here, be good to address TODO\u0027s vs. just copying into new class.",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6001bf45_3805c198",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-07T10:48:49Z",
+      "side": 1,
+      "message": "EpochTime is needed and that being used by BMCweb to show the timestamp, just remove the todo?",
+      "parentUuid": "22e2efbd_5b6e1434",
       "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
