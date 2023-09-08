@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "123a600e_59cecd56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 59
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-08T05:30:51Z",
+      "side": 1,
+      "message": "Documentation update required : remove internal keywords\nhttps://github.com/openbmc/phosphor-debug-collector/blob/master/ramoops_manager.hpp#L38\nhttps://github.com/openbmc/phosphor-debug-collector/blob/master/core_manager.hpp#L58",
+      "revId": "cda0591f5d396b2ba7f7c434f8c06c804b20566b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3caa0b55_839673fa",
+        "filename": "meson.build",
+        "patchSetId": 59
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-08T05:30:51Z",
+      "side": 1,
+      "message": "Remove this,",
+      "revId": "cda0591f5d396b2ba7f7c434f8c06c804b20566b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
