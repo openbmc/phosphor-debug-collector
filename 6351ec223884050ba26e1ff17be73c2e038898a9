@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b2a413d_f3432ada",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-11T08:37:32Z",
+      "side": 1,
+      "message": "these are not locally generated header files to use \"\" convention as they are coming from external location we can use \u003c\u003e",
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7650ee6_9ae01f9c",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-11T08:37:32Z",
+      "side": 1,
+      "message": "some of these might not be required as the corresponding old base class member variables are not pulled here",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 39
+      },
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805e9541_101bacca",
+        "filename": "dump_manager.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-11T08:37:32Z",
+      "side": 1,
+      "message": "better to use \"base_dump_entry.hpp\" as that is what is used and also base class of all the classes",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 25
+      },
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
