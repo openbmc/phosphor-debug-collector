@@ -77,6 +77,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5a02a3d_0b97301c",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-12T07:02:25Z",
+      "side": 1,
+      "message": "The implementation of this depends on how the file is stored, so this is kept as a pure virtual function in base",
+      "parentUuid": "cfaf24a9_9c45975a",
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "805e9541_101bacca",
         "filename": "dump_manager.hpp",
         "patchSetId": 23
