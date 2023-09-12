@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c733bb48_8f7b3c6d",
+        "filename": "new_dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-12T06:57:51Z",
+      "side": 1,
+      "message": "need cleanup of unused includes like lg2, event, source/event.hpp",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "1d751ec0945ab227051c3bb047baaade24e952bb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
