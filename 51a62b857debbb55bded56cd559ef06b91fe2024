@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6374dc3_d9f764ea",
+        "filename": "dump_entry_handler.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-12T07:09:29Z",
+      "side": 1,
+      "message": "do check the includes and remove any unused include files",
+      "revId": "51a62b857debbb55bded56cd559ef06b91fe2024",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d49218_e5f7a0e9",
+        "filename": "dump_entry_handler.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-12T07:09:29Z",
+      "side": 1,
+      "message": "may be should we call it DumpFileHandler as we might have multiple helper classes in the future doing different purposes?",
+      "revId": "51a62b857debbb55bded56cd559ef06b91fe2024",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
