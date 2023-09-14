@@ -6,6 +6,7 @@
 #include <sdbusplus/server/object.hpp>
 #include <sdeventplus/event.hpp>
 #include <sdeventplus/source/event.hpp>
+#include <xyz/openbmc_project/Time/EpochTime/server.hpp>
 
 #include <filesystem>
 
@@ -14,9 +15,8 @@ namespace phosphor
 namespace dump
 {
 
-template <typename T>
-using ServerObject = typename sdbusplus::server::object_t<T>;
-
+using EpochIface = sdbusplus::server::object_t<
+    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
 
@@ -30,7 +30,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : public BaseEntry
+class Entry : public BaseEntry, virtual public EpochIface
 {
   public:
     Entry() = delete;
@@ -55,6 +55,9 @@ class Entry : public BaseEntry
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
+        CommonIfaces(bus, objPath.c_str(),
+                     CommonIfaces::action::emit_no_signals),
+        EpochIface(bus, objPath.c_str(), EpochIface::action::emit_no_signals),
         BaseEntry(bus, objPath, dumpId, timeStamp, dumpSize, file, dumpStatus,
                   originId, originType, parent)
     {}
