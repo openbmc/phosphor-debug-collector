@@ -1,13 +1,11 @@
 #pragma once
 
+#include <sdbusplus/bus.hpp>
+#include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Common/OriginatedBy/server.hpp>
 #include <xyz/openbmc_project/Common/Progress/server.hpp>
 #include <xyz/openbmc_project/Dump/Entry/server.hpp>
 #include <xyz/openbmc_project/Object/Delete/server.hpp>
-#include <xyz/openbmc_project/Time/EpochTime/server.hpp>
-
-#include <sdbusplus/bus.hpp>
-#include <sdbusplus/server/object.hpp>
 
 #include <filesystem>
 
@@ -18,16 +16,11 @@ namespace dump
 
 class Manager;
 
-// TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
-// still needed in dump entry since start time and completed time are available
-// from sdbusplus::xyz::openbmc_project::Common::server::Progress
-// #ibm-openbmc/2809
-using EntryIfaces = sdbusplus::server::object_t<
+using CommonIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
-    sdbusplus::xyz::openbmc_project::Object::server::Delete,
-    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
+    sdbusplus::xyz::openbmc_project::Object::server::Delete>;
 
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
@@ -51,7 +44,7 @@ using OriginatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
  *  The BaseEntry class inherits from a series of interface classes,
  *  each providing a specific aspect of functionality.
  */
-class BaseEntry : public EntryIfaces
+class BaseEntry : virtual public CommonIfaces
 {
   public:
     BaseEntry() = delete;
@@ -78,7 +71,8 @@ class BaseEntry : public EntryIfaces
               const std::filesystem::path& file, OperationStatus dumpStatus,
               std::string originId, OriginatorTypes originType,
               Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
+        CommonIfaces(bus, objPath.c_str(),
+                     CommonIfaces::action::emit_no_signals),
         parent(parent), id(dumpId), file(file)
     {
         originatorId(originId);
@@ -94,13 +88,11 @@ class BaseEntry : public EntryIfaces
         // be updated once the dump is completed.
         if (dumpStatus == OperationStatus::Completed)
         {
-            elapsed(timeStamp);
             startTime(timeStamp);
             completedTime(timeStamp);
         }
         else
         {
-            elapsed(0);
             startTime(timeStamp);
             completedTime(0);
         }

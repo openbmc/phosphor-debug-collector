@@ -23,7 +23,7 @@ class Manager;
 /** @class Entry
  *  @brief OpenBMC Fault Log Dump Entry implementation.
  */
-class Entry : virtual public phosphor::dump::Entry
+class Entry : public phosphor::dump::Entry
 {
   public:
     Entry() = delete;
@@ -51,6 +51,12 @@ class Entry : virtual public phosphor::dump::Entry
           const std::filesystem::path& file,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
+        phosphor::dump::CommonIfaces(
+            bus, objPath.c_str(),
+            phosphor::dump::CommonIfaces::action::emit_no_signals),
+        phosphor::dump::EpochIface(
+            bus, objPath.c_str(),
+            phosphor::dump::EpochIface::action::emit_no_signals),
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
                               file, status, originatorId, originatorType,
                               parent)
