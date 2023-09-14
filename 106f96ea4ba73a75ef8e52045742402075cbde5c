@@ -122,6 +122,24 @@
       "parentUuid": "6001bf45_3805c198",
       "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "954cff0d_bd800812",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-14T09:10:44Z",
+      "side": 1,
+      "message": "Fixed with a new commit\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/66606",
+      "parentUuid": "b443af14_4da03df2",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
