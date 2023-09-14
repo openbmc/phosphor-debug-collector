@@ -77,7 +77,6 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      */
     void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
     {
-        elapsed(timeStamp);
         size(dumpSize);
         sourceDumpId(sourceId);
         // TODO: Handled dump failure case with

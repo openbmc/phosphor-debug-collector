@@ -86,7 +86,6 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     void update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
     {
         sourceDumpId(sourceId);
-        elapsed(timeStamp);
         size(dumpSize);
         // TODO: Handled dump failure case with
         // #bm-openbmc/2808

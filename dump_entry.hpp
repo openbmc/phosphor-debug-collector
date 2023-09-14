@@ -4,7 +4,6 @@
 #include "xyz/openbmc_project/Common/Progress/server.hpp"
 #include "xyz/openbmc_project/Dump/Entry/server.hpp"
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
-#include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -21,16 +20,11 @@ namespace dump
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-// TODO Revisit whether sdbusplus::xyz::openbmc_project::Time::server::EpochTime
-// still needed in dump entry since start time and completed time are available
-// from sdbusplus::xyz::openbmc_project::Common::server::Progress
-// #ibm-openbmc/2809
 using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Common::server::OriginatedBy,
     sdbusplus::xyz::openbmc_project::Common::server::Progress,
     sdbusplus::xyz::openbmc_project::Dump::server::Entry,
-    sdbusplus::xyz::openbmc_project::Object::server::Delete,
-    sdbusplus::xyz::openbmc_project::Time::server::EpochTime>;
+    sdbusplus::xyz::openbmc_project::Object::server::Delete>;
 
 using OperationStatus =
     sdbusplus::xyz::openbmc_project::Common::server::Progress::OperationStatus;
@@ -86,13 +80,11 @@ class Entry : public EntryIfaces
         // be updated once the dump is completed.
         if (dumpStatus == OperationStatus::Completed)
         {
-            elapsed(timeStamp);
             startTime(timeStamp);
             completedTime(timeStamp);
         }
         else
         {
-            elapsed(0);
             startTime(timeStamp);
             completedTime(0);
         }
