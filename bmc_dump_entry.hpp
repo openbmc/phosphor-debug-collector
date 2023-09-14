@@ -33,7 +33,7 @@ class Manager;
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
+class Entry : public phosphor::dump::Entry, virtual public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -89,7 +89,6 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     void update(uint64_t timeStamp, uint64_t fileSize,
                 const std::filesystem::path& filePath)
     {
-        elapsed(timeStamp);
         size(fileSize);
         // TODO: Handled dump failed case with #ibm-openbmc/2808
         status(OperationStatus::Completed);

@@ -31,7 +31,7 @@ class Manager;
  *  A concrete implementation for the
  *  com::ibm::Dump::Entry::Resource DBus API
  */
-class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
+class Entry : public phosphor::dump::Entry, virtual public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -86,7 +86,6 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     void update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
     {
         sourceDumpId(sourceId);
-        elapsed(timeStamp);
         size(dumpSize);
         // TODO: Handled dump failure case with
         // #bm-openbmc/2808

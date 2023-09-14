@@ -23,7 +23,7 @@ class Manager;
 /** @class Entry
  *  @brief OpenBMC Fault Log Dump Entry implementation.
  */
-class Entry : virtual public phosphor::dump::Entry
+class Entry : public phosphor::dump::Entry
 {
   public:
     Entry() = delete;
