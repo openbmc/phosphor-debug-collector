@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27e1b15_c0eb0168",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-14T09:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b2a413d_f3432ada",
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7650ee6_9ae01f9c",
@@ -41,6 +59,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19525605_9d2c18ef",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-14T09:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7650ee6_9ae01f9c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 39
+      },
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "212abdec_b0725d27",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-09-12T06:46:27Z",
       "side": 1,
       "message": "this include might not be required here",
+      "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5822b77b_d01b321b",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-14T09:09:25Z",
+      "side": 1,
+      "message": "This line is not newly added, this file will go away later",
+      "parentUuid": "212abdec_b0725d27",
       "revId": "6351ec223884050ba26e1ff17be73c2e038898a9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
