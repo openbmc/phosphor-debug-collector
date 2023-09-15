@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5849836c_3631a7de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-15T12:57:47Z",
+      "side": 1,
+      "message": "I see, https://jenkins.openbmc.org/job/ci-openbmc/ will build p10bmc but not until this is merged and in a bump so def good idea to build it on it\u0027s own.",
+      "parentUuid": "a2afc114_289de576",
+      "revId": "106f96ea4ba73a75ef8e52045742402075cbde5c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22e2efbd_5b6e1434",
