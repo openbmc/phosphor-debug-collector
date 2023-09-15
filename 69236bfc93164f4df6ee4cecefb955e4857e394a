@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "260ef90a_b72548f7",
+        "filename": "base_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-15T13:57:23Z",
+      "side": 1,
+      "message": "I was curious why the virtual was added, https://www.geeksforgeeks.org/virtual-base-class-in-c/ answered my question.",
+      "range": {
+        "startLine": 47,
+        "startChar": 18,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d80f6a_84a81c7c",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-09-15T13:57:23Z",
+      "side": 1,
+      "message": "Isn\u0027t this done within base class - dump_entry.hpp constructor?",
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
