@@ -39,6 +39,24 @@
       "message": "Isn\u0027t this done within base class - dump_entry.hpp constructor?",
       "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e3036f1_7290d757",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-15T14:12:25Z",
+      "side": 1,
+      "message": "In virtual inheritance, the most derived class has to call the constructor, there is one problem I forgot to remove the calling from base and intermediate class, will remove",
+      "parentUuid": "77d80f6a_84a81c7c",
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
