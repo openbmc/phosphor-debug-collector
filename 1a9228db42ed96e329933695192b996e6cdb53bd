@@ -34,6 +34,24 @@
       "parentUuid": "bd80dddf_63918dfa",
       "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad36013c_37718853",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-19T17:35:52Z",
+      "side": 1,
+      "message": "This particular commit is the final commit for dump entry refactoring\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/65007/26",
+      "parentUuid": "6473cf84_4a1e93bb",
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
