@@ -167,6 +167,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e6b737_5b4c9a31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-20T11:40:07Z",
+      "side": 1,
+      "message": "What I understood is, the preference is for smaller commits explaining the changes than the design document. I think these commits are smaller and explain the scope.\nIncluding the class diagram in the commit message is difficult because always not able to get to 72char length\n \nbut I didn\u0027t get the meaning of the code to understand, do you mean the complete code of the refactor?",
+      "parentUuid": "6db33b3b_42eeaf21",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd80dddf_63918dfa",
