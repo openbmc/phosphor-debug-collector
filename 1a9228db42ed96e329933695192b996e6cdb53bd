@@ -191,6 +191,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "621bc22d_bde4cbb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T12:03:21Z",
+      "side": 1,
+      "message": "Openbmc process of code refactoring is \n - either share the design or send a mail to mailing list by providing the background and the high level design direction.\n   This will help both reviewers and maintainers to get bigger picture on design direction.\n\nEg :  refer the below mail which provides high level summary and  \nhttps://lists.ozlabs.org/pipermail/openbmc/2019-November/019664.html and https://gerrit.openbmc.org/c/openbmc/phosphor-certificate-manager/+/28295 .",
+      "parentUuid": "01e6b737_5b4c9a31",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd80dddf_63918dfa",
