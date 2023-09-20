@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5233994f_4214c0bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T08:03:23Z",
+      "side": 1,
+      "message": "Phosphor-debug-collector?",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd771a5_1e04a8f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T08:03:23Z",
+      "side": 1,
+      "message": "Existing code uses single level inheritance level. looking at the commit chain , am not seeing difference from inheritance point. other the re-ordering the code. Looking for details what exactly you are trying to achieve here with restructuring. Are yoiu missing commits in this chain, which shows the improvement with this code restructuring?",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd80dddf_63918dfa",
