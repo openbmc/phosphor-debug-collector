@@ -47,6 +47,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d4881d8_b0411b5a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-20T08:45:28Z",
+      "side": 1,
+      "message": "The original changes for getting the new types of dumps didnt get approved because there was three levels of inhertance now by composition it will achive by existing 2 levels of inheritance\nThis is the earlier commit\n\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/42932/\n\nIf this or multiple level of inheritance are not employed, there will be heavy code duplication",
+      "parentUuid": "8fd771a5_1e04a8f2",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "1a9228db42ed96e329933695192b996e6cdb53bd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd80dddf_63918dfa",
