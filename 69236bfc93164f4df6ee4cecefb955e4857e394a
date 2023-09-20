@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1dd056b_46584c22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T07:34:11Z",
+      "side": 1,
+      "message": "Need update in https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Dump/Entry.interface.yaml#L5\nalso inlcude impacted team in the review dbus reveiw.",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "260ef90a_b72548f7",
@@ -55,6 +78,52 @@
       "side": 1,
       "message": "In virtual inheritance, the most derived class has to call the constructor, there is one problem I forgot to remove the calling from base and intermediate class, will remove",
       "parentUuid": "77d80f6a_84a81c7c",
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c371d1_48c7a332",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T07:34:11Z",
+      "side": 1,
+      "message": "why this chnages added as part of this commit?",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 67
+      },
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c5e3f5_c90574b3",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-09-20T07:34:11Z",
+      "side": 1,
+      "message": "why this chnages added as part of this commit?",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 66
+      },
       "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
