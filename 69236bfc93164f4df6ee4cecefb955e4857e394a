@@ -82,6 +82,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84337bd6_d97aa449",
+        "filename": "bmc_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-22T07:16:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2e3036f1_7290d757",
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61c371d1_48c7a332",
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "This change is for splitting epoch interface from common interfaces, now the most derived class has to call the constructor since the inheritance is virtual",
       "parentUuid": "61c371d1_48c7a332",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 67
+      },
+      "revId": "69236bfc93164f4df6ee4cecefb955e4857e394a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "656fa7ac_0d0dd6af",
+        "filename": "dump-extensions/openpower-dumps/system_dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-09-22T07:16:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aecb96ad_4957320c",
       "range": {
         "startLine": 58,
         "startChar": 7,
