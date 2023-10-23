@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "873a3a42_f3b792ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2023-10-23T14:28:28Z",
+      "side": 1,
+      "message": "Looks like no progress on this change so removing me from the reviewer list to clean-up my review inbox.",
+      "revId": "9f2f6377a90447aea1d84eaad5760907047278a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
