@@ -16,6 +16,23 @@
       "message": "Looks like no progress on this change so removing me from the reviewer list to clean-up my review inbox.",
       "revId": "9f2f6377a90447aea1d84eaad5760907047278a3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2c577ed_472d085a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-11-06T09:02:35Z",
+      "side": 1,
+      "message": "idle for long time. Rebase and add me back once this is ready for review.",
+      "revId": "9f2f6377a90447aea1d84eaad5760907047278a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
