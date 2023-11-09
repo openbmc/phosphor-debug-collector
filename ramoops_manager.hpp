@@ -39,6 +39,11 @@ class Manager
      *  @param [in] files - ramoops files list
      */
     void createHelper(const std::vector<std::string>& files);
+
+    /** @brief Create an error indicating ramoops was found
+     *
+     */
+    void createError();
 };
 
 } // namespace ramoops
