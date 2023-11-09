@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec60ec4_d3a7bbc9",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1001496
+      },
+      "writtenOn": "2023-11-09T05:56:51Z",
+      "side": 1,
+      "message": "nit: can we use utilize outer else by modifying if at line 12 by appending \"\u0026\u0026 ${#elog_id} \u003d8\"",
+      "revId": "674d37bacbb4c37aa23227ba4cdf6cb173c6316e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
