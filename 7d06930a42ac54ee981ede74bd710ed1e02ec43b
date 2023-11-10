@@ -69,6 +69,24 @@
       "parentUuid": "894d50f3_d2fded9b",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef550efe_63196be1",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-11-10T06:13:35Z",
+      "side": 1,
+      "message": "The second link discusses why a kernel panic won\u0027t display in the journal or other userspace saving the kernel logs to disk.\n\nlogging a clean shutdown is inherently racy , and even describing it as an intent leaves time windows where the panic happens during shutdown.   Also, the ramoops dump will try to include a stack dump and the kernel log content nearby the panic.\n\nIf this was trying to create an entry for evey boot then logging intent to reboot might help disambiguation between panic, power loss, and intentionally reboot; however this commit is about saving ramoops in a sel and dump.",
+      "parentUuid": "1e33bc6d_2f52978b",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
