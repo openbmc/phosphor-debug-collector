@@ -16,6 +16,23 @@
       "message": "Looked at some timings just to make sure logging would be alive when this was called, and based on the journal below I think it would be fine:\n\nNov 09 18:03:45 ever8bmc systemd[1]: Starting Phosphor Dump Manager...\nNov 09 18:03:45 ever8bmc systemd[1]: Starting Phosphor Log Manager...\nNov 09 18:03:57 ever8bmc systemd[1]: Started Phosphor Log Manager.\nNov 09 18:03:57 ever8bmc systemd[1]: Started Phosphor Dump Manager.\nNov 09 18:03:58 ever8bmc systemd[1]: Ramoops monitor. was skipped because of an unmet condition check (ConditionPathExistsGlob\u003d/var/lib/systemd/pstore/dmesg-ramoops-*).",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee087cc_8e1383ae",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-11-10T03:29:08Z",
+      "side": 1,
+      "message": "This is the correct app to add check related to reboot is related to Kernel panic or due to power loss.\nThe proposed logic, based on pstore files presence base check, is going to good for the BMC Kernel  which enables Pstore \u0026 Ramoops Setup. ( https://stackoverflow.com/questions/28538091/using-persistent-storage-in-linux-kernel). Also not covered error scenarios, like missing pstore file due t some errors.\n\nAnother approach would be add code to create log in the clean shutdown or reboot path and check here ( Reference :https://unix.stackexchange.com/questions/692624/can-i-reliably-determine-if-the-last-reboot-was-due-to-a-kernel-panic).\n\nAdding Andrew to comment, who worked on this area initially.",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
