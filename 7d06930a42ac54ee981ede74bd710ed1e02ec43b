@@ -51,6 +51,24 @@
       "parentUuid": "5ee087cc_8e1383ae",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e33bc6d_2f52978b",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-11-10T05:07:45Z",
+      "side": 1,
+      "message": "Andrew\u0027s proposed logic covers all the scenarios related Unexepected BMC reboots due to kernel panic use case.  Or should we approch other way i mentioned above?",
+      "parentUuid": "894d50f3_d2fded9b",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
