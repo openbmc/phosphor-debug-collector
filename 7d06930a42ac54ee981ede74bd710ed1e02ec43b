@@ -87,6 +87,24 @@
       "parentUuid": "1e33bc6d_2f52978b",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6feb0896_3185344e",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-11-10T13:44:38Z",
+      "side": 1,
+      "message": "Yeah, I think it would be good to log an error anytime the BMC is unexpectedly rebooted but there\u0027s a lot of complexities to trying to detect that. At least with this review, we ensure we have a log when we create a ramoops dump, ensuring the system owner knows to look for the dump.",
+      "parentUuid": "ef550efe_63196be1",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
