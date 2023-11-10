@@ -33,6 +33,24 @@
       "message": "This is the correct app to add check related to reboot is related to Kernel panic or due to power loss.\nThe proposed logic, based on pstore files presence base check, is going to good for the BMC Kernel  which enables Pstore \u0026 Ramoops Setup. ( https://stackoverflow.com/questions/28538091/using-persistent-storage-in-linux-kernel). Also not covered error scenarios, like missing pstore file due t some errors.\n\nAnother approach would be add code to create log in the clean shutdown or reboot path and check here ( Reference :https://unix.stackexchange.com/questions/692624/can-i-reliably-determine-if-the-last-reboot-was-due-to-a-kernel-panic).\n\nAdding Andrew to comment, who worked on this area initially.",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "894d50f3_d2fded9b",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2023-11-10T03:36:17Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m having a little trouble understanding what it is I should be commenting on. Is there a problem?",
+      "parentUuid": "5ee087cc_8e1383ae",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
