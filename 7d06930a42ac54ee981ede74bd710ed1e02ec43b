@@ -105,6 +105,24 @@
       "parentUuid": "ef550efe_63196be1",
       "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbbe73dd_427aca51",
+        "filename": "ramoops_manager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-11-13T12:29:12Z",
+      "side": 1,
+      "message": "As mentioned earlier, some limitation with this approch , for the system which disables pstore. It will be good to keep commit message updated with this , will good for future refrence. because this esel got dependncy of pstor file update .",
+      "parentUuid": "6feb0896_3185344e",
+      "revId": "7d06930a42ac54ee981ede74bd710ed1e02ec43b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
