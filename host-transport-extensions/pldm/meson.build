@@ -6,7 +6,7 @@ phosphor_dump_manager_sources += [
 
 phosphor_dump_manager_dependency += [ dependency('libpldm') ]
 
-if get_option('openpower-dumps-extension').enabled()
+if get_option('openpower-dumps-extension').allowed()
     subdir('oem/ibm')
 else
     subdir('default')

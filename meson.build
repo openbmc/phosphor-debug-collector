@@ -100,7 +100,7 @@ conf_data.set('CLASS_VERSION', get_option('CLASS_VERSION'),
 conf_data.set('ERROR_MAP_YAML', get_option('ERROR_MAP_YAML'),
                description : 'YAML filepath containing error object paths'
              )
-conf_data.set('JFFS_CORE_FILE_WORKAROUND', get_option('jffs-workaround').enabled(),
+conf_data.set('JFFS_CORE_FILE_WORKAROUND', get_option('jffs-workaround').allowed(),
                description : 'Turn on jffs workaround for core file'
              )
 conf_data.set_quoted('FAULTLOG_DUMP_OBJ_ENTRY', get_option('FAULTLOG_DUMP_OBJ_ENTRY'),
@@ -112,7 +112,7 @@ conf_data.set_quoted('FAULTLOG_DUMP_OBJPATH', get_option('FAULTLOG_DUMP_OBJPATH'
 conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
                       description : 'Directory where fault logs are placed'
                     )
-conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').enabled(),
+conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').allowed(),
                description : 'Turn on rotate config for bmc dump'
              )
 
@@ -302,6 +302,6 @@ foreach u : unit_files
     )
 endforeach
 
-if get_option('tests').enabled()
+if get_option('tests').allowed()
   subdir('test')
 endif
