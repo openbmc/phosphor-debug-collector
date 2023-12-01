@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cab4b0b5_d3519482",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2023-12-01T03:39:31Z",
+      "side": 1,
+      "message": "I\u0027ve previously noticed and tested a scenario where multiple error logs generated at the same time can lead to a fork bomb. This issue mainly arises because the creation of dump requests isn\u0027t serialized, as these elog dump requests do not go through the d-bus. The observations were confirmed during tests that involved creating numerous InternalFailure error logs using the busctl command. It\u0027s still uncertain if this scenario could occur under real-world conditions.\n\nLooking ahead, if this method is modified to handle more error logs, there\u0027s a chance we might miss dumps related to these logs. So, my suggestion is to limit the number of elog dumps happening at the same time rather than completely stopping a second one from occurring. With this change, looks like, the dump manager stops an elog dump even when there\u0027s a user-initiated dump going on.\"",
+      "revId": "51fe6c3c2cd0f2c300b139f270806938e3e34119",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f0dade3f_d06bf907",
