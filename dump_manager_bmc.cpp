@@ -65,7 +65,8 @@ sdbusplus::message::object_path
     std::string path = extractParameter<std::string>(
         convertCreateParametersToString(CreateParameters::FilePath), params);
 
-    if ((Manager::fUserDumpInProgress == true) && (dumpType == DumpTypes::USER))
+    if ((Manager::fUserDumpInProgress == true) &&
+        (dumpType == DumpTypes::USER || dumpType == DumpTypes::ELOG))
     {
         lg2::info("Another user initiated dump in progress");
         elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
@@ -100,7 +101,9 @@ sdbusplus::message::object_path
         elog<InternalFailure>();
     }
 
-    if (dumpType == DumpTypes::USER)
+    // When a new dumpType is added, this if statement should be
+    // updated to avoid the kernel out-of-memory issue happen
+    if (dumpType == DumpTypes::USER || dumpType == DumpTypes::ELOG)
     {
         Manager::fUserDumpInProgress = true;
     }
