@@ -1,0 +1,69 @@
+#!/bin/bash
+#
+# config: 2 20
+# @brief: Get the ldap config 
+#
+
+. "$DREPORT_INCLUDE"/functions
+
+desc="ldap config"
+
+openLdapCmd="busctl get-property \
+                     xyz.openbmc_project.Ldap.Config \
+                     /xyz/openbmc_project/user/ldap/openldap \
+                     xyz.openbmc_project.Object.Enable \
+                     'Enabled'"
+
+activeDirCmd="busctl get-property \
+                     xyz.openbmc_project.Ldap.Config \
+                     /xyz/openbmc_project/user/ldap/active_directory \
+                     xyz.openbmc_project.Object.Enable \
+                     'Enabled'"
+
+commands=(
+    "systemctl status nslcd"
+    "systemctl status xyz.openbmc_project.Ldap.Config"
+    "busctl tree xyz.openbmc_project.Ldap.Config "
+    "busctl call  xyz.openbmc_project.Ldap.Config \
+        /xyz/openbmc_project/user/ldap \
+        org.freedesktop.DBus.ObjectManager \
+        'GetManagedObjects'"
+)
+
+output_file="/tmp/user_mgr_ldap"
+
+if [ -e "$output_file" ]; then
+  rm "$output_file"
+fi
+
+ldapEnabled="false"
+
+if result=$(eval "$openLdapCmd" | awk '{print $NF}'); then
+    if [ "$result" == "true" ]; then
+	ldapEnabled="true"
+    elif [ "$result" == "false" ]; then
+        if result=$(eval "$activeDirCmd" | awk '{print $NF}'); then
+	    if [ "$result" == "true" ]; then
+	        ldapEnabled="true"
+            fi
+        fi
+    fi
+fi
+
+if [ "$ldapEnabled" == "true" ]; then
+    for cmd in "${commands[@]}"; do
+        result=$(eval "$cmd" )
+        echo "=============$cmd=============" >> "$output_file"
+        echo "$result" >> "$output_file"
+    done
+
+    command="cat $output_file"
+    file_name="usrmgrldap.log"
+    add_cmd_output "$command" "$file_name" "$desc"
+    rm -rf $output_file
+
+    desc="nslcd config"
+    command="cat /etc/nslcd.conf"
+    file_name="nslcd.log"
+    add_cmd_output "$command" "$file_name" "$desc"
+fi
