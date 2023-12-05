@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# config: 2 20
+# @brief: Get the ldap config 
+#
+
+. $DREPORT_INCLUDE/functions
+
+desc="ldap config"
+
+# collect data only phosphor-user-manager is running 
+if [ -e "/usr/bin/phosphor-user-manager" ]; then
+    command="rm -rf /tmp/user_mgr_ldap; killall -s SIGUSR1 phosphor-user-manager; \
+           sleep 5; cat /tmp/user_mgr_ldap"
+    file_name="usrmgrldap.log"
+
+    add_cmd_output "$command" "$file_name" "$desc"
+
+    rm -rf /tmp/user_mgr_ldap
+else
+    log_warning "skipping ldap config dump:  phosphor-user-manager is not enabled"
+fi
