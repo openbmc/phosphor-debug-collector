@@ -1,0 +1,82 @@
+#!/bin/bash
+#
+# config: 2 20
+# @brief: Get the ldap configuration
+#
+
+# shellcheck disable=SC1091
+# shellcheck disable=SC2086
+
+. "$DREPORT_INCLUDE"/functions
+
+desc="ldap configuration"
+
+open_ldap_command="busctl get-property \
+                     xyz.openbmc_project.Ldap.Config \
+                     /xyz/openbmc_project/user/ldap/openldap \
+                     xyz.openbmc_project.Object.Enable \
+                     'Enabled'"
+
+active_dir_command="busctl get-property \
+                     xyz.openbmc_project.Ldap.Config \
+                     /xyz/openbmc_project/user/ldap/active_directory \
+                     xyz.openbmc_project.Object.Enable \
+                     'Enabled'"
+
+commands=(
+    "systemctl status nslcd"
+    "systemctl status xyz.openbmc_project.Ldap.Config"
+    "busctl tree xyz.openbmc_project.Ldap.Config"
+    "busctl call  xyz.openbmc_project.Ldap.Config \
+        /xyz/openbmc_project/user/ldap \
+        org.freedesktop.DBus.ObjectManager \
+        'GetManagedObjects'"
+)
+
+file_name=$"ldap_bmcdump_$EPOCHTIME"
+output_file_dir="$TMP_DIR/ldap_bmcdump"
+output_file="$output_file_dir/$file_name"
+
+if [ -e "$output_file" ]; then
+    rm "$output_file"
+fi
+
+if [ ! -d "$output_file_dir" ]; then
+    mkdir -p "$output_file_dir"
+fi
+
+ldapEnabled="false"
+
+if result=$(eval "$open_ldap_command" | awk '{print $NF}'); then
+    if [ "$result" == "true" ]; then
+        ldapEnabled="true"
+    elif [ "$result" == "false" ]; then
+        if result=$(eval "$active_dir_command" | awk '{print $NF}'); then
+            if [ "$result" == "true" ]; then
+                ldapEnabled="true"
+            fi
+        fi
+    fi
+fi
+
+if [ "$ldapEnabled" == "false" ]; then
+    log_warning "skipping LDAP dump: LDAP is not enabled"
+    exit 0;
+else
+    for cmd in "${commands[@]}"; do
+        result=$(eval "$cmd" )
+        echo "=============$cmd=============" >> "$output_file"
+        echo "$result" >> "$output_file"
+    done
+
+    command="cat $output_file"
+    file_name="usrmgrldap.log"
+    add_cmd_output "$command" "$file_name" "$desc"
+    rm -rf $output_file
+
+    desc="nslcd config"
+    result=$(sed '/bindpw/d' /etc/nslcd.conf)
+    command="echo $result"
+    file_name="nslcd.conf"
+    add_cmd_output "$command" "$file_name" "$desc"
+fi
