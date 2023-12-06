@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09c40e3e_e32ed62b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Start commit message with \"dreport: xxxxx\"",
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b065db6b_dc5a0c9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Remove \".\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31bcb596_4584caf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "BMC user initiated Dump",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "302dae45_2265e657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Please add newly added plugging output details ( file name and size) , good for reference.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac1636d_f64d5452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Fix CI failure",
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b3a85e_e0f0c6f3",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Remove extra space",
+      "range": {
+        "startLine": 4,
+        "startChar": 29,
+        "endLine": 5,
+        "endChar": 1
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d73c75e6_5f40ef26",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "Remove extra space",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 53
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f0432d2_dfd66ca7",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "-e option is used to check if the file is exist ,  not for running.?",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d1b74fd_3fa0bfaf",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-06T04:28:56Z",
+      "side": 1,
+      "message": "This will additional overhead of 5 second for every dump collection. There is big push on reducing the Dump collection time. I am not an expert in user manager area. Please look any alternative like during dump collction , just copy the file instead of waiting or optimize this delay logic , by reducing interval based aproch.,",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
