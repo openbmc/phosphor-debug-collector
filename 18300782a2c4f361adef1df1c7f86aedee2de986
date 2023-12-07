@@ -244,6 +244,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "767b68c7_5746bb91",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-07T05:20:14Z",
+      "side": 1,
+      "message": "refer https://grok.openbmc.org/xref/openbmc/phosphor-debug-collector/tools/dreport.d/plugins.d/fanmondump?r\u003d9d26e4fa#19 to optimize this logic",
+      "parentUuid": "5bae2860_e9f7c5fa",
+      "range": {
+        "startLine": 14,
+        "startChar": 10,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0604318_af9882ae",
