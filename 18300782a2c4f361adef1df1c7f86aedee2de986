@@ -41,6 +41,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06668b2b_a38783c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b065db6b_dc5a0c9c",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0774c0bf_d36d66d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09c40e3e_e32ed62b",
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31bcb596_4584caf9",
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b3d46d_0ee2b17c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "31bcb596_4584caf9",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "302dae45_2265e657",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-12-06T04:28:56Z",
       "side": 1,
       "message": "Please add newly added plugging output details ( file name and size) , good for reference.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a9b9293_b66365ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Added please check.",
+      "parentUuid": "302dae45_2265e657",
       "range": {
         "startLine": 13,
         "startChar": 5,
@@ -117,6 +207,30 @@
       "writtenOn": "2023-12-06T04:28:56Z",
       "side": 1,
       "message": "Remove extra space",
+      "range": {
+        "startLine": 4,
+        "startChar": 29,
+        "endLine": 5,
+        "endChar": 1
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8e4eb2_7ee836e0",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "00b3a85e_e0f0c6f3",
       "range": {
         "startLine": 4,
         "startChar": 29,
@@ -192,6 +306,54 @@
         "startChar": 20,
         "endLine": 11,
         "endChar": 52
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb21497b_d93c4fa3",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Have changed the logic, we only need to collect data when LDAP is enabled. Please review new patch.",
+      "parentUuid": "29c705e4_baf8d7ae",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 52
+      },
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "561c06c3_7c8ecd6a",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d73c75e6_5f40ef26",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 53
       },
       "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -281,6 +443,24 @@
       "writtenOn": "2023-12-06T09:35:45Z",
       "side": 1,
       "message": "please pull /etc/nslcd.conf file into  bmc dump",
+      "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d8f4d2e_f681544d",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2023-12-12T21:42:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0604318_af9882ae",
       "revId": "18300782a2c4f361adef1df1c7f86aedee2de986",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
