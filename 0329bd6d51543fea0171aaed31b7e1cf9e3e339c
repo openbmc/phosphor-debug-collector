@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a196a0d_56b69b0b",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-15T16:34:03Z",
+      "side": 1,
+      "message": "configuration",
+      "range": {
+        "startLine": 4,
+        "startChar": 23,
+        "endLine": 4,
+        "endChar": 29
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a7a63f_481f70c5",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-15T16:34:03Z",
+      "side": 1,
+      "message": "configuaration",
+      "range": {
+        "startLine": 10,
+        "startChar": 11,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065d48d9_f30f8ceb",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-15T16:34:03Z",
+      "side": 1,
+      "message": "Avoid usage of camel case type variable name. \nopen_ldap_command",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef2762d_42631c59",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-15T16:34:03Z",
+      "side": 1,
+      "message": "Same as line 12 comments.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d3c5ee_a168d1f1",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-12-15T16:34:03Z",
+      "side": 1,
+      "message": "This should create problem , incase multiple dumps packaging happening parallely.\nuse dump specific path .",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
