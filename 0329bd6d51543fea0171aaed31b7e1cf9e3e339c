@@ -114,6 +114,30 @@
       },
       "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "505ab155_5e4b5ac3",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000350
+      },
+      "writtenOn": "2024-01-03T11:00:39Z",
+      "side": 1,
+      "message": "/var/lib/ path also parallely used by dump-manager right?\ncan we keep this file at /var/lib/phosphor-debug-collector/dumps?",
+      "parentUuid": "93d3c5ee_a168d1f1",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
