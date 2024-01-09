@@ -282,6 +282,30 @@
       },
       "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd48826f_32531b80",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-01-09T19:01:59Z",
+      "side": 1,
+      "message": "Updated code as per the suggestion.",
+      "parentUuid": "5f1e2702_063df618",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "0329bd6d51543fea0171aaed31b7e1cf9e3e339c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
