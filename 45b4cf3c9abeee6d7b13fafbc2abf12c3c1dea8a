@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7931d1b_8c356546",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-01-29T14:30:09Z",
+      "side": 1,
+      "message": "https://www.cyberciti.biz/tips/shell-scripting-bash-how-to-create-temporary-random-file-name.html\n\n#!/bin/bash\n#do init some stuff here\n \n#now make a temp file \nTMP_FILE\u003d$(mktemp -q /tmp/bar.XXXXXX)\nif [ $? -ne 0 ]; then\n    echo \"$0: Can\u0027t create temp file, bye..\"\n    exit 1\nfi\n \n#continue with script\necho \"Using $TMP_FILE ...\"",
+      "parentUuid": "292e7906_c45bc8f9",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 44
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e2185d4_9cc8fa43",
         "filename": "tools/dreport.d/plugins.d/ldapdump",
         "patchSetId": 9
