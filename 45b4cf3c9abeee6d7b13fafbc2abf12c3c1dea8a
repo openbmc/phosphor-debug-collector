@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e945aa2_2ca5ea41",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000382
+      },
+      "writtenOn": "2024-01-29T13:27:07Z",
+      "side": 1,
+      "message": "Is a unique file needed for each dump request? \nI think the idea is to collect the latest data at the time when the dump is gathered. The next dump will collect the updated file.",
+      "parentUuid": "1087248c_c621c9b2",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 44
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e2185d4_9cc8fa43",
         "filename": "tools/dreport.d/plugins.d/ldapdump",
         "patchSetId": 9
