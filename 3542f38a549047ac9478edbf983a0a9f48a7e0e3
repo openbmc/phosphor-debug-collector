@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "118ecc1e_3ae67b61",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-14T07:55:00Z",
+      "side": 1,
+      "message": "This directory should hold the othe ldap config files, right incase , any other dump is in progress? shouldn\u0027t be deleting this file.",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f66ada_4f9827f4",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-14T07:55:00Z",
+      "side": 1,
+      "message": "If the directory is not present you should create one,",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2352de93_3f79b759",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-14T07:55:00Z",
+      "side": 1,
+      "message": "Nit : better to resture the below , will help for debug why ldap data is not present.\n\nif [ \"$ldapEnabled\" \u003d\u003d \"false\" ]; then\n log_warning \"skipping LDAP dump:  LDAP is not enabled\"\n exit 0;\nfi.\n\nThen you can continue the dump collection",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36f4f58_9ae06bc9",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-14T07:55:00Z",
+      "side": 1,
+      "message": "How this output looks for line 30 command ? just make sure the readabilty is good here.",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
