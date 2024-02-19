@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2583c762_826dba69",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-19T04:57:56Z",
+      "side": 1,
+      "message": "Yes, we should not delete it. Updated code. Please review.",
+      "parentUuid": "118ecc1e_3ae67b61",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62f66ada_4f9827f4",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-14T07:55:00Z",
       "side": 1,
       "message": "If the directory is not present you should create one,",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6424676a_8ab6de81",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-19T04:57:56Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "62f66ada_4f9827f4",
       "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "746228b1_ff4dae7d",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-19T04:57:56Z",
+      "side": 1,
+      "message": "done. Please review",
+      "parentUuid": "2352de93_3f79b759",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c36f4f58_9ae06bc9",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-02-14T07:55:00Z",
       "side": 1,
       "message": "How this output looks for line 30 command ? just make sure the readabilty is good here.",
+      "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ba26025_29d8c546",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-19T04:57:56Z",
+      "side": 1,
+      "message": "it will look like this:\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003dbusctl call  xyz.openbmc_project.Ldap.Config         /xyz/openbmc_project/user/ldap         org.freedesktop.DBus.ObjectManager         \u0027GetManagedObjects\u0027\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nwith some extra space(5 blank spaces) only, somehow it is not coming in comment properly.",
+      "parentUuid": "c36f4f58_9ae06bc9",
       "revId": "3542f38a549047ac9478edbf983a0a9f48a7e0e3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
