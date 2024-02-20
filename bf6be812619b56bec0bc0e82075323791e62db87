@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d4fd8d_8e367f10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-20T10:07:56Z",
+      "side": 1,
+      "message": "Code looking good now . Thanks for adding the plugin, which helps the LDAP related issues debug. \nPlease work with Ratan/Security team on addressing the security issue Ratan raised.",
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
