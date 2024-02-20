@@ -284,6 +284,30 @@
       },
       "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60971147_c1bb45a8",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-20T11:00:04Z",
+      "side": 1,
+      "message": "here we are talking about \"bindpw\" field, so can we mark password with some \u003chidden\u003e text with the help of \u0027sed\u0027 utility before collecting it to dump.\nit will look like this in dump.\n   bindpw \u003chidden\u003e\nwill this work?\n\nfor this we need to first collect all nslcd.conf content in a temp file, then will modify temp file content for bindpw field with \u0027sed\u0027 utility\n       sed -i \u0027s/^bindpw .*/bindpw \u003chidden\u003e/\u0027 /tmp/nslcd \nand then will store temp file data to dump.",
+      "parentUuid": "c60aa6da_5a4df8cf",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
