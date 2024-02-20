@@ -236,6 +236,30 @@
       },
       "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60aa6da_5a4df8cf",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2024-02-20T10:17:34Z",
+      "side": 1,
+      "message": "Yes it is a security violation, But why can\u0027t we take dump of other content from this file except password?",
+      "parentUuid": "99fe0c30_c36eca56",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
