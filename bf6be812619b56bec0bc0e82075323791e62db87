@@ -16,6 +16,69 @@
       "message": "Code looking good now . Thanks for adding the plugin, which helps the LDAP related issues debug. \nPlease work with Ratan/Security team on addressing the security issue Ratan raised.",
       "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "862d7802_182d2cfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2024-02-21T23:26:27Z",
+      "side": 1,
+      "message": "Seems okay to me, except for concerns about disclosing the binddn and bindpw credentials.  I this the dump function should redact the values of these fields.",
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f715bdcf_e367bbd5",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2024-02-21T23:26:27Z",
+      "side": 1,
+      "message": "Are locked into the bash shell?  I thought we were supposed to be neutral, and write shell scripts that work with both the Bourne shell and with the bash shell.  In particular, this script uses bash-isms such as $(command) instead of the more portable backquotes: `command`.\nI believe some BMC users do not have the bash shell installed because of licensing concerns and they use the Bourne shell instead, so they would not be able to use this script.  (But I don\u0027t know if that is a concern here, so feel free to ignore this comment.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00939897_3cbde6f3",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2024-02-21T23:26:27Z",
+      "side": 1,
+      "message": "nit: training space",
+      "range": {
+        "startLine": 29,
+        "startChar": 48,
+        "endLine": 29,
+        "endChar": 49
+      },
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

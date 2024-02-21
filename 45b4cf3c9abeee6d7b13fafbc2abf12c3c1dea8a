@@ -356,6 +356,30 @@
       },
       "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a431297e_89e5b392",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2024-02-21T23:26:27Z",
+      "side": 1,
+      "message": "I am not an LDAP expert, so please correct any mistakes.\nThe nslcd.conf options binddn and bindpw store optionally-provided credentials the BMC uses to authenticate to the LDAP server.  (Ideally these credentials will give read-only access to the LDAP server, but that is beyond the scope of the BMC.). The credentials are stored in plaintext in this file, and the file is protected by Linux file system permissions so only the root user is allowed to read and write.\nIn this way, the file has appropriate access controls while it is on the BMC.\n\nIf this file is included in a dump, it would contain the LDAP credentials, which would disclose the credentials to anyone who has read access to the dump.  Is that only BMC admin users, or would the dump be distributed to less trustworthy people?  And do they already have access to this information?  [I\u0027m not sure what the answer is.]\n\nAssuming most of the time we don\u0027t need the value of these options, obscuring them (such as with the sed command above) seems like a good compromise of getting the dump we need and not disclosing the credentials.",
+      "parentUuid": "b29c03f0_bc79a736",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
