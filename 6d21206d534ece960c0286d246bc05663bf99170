@@ -16,6 +16,24 @@
       "message": "Several comments:\n1. The pattern provided to sed ought to match bindpw only when it appears at the beginning of the line, like sed /^bindpw/d.  Otherwise the command may delete lines it did not intend to delete.  Please add the \u0027^\u0027 character.\n\n2. I think setting the shell variable this way will mash all the lines together into a single unreadable line.  You may need to use a temporary file to preserve newlines.\n\n3. I would prefer that the dump indicate that the \"bindpw\" line was present in the original file as it existed on the BMC, but its value was redacted in the dump.  Otherwise folks reading the dump may be confused why this line is missing.  But I am okay with simply deleting this line.",
       "revId": "6d21206d534ece960c0286d246bc05663bf99170",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "833f8eb5_f268afda",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000235
+      },
+      "writtenOn": "2024-02-23T21:28:43Z",
+      "side": 1,
+      "message": "Oops.  Never mind about comment 2 above.  The quotes you have in your code will preserve the newlines.",
+      "parentUuid": "45e881cd_78be2bb8",
+      "revId": "6d21206d534ece960c0286d246bc05663bf99170",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
