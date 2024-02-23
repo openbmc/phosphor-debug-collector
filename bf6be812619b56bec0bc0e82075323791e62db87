@@ -58,6 +58,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "250c67f2_901a2785",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-23T20:57:00Z",
+      "side": 1,
+      "message": "Keeping bash shell as all other places we are following the same.",
+      "parentUuid": "f715bdcf_e367bbd5",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00939897_3cbde6f3",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-02-21T23:26:27Z",
       "side": 1,
       "message": "nit: training space",
+      "range": {
+        "startLine": 29,
+        "startChar": 48,
+        "endLine": 29,
+        "endChar": 49
+      },
+      "revId": "bf6be812619b56bec0bc0e82075323791e62db87",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b5019b_097dad9f",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-23T20:57:00Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "00939897_3cbde6f3",
       "range": {
         "startLine": 29,
         "startChar": 48,

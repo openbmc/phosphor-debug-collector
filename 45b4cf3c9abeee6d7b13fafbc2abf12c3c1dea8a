@@ -404,6 +404,30 @@
       },
       "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd72348_da6783b0",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001631
+      },
+      "writtenOn": "2024-02-23T20:57:00Z",
+      "side": 1,
+      "message": "Decided to not include \"bindpw\" entry instead of hiding/encrypt \"bindpw\" value.\nUpdate code. Please review.",
+      "parentUuid": "338b70f6_cf711270",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "45b4cf3c9abeee6d7b13fafbc2abf12c3c1dea8a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
