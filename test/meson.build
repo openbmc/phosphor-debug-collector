@@ -36,6 +36,7 @@ foreach t : tests
                                     gmock_dep,
                                     dump,
                                     phosphor_logging_dep,
+                                    cereal_dep,
                                     ]),
        workdir: meson.current_source_dir())
 endforeach
