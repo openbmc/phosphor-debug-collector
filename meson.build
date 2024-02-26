@@ -234,7 +234,8 @@ phosphor_dump_monitor_sources = [
 
 phosphor_dump_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
-        phosphor_logging_dep
+        phosphor_logging_dep,
+        sdeventplus_dep,
     ]
 
 phosphor_dump_monitor_install = true
@@ -250,7 +251,8 @@ phosphor_ramoops_monitor_sources = [
 
 phosphor_ramoops_monitor_dependency = [
         phosphor_dbus_interfaces_dep,
-        phosphor_logging_dep
+        phosphor_logging_dep,
+        sdeventplus_dep,
     ]
 
 phosphor_ramoops_monitor_install = true
