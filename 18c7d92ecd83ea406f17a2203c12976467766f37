@@ -46,6 +46,30 @@
       },
       "revId": "18c7d92ecd83ea406f17a2203c12976467766f37",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edee8235_0e0a3334",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-27T16:47:38Z",
+      "side": 1,
+      "message": "Yep... our typical behavior for most repositories now is everything is enabled for CI testing and then disabled in the Yocto recipe (through PACKAGECONFIG settings).",
+      "parentUuid": "5ed4f000_837560be",
+      "range": {
+        "startLine": 179,
+        "startChar": 64,
+        "endLine": 179,
+        "endChar": 68
+      },
+      "revId": "18c7d92ecd83ea406f17a2203c12976467766f37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
