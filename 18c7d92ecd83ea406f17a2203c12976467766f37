@@ -22,6 +22,30 @@
       },
       "revId": "18c7d92ecd83ea406f17a2203c12976467766f37",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed4f000_837560be",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-27T16:17:57Z",
+      "side": 1,
+      "message": "Correct, This builds only with extension flag enabled. We Need to look option to enable possible Build flag enabled by default to avoid issues in future.",
+      "parentUuid": "bdbbbfd4_ceaeedf4",
+      "range": {
+        "startLine": 179,
+        "startChar": 64,
+        "endLine": 179,
+        "endChar": 68
+      },
+      "revId": "18c7d92ecd83ea406f17a2203c12976467766f37",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
