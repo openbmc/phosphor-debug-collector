@@ -34,6 +34,24 @@
       "parentUuid": "92d812b0_a04d2bfe",
       "revId": "dda890d9e2b31f5b24ca2097fb6aae359c8f0e64",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8381aea5_578c0416",
+        "filename": "tools/dreport.d/plugins.d/ldapdump",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-02-27T03:22:04Z",
+      "side": 1,
+      "message": "Sorry , in my verification, i forgot to remove #. That created all the confusion. Thanks for the clarification",
+      "parentUuid": "f284166c_261d5dd5",
+      "revId": "dda890d9e2b31f5b24ca2097fb6aae359c8f0e64",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
