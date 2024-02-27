@@ -176,7 +176,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
             "Failed to encode pldm FileAck to delete host dump, "
             "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
             "PLDM_RETURN_CODE: {RET_CODE}",
-            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE", pldmDumpType "RET_CODE",
+            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE", pldmDumpType, "RET_CODE",
             retCode);
         elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
                                 "allowed due to encode fileack failed"));
