@@ -16,6 +16,69 @@
       "message": "Please add conditional building methods to limit this type od dump only to the supported configurations",
       "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adcef699_c7c48170",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-03-01T12:03:01Z",
+      "side": 1,
+      "message": "PDC design direction is to add company specific implementation in  the \"dump-extension\" folder. Please refer existing OpenPOWER dump implementation for the reference.\n\nNot seeing com.intel.crashdump definition in the latest phosphor-dbus-interfaces repo. Can you point to the interface definition link?",
+      "range": {
+        "startLine": 172,
+        "startChar": 44,
+        "endLine": 172,
+        "endChar": 64
+      },
+      "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c954fe_ab0e2a5d",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-03-01T12:03:01Z",
+      "side": 1,
+      "message": "d-bus signal based watch for elog add and delete is already present in the existing dump cpode. refer elog_watch.cpp code for details. Need to look extending the existing code rather than adding duplicate code here. Also this infrastructure , automated way of watching events presented in example_errors_watch.yaml.",
+      "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf9bc36_87dc0219",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-03-01T12:03:01Z",
+      "side": 1,
+      "message": "is it available in upstream?",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 435,
+        "endChar": 39
+      },
+      "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
