@@ -41,13 +41,18 @@ function dump_time_details() {
         return $INTERNAL_FAILURE
     fi
 
-    start=$(date -d @$START_TIME +'%Y-%m-%d %H:%M:%S')
-    if [ $END_TIME -eq 0 ]; then
-        END_TIME=$(date +"%s")
-        end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
-    else
-        end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
+    if [ $? -ne 0 ] || [ -z "$START_TIME" ] || [ "$START_TIME" -eq 0 ]; then
+        echo "Could not fetch start time for $dump_id. Setting manually"
+        START_TIME=$(date +%s)
     fi
+
+    start=$(date -d @$START_TIME +'%Y-%m-%d %H:%M:%S')
+    if [ -z $END_TIME ]; then
+        echo "Could not fetch end time for $dump_id. Setting manually"
+        END_TIME=$(date +"%s")
+    fi
+    end=$(date -d @$END_TIME +'%Y-%m-%d %H:%M:%S')
+
     printf "dump-start-time: %s\n" "$start" >> $YAML_FILE
     printf "dump-end-time: %s\n" "$end" >> $YAML_FILE
 }
