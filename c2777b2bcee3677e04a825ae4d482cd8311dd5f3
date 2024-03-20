@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5412038e_ae10332a",
+        "filename": "tools/dreport.d/ibm.d/gendumpinfo",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-03-20T07:16:46Z",
+      "side": 1,
+      "message": "can we do something simlar to start remove else i,e line 53,54 and move line 52 after than out of if condition",
+      "revId": "c2777b2bcee3677e04a825ae4d482cd8311dd5f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
