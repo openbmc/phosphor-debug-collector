@@ -41,13 +41,13 @@ function dump_time_details() {
     fi
 
     # shellcheck disable=SC2181
-    if [ $? -ne 0 ]; then
+    if [ $? -ne 0 ] || [ -z $START_TIME ] || [ $START_TIME -eq 0 ]; then
         echo "Could not fetch start time for $dump_id"
         START_TIME=$(date +%s)
     fi
 
     start=$(date -d @"$START_TIME" +'%Y-%m-%d %H:%M:%S')
-    if [ "$END_TIME" -eq 0 ]; then
+    if [ -z $END_TIME ] || [ "$END_TIME" -eq 0 ]; then
         END_TIME=$(date +"%s")
         end=$(date -d @"$END_TIME" +'%Y-%m-%d %H:%M:%S')
     else
