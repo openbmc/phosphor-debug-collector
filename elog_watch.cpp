@@ -141,11 +141,10 @@ void Watch::addCallback(sdbusplus::message_t& msg)
 
         phosphor::dump::elog::serialize(elogList);
 
-        auto item = std::find_if(phosphor::dump::bmc::TypeMap.begin(),
-                                 phosphor::dump::bmc::TypeMap.end(),
-                                 [errorType](const auto& err) {
-            return (err.second == errorType);
-        });
+        auto item = std::find_if(
+            phosphor::dump::bmc::TypeMap.begin(),
+            phosphor::dump::bmc::TypeMap.end(),
+            [errorType](const auto& err) { return (err.second == errorType); });
         if (item != phosphor::dump::bmc::TypeMap.end())
         {
             iMgr.IMgr::create((*item).first, fullPaths);

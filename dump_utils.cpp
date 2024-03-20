@@ -167,8 +167,8 @@ void createPEL(sdbusplus::bus::bus& dBus, const std::string& dumpFilePath,
 
         // Implies this is a call from Manager. Hence we need to make an async
         // call to avoid deadlock with Phosphor-logging.
-        auto retVal = busMethod.call_async(
-            [&](sdbusplus::message::message&& reply) {
+        auto retVal =
+            busMethod.call_async([&](sdbusplus::message::message&& reply) {
             if (reply.is_method_error())
             {
                 log<level::ERR>("Error in calling async method to create PEL");

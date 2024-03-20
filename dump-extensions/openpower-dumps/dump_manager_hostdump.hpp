@@ -239,8 +239,8 @@ class Manager :
             {
                 dumpEntry = dumpIt->second.get();
             }
-            Child::Callback callback =
-                [this, dumpEntry, pid](Child&, const siginfo_t* si) {
+            Child::Callback callback = [this, dumpEntry,
+                                        pid](Child&, const siginfo_t* si) {
                 // Set progress as failed if packaging return error
                 if (si->si_status != 0)
                 {

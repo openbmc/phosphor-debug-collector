@@ -201,10 +201,9 @@ size_t Manager::getAllowedSize()
     // Delete the first existing file until the space is enough
     while (size < minDumpSize)
     {
-        auto delEntry = min_element(entries.begin(), entries.end(),
-                                    [](const auto& l, const auto& r) {
-            return l.first < r.first;
-        });
+        auto delEntry = min_element(
+            entries.begin(), entries.end(),
+            [](const auto& l, const auto& r) { return l.first < r.first; });
         auto delPath = std::filesystem::path(dumpDir) /
                        std::to_string(delEntry->first);
 
