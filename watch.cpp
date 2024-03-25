@@ -22,6 +22,7 @@ Watch::~Watch()
 {
     if ((fd() >= 0) && (wd >= 0))
     {
+        sd_event_source_unref(source);
         inotify_rm_watch(fd(), wd);
     }
 }
@@ -51,7 +52,7 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
     }
 
     auto rc =
-        sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback, this);
+        sd_event_add_io(eventObj.get(), &source, fd(), events, callback, this);
     if (0 > rc)
     {
         // Failed to add to event loop
