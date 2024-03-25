@@ -92,6 +92,9 @@ class Watch
 
     /** @brief The user level callback function wrapper */
     UserType userFunc;
+
+    /** @brief The event source object reference */
+    sd_event_source* source = nullptr;
 };
 
 } // namespace inotify
