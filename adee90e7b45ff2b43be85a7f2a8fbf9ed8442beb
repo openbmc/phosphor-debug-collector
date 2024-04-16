@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2d15d4_7e5ac3a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T03:01:40Z",
+      "side": 1,
+      "message": "Looks like no progress so removing me from Reviewer.\n\nPlease feel free to add me back.",
+      "revId": "adee90e7b45ff2b43be85a7f2a8fbf9ed8442beb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
