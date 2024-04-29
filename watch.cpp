@@ -27,8 +27,7 @@ Watch::~Watch()
 Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
              const uint32_t events, const std::filesystem::path& path,
              UserType userFunc) :
-    flags(flags),
-    mask(mask), events(events), path(path), fd(inotifyInit()),
+    flags(flags), mask(mask), events(events), path(path), fd(inotifyInit()),
     userFunc(userFunc)
 {
     // Check if watch DIR exists.
