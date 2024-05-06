@@ -1,29 +1,31 @@
 #include "config.h"
 
-#include "dump_manager_system.hpp"
+#include "dump_manager_openpower.hpp"
 
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
 #include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
-#include "xyz/openbmc_project/Common/error.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
 
-namespace openpower
-{
-namespace dump
-{
-namespace system
+namespace openpower::dump
 {
 
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
-void Manager::notify(uint32_t dumpId, uint64_t size)
+void Manager::notifyDump(uint32_t dumpId, uint64_t size, NotifyDumpTypes type,
+                         [[maybe_unused]] uint32_t token)
 {
+    // Proceed only if the type is system
+    if (type != NotifyDumpTypes::System)
+    {
+        return;
+    }
     // Get the timestamp
     uint64_t timeStamp =
         std::chrono::duration_cast<std::chrono::microseconds>(
@@ -111,7 +113,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
             id, std::make_unique<system::Entry>(
                     bus, objPath.c_str(), id, timeStamp, size, dumpId,
                     phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+                    phosphor::dump::originatorTypes::Internal, *this)));
     }
     catch (const std::invalid_argument& e)
     {
@@ -131,11 +133,6 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
 sdbusplus::message::object_path Manager::createDump(
     phosphor::dump::DumpCreateParams params)
 {
-    constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
-    constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
-    constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
-    constexpr auto DIAG_MOD_TARGET = "obmc-host-crash@0.target";
-
     if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {
         lg2::warning(
@@ -184,19 +181,10 @@ sdbusplus::message::object_path Manager::createDump(
         return std::string();
     }
 
-    // Get the originator id and type from params
     std::string originatorId;
-    originatorTypes originatorType;
-
+    phosphor::dump::originatorTypes originatorType;
     phosphor::dump::extractOriginatorProperties(params, originatorId,
                                                 originatorType);
-
-    auto b = sdbusplus::bus::new_default();
-    auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
-                                      SYSTEMD_INTERFACE, "StartUnit");
-    method.append(DIAG_MOD_TARGET); // unit to activate
-    method.append("replace");
-    bus.call_noreply(method);
 
     auto id = lastEntryId + 1;
     auto idString = std::to_string(id);
@@ -226,6 +214,4 @@ sdbusplus::message::object_path Manager::createDump(
     return objPath.string();
 }
 
-} // namespace system
-} // namespace dump
-} // namespace openpower
+} // namespace openpower::dump
