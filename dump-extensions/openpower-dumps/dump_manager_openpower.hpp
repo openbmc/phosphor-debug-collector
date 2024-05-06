@@ -2,23 +2,25 @@
 
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
-#include "xyz/openbmc_project/Dump/NewDump/server.hpp"
 
+#include <com/ibm/Dump/Notify/common.hpp>
+#include <com/ibm/Dump/Notify/server.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
-namespace openpower
-{
-namespace dump
-{
-namespace system
+namespace openpower::dump
 {
 
+constexpr auto OP_BASE_ENTRY_PATH = "/xyz/openbmc_project/dump/opdump/entry";
+constexpr auto OP_DUMP_OBJ_PATH = "/xyz/openbmc_project/dump/opdump";
+
 constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
-using NotifyIface = sdbusplus::server::object_t<
+using OpDumpIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
-    sdbusplus::xyz::openbmc_project::Dump::server::NewDump>;
+    sdbusplus::com::ibm::Dump::server::Notify>;
+
+using NotifyDumpTypes = sdbusplus::common::com::ibm::dump::Notify::DumpType;
 
 /** @class Manager
  *  @brief System Dump  manager implementation.
@@ -26,7 +28,7 @@ using NotifyIface = sdbusplus::server::object_t<
  *  xyz.openbmc_project.Dump.Notify DBus API
  */
 class Manager :
-    virtual public NotifyIface,
+    virtual public OpDumpIfaces,
     virtual public phosphor::dump::Manager
 {
   public:
@@ -45,7 +47,7 @@ class Manager :
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
-        NotifyIface(bus, path),
+        OpDumpIfaces(bus, path),
         phosphor::dump::Manager(bus, path, baseEntryPath)
     {}
 
@@ -58,8 +60,11 @@ class Manager :
     /** @brief Notify the system dump manager about creation of a new dump.
      *  @param[in] dumpId - Id from the source of the dump.
      *  @param[in] size - Size of the dump.
+     *  @param[in] type - Type of the dump being notified
+     *  @param[in] token - Token identifying the specific dump
      */
-    void notify(uint32_t dumpId, uint64_t size) override;
+    void notifyDump(uint32_t dumpId, uint64_t size, NotifyDumpTypes type,
+                    [[maybe_unused]] uint32_t token) override;
 
     /** @brief Implementation for CreateDump
      *  Method to create a new system dump entry when user
@@ -71,6 +76,4 @@ class Manager :
         createDump(phosphor::dump::DumpCreateParams params) override;
 };
 
-} // namespace system
-} // namespace dump
-} // namespace openpower
+} // namespace openpower::dump
