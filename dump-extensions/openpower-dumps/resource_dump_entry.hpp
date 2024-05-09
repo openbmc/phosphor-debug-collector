@@ -50,7 +50,8 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      *  @param[in] dumpSize - Dump size in bytes.
      *  @param[in] sourceId - DumpId provided by the source.
      *  @param[in] vspStr- Input to host to generate the resource dump.
-     *  @param[in] pwd - Password needed by host to validate the request.
+     *  @param[in] usrChallenge - User Challenge needed by host to validate the
+     *             request.
      *  @param[in] status - status  of the dump.
      *  @param[in] originatorId - Id of the originator of the dump
      *  @param[in] originatorType - Originator type
@@ -58,7 +59,7 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
           uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
-          std::string vspStr, std::string pwd,
+          std::string vspStr, std::string usrChallenge,
           phosphor::dump::OperationStatus status, std::string originatorId,
           originatorTypes originatorType, phosphor::dump::Manager& parent) :
         phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
@@ -68,7 +69,7 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
     {
         sourceDumpId(sourceId);
         vspString(vspStr);
-        password(pwd);
+        userChallenge(usrChallenge);
         // Emit deferred signal.
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
     };
