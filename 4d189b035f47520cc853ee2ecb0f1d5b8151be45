@@ -51,6 +51,24 @@
       "parentUuid": "bd36ea68_9dc99d75",
       "revId": "4d189b035f47520cc853ee2ecb0f1d5b8151be45",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b73200_e84424a1",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-09T20:04:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce077ac2_a36e59b3",
+      "revId": "4d189b035f47520cc853ee2ecb0f1d5b8151be45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
