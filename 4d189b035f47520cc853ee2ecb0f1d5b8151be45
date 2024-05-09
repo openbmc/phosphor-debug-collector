@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c793dd07_20864e53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-09T20:02:18Z",
+      "side": 1,
+      "message": "We\u0027ll need this to get the PDI bump in.",
+      "revId": "4d189b035f47520cc853ee2ecb0f1d5b8151be45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd36ea68_9dc99d75",
+        "filename": "dump-extensions/openpower-dumps/resource_dump_entry.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-09T20:02:18Z",
+      "side": 1,
+      "message": "nit: indent request to be under usr like other wraps here",
+      "revId": "4d189b035f47520cc853ee2ecb0f1d5b8151be45",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
