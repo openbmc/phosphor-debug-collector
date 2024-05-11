@@ -72,7 +72,7 @@ std::unique_ptr<phosphor::dump::Entry> DumpEntryFactory::createSystemDumpEntry(
 std::unique_ptr<phosphor::dump::Entry>
     DumpEntryFactory::createResourceDumpEntry(
         uint32_t id, std::filesystem::path& objPath, uint64_t timeStamp,
-        const DumpParameters& dumpParams)
+        bool createSysDump, const DumpParameters& dumpParams)
 {
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
@@ -95,6 +95,14 @@ std::unique_ptr<phosphor::dump::Entry>
     std::string userChallengeString = (!dumpParams.userChallenge.has_value())
                                           ? ""
                                           : *dumpParams.userChallenge;
+    if (createSysDump)
+    {
+        return std::make_unique<system::Entry>(
+            bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
+            phosphor::dump::OperationStatus::InProgress,
+            dumpParams.originatorId, dumpParams.originatorType,
+            system::SystemImpact::NonDisruptive, userChallengeString, mgr);
+    }
 
     return std::make_unique<resource::Entry>(
         bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID, vspString,
@@ -107,7 +115,20 @@ std::unique_ptr<phosphor::dump::Entry> DumpEntryFactory::createEntry(
 {
     DumpParameters dumpParams = util::extractDumpParameters(params);
 
-    id |= getDumpIdPrefix(dumpParams.type);
+    // If requested dump type is system and the vsp string is empty or "system"
+    // the host will be creating a non-disruptive system dump and responding
+    // with system dump type to avoid a never finished resource dump entry,
+    // creating system dump entry in such cases
+
+    bool createSystemDump =
+        (dumpParams.type == OpDumpTypes::Resource &&
+         (!dumpParams.vspString.has_value() || dumpParams.vspString->empty() ||
+          toUpper(*dumpParams.vspString) == "SYSTEM"));
+
+    uint32_t dumpIdPrefix = getDumpIdPrefix(
+        createSystemDump ? OpDumpTypes::System : dumpParams.type);
+
+    id |= dumpIdPrefix;
     std::string idStr = std::format("{:08X}", id);
 
     auto objPath = std::filesystem::path(baseEntryPath) / idStr;
@@ -122,7 +143,8 @@ std::unique_ptr<phosphor::dump::Entry> DumpEntryFactory::createEntry(
         case OpDumpTypes::System:
             return createSystemDumpEntry(id, objPath, timeStamp, dumpParams);
         case OpDumpTypes::Resource:
-            return createResourceDumpEntry(id, objPath, timeStamp, dumpParams);
+            return createResourceDumpEntry(id, objPath, timeStamp,
+                                           createSystemDump, dumpParams);
         case OpDumpTypes::Hostboot:
         case OpDumpTypes::SBE:
         case OpDumpTypes::Hardware:
