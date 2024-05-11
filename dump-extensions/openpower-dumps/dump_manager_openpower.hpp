@@ -20,9 +20,9 @@ using OpDumpIfaces = sdbusplus::server::object_t<
 using NotifyDumpTypes = sdbusplus::common::com::ibm::dump::Notify::DumpType;
 
 /** @class Manager
- *  @brief System Dump  manager implementation.
- *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Notify DBus API
+ *  @brief OpenPOWER Dump manager implementation.
+ *  @details A concrete implementation for the com.ibm.Dump.Notify and
+ *           xyz.openbmc_project.Dump.Create DBus APIs
  */
 class Manager :
     virtual public OpDumpIfaces,
