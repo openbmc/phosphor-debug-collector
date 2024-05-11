@@ -4,10 +4,14 @@
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
 
+#include <com/ibm/Dump/Create/common.hpp>
 #include <com/ibm/Dump/Notify/common.hpp>
 #include <com/ibm/Dump/Notify/server.hpp>
+#include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
 #include <xyz/openbmc_project/Dump/Create/server.hpp>
 
 namespace openpower::dump
@@ -18,7 +22,7 @@ using OpDumpIfaces = sdbusplus::server::object_t<
     sdbusplus::com::ibm::Dump::server::Notify>;
 
 using NotifyDumpTypes = sdbusplus::common::com::ibm::dump::Notify::DumpType;
-
+using OpDumpTypes = sdbusplus::common::com::ibm::dump::Create::DumpType;
 /** @class Manager
  *  @brief OpenPOWER Dump manager implementation.
  *  @details A concrete implementation for the com.ibm.Dump.Notify and
@@ -71,6 +75,26 @@ class Manager :
      */
     sdbusplus::message::object_path createDump(
         phosphor::dump::DumpCreateParams params) override;
+
+    inline OpDumpTypes convertNotifyToCreateType(NotifyDumpTypes type)
+    {
+        using namespace phosphor::logging;
+        using InvalidArgument =
+            sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument;
+        using Argument = xyz::openbmc_project::Common::InvalidArgument;
+        switch (type)
+        {
+            case NotifyDumpTypes::System:
+                return OpDumpTypes::System;
+            case NotifyDumpTypes::Resource:
+                return OpDumpTypes::Resource;
+            default:
+                lg2::error("An invalid type passed: {TYPE}", "TYPE", type);
+                elog<InvalidArgument>(
+                    Argument::ARGUMENT_NAME("TYPE"),
+                    Argument::ARGUMENT_VALUE("INVALID INPUT"));
+        }
+    }
 };
 
 } // namespace openpower::dump

@@ -1,9 +1,9 @@
 #pragma once
 
 #include "dump_utils.hpp"
-#include "xyz/openbmc_project/Common/error.hpp"
 
 #include <com/ibm/Dump/Create/common.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
 
 #include <optional>
 
