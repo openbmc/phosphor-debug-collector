@@ -92,7 +92,7 @@ class DumpEntryFactory
      */
     std::unique_ptr<phosphor::dump::Entry> createResourceDumpEntry(
         uint32_t id, std::filesystem::path& objPath, uint64_t timeStamp,
-        const DumpParameters& dumpParams);
+        bool createSysDump, const DumpParameters& dumpParams);
 
     /**
      * @brief Retrieves the dump ID prefix based on the dump type.
@@ -162,6 +162,20 @@ class DumpEntryFactory
         OpDumpTypes dumpType, uint64_t srcDumpId, uint64_t size, uint32_t id,
         const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
             entries);
+
+    /**
+     * @brief Converts a string to uppercase.
+     *
+     * @param str The string to convert to uppercase.
+     * @return A new string where all characters are converted to uppercase.
+     */
+    inline static std::string toUpper(const std::string& str)
+    {
+        std::string result = str;
+        std::transform(result.begin(), result.end(), result.begin(),
+                       [](unsigned char c) { return std::toupper(c); });
+        return result;
+    }
 
     /** @brief sdbusplus DBus bus connection. */
     sdbusplus::bus_t& bus;
