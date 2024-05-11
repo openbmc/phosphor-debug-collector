@@ -3,9 +3,9 @@
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 
+#include <com/ibm/Dump/Create/common.hpp>
 #include <com/ibm/Dump/Notify/common.hpp>
 #include <com/ibm/Dump/Notify/server.hpp>
-#include <com/ibm/Dump/Create/common.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>

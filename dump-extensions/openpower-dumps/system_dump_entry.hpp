@@ -20,6 +20,8 @@ using EntryIfaces = sdbusplus::server::object_t<
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
+using SystemImpact =
+    sdbusplus::common::xyz::openbmc_project::dump::entry::System::SystemImpact;
 
 class Manager;
 
@@ -61,6 +63,39 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
     {
         sourceDumpId(sourceId);
+        // Emit deferred signal.
+        this->openpower::dump::system::EntryIfaces::emit_object_added();
+    };
+
+    /** @brief Constructor for the Dump Entry Object with disruptive
+     *         or non-disruptive system dump type.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] dumpId - Dump id.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *             since the epoch.
+     *  @param[in] dumpSize - Dump size in bytes.
+     *  @param[in] sourceId - DumpId provided by the source.
+     *  @param[in] status - status  of the dump.
+     *  @param[in] originatorId - Id of the originator of the dump
+     *  @param[in] originatorType - Originator type
+     *  @param[in] sysImpact - Whether disruptive or not
+     *  @param[in] usrChallenge - A user challenge for authentication
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          phosphor::dump::OperationStatus status, std::string originatorId,
+          originatorTypes originatorType, SystemImpact sysImpact,
+          std::string usrChallenge, phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
+                              std::string(), status, originatorId,
+                              originatorType, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+    {
+        sourceDumpId(sourceId);
+        userChallenge(usrChallenge);
+        systemImpact(sysImpact);
         // Emit deferred signal.
         this->openpower::dump::system::EntryIfaces::emit_object_added();
     };
