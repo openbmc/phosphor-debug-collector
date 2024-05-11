@@ -2,7 +2,6 @@
 
 #include "com/ibm/Dump/Entry/Resource/server.hpp"
 #include "dump_entry.hpp"
-#include "dump_manager_resource.hpp"
 
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -23,8 +22,6 @@ using EntryIfaces = sdbusplus::server::object_t<
 
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
-
-class Manager;
 
 /** @class Entry
  *  @brief Resource Dump Entry implementation.
@@ -75,6 +72,40 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
     };
 
+    /** @brief Constructor for the resource dump Entry Object for system
+     * generated dumps, in such cases vsp string and user challenge wont be
+     * available.
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] dumpId - Dump id.
+     *  @param[in] timeStamp - Dump creation timestamp
+     *             since the epoch.
+     *  @param[in] dumpSize - Dump size in bytes.
+     *  @param[in] sourceId - DumpId provided by the source.
+     *  @param[in] status - status  of the dump.
+     *  @param[in] originatorId - Id of the originator of the dump
+     *  @param[in] originatorType - Originator type
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          phosphor::dump::OperationStatus status, std::string originatorId,
+          originatorTypes originatorType, phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
+                              std::string(), status, originatorId,
+                              originatorType, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+    {
+        using HostResponse =
+            sdbusplus::common::com::ibm::dump::entry::Resource::HostResponse;
+        sourceDumpId(sourceId);
+        vspString("");
+        userChallenge("");
+        dumpRequestStatus(HostResponse::Success);
+
+        // Emit deferred signal.
+        this->openpower::dump::resource::EntryIfaces::emit_object_added();
+    };
     /** @brief Method to initiate the offload of dump
      *  @param[in] uri - URI to offload dump.
      */
@@ -87,6 +118,8 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      */
     void update(uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId)
     {
+        using HostResponse =
+            sdbusplus::common::com::ibm::dump::entry::Resource::HostResponse;
         sourceDumpId(sourceId);
         elapsed(timeStamp);
         size(dumpSize);
@@ -94,6 +127,7 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // #bm-openbmc/2808
         status(OperationStatus::Completed);
         completedTime(timeStamp);
+        dumpRequestStatus(HostResponse::Success);
     }
 
     /**
