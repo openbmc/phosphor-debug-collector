@@ -15,7 +15,6 @@ namespace openpower::dump
 constexpr auto OP_BASE_ENTRY_PATH = "/xyz/openbmc_project/dump/opdump/entry";
 constexpr auto OP_DUMP_OBJ_PATH = "/xyz/openbmc_project/dump/opdump";
 
-constexpr uint32_t INVALID_SOURCE_ID = 0xFFFFFFFF;
 using OpDumpIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::server::Create,
     sdbusplus::com::ibm::Dump::server::Notify>;
@@ -23,9 +22,9 @@ using OpDumpIfaces = sdbusplus::server::object_t<
 using NotifyDumpTypes = sdbusplus::common::com::ibm::dump::Notify::DumpType;
 
 /** @class Manager
- *  @brief System Dump  manager implementation.
- *  @details A concrete implementation for the
- *  xyz.openbmc_project.Dump.Notify DBus API
+ *  @brief OpenPOWER Dump manager implementation.
+ *  @details A concrete implementation for the com.ibm.Dump.Notify and
+ *           xyz.openbmc_project.Dump.Create DBus APIs
  */
 class Manager :
     virtual public OpDumpIfaces,
