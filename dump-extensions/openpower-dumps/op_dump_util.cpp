@@ -1,22 +1,22 @@
 #include "op_dump_util.hpp"
 
+#include "dump_manager.hpp"
 #include "dump_utils.hpp"
-#include "xyz/openbmc_project/Common/error.hpp"
-#include "xyz/openbmc_project/Dump/Create/error.hpp"
 
 #include <unistd.h>
 
+#include <com/ibm/Dump/Create/common.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
+#include <xyz/openbmc_project/Common/OriginatedBy/common.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
+#include <xyz/openbmc_project/Dump/Create/common.hpp>
+#include <xyz/openbmc_project/Dump/Create/error.hpp>
 
 #include <filesystem>
 
-namespace openpower
-{
-namespace dump
-{
-namespace util
+namespace openpower::dump::util
 {
 
 bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
@@ -107,6 +107,95 @@ bool isSystemDumpInProgress(sdbusplus::bus_t& bus)
     return false;
 }
 
-} // namespace util
-} // namespace dump
-} // namespace openpower
+template <typename T>
+inline std::optional<T> safeExtractParameter(
+    const std::string& key, const phosphor::dump::DumpCreateParams& params)
+{
+    auto it = params.find(key);
+    if (it == params.end())
+    {
+        return std::nullopt;
+    }
+    if (!std::holds_alternative<T>(it->second))
+    {
+        lg2::error("An invalid put is passed for {KEY}", "KEY", key);
+        throwInvalidArgument(key, "INVALID_INPUT");
+    }
+    return std::get<T>(it->second);
+}
+
+openpower::dump::DumpParameters extractDumpParameters(
+    const phosphor::dump::DumpCreateParams& params)
+{
+    using OpCreate = sdbusplus::common::com::ibm::dump::Create;
+    using xyzCreate = sdbusplus::common::xyz::openbmc_project::dump::Create;
+
+    // Extract mandatory parameters
+    std::optional<std::string> type = safeExtractParameter<std::string>(
+        OpCreate::convertCreateParametersToString(
+            OpCreate::CreateParameters::DumpType),
+        params);
+
+    openpower::dump::OpDumpTypes dumpType;
+
+    if (type && type.has_value())
+    {
+        dumpType = OpCreate::convertDumpTypeFromString(*type);
+    }
+    else
+    {
+        lg2::error("Dump type is missing in the list of arguments");
+        throwInvalidArgument("DUMP_TYPE", "ARGUMENT_MISSING");
+    }
+
+    std::string originatorId =
+        safeExtractParameter<std::string>(
+            xyzCreate::convertCreateParametersToString(
+                xyzCreate::CreateParameters::OriginatorId),
+            params)
+            .value_or("");
+
+    std::optional<std::string> originatorTypeStr =
+        safeExtractParameter<std::string>(
+            xyzCreate::convertCreateParametersToString(
+                xyzCreate::CreateParameters::OriginatorType),
+            params);
+
+    phosphor::dump::originatorTypes originatorType =
+        phosphor::dump::originatorTypes::Internal;
+
+    if (originatorTypeStr.has_value())
+    {
+        originatorType = sdbusplus::xyz::openbmc_project::Common::server::
+            OriginatedBy::convertOriginatorTypesFromString(*originatorTypeStr);
+    }
+
+    // Extract optional parameters
+    std::optional<std::string> vspString =
+        safeExtractParameter<std::string>(
+            OpCreate::convertCreateParametersToString(
+                OpCreate::CreateParameters::VSPString),
+            params)
+            .value_or("");
+
+    std::optional<std::string> userChallenge =
+        safeExtractParameter<std::string>(
+            OpCreate::convertCreateParametersToString(
+                OpCreate::CreateParameters::Password),
+            params);
+
+    std::optional<uint64_t> eid = safeExtractParameter<uint64_t>(
+        OpCreate::convertCreateParametersToString(
+            OpCreate::CreateParameters::ErrorLogId),
+        params);
+
+    std::optional<uint64_t> fid = safeExtractParameter<uint64_t>(
+        OpCreate::convertCreateParametersToString(
+            OpCreate::CreateParameters::FailingUnitId),
+        params);
+
+    return {dumpType, vspString,    userChallenge, eid,
+            fid,      originatorId, originatorType};
+}
+
+} // namespace openpower::dump::util
