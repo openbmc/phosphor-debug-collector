@@ -5,6 +5,7 @@
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
 #include "op_dump_util.hpp"
+#include "openpower_dump_entry.hpp"
 #include "resource_dump_entry.hpp"
 #include "system_dump_entry.hpp"
 
@@ -95,6 +96,30 @@ class DumpEntryFactory
         bool createSysDump, const DumpParameters& dumpParams);
 
     /**
+     * @brief Creates a hostboot dump entry.
+     * @param[in] id The unique identifier for the system dump entry.
+     * @param[in] objPath D-Bus entry path for the dump entry.
+     * @param[in] timeStamp Timestamp marking the creation time of the dump.
+     * @param[in] dumpParams Parameters specific to the dump being created.
+     * @return A unique pointer to a newly created hostboot dump entry.
+     */
+    std::unique_ptr<phosphor::dump::Entry> createHostbootDumpEntry(
+        uint32_t id, std::filesystem::path& objPath, uint64_t timeStamp,
+        const DumpParameters& dumpParams);
+
+    /**
+     * @brief Creates a hardware dump entry.
+     * @param[in] id The unique identifier for the system dump entry.
+     * @param[in] objPath D-Bus entry path for the dump entry.
+     * @param[in] timeStamp Timestamp marking the creation time of the dump.
+     * @param[in] dumpParams Parameters specific to the dump being created.
+     * @return A unique pointer to a newly created hardware dump entry.
+     */
+    std::unique_ptr<phosphor::dump::Entry> createHardwareDumpEntry(
+        uint32_t id, std::filesystem::path& objPath, uint64_t timeStamp,
+        const DumpParameters& dumpParams);
+
+    /**
      * @brief Retrieves the dump ID prefix based on the dump type.
      * @param[in] dumpType Type of the dump (system, resource, etc.).
      * @return The prefix to be used for the dump ID.
@@ -103,6 +128,10 @@ class DumpEntryFactory
     {
         switch (dumpType)
         {
+            case OpDumpTypes::Hardware:
+                return HARDWARE_DUMP_ID_PREFIX;
+            case OpDumpTypes::Hostboot:
+                return HOSTBOOT_DUMP_ID_PREFIX;
             case OpDumpTypes::System:
                 return SYSTEM_DUMP_ID_PREFIX;
             case OpDumpTypes::Resource:
@@ -129,6 +158,10 @@ class DumpEntryFactory
 
         switch (prefix)
         {
+            case HARDWARE_DUMP_ID_PREFIX:
+                return OpDumpTypes::Hardware;
+            case HOSTBOOT_DUMP_ID_PREFIX:
+                return OpDumpTypes::Hostboot;
             case SYSTEM_DUMP_ID_PREFIX:
                 return OpDumpTypes::System;
             case RESOURCE_DUMP_ID_PREFIX:
