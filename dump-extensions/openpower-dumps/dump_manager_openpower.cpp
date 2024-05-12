@@ -14,6 +14,8 @@
 #include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
+#include <regex>
+
 namespace openpower::dump
 {
 
@@ -62,6 +64,43 @@ sdbusplus::message::object_path
         throw;
     }
     return {};
+}
+
+void Manager::updateEntry(const std::filesystem::path& fullPath)
+{
+    lg2::info("A new dump file found {PATH}", "PATH", fullPath.string());
+    std::string filename = fullPath.filename().string();
+
+    // Parse Filename SYSDUMP.<SerialNumber>.<DumpId>.<DateTime>Date
+    std::regex pattern("(SYSDUMP).([a-zA-Z0-9]+).([0-9a-fA-F]{8}).([0-9]+)");
+    std::smatch match;
+
+    if (!std::regex_match(filename, match, pattern))
+    {
+        lg2::error("Filename does not match expected format, {FILENAME}",
+                   "FILENAME", filename);
+        return;
+    }
+
+    std::string dumpIdStr = match[3];
+    std::string timestampStr = match[4];
+
+    uint32_t dumpId = std::stoi(dumpIdStr, 0, 16);
+
+    uint64_t timestamp = util::timeToEpoch(timestampStr);
+
+    uint64_t fileSize = std::filesystem::file_size(fullPath);
+
+    auto it = entries.find(dumpId);
+    if (it == entries.end())
+    {
+        lg2::error("Entry with Dump ID {DUMP_ID} not found", "DUMP_ID",
+                   std::format("{:08X}", dumpId));
+        return;
+    }
+    auto opEntry = dynamic_cast<openpower::dump::Entry*>(it->second.get());
+
+    opEntry->update(timestamp, fileSize, fullPath);
 }
 
 } // namespace openpower::dump

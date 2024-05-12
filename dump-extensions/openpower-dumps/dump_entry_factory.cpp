@@ -111,6 +111,45 @@ std::unique_ptr<phosphor::dump::Entry>
 }
 
 std::unique_ptr<phosphor::dump::Entry>
+    DumpEntryFactory::createHostbootDumpEntry(uint32_t id,
+                                              std::filesystem::path& objPath,
+                                              uint64_t timeStamp,
+                                              const DumpParameters& dumpParams)
+{
+    if (!dumpParams.eid.has_value())
+    {
+        lg2::error("Required parameter error log id is missing");
+        util::throwInvalidArgument("ERROR_LOG_ID", "ARGUMENT_MISSING");
+    }
+    return std::make_unique<hostboot::Entry>(
+        bus, objPath.c_str(), id, timeStamp, 0, std::string(),
+        phosphor::dump::OperationStatus::InProgress, dumpParams.originatorId,
+        dumpParams.originatorType, *dumpParams.eid, mgr);
+}
+
+std::unique_ptr<phosphor::dump::Entry>
+    DumpEntryFactory::createHardwareDumpEntry(uint32_t id,
+                                              std::filesystem::path& objPath,
+                                              uint64_t timeStamp,
+                                              const DumpParameters& dumpParams)
+{
+    if (!dumpParams.eid.has_value())
+    {
+        lg2::error("Required parameter error log id is missing");
+        util::throwInvalidArgument("ERROR_LOG_ID", "ARGUMENT_MISSING");
+    }
+    if (!dumpParams.fid.has_value())
+    {
+        lg2::error("Required parameter id of failing unit is missing");
+        util::throwInvalidArgument("FAILING_UNIT_ID", "ARGUMENT_MISSING");
+    }
+    return std::make_unique<hardware::Entry>(
+        bus, objPath.c_str(), id, timeStamp, 0, std::string(),
+        phosphor::dump::OperationStatus::InProgress, dumpParams.originatorId,
+        dumpParams.originatorType, *dumpParams.eid, *dumpParams.fid, mgr);
+}
+
+std::unique_ptr<phosphor::dump::Entry>
     DumpEntryFactory::createEntry(uint32_t id,
                                   phosphor::dump::DumpCreateParams& params)
 {
@@ -147,8 +186,10 @@ std::unique_ptr<phosphor::dump::Entry>
             return createResourceDumpEntry(id, objPath, timeStamp,
                                            createSystemDump, dumpParams);
         case OpDumpTypes::Hostboot:
-        case OpDumpTypes::SBE:
+            return createHostbootDumpEntry(id, objPath, timeStamp, dumpParams);
         case OpDumpTypes::Hardware:
+            return createHardwareDumpEntry(id, objPath, timeStamp, dumpParams);
+        case OpDumpTypes::SBE:
         default:
             util::throwInvalidArgument("DUMP_TYPE_NOT_VALID", "INVALID_INPUT");
     }
