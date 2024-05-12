@@ -195,4 +195,26 @@ openpower::dump::DumpParameters
             fid,      originatorId, originatorType};
 }
 
+uint64_t timeToEpoch(std::string timeStr)
+{
+    using namespace std::chrono;
+
+    std::tm t{};
+    std::istringstream ss(timeStr);
+    ss >> std::get_time(&t, "%Y%m%d%H%M%S");
+    if (ss.fail())
+    {
+        lg2::error("Invalid human readable time value {TIMESTRING}",
+                   "TIMESTRING", timeStr);
+        return std::chrono::duration_cast<std::chrono::microseconds>(
+                   std::chrono::system_clock::now().time_since_epoch())
+            .count();
+    }
+
+    auto sysTimeStamp = system_clock::from_time_t(std::mktime(&t));
+
+    // Return epoch time in microseconds
+    return duration_cast<microseconds>(sysTimeStamp.time_since_epoch()).count();
+}
+
 } // namespace openpower::dump::util
