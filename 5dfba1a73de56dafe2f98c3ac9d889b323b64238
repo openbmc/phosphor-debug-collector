@@ -3,6 +3,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f585942b_864236b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-13T15:10:49Z",
+      "side": 1,
+      "message": "Based on the definition here \"https://man7.org/linux/man-pages/man5/os-release.5.html \" Os-release includes the keyword mentioned the document. Looks like the new keyword introduced here is not part of the documentation. \nApproach should be introduce new plugin to collected the required info, and user can include this new plugin based on the usecase.",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecba3485_93733d40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-13T15:10:49Z",
+      "side": 1,
+      "message": "change --\u003e dreport: Adding backup and min FW info in BMC dumps",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e562c8b_f5f98ad7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-13T15:10:49Z",
+      "side": 1,
+      "message": "Btter to rephrase this message to support additional information. instead \"support\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9f2acc3_2c2aee0d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -43,6 +100,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42d46476_21f7fcba",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-13T15:10:49Z",
+      "side": 1,
+      "message": "This looks like plugin type function. Move this to Plugin code. \nIt will be better to new plugin to support additional firmware details.",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d97bb136_9a9e1d3e",
         "filename": "tools/dreport.d/include.d/functions",
         "patchSetId": 3
@@ -60,6 +134,23 @@
         "endLine": 165,
         "endChar": 34
       },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20360ab_33924c09",
+        "filename": "tools/dreport.d/plugins.d/osrelease",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-13T15:10:49Z",
+      "side": 1,
+      "message": "This plugin is used for",
       "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
