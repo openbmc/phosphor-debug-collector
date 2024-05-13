@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# config: 12345 50
+# @brief: Collect backup OS information.
+# 
+#
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE/functions"
+
+#Function to get the backup firmware details
+function add_backup_driver_details() {
+    if ! [ -d "$name_dir" ]; then
+        log_error "name_dir is not a valid path, returning"
+        return "$SUCCESS"
+    fi
+    
+    ##Get the os-release file
+    OS_RELEASE_FILE="$name_dir/$1"
+
+    if ! [ -f "$OS_RELEASE_FILE" ]; then
+        log_error "No os-release file in $name_dir"
+        return "$SUCCESS"
+    fi
+
+    dbus_object="xyz.openbmc_project.Software.BMC.Updater"
+    dbus_tree_command="busctl tree"
+    dbus_property_command="busctl get-property"
+    dbus_object_priority_method="xyz.openbmc_project.Software.RedundancyPriority"
+    dbus_object_priority="Priority"
+    dbus_object_version_method="xyz.openbmc_project.Software.Version"
+    dbus_object_version="Version"
+
+    ##Declare an array to store the results of dbus command
+    declare -a read_array=()
+
+    IFS=$'\n' read -r -d '' -a read_array < <( eval "$dbus_tree_command" "$dbus_object" && printf '\0' )
+
+    array_length=${#read_array[@]}
+
+    firmware1=""
+    firmware2=""
+
+    ##If there is only one FW image on the BMC, return then and there
+    if [ "$array_length" -lt 5 ]; then
+        log_warning "No backup firmware on the BMC system as of now"
+        return "$SUCCESS"
+    else
+        firmware1=$(echo "${read_array[3]}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+        firmware2=$(echo "${read_array[4]}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+    fi
+
+    if [ -n "$firmware1" ]; then
+        firmware1=${firmware1:3}
+    fi
+
+    if [ -n "$firmware2" ]; then
+        firmware2=${firmware2:3}
+    fi
+
+    backup_firmware=""
+    dbus_command="$dbus_property_command $dbus_object $firmware1 $dbus_object_priority_method $dbus_object_priority"
+    ##Get the priority of the image. The one with the highest prirority amongst the two is the backup one
+    firmware1_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
+    if [ -n  "$firmware1_priority" ]; then
+        dbus_command="$dbus_property_command $dbus_object $firmware1 $dbus_object_version_method $dbus_object_version"
+        backup_firmware=$(eval "$dbus_command" | cut -d' ' -f 2-)
+    else
+        dbus_command="$dbus_property_command $dbus_object $firmware2 $dbus_object_priority_method $dbus_object_priority"
+        firmware2_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
+        if [ -n "$firmware2_priority" ]; then
+            dbus_command="$dbus_property_command $dbus_object $firmware2 $dbus_object_version_method $dbus_object_version"
+            backup_firmware=$(eval "$dbus_command" | cut -d' ' -f 2-)
+        fi
+    fi
+
+    if [ -n "$backup_firmware" ]; then
+        log_info "Backup firmware on BMC: $backup_firmware"
+        printf "\nBACKUP_FW=%s\n" "$backup_firmware" >> "$OS_RELEASE_FILE"
+    else
+        log_warning "BMC has no backup firmware at present"
+    fi
+}
+
+##Execute and gather the info
+file_name="os-release"
+add_backup_driver_details "$file_name"
+
