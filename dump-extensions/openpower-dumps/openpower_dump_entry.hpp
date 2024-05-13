@@ -6,6 +6,7 @@
 
 #include <com/ibm/Dump/Entry/Hardware/server.hpp>
 #include <com/ibm/Dump/Entry/Hostboot/server.hpp>
+#include <com/ibm/Dump/Entry/SBE/server.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 
@@ -200,5 +201,63 @@ class Entry : public virtual openpower::dump::Entry, public virtual HardwareIntf
     }
 };
 } // namespace hardware
+
+namespace sbe
+{
+
+using SBEIntf =
+    sdbusplus::server::object_t<sdbusplus::com::ibm::Dump::Entry::server::SBE>;
+
+/** @class Entry
+ *  @brief SBE Dump Entry implementation.
+ *  @details A concrete implementation for the SBE dump type DBus API.
+ *           This class extends the general dump entry with SBE-specific
+ *           attributes, such as error log ID and failing unit ID.
+ */
+class Entry : public virtual openpower::dump::Entry, public virtual SBEIntf
+{
+  public:
+    Entry() = delete;
+    Entry(const Entry&) = delete;
+    Entry& operator=(const Entry&) = delete;
+    Entry(Entry&&) = delete;
+    Entry& operator=(Entry&&) = delete;
+    ~Entry() = default;
+
+    /** @brief Constructor for the SBE Dump Entry Object
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] timeStamp - Dump creation timestamp since the epoch.
+     *  @param[in] fileSize - Size of the dump file in bytes.
+     *  @param[in] file - Path to the dump file.
+     *  @param[in] status - Current status of the dump.
+     *  @param[in] originatorId - Identifier of the originator of the dump.
+     *  @param[in] originatorType - Type of the originator.
+     *  @param[in] eid - Error log identifier associated with the dump.
+     *  @param[in] failingUnit - Identifier of the failing unit associated with
+     *  the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          uint64_t timeStamp, uint64_t fileSize,
+          const std::filesystem::path& file,
+          phosphor::dump::OperationStatus status, std::string originatorId,
+          originatorTypes originatorType, uint64_t eid, uint64_t failingUnit,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, fileSize,
+                              file, status, originatorId, originatorType,
+                              parent),
+        openpower::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp,
+                               fileSize, file, status, originatorId,
+                               originatorType, parent),
+        SBEIntf(bus, objPath.c_str(), SBEIntf::action::defer_emit)
+    {
+        errorLogId(eid);
+        failingUnitId(failingUnit);
+        this->openpower::dump::sbe::SBEIntf::emit_object_added();
+    }
+};
+} // namespace sbe
 
 } // namespace openpower::dump
