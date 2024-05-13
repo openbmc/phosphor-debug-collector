@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9f2acc3_2c2aee0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2024-05-13T12:35:45Z",
+      "side": 1,
+      "message": "Please remove org related data from the commit message.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "afbd63f6_687c7a1e",
@@ -14,6 +37,52 @@
       "writtenOn": "2024-05-13T11:03:41Z",
       "side": 1,
       "message": "Code looks good to me.",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d97bb136_9a9e1d3e",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2024-05-13T12:35:45Z",
+      "side": 1,
+      "message": "Move this in separate script and add the details os-release file only for IBM specific dumps.",
+      "range": {
+        "startLine": 165,
+        "startChar": 9,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab30178b_6691e63a",
+        "filename": "tools/dreport.d/plugins.d/osrelease",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000655
+      },
+      "writtenOn": "2024-05-13T12:35:45Z",
+      "side": 1,
+      "message": "This is related to IBM specific dumps? If yes, then this function will be called for obmc dumps as well which should not happen.\nAlso if its specific to IBM only please create a separate script and place it in ibm.d dir",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 25
+      },
       "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
