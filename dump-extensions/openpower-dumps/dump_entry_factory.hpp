@@ -120,6 +120,18 @@ class DumpEntryFactory
         const DumpParameters& dumpParams);
 
     /**
+     * @brief Creates a SBE dump entry.
+     * @param[in] id The unique identifier for the system dump entry.
+     * @param[in] objPath D-Bus entry path for the dump entry.
+     * @param[in] timeStamp Timestamp marking the creation time of the dump.
+     * @param[in] dumpParams Parameters specific to the dump being created.
+     * @return A unique pointer to a newly created SBE dump entry.
+     */
+    std::unique_ptr<phosphor::dump::Entry> createSBEDumpEntry(
+        uint32_t id, std::filesystem::path& objPath, uint64_t timeStamp,
+        const DumpParameters& dumpParams);
+
+    /**
      * @brief Retrieves the dump ID prefix based on the dump type.
      * @param[in] dumpType Type of the dump (system, resource, etc.).
      * @return The prefix to be used for the dump ID.
@@ -132,6 +144,8 @@ class DumpEntryFactory
                 return HARDWARE_DUMP_ID_PREFIX;
             case OpDumpTypes::Hostboot:
                 return HOSTBOOT_DUMP_ID_PREFIX;
+            case OpDumpTypes::SBE:
+                return SBE_DUMP_ID_PREFIX;
             case OpDumpTypes::System:
                 return SYSTEM_DUMP_ID_PREFIX;
             case OpDumpTypes::Resource:
@@ -162,6 +176,8 @@ class DumpEntryFactory
                 return OpDumpTypes::Hardware;
             case HOSTBOOT_DUMP_ID_PREFIX:
                 return OpDumpTypes::Hostboot;
+            case SBE_DUMP_ID_PREFIX:
+                return OpDumpTypes::SBE;
             case SYSTEM_DUMP_ID_PREFIX:
                 return OpDumpTypes::System;
             case RESOURCE_DUMP_ID_PREFIX:
