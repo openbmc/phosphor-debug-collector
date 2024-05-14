@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e61a432c_83c54ec1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-14T15:16:34Z",
+      "side": 1,
+      "message": "Missing the \"why\" aspect of the commit message. i.e. Why are you doing this change? And what are the ramifications to the existing design?",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c4e8410_8945b56f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-14T15:16:34Z",
+      "side": 1,
+      "message": "The commit message doesn\u0027t explain to me why we removed the start of this unit. It\u0027s where the actual dump was created wasn\u0027t it?",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
