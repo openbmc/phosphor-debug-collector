@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37fb91f2_e408cde6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f585942b_864236b4",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecba3485_93733d40",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-13T15:10:49Z",
       "side": 1,
       "message": "change --\u003e dreport: Adding backup and min FW info in BMC dumps",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f10b524_ae7fafa6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ecba3485_93733d40",
       "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +94,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "115713d7_ba7579ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1e562c8b_f5f98ad7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9f2acc3_2c2aee0d",
@@ -71,6 +131,30 @@
       "writtenOn": "2024-05-13T12:35:45Z",
       "side": 1,
       "message": "Please remove org related data from the commit message.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9bc4895_fb4ad9cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a9f2acc3_2c2aee0d",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -115,6 +199,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "613b1e76_f5004200",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "42d46476_21f7fcba",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d97bb136_9a9e1d3e",
@@ -128,6 +230,30 @@
       "writtenOn": "2024-05-13T12:35:45Z",
       "side": 1,
       "message": "Move this in separate script and add the details os-release file only for IBM specific dumps.",
+      "range": {
+        "startLine": 165,
+        "startChar": 9,
+        "endLine": 165,
+        "endChar": 34
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "918b44d3_adeee613",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d97bb136_9a9e1d3e",
       "range": {
         "startLine": 165,
         "startChar": 9,
@@ -155,6 +281,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3487fed_9673fa13",
+        "filename": "tools/dreport.d/plugins.d/osrelease",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a20360ab_33924c09",
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab30178b_6691e63a",
@@ -168,6 +312,30 @@
       "writtenOn": "2024-05-13T12:35:45Z",
       "side": 1,
       "message": "This is related to IBM specific dumps? If yes, then this function will be called for obmc dumps as well which should not happen.\nAlso if its specific to IBM only please create a separate script and place it in ibm.d dir",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 25
+      },
+      "revId": "5dfba1a73de56dafe2f98c3ac9d889b323b64238",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8098601b_aa5a1c4c",
+        "filename": "tools/dreport.d/plugins.d/osrelease",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-14T14:45:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ab30178b_6691e63a",
       "range": {
         "startLine": 15,
         "startChar": 0,
