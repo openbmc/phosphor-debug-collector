@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "841d8855_c94ea63f",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-15T12:35:43Z",
+      "side": 1,
+      "message": "PE confirmed that it is for all dumps\n\nJoe Mulholland\n:spiral_calendar_pad:  5:31 PM\nwe should get the fw level info for every bmc dump\n5:31\n( and so, backup as well )",
+      "parentUuid": "73d2f4b4_f15ea8ce",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06d236c0_b4b2018e",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 12
