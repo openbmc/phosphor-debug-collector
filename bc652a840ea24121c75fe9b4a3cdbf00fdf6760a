@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "193d4e37_ee4aec28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T13:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41711e9e_3c609e69",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c4e8410_8945b56f",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Yes I need to explain that in the commit message, all open power dump creation will be outside the scope of this service, so for consitency dump will be started from openpower specific applictaion",
       "parentUuid": "9c4e8410_8945b56f",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ec21c6_c9976a67",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T13:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "756870db_f6d6b6ff",
       "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
