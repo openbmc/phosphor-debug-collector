@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fe4474a_42847a74",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-15T14:20:05Z",
+      "side": 1,
+      "message": "Refer this plugin , tools/dreport.d/plugins.d/ldapdump \n\nBasically you need to use standard functions to support dreport way of packaging and validations.",
+      "parentUuid": "727b00b1_abe4d7c6",
+      "revId": "25f7717511739c12257dee9724631540e35462fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f04d827_b28a8bba",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 13
