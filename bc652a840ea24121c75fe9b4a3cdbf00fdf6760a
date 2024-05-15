@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e8ba1ef_79d361eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T13:38:20Z",
+      "side": 1,
+      "message": "CreateDump is implemented because user requests come through the bmcweb. This code gets compiled only on the supported systems, and all these changes have no impact on the common dumps.",
+      "parentUuid": "bf128f76_01d6e880",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c4e8410_8945b56f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.cpp",
         "patchSetId": 1
