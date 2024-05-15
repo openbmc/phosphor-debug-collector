@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12d54d09_ac278a62",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "That needs to be confirmed, smaller and quicker dumps like core dump may not need this",
+      "parentUuid": "2ec8d8e9_780cb854",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06d236c0_b4b2018e",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 12
@@ -90,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f26254e6_43faf1b9",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "trace also may not be needed, just continue if possible",
+      "parentUuid": "051e2b7f_c42b318f",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90e69823_dbc747a0",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 12
@@ -119,6 +155,24 @@
       "side": 1,
       "message": "Yes, because the backup FW is not a necessity or compulsory. So if a system doesn\u0027t have a backup FW then the PE may be informed about it but shouldn\u0027t cause any disruption/failure/error marking in dump collection",
       "parentUuid": "90e69823_dbc747a0",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078e40e7_8331c599",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "I mean that log may not be needed",
+      "parentUuid": "c6751352_8c8b2a91",
       "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -172,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5c4c6fa_8e14d870",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "I agree there is only one function, but declaring this outside will improve the redability",
+      "parentUuid": "a43142ca_1eb5b35c",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a29fe95f_7a446ea5",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 12
@@ -201,6 +279,24 @@
       "side": 1,
       "message": "Yes, because the backup FW is not a necessity or compulsory. So if a system doesn\u0027t have a backup FW then the PE may be informed about it but shouldn\u0027t cause any disruption/failure/error marking in dump collection",
       "parentUuid": "a29fe95f_7a446ea5",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc1067c_75880421",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "This log can be avoided",
+      "parentUuid": "bcd16651_2d359dd1",
       "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -289,6 +385,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5461d1d7_fd8fa4ae",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "xargs also tested, and that will remove the need for this long line with sed for just removing space",
+      "parentUuid": "bdf8b9e2_2dc3a8cb",
+      "range": {
+        "startLine": 48,
+        "startChar": 46,
+        "endLine": 48,
+        "endChar": 95
+      },
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3d4bc778_60822b0f",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 12
@@ -353,6 +473,24 @@
       "side": 1,
       "message": "Yes, because the backup FW is not a necessity or compulsory. So if a system doesn\u0027t have a backup FW then the PE may be informed about it but shouldn\u0027t cause any disruption/failure/error marking in dump collection",
       "parentUuid": "00f5ec8f_c19cdacd",
+      "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "923190fe_06a7eec2",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-15T06:01:47Z",
+      "side": 1,
+      "message": "trace also may nit be needed",
+      "parentUuid": "53c930ea_d3355930",
       "revId": "df499a4b2ec7ed59c0b2e4fae4121a0ff9887198",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
