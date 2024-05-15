@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "131208a3_5fcf4706",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-15T13:28:46Z",
+      "side": 1,
+      "message": "There is already discussion in progress to Handle vendor-hw specific    debug data collection. In the proposed approach is also we are trying to get same direction to use PDC only dump management once data is collected. https://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/71384 got some initial discussion also you can refer the review links added in the comments for more details.\n\nLike High level ODC can be used for dump monitoring and data collection and PDC can use for dump management to serve redfish requests. This approach will help to reduce PDC dependency on  vendor specific code.",
+      "parentUuid": "41711e9e_3c609e69",
+      "revId": "bc652a840ea24121c75fe9b4a3cdbf00fdf6760a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c4e8410_8945b56f",
         "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.cpp",
         "patchSetId": 1
