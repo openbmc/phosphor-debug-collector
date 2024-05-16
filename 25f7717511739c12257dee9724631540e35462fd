@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc1b0553_3f96f858",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-16T07:12:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6fe4474a_42847a74",
+      "revId": "25f7717511739c12257dee9724631540e35462fd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f04d827_b28a8bba",
