@@ -58,11 +58,15 @@ namespace pldm
 
 using namespace phosphor::logging;
 
-constexpr auto eidPath = "/usr/share/pldm/host_eid";
-constexpr mctp_eid_t defaultEIDValue = 9;
-
 using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+using TerminusID = uint8_t;
+
+constexpr auto eidPath = "/usr/share/pldm/host_eid";
+constexpr mctp_eid_t defaultEIDValue = 9;
+constexpr TerminusID tid = defaultEIDValue;
+
+PLDMInstanceManager instanceManager;
 
 mctp_eid_t readEID()
 {
@@ -119,6 +123,7 @@ void requestOffload(uint32_t id)
 
     if (rc != PLDM_SUCCESS)
     {
+        freePLDMInstanceID(instanceID, eid);
         lg2::error("Message encode failure. RC: {RC}", "RC", rc);
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to encode failed"));
@@ -132,12 +137,14 @@ void requestOffload(uint32_t id)
     rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
     if (rc < 0)
     {
+        freePLDMInstanceID(instanceID, eid);
         auto e = errno;
         lg2::error("pldm_send failed, RC: {RC}, errno: {ERRNO}", "RC", rc,
                    "ERRNO", e);
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to fileack send failed"));
     }
+    freePLDMInstanceID(instanceID, eid);
     lg2::info("Done. PLDM message, id: {ID}, RC: {RC}", "ID", id, "RC", rc);
 }
 
@@ -172,6 +179,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
 
     if (retCode != PLDM_SUCCESS)
     {
+        freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
         lg2::error(
             "Failed to encode pldm FileAck to delete host dump, "
             "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
@@ -188,6 +196,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
                         fileAckReqMsg.size());
     if (retCode != PLDM_REQUESTER_SUCCESS)
     {
+        freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
         auto errorNumber = errno;
         lg2::error(
             "Failed to send pldm FileAck to delete host dump, "
@@ -202,6 +211,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
                                 "allowed due to fileack send failed"));
     }
 
+    freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
     lg2::info(
         "Sent request to host to delete the dump, SRC_DUMP_ID: {SRC_DUMP_ID}",
         "SRC_DUMP_ID", dumpId);
