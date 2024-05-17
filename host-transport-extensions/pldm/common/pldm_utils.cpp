@@ -5,6 +5,8 @@
 #include "dump_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <libpldm/transport.h>
+
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
 
@@ -19,6 +21,75 @@ using namespace phosphor::logging;
 using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
+pldm_instance_db* pldmInstanceIdDb = nullptr;
+
+PLDMInstanceManager::PLDMInstanceManager()
+{
+    initPLDMInstanceIdDb();
+}
+
+PLDMInstanceManager::~PLDMInstanceManager()
+{
+    destroyPLDMInstanceIdDb();
+}
+
+void PLDMInstanceManager::initPLDMInstanceIdDb()
+{
+    auto rc = pldm_instance_db_init_default(&pldmInstanceIdDb);
+    if (rc)
+    {
+        lg2::error("Error calling pldm_instance_db_init_default, rc = {RC}",
+                   "RC", rc);
+        elog<NotAllowed>(
+            Reason("Required host dump action via pldm is not allowed due "
+                   "to pldm_open failed"));
+    }
+}
+
+void PLDMInstanceManager::destroyPLDMInstanceIdDb()
+{
+    auto rc = pldm_instance_db_destroy(pldmInstanceIdDb);
+    if (rc)
+    {
+        lg2::error("pldm_instance_db_destroy failed rc = {RC}", "RC", rc);
+    }
+}
+
+pldm_instance_id_t getPLDMInstanceID(uint8_t tid)
+{
+    pldm_instance_id_t instanceID = 0;
+
+    auto rc = pldm_instance_id_alloc(pldmInstanceIdDb, tid, &instanceID);
+    if (rc == -EAGAIN)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        rc = pldm_instance_id_alloc(pldmInstanceIdDb, tid, &instanceID);
+    }
+
+    if (rc)
+    {
+        lg2::error("Failed to get instance id, rc = {RC}", "RC", rc);
+        elog<NotAllowed>(
+            Reason("Failure in communicating with libpldm service, "
+                   "service may not be running"));
+    }
+    lg2::info("Got instanceId: {INSTANCE_ID} from PLDM eid: {EID}",
+              "INSTANCE_ID", instanceID, "EID", tid);
+
+    return instanceID;
+}
+
+void freePLDMInstanceID(pldm_instance_id_t instanceID, uint8_t tid)
+{
+    auto rc = pldm_instance_id_free(pldmInstanceIdDb, tid, instanceID);
+    if (rc)
+    {
+        lg2::error(
+            "pldm_instance_id_free failed to free id = {ID} of tid = {TID} rc = {RC}",
+            "ID", instanceID, "TID", tid, "RC", rc);
+    }
+}
+
 int openPLDM()
 {
     auto fd = pldm_open();
@@ -32,36 +103,6 @@ int openPLDM()
                    "to pldm_open failed"));
     }
     return fd;
-}
-
-uint8_t getPLDMInstanceID(uint8_t eid)
-{
-    constexpr auto pldmRequester = "xyz.openbmc_project.PLDM.Requester";
-    constexpr auto pldm = "/xyz/openbmc_project/pldm";
-    uint8_t instanceID = 0;
-
-    try
-    {
-        auto bus = sdbusplus::bus::new_default();
-        auto service = phosphor::dump::getService(bus, pldm, pldmRequester);
-
-        auto method = bus.new_method_call(service.c_str(), pldm, pldmRequester,
-                                          "GetInstanceId");
-        method.append(eid);
-        auto reply = bus.call(method);
-
-        reply.read(instanceID);
-
-        lg2::info("Got instanceId: {INSTANCE_ID} from PLDM eid: {EID}",
-                  "INSTANCE_ID", instanceID, "EID", eid);
-    }
-    catch (const sdbusplus::exception::SdBusError& e)
-    {
-        lg2::error("Failed to get instance id error: {ERROR}", "ERROR", e);
-        elog<NotAllowed>(Reason("Failure in communicating with pldm service, "
-                                "service may not be running"));
-    }
-    return instanceID;
 }
 
 } // namespace pldm
