@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c35b803b_ac3f5fe0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "is this information included in this commit?",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51f0835c_6beaaac2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "Based on the definition https://man7.org/linux/man-pages/man5/os-release.5.html, os-release follow format , which includes well defined keywords, which can be used for user to extract the required driver info. Not seeing any predefined keywords related redundant driver info. I think best approach would be be create new secondary-os-release file , and follow the same format mentioned in os-release document ion. which will help user to extract the data automatically. This will help to move this plugin to common place instead of IBM specific path. \n@adriana @gmills @lieu please add your view on this.\n\n@swarnedu if it is IBM custom plugin, am fine with format which meets ibm requirement.",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c4bc41_c3349e9f",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "why this defined in global scope?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8d463d6_d3194298",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "Any specific reason fro adding this code as part of function instead follwo the way other plugin implemention?",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b929bd6d_0561666e",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "use redudant instead of backup looks better.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9884b32_d032186d",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "this assumption is for two version of the mage supported right? Code update maintainers can comment on how to make this logic generic.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 74
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a5b6539_154a6230",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "Plugin usually follows at beginning of the files. Try to follow this format if possible like, use variable definition same below. \n\nAdding these two definition at beginning and other at definition at appropriate places in your s cript.\ndesc\u003d\"Backup firmware info\"  \nfile_name\u003d\"os-release\"\n\n::\n\ncommand\u003d\" :\"\nadd_cmd_output \"",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cda8d81_d6ffe630",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-20T10:43:23Z",
+      "side": 1,
+      "message": "add_cmd_output() function deletd the os-release file incase of any internal failure. This could delete the existing os-relase file.Please consider this error case correctly.\nWhat is the expectation here? appending os-release or getting this info in new file?",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
