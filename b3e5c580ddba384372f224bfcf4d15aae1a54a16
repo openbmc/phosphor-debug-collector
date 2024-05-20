@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0052b31d_d66f1c1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-20T19:03:23Z",
+      "side": 1,
+      "message": "The namespace conversion is fairly uninteresting. At a high level, I believe the high level goal here is that PDC is the entry to the dump creation, this plugin within PDC gets notified and creates a basic dump entry, which then will trigger a d-bus event that ODC monitors to go and collect the actual dump? How is the status of the ODC dump progress impact the PDC d-bus object?\n\nAre there any impacts to the existing code that uses this or was it all downstream so nothing to worry about there?\n\nThe above items are the things I\u0027d like to see documented in the commit message.",
+      "revId": "b3e5c580ddba384372f224bfcf4d15aae1a54a16",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
