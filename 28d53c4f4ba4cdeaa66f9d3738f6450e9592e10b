@@ -52,6 +52,24 @@
       "parentUuid": "178a0c69_cdf835a7",
       "revId": "28d53c4f4ba4cdeaa66f9d3738f6450e9592e10b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e3b108_5779004a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-20T11:11:32Z",
+      "side": 1,
+      "message": "OK, waiting for reviews on other commits.. this cant go independently",
+      "parentUuid": "8e49e4d5_c6dd07b4",
+      "revId": "28d53c4f4ba4cdeaa66f9d3738f6450e9592e10b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
