@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffe99bcc_b1bea2ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "bc904a80_db8d5af7",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8c875c2_7327aba2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 24
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-21T13:38:15Z",
       "side": 1,
       "message": "please remove.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c33d454_bf05f436",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a8c875c2_7327aba2",
       "range": {
         "startLine": 19,
         "startChar": 13,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c578bf_ff05f25f",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ae877451_8c6ca4fc",
+      "range": {
+        "startLine": 4,
+        "startChar": 18,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "200c1b6a_e4ff2c6e",
@@ -83,6 +155,24 @@
       "writtenOn": "2024-05-21T13:38:15Z",
       "side": 1,
       "message": "File scope : please follow 80-column rule.",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d918e7_971c58a1",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "200c1b6a_e4ff2c6e",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -129,6 +219,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ecd4637_66a656c8",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "It is just a comment. I hope it won\u0027t make any difference.",
+      "parentUuid": "9351a55c_d6f023c4",
+      "range": {
+        "startLine": 47,
+        "startChar": 91,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b4e73f2_4ec06a4a",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "36aaade6_9d2a663a",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ef7af45_6cbde766",
         "filename": "tools/dreport.d/plugins.d/redundantosrelease",
         "patchSetId": 24
@@ -140,6 +272,24 @@
       "writtenOn": "2024-05-21T13:38:15Z",
       "side": 1,
       "message": "File scope : please follow 80-column rule.",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32f8de51_2c78d762",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2ef7af45_6cbde766",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -161,6 +311,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aac026b9_9fc6c7ab",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "eb42d849_0dd66a1b",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5befb553_acf4a23b",
@@ -174,6 +342,24 @@
       "writtenOn": "2024-05-21T13:38:15Z",
       "side": 1,
       "message": "File scope : please follow 80-column rule.",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3246d53_c8cb5064",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5befb553_acf4a23b",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -197,6 +383,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "783c6e0b_42795d46",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Between LN50 to LN59",
+      "parentUuid": "8b4aa1ba_9a13df0c",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f19ce4c6_20964126",
         "filename": "tools/dreport.d/plugins.d/redundantosrelease",
         "patchSetId": 24
@@ -208,6 +412,24 @@
       "writtenOn": "2024-05-21T13:38:15Z",
       "side": 1,
       "message": "Is this error case? \n\"No redundant FW available\" or \"failed to get redundant FW\" information?",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b01f4f_24730bf9",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f19ce4c6_20964126",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
