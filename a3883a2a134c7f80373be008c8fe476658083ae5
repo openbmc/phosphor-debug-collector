@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a963db_eca8da8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ca1d7501_51205350",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51f0835c_6beaaac2",
@@ -95,6 +119,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c876f2_c2c36375",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f7f5f7c4_9ba5b57c",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20c4bc41_c3349e9f",
@@ -108,6 +156,30 @@
       "writtenOn": "2024-05-20T10:43:23Z",
       "side": 1,
       "message": "why this defined in global scope?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "222ee3f3_8a490bd1",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "20c4bc41_c3349e9f",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -137,6 +209,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5dfc8cf_99caeb67",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Remove the function thing but the line of commands are necessary to process the O/P properly",
+      "parentUuid": "a8d463d6_d3194298",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b929bd6d_0561666e",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 20
@@ -148,6 +238,30 @@
       "writtenOn": "2024-05-20T10:43:23Z",
       "side": 1,
       "message": "use redudant instead of backup looks better.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1b38a4_22190051",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b929bd6d_0561666e",
       "range": {
         "startLine": 44,
         "startChar": 4,
@@ -207,6 +321,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb9f8191_bf69e9aa",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "It verifies first if there is a redundant image available at all and then only proceeds",
+      "parentUuid": "17a240df_44a4554b",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 74
+      },
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a5b6539_154a6230",
         "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
         "patchSetId": 20
@@ -218,6 +356,24 @@
       "writtenOn": "2024-05-20T10:43:23Z",
       "side": 1,
       "message": "Plugin usually follows at beginning of the files. Try to follow this format if possible like, use variable definition same below. \n\nAdding these two definition at beginning and other at definition at appropriate places in your s cript.\ndesc\u003d\"Backup firmware info\"  \nfile_name\u003d\"os-release\"\n\n::\n\ncommand\u003d\" :\"\nadd_cmd_output \"",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac56f28_75b4df44",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5a5b6539_154a6230",
       "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -235,6 +391,24 @@
       "writtenOn": "2024-05-20T10:43:23Z",
       "side": 1,
       "message": "add_cmd_output() function deletd the os-release file incase of any internal failure. This could delete the existing os-relase file.Please consider this error case correctly.\nWhat is the expectation here? appending os-release or getting this info in new file?",
+      "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5f07e50_e66a5996",
+        "filename": "tools/dreport.d/ibm.d/plugins.d/backup_fw_info",
+        "patchSetId": 20
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T11:36:37Z",
+      "side": 1,
+      "message": "Not applicable anymore as the os-release file is not been amended anymore by the redundant OS string",
+      "parentUuid": "1cda8d81_d6ffe630",
       "revId": "a3883a2a134c7f80373be008c8fe476658083ae5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
