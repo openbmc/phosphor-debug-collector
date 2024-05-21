@@ -307,6 +307,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00170f6_ab529a8a",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-21T14:16:52Z",
+      "side": 1,
+      "message": "Just plan , and not included in this commit. if you are not planing include this in this commit please remove this message.",
+      "parentUuid": "2c0229ea_848e6fe0",
+      "range": {
+        "startLine": 47,
+        "startChar": 91,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef7af45_6cbde766",
@@ -496,6 +520,24 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "f19ce4c6_20964126",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f29c4610_693627b5",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-21T14:16:52Z",
+      "side": 1,
+      "message": "still showing same message. question , Looks like this is error condition, like to fail to get fw details?",
+      "parentUuid": "92b01f4f_24730bf9",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

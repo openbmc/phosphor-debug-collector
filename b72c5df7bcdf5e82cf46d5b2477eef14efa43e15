@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76915815_1eb66bb8",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 25
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-05-21T14:16:52Z",
+      "side": 1,
+      "message": "column \u003e80",
+      "revId": "b72c5df7bcdf5e82cf46d5b2477eef14efa43e15",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
