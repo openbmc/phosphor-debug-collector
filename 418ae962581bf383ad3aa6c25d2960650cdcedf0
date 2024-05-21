@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e4a7e4d_165e79a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ffe99bcc_b1bea2ab",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8c875c2_7327aba2",
@@ -259,6 +283,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0229ea_848e6fe0",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ecd4637_66a656c8",
+      "range": {
+        "startLine": 47,
+        "startChar": 91,
+        "endLine": 47,
+        "endChar": 96
+      },
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef7af45_6cbde766",
@@ -395,6 +443,24 @@
       "side": 1,
       "message": "Between LN50 to LN59",
       "parentUuid": "8b4aa1ba_9a13df0c",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f72f81d_aa51b4be",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783c6e0b_42795d46",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
