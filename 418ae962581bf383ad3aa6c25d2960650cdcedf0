@@ -540,6 +540,24 @@
       "parentUuid": "92b01f4f_24730bf9",
       "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6176571f_208abf67",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-05-21T14:43:53Z",
+      "side": 1,
+      "message": "Yes, as it might be possible that there is no redundant OS available due to either got deleted manually (for some dev purposes/testing) or doesn\u0027t have a policy of redundant OS at all. So just informing the user as was done in other plugin cases",
+      "parentUuid": "f29c4610_693627b5",
+      "revId": "418ae962581bf383ad3aa6c25d2960650cdcedf0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
