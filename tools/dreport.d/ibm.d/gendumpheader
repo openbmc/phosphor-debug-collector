@@ -20,6 +20,10 @@ declare -rx SIZE_8='8'
 declare -rx SIZE_12='12'
 declare -rx SIZE_32='32'
 
+#Dump originator params
+declare ORIGINATOR_TYPE=""
+declare ORIGINATOR_ID=""
+
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
@@ -39,6 +43,34 @@ declare -x bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
 function add_null() {
     local a=$1
     printf '%*s' $a | tr ' ' "\0" >> $FILE
+}
+
+# Function to add Originator Type to dump header
+function add_originator_type() {
+    if [ -z "$ORIGINATOR_TYPE" ]; then
+        add_null 4
+        return
+    fi
+    len=${#ORIGINATOR_TYPE}
+    nulltoadd=$(( SIZE_4 - len ))
+    printf '%s' "$ORIGINATOR_TYPE" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
+}
+
+# Function to add Originator ID to dump header
+function add_originator_id() {
+    if [ -z "$ORIGINATOR_ID" ]; then
+        add_null 32
+        return
+    fi
+    len=${#ORIGINATOR_ID}
+    nulltoadd=$(( SIZE_32 - len ))
+    printf '%s' "$ORIGINATOR_ID" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
 }
 
 #Function to is to convert the EPOCHTIME collected
@@ -197,7 +229,10 @@ function dump_header() {
     add_null 2 # SRC size
     add_null 320 # SRC dump
     getbmc_serial
-    add_null 68 # Dump requester details
+    # Dump requester/Originator details
+    add_originator_type # Adding Originator/Dump requestor Type
+    add_originator_id   # Adding Originator/Dump Req ID
+    add_null 32 # Dump Req user ID
 }
 
 #Function to add Dump entry, consists of below entries
