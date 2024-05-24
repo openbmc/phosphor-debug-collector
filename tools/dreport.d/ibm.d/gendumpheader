@@ -20,6 +20,10 @@ declare -rx SIZE_8='8'
 declare -rx SIZE_12='12'
 declare -rx SIZE_32='32'
 
+#Dump originator params
+declare ORIGINATOR_TYPE=""
+declare ORIGINATOR_ID=""
+
 #Variables
 declare -x FILE="/tmp/dumpheader_$EPOCHTIME"
 declare -x dumpSize=$(ls -al $name_dir.tar.xz | awk '{print $5}')
@@ -39,6 +43,110 @@ declare -x bmcSerialNo=$(busctl call $INVENTORY_MANAGER $INVENTORY_BMC_BOARD \
 function add_null() {
     local a=$1
     printf '%*s' $a | tr ' ' "\0" >> $FILE
+}
+
+#Function to get the Originator details
+#for Originator Type and Originator ID
+function get_originator_details() {
+    if [ -z "$dump_dir" ]; then
+        return
+    fi
+
+    # A hash map for each possible dump types
+    # Add/Remove as per the requirement
+    local -A dump_name_map
+    dump_name_map["dumps"]="bmc"
+    dump_name_map["faultlogs"]="faultlog"
+    dump_name_map["hardwaredump"]="hardware"
+    dump_name_map["hostbootdump"]="hostboot"
+    dump_name_map["msbedump"]="msbe"
+    dump_name_map["sbedump"]="sbe"
+
+    dump_type=$(echo "$dump_dir" | cut -d'/' -f 5)
+    dump_entry_id=$(echo "$dump_dir" | cut -d'/' -f 6)
+
+    dump_type_extracted="$dump_type"
+
+    for key in "${!dump_name_map[@]}"
+    do
+        if [ "$key" = "$dump_type" ]; then
+            dump_type_extracted="${dump_name_map[$key]}"
+            break
+        fi
+    done
+
+    if [ "$dump_type_extracted" = "$dump_type" ]; then
+        return
+    fi
+
+    local DBUS_DUMP_MANAGER="xyz.openbmc_project.Dump.Manager"
+    local DBUS_DUMP_PATH="/xyz/openbmc_project/dump/$dump_type_extracted/entry/$dump_entry_id"
+    local DBUS_DUMP_ORIGINATROR_IFACE="xyz.openbmc_project.Common.OriginatedBy"
+    local DBUS_ORIGINATOR_TYPE_STRING="OriginatorType"
+    local DBUS_ORIGINATOR_ID_STRING="OriginatorId"
+
+    ORIGINATOR_TYPE=$(busctl get-property "$DBUS_DUMP_MANAGER" "$DBUS_DUMP_PATH" \
+        "$DBUS_DUMP_ORIGINATROR_IFACE" "$DBUS_ORIGINATOR_TYPE_STRING")
+
+    ORIGINATOR_ID=$(busctl get-property "$DBUS_DUMP_MANAGER" "$DBUS_DUMP_PATH" \
+        "$DBUS_DUMP_ORIGINATROR_IFACE" "$DBUS_ORIGINATOR_ID_STRING")
+
+    ORIGINATOR_TYPE=$(echo "$ORIGINATOR_TYPE" | cut -d' ' -f 2 \
+        | cut -d'.' -f 6 | cut -d'"' -f 1)
+
+    ORIGINATOR_ID=$(echo "$ORIGINATOR_ID" | cut -d' ' -f 2 | cut -d'"' -f 1)
+}
+
+# Function to add Originator Type to dump header
+function add_originator_type() {
+    if [ -z "$ORIGINATOR_TYPE" ]; then
+        add_null 4
+        return
+    fi
+
+    # This hash map for Originator Type is populated based on
+    # the info provided by the OriginatedBy.interface.yaml file under
+    # https://github.com/openbmc/phosphor-dbus-interfaces/
+    # Feel free to amend the table as per the evolving requirement
+    local -A originator_type_enum_map
+    originator_type_enum_map["Client"]=0
+    originator_type_enum_map["Internal"]=1
+    originator_type_enum_map["SupportingService"]=2
+
+    local originator_id_maped=""
+    for key in "${!originator_type_enum_map[@]}"
+    do
+        if [ "$key" = "$ORIGINATOR_TYPE" ]; then
+            originator_id_maped="${originator_type_enum_map[$key]}"
+            break
+        fi
+    done
+
+    if [ -z "$originator_id_maped" ]; then
+        add_null 4
+        return
+    fi
+
+    len=${#originator_id_maped}
+    nulltoadd=$(( SIZE_4 - len ))
+    printf '%s' "$originator_id_maped" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
+}
+
+# Function to add Originator ID to dump header
+function add_originator_id() {
+    if [ -z "$ORIGINATOR_ID" ]; then
+        add_null 32
+        return
+    fi
+    len=${#ORIGINATOR_ID}
+    nulltoadd=$(( SIZE_32 - len ))
+    printf '%s' "$ORIGINATOR_ID" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
 }
 
 #Function to is to convert the EPOCHTIME collected
@@ -197,7 +305,11 @@ function dump_header() {
     add_null 2 # SRC size
     add_null 320 # SRC dump
     getbmc_serial
-    add_null 68 # Dump requester details
+    # Dump requester/Originator details
+    get_originator_details
+    add_originator_type # Adding Originator/Dump requestor Type
+    add_originator_id   # Adding Originator/Dump Req ID
+    add_null 32 # Dump Req user ID
 }
 
 #Function to add Dump entry, consists of below entries
