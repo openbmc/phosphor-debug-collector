@@ -79,6 +79,10 @@ declare -x cur_dump_size=0
 declare -x pid=$ZERO
 declare -x elog_id=""
 
+#Dump originator params
+declare -x ORIGINATOR_TYPE=""
+declare -x ORIGINATOR_ID=""
+
 #Source dreport common functions
 . $DREPORT_INCLUDE/functions
 
@@ -217,6 +221,8 @@ function initialize()
     else
         dump_size=$UNLIMITED
     fi
+
+    get_originator_details
 
     return $SUCCESS
 }

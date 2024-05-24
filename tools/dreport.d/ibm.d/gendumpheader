@@ -41,6 +41,34 @@ function add_null() {
     printf '%*s' $a | tr ' ' "\0" >> $FILE
 }
 
+# Function to add Originator Type to dump header
+function add_originator_type() {
+    if [ -z "$ORIGINATOR_TYPE" ]; then
+        add_null 4
+        return
+    fi
+    len=${#ORIGINATOR_TYPE}
+    nulltoadd=$(( SIZE_4 - len ))
+    printf '%s' "$ORIGINATOR_TYPE" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
+}
+
+# Function to add Originator ID to dump header
+function add_originator_id() {
+    if [ -z "$ORIGINATOR_ID" ]; then
+        add_null 32
+        return
+    fi
+    len=${#ORIGINATOR_ID}
+    nulltoadd=$(( SIZE_32 - len ))
+    printf '%s' "$ORIGINATOR_ID" >> "$FILE"
+    if [ "$nulltoadd" -ne 0 ]; then
+        add_null "$nulltoadd"
+    fi
+}
+
 #Function to is to convert the EPOCHTIME collected
 #from dreport into hex values and write the same in
 #header.
@@ -197,7 +225,10 @@ function dump_header() {
     add_null 2 # SRC size
     add_null 320 # SRC dump
     getbmc_serial
-    add_null 68 # Dump requester details
+    # Dump requester/Originator details
+    add_originator_type # Adding Originator/Dump requestor Type
+    add_originator_id   # Adding Originator/Dump Req ID
+    add_null 32 # Dump Req user ID
 }
 
 #Function to add Dump entry, consists of below entries
