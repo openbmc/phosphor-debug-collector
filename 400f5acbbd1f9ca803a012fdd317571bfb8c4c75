@@ -16,6 +16,29 @@
       "message": "Kindly review the changes",
       "revId": "400f5acbbd1f9ca803a012fdd317571bfb8c4c75",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fbad14_15a9de4c",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 13
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-05-27T08:15:13Z",
+      "side": 1,
+      "message": "originator id and tye are standard components of dump, so pass it to header",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 0
+      },
+      "revId": "400f5acbbd1f9ca803a012fdd317571bfb8c4c75",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
