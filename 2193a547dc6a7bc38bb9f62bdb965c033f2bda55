@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ace537cb_e0774e40",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Why the change in time format?",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96a87eb6_3ecbb173",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Should there be some sort of validation that the T* is the same type as the entry before dynamic casting? Or at least verify dumpEntry is not null?",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2699ba08_886145a9",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Do we know this is a Resource dump?",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 32
+      },
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61ca7fcd_f69478c6",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "This confused me a bit, I assume this is what\u0027s meant?\n\"new entry is not a duplicate that has already completed\"",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f32d0c69_af72c8cd",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Really trying to get away from InternalFailure and instead use better defined errors. Unless you really think this is a \"never should happen\" type code path.",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1473e1_79663aab",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "createAndNotify seems like a better name here? Just calling it notify makes me think it\u0027s only job is to notify listeners of a new dump.",
+      "range": {
+        "startLine": 67,
+        "startChar": 58,
+        "endLine": 67,
+        "endChar": 68
+      },
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52cfc3d_85b622a7",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Define these in a header somewhere for improved readability and in case they are used elsewhere?",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdcd3b01_fd4166d2",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-05-30T21:30:42Z",
+      "side": 1,
+      "message": "Ahh, yep, should be in a common header vs. defined throughout code.",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
