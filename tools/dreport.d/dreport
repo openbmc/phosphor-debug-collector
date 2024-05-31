@@ -13,6 +13,7 @@ usage: dreport [OPTION]
 Options:
         -n, —-name <name>     Name to be used for the archive.
                               Default name format obmcdump_<id>_<epochtime>
+                              Custom format is also supported.
         -d, —-dir <directory> Archive directory to copy the compressed report.
                               Default output directory is /tmp
         -i, —-id <id>         Dump identifier to associate with the archive.
@@ -46,6 +47,7 @@ declare -rx TYPE_CORE="core"
 declare -rx TYPE_ELOG="elog"
 declare -rx TYPE_CHECKSTOP="checkstop"
 declare -rx TYPE_RAMOOPS="ramoops"
+declare -rx TYPE_FAULTDATA="faultdata"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
@@ -57,6 +59,7 @@ declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
 declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx CUSTOM_PACKAGE="$DREPORT_INCLUDE/package"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -78,6 +81,10 @@ declare -x summary_log=""
 declare -x cur_dump_size=0
 declare -x pid=$ZERO
 declare -x elog_id=""
+declare -x dDay=$(date -d @$EPOCHTIME +'%Y%m%d%H%M%S')
+declare -x serialNo=""
+declare -x FILE=""
+declare -x header_dump_name=""
 
 #Source dreport common functions
 . $DREPORT_INCLUDE/functions
@@ -105,6 +112,8 @@ function collect_data()
             log_summary "CHECKSTOP: $optional_path"
             elog_id=$(basename "$optional_path")
             set_elog_pid
+            ;;
+        $TYPE_FAULTDATA)
             ;;
 
         $SUMMARY_DUMP)
@@ -166,7 +175,11 @@ function set_elog_pid()
 # @brief Initial version of the summary log
 function init_summary()
 {
-    log_summary "Name:          $name.tar.xz"
+    if [ -f "$HEADER_EXTENSION" ]; then
+        log_summary "Name:          $name"
+    else
+        log_summary "Name:          $name.tar.xz"
+    fi
     log_summary "Epochtime:     $EPOCHTIME"
     log_summary "ID:            $dump_id"
     log_summary "Type:          $dump_type"
@@ -180,7 +193,19 @@ function initialize()
 {
     #Dump file name
     if [ -z $name ]; then
-        name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+        if [ -f "$HEADER_EXTENSION" ]; then
+            fetch_serial_number
+            dump_id=$(printf %07d $dump_id)
+            if [ $dump_type = "$TYPE_FAULTDATA" ]; then
+                header_dump_name="FLTDUMP"
+                name="NAGDUMP.${serialNo}.${dump_id}.${dDay}"
+            else
+                header_dump_name="BMCDUMP"
+                name="BMCDUMP.${serialNo}.${dump_id}.${dDay}"
+            fi
+        else
+            name=$"obmcdump_"$dump_id"_$EPOCHTIME"
+        fi
     fi
 
     #Create temporary data directory.
@@ -204,6 +229,7 @@ function initialize()
             [[ $dump_type = "$TYPE_CORE" ]] || \
             [[ $dump_type = "$TYPE_ELOG" ]] || \
             [[ $dump_type = "$TYPE_RAMOOPS" ]] || \
+            [[ $dump_type = "$TYPE_FAULTDATA" ]] || \
             [[ $dump_type = "$TYPE_CHECKSTOP" ]]; }; then
         log_error "Invalid -type, Only summary log is available"
         dump_type=$SUMMARY_DUMP
@@ -232,42 +258,37 @@ function package()
 
     #tar and compress the files.
     if [ -f "$HEADER_EXTENSION" ]; then
-        tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
-        echo "Adding Dump Header :"$HEADER_EXTENSION
-        ("$HEADER_EXTENSION")
-        cat "$name_dir.tar.xz" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
-        mv "/tmp/dumpheader_$EPOCHTIME" "$name_dir.tar.xz"
+        ("$CUSTOM_PACKAGE")
     else
         tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
-    fi
+            "$(dirname "$name_dir")" "$(basename "$name_dir")"
 
-    if [ $? -ne 0 ]; then
-        echo $($TIME_STAMP) "Could not create the compressed tar file"
+        # shellcheck disable=SC2181 # need output from `tar` in above if cond.
+        if [ $? -ne 0 ]; then
+            echo "$($TIME_STAMP)" "Could not create the compressed tar file"
+            rm -r "$name_dir"
+            return "$INTERNAL_FAILURE"
+        fi
+
+        #remove the temporary name specific directory
         rm -r "$name_dir"
-        return $INTERNAL_FAILURE
-    fi
 
-    #remove the temporary name specific directory
-    rm -r "$name_dir"
+        echo "$($TIME_STAMP)" "Report is available in $dump_dir"
 
-    echo $($TIME_STAMP) "Report is available in $dump_dir"
+        if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
+            return "$SUCCESS"
+        fi
 
-    if [ "$TMP_DIR" == "$dump_dir" ] || [ "$TMP_DIR/" == "$dump_dir" ]; then
-        return $SUCCESS
-    fi
+        #copy the compressed tar file into the destination
+        cp "$name_dir.tar.xz" "$dump_dir"
+        if [ $? -ne 0 ]; then
+            echo "Failed to copy the $name_dir.tar.xz to $dump_dir"
+            rm "$name_dir.tar.xz"
+            return "$INTERNAL_FAILURE"
+        fi
 
-    #copy the compressed tar file into the destination
-    cp "$name_dir.tar.xz" "$dump_dir"
-    if [ $? -ne 0 ]; then
-        echo "Failed to copy the $name_dir.tar.xz to $dump_dir"
         rm "$name_dir.tar.xz"
-        return $INTERNAL_FAILURE
     fi
-
-    #Remove the temporary copy of the file
-    rm "$name_dir.tar.xz"
 }
 
 # @brief Main function
