@@ -209,6 +209,7 @@ std::unique_ptr<phosphor::dump::Entry>
             return createHostbootDumpEntry(id, objPath, timeStamp, dumpParams);
         case OpDumpTypes::Hardware:
             return createHardwareDumpEntry(id, objPath, timeStamp, dumpParams);
+        case OpDumpTypes::MemoryBufferSBE:
         case OpDumpTypes::SBE:
             return createSBEDumpEntry(id, objPath, timeStamp, dumpParams);
         default:
