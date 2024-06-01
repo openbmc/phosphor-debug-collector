@@ -146,6 +146,8 @@ class DumpEntryFactory
                 return HOSTBOOT_DUMP_ID_PREFIX;
             case OpDumpTypes::SBE:
                 return SBE_DUMP_ID_PREFIX;
+            case OpDumpTypes::MemoryBufferSBE:
+                return MSBE_DUMP_ID_PREFIX;
             case OpDumpTypes::System:
                 return SYSTEM_DUMP_ID_PREFIX;
             case OpDumpTypes::Resource:
@@ -178,6 +180,8 @@ class DumpEntryFactory
                 return OpDumpTypes::Hostboot;
             case SBE_DUMP_ID_PREFIX:
                 return OpDumpTypes::SBE;
+            case MSBE_DUMP_ID_PREFIX:
+                return OpDumpTypes::MemoryBufferSBE;
             case SYSTEM_DUMP_ID_PREFIX:
                 return OpDumpTypes::System;
             case RESOURCE_DUMP_ID_PREFIX:
