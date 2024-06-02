@@ -63,5 +63,57 @@ sdbusplus::message::unix_fd Entry::getFileHandle()
     return fd;
 }
 
+void Entry::serialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::filesystem::path dir = filePath.parent_path();
+        if (!std::filesystem::exists(dir))
+        {
+            std::filesystem::create_directories(dir);
+        }
+
+        std::ofstream os(filePath, std::ios::binary);
+        if (!os.is_open())
+        {
+            lg2::error("Failed to open file for serialization: {PATH} ", "PATH",
+                       filePath);
+        }
+        cereal::BinaryOutputArchive archive(os);
+        archive(originatorId(), originatorType(), startTime());
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Serialization error: {PATH} {ERROR} ", "PATH", filePath,
+                   "ERROR", e);
+    }
+}
+
+void Entry::deserialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::ifstream is(filePath, std::ios::binary);
+        if (!is.is_open())
+        {
+            lg2::error("Failed to open file for deserialization: {PATH}",
+                       "PATH", filePath);
+        }
+        cereal::BinaryInputArchive archive(is);
+        std::string originId;
+        originatorTypes originType;
+        uint64_t startTimeValue;
+        archive(originId, originType, startTimeValue);
+        originatorId(originId);
+        originatorType(originType);
+        startTime(startTimeValue);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Deserialization error: {PATH}, {ERROR}", "PATH", filePath,
+                   "ERROR", e);
+    }
+}
+
 } // namespace dump
 } // namespace phosphor
