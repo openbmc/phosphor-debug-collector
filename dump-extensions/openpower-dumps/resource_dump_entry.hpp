@@ -108,6 +108,22 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // Emit deferred signal.
         this->openpower::dump::resource::EntryIfaces::emit_object_added();
     };
+
+    /** @brief Constructor for creating a Resource dump entry with default
+     * values
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                              phosphor::dump::OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+    {}
+
     /** @brief Method to initiate the offload of dump
      *  @param[in] uri - URI to offload dump.
      */
