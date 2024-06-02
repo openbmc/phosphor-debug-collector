@@ -169,7 +169,7 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
     return ++lastEntryId;
 }
 
-void Manager::createEntry(const std::filesystem::path& file)
+phosphor::dump::Entry* Manager::createEntry(const std::filesystem::path& file)
 {
     // Dump File Name format obmcdump_ID_EPOCHTIME.EXT
     static constexpr auto ID_POS = 1;
@@ -183,7 +183,7 @@ void Manager::createEntry(const std::filesystem::path& file)
     {
         lg2::error("Invalid Dump file name, FILENAME: {FILENAME}", "FILENAME",
                    file);
-        return;
+        return nullptr;
     }
 
     auto idString = match[ID_POS];
@@ -195,9 +195,10 @@ void Manager::createEntry(const std::filesystem::path& file)
     auto dumpEntry = entries.find(id);
     if (dumpEntry != entries.end())
     {
-        dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get())
-            ->update(timestamp, std::filesystem::file_size(file), file);
-        return;
+        auto entry =
+            dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get());
+        entry->update(timestamp, std::filesystem::file_size(file), file);
+        return entry;
     }
 
     // Entry Object path.
@@ -207,12 +208,15 @@ void Manager::createEntry(const std::filesystem::path& file)
     // For now, replacing it with null
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<bmc::Entry>(
-                    bus, objPath.c_str(), id, timestamp,
-                    std::filesystem::file_size(file), file,
-                    phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+        auto entry = std::make_unique<bmc::Entry>(
+            bus, objPath.c_str(), id, timestamp,
+            std::filesystem::file_size(file), file,
+            phosphor::dump::OperationStatus::Completed, std::string(),
+            originatorTypes::Internal, *this);
+
+        auto entryPtr = entry.get();
+        entries.insert(std::make_pair(id, std::move(entry)));
+        return entryPtr;
     }
     catch (const std::invalid_argument& e)
     {
@@ -223,7 +227,7 @@ void Manager::createEntry(const std::filesystem::path& file)
             "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
             timestamp, "SIZE", std::filesystem::file_size(file), "FILENAME",
             file);
-        return;
+        return nullptr;
     }
 }
 
@@ -283,18 +287,31 @@ void Manager::restore()
     {
         auto idStr = p.path().filename().string();
 
-        // Consider only directory's with dump id as name.
+        // Consider only directories with dump id as name.
         // Note: As per design one file per directory.
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
             lastEntryId = std::max(lastEntryId,
                                    static_cast<uint32_t>(std::stoul(idStr)));
-            auto fileIt = std::filesystem::directory_iterator(p.path());
-            // Create dump entry d-bus object.
-            if (fileIt != std::filesystem::end(fileIt))
+            for (const auto& file :
+                 std::filesystem::directory_iterator(p.path()))
             {
-                createEntry(fileIt->path());
+                // Skip .preserve directory
+                if (file.path().filename() == PRESERVE)
+                {
+                    continue;
+                }
+
+                // Create dump entry d-bus object.
+                auto entry = createEntry(file.path());
+
+                if (entry != nullptr)
+                {
+                    // Call deserialize to update the entry from the
+                    // serialized file
+                    entry->deserialize(p.path());
+                }
             }
         }
     }
