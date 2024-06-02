@@ -97,6 +97,70 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
+        serialize();
+    }
+
+    /**
+     * @brief Update dump entry attributes from the file name.
+     *
+     * @param[in] dumpPath - The path to the dump directory.
+     */
+    void updateFromFile(const std::filesystem::path& dumpPath);
+
+    /**
+     * @brief Deserialize and create an entry
+     * @param[in] bus - Bus to attach to.
+     * @param[in] id - Dump id.
+     * @param[in] objPath - Object path to attach to.
+     * @param[in] filePath - Path to the dump file.
+     * @param[in] parent - The dump entry's parent.
+     * @return A unique pointer to the created entry.
+     */
+    static std::unique_ptr<Entry> deserializeEntry(
+        sdbusplus::bus_t& bus, uint32_t id, const std::string& objPath,
+        const std::filesystem::path& filePath, phosphor::dump::Manager& parent)
+    {
+        try
+        {
+            auto entry = std::unique_ptr<Entry>(
+                new Entry(bus, objPath, id, filePath, parent));
+            entry->updateFromFile(filePath);
+            entry->deserialize(filePath.parent_path());
+            entry->emitSignal();
+            return entry;
+        }
+        catch (const std::exception& e)
+        {
+            lg2::error(
+                "Dump deserialization failed for path: {PATH}, error: {ERROR}",
+                "PATH", filePath, "ERROR", e.what());
+            return nullptr;
+        }
+    }
+
+  private:
+    /**
+     *  @brief A minimal private constructor for the Dump Entry Object
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to
+     *  @param[in] dumpId - Dump id.
+     *  @param[in] file - Absolute path to the dump file.
+     *  @param[in] parent - The dump entry's parent.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          const std::filesystem::path& file, phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, file,
+                              OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent),
+        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+    {}
+
+    /**
+     * @brief Emit object added signal
+     */
+    void emitSignal()
+    {
+        this->phosphor::dump::bmc::EntryIfaces::emit_object_added();
     }
 };
 
