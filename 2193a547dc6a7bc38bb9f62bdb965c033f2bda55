@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef0eb78_b3027e00",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "Changed to milliseconds instead of seconds, I may have to do this change in previous commit",
+      "parentUuid": "ace537cb_e0774e40",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96a87eb6_3ecbb173",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-30T21:30:42Z",
       "side": 1,
       "message": "Should there be some sort of validation that the T* is the same type as the entry before dynamic casting? Or at least verify dumpEntry is not null?",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f676c3f3_07a38704",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "this static assert is there at 156, so compilation will fail if not derived from entry\n\n    static_assert(std::is_base_of\u003cphosphor::dump::Entry, T\u003e::value,\n                  \"T must be derived from phosphor::dump::Entry\");",
+      "parentUuid": "96a87eb6_3ecbb173",
       "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -58,6 +94,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dfdaae5_f3dfef20",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "Need to change, just moved the existing code",
+      "parentUuid": "2699ba08_886145a9",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 32
+      },
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61ca7fcd_f69478c6",
@@ -75,6 +135,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8545f782_8d70f32e",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "We won\u0027t break here and continue to make sure another entry with same source id is not present. Updating the comment",
+      "parentUuid": "61ca7fcd_f69478c6",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f32d0c69_af72c8cd",
@@ -88,6 +166,24 @@
       "writtenOn": "2024-05-30T21:30:42Z",
       "side": 1,
       "message": "Really trying to get away from InternalFailure and instead use better defined errors. Unless you really think this is a \"never should happen\" type code path.",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7442558_ec25e961",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "This is in the existing code, this may not happen but if at all this happens it is better to get a small error log dump",
+      "parentUuid": "f32d0c69_af72c8cd",
       "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -115,6 +211,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b1f914a_2756d371",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "Yes may be createOrUpdateHostEntry? Because the \u0027notify\u0027 is coming from the host, and now the factory needs to create a new entry or update an existing entry",
+      "parentUuid": "dd1473e1_79663aab",
+      "range": {
+        "startLine": 67,
+        "startChar": 58,
+        "endLine": 67,
+        "endChar": 68
+      },
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b52cfc3d_85b622a7",
@@ -132,6 +252,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f49c18_7e36367f",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b52cfc3d_85b622a7",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdcd3b01_fd4166d2",
@@ -145,6 +283,24 @@
       "writtenOn": "2024-05-30T21:30:42Z",
       "side": 1,
       "message": "Ahh, yep, should be in a common header vs. defined throughout code.",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bc84bd_23354553",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-02T17:52:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdcd3b01_fd4166d2",
       "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
