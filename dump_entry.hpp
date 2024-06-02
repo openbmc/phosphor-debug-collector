@@ -6,17 +6,29 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <sdeventplus/event.hpp>
 #include <sdeventplus/source/event.hpp>
 
 #include <filesystem>
+#include <fstream>
 
 namespace phosphor
 {
 namespace dump
 {
+
+// Current serialiation version of the class increment if there any change
+// in the serialized data members
+constexpr size_t CLASS_SERIALIZATION_VERSION = 1;
+
+// Folder to store serialized dump contents
+constexpr auto PRESERVE = ".preserve";
+
+// Binary file store the contents
+constexpr auto SERIAL_FILE = "serialized_entry.json";
 
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
@@ -126,6 +138,19 @@ class Entry : public EntryIfaces
      *  the file string is empty
      */
     sdbusplus::message::unix_fd getFileHandle() override;
+
+    /**
+     * @brief Serialize the dump entry attributes to a file.
+     *
+     */
+    virtual void serialize();
+
+    /**
+     * @brief Deserialize the dump entry attributes from a file.
+     *
+     * @param[in] dumpPath - The path where the .preserve folder is located.
+     */
+    virtual void deserialize(const std::filesystem::path& dumpPath);
 
   protected:
     /** @brief This entry's parent */

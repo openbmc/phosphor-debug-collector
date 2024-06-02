@@ -1,5 +1,6 @@
 #pragma once
 
+#include "dump_entry.hpp"
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
