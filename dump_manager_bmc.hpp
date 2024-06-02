@@ -84,6 +84,7 @@ class Manager :
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
+     *  @returns Pointer to newly created dump entry
      */
     phosphor::dump::Entry* createEntry(const std::filesystem::path& fullPath);
 

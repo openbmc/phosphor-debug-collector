@@ -203,10 +203,10 @@ phosphor::dump::Entry* Manager::createEntry(const std::filesystem::path& file)
     auto dumpEntry = entries.find(id);
     if (dumpEntry != entries.end())
     {
-        auto entry =
+        auto entryPtr =
             dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get());
         entry->update(timestamp, std::filesystem::file_size(file), file);
-        return entry;
+        return entryPtr;
     }
 
     // Entry Object path.

@@ -69,7 +69,7 @@ void Entry::serialize()
     // Folder for serialized entry
     std::filesystem::path dir = file.parent_path() / PRESERVE;
 
-    // Serialized etry file
+    // Serialized entry file
     std::filesystem::path serializePath = dir / SERIAL_FILE;
     try
     {
