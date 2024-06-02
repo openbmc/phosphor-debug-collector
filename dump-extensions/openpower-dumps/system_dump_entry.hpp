@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dump_entry.hpp"
+#include "op_dump_consts.hpp"
 #include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
 
 #include <sdbusplus/bus.hpp>
@@ -63,6 +64,10 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
     {
         sourceDumpId(sourceId);
+        if (status == phosphor::dump::OperationStatus::Completed)
+        {
+            serializeEntry();
+        }
         // Emit deferred signal.
         this->openpower::dump::system::EntryIfaces::emit_object_added();
     };
@@ -133,12 +138,35 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // #bm-openbmc/2808
         status(OperationStatus::Completed);
         completedTime(timeStamp);
+
+        serializeEntry();
     }
 
     /**
      * @brief Delete host system dump and it entry dbus object
      */
     void delete_() override;
+
+    /** @brief Serialize the system dump entry
+     *  @param[in] filePath - Path to the file where the entry will be
+     *                        serialized
+     */
+    void serialize(const std::filesystem::path& filePath) override;
+
+    /** @brief Deserialize the systen dump entry
+     *  @param[in] filePath - Path to the file from where the entry will be
+     *                        deserialized
+     */
+    void deserialize(const std::filesystem::path& filePath) override;
+
+    inline void serializeEntry()
+    {
+        std::string idStr = std::format("{:08X}", getDumpId());
+        const std::filesystem::path serializedFilePath =
+            std::filesystem::path(openpower::dump::OP_DUMP_PATH) / idStr /
+            ".preserve" / "serialized_entry.bin";
+        serialize(serializedFilePath);
+    }
 };
 
 } // namespace system

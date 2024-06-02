@@ -76,14 +76,14 @@ std::unique_ptr<phosphor::dump::Entry>
                                               bool createSysDump,
                                               const DumpParameters& dumpParams)
 {
-    using NotAllowed =
-        sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
-    using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-    if (!phosphor::dump::isHostRunning())
-    {
-        elog<NotAllowed>(
-            Reason("Resource dump can be initiated only when the host is up"));
-    }
+     using NotAllowed =
+         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
+     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+     if (!phosphor::dump::isHostRunning())
+     {
+         elog<NotAllowed>(
+             Reason("Resource dump can be initiated only when the host is up"));
+     }
 
     if (!dumpParams.userChallenge.has_value())
     {
