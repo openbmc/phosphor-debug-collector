@@ -23,7 +23,7 @@ using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 void Manager::notifyDump(uint32_t sourceDumpId, uint64_t size,
-                         NotifyDumpTypes type, [[maybe_unused]] uint32_t token)
+                         NotifyDumpTypes type, uint32_t token)
 {
     DumpEntryFactory dumpFact(bus, baseEntryPath, *this);
 
@@ -101,6 +101,58 @@ void Manager::updateEntry(const std::filesystem::path& fullPath)
     auto opEntry = dynamic_cast<openpower::dump::Entry*>(it->second.get());
 
     opEntry->update(timestamp, fileSize, fullPath);
+}
+
+void Manager::restore()
+{
+    std::filesystem::path dir(dumpDir);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
+    {
+        return;
+    }
+
+    // Initialize DumpEntryFactory
+    DumpEntryFactory dumpFact(bus, baseEntryPath, *this);
+
+    // Dump file path: <DUMP_PATH>/<id>/<filename>
+    for (const auto& p : std::filesystem::directory_iterator(dir))
+    {
+        auto idStr = p.path().filename().string();
+
+        // Consider only directories with dump id as name.
+        // Note: As per design one file per directory.
+        if ((std::filesystem::is_directory(p.path())) &&
+            std::all_of(idStr.begin(), idStr.end(), ::isxdigit))
+        {
+            // Convert hex string to number
+            uint32_t id = static_cast<uint32_t>(std::stoul(idStr, nullptr, 16));
+
+            // Remove upper 8 bytes to get the actual entry ID
+            uint32_t entryId = id & 0x00FFFFFF;
+
+            lastEntryId = std::max(lastEntryId, entryId);
+            auto objPath = std::filesystem::path(baseEntryPath) / idStr;
+
+            // Create a dump entry with default values
+            auto entry = dumpFact.createEntryWithDefaults(id, objPath);
+
+            // Deserialze the entry
+            entry->deserialize(p.path());
+
+            // Insert the entry into the entries map
+            entries.insert(std::make_pair(id, std::move(entry)));
+
+            // Check for dump file and call update if it exists
+            for (const auto& fileIt :
+                 std::filesystem::directory_iterator(p.path()))
+            {
+                if (fileIt.path().filename() != ".preserve")
+                {
+                    updateEntry(fileIt.path());
+                }
+            }
+        }
+    }
 }
 
 } // namespace openpower::dump
