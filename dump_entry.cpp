@@ -4,6 +4,7 @@
 
 #include <fcntl.h>
 
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
@@ -61,6 +62,61 @@ sdbusplus::message::unix_fd Entry::getFileHandle()
     fdCloseEventSource = std::make_pair(fd, std::move(eventSource));
 
     return fd;
+}
+
+void Entry::serialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::filesystem::path dir = filePath.parent_path();
+        if (!std::filesystem::exists(dir))
+        {
+            std::filesystem::create_directories(dir);
+        }
+
+        std::ofstream os(filePath, std::ios::binary);
+        if (!os.is_open())
+        {
+            lg2::error("Failed to open file for serialization: {PATH} ", "PATH",
+                       filePath);
+        }
+        nlohmann::json j;
+        j["dumpId"] = id;
+        j["originatorId"] = originatorId();
+        j["originatorType"] = originatorType();
+        j["startTime"] = startTime();
+
+        nlohmann::json::to_cbor(j, os);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Serialization error: {PATH} {ERROR} ", "PATH", filePath,
+                   "ERROR", e);
+    }
+}
+
+void Entry::deserialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::ifstream is(filePath, std::ios::binary);
+        if (!is.is_open())
+        {
+            lg2::error("Failed to open file for deserialization: {PATH}",
+                       "PATH", filePath);
+        }
+        auto j = nlohmann::json::from_cbor(is);
+
+        id = j["dumpId"].get<uint32_t>();
+        originatorId(j["originatorId"].get<std::string>());
+        originatorType(j["originatorType"].get<originatorTypes>());
+        startTime(j["startTime"].get<uint64_t>());
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Deserialization error: {PATH}, {ERROR}", "PATH", filePath,
+                   "ERROR", e);
+    }
 }
 
 } // namespace dump

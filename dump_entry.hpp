@@ -6,12 +6,16 @@
 #include "xyz/openbmc_project/Object/Delete/server.hpp"
 #include "xyz/openbmc_project/Time/EpochTime/server.hpp"
 
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/string.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
 #include <sdeventplus/event.hpp>
 #include <sdeventplus/source/event.hpp>
 
 #include <filesystem>
+#include <fstream>
 
 namespace phosphor
 {
@@ -126,6 +130,22 @@ class Entry : public EntryIfaces
      *  the file string is empty
      */
     sdbusplus::message::unix_fd getFileHandle() override;
+
+    /**
+     * @brief Serialize the dump entry attributes to a file.
+     *
+     * @param[in] filePath - The path to the file where the entry will be
+     *                       serialized.
+     */
+    virtual void serialize(const std::filesystem::path& filePath);
+
+    /**
+     * @brief Deserialize the dump entry attributes from a file.
+     *
+     * @param[in] filePath - The path to the file from where the entry
+     *                       will be deserialized.
+     */
+    virtual void deserialize(const std::filesystem::path& filePath);
 
   protected:
     /** @brief This entry's parent */

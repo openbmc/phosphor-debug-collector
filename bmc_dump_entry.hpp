@@ -97,6 +97,9 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
+        const std::filesystem::path serializedFilePath =
+            filePath.parent_path() / ".preserve" / "serialized_entry.bin";
+        serialize(serializedFilePath);
     }
 };
 
