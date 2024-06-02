@@ -35,6 +35,26 @@ void Entry::initiateOffload(std::string uri)
     offloaded(true);
 }
 
+void Entry::updateFromFile(const std::filesystem::path& dumpPath)
+{
+    // Extract dump details from the file name
+    auto dumpDetails = extractBmcDumpDetails(dumpPath.filename());
+    if (!dumpDetails)
+    {
+        lg2::error("Failed to extract dump details from file name: {PATH}",
+                   "PATH", dumpPath);
+        throw std::logic_error("Invalid dump file name format");
+    }
+
+    auto [extractedId, extractedTimestamp, extractedSize] = *dumpDetails;
+
+    // Update the entry with extracted details
+    startTime(extractedTimestamp);
+    elapsed(extractedTimestamp);
+    completedTime(extractedTimestamp);
+    size(extractedSize);
+}
+
 } // namespace bmc
 } // namespace dump
 } // namespace phosphor

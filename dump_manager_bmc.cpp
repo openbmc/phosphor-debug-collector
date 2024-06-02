@@ -171,33 +171,24 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
 
 void Manager::createEntry(const std::filesystem::path& file)
 {
-    // Dump File Name format obmcdump_ID_EPOCHTIME.EXT
-    static constexpr auto ID_POS = 1;
-    static constexpr auto EPOCHTIME_POS = 2;
-    std::regex file_regex("obmcdump_([0-9]+)_([0-9]+).([a-zA-Z0-9]+)");
-
-    std::smatch match;
-    std::string name = file.filename();
-
-    if (!((std::regex_search(name, match, file_regex)) && (match.size() > 0)))
+    auto dumpDetails = extractDumpDetails(file);
+    if (!dumpDetails)
     {
-        lg2::error("Invalid Dump file name, FILENAME: {FILENAME}", "FILENAME",
-                   file);
+        lg2::error("Failed to extract dump details from file name: {PATH}",
+                   "PATH", dumpPath);
         return;
     }
 
-    auto idString = match[ID_POS];
-    uint64_t timestamp = stoull(match[EPOCHTIME_POS]) * 1000 * 1000;
-
-    auto id = stoul(idString);
+    auto [id, timestamp, size] = *dumpDetails;
 
     // If there is an existing entry update it and return.
     auto dumpEntry = entries.find(id);
     if (dumpEntry != entries.end())
     {
-        dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get())
-            ->update(timestamp, std::filesystem::file_size(file), file);
-        return;
+        auto entryPtr =
+            dynamic_cast<phosphor::dump::bmc::Entry*>(dumpEntry->second.get());
+        entryPtr->update(timestamp, size, file);
+        return entryPtr;
     }
 
     // Entry Object path.
@@ -207,12 +198,14 @@ void Manager::createEntry(const std::filesystem::path& file)
     // For now, replacing it with null
     try
     {
-        entries.insert(std::make_pair(
-            id, std::make_unique<bmc::Entry>(
-                    bus, objPath.c_str(), id, timestamp,
-                    std::filesystem::file_size(file), file,
-                    phosphor::dump::OperationStatus::Completed, std::string(),
-                    originatorTypes::Internal, *this)));
+        auto entry = std::make_unique<bmc::Entry>(
+            bus, objPath.c_str(), id, timestamp, size, file,
+            phosphor::dump::OperationStatus::Completed, std::string(),
+            originatorTypes::Internal, *this);
+
+        auto entryPtr = entry.get();
+        entries.insert(std::make_pair(id, std::move(entry)));
+        return entryPtr;
     }
     catch (const std::invalid_argument& e)
     {
@@ -223,7 +216,7 @@ void Manager::createEntry(const std::filesystem::path& file)
             "ERROR", e, "OBJECT_PATH", objPath, "ID", id, "TIMESTAMP",
             timestamp, "SIZE", std::filesystem::file_size(file), "FILENAME",
             file);
-        return;
+        return nullptr;
     }
 }
 
@@ -283,18 +276,32 @@ void Manager::restore()
     {
         auto idStr = p.path().filename().string();
 
-        // Consider only directory's with dump id as name.
+        // Consider only directories with dump id as name.
         // Note: As per design one file per directory.
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
             lastEntryId = std::max(lastEntryId,
                                    static_cast<uint32_t>(std::stoul(idStr)));
-            auto fileIt = std::filesystem::directory_iterator(p.path());
-            // Create dump entry d-bus object.
-            if (fileIt != std::filesystem::end(fileIt))
+            for (const auto& file :
+                 std::filesystem::directory_iterator(p.path()))
             {
-                createEntry(fileIt->path());
+                // Skip .preserve directory
+                if (file.path().filename() == PRESERVE)
+                {
+                    continue;
+                }
+
+                // Entry Object path.
+                auto objPath = std::filesystem::path(baseEntryPath) / idStr;
+                auto entry = Entry::deserializeEntry(
+                    bus, std::stoul(idStr), objPath.string(), p.path(), *this);
+
+                if (entry != nullptr)
+                {
+                    entries.insert(
+                        std::make_pair(entry->getDumpId(), std::move(entry)));
+                }
             }
         }
     }
