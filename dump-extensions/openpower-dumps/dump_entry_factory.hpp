@@ -71,6 +71,9 @@ class DumpEntryFactory
             const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
                 entries);
 
+    std::unique_ptr<phosphor::dump::Entry> createEntryWithDefaults(
+        uint32_t id, const std::filesystem::path& objPath);
+
   private:
     /**
      * @brief Creates a system dump entry.
