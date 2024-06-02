@@ -370,4 +370,31 @@ std::optional<std::unique_ptr<phosphor::dump::Entry>>
     }
 }
 
+std::unique_ptr<phosphor::dump::Entry>
+    DumpEntryFactory::createEntryWithDefaults(
+        uint32_t id, const std::filesystem::path& objPath)
+{
+    auto type = getDumpTypeFromId(id);
+
+    switch (type)
+    {
+        case OpDumpTypes::System:
+            return std::make_unique<system::Entry>(bus, objPath.string(), id,
+                                                   mgr);
+        case OpDumpTypes::Resource:
+            return std::make_unique<resource::Entry>(bus, objPath.string(), id,
+                                                     mgr);
+        case OpDumpTypes::Hostboot:
+            return std::make_unique<hostboot::Entry>(bus, objPath.string(), id,
+                                                     mgr);
+        case OpDumpTypes::Hardware:
+            return std::make_unique<hardware::Entry>(bus, objPath.string(), id,
+                                                     mgr);
+        case OpDumpTypes::SBE:
+            return std::make_unique<sbe::Entry>(bus, objPath.string(), id, mgr);
+        default:
+            throw std::invalid_argument("Unsupported dump type");
+    }
+}
+
 } // namespace openpower::dump
