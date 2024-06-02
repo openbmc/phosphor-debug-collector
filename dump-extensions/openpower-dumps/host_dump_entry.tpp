@@ -70,7 +70,118 @@ void Entry<Derived>::delete_()
         }
     }
 
+    removeSerializedEntry();
     phosphor::dump::Entry::delete_();
+}
+
+template <typename Derived>
+void Entry<Derived>::serialize()
+{
+    std::string idStr = std::format("{:08X}", id);
+    std::filesystem::path dir =
+        std::filesystem::path(openpower::dump::OP_DUMP_PATH) / idStr /
+        phosphor::dump::PRESERVE;
+    std::filesystem::path serializedFilePath =
+        dir / phosphor::dump::SERIAL_FILE;
+
+    try
+    {
+        if (!std::filesystem::exists(dir))
+        {
+            std::filesystem::create_directories(dir);
+        }
+
+        std::ofstream ofs(serializedFilePath, std::ios::binary);
+        if (!ofs.is_open())
+        {
+            lg2::error("Failed to open file for serialization: {PATH}", "PATH",
+                       serializedFilePath);
+        }
+
+        nlohmann::json j;
+        j["version"] = CLASS_SERIALIZATION_VERSION;
+        j["dumpId"] = id;
+        j["sourceDumpId"] = getSourceDumpId();
+        j["size"] = size();
+        j["originatorId"] = originatorId();
+        j["originatorType"] = originatorType();
+        j["completedTime"] = completedTime();
+        j["elapsed"] = elapsed();
+        j["startTime"] = startTime();
+
+        nlohmann::json::to_cbor(j, ofs);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Serialization error: {PATH} {ERROR}", "PATH",
+                   serializedFilePath, "ERROR", e.what());
+        std::error_code ec;
+        std::filesystem::remove_all(dir, ec);
+    }
+}
+
+template <typename Derived>
+void Entry<Derived>::deserialize(const std::filesystem::path& dumpPath)
+{
+    try
+    {
+        std::filesystem::path dir = dumpPath / phosphor::dump::PRESERVE;
+
+        if (!std::filesystem::exists(dir))
+        {
+            lg2::info("Serialization directory: {SERIAL_DIR} doesnt exist, "
+                      "skip deserialization",
+                      "SERIAL_DIR", dir);
+            return;
+        }
+
+        std::filesystem::path serializedFilePath =
+            dir / phosphor::dump::SERIAL_FILE;
+        std::ifstream ifs(serializedFilePath, std::ios::binary);
+        if (!ifs.is_open())
+        {
+            lg2::error("Failed to open file for deserialization: {PATH}",
+                       "PATH", serializedFilePath);
+            return;
+        }
+
+        nlohmann::json j = nlohmann::json::from_cbor(ifs);
+
+        if (j["version"] == CLASS_SERIALIZATION_VERSION)
+        {
+            uint32_t stored_id = j["dumpId"].get<uint32_t>();
+
+            if (stored_id == id)
+            {
+                setSourceDumpId(j["sourceDumpId"].get<uint32_t>());
+                size(j["size"].get<uint64_t>());
+                originatorId(j["originatorId"].get<std::string>());
+                originatorType(
+                    j["originatorType"].get<phosphor::dump::originatorTypes>());
+                completedTime(j["completedTime"].get<uint64_t>());
+                elapsed(j["elapsed"].get<uint64_t>());
+                startTime(j["startTime"].get<uint64_t>());
+            }
+            else
+            {
+                lg2::error(
+                    "The id in the serial file: {ID_IN_FILE} is not "
+                    "matching with dumpid: {DUMPID}, skipping deserialization",
+                    "ID_IN_FILE", stored_id, "ID", id);
+            }
+        }
+        else
+        {
+            lg2::error("The serialized file version and current class version"
+                       "dont match, skipping deserialization {FILE_VERSION}",
+                       "FILE_VERSION", j["version"].get<uint32_t>());
+        }
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Deserialization error: {PATH}, {ERROR}", "PATH", dumpPath,
+                   "ERROR", e.what());
+    }
 }
 
 template <typename Derived>
@@ -85,6 +196,35 @@ void Entry<Derived>::update(uint64_t timeStamp, uint64_t dumpSize,
     status(OperationStatus::Completed);
     completedTime(timeStamp);
     setDumpRequestStatus(Derived::HostResponse::Success);
+
+    serialize();
+}
+
+template <typename Derived>
+void Entry<Derived>::removeSerializedEntry()
+{
+    std::string idStr = std::format("{:08X}", getDumpId());
+    const std::filesystem::path serializedDir =
+        std::filesystem::path(openpower::dump::OP_DUMP_PATH) / idStr;
+
+    // Check if the directory exists, return if it doesn't
+    if (!std::filesystem::exists(serializedDir))
+    {
+        return;
+    }
+
+    try
+    {
+        std::filesystem::remove_all(serializedDir);
+        lg2::info("Successfully removed directory: {PATH}", "PATH",
+                  serializedDir);
+    }
+    catch (const std::filesystem::filesystem_error& e)
+    {
+        // Log Error message and continue
+        lg2::error("Failed to delete directory, path: {PATH} errormsg: {ERROR}",
+                   "PATH", serializedDir, "ERROR", e);
+    }
 }
 
 } // namespace openpower::dump::host

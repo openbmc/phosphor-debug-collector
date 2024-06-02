@@ -4,6 +4,7 @@
 #include "dump_manager.hpp"
 #include "op_dump_consts.hpp"
 
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/server/object.hpp>
@@ -16,6 +17,8 @@
 
 namespace openpower::dump::host
 {
+
+constexpr uint32_t CLASS_SERIALIZATION_VERSION = 1;
 
 /** @class Entry
  *  @brief Base class for Host Dump Entry implementation.
@@ -69,7 +72,18 @@ class Entry : virtual public phosphor::dump::Entry
      */
     void delete_();
 
+    /** @brief Serialize the dump entry
+     */
+    void serialize();
+
+    /** @brief Deserialize the dump entry
+     *  @param[in] dumpPath - Path to the directory from where the entry will be
+     * deserialized
+     */
+    void deserialize(const std::filesystem::path& dumpPath);
+
   protected:
+    void removeSerializedEntry();
     uint32_t transportId;
 
     /**

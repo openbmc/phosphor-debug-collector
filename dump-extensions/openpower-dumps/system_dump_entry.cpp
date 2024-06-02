@@ -19,6 +19,10 @@ Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
     EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
 {
     sourceDumpId(sourceId);
+    if (status == phosphor::dump::OperationStatus::Completed)
+    {
+        serialize();
+    }
     // Emit deferred signal.
     this->openpower::dump::host::system::EntryIfaces::emit_object_added();
 }
