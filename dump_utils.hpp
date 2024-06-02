@@ -377,5 +377,17 @@ inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
     throw std::invalid_argument{"Dump type not found"};
 }
 
+/**
+ * @brief Extracts the dump ID and timestamp from a BMC dump file name.
+ *
+ * @param[in] file The path to the dump file.
+ *
+ * @return A std::optional containing a tuple with the dump ID, timestamp
+ * and size of the file if the extraction is successful, or std::nullopt
+ * if the file name does not match the expected format.
+ */
+std::optional<std::tuple<uint32_t, uint64_t, uint64_t>>
+    extractDumpDetails(const std::filesystem::path& file);
+
 } // namespace dump
 } // namespace phosphor
