@@ -47,6 +47,7 @@ Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
 
     // Emit deferred signal.
     this->openpower::dump::host::resource::EntryIfaces::emit_object_added();
+    serialize();
 }
 
 Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
