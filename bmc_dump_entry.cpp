@@ -2,6 +2,7 @@
 
 #include "dump_manager.hpp"
 #include "dump_offload.hpp"
+#include "dump_utils.hpp"
 
 #include <phosphor-logging/lg2.hpp>
 
@@ -33,6 +34,26 @@ void Entry::initiateOffload(std::string uri)
 {
     phosphor::dump::offload::requestOffload(file, id, uri);
     offloaded(true);
+}
+
+void Entry::updateFromFile(const std::filesystem::path& dumpPath)
+{
+    // Extract dump details from the file name
+    auto dumpDetails = phosphor::dump::extractDumpDetails(dumpPath.filename());
+    if (!dumpDetails)
+    {
+        lg2::error("Failed to extract dump details from file name: {PATH}",
+                   "PATH", dumpPath);
+        throw std::logic_error("Invalid dump file name format");
+    }
+
+    auto [extractedId, extractedTimestamp, extractedSize] = *dumpDetails;
+
+    // Update the entry with extracted details
+    startTime(extractedTimestamp);
+    elapsed(extractedTimestamp);
+    completedTime(extractedTimestamp);
+    size(extractedSize);
 }
 
 } // namespace bmc
