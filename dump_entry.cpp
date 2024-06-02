@@ -4,6 +4,7 @@
 
 #include <fcntl.h>
 
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <phosphor-logging/lg2.hpp>
@@ -61,6 +62,103 @@ sdbusplus::message::unix_fd Entry::getFileHandle()
     fdCloseEventSource = std::make_pair(fd, std::move(eventSource));
 
     return fd;
+}
+
+void Entry::serialize()
+{
+    // Folder for serialized entry
+    std::filesystem::path dir = file.parent_path() / PRESERVE;
+
+    // Serialized etry file
+    std::filesystem::path serializePath = dir / SERIAL_FILE;
+    try
+    {
+        if (!std::filesystem::exists(dir))
+        {
+            std::filesystem::create_directories(dir);
+        }
+
+        std::ofstream os(serializePath, std::ios::binary);
+        if (!os.is_open())
+        {
+            lg2::error("Failed to open file for serialization: {PATH} ", "PATH",
+                       serializePath);
+        }
+        nlohmann::json j;
+        j["version"] = CLASS_SERIALIZATION_VERSION;
+        j["dumpId"] = id;
+        j["originatorId"] = originatorId();
+        j["originatorType"] = originatorType();
+        j["startTime"] = startTime();
+
+        nlohmann::json::to_cbor(j, os);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Serialization error: {PATH} {ERROR} ", "PATH",
+                   serializePath, "ERROR", e);
+
+        // Remove the serialization folder if that got created
+        std::error_code ec;
+        std::filesystem::remove_all(dir, ec);
+    }
+}
+
+void Entry::deserialize(const std::filesystem::path& dumpPath)
+{
+    try
+    {
+        // .preserve folder
+        std::filesystem::path dir = dumpPath / PRESERVE;
+        if (!std::filesystem::exists(dir))
+        {
+            lg2::info("Serialization directory: {SERIAL_DIR} doesnt exist, "
+                      "skip deserialization",
+                      "SERIAL_DIR", dir);
+            return;
+        }
+
+        // Serialized entry
+        std::filesystem::path serializePath = dir / SERIAL_FILE;
+        std::ifstream is(serializePath, std::ios::binary);
+        if (!is.is_open())
+        {
+            lg2::error("Failed to open file for deserialization: {PATH}",
+                       "PATH", serializePath);
+            return;
+        }
+        auto j = nlohmann::json::from_cbor(is);
+
+        uint32_t version = j["version"].get<uint32_t>();
+        if (version == CLASS_SERIALIZATION_VERSION)
+        {
+            uint32_t stored_id = j["dumpId"].get<uint32_t>();
+            if (stored_id == id)
+            {
+                originatorId(j["originatorId"].get<std::string>());
+                originatorType(j["originatorType"].get<originatorTypes>());
+                startTime(j["startTime"].get<uint64_t>());
+            }
+            else
+            {
+                lg2::error(
+                    "The id in the serial file: {ID_IN_FILE} is not "
+                    "matching with dumpid: {DUMPID}, skipping deserialization",
+                    "ID_IN_FILE", stored_id, "DUMPID", id);
+            }
+        }
+        else
+        {
+            lg2::error("The serilized file version and current class version"
+                       "doesnt match, skip deserialization {FILE_VERSION}",
+                       "FILE_VERSION", version);
+        }
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Deserialization error: {PATH}, {ERROR}", "PATH", dumpPath,
+                   "ERROR", e);
+    }
 }
 
 } // namespace dump
