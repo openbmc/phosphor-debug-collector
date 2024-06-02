@@ -97,6 +97,7 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
+        serialize();
     }
 };
 
