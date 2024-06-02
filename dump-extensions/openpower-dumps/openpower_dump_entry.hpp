@@ -57,6 +57,19 @@ class Entry : public virtual phosphor::dump::Entry
                               parent)
     {}
 
+    /** @brief Constructor for creating a dump entry with default values
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                              phosphor::dump::OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent)
+    {}
+
     /** @brief Delete the dump and D-Bus object
      */
     void delete_() override;
@@ -84,6 +97,10 @@ class Entry : public virtual phosphor::dump::Entry
         // TODO: serialization of this property will be handled with
         // #ibm-openbmc/2597
         completedTime(timeStamp);
+
+        const std::filesystem::path serializedFilePath =
+            filePath.parent_path() / ".preserve" / "serialized_entry.bin";
+        serialize(serializedFilePath);
     }
 };
 
@@ -140,6 +157,22 @@ class Entry : public virtual openpower::dump::Entry, public virtual HostbootIntf
         errorLogId(eid);
         this->openpower::dump::hostboot::HostbootIntf::emit_object_added();
     }
+
+    /** @brief Constructor for creating a Hostboot dump entry with default
+     * values
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                              phosphor::dump::OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent),
+        openpower::dump::Entry(bus, objPath.c_str(), dumpId, parent),
+        HostbootIntf(bus, objPath.c_str(), HostbootIntf::action::defer_emit)
+    {}
 };
 
 } // namespace hostboot
@@ -199,6 +232,22 @@ class Entry : public virtual openpower::dump::Entry, public virtual HardwareIntf
         failingUnitId(failingUnit);
         this->openpower::dump::hardware::HardwareIntf::emit_object_added();
     }
+
+    /** @brief Constructor for creating a Hardware dump entry with default
+     * values
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                              phosphor::dump::OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent),
+        openpower::dump::Entry(bus, objPath.c_str(), dumpId, parent),
+        HardwareIntf(bus, objPath.c_str(), HardwareIntf::action::defer_emit)
+    {}
 };
 } // namespace hardware
 
@@ -257,6 +306,21 @@ class Entry : public virtual openpower::dump::Entry, public virtual SBEIntf
         failingUnitId(failingUnit);
         this->openpower::dump::sbe::SBEIntf::emit_object_added();
     }
+
+    /** @brief Constructor for creating an SBE dump entry with default values
+     *  @param[in] bus - Bus to attach to.
+     *  @param[in] objPath - Object path to attach to.
+     *  @param[in] dumpId - Unique identifier for the dump.
+     *  @param[in] parent - Reference to the managing dump manager.
+     */
+    Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+          phosphor::dump::Manager& parent) :
+        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                              phosphor::dump::OperationStatus::InProgress, "",
+                              originatorTypes::Internal, parent),
+        openpower::dump::Entry(bus, objPath.c_str(), dumpId, parent),
+        SBEIntf(bus, objPath.c_str(), SBEIntf::action::defer_emit)
+    {}
 };
 } // namespace sbe
 

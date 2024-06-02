@@ -103,4 +103,62 @@ void Manager::updateEntry(const std::filesystem::path& fullPath)
     opEntry->update(timestamp, fileSize, fullPath);
 }
 
+void Manager::restore()
+{
+    std::filesystem::path dir(dumpDir);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
+    {
+        return;
+    }
+
+    // Initialize DumpEntryFactory
+    DumpEntryFactory dumpFact(bus, baseEntryPath, *this);
+
+    // Dump file path: <DUMP_PATH>/<id>/<filename>
+    for (const auto& p : std::filesystem::directory_iterator(dir))
+    {
+        auto idStr = p.path().filename().string();
+
+        // Consider only directories with dump id as name.
+        // Note: As per design one file per directory.
+        if ((std::filesystem::is_directory(p.path())) &&
+            std::all_of(idStr.begin(), idStr.end(), ::isxdigit))
+        {
+            // Convert hex string to number
+            uint32_t id = static_cast<uint32_t>(std::stoul(idStr, nullptr, 16));
+
+            // Remove upper 8 bytes to get the actual entry ID
+            uint32_t entryId = id & 0x00FFFFFF;
+
+            lastEntryId = std::max(lastEntryId, entryId);
+            auto objPath = std::filesystem::path(baseEntryPath) / idStr;
+
+            // Create a dump entry with default values
+            auto entry = dumpFact.createEntryWithDefaults(id, objPath);
+
+            // Locate the serialized file
+            std::filesystem::path serializedFilePath = p.path() / ".preserve" /
+                                                       "serialized_entry.bin";
+            if (std::filesystem::exists(serializedFilePath))
+            {
+                // Call deserialize to update the entry from the serialized file
+                entry->deserialize(serializedFilePath);
+            }
+
+            // Insert the entry into the entries map
+            entries.insert(std::make_pair(id, std::move(entry)));
+
+            // Check for dump file and call update if it exists
+            for (const auto& fileIt :
+                 std::filesystem::directory_iterator(p.path()))
+            {
+                if (fileIt.path().filename() != ".preserve")
+                {
+                    updateEntry(fileIt.path());
+                }
+            }
+        }
+    }
+}
+
 } // namespace openpower::dump
