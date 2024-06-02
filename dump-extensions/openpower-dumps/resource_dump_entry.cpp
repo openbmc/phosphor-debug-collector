@@ -77,6 +77,71 @@ void Entry::delete_()
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 }
+
+void Entry::serialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::filesystem::path dir = filePath.parent_path();
+        if (!std::filesystem::exists(dir))
+        {
+            std::filesystem::create_directories(dir);
+        }
+
+        std::ofstream ofs(filePath, std::ios::binary);
+        if (!ofs.is_open())
+        {
+            lg2::error("Failed to open file for serialization: {PATH} ", "PATH",
+                       filePath);
+        }
+        cereal::BinaryOutputArchive archive(ofs);
+        archive(sourceDumpId(), size(), originatorId(), originatorType(),
+                completedTime(), elapsed(), startTime());
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Serialization error: {PATH} {ERROR} ", "PATH", filePath,
+                   "ERROR", e);
+    }
+}
+
+void Entry::deserialize(const std::filesystem::path& filePath)
+{
+    try
+    {
+        std::ifstream ifs(filePath, std::ios::binary);
+        if (!ifs.is_open())
+        {
+            lg2::error("Failed to open file for deserialization: {PATH}",
+                       "PATH", filePath);
+        }
+        cereal::BinaryInputArchive archive(ifs);
+        uint32_t sourceId;
+        uint64_t dumpSize;
+        std::string originId;
+        originatorTypes originType;
+        uint64_t dumpCompletedTime;
+        uint64_t dumpElapsed;
+        uint64_t dumpStartTime;
+        archive(sourceId, dumpSize, originId, originType, dumpCompletedTime,
+                dumpElapsed, dumpStartTime);
+        sourceDumpId(sourceId);
+        size(dumpSize);
+        originatorId(originId);
+        originatorType(originType);
+        completedTime(dumpCompletedTime);
+        elapsed(dumpElapsed);
+        startTime(dumpStartTime);
+        status(OperationStatus::Completed);
+        dumpRequestStatus(HostResponse::Success);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Deserialization error: {PATH}, {ERROR}", "PATH", filePath,
+                   "ERROR", e);
+    }
+}
+
 } // namespace resource
 } // namespace dump
 } // namespace openpower
