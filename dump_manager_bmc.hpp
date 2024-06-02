@@ -1,5 +1,6 @@
 #pragma once
 
+#include "dump_entry.hpp"
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 #include "watch.hpp"
@@ -83,8 +84,9 @@ class Manager :
   private:
     /** @brief Create Dump entry d-bus object
      *  @param[in] fullPath - Full path of the Dump file name
+     *  @returns Pointer to the created dump entry.
      */
-    void createEntry(const std::filesystem::path& fullPath);
+    phosphor::dump::Entry* createEntry(const std::filesystem::path& fullPath);
 
     /** @brief Capture BMC Dump based on the Dump type.
      *  @param[in] type - Type of the dump to pass to dreport
