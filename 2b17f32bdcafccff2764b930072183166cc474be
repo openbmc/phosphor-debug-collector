@@ -22,6 +22,30 @@
       },
       "revId": "2b17f32bdcafccff2764b930072183166cc474be",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b905b6_fa55f2d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-06-03T14:37:13Z",
+      "side": 1,
+      "message": "Another approch would be move theese function under \" and keep it in gendumpheader\", and enable for IBM specific boxes",
+      "parentUuid": "9aa47824_72899f92",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "2b17f32bdcafccff2764b930072183166cc474be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
