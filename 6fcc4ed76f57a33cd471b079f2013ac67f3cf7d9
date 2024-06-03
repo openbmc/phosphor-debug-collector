@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b4835df_c0501776",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "These variables are used in common functions script but can\u0027t be declared there as the script holds only functions. Thus declaring here and exporting them helps to manipulate them in the function call.",
+      "parentUuid": "24430299_488a4625",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a1ff00c_b1d883b4",
         "filename": "tools/dreport.d/ibm.d/gendumpheader",
         "patchSetId": 15
@@ -71,6 +95,24 @@
       "writtenOn": "2024-06-03T06:29:27Z",
       "side": 1,
       "message": "should the condition be gt zero",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d0fbf02_132bc7f4",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7a1ff00c_b1d883b4",
       "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -88,6 +130,24 @@
       "writtenOn": "2024-06-03T06:29:27Z",
       "side": 1,
       "message": "same condition need to be greater than zero",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96dcc8e9_815ccec7",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7d0e0ee1_a2027490",
       "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -117,6 +177,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21152f00_621f8d91",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "No, if the dump type object string can not be determined from the map then we should return silently to avoid making unnecessary dbus calls which would be definitely failing in that case",
+      "parentUuid": "a1f34d34_b1fb85d8",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 6
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5bca1f45_8ff5bf98",
         "filename": "tools/dreport.d/include.d/functions",
         "patchSetId": 15
@@ -134,6 +218,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "361b5b04_78a473ea",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "If the ORIGINATOR_TYPE can not be mapped to the corresponding enum then return silently as that would violate the space reserved length",
+      "parentUuid": "5bca1f45_8ff5bf98",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee97fb6f_d197dd66",
         "filename": "tools/dreport.d/include.d/functions",
         "patchSetId": 15
@@ -145,6 +247,24 @@
       "writtenOn": "2024-06-03T06:29:27Z",
       "side": 1,
       "message": "this return is not required",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44b02503_b839b847",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T10:34:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ee97fb6f_d197dd66",
       "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
