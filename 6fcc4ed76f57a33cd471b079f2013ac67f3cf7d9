@@ -33,6 +33,120 @@
       "message": "Kindly review further",
       "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24430299_488a4625",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "why declare here if not used in this file",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1ff00c_b1d883b4",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "should the condition be gt zero",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0e0ee1_a2027490",
+        "filename": "tools/dreport.d/ibm.d/gendumpheader",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "same condition need to be greater than zero",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f34d34_b1fb85d8",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "why are we returning here shouldn\u0027t we continue?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 6
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bca1f45_8ff5bf98",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "what is this condition",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee97fb6f_d197dd66",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T06:29:27Z",
+      "side": 1,
+      "message": "this return is not required",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
