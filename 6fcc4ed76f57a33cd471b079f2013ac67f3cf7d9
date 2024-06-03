@@ -223,6 +223,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0943245_294ea966",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T11:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21152f00_621f8d91",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 6
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bca1f45_8ff5bf98",
@@ -254,6 +278,24 @@
       "side": 1,
       "message": "If the ORIGINATOR_TYPE can not be mapped to the corresponding enum then return silently as that would violate the space reserved length",
       "parentUuid": "5bca1f45_8ff5bf98",
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "917c523b_ba8962f7",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 15
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-06-03T11:09:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "361b5b04_78a473ea",
       "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
