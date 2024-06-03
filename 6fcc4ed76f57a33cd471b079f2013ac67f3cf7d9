@@ -82,6 +82,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26e7f24b_e479b768",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 15
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-06-03T10:50:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5b4835df_c0501776",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "6fcc4ed76f57a33cd471b079f2013ac67f3cf7d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a1ff00c_b1d883b4",
