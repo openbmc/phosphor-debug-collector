@@ -1,10 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
 
-unit_files += {
-    'input': 'dump-extensions/openpower-dumps/clear_hostdumps_poweroff.service',
-    'output': 'clear_hostdumps_poweroff.service',
-}
-
 phosphor_dump_manager_sources += [
     'dump-extensions/openpower-dumps/dump-extensions.cpp',
     'dump-extensions/openpower-dumps/dump_manager_openpower.cpp',
