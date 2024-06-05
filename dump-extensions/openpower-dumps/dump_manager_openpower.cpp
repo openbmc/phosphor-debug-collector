@@ -23,13 +23,13 @@ using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 void Manager::notifyDump(uint32_t sourceDumpId, uint64_t size,
-                         NotifyDumpTypes type, [[maybe_unused]] uint32_t token)
+                         NotifyDumpTypes type, uint32_t token)
 {
     DumpEntryFactory dumpFact(bus, baseEntryPath, *this);
 
     auto optEntry = dumpFact.createOrUpdateHostEntry(
         convertNotifyToCreateType(type), sourceDumpId, size, lastEntryId + 1,
-        entries);
+        token, entries);
     if (optEntry)
     {
         auto& entry = *optEntry;
