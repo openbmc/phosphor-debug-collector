@@ -67,6 +67,7 @@ class DumpEntryFactory
     std::optional<std::unique_ptr<phosphor::dump::Entry>>
         createOrUpdateHostEntry(
             OpDumpTypes type, uint64_t sourceDumpId, uint64_t size, uint32_t id,
+            uint32_t token,
             const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
                 entries);
 
@@ -213,6 +214,7 @@ class DumpEntryFactory
     template <typename T>
     std::optional<std::unique_ptr<phosphor::dump::Entry>> createOrUpdate(
         OpDumpTypes dumpType, uint64_t srcDumpId, uint64_t size, uint32_t id,
+        uint32_t token,
         const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
             entries);
 
