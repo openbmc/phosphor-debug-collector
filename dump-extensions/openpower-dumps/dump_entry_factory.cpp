@@ -233,6 +233,7 @@ std::unique_ptr<phosphor::dump::Entry> DumpEntryFactory::createEntry(
 std::optional<std::unique_ptr<phosphor::dump::Entry>>
     DumpEntryFactory::createOrUpdateHostEntry(
         OpDumpTypes type, uint64_t sourceDumpId, uint64_t size, uint32_t id,
+        uint32_t token,
         const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
             entries)
 {
@@ -240,10 +241,10 @@ std::optional<std::unique_ptr<phosphor::dump::Entry>>
     {
         case OpDumpTypes::System:
             return createOrUpdate<system::Entry>(type, sourceDumpId, size, id,
-                                                 entries);
+                                                 token, entries);
         case OpDumpTypes::Resource:
             return createOrUpdate<resource::Entry>(type, sourceDumpId, size, id,
-                                                   entries);
+                                                   token, entries);
         default:
             return std::nullopt;
     }
@@ -253,6 +254,7 @@ template <typename T>
 std::optional<std::unique_ptr<phosphor::dump::Entry>>
     DumpEntryFactory::createOrUpdate(
         OpDumpTypes dumpType, uint64_t srcDumpId, uint64_t size, uint32_t id,
+        uint32_t token,
         const std::map<uint32_t, std::unique_ptr<phosphor::dump::Entry>>&
             entries)
 {
@@ -264,9 +266,6 @@ std::optional<std::unique_ptr<phosphor::dump::Entry>>
             std::chrono::system_clock::now().time_since_epoch())
             .count();
 
-    // If there is an entry with invalid id update that.
-    // If there a completed one with same source id ignore it
-    // if there is no invalid id, create new entry
     T* upEntry = nullptr;
 
     for (const auto& entry : entries)
@@ -276,28 +275,57 @@ std::optional<std::unique_ptr<phosphor::dump::Entry>>
             continue;
         }
         auto dumpEntry = dynamic_cast<T*>(entry.second.get());
-        // If there is already a completed entry with input source id then
-        // ignore this notification.
-        if ((dumpEntry->sourceDumpId() == srcDumpId) &&
-            (dumpEntry->status() == phosphor::dump::OperationStatus::Completed))
-        {
-            lg2::info("Dump entry with source dump id: {DUMP_ID} is already "
-                      "present with entry id: {ENTRY_ID}",
-                      "DUMP_ID", std::format("{:08X}", srcDumpId), "ENTRY_ID",
-                      std::format("{:08X}", dumpEntry->getDumpId()));
-            return std::nullopt;
-        }
 
-        // When searching for the dump to update, find the first entry with
-        // INVALID_SOURCE_ID and remember it. However, continue searching
-        // through all the entries to ensure that the incoming dump has not
-        // already been notified by checking for the same source ID.
-        if ((dumpEntry->status() ==
-             phosphor::dump::OperationStatus::InProgress) &&
-            (dumpEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
-            (upEntry == nullptr))
+        // Check entries with non-zero tokens
+        if (dumpEntry->token() != 0)
         {
-            upEntry = dumpEntry;
+            // If token matches and entry is not completed, update this entry
+            if (token == dumpEntry->token())
+            {
+                // If the token is matching and entry is completed then it is a
+                // duplicate notification
+                if (dumpEntry->status() ==
+                    phosphor::dump::OperationStatus::Completed)
+                {
+                    lg2::info(
+                        "Dump entry with source dump id: {DUMP_ID} is already "
+                        "present with entry id: {ENTRY_ID}",
+                        "DUMP_ID", std::format("{:08X}", srcDumpId), "ENTRY_ID",
+                        std::format("{:08X}", dumpEntry->getDumpId()));
+                    return std::nullopt;
+                }
+                upEntry = dumpEntry;
+                break;
+            }
+            // If token does not match, continue to next entry
+        }
+        else
+        {
+            // If there is already a completed entry with input source id then
+            // ignore this notification.
+            if ((dumpEntry->sourceDumpId() == srcDumpId) &&
+                (dumpEntry->status() ==
+                 phosphor::dump::OperationStatus::Completed))
+            {
+                lg2::info(
+                    "Dump entry with source dump id: {DUMP_ID} is already "
+                    "present with entry id: {ENTRY_ID}",
+                    "DUMP_ID", std::format("{:08X}", srcDumpId), "ENTRY_ID",
+                    std::format("{:08X}", dumpEntry->getDumpId()));
+                return std::nullopt;
+            }
+
+            // When searching for the dump to update, find the first entry with
+            // INVALID_SOURCE_ID and remember it. However, continue searching
+            // through all the entries to ensure that the incoming dump has not
+            // already been notified by checking for the same source ID.
+            if ((dumpEntry->status() ==
+                 phosphor::dump::OperationStatus::InProgress) &&
+                (dumpEntry->sourceDumpId() == INVALID_SOURCE_ID) &&
+                (upEntry == nullptr))
+            {
+                upEntry = dumpEntry;
+            }
         }
     }
 

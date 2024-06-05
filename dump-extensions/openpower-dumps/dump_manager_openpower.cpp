@@ -29,7 +29,7 @@ void Manager::notifyDump(uint32_t sourceDumpId, uint64_t size,
 
     auto optEntry = dumpFact.createOrUpdateHostEntry(
         convertNotifyToCreateType(type), sourceDumpId, size, lastEntryId + 1,
-        entries);
+        token, entries);
     if (optEntry)
     {
         auto& entry = *optEntry;
