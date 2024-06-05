@@ -113,7 +113,7 @@ class Manager :
      *  @param[in] token - Token identifying the specific dump
      */
     void notifyDump(uint32_t dumpId, uint64_t size, NotifyDumpTypes type,
-                    [[maybe_unused]] uint32_t token) override;
+                    uint32_t token) override;
 
     /** @brief Implementation for CreateDump
      *  Method to create a new system dump entry when user
