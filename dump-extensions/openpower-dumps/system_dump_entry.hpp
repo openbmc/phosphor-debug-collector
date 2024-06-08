@@ -1,34 +1,29 @@
 #pragma once
 
-#include "dump_entry.hpp"
-#include "xyz/openbmc_project/Dump/Entry/System/server.hpp"
+#include "host_dump_entry.hpp"
 
-#include <sdbusplus/bus.hpp>
-#include <sdbusplus/server/object.hpp>
+#include <xyz/openbmc_project/Dump/Entry/System/server.hpp>
 
-namespace openpower
+namespace openpower::dump::host::system
 {
-namespace dump
-{
-namespace system
-{
-template <typename T>
-using ServerObject = typename sdbusplus::server::object_t<T>;
 
 using EntryIfaces = sdbusplus::server::object_t<
     sdbusplus::xyz::openbmc_project::Dump::Entry::server::System>;
 
-using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
-    OriginatedBy::OriginatorTypes;
 using SystemImpact =
     sdbusplus::common::xyz::openbmc_project::dump::entry::System::SystemImpact;
+
+using HostResponse =
+    sdbusplus::common::xyz::openbmc_project::dump::entry::System::HostResponse;
 
 /** @class Entry
  *  @brief System Dump Entry implementation.
  *  @details A concrete implementation for the
  *  xyz.openbmc_project.Dump.Entry DBus API
  */
-class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
+class Entry :
+    public openpower::dump::host::Entry<system::Entry>,
+    public EntryIfaces
 {
   public:
     Entry() = delete;
@@ -52,18 +47,10 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, phosphor::dump::Manager& parent) :
-        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              std::string(), status, originatorId,
-                              originatorType, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
-    {
-        sourceDumpId(sourceId);
-        // Emit deferred signal.
-        this->openpower::dump::system::EntryIfaces::emit_object_added();
-    };
+          phosphor::dump::originatorTypes originatorType,
+          phosphor::dump::Manager& parent);
 
     /** @brief Constructor for the Dump Entry Object with disruptive
      *         or non-disruptive system dump type.
@@ -82,21 +69,11 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      *  @param[in] parent - The dump entry's parent.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+          uint64_t timeStamp, uint64_t dumpSize, uint32_t sourceId,
           phosphor::dump::OperationStatus status, std::string originatorId,
-          originatorTypes originatorType, SystemImpact sysImpact,
-          std::string usrChallenge, phosphor::dump::Manager& parent) :
-        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
-                              std::string(), status, originatorId,
-                              originatorType, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
-    {
-        sourceDumpId(sourceId);
-        userChallenge(usrChallenge);
-        systemImpact(sysImpact);
-        // Emit deferred signal.
-        this->openpower::dump::system::EntryIfaces::emit_object_added();
-    };
+          phosphor::dump::originatorTypes originatorType,
+          SystemImpact sysImpact, std::string usrChallenge,
+          phosphor::dump::Manager& parent);
 
     /** @brief Constructor for creating a System dump entry with default values
      *  @param[in] bus - Bus to attach to.
@@ -105,40 +82,14 @@ class Entry : virtual public phosphor::dump::Entry, virtual public EntryIfaces
      *  @param[in] parent - Reference to the managing dump manager.
      */
     Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
-          phosphor::dump::Manager& parent) :
-        phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
-                              phosphor::dump::OperationStatus::InProgress, "",
-                              originatorTypes::Internal, parent),
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
-    {}
+          phosphor::dump::Manager& parent);
 
-    /** @brief Method to initiate the offload of dump
-     *  @param[in] uri - URI to offload dump.
-     */
-    void initiateOffload(std::string uri) override;
-
-    /** @brief Method to update an existing dump entry
-     *  @param[in] timeStamp - Dump creation timestamp
-     *  @param[in] dumpSize - Dump size in bytes.
-     *  @param[in] sourceId - DumpId provided by the source.
-     */
-    void update(uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId)
+    void setDumpRequestStatusImpl(HostResponse status)
     {
-        elapsed(timeStamp);
-        size(dumpSize);
-        sourceDumpId(sourceId);
-        // TODO: Handled dump failure case with
-        // #bm-openbmc/2808
-        status(OperationStatus::Completed);
-        completedTime(timeStamp);
+        dumpRequestStatus(status);
     }
 
-    /**
-     * @brief Delete host system dump and it entry dbus object
-     */
-    void delete_() override;
+  private:
+    static constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 3;
 };
-
-} // namespace system
-} // namespace dump
-} // namespace openpower
+} // namespace openpower::dump::host::system
