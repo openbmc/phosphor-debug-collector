@@ -63,7 +63,7 @@ std::unique_ptr<phosphor::dump::Entry> DumpEntryFactory::createSystemDumpEntry(
                    "or quiesced or starting to poweroff"));
     }
 
-    return std::make_unique<system::Entry>(
+    return std::make_unique<host::system::Entry>(
         bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
         phosphor::dump::OperationStatus::InProgress, dumpParams.originatorId,
         dumpParams.originatorType, mgr);
@@ -96,15 +96,15 @@ std::unique_ptr<phosphor::dump::Entry>
 
     if (createSysDump)
     {
-        return std::make_unique<system::Entry>(
+        return std::make_unique<host::system::Entry>(
             bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID,
             phosphor::dump::OperationStatus::InProgress,
             dumpParams.originatorId, dumpParams.originatorType,
-            system::SystemImpact::NonDisruptive, *dumpParams.userChallenge,
-            mgr);
+            host::system::SystemImpact::NonDisruptive,
+            *dumpParams.userChallenge, mgr);
     }
 
-    return std::make_unique<resource::Entry>(
+    return std::make_unique<host::resource::Entry>(
         bus, objPath.c_str(), id, timeStamp, 0, INVALID_SOURCE_ID, vspString,
         *dumpParams.userChallenge, phosphor::dump::OperationStatus::InProgress,
         dumpParams.originatorId, dumpParams.originatorType, mgr);
@@ -228,11 +228,11 @@ std::optional<std::unique_ptr<phosphor::dump::Entry>>
     switch (type)
     {
         case OpDumpTypes::System:
-            return createOrUpdate<system::Entry>(type, sourceDumpId, size, id,
-                                                 token, entries);
+            return createOrUpdate<host::system::Entry>(type, sourceDumpId, size,
+                                                       id, token, entries);
         case OpDumpTypes::Resource:
-            return createOrUpdate<resource::Entry>(type, sourceDumpId, size, id,
-                                                   token, entries);
+            return createOrUpdate<host::resource::Entry>(
+                type, sourceDumpId, size, id, token, entries);
         default:
             return std::nullopt;
     }
@@ -367,11 +367,11 @@ std::unique_ptr<phosphor::dump::Entry>
     switch (type)
     {
         case OpDumpTypes::System:
-            return std::make_unique<system::Entry>(bus, objPath.string(), id,
-                                                   mgr);
+            return std::make_unique<host::system::Entry>(bus, objPath.string(),
+                                                         id, mgr);
         case OpDumpTypes::Resource:
-            return std::make_unique<resource::Entry>(bus, objPath.string(), id,
-                                                     mgr);
+            return std::make_unique<host::resource::Entry>(
+                bus, objPath.string(), id, mgr);
         case OpDumpTypes::Hostboot:
             return std::make_unique<hostboot::Entry>(bus, objPath.string(), id,
                                                      mgr);
