@@ -1,82 +1,66 @@
 #include "resource_dump_entry.hpp"
 
-#include "dump_utils.hpp"
-#include "host_transport_exts.hpp"
-#include "op_dump_consts.hpp"
+#include "host_dump_entry.tpp"
 
-#include <phosphor-logging/elog-errors.hpp>
-#include <phosphor-logging/lg2.hpp>
-#include <xyz/openbmc_project/Common/error.hpp>
+namespace openpower::dump::host::resource
+{
 
-namespace openpower
+Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+             uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+             std::string vspStr, std::string usrChallenge,
+             phosphor::dump::OperationStatus status, std::string originatorId,
+             phosphor::dump::originatorTypes originatorType,
+             phosphor::dump::Manager& parent) :
+    phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
+                          std::string(), status, originatorId, originatorType,
+                          parent),
+    openpower::dump::host::Entry<Entry>(
+        bus, objPath, dumpId, timeStamp, dumpSize, status, originatorId,
+        originatorType, parent, TRANSPORT_DUMP_TYPE_IDENTIFIER),
+    EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
 {
-namespace dump
-{
-namespace resource
-{
-// TODO #ibm-openbmc/issues/2859
-// Revisit host transport impelementation
-// This value is used to identify the dump in the transport layer to host,
-constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 9;
-using namespace phosphor::logging;
-
-void Entry::initiateOffload(std::string uri)
-{
-    using NotAllowed =
-        sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
-    using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-    lg2::info("Resource dump offload request id: {ID} uri: {URI} "
-              "source dumpid: {SOURCE_DUMP_ID}",
-              "ID", id, "URI", uri, "SOURCE_DUMP_ID", sourceDumpId());
-
-    if (!phosphor::dump::isHostRunning())
-    {
-        elog<NotAllowed>(
-            Reason("This dump can be offloaded only when the host is up"));
-        return;
-    }
-    phosphor::dump::Entry::initiateOffload(uri);
-    phosphor::dump::host::requestOffload(sourceDumpId());
+    sourceDumpId(sourceId);
+    vspString(vspStr);
+    userChallenge(usrChallenge);
+    // Emit deferred signal.
+    this->openpower::dump::host::resource::EntryIfaces::emit_object_added();
 }
 
-void Entry::delete_()
+Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+             uint64_t timeStamp, uint64_t dumpSize, const uint32_t sourceId,
+             phosphor::dump::OperationStatus status, std::string originatorId,
+             phosphor::dump::originatorTypes originatorType,
+             phosphor::dump::Manager& parent) :
+    phosphor::dump::Entry(bus, objPath.c_str(), dumpId, timeStamp, dumpSize,
+                          std::string(), status, originatorId, originatorType,
+                          parent),
+    openpower::dump::host::Entry<Entry>(
+        bus, objPath, dumpId, timeStamp, dumpSize, status, originatorId,
+        originatorType, parent, TRANSPORT_DUMP_TYPE_IDENTIFIER),
+    EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
 {
-    auto srcDumpID = sourceDumpId();
-    auto dumpId = id;
+    sourceDumpId(sourceId);
+    vspString("");
+    userChallenge("");
+    dumpRequestStatus(sdbusplus::common::com::ibm::dump::entry::Resource::
+                          HostResponse::Success);
 
-    if ((!offloadUri().empty()) && (phosphor::dump::isHostRunning()))
-    {
-        lg2::error("Dump offload is in progress, cannot delete dump, "
-                   "id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
-                   "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
-        elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
-    }
-
-    lg2::info("Resource dump delete id: {DUMP_ID} srcdumpid: {SRC_DUMP_ID}",
-              "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID);
-
-    // Remove resource dump when host is up by using source dump id
-
-    // which is present in resource dump entry dbus object as a property.
-    if ((phosphor::dump::isHostRunning()) && (srcDumpID != INVALID_SOURCE_ID))
-    {
-        try
-        {
-            phosphor::dump::host::requestDelete(srcDumpID,
-                                                TRANSPORT_DUMP_TYPE_IDENTIFIER);
-        }
-        catch (const std::exception& e)
-        {
-            lg2::error("Error deleting dump from host id: {DUMP_ID} "
-                       "host id: {SRC_DUMP_ID} error: {ERROR}",
-                       "DUMP_ID", dumpId, "SRC_DUMP_ID", srcDumpID, "ERROR", e);
-            elog<sdbusplus::xyz::openbmc_project::Common::Error::Unavailable>();
-        }
-    }
-
-    // Remove Dump entry D-bus object
-    phosphor::dump::Entry::delete_();
+    // Emit deferred signal.
+    this->openpower::dump::host::resource::EntryIfaces::emit_object_added();
 }
-} // namespace resource
-} // namespace dump
-} // namespace openpower
+
+Entry::Entry(sdbusplus::bus_t& bus, const std::string& objPath, uint32_t dumpId,
+             phosphor::dump::Manager& parent) :
+    phosphor::dump::Entry(bus, objPath.c_str(), dumpId, 0, 0, "",
+                          phosphor::dump::OperationStatus::InProgress, "",
+                          phosphor::dump::originatorTypes::Internal, parent),
+    openpower::dump::host::Entry<Entry>(
+        bus, objPath, dumpId, 0, 0, phosphor::dump::OperationStatus::InProgress,
+        "", phosphor::dump::originatorTypes::Internal, parent,
+        TRANSPORT_DUMP_TYPE_IDENTIFIER),
+    EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::defer_emit)
+{
+    sourceDumpId(INVALID_SOURCE_ID);
+}
+
+} // namespace openpower::dump::host::resource
