@@ -188,6 +188,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a52c5c2_351279d2",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-06-10T19:44:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d7442558_ec25e961",
+      "revId": "2193a547dc6a7bc38bb9f62bdb965c033f2bda55",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd1473e1_79663aab",
