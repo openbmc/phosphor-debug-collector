@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796cb84b_759714d9",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-06-10T20:10:38Z",
+      "side": 1,
+      "message": "Is there any chance we could call this something different? It\u0027s so confusing to me that we are going down the resource dump path, but then have this boolean to generate a \"system dump\"....but there is also a case statement below for a \"real\" system dump. Some sort of \"special resource dump\" or something?",
+      "revId": "58ede4641042a8202f53e44e03bf859033029267",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
