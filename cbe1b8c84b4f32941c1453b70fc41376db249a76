@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2586164d_f7c023e3",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T10:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f01bab64_eadc2051",
+      "range": {
+        "startLine": 72,
+        "startChar": 18,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f113d1b_01fa470d",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65fb2a24_4ebc8d93",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T10:46:25Z",
+      "side": 1,
+      "message": "the dump storage path looks like this\n/var/lib/phosphor-debug-collector/dumps/\u003cdumpid\u003e\n\nThe serial will be in \n\n/var/lib/phosphor-debug-collector/dumps/\u003cdumpid\u003e/.preserve/serialized_entry.bin\n\nHere, check whether the dumped in the folder name matches the dumped stored in the file. It is unlikely that those will be different\n\nHowever, a sanity check should be done before updating the dump entry with serialized data.\n\nSince vital information about a BMC dump is already in the dump filename, the dump will still be usable, but the originator ID, type, and start time will be missing.",
+      "parentUuid": "8f113d1b_01fa470d",
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a74f777_fc78cd8e",
         "filename": "dump_entry.cpp",
         "patchSetId": 6
@@ -54,6 +96,24 @@
       "writtenOn": "2024-06-10T19:41:14Z",
       "side": 1,
       "message": "Delete the current file so we\u0027ll write a new one with the new version?",
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb058b5_35961742",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T10:46:25Z",
+      "side": 1,
+      "message": "Not deleting because if at all a matching firmware installed this data can be used, and we cannot create a matching serial data because we dont have the data we serialized at this point of time.",
+      "parentUuid": "5a74f777_fc78cd8e",
       "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -81,6 +141,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7be7c5e2_d3422e93",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T10:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0493b03_918b79a3",
+      "range": {
+        "startLine": 198,
+        "startChar": 13,
+        "endLine": 198,
+        "endChar": 19
+      },
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fbb5a19_b4db450d",
@@ -94,6 +178,24 @@
       "writtenOn": "2024-06-10T19:41:14Z",
       "side": 1,
       "message": "nit: add a @return",
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "569c6032_833abe22",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T10:46:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbb5a19_b4db450d",
       "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
