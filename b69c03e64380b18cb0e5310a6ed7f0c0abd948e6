@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9610767_08d1222d",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T20:19:44Z",
+      "side": 1,
+      "message": "But that throws an exception, right? here just want to remove if the folder is already created",
+      "parentUuid": "64a14ba8_399ab877",
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fffd32d9_79bc0b15",
         "filename": "dump_entry.cpp",
         "patchSetId": 7
@@ -157,6 +175,30 @@
       "writtenOn": "2024-06-11T19:54:42Z",
       "side": 1,
       "message": "Why are we deserializing it after we\u0027ve already constructed it?  Doesn\u0027t that mean we\u0027re sending out a signal for an object creation before we actually have all the values in it?  I think this should be re-evaluated.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 17
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8922e9_cd81a186",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-11T20:19:44Z",
+      "side": 1,
+      "message": "Among the following required information\n- id - Part of the dump file and folder name\n- size - the size of the file\n- end time/elapsed - timestamp in the filename\n- status - Serialized only completed dumps so that they will be completed\n- start time - from json\n- originator id - from json\n- originator type - from JSON\n\nIf we deserialize first, then an object will be created and then updated with other values from the filename. Currently, values from the filename are added first, followed by values from JSON.\n\nOr create an entry with default values without emitting a signal and pass it to the deserialize, \ndeserialize, pick and fill the values from filename and JSON and then emit signal?",
+      "parentUuid": "7b37d0aa_5ea3176f",
       "range": {
         "startLine": 306,
         "startChar": 0,
