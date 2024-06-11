@@ -56,7 +56,7 @@ declare -rx DREPORT_SOURCE="/usr/share/dreport.d"
 declare -rx DREPORT_INCLUDE="$DREPORT_SOURCE/include.d"
 declare -rx ZERO="0"
 declare -rx JOURNAL_LINE_LIMIT="500"
-declare -rx HEADER_EXTENSION="$DREPORT_INCLUDE/gendumpheader"
+declare -rx PACKAGE_EXTENSION="$DREPORT_INCLUDE/package"
 
 #Error Codes
 declare -rx SUCCESS="0"
@@ -72,6 +72,7 @@ declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size="unlimited"
 declare -x name_dir=""
+declare -x compressed_file=""
 declare -x optional_path=""
 declare -x dreport_log=""
 declare -x summary_log=""
@@ -195,6 +196,9 @@ function initialize()
     #name directory
     name_dir="$TMP_DIR/$name"
 
+    #compressed_file
+    compressed_file = "$name_dir.tar.xz"
+
     #dreport log file
     dreport_log="$name_dir/$DREPORT_LOG"
 
@@ -234,15 +238,10 @@ function package()
     fi
 
     #tar and compress the files.
-    if [ -f "$HEADER_EXTENSION" ]; then
-        tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
-        echo "Adding Dump Header :"$HEADER_EXTENSION
-        ("$HEADER_EXTENSION")
-        cat "$name_dir.tar.xz" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
-        mv "/tmp/dumpheader_$EPOCHTIME" "$name_dir.tar.xz"
+    if [ -f "$PACKAGE_EXTENSION" ]; then
+        ("$PACKAGE_EXTENSION")
     else
-        tar -Jcf "$name_dir.tar.xz" -C \
+        tar -Jcf "$compressed_file" -C \
             $(dirname "$name_dir") $(basename "$name_dir")
     fi
 
@@ -254,6 +253,11 @@ function package()
 
     #remove the temporary name specific directory
     rm -r "$name_dir"
+    #rename the compressed file to a custom name given  by PACKAGE_EXTENSION
+    if [ -f "$PACKAGE_EXTENSION" ]; then
+        mv "$compressed_file" "$name_dir"
+        compressed_file="$name_dir"
+    fi
 
     echo $($TIME_STAMP) "Report is available in $dump_dir"
 
@@ -262,15 +266,15 @@ function package()
     fi
 
     #copy the compressed tar file into the destination
-    cp "$name_dir.tar.xz" "$dump_dir"
+    cp "$compressed_file" "$dump_dir"
     if [ $? -ne 0 ]; then
-        echo "Failed to copy the $name_dir.tar.xz to $dump_dir"
-        rm "$name_dir.tar.xz"
+        echo "Failed to copy the $compressed_file to $dump_dir"
+        rm "$compressed_file"
         return $INTERNAL_FAILURE
     fi
 
     #Remove the temporary copy of the file
-    rm "$name_dir.tar.xz"
+    rm "$compressed_file"
 }
 
 # @brief Main function
