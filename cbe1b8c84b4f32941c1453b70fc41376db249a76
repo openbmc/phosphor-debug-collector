@@ -83,6 +83,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5eeba5_3feddb00",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-06-11T19:59:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "65fb2a24_4ebc8d93",
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a74f777_fc78cd8e",
@@ -114,6 +132,24 @@
       "side": 1,
       "message": "Not deleting because if at all a matching firmware installed this data can be used, and we cannot create a matching serial data because we dont have the data we serialized at this point of time.",
       "parentUuid": "5a74f777_fc78cd8e",
+      "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46be024_3ed0fb1f",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-06-11T19:59:46Z",
+      "side": 1,
+      "message": "ok, I see. If we were forced to update the version for some reason then we\u0027d add some code here to gracefully transition to the new version.",
+      "parentUuid": "5eb058b5_35961742",
       "revId": "cbe1b8c84b4f32941c1453b70fc41376db249a76",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
