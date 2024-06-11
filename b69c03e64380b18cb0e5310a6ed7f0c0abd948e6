@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "525992f5_9c65da0a",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "I\u0027d recommend against using CBOR unless you have a strong rationale for it.  JSON is larger but compresses and is human readable.  If you _must_ have a binary format, CBOR is an alright choice.",
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64a14ba8_399ab877",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "Why pass this if we\u0027re not doing anything with it?  `remove_all(dir)` also works.",
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fffd32d9_79bc0b15",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "You can also do something like:\n\n```\nj.at(\"dumpId\").get_to(stored_id);\n```\n\nFor member variables this might be clearer (originatorId, originatorType, etc.).",
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d9e5cc_e13d39a1",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "nit:\n\n\"The id ({ID_IN_FILE}) is not matching the dump id ({DUMPID}); skipping deserialization.\"",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 59
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "412ef10b_872fdf3f",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 37
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c2d6e2_13cbf351",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "Can we do just VERSION?",
+      "range": {
+        "startLine": 153,
+        "startChar": 60,
+        "endLine": 153,
+        "endChar": 72
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8611cbf9_78402b65",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "nit: size_t?",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b37d0aa_5ea3176f",
+        "filename": "dump_manager_bmc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "Why are we deserializing it after we\u0027ve already constructed it?  Doesn\u0027t that mean we\u0027re sending out a signal for an object creation before we actually have all the values in it?  I think this should be re-evaluated.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 17
+      },
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c4eae9_807564d8",
+        "filename": "dump_manager_bmc.hpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T19:54:42Z",
+      "side": 1,
+      "message": "Ick.  A raw pointer?\n\nI guess this doesn\u0027t violate the core guidelines since this is a \"position\" pointer of sorts.",
+      "revId": "b69c03e64380b18cb0e5310a6ed7f0c0abd948e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
