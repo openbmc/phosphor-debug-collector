@@ -34,6 +34,24 @@
       "parentUuid": "4854a23b_bcfea582",
       "revId": "dc7e0f839c46c9f3eceec126bdb72e7b27ac35c5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adcb691f_b5cf42c6",
+        "filename": "dump-extensions/openpower-dumps/op_dump_consts.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-11T16:20:43Z",
+      "side": 1,
+      "message": "Made a minor change to your commit and merged it.  Please leverage those generated paths here rather than creating hand-coded constants.\n\n(I left one comment about single-host vs multi-host that you can address asynchronously.)",
+      "parentUuid": "096d596e_cc3c530f",
+      "revId": "dc7e0f839c46c9f3eceec126bdb72e7b27ac35c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
