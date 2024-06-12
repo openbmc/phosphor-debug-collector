@@ -16,6 +16,24 @@
       "message": "Is there any chance we could call this something different? It\u0027s so confusing to me that we are going down the resource dump path, but then have this boolean to generate a \"system dump\"....but there is also a case statement below for a \"real\" system dump. Some sort of \"special resource dump\" or something?",
       "revId": "58ede4641042a8202f53e44e03bf859033029267",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331dc2de_2d24eded",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-12T17:46:17Z",
+      "side": 1,
+      "message": "This comes as a resource dump request, once this is requested to host, they send a system dump notification. This is to fix that discrepancy",
+      "parentUuid": "796cb84b_759714d9",
+      "revId": "58ede4641042a8202f53e44e03bf859033029267",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
