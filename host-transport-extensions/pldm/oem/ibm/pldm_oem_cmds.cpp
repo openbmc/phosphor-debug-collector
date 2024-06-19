@@ -20,7 +20,7 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/base.h>
-#include <libpldm/file_io.h>
+#include <libpldm/oem/ibm/file_io.h>
 #include <libpldm/platform.h>
 #include <unistd.h>
 
