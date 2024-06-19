@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3d06c36a_3ad2ae61",
+        "filename": "bmc_dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-19T13:37:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "32db2a73_f8499382",
+      "range": {
+        "startLine": 50,
+        "startChar": 10,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "dcd26eb1bfe22e829b571d8fd98c838f30068ee0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b15d88d5_b85c45c4",
         "filename": "bmc_dump_entry.hpp",
         "patchSetId": 12
@@ -225,6 +249,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df88a66_669a837a",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-19T13:37:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "85dda710_1ab831e8",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 23
+      },
+      "revId": "dcd26eb1bfe22e829b571d8fd98c838f30068ee0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3401208c_3164b750",
@@ -262,6 +310,30 @@
       "side": 1,
       "message": "moving back to [], is better right? less number of lines",
       "parentUuid": "3401208c_3164b750",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 43
+      },
+      "revId": "dcd26eb1bfe22e829b571d8fd98c838f30068ee0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e669040_b2602247",
+        "filename": "dump_entry.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-06-19T13:37:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "483eb4fa_a2f39644",
       "range": {
         "startLine": 141,
         "startChar": 0,
