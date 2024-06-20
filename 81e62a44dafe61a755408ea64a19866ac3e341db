@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a70e38aa_87c30da3",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-06-20T04:13:31Z",
+      "side": 1,
+      "message": "since this library support other feature , avoid this message . Otherwise in futre , if this is used for different use case , can mislead.",
+      "revId": "81e62a44dafe61a755408ea64a19866ac3e341db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
