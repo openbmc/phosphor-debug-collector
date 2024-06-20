@@ -32,6 +32,9 @@ sdeventplus_dep = dependency('sdeventplus')
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
 
+# nlohmann-json dependency
+nlohmann_json_dep = dependency('nlohmann_json', include_type: 'system')
+
 # Get Cereal dependency.
 cereal_dep = dependency('cereal', required: false)
 has_cereal = cpp.has_header_symbol(
@@ -211,6 +214,7 @@ phosphor_dump_manager_dependency = [
         sdeventplus_dep,
         phosphor_logging_dep,
         cereal_dep,
+        nlohmann_json_dep,
     ]
 
 phosphor_dump_manager_install = true
