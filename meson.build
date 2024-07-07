@@ -186,6 +186,12 @@ conf_data.set_quoted(
     description: 'The resource dump entry D-Bus object path',
 )
 
+if (get_option('transport-implementation')) == 'mctp-demux'
+    add_project_arguments('-DPLDM_TRANSPORT_WITH_MCTP_DEMUX', language : 'cpp')
+else
+    add_project_arguments('-DPLDM_TRANSPORT_WITH_AF_MCTP', language: 'cpp')
+endif
+
 if cpp.has_header('poll.h')
     add_project_arguments('-DPLDM_HAS_POLL=1', language: 'cpp')
 endif
