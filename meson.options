@@ -127,3 +127,10 @@ option('RESOURCE_DUMP_OBJ_ENTRY', type : 'string',
         value : '/xyz/openbmc_project/dump/resource/entry',
         description : 'The resource dump entry D-Bus object path'
       )
+
+option(
+    'transport-implementation',
+    type: 'combo',
+    choices: ['mctp-demux', 'af-mctp'],
+    description: 'transport via af-mctp or mctp-demux'
+)
