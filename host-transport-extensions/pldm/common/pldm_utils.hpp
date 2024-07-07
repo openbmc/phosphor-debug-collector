@@ -55,6 +55,12 @@ int openPLDM(mctp_eid_t eid);
  */
 int openMctpDemuxTransport(mctp_eid_t eid);
 
+/** @brief Opens the MCTP AF_MCTP for sending and receiving messages.
+ *
+ * @param[in] eid - MCTP endpoint ID
+ */
+int openAfMctpTransport(mctp_eid_t eid);
+
 /** @brief Close the PLDM file */
 void pldmClose();
 
