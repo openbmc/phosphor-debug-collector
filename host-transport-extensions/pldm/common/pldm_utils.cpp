@@ -5,6 +5,7 @@
 #include "dump_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <libpldm/transport/af-mctp.h>
 #include <libpldm/transport/mctp-demux.h>
 #include <poll.h>
 
@@ -23,7 +24,13 @@ using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 pldm_instance_db* pldmInstanceIdDb = NULL;
 struct pldm_transport* pldmTransport = NULL;
-struct pldm_transport_mctp_demux* mctpDemux = NULL;
+union TransportImpl
+{
+    struct pldm_transport_mctp_demux* mctpDemux;
+    struct pldm_transport_af_mctp* afMctp;
+};
+
+TransportImpl impl;
 
 PLDMInstanceManager::PLDMInstanceManager()
 {
@@ -101,7 +108,17 @@ int openPLDM()
         return fd;
     }
 
+#if defined(PLDM_TRANSPORT_WITH_MCTP_DEMUX)
     fd = openMctpDemuxTransport();
+#elif defined(PLDM_TRANSPORT_WITH_AF_MCTP)
+    fd = openAfMctpTransport();
+#else
+    lg2::error("open: No valid transport defined!");
+    elog<NotAllowed>(
+        Reason("Required host dump action via PLDM is not allowed: "
+               "No valid transport defined!"));
+#endif
+
     if (fd < 0)
     {
         auto e = errno;
@@ -114,9 +131,10 @@ int openPLDM()
     return fd;
 }
 
-int openMctpDemuxTransport()
+[[maybe_unused]] int openMctpDemuxTransport()
 {
-    int rc = pldm_transport_mctp_demux_init(&mctpDemux);
+    impl.mctpDemux = nullptr;
+    int rc = pldm_transport_mctp_demux_init(&impl.mctpDemux);
     if (rc)
     {
         lg2::error(
@@ -125,7 +143,7 @@ int openMctpDemuxTransport()
         return rc;
     }
 
-    rc = pldm_transport_mctp_demux_map_tid(mctpDemux, tid, tid);
+    rc = pldm_transport_mctp_demux_map_tid(impl.mctpDemux, tid, tid);
     if (rc)
     {
         lg2::error(
@@ -134,7 +152,7 @@ int openMctpDemuxTransport()
         pldmClose();
         return rc;
     }
-    pldmTransport = pldm_transport_mctp_demux_core(mctpDemux);
+    pldmTransport = pldm_transport_mctp_demux_core(impl.mctpDemux);
 
     struct pollfd pollfd;
     rc = pldm_transport_mctp_demux_init_pollfd(pldmTransport, &pollfd);
@@ -148,10 +166,50 @@ int openMctpDemuxTransport()
     return pollfd.fd;
 }
 
+[[maybe_unused]] int openAfMctpTransport()
+{
+    impl.afMctp = nullptr;
+    int rc = pldm_transport_af_mctp_init(&impl.afMctp);
+    if (rc)
+    {
+        lg2::error(
+            "openAfMctpTransport: Failed to init AF MCTP transport. rc = {RC}",
+            "RC", rc);
+        return rc;
+    }
+
+    rc = pldm_transport_af_mctp_map_tid(impl.afMctp, tid, tid);
+    if (rc)
+    {
+        lg2::error(
+            "openAfMctpTransport: Failed to setup tid to eid mapping. rc = {RC}",
+            "RC", rc);
+        pldmClose();
+        return rc;
+    }
+    pldmTransport = pldm_transport_af_mctp_core(impl.afMctp);
+
+    struct pollfd pollfd;
+    rc = pldm_transport_af_mctp_init_pollfd(pldmTransport, &pollfd);
+    if (rc)
+    {
+        lg2::error("openAfMctpTransport: Failed to get pollfd. rc = {RC}", "RC",
+                   rc);
+        pldmClose();
+        return rc;
+    }
+    return pollfd.fd;
+}
+
 void pldmClose()
 {
-    pldm_transport_mctp_demux_destroy(mctpDemux);
-    mctpDemux = NULL;
+#if defined(PLDM_TRANSPORT_WITH_MCTP_DEMUX)
+    pldm_transport_mctp_demux_destroy(impl.mctpDemux);
+    impl.mctpDemux = NULL;
+#elif defined(PLDM_TRANSPORT_WITH_AF_MCTP)
+    pldm_transport_af_mctp_destroy(impl.afMctp);
+    impl.afMctp = NULL;
+#endif
     pldmTransport = NULL;
 }
 
