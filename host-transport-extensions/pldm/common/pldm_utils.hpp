@@ -44,6 +44,11 @@ int openPLDM();
  */
 int openMctpDemuxTransport();
 
+/** @brief Opens the MCTP AF_MCTP for sending and receiving messages.
+ *
+ */
+int openAfMctpTransport();
+
 /** @brief Close the PLDM file */
 void pldmClose();
 
