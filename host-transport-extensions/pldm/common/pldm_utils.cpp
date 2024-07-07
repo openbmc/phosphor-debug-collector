@@ -6,6 +6,8 @@
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/transport.h>
+#include <libpldm/transport/mctp-demux.h>
+#include <poll.h>
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
@@ -22,6 +24,8 @@ using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
 
 pldm_instance_db* pldmInstanceIdDb = nullptr;
+pldm_transport* pldmTransport = nullptr;
+pldm_transport_mctp_demux* mctpDemux = nullptr;
 
 PLDMInstanceManager::PLDMInstanceManager()
 {
@@ -90,19 +94,70 @@ void freePLDMInstanceID(pldm_instance_id_t instanceID, uint8_t tid)
     }
 }
 
-int openPLDM()
+int openPLDM(mctp_eid_t eid)
 {
-    auto fd = pldm_open();
+    auto fd = -1;
+    if (pldmTransport)
+    {
+        lg2::error("open: pldmTransport already setup!");
+        elog<NotAllowed>(Reason(
+            "Required host dump action via pldm is not allowed due "
+            "to openPLDM failed"));
+        return fd;
+    }
+
+    fd = openMctpDemuxTransport(eid);
     if (fd < 0)
     {
         auto e = errno;
-        lg2::error("pldm_open failed, errno: {ERRNO}, FD: FD", "ERRNO", e, "FD",
+        lg2::error("openPLDM failed, errno: {ERRNO}, FD: FD", "ERRNO", e, "FD",
                    fd);
         elog<NotAllowed>(Reason(
             "Required host dump action via pldm is not allowed due "
-            "to pldm_open failed"));
+            "to openPLDM failed"));
     }
     return fd;
+}
+
+int openMctpDemuxTransport(mctp_eid_t eid)
+{
+    int rc = pldm_transport_mctp_demux_init(&mctpDemux);
+    if (rc)
+    {
+        lg2::error(
+            "openMctpDemuxTransport: Failed to init MCTP demux transport. rc = {RC}",
+            "RC", rc);
+        return rc;
+    }
+
+    rc = pldm_transport_mctp_demux_map_tid(mctpDemux, eid, eid);
+    if (rc)
+    {
+        lg2::error(
+            "openMctpDemuxTransport: Failed to setup tid to eid mapping. rc = {RC}",
+            "RC", rc);
+        pldmClose();
+        return rc;
+    }
+    pldmTransport = pldm_transport_mctp_demux_core(mctpDemux);
+
+    struct pollfd pollfd;
+    rc = pldm_transport_mctp_demux_init_pollfd(pldmTransport, &pollfd);
+    if (rc)
+    {
+        lg2::error("openMctpDemuxTransport: Failed to get pollfd. rc = {RC}",
+                   "RC", rc);
+        pldmClose();
+        return rc;
+    }
+    return pollfd.fd;
+}
+
+void pldmClose()
+{
+    pldm_transport_mctp_demux_destroy(mctpDemux);
+    mctpDemux = nullptr;
+    pldmTransport = nullptr;
 }
 
 } // namespace pldm
