@@ -116,6 +116,10 @@ conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').allowed
                description : 'Turn on rotate config for bmc dump'
              )
 
+if cpp.has_header('poll.h')
+  add_project_arguments('-DPLDM_HAS_POLL=1', language: 'cpp')
+endif
+
 configure_file(configuration : conf_data,
                output : 'config.h'
               )
