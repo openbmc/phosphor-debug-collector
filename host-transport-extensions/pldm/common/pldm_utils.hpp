@@ -4,6 +4,7 @@
 
 #include <libpldm/instance-id.h>
 #include <libpldm/pldm.h>
+#include <libpldm/transport.h>
 
 namespace phosphor
 {
@@ -11,6 +12,7 @@ namespace dump
 {
 namespace pldm
 {
+extern struct pldm_transport* pldmTransport;
 
 class PLDMInstanceManager
 {
@@ -38,13 +40,23 @@ class PLDMInstanceManager
 };
 
 /**
- * @brief Opens the PLDM file descriptor
+ * @brief setup PLDM transport for sending and receiving messages
  *
+ * @param[in] eid - MCTP endpoint ID
  * @return file descriptor on success and throw
  *         exception (xyz::openbmc_project::Common::Error::NotAllowed) on
  *         failures.
  */
-int openPLDM();
+int openPLDM(mctp_eid_t eid);
+
+/** @brief Opens the MCTP socket for sending and receiving messages.
+ *
+ * @param[in] eid - MCTP endpoint ID
+ */
+int openMctpDemuxTransport(mctp_eid_t eid);
+
+/** @brief Close the PLDM file */
+void pldmClose();
 
 /**
  * @brief Returns the PLDM instance ID to use for PLDM commands
