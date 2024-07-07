@@ -4,6 +4,7 @@
 
 #include <libpldm/instance-id.h>
 #include <libpldm/pldm.h>
+#include <libpldm/transport.h>
 
 namespace phosphor
 {
@@ -11,6 +12,13 @@ namespace dump
 {
 namespace pldm
 {
+
+constexpr auto eidPath = "/usr/share/pldm/host_eid";
+constexpr mctp_eid_t defaultEIDValue = 9;
+using TerminusID = uint8_t;
+constexpr TerminusID tid = defaultEIDValue;
+
+extern struct pldm_transport* pldmTransport;
 
 class PLDMInstanceManager
 {
@@ -23,13 +31,21 @@ class PLDMInstanceManager
 };
 
 /**
- * @brief Opens the PLDM file descriptor
+ * @brief setup PLDM transport for sending and receiving messages
  *
  * @return file descriptor on success and throw
  *         exception (xyz::openbmc_project::Common::Error::NotAllowed) on
  *         failures.
  */
 int openPLDM();
+
+/** @brief Opens the MCTP socket for sending and receiving messages.
+ *
+ */
+int openMctpDemuxTransport();
+
+/** @brief Close the PLDM file */
+void pldmClose();
 
 /**
  * @brief Instantiates an instance ID database object

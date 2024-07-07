@@ -60,11 +60,6 @@ using namespace phosphor::logging;
 
 using NotAllowed = sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
 using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
-using TerminusID = uint8_t;
-
-constexpr auto eidPath = "/usr/share/pldm/host_eid";
-constexpr mctp_eid_t defaultEIDValue = 9;
-constexpr TerminusID tid = defaultEIDValue;
 
 PLDMInstanceManager instanceManager;
 
@@ -129,22 +124,33 @@ void requestOffload(uint32_t id)
                                 "allowed due to encode failed"));
     }
 
-    CustomFd fd(openPLDM());
+    auto rc = openPLDM();
+    if (rc < 0)
+    {
+        freePLDMInstanceID(instanceID, eid);
+        lg2::error(" openPLDMfailure. RC: {RC}", "RC", rc);
+        elog<NotAllowed>(Reason("Host dump offload via pldm is not "
+                                "allowed due to openPLDM failed"));
+    }
 
     lg2::info("Sending request to offload dump id: {ID}, eid: {EID}", "ID", id,
               "EID", eid);
 
-    rc = pldm_send(eid, fd(), requestMsg.data(), requestMsg.size());
+    pldm_tid_t pldmTID = static_cast<pldm_tid_t>(eid);
+    rc = pldm_transport_send_msg(pldmTransport, pldmTID, requestMsg.data(),
+                                 requestMsg.size());
     if (rc < 0)
     {
         freePLDMInstanceID(instanceID, eid);
+        pldmClose();
         auto e = errno;
-        lg2::error("pldm_send failed, RC: {RC}, errno: {ERRNO}", "RC", rc,
-                   "ERRNO", e);
+        lg2::error("pldm_transport_send_msg failed, RC: {RC}, errno: {ERRNO}",
+                   "RC", rc, "ERRNO", e);
         elog<NotAllowed>(Reason("Host dump offload via pldm is not "
                                 "allowed due to fileack send failed"));
     }
     freePLDMInstanceID(instanceID, eid);
+    pldmClose();
     lg2::info("Done. PLDM message, id: {ID}, RC: {RC}", "ID", id, "RC", rc);
 }
 
@@ -190,14 +196,28 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
                                 "allowed due to encode fileack failed"));
     }
 
-    CustomFd pldmFd(openPLDM());
-
-    retCode = pldm_send(mctpEndPointId, pldmFd(), fileAckReqMsg.data(),
-                        fileAckReqMsg.size());
-    if (retCode != PLDM_REQUESTER_SUCCESS)
+    retCode = openPLDM();
+    if (retCode < 0)
     {
         freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
+        lg2::error(
+            "Failed to openPLDM to delete host dump, "
+            "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
+            "PLDM_RETURN_CODE: {RET_CODE}",
+            "SRC_DUMP_ID", dumpId, "PLDM_DUMP_TYPE", pldmDumpType, "RET_CODE",
+            retCode);
+        elog<NotAllowed>(Reason("Host dump deletion via pldm is not "
+                                "allowed due to openPLDM failed"));
+    }
+
+    pldm_tid_t pldmTID = static_cast<pldm_tid_t>(mctpEndPointId);
+    retCode = pldm_transport_send_msg(
+        pldmTransport, pldmTID, fileAckReqMsg.data(), fileAckReqMsg.size());
+    if (retCode != PLDM_REQUESTER_SUCCESS)
+    {
         auto errorNumber = errno;
+        freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
+        pldmClose();
         lg2::error(
             "Failed to send pldm FileAck to delete host dump, "
             "SRC_DUMP_ID: {SRC_DUMP_ID}, PLDM_FILE_IO_TYPE: {PLDM_DUMP_TYPE}, "
@@ -212,6 +232,7 @@ void requestDelete(uint32_t dumpId, uint32_t dumpType)
     }
 
     freePLDMInstanceID(pldmInstanceId, mctpEndPointId);
+    pldmClose();
     lg2::info(
         "Sent request to host to delete the dump, SRC_DUMP_ID: {SRC_DUMP_ID}",
         "SRC_DUMP_ID", dumpId);
