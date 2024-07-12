@@ -62,6 +62,18 @@ int main()
 
     try
     {
+        // Create BMC Dump Directory if not present
+        std::filesystem::create_directories(BMC_DUMP_PATH);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("Failed to create BMC dump directory {PATH}", "PATH",
+                   std::string(BMC_DUMP_PATH));
+        throw std::runtime_error("Failed to create BMC dump directory");
+    }
+
+    try
+    {
         phosphor::dump::DumpManagerList dumpMgrList{};
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
