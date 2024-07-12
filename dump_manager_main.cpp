@@ -62,6 +62,7 @@ int main()
 
     try
     {
+	std::filesystem::create_directories(BMC_DUMP_PATH);
         phosphor::dump::DumpManagerList dumpMgrList{};
         std::unique_ptr<phosphor::dump::bmc::Manager> bmcDumpMgr =
             std::make_unique<phosphor::dump::bmc::Manager>(
