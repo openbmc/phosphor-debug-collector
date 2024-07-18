@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093aac68_07f4d9de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-07-18T11:25:15Z",
+      "side": 1,
+      "message": "this is not workaround, if the BMC dump directory is not present need to create that before creating the BMC dump manager",
+      "revId": "67c22a1bc739d28d16f021023a37dbec957b733d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
