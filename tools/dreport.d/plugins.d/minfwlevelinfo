@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# config: 2 50
+# @brief: Collect Min FW level version info
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE/functions"
+
+desc="Minimum firmware level info"
+file_name="min-fw-level"
+
+# Check if already it has been populated via redundantosrelease plugin,
+# if not then populate
+if [ -z "$MIN_FW_VERSION_LEVEL" ]; then
+    populate_redundant_os_n_min_fw_info
+fi
+
+if [ -n "$MIN_FW_VERSION_LEVEL" ]; then
+    command="printf \"\nMIN_FW_LEVEL=%s\n\" \"\$MIN_FW_VERSION_LEVEL\""
+    add_cmd_output "$command" "$file_name" "$desc"
+else
+    log_warning "No min FW level info available"
+fi
+
