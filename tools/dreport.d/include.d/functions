@@ -160,3 +160,81 @@ function log_summary()
         echo $($TIME_STAMP) "$*" >&1
     fi
 }
+
+# Redundant OS and Min FW Level
+declare -x REDUNDANT_FW=""
+declare -x MIN_FW_VERSION_LEVEL=""
+
+# Redundant OS and Min FW Level
+declare -x REDUNDANT_FW=""
+declare -x MIN_FW_VERSION_LEVEL=""
+
+# @brief Get Redundant OS and Min FW version
+function populate_redundant_os_n_min_fw_info()
+{
+    # Declare necessary dbus interfaces
+    dbus_object="xyz.openbmc_project.Software.BMC.Updater"
+    dbus_tree_command="busctl tree"
+    dbus_property_command="busctl get-property"
+    dbus_object_priority_method="xyz.openbmc_project.Software.RedundancyPriority"
+    dbus_object_priority="Priority"
+    dbus_object_version_method="xyz.openbmc_project.Software.Version"
+    dbus_object_version="Version"
+    dbus_object_min_version_method="xyz.openbmc_project.Software.MinimumVersion"
+    dbus_object_min_version="MinimumVersion"
+
+    # Declare an array to store the results of dbus command
+    read_array=()
+
+    IFS=$'\n' read -r -d '' -a read_array < <( eval "$dbus_tree_command" "$dbus_object" && printf '\0' )
+
+    array_length=${#read_array[@]}
+
+    # If there is only one FW image on the BMC, return then and there
+    if [ "$array_length" -lt 5 ]; then
+        return "$SUCCESS"
+    fi
+
+    firmware1=$(echo "${read_array[3]}" | xargs)
+    firmware2=$(echo "${read_array[4]}" | xargs)
+
+    if [ -n "$firmware1" ]; then
+        firmware1=${firmware1:3}
+    fi
+
+    if [ -n "$firmware2" ]; then
+        firmware2=${firmware2:3}
+    fi
+
+    dbus_command="$dbus_property_command $dbus_object $firmware1 \
+        $dbus_object_priority_method $dbus_object_priority"
+
+    # Get the priority of the image.
+    # The one with the highest prirority amongst the two is the backup one
+    # And the one with the lowest priority amongst the two is the active one
+    firmware1_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
+    firmware2_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
+
+    # If FW1 is the redundant one then get the redundant info
+    # else get the min FW version info
+    if [ -n  "$firmware1_priority" ]; then
+        dbus_command="$dbus_property_command $dbus_object $firmware1 \
+            $dbus_object_version_method $dbus_object_version"
+        REDUNDANT_FW=$(eval "$dbus_command" | cut -d' ' -f 2-)
+    else
+        dbus_command="$dbus_property_command $dbus_object $firmware1 \
+            $dbus_object_min_version_method $dbus_object_min_version"
+        MIN_FW_VERSION_LEVEL=$(eval "$dbus_command" | cut -d' ' -f 2-)
+    fi
+    # If FW2 is the redundant one then get the redundant info
+    # else get the min FW version info
+    if [ -n "$firmware2_priority" ]; then
+        dbus_command="$dbus_property_command $dbus_object $firmware2 $dbus_object_version_method \
+            $dbus_object_version"
+        REDUNDANT_FW=$(eval "$dbus_command" | cut -d' ' -f 2-)
+    else
+        dbus_command="$dbus_property_command $dbus_object $firmware2 \
+            $dbus_object_min_version_method $dbus_object_min_version"
+        MIN_FW_VERSION_LEVEL=$(eval "$dbus_command" | cut -d' ' -f 2-)
+    fi
+}
