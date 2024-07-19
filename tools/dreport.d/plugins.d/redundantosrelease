@@ -9,65 +9,16 @@
 desc="Redundant firmware info"
 file_name="redundant-os-release"
 
-# Declare necessary dbus interfaces
-dbus_object="xyz.openbmc_project.Software.BMC.Updater"
-dbus_tree_command="busctl tree"
-dbus_property_command="busctl get-property"
-dbus_object_priority_method="xyz.openbmc_project.Software.RedundancyPriority"
-dbus_object_priority="Priority"
-dbus_object_version_method="xyz.openbmc_project.Software.Version"
-dbus_object_version="Version"
-
-# Declare an array to store the results of dbus command
-read_array=()
-
-IFS=$'\n' read -r -d '' -a read_array < <( eval "$dbus_tree_command" "$dbus_object" && printf '\0' )
-
-array_length=${#read_array[@]}
-
-# If there is only one FW image on the BMC, return then and there
-if [ "$array_length" -lt 5 ]; then
-    return "$SUCCESS"
+# Check if already it has been populated via minfwlevelinfo plugin,
+# if not then populate
+if [ -z "$REDUNDANT_FW_VERSION" ]; then
+    populate_redundant_os_n_min_fw_info
 fi
 
-firmware1=$(echo "${read_array[3]}" | xargs)
-firmware2=$(echo "${read_array[4]}" | xargs)
-
-if [ -n "$firmware1" ]; then
-    firmware1=${firmware1:3}
-fi
-
-if [ -n "$firmware2" ]; then
-    firmware2=${firmware2:3}
-fi
-
-redundant_firmware=""
-dbus_command="$dbus_property_command $dbus_object $firmware1 $dbus_object_priority_method \
-    $dbus_object_priority"
-
-# Get the priority of the image.
-# The one with the highest prirority amongst the two is the backup one
-firmware1_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
-
-if [ -n  "$firmware1_priority" ]; then
-    dbus_command="$dbus_property_command $dbus_object $firmware1 $dbus_object_version_method \
-        $dbus_object_version"
-    redundant_firmware=$(eval "$dbus_command" | cut -d' ' -f 2-)
-else
-    dbus_command="$dbus_property_command $dbus_object $firmware2 $dbus_object_priority_method \
-        $dbus_object_priority"
-    firmware2_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
-    if [ -n "$firmware2_priority" ]; then
-        dbus_command="$dbus_property_command $dbus_object $firmware2 $dbus_object_version_method \
-            $dbus_object_version"
-        redundant_firmware=$(eval "$dbus_command" | cut -d' ' -f 2-)
-    fi
-fi
-
-if [ -n "$redundant_firmware" ]; then
-    command="printf \"\nREDUNDANT_FW=%s\n\" \"\$redundant_firmware\""
+if [ -n "$REDUNDANT_FW_VERSION" ]; then
+    command="printf \"\nREDUNDANT_FW_VERSION=%s\n\" \"\$nREDUNDANT_FW_VERSION\""
     add_cmd_output "$command" "$file_name" "$desc"
 else
-    log_warnig "No redundant FW available"
+    log_warning "No redundant FW available"
 fi
 
