@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "654fe222_ba8c56fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-07-19T14:22:01Z",
+      "side": 1,
+      "message": "This support was added recently and can you please explain why this is being removed?",
+      "revId": "bbbeeda385f66e4fc20de69a12f30488b9c0fa9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ad5762d_f58cfa73",
