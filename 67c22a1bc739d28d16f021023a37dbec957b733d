@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d5e5ca8_7ba0503a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-07-22T14:35:23Z",
+      "side": 1,
+      "message": "Dump manager service already creating this. Please provide mnore details , to initiate this reveiw? \n\nhttps://grok.openbmc.org/xref/openbmc/openbmc/meta-phosphor/recipes-phosphor/dump/phosphor-debug-collector/xyz.openbmc_project.Dump.Manager.service?r\u003dfc81e38a#5",
+      "parentUuid": "093aac68_07f4d9de",
+      "revId": "67c22a1bc739d28d16f021023a37dbec957b733d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e205a17f_94d0b673",
         "filename": "dump_manager_main.cpp",
         "patchSetId": 2
