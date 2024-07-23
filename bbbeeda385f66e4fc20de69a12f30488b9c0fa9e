@@ -35,6 +35,42 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d0ef3ca_582f957a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-07-23T12:05:17Z",
+      "side": 1,
+      "message": "My bad. I misinterpreted the scope. Corrected now. Please review.",
+      "parentUuid": "654fe222_ba8c56fd",
+      "revId": "bbbeeda385f66e4fc20de69a12f30488b9c0fa9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ab7524_433f20d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-07-23T12:05:17Z",
+      "side": 1,
+      "message": "Realized the mistake and corrected now. Please review again.",
+      "parentUuid": "f337c305_b653908e",
+      "revId": "bbbeeda385f66e4fc20de69a12f30488b9c0fa9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0ad5762d_f58cfa73",
