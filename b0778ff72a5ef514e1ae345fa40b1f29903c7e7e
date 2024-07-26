@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac9651f_31451f97",
+        "filename": "host-transport-extensions/pldm/common/pldm_utils.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001633
+      },
+      "writtenOn": "2024-07-26T12:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93340735_dbe12ce6",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 31
+      },
+      "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09cfb0eb_32d0d78d",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-26T05:04:25Z",
       "side": 1,
       "message": "RAII if possible",
+      "range": {
+        "startLine": 124,
+        "startChar": 1,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd73c4f9_b1315a4b",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1001633
+      },
+      "writtenOn": "2024-07-26T12:57:19Z",
+      "side": 1,
+      "message": "RAII is not appropriate here because instance IDs need to be freed explicitly to allow reuse, which is managed by the database. RAII would prematurely release the resource at scope exit, whereas instance IDs must be freed as needed for recycling. RAII should be applied to manage the database lifecycle, not the instance IDs",
+      "parentUuid": "09cfb0eb_32d0d78d",
       "range": {
         "startLine": 124,
         "startChar": 1,
