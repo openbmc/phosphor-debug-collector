@@ -93,6 +93,47 @@
       },
       "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f19f2c_41cf6e4f",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-29T12:57:59Z",
+      "side": 1,
+      "message": "We could do like this with an inner class\nPLDMInstance(int instanceID, int eid):_instanceId(instanceID), _eid(eid)\n{\n}\n~PLDMInstance()\n{\nfreePLDMInstanceID(instanceID, eid);\n}\n\nmaintainer can make the call",
+      "parentUuid": "dd73c4f9_b1315a4b",
+      "range": {
+        "startLine": 124,
+        "startChar": 1,
+        "endLine": 124,
+        "endChar": 44
+      },
+      "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "175ccc67_4bb1898c",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-29T12:57:59Z",
+      "side": 1,
+      "message": "similar to this we could enclose instanceID also in a inner class and call freePLDMInstanceID in the destructor",
+      "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
