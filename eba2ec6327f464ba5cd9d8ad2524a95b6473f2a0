@@ -16,6 +16,103 @@
       "message": "Kindly review again.",
       "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af7ebb00_66c0fa39",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-30T09:24:08Z",
+      "side": 1,
+      "message": "duplicate?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 34
+      },
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01041baa_64c835f3",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-30T09:24:08Z",
+      "side": 1,
+      "message": "REDUNTANT_FW_VERSION",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 20
+      },
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65db67f4_1f5de3c8",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-30T09:24:08Z",
+      "side": 1,
+      "message": "split the line",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "230583bb_93886ed1",
+        "filename": "tools/dreport.d/plugins.d/minfwlevelinfo",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-30T09:24:08Z",
+      "side": 1,
+      "message": "both line 13 and line 17 are same why can;t we put it under 1 if condition?",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df98d26e_a5fbf847",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-07-30T09:24:08Z",
+      "side": 1,
+      "message": "if condition in line 13 and line 17 are same why can;t we have one if condition",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
