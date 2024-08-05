@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b987fdbf_2626cb42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Kindly review again",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af7ebb00_66c0fa39",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-07-30T09:24:08Z",
       "side": 1,
       "message": "duplicate?",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 34
+      },
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98379bcd_11dd547f",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "af7ebb00_66c0fa39",
       "range": {
         "startLine": 168,
         "startChar": 0,
@@ -64,6 +105,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fab423d4_b8e265a7",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "01041baa_64c835f3",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 20
+      },
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65db67f4_1f5de3c8",
@@ -77,6 +142,24 @@
       "writtenOn": "2024-07-30T09:24:08Z",
       "side": 1,
       "message": "split the line",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52b776e_a61a3af3",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "65db67f4_1f5de3c8",
       "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -100,6 +183,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d350d54_5fb74ea2",
+        "filename": "tools/dreport.d/plugins.d/minfwlevelinfo",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Actually the first line is to check if the variable is already populated or not. If not populated then only call the function (this is to avoid expensive dbus calls multiple times). Second one checks if it is already populated or freshly populated even then does it have the data?",
+      "parentUuid": "230583bb_93886ed1",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df98d26e_a5fbf847",
         "filename": "tools/dreport.d/plugins.d/redundantosrelease",
         "patchSetId": 5
@@ -111,6 +212,24 @@
       "writtenOn": "2024-07-30T09:24:08Z",
       "side": 1,
       "message": "if condition in line 13 and line 17 are same why can;t we have one if condition",
+      "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ec853b7_35b766ba",
+        "filename": "tools/dreport.d/plugins.d/redundantosrelease",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-05T08:36:30Z",
+      "side": 1,
+      "message": "Actually the first line is to check if the variable is already populated or not. If not populated then only call the function (this is to avoid expensive dbus calls multiple times). Second one checks if it is already populated or freshly populated even then does it have the data?",
+      "parentUuid": "df98d26e_a5fbf847",
       "revId": "eba2ec6327f464ba5cd9d8ad2524a95b6473f2a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
