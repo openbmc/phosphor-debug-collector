@@ -17,7 +17,7 @@ namespace inotify
 {
 
 // User specific call back function input map(path:event) type.
-using UserMap = std::map<std::filesystem::path, uint32_t>;
+using UserMap = std::multimap<std::filesystem::path, uint32_t>;
 
 // User specific callback function wrapper type.
 using UserType = std::function<void(const UserMap&)>;
