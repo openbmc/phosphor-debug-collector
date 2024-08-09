@@ -9,5 +9,5 @@
 
 file_name="procfd.log"
 desc="proc fd"
-cmd="ls -Al /proc/*/fd/ 2> /dev/null"
+cmd="ls -Al /proc/*/fd/ 2> /dev/null || true"
 add_cmd_output "$cmd" "$file_name" "$desc"
