@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92abd06c_e5f59366",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-14T11:53:28Z",
+      "side": 1,
+      "message": "I thought as the 90% code is same for both the plugins and they are lamost related to each other thus keeping the common code in a common place would reduce the maintenance effort for future and also would be less bug prone.",
+      "parentUuid": "a997d730_45ba87a0",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "ab68d76ca04830702846496681558059237f3ce8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35fa704c_efb08bce",
         "filename": "tools/dreport.d/include.d/functions",
         "patchSetId": 6
@@ -37,6 +61,24 @@
       "writtenOn": "2024-08-05T12:11:26Z",
       "side": 1,
       "message": "Functions is used for keeping infrastructure code dreport packaging , not intened to keep the plugin back-end.",
+      "revId": "ab68d76ca04830702846496681558059237f3ce8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20000ac2_d5f8e162",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-14T11:53:28Z",
+      "side": 1,
+      "message": "Agreed but if we don\u0027t do this then we have to replicate the same code (at least 90% of it) for both the plugins. Now in future if something changes in the common code then we have to change it in both the places (which may lead to missing out or buggy code). I can again separate the code (with duplicating the 90% common code in both the places) but that would lead to same dbus calls/ops multiple times (unnecessarily) and would definitely cost the performance of the entire operations. Kindly suggest.",
+      "parentUuid": "35fa704c_efb08bce",
       "revId": "ab68d76ca04830702846496681558059237f3ce8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
