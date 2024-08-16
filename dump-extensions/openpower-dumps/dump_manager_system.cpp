@@ -178,9 +178,9 @@ sdbusplus::message::object_path
     {
         lg2::error("System dump can be initiated only when the host is up "
                    "or quiesced or starting to poweroff");
-        elog<NotAllowed>(
-            Reason("System dump can be initiated only when the host is up "
-                   "or quiesced or starting to poweroff"));
+        elog<NotAllowed>(Reason(
+            "System dump can be initiated only when the host is up "
+            "or quiesced or starting to poweroff"));
         return std::string();
     }
 

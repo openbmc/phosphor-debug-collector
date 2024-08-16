@@ -275,8 +275,8 @@ void Manager::restore()
         if ((std::filesystem::is_directory(p.path())) &&
             std::all_of(idStr.begin(), idStr.end(), ::isdigit))
         {
-            lastEntryId = std::max(lastEntryId,
-                                   static_cast<uint32_t>(std::stoul(idStr)));
+            lastEntryId =
+                std::max(lastEntryId, static_cast<uint32_t>(std::stoul(idStr)));
             for (const auto& file :
                  std::filesystem::directory_iterator(p.path()))
             {
@@ -288,9 +288,9 @@ void Manager::restore()
 
                 // Entry Object path.
                 auto objPath = std::filesystem::path(baseEntryPath) / idStr;
-                auto entry = Entry::deserializeEntry(bus, std::stoul(idStr),
-                                                     objPath.string(),
-                                                     file.path(), *this);
+                auto entry = Entry::deserializeEntry(
+                    bus, std::stoul(idStr), objPath.string(), file.path(),
+                    *this);
 
                 if (entry != nullptr)
                 {

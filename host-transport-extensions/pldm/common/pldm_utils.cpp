@@ -27,9 +27,9 @@ int openPLDM()
         auto e = errno;
         lg2::error("pldm_open failed, errno: {ERRNO}, FD: FD", "ERRNO", e, "FD",
                    fd);
-        elog<NotAllowed>(
-            Reason("Required host dump action via pldm is not allowed due "
-                   "to pldm_open failed"));
+        elog<NotAllowed>(Reason(
+            "Required host dump action via pldm is not allowed due "
+            "to pldm_open failed"));
     }
     return fd;
 }

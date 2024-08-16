@@ -86,9 +86,9 @@ mctp_eid_t readEID()
         else
         {
             lg2::error("EID file was empty");
-            elog<NotAllowed>(
-                Reason("Required host dump action via pldm is not "
-                       "allowed due to mctp end point read failed"));
+            elog<NotAllowed>(Reason(
+                "Required host dump action via pldm is not "
+                "allowed due to mctp end point read failed"));
         }
     }
 

@@ -58,8 +58,8 @@ sdbusplus::message::object_path
     auto idString = std::to_string(id);
     auto objPath = std::filesystem::path(baseEntryPath) / idString;
 
-    std::filesystem::path faultLogFilePath(std::string(FAULTLOG_DUMP_PATH) +
-                                           idString);
+    std::filesystem::path faultLogFilePath(
+        std::string(FAULTLOG_DUMP_PATH) + idString);
     std::ofstream faultLogFile;
 
     errno = 0;
@@ -95,13 +95,13 @@ sdbusplus::message::object_path
                 std::chrono::system_clock::now().time_since_epoch())
                 .count();
 
-        entries.insert(
-            std::make_pair(id, std::make_unique<faultlog::Entry>(
-                                   bus, objPath.c_str(), id, timestamp,
-                                   std::filesystem::file_size(faultLogFilePath),
-                                   faultLogFilePath,
-                                   phosphor::dump::OperationStatus::Completed,
-                                   originatorId, originatorType, *this)));
+        entries.insert(std::make_pair(
+            id,
+            std::make_unique<faultlog::Entry>(
+                bus, objPath.c_str(), id, timestamp,
+                std::filesystem::file_size(faultLogFilePath), faultLogFilePath,
+                phosphor::dump::OperationStatus::Completed, originatorId,
+                originatorType, *this)));
     }
     catch (const std::invalid_argument& e)
     {

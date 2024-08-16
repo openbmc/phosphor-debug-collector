@@ -43,8 +43,8 @@ class Manager : public Iface
      */
     Manager(sdbusplus::bus_t& bus, const char* path,
             const std::string& baseEntryPath) :
-        Iface(bus, path, Iface::action::defer_emit),
-        bus(bus), lastEntryId(0), baseEntryPath(baseEntryPath)
+        Iface(bus, path, Iface::action::defer_emit), bus(bus), lastEntryId(0),
+        baseEntryPath(baseEntryPath)
     {}
 
     /** @brief Construct dump d-bus objects from their persisted

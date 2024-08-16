@@ -37,8 +37,8 @@ bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
     {
         auto service = phosphor::dump::getService(bus, policy, enable);
 
-        auto method = bus.new_method_call(service.c_str(), policy, property,
-                                          "Get");
+        auto method =
+            bus.new_method_call(service.c_str(), policy, property, "Get");
         method.append(enable, "Enabled");
         auto reply = bus.call(method);
         std::variant<bool> v;

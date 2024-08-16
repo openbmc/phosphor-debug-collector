@@ -27,8 +27,7 @@ Watch::~Watch()
 Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
              const uint32_t events, const std::filesystem::path& path,
              UserType userFunc) :
-    flags(flags),
-    mask(mask), events(events), path(path), fd(inotifyInit()),
+    flags(flags), mask(mask), events(events), path(path), fd(inotifyInit()),
     userFunc(userFunc)
 {
     // Check if watch DIR exists.
@@ -49,8 +48,8 @@ Watch::Watch(const EventPtr& eventObj, const int flags, const uint32_t mask,
         elog<InternalFailure>();
     }
 
-    auto rc = sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback,
-                              this);
+    auto rc =
+        sd_event_add_io(eventObj.get(), nullptr, fd(), events, callback, this);
     if (0 > rc)
     {
         // Failed to add to event loop
