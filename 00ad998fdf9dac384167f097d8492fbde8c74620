@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d259081_ae043795",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-08-20T09:07:44Z",
+      "side": 1,
+      "message": "root@rain104bmc:~# busctl --list --no-pager tree xyz.openbmc_project.Software.BMC.Updater | grep /xyz/openbmc_project/software/\n/xyz/openbmc_project/software/0718fa29\n/xyz/openbmc_project/software/50a2b3eb\n\n\nif some other objects are created this condition will fail so better to add this",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 38
+      },
+      "revId": "00ad998fdf9dac384167f097d8492fbde8c74620",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1feaf79b_41d19679",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 8
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-08-20T09:07:44Z",
+      "side": 1,
+      "message": "# Strip the leading paths\n    firmware1\u003d\"${read_array[0]:3}\"\n    firmware2\u003d\"${read_array[1]:3}\"\n\n    # Get priorities\n    firmware_priority[0]\u003d$(busctl get-property \"$dbus_object\" \"$firmware1\" \"$dbus_object_priority_method\" Priority | awk \u0027{print $2}\u0027)\n    firmware_priority[1]\u003d$(busctl get-property \"$dbus_object\" \"$firmware2\" \"$dbus_object_priority_method\" Priority | awk \u0027{print $2}\u0027)\n\n    # Get versions based on priorities\n    if [ \"${firmware_priority[0]}\" -eq 0 ]; then\n        REDUNDANT_FW_VERSION\u003d$(busctl get-property \"$dbus_object\" \"$firmware1\" \"$dbus_object_version_method\" Version | awk \u0027{print $2}\u0027)\n        MIN_FW_VERSION_LEVEL\u003d$(busctl get-property \"$dbus_object\" \"$firmware2\" \"$dbus_object_min_version_method\" MinimumVersion | awk \u0027{print $2}\u0027)\n    else\n        REDUNDANT_FW_VERSION\u003d$(busctl get-property \"$dbus_object\" \"$firmware2\" \"$dbus_object_version_method\" Version | awk \u0027{print $2}\u0027)\n        MIN_FW_VERSION_LEVEL\u003d$(busctl get-property \"$dbus_object\" \"$firmware1\" \"$dbus_object_min_version_method\" MinimumVersion | awk \u0027{print $2}\u0027)\n    fi\n\ncan we optimize like this",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 6
+      },
+      "revId": "00ad998fdf9dac384167f097d8492fbde8c74620",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
