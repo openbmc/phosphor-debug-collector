@@ -73,6 +73,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8f1ecf5e_0f232cad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-20T12:59:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8d0ef3ca_582f957a",
+      "revId": "bbbeeda385f66e4fc20de69a12f30488b9c0fa9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db47a152_dc3aeee0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001591
+      },
+      "writtenOn": "2024-08-20T12:59:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "28ab7524_433f20d0",
+      "revId": "bbbeeda385f66e4fc20de69a12f30488b9c0fa9e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0ad5762d_f58cfa73",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
