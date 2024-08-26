@@ -134,6 +134,24 @@
       "message": "similar to this we could enclose instanceID also in a inner class and call freePLDMInstanceID in the destructor",
       "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c9a4b6_9f99fcd8",
+        "filename": "host-transport-extensions/pldm/oem/ibm/pldm_oem_cmds.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000025
+      },
+      "writtenOn": "2024-08-26T19:05:50Z",
+      "side": 1,
+      "message": "Please see Andrew Jeffrey\u0027s comments on https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/63889 where he indicated that RAII for the instance ID didn\u0027t seem to be a good idea.",
+      "parentUuid": "175ccc67_4bb1898c",
+      "revId": "b0778ff72a5ef514e1ae345fa40b1f29903c7e7e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
