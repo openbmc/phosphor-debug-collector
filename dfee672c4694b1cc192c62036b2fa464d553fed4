@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "248abffb_df5836e5",
         "filename": "README.md",
@@ -20,10 +21,10 @@
         "endChar": 73
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "73bf33ea_f79e1dae",
         "filename": "README.md",
@@ -43,10 +44,10 @@
         "endChar": 57
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "708e76cb_6caadf8c",
         "filename": "README.md",
@@ -66,10 +67,10 @@
         "endChar": 12
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "21561856_f50a387c",
         "filename": "README.md",
@@ -89,10 +90,10 @@
         "endChar": 16
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ce8ac36a_6873fa01",
         "filename": "README.md",
@@ -112,10 +113,10 @@
         "endChar": 16
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "f4512e92_398cc17e",
         "filename": "README.md",
@@ -135,10 +136,10 @@
         "endChar": 44
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "5a6efd86_03031cee",
         "filename": "README.md",
@@ -158,10 +159,10 @@
         "endChar": 19
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "96d059e2_fcff7150",
         "filename": "README.md",
@@ -175,10 +176,10 @@
       "side": 1,
       "message": "end with full stop then continue with next sentence",
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "65775a4d_36256349",
         "filename": "README.md",
@@ -198,10 +199,10 @@
         "endChar": 12
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "54cc0134_85681493",
         "filename": "README.md",
@@ -221,10 +222,10 @@
         "endChar": 90
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8689a1e9_7d97bffe",
         "filename": "README.md",
@@ -244,8 +245,8 @@
         "endChar": 23
       },
       "revId": "dfee672c4694b1cc192c62036b2fa464d553fed4",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": false
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
-  ]
+  ],
+  "submitRequirementResults": []
 }
