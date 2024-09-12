@@ -81,6 +81,24 @@
       "parentUuid": "35fa704c_efb08bce",
       "revId": "ab68d76ca04830702846496681558059237f3ce8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f9f967_df085324",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-09-12T05:04:40Z",
+      "side": 1,
+      "message": "kind of agree with jayanth probably we can add new functions script in the plugin area",
+      "parentUuid": "20000ac2_d5f8e162",
+      "revId": "ab68d76ca04830702846496681558059237f3ce8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
