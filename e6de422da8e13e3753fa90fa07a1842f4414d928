@@ -236,6 +236,30 @@
       },
       "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5a9b08_13274c3f",
+        "filename": "tools/dreport.d/plugins.d/bmcweb",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-09-24T08:41:25Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "fcedd055_6ddf9a49",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "e6de422da8e13e3753fa90fa07a1842f4414d928",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
