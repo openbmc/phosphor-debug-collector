@@ -102,6 +102,23 @@ option('FAULTLOG_DUMP_OBJ_ENTRY', type : 'string',
         description : 'The fault log dump entry D-Bus object path'
       )
 
+# NIC options
+
+option('NIC_DUMP_PATH', type : 'string',
+        value : '/var/lib/phosphor-debug-collector/nic/',
+        description : 'Directory where nic are placed'
+      )
+
+option('NIC_DUMP_OBJPATH', type : 'string',
+        value : '/xyz/openbmc_project/dump/nic',
+        description : 'The nic dump manager D-Bus object path'
+      )
+
+option('NIC_DUMP_OBJ_ENTRY', type : 'string',
+        value : '/xyz/openbmc_project/dump/nic/entry',
+        description : 'The nic dump entry D-Bus object path'
+      )
+
 # Configurations for openpower-dump extension
 
 # System dump options
