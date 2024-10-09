@@ -115,6 +115,15 @@ conf_data.set_quoted('FAULTLOG_DUMP_OBJPATH', get_option('FAULTLOG_DUMP_OBJPATH'
 conf_data.set_quoted('FAULTLOG_DUMP_PATH', get_option('FAULTLOG_DUMP_PATH'),
                       description : 'Directory where fault logs are placed'
                     )
+conf_data.set_quoted('NIC_DUMP_OBJ_ENTRY', get_option('NIC_DUMP_OBJ_ENTRY'),
+                      description : 'The NIC dump entry DBus object path'
+                    )
+conf_data.set_quoted('NIC_DUMP_OBJPATH', get_option('NIC_DUMP_OBJPATH'),
+                      description : 'The NIC Dump manager Dbus path'
+                    )
+conf_data.set_quoted('NIC_DUMP_PATH', get_option('NIC_DUMP_PATH'),
+                      description : 'Directory where nic are placed'
+                    )
 conf_data.set('BMC_DUMP_ROTATE_CONFIG', get_option('dump_rotate_config').allowed(),
                description : 'Turn on rotate config for bmc dump'
              )
@@ -205,7 +214,9 @@ phosphor_dump_manager_sources = [
         'dump_utils.cpp',
         'dump_offload.cpp',
         'dump_manager_faultlog.cpp',
-        'faultlog_dump_entry.cpp'
+        'faultlog_dump_entry.cpp',
+        'dump_manager_nic.cpp',
+        'nic_dump_entry.cpp'
     ]
 
 phosphor_dump_manager_dependency = [
