@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# config: 6 1
+# @brief: Collect NCSI core dump information.
+#
+
+. "$DREPORT_INCLUDE"/functions
+
+desc="NCSI core dump"
+file_name="/tmp/core.log"
+command="ncsi-netlink -x 2 -p 0 -c 31 -f $file_name -d core"
+$command
+
+add_copy_file "$file_name" "$desc"

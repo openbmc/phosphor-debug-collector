@@ -4,6 +4,7 @@
 #include "dump_manager.hpp"
 #include "dump_manager_bmc.hpp"
 #include "dump_manager_faultlog.hpp"
+#include "dump_manager_nic.hpp"
 #include "elog_watch.hpp"
 #include "watch.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
@@ -71,6 +72,12 @@ int main()
         phosphor::dump::bmc::Manager* ptrBmcDumpMgr = bmcDumpMgr.get();
 
         dumpMgrList.push_back(std::move(bmcDumpMgr));
+
+        std::unique_ptr<phosphor::dump::nic::Manager> nicDumpMgr =
+	    std::make_unique<phosphor::dump::nic::Manager>(
+                bus, eventP, NIC_DUMP_OBJPATH, NIC_DUMP_OBJ_ENTRY,
+                NIC_DUMP_PATH);
+        dumpMgrList.push_back(std::move(nicDumpMgr));
 
         std::unique_ptr<phosphor::dump::faultlog::Manager> faultLogMgr =
             std::make_unique<phosphor::dump::faultlog::Manager>(
