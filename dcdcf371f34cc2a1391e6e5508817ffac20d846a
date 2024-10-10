@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c2ca7d_2cb0180b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-10-10T18:00:41Z",
+      "side": 1,
+      "message": "No progress in review , removing from my list",
+      "revId": "dcdcf371f34cc2a1391e6e5508817ffac20d846a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
