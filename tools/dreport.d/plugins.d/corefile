@@ -6,6 +6,24 @@
 
 . $DREPORT_INCLUDE/functions
 
+# @brief set pid by reading information from the optional path.
+#        dreport "core" type user provides core file as optional path parameter.
+#        As per coredump source code systemd-coredump uses below format
+#        https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
+#        /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “.
+#        <process ID>.%s000000"
+function set_core_pid()
+{
+    #Escape bash characters in file name
+    file=$(printf %q "$optional_path")
+
+    #matching systemd-coredump core file format.
+    pid=$(echo $file | awk -F . '{ print $5}')
+}
+
+log_summary "Core: $optional_path"
+set_core_pid
+
 desc="Core file"
 if [ -z $optional_path ]; then
     log_error "$desc does not exist"

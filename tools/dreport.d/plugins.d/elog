@@ -6,6 +6,27 @@
 
 . $DREPORT_INCLUDE/functions
 
+# @brief set elog pid by reading _PID information from the elog d-bus object.
+#        _PID information is stored  elog Additional data field
+#        Data format  "_PID=<pid>"
+function set_elog_pid()
+{
+    additional_data=$(busctl get-property xyz.openbmc_project.Logging \
+            $optional_path \
+            xyz.openbmc_project.Logging.Entry \
+        AdditionalData)
+
+    #read _PID data.
+    if [ ! -z "$additional_data" ]; then
+        pid=$(echo $additional_data | \
+            awk -F _PID= '{ print ($2+0)}')
+    fi
+}
+
+log_summary "ELOG: $optional_path"
+elog_id=$(basename "$optional_path")
+set_elog_pid
+
 if [ -z $elog_id ]; then
     log_error "elog does not exist"
     exit
