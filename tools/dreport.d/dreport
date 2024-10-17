@@ -40,12 +40,6 @@ declare -rx TRUE=1
 declare -rx FALSE=0
 declare -rx UNLIMITED="unlimited"
 declare -rx SUMMARY_DUMP="summary"
-declare -rx TYPE_USER="user"
-declare -rx TYPE_CORE="core"
-declare -rx TYPE_ELOG="elog"
-declare -rx TYPE_CHECKSTOP="checkstop"
-declare -rx TYPE_RAMOOPS="ramoops"
-declare -rx TYPE_FAULTDATA="faultdata"
 declare -rx SUMMARY_LOG="summary.log"
 declare -rx DREPORT_LOG="dreport.log"
 declare -rx TMP_DIR="/tmp"
@@ -67,7 +61,7 @@ declare -rx RESOURCE_UNAVAILABLE="2"
 declare -x name=""
 declare -x dump_dir="/tmp"
 declare -x dump_id="00000000"
-declare -x dump_type=$TYPE_USER
+declare -x dump_type="user"
 declare -x verbose=$FALSE
 declare -x quiet=$FALSE
 declare -x dump_size="unlimited"
@@ -91,38 +85,10 @@ declare -x header_dump_name=""
 # @return 0 on success, error code otherwise
 function collect_data()
 {
-    case $dump_type in
-        $TYPE_USER)
-            ;;
-        $TYPE_CORE)
-            log_summary "Core: $optional_path"
-            set_core_pid
-            ;;
-        $TYPE_RAMOOPS)
-            log_summary "Ramoops: $optional_path"
-            ;;
-        $TYPE_ELOG)
-            log_summary "ELOG: $optional_path"
-            elog_id=$(basename "$optional_path")
-            set_elog_pid
-            ;;
-        $TYPE_CHECKSTOP)
-            log_summary "CHECKSTOP: $optional_path"
-            elog_id=$(basename "$optional_path")
-            set_elog_pid
-            ;;
-        $TYPE_FAULTDATA)
-            ;;
-
-        $SUMMARY_DUMP)
-            #No data collection is required.
-            return
-            ;;
-        *) # unknown option
-            log_error "Skipping: Unknown dump type: $dump_type"
-            return
-            ;;
-    esac
+    if [[ "$dump_type" == "$SUMMARY_DUMP" ]]; then
+        # No data collection is required.
+        return
+    fi
 
     plugin_path=$DREPORT_SOURCE/$PLUGIN$dump_type.d
 
@@ -136,38 +102,6 @@ function collect_data()
     for i in $plugin_path/* ; do
         $i
     done
-}
-
-# @brief set pid by reading information from the optional path.
-#        dreport "core" type user provides core file as optional path parameter.
-#        As per coredump source code systemd-coredump uses below format
-#        https://github.com/systemd/systemd/blob/master/src/coredump/coredump.c
-#        /var/lib/systemd/coredump/core.%s.%s." SD_ID128_FORMAT_STR “.
-#        <process ID>.%s000000"
-function set_core_pid()
-{
-    #Escape bash characters in file name
-    file=$(printf %q "$optional_path")
-
-    #matching systemd-coredump core file format.
-    pid=$(echo $file | awk -F . '{ print $5}')
-}
-
-# @brief set elog pid by reading _PID information from the elog d-bus object.
-#        _PID information is stored  elog Additional data field
-#        Data format  "_PID=<pid>"
-function set_elog_pid()
-{
-    additional_data=$(busctl get-property xyz.openbmc_project.Logging \
-            $optional_path \
-            xyz.openbmc_project.Logging.Entry \
-        AdditionalData)
-
-    #read _PID data.
-    if [ ! -z "$additional_data" ]; then
-        pid=$(echo $additional_data | \
-            awk -F _PID= '{ print ($2+0)}')
-    fi
 }
 
 # @brief Initial version of the summary log
@@ -206,14 +140,10 @@ function initialize()
     #summary log file
     summary_log="$name_dir/$SUMMARY_LOG"
 
-    #Type
-    if ! { [[ $dump_type = "$TYPE_USER" ]] || \
-            [[ $dump_type = "$TYPE_CORE" ]] || \
-            [[ $dump_type = "$TYPE_ELOG" ]] || \
-            [[ $dump_type = "$TYPE_RAMOOPS" ]] || \
-            [[ $dump_type = "$TYPE_FAULTDATA" ]] || \
-            [[ $dump_type = "$TYPE_CHECKSTOP" ]]; }; then
-        log_error "Invalid -type, Only summary log is available"
+    # Validate dump type by checking if plugin directory exists
+    plugin_path="$DREPORT_SOURCE/$PLUGIN$dump_type.d"
+    if [ ! -d "$plugin_path" ]; then
+        log_error "Invalid dump type: $dump_type. Only summary log is available."
         dump_type=$SUMMARY_DUMP
     fi
 
