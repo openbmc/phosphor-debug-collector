@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12b458f_a725d385",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1001814
+      },
+      "writtenOn": "2024-10-18T07:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d36a6141_0df609e5",
+      "range": {
+        "startLine": 234,
+        "startChar": 13,
+        "endLine": 234,
+        "endChar": 28
+      },
+      "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5968b6b_4416e851",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-10-09T04:22:00Z",
       "side": 1,
       "message": "Are you expecting package is going to support all the below functionalities like cleanup and updating destination path? \n\nYou should go with existing design way unless , you got better design direction her to handle belwo functionlaites.",
+      "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca93623_9dc33dbb",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1001814
+      },
+      "writtenOn": "2024-10-18T07:50:50Z",
+      "side": 1,
+      "message": "Yes, we are intending to do all the cleanup in the PACKAGE_EXTENSION itself, as we are moving the IBM specific functionality (like renaming dump for custom IBM requirements etc) into PACKAGE_EXTENSION so that dreport would not be polluted by any specific changes.  Cleanup would also have to be specific to the renaming done to be taken care, hence the change.\n\nEven the HEADER_EXTENSION specific logic has been moved into PACKAGE_EXTENSION to keep dreport cleaner. That is the intended design goal as well.",
+      "parentUuid": "d5968b6b_4416e851",
       "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
