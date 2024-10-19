@@ -117,6 +117,24 @@
       "parentUuid": "fe70c1f3_06e33995",
       "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f2578e_610ae587",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-10-19T06:38:38Z",
+      "side": 1,
+      "message": "But this should be a change impacting only IBM specific implementation, will community interested in that?",
+      "parentUuid": "df2f5af6_df94aa17",
+      "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
