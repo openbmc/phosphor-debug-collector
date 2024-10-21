@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e74de7e_f9ba6a9b",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 10
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-10-21T04:54:55Z",
+      "side": 1,
+      "message": "This return can be removed, and if you define a global archive name variable before this if condition, that can be filled in the package extension or in the else condition.\nand you can use that variable instead of $name_dir.tar.xz in the script. \nThat will enable the custom name and custom packaging but with using the common code for cleanup, copy etc",
+      "revId": "5dcbf49fab74462980188f5bf80a5a621bd4486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
