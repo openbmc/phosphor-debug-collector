@@ -135,6 +135,24 @@
       "parentUuid": "df2f5af6_df94aa17",
       "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4efe676f_0d57b6b9",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 8
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-10-21T03:22:16Z",
+      "side": 1,
+      "message": "Since this code is in PDC common path , alway\u0027s better to inform community on this change.",
+      "parentUuid": "d1f2578e_610ae587",
+      "revId": "c540a1ac12f15276d4ecd1dde7faad243301b1dd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
