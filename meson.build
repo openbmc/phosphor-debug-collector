@@ -212,12 +212,46 @@ endif
 
 configure_file(configuration: conf_data, output: 'config.h')
 
-dump_types_yaml_files = []
+phosphor_dump_manager_sources = [
+    'dump_entry.cpp',
+    'dump_manager.cpp',
+    'dump_manager_bmc.cpp',
+    'dump_manager_main.cpp',
+    'dump_serialize.cpp',
+    'elog_watch.cpp',
+    'watch.cpp',
+    'bmc_dump_entry.cpp',
+    'dump_utils.cpp',
+    'dump_offload.cpp',
+    'dump_manager_faultlog.cpp',
+    'faultlog_dump_entry.cpp',
+]
 
+phosphor_dump_manager_dependency = [
+    phosphor_dbus_interfaces_dep,
+    sdbusplus_dep,
+    sdeventplus_dep,
+    phosphor_logging_dep,
+    cereal_dep,
+]
+
+phosphor_dump_manager_install = true
+
+phosphor_dump_manager_incdir = []
+
+# To get host transport based interface to take respective host
+# dump actions. It will contain required sources and dependency
+# list for phosphor_dump_manager.
+subdir('host-transport-extensions')
+
+#pick any architecture specific dumps
+
+dump_types_yaml_files = []
+subdir('dump-extensions')
 # Dump types YAML file
 dump_types_yaml_files += {
     'input': 'example_dump_types.yaml',
-    'output': 'dump_types.yaml',
+    'output': 'example_dump_types.yaml',
 }
 
 # Copy and combine YAML files
@@ -288,43 +322,7 @@ dump_types_cpp = custom_target(
     output: 'dump_types.cpp',
 )
 
-phosphor_dump_manager_sources = [
-    'dump_entry.cpp',
-    'dump_manager.cpp',
-    'dump_manager_bmc.cpp',
-    'dump_manager_main.cpp',
-    'dump_serialize.cpp',
-    'elog_watch.cpp',
-    dump_types_hpp,
-    dump_types_cpp,
-    'watch.cpp',
-    'bmc_dump_entry.cpp',
-    'dump_utils.cpp',
-    'dump_offload.cpp',
-    'dump_manager_faultlog.cpp',
-    'faultlog_dump_entry.cpp',
-]
-
-phosphor_dump_manager_dependency = [
-    phosphor_dbus_interfaces_dep,
-    sdbusplus_dep,
-    sdeventplus_dep,
-    phosphor_logging_dep,
-    cereal_dep,
-    nlohmann_json_dep,
-]
-
-phosphor_dump_manager_install = true
-
-phosphor_dump_manager_incdir = []
-
-# To get host transport based interface to take respective host
-# dump actions. It will contain required sources and dependency
-# list for phosphor_dump_manager.
-subdir('host-transport-extensions')
-
-#pick any architecture specific dumps
-subdir('dump-extensions')
+phosphor_dump_manager_sources += [dump_types_hpp, dump_types_cpp]
 
 phosphor_dump_monitor_sources = [
     dump_types_hpp,

@@ -14,3 +14,4 @@ phosphor_dump_manager_sources += [
     'dump-extensions/openpower-dumps/dump_entry_factory.cpp',
     'dump-extensions/openpower-dumps/openpower_dump_entry.cpp',
 ]
+subdir('yamls')
