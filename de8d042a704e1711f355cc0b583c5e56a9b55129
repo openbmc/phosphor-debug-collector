@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "536813b6_8afe6e58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-10-25T11:54:12Z",
+      "side": 1,
+      "message": "Not sure why you are saying hardcoded dump type here ? dreport is is also designed to run standalone.\n  Basically dump type definition is owned by dreport not based on the external app\u0027s which is in charge of installing scripts. this look like anti design patter from dreport script.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82d7bfec_40a9566f",
+        "filename": "tools/dreport.d/plugins.d/corefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-10-25T11:54:12Z",
+      "side": 1,
+      "message": "pid is global variable and shouldn\u0027t be getting the information from plugin. Plugin is run on priority basis defined at beginning of file.  and these changes creating new dependency on plugin to run alway\u0027s first.",
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
