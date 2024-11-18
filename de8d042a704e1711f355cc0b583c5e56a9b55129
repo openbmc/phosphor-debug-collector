@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d29e820_a7a5de6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-11-18T11:52:18Z",
+      "side": 1,
+      "message": "Can you please explain why you mention anti-pattern?\nAnd can you please provide the design document for the dreport, and please point out why it is mandatory to hardcode the name of the type in the dreport script?",
+      "parentUuid": "536813b6_8afe6e58",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82d7bfec_40a9566f",
         "filename": "tools/dreport.d/plugins.d/corefile",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2024-10-25T11:54:12Z",
       "side": 1,
       "message": "pid is global variable and shouldn\u0027t be getting the information from plugin. Plugin is run on priority basis defined at beginning of file.  and these changes creating new dependency on plugin to run alway\u0027s first.",
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72da612b_669b39a4",
+        "filename": "tools/dreport.d/plugins.d/corefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-11-18T11:52:18Z",
+      "side": 1,
+      "message": "Can you please clarify this point why pid is global variable when it is being used only in the pluggin script?",
+      "parentUuid": "82d7bfec_40a9566f",
       "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
