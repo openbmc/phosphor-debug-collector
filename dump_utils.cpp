@@ -85,6 +85,55 @@ std::optional<std::tuple<uint32_t, uint64_t, uint64_t>> extractDumpDetails(
     return std::make_tuple(stoul(idString), timestamp,
                            std::filesystem::file_size(file));
 }
+void createPEL(
+    sdbusplus::bus::bus& dBus, const std::string& pelSev,
+    const std::string& errIntf,
+    const std::unordered_map<std::string_view, std::string_view>& userDataMap)
+{
+    try
+    {
+        constexpr auto loggerObjectPath = "/xyz/openbmc_project/logging";
+        constexpr auto loggerCreateInterface =
+            "xyz.openbmc_project.Logging.Create";
+        constexpr auto loggerService = "xyz.openbmc_project.Logging";
+        // Set up a connection to D-Bus object
+        auto busMethod = dBus.new_method_call(loggerService, loggerObjectPath,
+                                              loggerCreateInterface, "Create");
+        busMethod.append(errIntf, pelSev, userDataMap);
+        // Implies this is a call from Manager. Hence we need to make an async
+        // call to avoid deadlock with Phosphor-logging.
+        auto retVal =
+            busMethod.call_async([&](const sdbusplus::message::message& reply) {
+                if (reply.is_method_error())
+                {
+                    lg2::error("Error in calling async method to create PEL");
+                }
+            });
+        if (!retVal)
+        {
+            lg2::error("Return object contains null pointer");
+        }
+    }
+    catch (const sdbusplus::exception::SdBusError& e)
+    {
+        log<level::ERR>("Error in calling creating PEL. Exception caught",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+void createPELOnDumpActions(
+    sdbusplus::bus::bus& dBus, const std::string dumpFilePath,
+    const std::string dumpFileType, const std::string dumpId,
+    const std::string pelSev, const std::string errIntf)
+{
+    constexpr auto dumpFileString = "File Name";
+    constexpr auto dumpFileTypeString = "Dump Type";
+    constexpr auto dumpIdString = "Dump ID";
+    const std::unordered_map<std::string_view, std::string_view> userDataMap = {
+        {dumpIdString, dumpId},
+        {dumpFileString, dumpFilePath},
+        {dumpFileTypeString, dumpFileType}};
+    createPEL(dBus, pelSev, errIntf, userDataMap);
+}
 
 } // namespace dump
 } // namespace phosphor
