@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81da0b10_c053c1d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-11-20T19:28:30Z",
+      "side": 1,
+      "message": "In my understanding from the discussions earlier, the dump types are added in the configuration and in the dbus interface definition and created plugin-based architecture is for easy extensibility. Dreport script is the entry point for executing the plugins. But the dump type checking is hardcoded in the dreport script, which looks unnecessary as the supported types are listed in the conf file and the plugins for each type are installed based on that. Checking the type in dreport make it less flexible because the configuration file can be overridden for different architectures based on the requirements. Still, there is a requirement to hardcode that in the main dreport script just for checking the type of the dump.",
+      "parentUuid": "e20dc978_cefca0bc",
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "536813b6_8afe6e58",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "As i mentioned earlier , design direction we used for dreport, is support both standlone and application usage. Allowing the user application( PDC) to define dump types can introduce unnecessary complexity. The dreport  tool might need to handle a wide variety of data types, which can complicate the design and maintenance.  So loosing the flexibilty of using standalone or other applications That is why am refering this is not hardcoded. If you are really looking an infrastructure to overide this , by conf file approch , we need to add support dreport to handle default conf ( same as now) and overide based on user provided types, with handling all error use cases. Do you have any requirement to do this?",
       "parentUuid": "8d29e820_a7a5de6d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab9f0a2c_54e37d4a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2024-11-20T19:28:30Z",
+      "side": 1,
+      "message": "One problem may be the lack of documentation of the design direction, which is causing confusion. \n\n\u003e The dreport tool might need to handle a wide variety of data types -\u003e I am not clear about handling data type and the complexity in handling data type here\n\nWith these changes also dreport can be executed standalone, the only change in the commit is removing the hardcoded checking for dump type(which is a concern of conf file) and checking whether that plugin is installed.\n\nIf the hardcoding of dump type is removed from dreport, the dump type checking will be purely based on the plugin installation and that should improve the extensibility.\n\nThere are multiple requirements to pack different BMC data in different types of dump or even for overriding the content of the dump based on the field usecases, so what I am looking for is extending the support for such requirements with plugins without impact on the main dreport script.",
+      "parentUuid": "f0e764c3_b46fc938",
       "range": {
         "startLine": 9,
         "startChar": 0,
