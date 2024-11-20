@@ -422,5 +422,33 @@ inline uint64_t timeToEpoch(const std::string& timeStr)
     return duration_cast<microseconds>(sysTimeStamp.time_since_epoch()).count();
 }
 
+/**
+ * @brief Create a new PEL message
+ *
+ * @param[in] dBus - Handle to D-Bus object
+ * @param[in] pelSev - PEL severity (Informational by default)
+ * @param[in] errIntf - D-Bus interface name.
+ * @param[in] userDataMap - Map holding the user data.
+ * @return Returns void
+ */
+void createPEL(
+    sdbusplus::bus::bus& dBus, std::string& pelSev, std::string& errIntf,
+    std::unordered_map<std::string_view, std::string_view>& userDataMap);
+/**
+ * @brief Create a new PEL message for dump Delete
+ *
+ * @param[in] dBus - Handle to D-Bus object
+ * @param[in] pelSev - PEL severity (Informational by default)
+ * @param[in] errIntf - D-Bus interface name.
+ * @param[in] dumpFilePath - Deleted dump file path/name
+ * @param[in] dumpFileType - Deleted dump file type (BMC/Resource/System)
+ * @param[in] dumpId - The dump ID
+ * @return Returns void
+ *
+ * Note: Passing by value as this has an async call
+ */
+void createPELOnDumpActions(sdbusplus::bus::bus& dBus, std::string dumpFilePath,
+                            std::string dumpFileType, std::string dumpId,
+                            std::string pelSev, std::string errIntf);
 } // namespace dump
 } // namespace phosphor
