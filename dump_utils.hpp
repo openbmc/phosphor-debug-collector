@@ -435,7 +435,7 @@ void createPEL(
     sdbusplus::bus::bus& dBus, std::string& pelSev, std::string& errIntf,
     std::unordered_map<std::string_view, std::string_view>& userDataMap);
 /**
- * @brief Create a new PEL message for dump Delete
+ * @brief Create a new PEL message for dump Delete/Offload
  *
  * @param[in] dBus - Handle to D-Bus object
  * @param[in] pelSev - PEL severity (Informational by default)
