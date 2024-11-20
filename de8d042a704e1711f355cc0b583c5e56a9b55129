@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0e764c3_b46fc938",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-11-20T05:49:04Z",
+      "side": 1,
+      "message": "As i mentioned earlier , design direction we used for dreport, is support both standlone and application usage. Allowing the user application( PDC) to define dump types can introduce unnecessary complexity. The dreport  tool might need to handle a wide variety of data types, which can complicate the design and maintenance.  So loosing the flexibilty of using standalone or other applications That is why am refering this is not hardcoded. If you are really looking an infrastructure to overide this , by conf file approch , we need to add support dreport to handle default conf ( same as now) and overide based on user provided types, with handling all error use cases. Do you have any requirement to do this?",
+      "parentUuid": "8d29e820_a7a5de6d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82d7bfec_40a9566f",
         "filename": "tools/dreport.d/plugins.d/corefile",
         "patchSetId": 3
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Can you please clarify this point why pid is global variable when it is being used only in the pluggin script?",
       "parentUuid": "82d7bfec_40a9566f",
+      "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df690016_d7f373ac",
+        "filename": "tools/dreport.d/plugins.d/corefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-11-20T05:49:04Z",
+      "side": 1,
+      "message": "any variable used by multiple plugins are considered as global variable.",
+      "parentUuid": "72da612b_669b39a4",
       "revId": "de8d042a704e1711f355cc0b583c5e56a9b55129",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
