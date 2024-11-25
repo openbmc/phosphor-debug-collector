@@ -37,7 +37,7 @@ using namespace phosphor::logging;
 void writeOnUnixSocket(const int socket, const char* buf,
                        const uint64_t blockSize)
 {
-    int numOfBytesWrote = 0;
+    ssize_t numOfBytesWrote = 0;
 
     for (uint64_t i = 0; i < blockSize; i = i + numOfBytesWrote)
     {
@@ -199,7 +199,7 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
             // allocate memory to contain file data
             std::unique_ptr<char[]> buffer(new char[size]);
             // get file data
-            pbuf->sgetn(buffer.get(), size);
+            pbuf->sgetn(buffer.get(), static_cast<std::streamsize>(size));
             infile.close();
 
             writeOnUnixSocket(socketFD(), buffer.get(), size);

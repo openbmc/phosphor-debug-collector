@@ -309,7 +309,8 @@ size_t getDirectorySize(const std::string dir)
     {
         if (!std::filesystem::is_directory(p))
         {
-            size += std::ceil(std::filesystem::file_size(p) / 1024.0);
+            std::uintmax_t fileSize = std::filesystem::file_size(p);
+            size += std::ceil(static_cast<double>(fileSize) / 1024.0);
         }
     }
     return size;
