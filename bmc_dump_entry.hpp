@@ -26,8 +26,6 @@ using EntryIfaces = sdbusplus::server::object_t<
 using originatorTypes = sdbusplus::xyz::openbmc_project::Common::server::
     OriginatedBy::OriginatorTypes;
 
-class Manager;
-
 /** @class Entry
  *  @brief OpenBMC Dump Entry implementation.
  *  @details A concrete implementation for the

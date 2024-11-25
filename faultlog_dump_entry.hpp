@@ -18,8 +18,6 @@ namespace faultlog
 template <typename T>
 using ServerObject = typename sdbusplus::server::object_t<T>;
 
-class Manager;
-
 /** @class Entry
  *  @brief OpenBMC Fault Log Dump Entry implementation.
  */
