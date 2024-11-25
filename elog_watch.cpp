@@ -24,7 +24,6 @@ namespace dump
 namespace elog
 {
 
-constexpr auto LOG_PATH = "/xyz/openbmc_project/logging";
 using Message = std::string;
 using Attributes = std::variant<Message>;
 using AttributeName = std::string;

@@ -35,8 +35,8 @@ class Watch
     ~Watch() = default;
     Watch(const Watch&) = delete;
     Watch& operator=(const Watch&) = delete;
-    Watch(Watch&&) = default;
-    Watch& operator=(Watch&&) = default;
+    Watch(Watch&&) = delete;
+    Watch& operator=(Watch&&) = delete;
 
     /** @brief constructs watch for elog add and delete signals.
      *  @param[in] bus -  The Dbus bus object
@@ -56,6 +56,7 @@ class Watch
     template <class Archive>
     void serialize(Archive& a, const std::uint32_t version)
     {
+        (void)version; // Mark version as unused to avoid warning
         a(elogList);
 
         // TODO: openbmc/phosphor-debug-collector#1
