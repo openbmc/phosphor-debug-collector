@@ -5,6 +5,7 @@
 #include <exception>
 #include <filesystem>
 #include <set>
+#include <span>
 #include <string>
 
 #include <gtest/gtest.h>
@@ -19,7 +20,9 @@ class TestDumpSerial : public ::testing::Test
     void SetUp()
     {
         char tmpdir[] = "/tmp/dump.XXXXXX";
-        auto dirPtr = mkdtemp(tmpdir);
+        std::span<char> tmpdirSpan(reinterpret_cast<char*>(tmpdir),
+                                   sizeof(tmpdir));
+        auto dirPtr = mkdtemp(tmpdirSpan.data());
         if (dirPtr == NULL)
         {
             throw std::bad_alloc();

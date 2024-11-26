@@ -5,6 +5,8 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
 
+#include <span>
+
 namespace phosphor
 {
 namespace dump
@@ -87,7 +89,8 @@ int Watch::callback(sd_event_source*, int fd, uint32_t revents, void* userdata)
     constexpr auto maxBytes = sizeof(struct inotify_event) + NAME_MAX + 1;
     uint8_t buffer[maxBytes];
 
-    auto bytes = read(fd, buffer, maxBytes);
+    std::span<char> bufferSpan(reinterpret_cast<char*>(buffer), maxBytes);
+    auto bytes = read(fd, bufferSpan.data(), bufferSpan.size());
     if (0 > bytes)
     {
         // Failed to read inotify event
