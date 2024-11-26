@@ -23,7 +23,7 @@ class TestDumpSerial : public ::testing::Test
         std::span<char> tmpdirSpan(reinterpret_cast<char*>(tmpdir),
                                    sizeof(tmpdir));
         auto dirPtr = mkdtemp(tmpdirSpan.data());
-        if (dirPtr == NULL)
+        if (dirPtr == nullptr)
         {
             throw std::bad_alloc();
         }
