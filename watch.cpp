@@ -80,7 +80,7 @@ int Watch::callback(sd_event_source*, int fd, uint32_t revents, void* userdata)
 {
     auto userData = static_cast<Watch*>(userdata);
 
-    if (!(revents & userData->events))
+    if ((revents & userData->events) == 0U)
     {
         return 0;
     }
@@ -111,7 +111,7 @@ int Watch::callback(sd_event_source*, int fd, uint32_t revents, void* userdata)
         auto event = reinterpret_cast<inotify_event*>(&buffer[offset]);
         auto mask = event->mask & userData->mask;
 
-        if (mask)
+        if (mask != 0U)
         {
             userMap.emplace((userData->path / event->name), mask);
         }
