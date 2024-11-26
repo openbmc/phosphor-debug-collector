@@ -70,7 +70,8 @@ sdbusplus::message::object_path
     }
 
     lg2::info("Initiating new BMC dump with type: {TYPE} path: {PATH}", "TYPE",
-              dumpTypeToString(dumpType).value(), "PATH", path);
+              dumpTypeToString(dumpType).value_or("unknown").c_str(), "PATH",
+              path);
 
     auto id = captureDump(dumpType, path);
 
@@ -118,7 +119,7 @@ uint32_t Manager::captureDump(DumpTypes type, const std::string& path)
         auto id = std::to_string(lastEntryId + 1);
         dumpPath /= id;
 
-        auto strType = dumpTypeToString(type).value();
+        auto strType = dumpTypeToString(type).value_or("unknown");
         execl("/usr/bin/dreport", "dreport", "-d", dumpPath.c_str(), "-i",
               id.c_str(), "-s", std::to_string(size).c_str(), "-q", "-v", "-p",
               path.empty() ? "" : path.c_str(), "-t", strType.c_str(), nullptr);
