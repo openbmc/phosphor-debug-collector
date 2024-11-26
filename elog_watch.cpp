@@ -141,7 +141,8 @@ void Watch::addCallback(sdbusplus::message_t& msg)
     }
     catch (const QuotaExceeded& e)
     {
-        // No action now
+        // No action needed
+        lg2::warning("Skipping exception: QuotaExceeded during createDump");
     }
     return;
 }
