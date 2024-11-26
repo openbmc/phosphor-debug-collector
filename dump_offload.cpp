@@ -15,6 +15,7 @@
 #include <xyz/openbmc_project/Common/error.hpp>
 
 #include <fstream>
+#include <span>
 
 namespace phosphor
 {
@@ -102,8 +103,12 @@ int socketInit(const std::string& sockPath)
             "UNIX socket path is too long " + std::string(strerror(errno));
         throw std::length_error(msg);
     }
-    strncpy(socketAddr.sun_path, sockPath.c_str(),
-            sizeof(socketAddr.sun_path) - 1);
+
+    std::span<char> sunPathSpan(reinterpret_cast<char*>(socketAddr.sun_path),
+                                sizeof(socketAddr.sun_path));
+    strncpy(sunPathSpan.data(), sockPath.c_str(), sunPathSpan.size() - 1);
+    sunPathSpan[sunPathSpan.size() - 1] = '\0'; // Ensure null-termination
+
     if ((unixSocket = socket(AF_UNIX, SOCK_STREAM | SOCK_NONBLOCK, 0)) == -1)
     {
         lg2::error("socketInit: socket() failed, errno: {ERRNO}", "ERRNO",
