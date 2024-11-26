@@ -52,8 +52,8 @@ void writeOnUnixSocket(const int socket, const char* buf,
         FD_SET(socket, &writeFileDescriptor);
         int nextFileDescriptor = socket + 1;
 
-        int retVal = select(nextFileDescriptor, NULL, &writeFileDescriptor,
-                            NULL, &timeVal);
+        int retVal = select(nextFileDescriptor, nullptr, &writeFileDescriptor,
+                            nullptr, &timeVal);
         if (retVal <= 0)
         {
             lg2::error("writeOnUnixSocket: select() failed, errno: {ERRNO}",
@@ -157,7 +157,7 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
         FD_SET(unixSocket(), &readFD);
         int numOfFDs = unixSocket() + 1;
 
-        int retVal = select(numOfFDs, &readFD, NULL, NULL, &timeVal);
+        int retVal = select(numOfFDs, &readFD, nullptr, nullptr, &timeVal);
         if (retVal <= 0)
         {
             lg2::error("select() failed, errno: {ERRNO}, DUMP_ID: {DUMP_ID}",
@@ -167,7 +167,7 @@ void requestOffload(std::filesystem::path file, uint32_t dumpId,
         }
         else if ((retVal > 0) && (FD_ISSET(unixSocket(), &readFD)))
         {
-            CustomFd socketFD = accept(unixSocket(), NULL, NULL);
+            CustomFd socketFD = accept(unixSocket(), nullptr, nullptr);
             if (socketFD() < 0)
             {
                 lg2::error(
