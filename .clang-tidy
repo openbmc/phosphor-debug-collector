@@ -296,6 +296,7 @@ readability-duplicate-include,
 readability-deleted-default,
 readability-function-size,
 readability-identifier-naming,
+readability-implicit-bool-conversion
 readability-isolate-declaration,
 readability-misleading-indentation,
 readability-misplaced-array-index,
