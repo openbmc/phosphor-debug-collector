@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf293845_c950247e",
+        "filename": "dump_offload.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-11-27T10:43:13Z",
+      "side": 1,
+      "message": "we can directly pass this, we can avoid a temporary variable static_cast\u003cstd::streamsize\u003e(size)",
+      "range": {
+        "startLine": 204,
+        "startChar": 38,
+        "endLine": 204,
+        "endChar": 48
+      },
+      "revId": "7991fcc846aec820c054405edb0674731d556dbc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
