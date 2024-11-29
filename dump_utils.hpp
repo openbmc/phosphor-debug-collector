@@ -440,8 +440,9 @@ void createPEL(
  * @param[in] dBus - Handle to D-Bus object
  * @param[in] pelSev - PEL severity (Informational by default)
  * @param[in] errIntf - D-Bus interface name.
- * @param[in] dumpFilePath - Deleted dump file path/name
- * @param[in] dumpFileType - Deleted dump file type (BMC/Resource/System)
+ * @param[in] dumpFilePath - Deleted/Offloaded dump file path/name
+ * @param[in] dumpFileType - Deleted/Offloaded dump file type
+ * (BMC/Resource/System)
  * @param[in] dumpId - The dump ID
  * @return Returns void
  *
