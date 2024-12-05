@@ -159,6 +159,11 @@ conf_data.set_quoted(
     description: 'Directory where fault logs are placed',
 )
 conf_data.set(
+    'LOG_PEL_ON_DUMP_ACTIONS',
+    get_option('log_pel_on_dump_actions').enabled(),
+    description: 'Turn on to log PEL while deleting the dump',
+)
+conf_data.set(
     'BMC_DUMP_ROTATE_CONFIG',
     get_option('dump_rotate_config').allowed(),
     description: 'Turn on rotate config for bmc dump',
@@ -183,7 +188,6 @@ conf_data.set(
     get_option('TIMESTAMP_FORMAT'),
     description: 'Timestamp format in filename: 0-epoch 1-human readable',
 )
-
 conf_data.set_quoted(
     'SYSTEM_DUMP_OBJPATH',
     get_option('SYSTEM_DUMP_OBJPATH'),
@@ -194,7 +198,6 @@ conf_data.set_quoted(
     get_option('SYSTEM_DUMP_OBJ_ENTRY'),
     description: 'The system dump entry D-Bus object path',
 )
-
 conf_data.set_quoted(
     'RESOURCE_DUMP_OBJPATH',
     get_option('RESOURCE_DUMP_OBJPATH'),

@@ -32,12 +32,14 @@ void Entry<Derived>::initiateOffload(std::string uri)
               "ID", id, "URI", uri, "SOURCE_DUMP_ID", getSourceDumpId());
     phosphor::dump::Entry::initiateOffload(uri);
     phosphor::dump::host::requestOffload(getSourceDumpId());
+#ifdef LOG_PEL_ON_DUMP_ACTIONS
     auto bus = sdbusplus::bus::new_default();
     // Log PEL for dump offload
     phosphor::dump::createPELOnDumpActions(
         bus, file, "Resource Dump", std::format("{:08x}", id),
         "xyz.openbmc_project.Logging.Entry.Level.Informational",
         "xyz.openbmc_project.Dump.Error.Offload");
+#endif
 }
 
 template <typename Derived>
@@ -77,6 +79,7 @@ void Entry<Derived>::delete_()
     }
 
     removeSerializedEntry();
+#ifdef LOG_PEL_ON_DUMP_ACTIONS
     auto bus = sdbusplus::bus::new_default();
     // Log PEL for dump delete
     phosphor::dump::createPELOnDumpActions(
@@ -84,6 +87,7 @@ void Entry<Derived>::delete_()
         "xyz.openbmc_project.Logging.Entry.Level.Informational",
         "xyz.openbmc_project.Dump.Error.Invalidate");
     phosphor::dump::Entry::delete_();
+#endif
 }
 
 template <typename Derived>
