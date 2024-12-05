@@ -148,6 +148,13 @@ option(
     description: 'Timestamp format in filename: 0-epoch 1-human readable',
 )
 
+option(
+    'log_pel_on_dump_actions',
+    type: 'feature',
+    value: 'disabled',
+    description: 'Log PEL on deleting the dump',
+)
+
 # Fault log options
 
 option(

@@ -26,6 +26,14 @@ void Entry::delete_()
         lg2::error("Failed to delete dump file, errormsg: {ERROR}", "ERROR", e);
     }
 
+#ifdef LOG_PEL_ON_DUMP_ACTIONS
+    auto bus = sdbusplus::bus::new_default();
+    // Log PEL for dump delete
+    phosphor::dump::createPELOnDumpActions(
+        bus, file, "BMC Dump", std::to_string(id),
+        "xyz.openbmc_project.Logging.Entry.Level.Informational",
+        "xyz.openbmc_project.Dump.Error.Invalidate");
+#endif
     // Remove Dump entry D-bus object
     phosphor::dump::Entry::delete_();
 }
