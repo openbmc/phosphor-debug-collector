@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e6fb864_cd5abc00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T16:44:27Z",
+      "side": 1,
+      "message": "Recemented changes:\n1. add commit to revert trace event commit to avoid duplicate.\n2. Keep the lktrace name as it is only chnage priority.\n\nBoth got pros and cons  high level my understanding is \"Core Dumps: Use for post-mortem analysis of crashes and  ftrace: Use for real-time tracing and performance analysis.\" . Let us initiate discussion in discord to get some input from other devlopers and we can set priority appropriately based on inputs,",
+      "parentUuid": "634b679c_5bcafdb4",
+      "revId": "a587e88b6e46e7aefc2de335e13bfb37c45da90c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d15b84e_a528b87a",
         "filename": "tools/dreport.d/plugins.d/coredump-ktrace",
         "patchSetId": 1
