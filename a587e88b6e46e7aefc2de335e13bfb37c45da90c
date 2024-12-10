@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2a6421_cdbd5fe8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T15:24:50Z",
+      "side": 1,
+      "message": "Any specific reason for renaming this plugin? lktrace seems to be more appropriate name.",
+      "revId": "a587e88b6e46e7aefc2de335e13bfb37c45da90c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d15b84e_a528b87a",
+        "filename": "tools/dreport.d/plugins.d/coredump-ktrace",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T15:24:50Z",
+      "side": 1,
+      "message": "Looks like 2 plugin with same name . we should keep one , lktra, with keeping user option enabled\nCoredump Priority 1 ids always for core dump , we should keep 5 here instead of 1 from priority point",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 13
+      },
+      "revId": "a587e88b6e46e7aefc2de335e13bfb37c45da90c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
