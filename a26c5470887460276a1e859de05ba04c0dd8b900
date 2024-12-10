@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06087756_ede1a315",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T15:45:58Z",
+      "side": 1,
+      "message": "namepace option? recemented not use special characters in commit message .",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "a26c5470887460276a1e859de05ba04c0dd8b900",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5dea5a9_c3a94603",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T15:45:58Z",
+      "side": 1,
+      "message": "can you rephrase to \"For BMCs that support multiple namespaces to manage logs, add the --namespace\u003d* option to the journalctl command to collect all logs\" ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "a26c5470887460276a1e859de05ba04c0dd8b900",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b1fcd5_26daddd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-10T15:45:58Z",
+      "side": 1,
+      "message": "add tested.",
+      "revId": "a26c5470887460276a1e859de05ba04c0dd8b900",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
