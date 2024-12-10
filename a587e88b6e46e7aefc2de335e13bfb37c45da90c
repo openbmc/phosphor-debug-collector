@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "634b679c_5bcafdb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001371
+      },
+      "writtenOn": "2024-12-10T16:28:40Z",
+      "side": 1,
+      "message": "Because I believe that during a coredump, ftrace messages have a higher priority and stricter real-time requirements (I encountered cases during actual debugging where criticalinformation was lost due to trace priority).\n\nAdditionally, there was already a duplicate functionality (with a traceevents\u0027s commit explicitly mentioning that its priority was not high).  \n\nSo, I thought of splitting it into two parts (or is it that currently we cannot adjust the priority for each type?).\nAs a result, the current `lktrace` is renamed to be specifically for coredump only.",
+      "parentUuid": "7d2a6421_cdbd5fe8",
+      "revId": "a587e88b6e46e7aefc2de335e13bfb37c45da90c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d15b84e_a528b87a",
         "filename": "tools/dreport.d/plugins.d/coredump-ktrace",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2024-12-10T15:24:50Z",
       "side": 1,
       "message": "Looks like 2 plugin with same name . we should keep one , lktra, with keeping user option enabled\nCoredump Priority 1 ids always for core dump , we should keep 5 here instead of 1 from priority point",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 13
+      },
+      "revId": "a587e88b6e46e7aefc2de335e13bfb37c45da90c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eaceb08_50acabf4",
+        "filename": "tools/dreport.d/plugins.d/coredump-ktrace",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001371
+      },
+      "writtenOn": "2024-12-10T16:28:40Z",
+      "side": 1,
+      "message": "the 1 for coredump, 0 for priority, (Just wanted to be before the journalctl, it\u0027s too long..)",
+      "parentUuid": "1d15b84e_a528b87a",
       "range": {
         "startLine": 3,
         "startChar": 1,
