@@ -16,6 +16,24 @@
       "message": "add tested.",
       "revId": "35da40134763a106493e90691ce58d08c998c52f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc080e37_2e8a73fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001371
+      },
+      "writtenOn": "2024-12-10T17:24:12Z",
+      "side": 1,
+      "message": "sorry, ignore this. After checking the history, we found that a field in the driver provided by a third party was changed from WO to RW. This code is no longer necessary in the current context.",
+      "parentUuid": "fe59908d_68df3b28",
+      "revId": "35da40134763a106493e90691ce58d08c998c52f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
