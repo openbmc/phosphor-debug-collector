@@ -16,6 +16,23 @@
       "message": "There is also a leak about fork\u0026Excel, which will be upload later",
       "revId": "3f321c61b7dac49b23fa7d2994b6a288f16a1b7d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b13f7d2_0b02201b",
+        "filename": "watch.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2024-12-11T04:09:26Z",
+      "side": 1,
+      "message": "better to switch to c++ version of the event IO class as per guidelines\nhttps://github.com/openbmc/sdeventplus/blob/master/src/sdeventplus/source/io.hpp\nhttps://github.com/openbmc/sdeventplus/blob/master/test/source/io.cpp#L88",
+      "revId": "3f321c61b7dac49b23fa7d2994b6a288f16a1b7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
