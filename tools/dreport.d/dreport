@@ -30,7 +30,6 @@ Options:
                               Report will be truncated in case size exceeds
                               this limit. Default size is unlimited.
         -v, —-verbose         Increase logging verbosity.
-        -V, --version         Output version information.
         -q, —-quiet           Only log fatal errors to stderr
         -h, —-help            Display this help and exit.
 EOF
@@ -298,8 +297,8 @@ function main()
     fi
 }
 
-TEMP=`getopt -o n:d:i:t:s:p:vVqh \
-    --long name:,dir:,dumpid:,type:,size:,path:,verbose,version,quiet,help \
+TEMP=`getopt -o n:d:i:t:s:p:vqh \
+    --long name:,dir:,dumpid:,type:,size:,path:,verbose,quiet,help \
     -- "$@"`
 
 if [ $? -ne 0 ]
@@ -331,12 +330,10 @@ while [[ $# -gt 1 ]]; do
         -p|--path)
             optional_path=$2
             shift 2 ;;
-        -v|—-verbose)
+        -v|--verbose)
             verbose=$TRUE
             shift ;;
-        -V|--version)
-            shift ;;
-        -q|—-quiet)
+        -q|--quiet)
             quiet=$TRUE
             shift ;;
         -h|--help)
