@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f39f418_1634743f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-19T11:17:51Z",
+      "side": 1,
+      "message": "This suppose to keep Tool version information. It would be better to fix the version information by defaulting to 1.0 now instead of deleteing.",
+      "revId": "88be06417de8f019828d0c68781220744add4db4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4b50fe_9d5fea9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2024-12-19T11:17:51Z",
+      "side": 1,
+      "message": "/tmp# dreport -q   -- Only prints errors. No info.\nCall failed: The name is not activatable\nCall failed: The name is not activatable\nCall failed: The name is not activatable\ncp: can\u0027t stat \u0027/var/log/obmc-console.log\u0027: No such file or directory\nFailed to get property Priority on interface xyz.openbmc_project.Software.RedundancyPriority: Unknown interface xyz.openbmc_project.Software.RedundancyPriority or property Priority.\n/usr/share/dreport.d/pl_user.d/E50redundantosrelease: line 71: log_warnig: command not found\nThu Dec 19 11:10:50 UTC 2024 Report is available in /tmp\nThu Dec 19 11:10:50 UTC 2024 Successfully completed\n\n\n dreport -v  -- used to increase verbosity , by print info logs. \nThu Dec 19 10:50:59 UTC 2024 Name:          obmcdump_00000000_1734605459.tar.xz\nThu Dec 19 10:50:59 UTC 2024 Epochtime:     1734605459\nThu Dec 19 10:50:59 UTC 2024 ID:            00000000\nThu Dec 19 10:50:59 UTC 2024 Type:          user\nThu Dec 19 10:50:59 UTC 2024 INFO: Collected disk usage\nThu Dec 19 10:50:59 UTC 2024 INFO: Collected failed services\nThu Dec 19 10:51:13 UTC 2024 INFO: Collected Journal pretty log\nThu Dec 19 10:51:13 UTC 2024 INFO: Copied Memory info /proc/meminfo\nThu Dec 19 10:51:13 UTC 2024 INFO: Collected top\nThu Dec 19 10:51:13 UTC 2024 INFO: Copied OS release info /etc/os-release",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 0
+      },
+      "revId": "88be06417de8f019828d0c68781220744add4db4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
