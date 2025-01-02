@@ -70,6 +70,30 @@
       },
       "revId": "26280d37fda8badfe3cbfdcafaf8fc8ba4739ef2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fc9d529_34bb700e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-01-02T19:17:13Z",
+      "side": 1,
+      "message": "No technical issues.  Just not sure we\u0027d allow anyone upstream to use journal namespaces (though it hasn\u0027t come up yet).",
+      "parentUuid": "f72ce569_4a72d86e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 67
+      },
+      "revId": "26280d37fda8badfe3cbfdcafaf8fc8ba4739ef2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
