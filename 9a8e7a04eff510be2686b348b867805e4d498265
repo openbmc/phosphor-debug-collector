@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ce9e2e_da57c0c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-01-06T06:52:11Z",
+      "side": 1,
+      "message": "Please find details here https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/77023/9//COMMIT_MSG#7",
+      "revId": "9a8e7a04eff510be2686b348b867805e4d498265",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
