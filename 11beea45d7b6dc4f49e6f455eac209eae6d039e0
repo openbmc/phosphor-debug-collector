@@ -1,0 +1,11 @@
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Code-Review+1: Dhruvaraj S <dhruvaraj@gmail.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Andrew Jeffery <andrew@codeconstruct.com.au>
+Code-Review+2: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Submitted-at: Thu, 16 Jan 2025 03:55:49 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/72594
+Comments-Total: 7
+Project: openbmc/phosphor-debug-collector
+Branch: refs/heads/master
