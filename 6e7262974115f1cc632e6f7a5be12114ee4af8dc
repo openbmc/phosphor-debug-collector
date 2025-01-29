@@ -33,6 +33,24 @@
       "message": "Probably don’t want this either since properties aren’t initialize yet at this point. We likely need to make a call inside the constructor once the interface is fully initialized.",
       "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a8194b_d8d41285",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-01-29T23:50:19Z",
+      "side": 1,
+      "message": "Is this always a secondary object?  Is it ever optional?  The primary object should have made ObjectAdded/ObjectRemoved signals after the secondary is initialized. Is that missing somewhere?  Do you know which [primary] types are leaking?",
+      "parentUuid": "5e392e1e_4251841f",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
