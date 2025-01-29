@@ -82,7 +82,8 @@ class Entry : public EntryIfaces
           uint64_t timeStamp, uint64_t dumpSize,
           const std::filesystem::path& file, OperationStatus dumpStatus,
           std::string originId, originatorTypes originType, Manager& parent) :
-        EntryIfaces(bus, objPath.c_str(), EntryIfaces::action::emit_no_signals),
+        EntryIfaces(bus, objPath.c_str(),
+                    EntryIfaces::action::emit_interface_added),
         parent(parent), id(dumpId), file(file)
     {
         originatorId(originId);
