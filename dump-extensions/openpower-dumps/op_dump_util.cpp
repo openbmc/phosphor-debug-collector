@@ -19,8 +19,13 @@
 namespace openpower::dump::util
 {
 
-bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
+bool isOPDumpsEnabled(sdbusplus::bus_t& bus, OpDumpTypes type)
 {
+    // System and Resource dumps are not dependent on dump policy
+    if ((type == OpDumpTypes::System) || (type == OpDumpTypes::Resource))
+    {
+        return true;
+    }
     // Set isEnabled as true by default. In a field deployment, the system dump
     // feature is usually enabled to facilitate effective debugging in the event
     // of a failure. If due to some error, the settings service couldn't provide

@@ -35,12 +35,13 @@ namespace util
 /** @brief Check whether OpenPOWER dumps are enabled
  *
  * param[in] bus - D-Bus handle
+ * param[in] type - OpDumpTypes
  *
  * If the settings service is not running then considering as
  * the dumps are enabled.
  * @return true - if dumps are enabled, false - if dumps are not enabled
  */
-bool isOPDumpsEnabled(sdbusplus::bus_t& bus);
+bool isOPDumpsEnabled(sdbusplus::bus_t& bus, OpDumpTypes type);
 
 using BIOSAttrValueType = std::variant<int64_t, std::string>;
 
