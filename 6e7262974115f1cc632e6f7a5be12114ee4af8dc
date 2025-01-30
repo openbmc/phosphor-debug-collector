@@ -87,6 +87,24 @@
       "parentUuid": "8639c92e_bb15f73e",
       "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d90ba177_ea2280ee",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-01-30T08:25:08Z",
+      "side": 1,
+      "message": "We were using `defer_emit` the derived class that we were test and that the `sd_bus_emit_object_removed` call it made didn\u0027t remove the interface added by the base class.\n\nExample,\n```\n‣ Type\u003dsignal  Endian\u003dl  Flags\u003d1  Version\u003d1 Cookie\u003d42358  Timestamp\u003d\"Thu 2025-01-30 01:12:59.908074 UTC\"\n  Sender\u003d:1.32  Path\u003d/xyz/openbmc_project/dump  Interface\u003dorg.freedesktop.DBus.ObjectManager  Member\u003dInterfacesRemoved\n  UniqueName\u003d:1.32\n  MESSAGE \"oas\" {\n          OBJECT_PATH \"/xyz/openbmc_project/dump/faultlog/entry/1690\";\n          ARRAY \"s\" {\n                  STRING \"org.freedesktop.DBus.Peer\";\n                  STRING \"org.freedesktop.DBus.Introspectable\";\n                  STRING \"org.freedesktop.DBus.Properties\";\n                  STRING \"xyz.openbmc_project.Dump.Entry.FaultLog\";\n          };\n  };\n```\n\nAs benjamin mentioned, we should also just set the base class to be `defer_emit`, so that it will send the remove signal... and will let derived classes design if it wants to send add signal or not.",
+      "parentUuid": "8f2038ba_3877c40a",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
