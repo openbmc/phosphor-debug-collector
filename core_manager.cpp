@@ -2,6 +2,7 @@
 
 #include "core_manager.hpp"
 
+#include <unistd.h>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/exception.hpp>
 
@@ -91,13 +92,20 @@ void Manager::createHelper(const vector<string>& files)
     params[DumpIntr::convertCreateParametersToString(
         CreateParameters::FilePath)] = files.front();
     m.append(params);
-    try
+    int retry = 2;
+    while (retry > 0)
     {
-        b.call_noreply(m);
-    }
-    catch (const sdbusplus::exception_t& e)
-    {
-        lg2::error("Failed to create dump: {ERROR}", "ERROR", e);
+        try
+        {
+            b.call_noreply(m);
+            retry = 0;
+        }
+        catch (const sdbusplus::exception_t& e)
+        {
+            retry--;
+            lg2::error("Failed to create dump: {ERROR}", "ERROR", e);
+            sleep(60);
+        }
     }
 }
 
