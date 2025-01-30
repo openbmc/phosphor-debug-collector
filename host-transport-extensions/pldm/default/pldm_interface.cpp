@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 
+#include <cstdint>
 #include <stdexcept>
 
 namespace phosphor

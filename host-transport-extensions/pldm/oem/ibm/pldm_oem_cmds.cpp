@@ -83,7 +83,7 @@ mctp_eid_t readEID()
         eidFile >> eid;
         if (!eid.empty())
         {
-            eid = strtol(eid.c_str(), nullptr, 10);
+            eid = std::to_string(strtol(eid.c_str(), nullptr, 10));
         }
         else
         {
