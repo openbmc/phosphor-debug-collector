@@ -51,6 +51,24 @@
       "parentUuid": "5e392e1e_4251841f",
       "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8639c92e_bb15f73e",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2025-01-30T00:07:46Z",
+      "side": 1,
+      "message": "The only leaking that I saw were the Interfaces from this object (OriginatedBy, etc).\n\nDoes that mean the right solution is to just use `defer` here and send the signal from the constructor? The original change didn\u0027t do that, so I assumed that was intentional.",
+      "parentUuid": "89a8194b_d8d41285",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
