@@ -1,5 +1,6 @@
 ## This file is a template.The comment below is emitted
-## into the rendered file; feel free to edit this file.
+## into the rendered file;
+##feel free to edit this file.
 //  !!! WARNING: This is a GENERATED Code..Please do NOT Edit !!!
 #include "dump_types.hpp"
 
@@ -8,7 +9,7 @@
 #include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
-namespace phosphor
+    namespace phosphor
 {
 namespace dump
 {
@@ -26,7 +27,7 @@ map_keys = set()
 %>
 DUMP_TYPE_TO_STRING_MAP dumpTypeToStringMap = {
 % for item in DUMP_TYPE_TABLE:
-  % for key, values in item.items():
+  % for key, values,  in,  item.items():
     % if values[0].upper() not in map_keys:
         {DumpTypes::${values[0].upper()}, "${values[0]}"},
         <% map_keys.add(values[0].upper()) %>
