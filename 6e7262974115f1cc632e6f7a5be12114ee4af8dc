@@ -69,6 +69,24 @@
       "parentUuid": "89a8194b_d8d41285",
       "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2038ba_3877c40a",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-01-30T03:15:21Z",
+      "side": 1,
+      "message": "This is added intentionally , Please refer https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/40518 \"The emit_object_added was added in the base entry class so\nall information was not present in the InterfaceAdded.\nIn the below example the VSP String and password are null\nTo fix this moved emit_object_added to derived classes\nso InterfaceAdded signal will come only after the creation\nof complete object.\"",
+      "parentUuid": "8639c92e_bb15f73e",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
