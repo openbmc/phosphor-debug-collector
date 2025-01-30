@@ -16,6 +16,27 @@ namespace core
 {
 
 using namespace std;
+std::queue<std::vector<std::string>> Manager::coreDumpQueue;
+
+void Manager::processCoreDumpQueue()
+{
+    while (Manager::coreDumpQueue.size() > 0)
+    {
+        if (!Manager::coreDumpQueue.front().empty())
+        {
+            try
+            {
+                createHelper(Manager::coreDumpQueue.front());
+                Manager::coreDumpQueue.pop();
+            }
+            catch (const sdbusplus::exception_t& e)
+            {
+                lg2::error("Failed to create dump: {ERROR}", "ERROR", e);
+                break;
+            }
+        }
+    }
+}
 
 void Manager::watchCallback(const UserMap& fileInfo)
 {
@@ -41,10 +62,8 @@ void Manager::watchCallback(const UserMap& fileInfo)
         }
     }
 
-    if (!files.empty())
-    {
-        createHelper(files);
-    }
+    Manager::coreDumpQueue.push(files);
+    processCoreDumpQueue();
 }
 
 void Manager::createHelper(const vector<string>& files)
@@ -97,7 +116,7 @@ void Manager::createHelper(const vector<string>& files)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        lg2::error("Failed to create dump: {ERROR}", "ERROR", e);
+        throw;
     }
 }
 
