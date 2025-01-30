@@ -5,7 +5,12 @@
 #include "dump_utils.hpp"
 #include "watch.hpp"
 
+#include <sdeventplus/utility/timer.hpp>
+
 #include <map>
+#include <queue>
+#include <string>
+#include <vector>
 
 namespace phosphor
 {
@@ -50,8 +55,18 @@ class Manager
         coreWatch(eventLoop, IN_NONBLOCK, coreFileEvent, EPOLLIN, CORE_FILE_DIR,
                   std::bind(std::mem_fn(
                                 &phosphor::dump::core::Manager::watchCallback),
-                            this, std::placeholders::_1))
-    {}
+                            this, std::placeholders::_1)),
+        coreDumpTimer(
+            event.get(),
+            std::bind(std::mem_fn(&Manager::processCoreDumpQueue), this),
+            std::chrono::seconds(300))
+    {
+        // Initially disabling the timer. We will enable only during failure.
+        coreDumpTimer.setEnabled(false);
+    }
+
+    /** @brief A queue of core dump requests. */
+    static std::queue<std::vector<std::string>> coreDumpQueue;
 
   private:
     /** @brief Helper function for initiating dump request using
@@ -70,6 +85,13 @@ class Manager
 
     /** @brief Core watch object */
     Watch coreWatch;
+
+    /** @brief Timer object */
+    sdeventplus::utility::Timer<sdeventplus::ClockId::Monotonic> coreDumpTimer;
+
+    /** @brief Function to process all core dump requests
+     */
+    void processCoreDumpQueue();
 };
 
 } // namespace core
