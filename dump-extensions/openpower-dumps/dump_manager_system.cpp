@@ -141,6 +141,17 @@ sdbusplus::message::object_path
         lg2::warning(
             "System dump accepts not more than 2 additional parameters");
     }
+
+    using disabled =
+        sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
+
+    if (!util::isOPDumpsEnabled(bus))
+    {
+        lg2::error("OpenPower dumps are disabled, skipping");
+        elog<disabled>();
+        return {};
+    }
+
     using Unavailable =
         sdbusplus::xyz::openbmc_project::Common::Error::Unavailable;
 

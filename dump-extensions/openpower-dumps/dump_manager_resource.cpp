@@ -112,6 +112,15 @@ sdbusplus::message::object_path
     using NotAllowed =
         sdbusplus::xyz::openbmc_project::Common::Error::NotAllowed;
     using Reason = xyz::openbmc_project::Common::NotAllowed::REASON;
+    using disabled =
+        sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
+
+    if (!util::isOPDumpsEnabled(bus))
+    {
+        lg2::error("OpenPower dumps are disabled, skipping");
+        elog<disabled>();
+        return {};
+    }
 
     // Allow creating resource dump only when the host is up.
     if (!phosphor::dump::isHostRunning())
