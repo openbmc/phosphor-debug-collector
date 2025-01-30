@@ -43,6 +43,15 @@ sdbusplus::message::object_path Manager::createDump(
 {
     try
     {
+        using disabled =
+            sdbusplus::xyz::openbmc_project::Dump::Create::Error::Disabled;
+
+        if (!util::isOPDumpsEnabled(bus))
+        {
+            lg2::error("OpenPower dumps are disabled, skipping");
+            elog<disabled>();
+            return {};
+        }
         DumpEntryFactory dumpFact(bus, baseEntryPath, *this);
 
         auto dumpEntry = dumpFact.createEntry(lastEntryId + 1, params);
