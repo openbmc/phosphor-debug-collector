@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9519c7dc_c497d73f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2025-01-31T22:15:06Z",
+      "side": 1,
+      "message": "To further clarify, this problem was present in upstream until this change was merged: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/60142\n\nSo the destructor ordering warning was accurate, and was informing us of this exact problem",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e392e1e_4251841f",
