@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5701a4a_a0140ac9",
+        "filename": "faultlog_dump_entry.hpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2025-01-31T22:15:59Z",
+      "side": 1,
+      "message": "the inherited classes need to be in the opposite order. see here for more details: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/77556",
+      "revId": "a3fc9690214abc27bcca49735aa71d6c899a59a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
