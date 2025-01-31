@@ -105,6 +105,24 @@
       "parentUuid": "8f2038ba_3877c40a",
       "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94660969_b5f9d6fa",
+        "filename": "dump_entry.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-01-31T09:24:48Z",
+      "side": 1,
+      "message": "ok, nevermind. It seems like the issue is because we have a change that created\n\n```\nclass Entry : virtual public EntryIfaces, virtual public phosphor::dump::Entry\n```\n\nwith the inheritance order wrong... so the EntryIfaces descriptor only has the EntryIfaces interface since `phosphor::dump::Entry` is already removed.\n\nWe can abandon this change in that case.",
+      "parentUuid": "d90ba177_ea2280ee",
+      "revId": "6e7262974115f1cc632e6f7a5be12114ee4af8dc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
