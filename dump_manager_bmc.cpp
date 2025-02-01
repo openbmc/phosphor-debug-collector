@@ -31,8 +31,8 @@ using namespace phosphor::logging;
 bool Manager::fUserDumpInProgress = false;
 constexpr auto BMC_DUMP = "BMC_DUMP";
 
-sdbusplus::message::object_path
-    Manager::createDump(phosphor::dump::DumpCreateParams params)
+sdbusplus::message::object_path Manager::createDump(
+    phosphor::dump::DumpCreateParams params)
 {
     if (params.size() > CREATE_DUMP_MAX_PARAMS)
     {

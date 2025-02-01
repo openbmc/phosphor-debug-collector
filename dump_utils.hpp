@@ -386,8 +386,8 @@ inline DumpTypes getErrorDumpType(phosphor::dump::DumpCreateParams& params)
  * and size of the file if the extraction is successful, or std::nullopt
  * if the file name does not match the expected format.
  */
-std::optional<std::tuple<uint32_t, uint64_t, uint64_t>>
-    extractDumpDetails(const std::filesystem::path& file);
+std::optional<std::tuple<uint32_t, uint64_t, uint64_t>> extractDumpDetails(
+    const std::filesystem::path& file);
 
 } // namespace dump
 } // namespace phosphor
