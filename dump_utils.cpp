@@ -54,8 +54,8 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& path,
     return response[0].first;
 }
 
-std::optional<std::tuple<uint32_t, uint64_t, uint64_t>>
-    extractDumpDetails(const std::filesystem::path& file)
+std::optional<std::tuple<uint32_t, uint64_t, uint64_t>> extractDumpDetails(
+    const std::filesystem::path& file)
 {
     static constexpr auto ID_POS = 1;
     static constexpr auto EPOCHTIME_POS = 2;

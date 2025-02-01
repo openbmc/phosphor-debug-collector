@@ -29,8 +29,8 @@ using namespace sdbusplus::xyz::openbmc_project::Common::File::Error;
 using ErrnoOpen = xyz::openbmc_project::Common::File::Open::ERRNO;
 using PathOpen = xyz::openbmc_project::Common::File::Open::PATH;
 
-sdbusplus::message::object_path
-    Manager::createDump(phosphor::dump::DumpCreateParams params)
+sdbusplus::message::object_path Manager::createDump(
+    phosphor::dump::DumpCreateParams params)
 {
     lg2::info("In dump_manager_fault.cpp createDump");
 
