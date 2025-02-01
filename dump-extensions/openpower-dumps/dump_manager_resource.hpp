@@ -67,8 +67,8 @@ class Manager :
      *
      *  @return object_path - The object path of the new entry.
      */
-    sdbusplus::message::object_path
-        createDump(phosphor::dump::DumpCreateParams params) override;
+    sdbusplus::message::object_path createDump(
+        phosphor::dump::DumpCreateParams params) override;
 };
 
 } // namespace resource
