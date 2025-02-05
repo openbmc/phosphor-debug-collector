@@ -7,8 +7,8 @@
 
 int main()
 {
-    fs::path filePath(SYSTEMD_PSTORE_PATH);
-    if (!fs::exists(filePath))
+    std::filesystem::path filePath(SYSTEMD_PSTORE_PATH);
+    if (!std::filesystem::exists(filePath))
     {
         lg2::error("Pstore file path is not exists, FILE_PATH: {FILE_PATH}",
                    "FILE_PATH", filePath);

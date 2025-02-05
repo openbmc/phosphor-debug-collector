@@ -10,8 +10,6 @@
 
 #include <gtest/gtest.h>
 
-namespace fs = std::filesystem;
-
 class TestDumpSerial : public ::testing::Test
 {
   public:
@@ -28,17 +26,17 @@ class TestDumpSerial : public ::testing::Test
             throw std::bad_alloc();
         }
         dumpDir = std::string(dirPtr);
-        fs::create_directories(dumpDir);
+        std::filesystem::create_directories(dumpDir);
         dumpFile = dumpDir;
         dumpFile /= "elogid";
     }
     void TearDown()
     {
-        fs::remove_all(dumpDir);
+        std::filesystem::remove_all(dumpDir);
     }
 
     std::string dumpDir;
-    fs::path dumpFile;
+    std::filesystem::path dumpFile;
 };
 
 TEST_F(TestDumpSerial, Serialization)
