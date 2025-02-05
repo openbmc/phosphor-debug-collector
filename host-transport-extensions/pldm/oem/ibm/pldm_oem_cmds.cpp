@@ -79,11 +79,11 @@ mctp_eid_t readEID()
     }
     else
     {
-        std::string eid;
-        eidFile >> eid;
-        if (!eid.empty())
+        std::string eidStr;
+        eidFile >> eidStr;
+        if (!eidStr.empty())
         {
-            eid = strtol(eid.c_str(), nullptr, 10);
+            eid = strtol(eidStr.c_str(), nullptr, 10);
         }
         else
         {
