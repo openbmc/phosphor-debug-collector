@@ -23,10 +23,8 @@ namespace ramoops
 
 Manager::Manager(const std::string& filePath)
 {
-    namespace fs = std::filesystem;
-
-    fs::path dir(filePath);
-    if (!fs::exists(dir) || fs::is_empty(dir))
+    std::filesystem::path dir(filePath);
+    if (!std::filesystem::exists(dir) || std::filesystem::is_empty(dir))
     {
         return;
     }
