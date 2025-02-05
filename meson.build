@@ -161,11 +161,11 @@ dump_types_hpp = custom_target(
                         '-j',
                         get_option('ERROR_MAP_YAML'),
                         '-t',
-                        'dump_types.mako.hpp',
+                        'dump_types.hpp.mako',
                         '-o',
                         'dump_types.hpp'
                     ],
-                    depend_files : [ 'dump_types.mako.hpp',
+                    depend_files : [ 'dump_types.hpp.mako',
                                      'map_gen.py',
                                      meson.project_build_root() + '/' +  combined_yaml_file,
                                      get_option('ERROR_MAP_YAML')
@@ -183,11 +183,11 @@ dump_types_cpp = custom_target(
                         '-j',
                         get_option('ERROR_MAP_YAML'),
                         '-t',
-                        'dump_types.mako.cpp',
+                        'dump_types.cpp.mako',
                         '-o',
                         'dump_types.cpp'
                     ],
-                    depend_files : [ 'dump_types.mako.cpp',
+                    depend_files : [ 'dump_types.cpp.mako',
                                      'map_gen.py',
                                      meson.project_build_root() + '/' +  combined_yaml_file,
                                      get_option('ERROR_MAP_YAML')
