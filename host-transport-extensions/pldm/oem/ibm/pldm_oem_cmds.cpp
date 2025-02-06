@@ -16,7 +16,7 @@
 #include "pldm_oem_cmds.hpp"
 
 #include "dump_utils.hpp"
-#include "pldm_utils.hpp"
+#include "host-transport-extensions/pldm/common/pldm_utils.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <libpldm/base.h>
