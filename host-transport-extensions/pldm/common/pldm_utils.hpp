@@ -19,6 +19,8 @@ class PLDMInstanceManager
   public:
     PLDMInstanceManager(const PLDMInstanceManager&) = delete;
     PLDMInstanceManager& operator=(const PLDMInstanceManager&) = delete;
+    PLDMInstanceManager(PLDMInstanceManager&&) noexcept = default;
+    PLDMInstanceManager& operator=(PLDMInstanceManager&&) noexcept = default;
 
     PLDMInstanceManager();
     ~PLDMInstanceManager();
