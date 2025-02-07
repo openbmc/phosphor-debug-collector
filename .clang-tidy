@@ -339,7 +339,7 @@ readability-uniqueptr-delete-release,
 readability-uppercase-literal-suffix'
 
 WarningsAsErrors: '*'
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: '(?!^subprojects).*'
 
 CheckOptions:
   - { key: readability-identifier-naming.ClassCase,          	value: CamelCase  }
