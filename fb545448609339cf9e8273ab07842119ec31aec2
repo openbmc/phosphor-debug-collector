@@ -16,6 +16,24 @@
       "message": "Problem with this approach is , incase dump-manger reject dump requests related insuffient quota error . will end up with requesting dump again again.\n Also  this approch is inefficient, as it continuously checks for conditions even when there are no changes.\n\nCleaner approach may be incase of any dump request error , if the error is related unresponsive dump manager, you can explore d-bus signal based approach like register signal and watch and re-initiate request once dump-manager is approach. \n\nTrying to understand what is driving this change, like this error handling is tricky and complicating the design. which required good amount of testing to avoid regression.",
       "revId": "fb545448609339cf9e8273ab07842119ec31aec2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd07673_4795a7b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2025-02-11T05:57:17Z",
+      "side": 1,
+      "message": "Yes for insufficient quota we should not be retriggering. Timer is tied to sdeventplus so safer here, similar to signal and code will be in one place",
+      "parentUuid": "0d94fe01_6d5597da",
+      "revId": "fb545448609339cf9e8273ab07842119ec31aec2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
