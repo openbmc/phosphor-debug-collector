@@ -34,6 +34,24 @@
       "parentUuid": "0d94fe01_6d5597da",
       "revId": "fb545448609339cf9e8273ab07842119ec31aec2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a86be3a_17655aeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-02-11T07:10:37Z",
+      "side": 1,
+      "message": "Let us go with timer based approach and make sure all boundary should exercised thoroughly. Just want to make avoid regression with adding error handling code.",
+      "parentUuid": "1fd07673_4795a7b4",
+      "revId": "fb545448609339cf9e8273ab07842119ec31aec2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
