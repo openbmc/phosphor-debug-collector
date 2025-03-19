@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a824d1_f0452ad1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-03-19T17:30:37Z",
+      "side": 1,
+      "message": "there is no nvidia platform upstream. Keep the testing based on upstream qemu images.",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d11e12fc_d2a562ad",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-03-19T17:30:37Z",
+      "side": 1,
+      "message": "how is 30 decided or is it just arbitrary number ?",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061cfd3d_4dd754a0",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-03-19T17:30:37Z",
+      "side": 1,
+      "message": "mount-info.log",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
