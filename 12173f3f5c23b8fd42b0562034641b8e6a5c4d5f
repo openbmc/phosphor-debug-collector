@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c5afe3c_a7320a10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-20T02:31:51Z",
+      "side": 1,
+      "message": "Nit: change to dreport: Add Mount Information File Collection",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19a824d1_f0452ad1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -37,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45ef117d_67499903",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-20T02:31:51Z",
+      "side": 1,
+      "message": "it is priority .where 0 indicates the highest priority and 100 indicates the lowest priority.",
+      "parentUuid": "d11e12fc_d2a562ad",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "061cfd3d_4dd754a0",
         "filename": "tools/dreport.d/plugins.d/mountinfo",
         "patchSetId": 1
@@ -48,6 +83,24 @@
       "writtenOn": "2025-03-19T17:30:37Z",
       "side": 1,
       "message": "mount-info.log",
+      "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61334880_a6675fe1",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-20T02:31:51Z",
+      "side": 1,
+      "message": "mountinfo name is aligned to existing plugin naming conventions.",
+      "parentUuid": "061cfd3d_4dd754a0",
       "revId": "12173f3f5c23b8fd42b0562034641b8e6a5c4d5f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
