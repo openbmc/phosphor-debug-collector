@@ -34,6 +34,24 @@
       "parentUuid": "ca8d8fd5_19c4a671",
       "revId": "3cb82fe9148aabf6e1045588dc7ceee21917a088",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "762fc2c0_bb42bc8e",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-20T14:34:09Z",
+      "side": 1,
+      "message": "we were seeing ci failure if we are not doing it like this In tools/dreport.d/plugins.d/mountinfo line 7:\n. \"$DREPORT_INCLUDE\"/functions\n  ^--------------------------^ SC1091 (info): Not following: ./functions: openBinaryFile: does not exist (No such file or directory)\n\nFor more information:\n  https://www.shellcheck.net/wiki/SC1091 -- Not following: ./functions: openB...\nshellcheck: FAILED",
+      "parentUuid": "c901e749_8797565e",
+      "revId": "3cb82fe9148aabf6e1045588dc7ceee21917a088",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
