@@ -16,6 +16,24 @@
       "message": "we might hit this in all new plugins we push. please share what you have tried to fix this.",
       "revId": "3cb82fe9148aabf6e1045588dc7ceee21917a088",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c901e749_8797565e",
+        "filename": "tools/dreport.d/plugins.d/mountinfo",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-20T14:23:30Z",
+      "side": 1,
+      "message": "this was needed as the $DREPORT_INCLUDE was empty in the environment and discovered when PDC is running, also i have seen this kind of implementation in network file of the deport plugin. \nhttps://github.com/openbmc/phosphor-debug-collector/blob/fa6a47bf0a4d44b6730e4a50984bd555bdb6b3f8/tools/dreport.d/plugins.d/network#L7",
+      "parentUuid": "ca8d8fd5_19c4a671",
+      "revId": "3cb82fe9148aabf6e1045588dc7ceee21917a088",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
