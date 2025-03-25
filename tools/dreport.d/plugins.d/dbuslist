@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# config: 2 50
+# @brief: Collect list of all D-Bus connections.
+#
+
+# shellcheck source=/dev/null
+. "$DREPORT_INCLUDE"/functions
+
+desc="dbus list"
+file_name="dbus-list.log"
+command="busctl -l"
+
+add_cmd_output "$command" "$file_name" "$desc"
