@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# config: 2 30
+# @brief: Collect kernal command line  parameter.
+#
+
+# shellcheck source=/dev/null
+. "$DREPORT_INCLUDE"/functions
+
+desc="Kernel command line parameters"
+file_name="kernalcmdline.log"
+command="cat /proc/cmdline"
+
+add_cmd_output "$command" "$file_name" "$desc"
