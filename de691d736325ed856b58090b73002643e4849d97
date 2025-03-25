@@ -62,6 +62,29 @@
       },
       "revId": "de691d736325ed856b58090b73002643e4849d97",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b59cd75_2bb3989c",
+        "filename": "tools/dreport.d/plugins.d/dbuslist",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-03-25T14:39:18Z",
+      "side": 1,
+      "message": "Does this have to go to every service?  If so, I\u0027d be worried that a hung service would hang the dump.",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
