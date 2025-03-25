@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a96ec9ec_b73fc5c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-25T13:51:26Z",
+      "side": 1,
+      "message": "Can you split the commits to plugin specific .",
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171664a6_759461df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-25T13:51:26Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a41fda_726efd00",
+        "filename": "tools/dreport.d/plugins.d/dbuslist",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-03-25T13:51:26Z",
+      "side": 1,
+      "message": "Better to avoid  this in core dump , scope is to keep Core +journal , and any plugin highly critical.",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
