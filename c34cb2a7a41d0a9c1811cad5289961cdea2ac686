@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "254ab846_396b0d7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T13:07:58Z",
+      "side": 1,
+      "message": "Did this change.",
+      "parentUuid": "d897ccd5_b09616bf",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "c34cb2a7a41d0a9c1811cad5289961cdea2ac686",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8bfb539_7fd404cb",
         "filename": "tools/dreport.d/plugins.d/kernlcmdline",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2025-03-25T13:41:27Z",
       "side": 1,
       "message": "parameter?",
+      "range": {
+        "startLine": 4,
+        "startChar": 39,
+        "endLine": 4,
+        "endChar": 50
+      },
+      "revId": "c34cb2a7a41d0a9c1811cad5289961cdea2ac686",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b2306d_cb276ac8",
+        "filename": "tools/dreport.d/plugins.d/kernlcmdline",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T13:07:58Z",
+      "side": 1,
+      "message": "ok will change this.",
+      "parentUuid": "c8bfb539_7fd404cb",
       "range": {
         "startLine": 4,
         "startChar": 39,
@@ -60,6 +108,30 @@
       "writtenOn": "2025-03-25T13:41:27Z",
       "side": 1,
       "message": "Change to \"Kernel command line parameters\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "c34cb2a7a41d0a9c1811cad5289961cdea2ac686",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f15bbd_ce2fb11d",
+        "filename": "tools/dreport.d/plugins.d/kernlcmdline",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T13:07:58Z",
+      "side": 1,
+      "message": "Change as suggested.",
+      "parentUuid": "9b92449a_ad11cdd4",
       "range": {
         "startLine": 10,
         "startChar": 5,
