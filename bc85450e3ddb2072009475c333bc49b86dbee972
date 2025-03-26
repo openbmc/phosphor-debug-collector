@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ae7666_0798eec2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T07:37:54Z",
+      "side": 1,
+      "message": "yes did this split.",
+      "parentUuid": "84e8ead1_ea498811",
+      "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "389e1161_27b2e978",
@@ -49,6 +67,24 @@
       "writtenOn": "2025-03-25T16:13:47Z",
       "side": 1,
       "message": "can please add some specifics into what info I can get out of each file and what diagnostics I can infer.",
+      "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b21215d8_070c487d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T07:37:54Z",
+      "side": 1,
+      "message": "Added how we can infer data in the mr - Data we get can be used like\n...\nUART Activity (IRQ28)\n29 interrupts from uart-pl011\nShows serial port activity (console/terminal usage)\nUseful for debugging boot processes or BMC console access\n...\n\nVirtIO Device Activity\n...\nvirtio1-req.0: 1578 interrupts\nvirtio0-input.0: 11 interrupts\nvirtio0-output.0: 58 interrupts\nIndicates storage/network device activity\n...\nHelps identify:\nBlock device operations (disk I/O)\nNetwork packet processing\nPotential virtio-driver issues",
+      "parentUuid": "389e1161_27b2e978",
       "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -70,6 +106,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f89d3a_a9b58cad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T07:37:54Z",
+      "side": 1,
+      "message": "added the size and time also not seeing any significant performance impact. it is 15sec on qemuarm for the dump creation and 0.015s time took by plugin command.",
+      "parentUuid": "eef79d9d_412652cd",
+      "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab526039_7fc9fc4f",
@@ -83,6 +137,24 @@
       "writtenOn": "2025-03-25T14:32:46Z",
       "side": 1,
       "message": "There is already \u0027top\u0027 output.  Does this give something better?",
+      "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29ad9a2_143debd2",
+        "filename": "tools/dreport.d/plugins.d/pslist",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-03-26T07:37:54Z",
+      "side": 1,
+      "message": "did the split will add the ps is we can get any more data that is not covered in top.",
+      "parentUuid": "ab526039_7fc9fc4f",
       "revId": "bc85450e3ddb2072009475c333bc49b86dbee972",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
