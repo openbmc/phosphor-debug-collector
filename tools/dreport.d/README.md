@@ -38,8 +38,8 @@ For example, the `bmcstate` plugin has:
 # config: 12345 5
 ```
 
-It will run on dump types 1 (core), 2 (user), 3 (checkstop), 4 (checkstop), and
-5 (ramooops) with a priority of 5.
+It will run on dump types 1 (core), 2 (user), 3 (elog), 4 (checkstop), and 5
+(ramooops) with a priority of 5.
 
 During the bitbake build, the script will be linked into a directory based on
 the dump type, with the priority built into the name:
