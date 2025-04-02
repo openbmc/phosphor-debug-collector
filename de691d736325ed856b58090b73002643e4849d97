@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb3ed2d_0b85a7a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "will do that.",
+      "parentUuid": "21ecc87a_73ea593f",
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "171664a6_759461df",
@@ -49,6 +67,30 @@
       "writtenOn": "2025-03-25T13:51:26Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2077a9b_1cb79258",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "will do this.",
+      "parentUuid": "171664a6_759461df",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -76,6 +118,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16cdd42_02b4a247",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "Added the size and capture details in the commit message.",
+      "parentUuid": "0964c9a1_23bd9f33",
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "056d261e_cc58afd9",
@@ -89,6 +149,24 @@
       "writtenOn": "2025-03-25T16:09:53Z",
       "side": 1,
       "message": "capture how much is the size of each file we can expect. Also a failed, non responsive service should not impact these commands.",
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11132939_0a615736",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "Added the size and prints for the negative scenario where service is stuck and non responsive.",
+      "parentUuid": "056d261e_cc58afd9",
       "revId": "de691d736325ed856b58090b73002643e4849d97",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -116,6 +194,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68c4947d_9c7479d9",
+        "filename": "tools/dreport.d/plugins.d/dbuslist",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "will remove this from the core dump will keep it in with user and priority 10",
+      "parentUuid": "b0a41fda_726efd00",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 11
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b59cd75_2bb3989c",
@@ -129,6 +231,30 @@
       "writtenOn": "2025-03-25T14:39:18Z",
       "side": 1,
       "message": "Does this have to go to every service?  If so, I\u0027d be worried that a hung service would hang the dump.",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "de691d736325ed856b58090b73002643e4849d97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c786d96_65e9565f",
+        "filename": "tools/dreport.d/plugins.d/dbuslist",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-02T03:49:35Z",
+      "side": 1,
+      "message": "I tested this scenario the busctl command will not fail even the service is hung it will show all the services which has acquired the bus name.",
+      "parentUuid": "5b59cd75_2bb3989c",
       "range": {
         "startLine": 12,
         "startChar": 9,
