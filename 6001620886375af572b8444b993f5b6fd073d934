@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b63e7b_3e4d943a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-02T05:04:39Z",
+      "side": 1,
+      "message": "Considering the dump size, collection time, and support for systems with lower flash sizes, we decided to retain only the required data instead of the full set. Based on this, we added a plugin for functionality-specific data. Please review the existing plugins and check if any key data is missing. Feel free to add new function-specific plugins as needed.",
+      "revId": "6001620886375af572b8444b993f5b6fd073d934",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
