@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b4a8c7_dea303cf",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001814
+      },
+      "writtenOn": "2025-04-07T19:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "398bd3a8_f565e33d",
+      "revId": "0fc1b0c42b6e6e3f4c93b269c5d0e124f8803734",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "670d44e6_e9f5b05b",
