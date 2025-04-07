@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1e06d4_d12cdbcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-07T04:52:47Z",
+      "side": 1,
+      "message": "Nit : please replace \"gfwa603:/esw/san5/janeta/auditLog/1030$ \" xxxx",
+      "revId": "28b8cab3e5092b8d4193373dffd18254c4a15cd0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
