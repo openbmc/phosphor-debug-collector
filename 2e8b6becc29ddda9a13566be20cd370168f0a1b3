@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806fe53e_191ae097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-04-10T14:10:01Z",
+      "side": 1,
+      "message": "Looks fine to me.  It would need https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/79169 along with it to provide the well known names.",
+      "revId": "2e8b6becc29ddda9a13566be20cd370168f0a1b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
