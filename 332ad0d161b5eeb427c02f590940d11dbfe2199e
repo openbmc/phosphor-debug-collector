@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b6e373_a25a051f",
+        "filename": "tools/dreport.d/plugins.d/softIRQs",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-10T14:08:50Z",
+      "side": 1,
+      "message": "Better to reduce priority to \u003e50  it will help to capture other prioty items.",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "332ad0d161b5eeb427c02f590940d11dbfe2199e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
