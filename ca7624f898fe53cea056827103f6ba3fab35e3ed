@@ -33,6 +33,29 @@
       "message": "I don\u0027t really have an opinion on how useful this would be.  Will need others to weigh in.",
       "revId": "ca7624f898fe53cea056827103f6ba3fab35e3ed",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd53b28a_9d339509",
+        "filename": "tools/dreport.d/plugins.d/interrupts",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-10T14:15:51Z",
+      "side": 1,
+      "message": "Reduce the priority to \u003e50 . This will help to collect other prioty dump data collection first.",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "ca7624f898fe53cea056827103f6ba3fab35e3ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
