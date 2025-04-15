@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33ad9712_4cd8e919",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-15T07:48:46Z",
+      "side": 1,
+      "message": "Please add more description , why it is removing and what is alternative option?",
+      "revId": "4bb103648df88486f3378f9f8cb587e793fb65e5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
