@@ -99,6 +99,24 @@
       "parentUuid": "20000ac2_d5f8e162",
       "revId": "ab68d76ca04830702846496681558059237f3ce8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0deb1cb_1a601ad0",
+        "filename": "tools/dreport.d/include.d/functions",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-16T12:42:40Z",
+      "side": 1,
+      "message": "+1 yes functions file functions can be used by any plugin but this function makes the dbus calls very specific to fw version which is useful for 2 plugins we should keep that in plugin specific files.",
+      "parentUuid": "88f9f967_df085324",
+      "revId": "ab68d76ca04830702846496681558059237f3ce8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
