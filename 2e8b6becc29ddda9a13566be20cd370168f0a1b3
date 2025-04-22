@@ -33,6 +33,24 @@
       "message": "Since dump usually gets collected in error scenarion. Need to look below use cases and see below uses case are not impacting dump collection. \nService Unavailability: The service might not be running or might be unresponsive.\nHigh Load: The system or the D-Bus service might be under heavy load, causing delays in processing the request.",
       "revId": "2e8b6becc29ddda9a13566be20cd370168f0a1b3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ef5a77_6aa37f8f",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-22T10:54:43Z",
+      "side": 1,
+      "message": "the call here is for the dbus service and if that is not responsive so we will get the busctl call failed error. I tried by adding the ExecStartPre\u003d/bin/sleep 60 in the dbus service file and got call failed message which is expected as dbus service itself is not available.\nbusctl call xyz.openbmc_project.Dump.Manager /xyz/openbmc_project/dump/bmc xyz.openbmc_project.Dump.Create CreateDump a{sv} 1 \"i\" i 1234\nCall failed: The service is temporarily unavailable.",
+      "parentUuid": "b47d7b7b_5c991280",
+      "revId": "2e8b6becc29ddda9a13566be20cd370168f0a1b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
