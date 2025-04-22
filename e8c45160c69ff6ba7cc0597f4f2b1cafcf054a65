@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cfd9a72_0350bb29",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-22T17:52:41Z",
+      "side": 1,
+      "message": "Nit: Can you please format the description in cleaner way.",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "e8c45160c69ff6ba7cc0597f4f2b1cafcf054a65",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "36b18916_21842cb1",
@@ -14,6 +37,29 @@
       "writtenOn": "2025-04-02T03:49:35Z",
       "side": 1,
       "message": "addressed the comments.",
+      "revId": "e8c45160c69ff6ba7cc0597f4f2b1cafcf054a65",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e753ffa_6b95cb54",
+        "filename": "tools/dreport.d/plugins.d/dbuslist",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-04-22T17:52:41Z",
+      "side": 1,
+      "message": "Please change the priority lower like \u003e40.",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 14
+      },
       "revId": "e8c45160c69ff6ba7cc0597f4f2b1cafcf054a65",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
