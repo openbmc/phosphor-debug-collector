@@ -51,6 +51,24 @@
       "parentUuid": "b47d7b7b_5c991280",
       "revId": "2e8b6becc29ddda9a13566be20cd370168f0a1b3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa32f2e_c20384fb",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002415
+      },
+      "writtenOn": "2025-04-22T10:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88ef5a77_6aa37f8f",
+      "revId": "2e8b6becc29ddda9a13566be20cd370168f0a1b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
