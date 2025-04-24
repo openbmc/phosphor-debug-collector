@@ -16,6 +16,24 @@
       "message": "PEL is OpenPOWER specific feature/terminology, and shouldn\u0027t applicable PDC common code.\nWhy you are adding error log creation as part of PDC code? Cleanest way is to create error log for application or meta layer, which require this instead enabling for all users.",
       "revId": "91542441e2fdf453b3be0ec74a0c30dfd0747356",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e71f1780_410e5c68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-04-24T18:18:55Z",
+      "side": 1,
+      "message": "I am not opposed to have a log entry when a dump is created (we can call it something other than PEL). IMHO a way would be to create a new Dump.event.yaml here https://github.com/openbmc/phosphor-dbus-interfaces/tree/master/yaml/xyz/openbmc_project/Dump (See other examples: https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/State/Cable.events.yaml). That way you can just call lg2::commit(NewlyDefinedEvent(...)) here.",
+      "parentUuid": "1ca3221a_6ba01e6c",
+      "revId": "91542441e2fdf453b3be0ec74a0c30dfd0747356",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
