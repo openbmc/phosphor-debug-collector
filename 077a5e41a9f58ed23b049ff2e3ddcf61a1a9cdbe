@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5be09d9_806ffb1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-04-29T18:07:09Z",
+      "side": 1,
+      "message": "on invitation I looked at the collected files but not the framework or context.\n\n\nare you taking multiple snapshots with a delay?\n\ndoes this include running the top command?\n\nhave you considered collecting the raw stats file used by top before and after an interval?   one can get raw uptime, CPU utilization if hardirq, sogtirq, normal, nice max process, idle, and idle with uninterruptible wait (iowait) per CPU.\n\nsee also comment added to resolved thread.\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/79161/comments/a0a87c8d_51f6889e",
+      "revId": "077a5e41a9f58ed23b049ff2e3ddcf61a1a9cdbe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

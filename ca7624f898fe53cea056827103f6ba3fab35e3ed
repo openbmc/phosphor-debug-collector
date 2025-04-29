@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c81dbdc7_cd8a8345",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-04-29T18:07:09Z",
+      "side": 1,
+      "message": "I\u0027m fine with collecting these.   but I caution this just represents the total count since boot to the point of dump collection.    comparison of 2 or more points ideally before and after is often required unless you see 1000000 or whatever the the threshold for a stuck interrupt.\n\nI have used these in my kernel debug, and it\u0027s useful for none/handful/lots and balance between cores.\n\nalso network and possibly storage can switch to adaptive polling when expecting a steady stream of traffic.   UART often have 16-256 characters per interrupt and may or may not differentiate between rx and tx.",
+      "parentUuid": "5afab168_23dc21b2",
+      "revId": "ca7624f898fe53cea056827103f6ba3fab35e3ed",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd53b28a_9d339509",
