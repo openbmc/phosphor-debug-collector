@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb61a64f_0e8afe6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "Please include Tested:",
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247a2e6f_cf27419b",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "Please include default constructor definition.",
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63b54424_fe422db1",
+        "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "How user knows value is good? 0xFF is considerd error case , please document. or restructre api in betterway.",
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b432400c_4ca2299f",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "looking at the current implemtaion , function name not matching , looks like this is specific to to system not openpower. Please relook.",
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c014fe1c_481824c0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "openpower?",
+      "range": {
+        "startLine": 57,
+        "startChar": 26,
+        "endLine": 57,
+        "endChar": 33
+      },
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1350a000_ddaf203d",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "openpower?",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45049082_fb593fd0",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.hpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "Openpower?",
+      "range": {
+        "startLine": 68,
+        "startChar": 27,
+        "endLine": 68,
+        "endChar": 33
+      },
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33ae69ea_f234b792",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "INPUT?",
+      "range": {
+        "startLine": 121,
+        "startChar": 30,
+        "endLine": 121,
+        "endChar": 34
+      },
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e07a01f3_464709f0",
+        "filename": "dump-extensions/openpower-dumps/op_dump_util.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:06:44Z",
+      "side": 1,
+      "message": "XyzCreate",
+      "range": {
+        "startLine": 131,
+        "startChar": 9,
+        "endLine": 131,
+        "endChar": 19
+      },
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
