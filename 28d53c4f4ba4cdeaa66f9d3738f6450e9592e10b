@@ -70,6 +70,52 @@
       "parentUuid": "8e49e4d5_c6dd07b4",
       "revId": "28d53c4f4ba4cdeaa66f9d3738f6450e9592e10b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ceaabef_93963f45",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T07:08:18Z",
+      "side": 1,
+      "message": "OpenPower?",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "28d53c4f4ba4cdeaa66f9d3738f6450e9592e10b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35424196_67a665bc",
+        "filename": "dump-extensions/openpower-dumps/dump_manager_openpower.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T07:08:18Z",
+      "side": 1,
+      "message": "com:ibm?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "28d53c4f4ba4cdeaa66f9d3738f6450e9592e10b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
