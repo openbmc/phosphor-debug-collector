@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac7c4b4_b59226a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T06:54:10Z",
+      "side": 1,
+      "message": "Started Reviewing this commit series . It will be good to either respond the comments or re-order commits , which are ready for next level review.",
+      "revId": "bd00955bd5a000b245fa0420153875bbd9b6022f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
