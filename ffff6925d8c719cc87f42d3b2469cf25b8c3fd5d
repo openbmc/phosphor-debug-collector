@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e655ed4_e9d7382e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:15:41Z",
+      "side": 1,
+      "message": "Dreport uses /tmp as a temporary location for files. Consequently, every dreport log contains an incomplete list of dump-specific files. This approach can be applied to other use cases as well. Could you provide any specific reasons for implementing these changes?",
+      "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a250a11_4898f16a",
+        "filename": "tools/dreport.d/plugins.d/tmpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:15:41Z",
+      "side": 1,
+      "message": "Change to 50",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 14
+      },
+      "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
