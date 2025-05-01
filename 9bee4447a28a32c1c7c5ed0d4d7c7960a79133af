@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e849457b_cfd5b85e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-05-01T08:10:04Z",
+      "side": 1,
+      "message": "Since this is not part of CI , please run Build with clang-tidy enabled , and make sure is clean",
+      "parentUuid": "cb61a64f_0e8afe6d",
+      "revId": "9bee4447a28a32c1c7c5ed0d4d7c7960a79133af",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "247a2e6f_cf27419b",
         "filename": "dump-extensions/openpower-dumps/dump_entry_factory.hpp",
         "patchSetId": 14
