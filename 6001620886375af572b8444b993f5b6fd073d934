@@ -16,6 +16,74 @@
       "message": "Considering the dump size, collection time, and support for systems with lower flash sizes, we decided to retain only the required data instead of the full set. Based on this, we added a plugin for functionality-specific data. Please review the existing plugins and check if any key data is missing. Feel free to add new function-specific plugins as needed.",
       "revId": "6001620886375af572b8444b993f5b6fd073d934",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef611ac_acc42e7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:51:19Z",
+      "side": 1,
+      "message": "i think we need to capture what /var would contain and why it will be useful. Not generic statements here.",
+      "revId": "6001620886375af572b8444b993f5b6fd073d934",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02853008_4d1c66e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:51:19Z",
+      "side": 1,
+      "message": "remove journal logs. not useful info in the commit message.",
+      "revId": "6001620886375af572b8444b993f5b6fd073d934",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a3a30ee_403900d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:51:19Z",
+      "side": 1,
+      "message": "I see value to have this plugin as in our platforms it has helped to debug issues related to most of the mount points under /var/ directory. Need fix around performance and size restriction.",
+      "revId": "6001620886375af572b8444b993f5b6fd073d934",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2522f3_8624b182",
+        "filename": "tools/dreport.d/plugins.d/varfilelist",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:51:19Z",
+      "side": 1,
+      "message": "limit max depth.",
+      "revId": "6001620886375af572b8444b993f5b6fd073d934",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
