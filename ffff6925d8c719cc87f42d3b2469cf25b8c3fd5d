@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "102c2e25_695c8b55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:45:15Z",
+      "side": 1,
+      "message": "The problem we have hit in the past is contents missing (mainly journal) in the dump tar because there was no space left. lets add such useful cases.",
+      "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59f0ea3b_764506aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:45:15Z",
+      "side": 1,
+      "message": "lets avoid logs in commit message which are not really useful. like journal logs here.",
+      "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a250a11_4898f16a",
         "filename": "tools/dreport.d/plugins.d/tmpfilelist",
         "patchSetId": 1
@@ -37,6 +71,23 @@
         "endLine": 3,
         "endChar": 14
       },
+      "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1152dfb3_148a0126",
+        "filename": "tools/dreport.d/plugins.d/tmpfilelist",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001486
+      },
+      "writtenOn": "2025-05-06T16:45:15Z",
+      "side": 1,
+      "message": "limit the max depth as this is recursive.",
       "revId": "ffff6925d8c719cc87f42d3b2469cf25b8c3fd5d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
