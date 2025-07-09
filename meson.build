@@ -216,7 +216,7 @@ foreach yaml_file : dump_types_yaml_files
 endforeach
 
 concatenate_command += '> ' + meson.project_build_root() + '/' + combined_yaml_file
-run_command('sh', '-c', concatenate_command)
+run_command('sh', '-c', concatenate_command, check: true)
 
 python = find_program('python3')
 map_gen_file_loc = meson.project_source_root()
