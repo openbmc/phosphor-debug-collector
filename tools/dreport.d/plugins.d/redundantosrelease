@@ -68,6 +68,6 @@ if [ -n "$redundant_firmware" ]; then
     command="printf \"\nREDUNDANT_FW=%s\n\" \"\$redundant_firmware\""
     add_cmd_output "$command" "$file_name" "$desc"
 else
-    log_warnig "No redundant FW available"
+    log_warning "No redundant FW available"
 fi
 
