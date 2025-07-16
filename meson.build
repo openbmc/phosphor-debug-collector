@@ -306,6 +306,8 @@ subdir('host-transport-extensions')
 #pick any architecture specific dumps
 subdir('dump-extensions')
 
+subdir('service_files')
+
 phosphor_dump_monitor_sources = [
     dump_types_hpp,
     'core_manager.cpp',
@@ -371,6 +373,7 @@ foreach executable : executables
         dependencies: executable[2],
         install: executable[3],
         include_directories: executable[4],
+        install_dir: get_option('libexecdir') / executable[0],
     )
 endforeach
 
