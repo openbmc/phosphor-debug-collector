@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df84f8a5_d7c404f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "278e7c3a_d75f54ab",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baea3327_093cd7e1",
@@ -41,6 +59,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ea80e9b_fa111d57",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baea3327_093cd7e1",
+      "range": {
+        "startLine": 376,
+        "startChar": 46,
+        "endLine": 376,
+        "endChar": 62
+      },
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4472b57b_fa0c258c",
@@ -54,6 +96,30 @@
       "writtenOn": "2025-07-16T15:26:34Z",
       "side": 1,
       "message": "You actually don\u0027t need a foreach here.  You can just pass them all to `install_data` directly.\n\nhttps://mesonbuild.com/Reference-manual_functions.html#install_data",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de318623_b0b70637",
+        "filename": "service_files/meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4472b57b_fa0c258c",
       "range": {
         "startLine": 6,
         "startChar": 0,
@@ -110,6 +176,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edc2e18e_d11825cc",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45674ca_351e3485",
+      "range": {
+        "startLine": 6,
+        "startChar": 36,
+        "endLine": 6,
+        "endChar": 43
+      },
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97f0e227_0bafc80c",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "257c88bb_46baa99e",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 14
+      },
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9412a519_90baa4d9",
@@ -129,6 +243,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9f34dc6_ae7931c6",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Could something be relying on this in the logging output?",
+      "parentUuid": "9412a519_90baa4d9",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f41a5f85_d5ebe32f",
         "filename": "service_files/obmc-dump-monitor.service",
         "patchSetId": 1
@@ -140,6 +272,24 @@
       "writtenOn": "2025-07-16T15:26:34Z",
       "side": 1,
       "message": "Is there a type\u003ddbus that should be added here?  Does `phosphor-dump-monitor` expose a dbus service name or is it just a dbus client?",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578ffd27_4c1d74c5",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "If I understood it correctly, it is only a D-Bus client. It calls ObjectMapper and Dump.Create.",
+      "parentUuid": "f41a5f85_d5ebe32f",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -167,6 +317,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85702b2_2ce5e427",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f21f8f_d8ccdcf9",
+      "range": {
+        "startLine": 5,
+        "startChar": 34,
+        "endLine": 5,
+        "endChar": 50
+      },
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f9724b8_a339c45f",
@@ -180,6 +354,24 @@
       "writtenOn": "2025-07-16T15:26:34Z",
       "side": 1,
       "message": "probably not necessary",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87356a5_0c99f7ea",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-17T16:23:23Z",
+      "side": 1,
+      "message": "Thanks! How can I verify it?",
+      "parentUuid": "5f9724b8_a339c45f",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
