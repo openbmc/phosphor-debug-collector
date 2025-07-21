@@ -261,6 +261,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "316d7d8f_15482662",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-07-21T23:21:42Z",
+      "side": 1,
+      "message": "I think that would be the default syslog identifier?",
+      "parentUuid": "d9f34dc6_ae7931c6",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f41a5f85_d5ebe32f",
         "filename": "service_files/obmc-dump-monitor.service",
         "patchSetId": 1
@@ -290,6 +308,24 @@
       "side": 1,
       "message": "If I understood it correctly, it is only a D-Bus client. It calls ObjectMapper and Dump.Create.",
       "parentUuid": "f41a5f85_d5ebe32f",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a64933_6f6c2142",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-07-21T23:21:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "578ffd27_4c1d74c5",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -372,6 +408,24 @@
       "side": 1,
       "message": "Thanks! How can I verify it?",
       "parentUuid": "5f9724b8_a339c45f",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3d3ffc_6544a39f",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-07-21T23:21:42Z",
+      "side": 1,
+      "message": "```\n       SyslogIdentifier\u003d\n           Sets the process name (\"syslog tag\") to prefix log lines sent to the logging system or the kernel log\n           buffer with. If not set, defaults to the process name of the executed process. This option is only\n           useful when StandardOutput\u003d or StandardError\u003d are set to journal or kmsg (or to the same settings in\n           combination with +console) and only applies to log messages written to stdout or stderr.\n```\n\nFrom `man systemd.exec`.",
+      "parentUuid": "b87356a5_0c99f7ea",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
