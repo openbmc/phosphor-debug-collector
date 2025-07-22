@@ -295,6 +295,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceede65f_d936deba",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-22T17:02:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2fee9b5_4aae2015",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f41a5f85_d5ebe32f",
@@ -462,6 +480,24 @@
       "side": 1,
       "message": "Got it, fixed. Thanks!",
       "parentUuid": "3e3d3ffc_6544a39f",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3800366b_8feb2ddf",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-22T17:02:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5107fbc_90c02cff",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
