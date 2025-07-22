@@ -279,6 +279,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2fee9b5_4aae2015",
+        "filename": "service_files/obmc-dump-monitor.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-22T17:01:29Z",
+      "side": 1,
+      "message": "Makes sense. Thanks!",
+      "parentUuid": "316d7d8f_15482662",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f41a5f85_d5ebe32f",
         "filename": "service_files/obmc-dump-monitor.service",
         "patchSetId": 1
@@ -426,6 +444,24 @@
       "side": 1,
       "message": "```\n       SyslogIdentifier\u003d\n           Sets the process name (\"syslog tag\") to prefix log lines sent to the logging system or the kernel log\n           buffer with. If not set, defaults to the process name of the executed process. This option is only\n           useful when StandardOutput\u003d or StandardError\u003d are set to journal or kmsg (or to the same settings in\n           combination with +console) and only applies to log messages written to stdout or stderr.\n```\n\nFrom `man systemd.exec`.",
       "parentUuid": "b87356a5_0c99f7ea",
+      "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5107fbc_90c02cff",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2025-07-22T17:01:29Z",
+      "side": 1,
+      "message": "Got it, fixed. Thanks!",
+      "parentUuid": "3e3d3ffc_6544a39f",
       "revId": "c6f5d107b44facbe1afd89553e70d40f374e9893",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
