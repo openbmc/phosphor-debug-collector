@@ -18,4 +18,8 @@ if [ -e "/usr/bin/fanctl" ]; then
     add_cmd_output "$command" "$file_name" "$desc"
     rm -f /tmp/fan_control_dump.json
 
+    desc="Sensor Values"
+    file_name="sensor_values.json"
+    command="fanctl sensors"
+    add_cmd_output "$command" "$file_name" "$desc"
 fi
