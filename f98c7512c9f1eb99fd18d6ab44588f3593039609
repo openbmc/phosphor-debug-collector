@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "390f5b97_94ffb6fd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001758
+      },
+      "writtenOn": "2025-07-23T19:11:30Z",
+      "side": 1,
+      "message": "For such a change, i would suggest to boot the image in a qemu to make sure the systemctl status for the affected services report fine status.",
+      "revId": "f98c7512c9f1eb99fd18d6ab44588f3593039609",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
