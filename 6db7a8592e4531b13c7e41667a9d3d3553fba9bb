@@ -1,0 +1,11 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Jagpal S Gill <paligill@gmail.com>
+Code-Review+1: Patrick Williams <patrick@stwcx.xyz>
+Code-Review+2: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-by: Patrick Williams <patrick@stwcx.xyz>
+Submitted-at: Mon, 11 Aug 2025 19:48:27 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/82071
+Comments-Total: 32
+Comments-Unresolved: 1
+Project: openbmc/phosphor-debug-collector
+Branch: refs/heads/master
