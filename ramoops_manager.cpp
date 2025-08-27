@@ -29,6 +29,8 @@ Manager::Manager(const std::string& filePath)
         return;
     }
 
+    prefixFilesWithLast(dir);
+
     // Create error to notify user that a ramoops has been detected
     createError();
 
@@ -126,6 +128,34 @@ void Manager::createHelper(const std::vector<std::string>& files)
     {
         lg2::error("Failed to create ramoops dump, errormsg: {ERROR}", "ERROR",
                    e);
+    }
+}
+
+void Manager::prefixFilesWithLast(const std::filesystem::path& dir)
+{
+    for (const auto& entry : std::filesystem::directory_iterator(dir))
+    {
+        if (entry.is_regular_file())
+        {
+            const auto& oldPath = entry.path();
+            auto filename = oldPath.filename().string();
+
+            if (filename.starts_with("last_"))
+            {
+                continue;
+            }
+
+            auto newPath = oldPath.parent_path() / ("last_" + filename);
+
+            try
+            {
+                std::filesystem::rename(oldPath, newPath);
+            }
+            catch (const std::filesystem::filesystem_error& e)
+            {
+                lg2::error("Rename failed: {ERROR}", "ERROR", e);
+            }
+        }
     }
 }
 

@@ -42,6 +42,11 @@ class Manager
      *
      */
     void createError();
+
+    /** @brief Rename file to avoid duplicate records
+     *  @param [in] dir - ramoops dir
+     */
+    void prefixFilesWithLast(const std::filesystem::path& dir);
 };
 
 } // namespace ramoops
