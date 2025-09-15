@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67778352_becb4709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2025-09-15T15:28:48Z",
+      "side": 1,
+      "message": "Hi @cweinan@google.com - why do this change set and https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/62581 exist at the same time?  Can we maybe abandon one of them to cut down on confusion?",
+      "revId": "a3fc9690214abc27bcca49735aa71d6c899a59a2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5701a4a_a0140ac9",
