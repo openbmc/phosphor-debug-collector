@@ -79,6 +79,30 @@
       },
       "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68be6f02_638d1b7c",
+        "filename": "dump_manager_faultlog.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2025-09-15T15:26:24Z",
+      "side": 1,
+      "message": "it is: https://github.com/openbmc/bios-bmc-smm-error-logger/blob/e710a3677b03caf3be6a8c4c54c35652524f719e/include/dbus/file_notifier.hpp#L46",
+      "parentUuid": "adf9bc36_87dc0219",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 435,
+        "endChar": 39
+      },
+      "revId": "dd85228a15e0062512513462005a3e6cd88f65f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
