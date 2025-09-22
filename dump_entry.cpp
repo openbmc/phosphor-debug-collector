@@ -92,7 +92,7 @@ void Entry::serialize()
         j["originatorType"] = originatorType();
         j["startTime"] = startTime();
 
-        os << j.dump();
+        os << j.dump(4);
     }
     catch (const std::exception& e)
     {
