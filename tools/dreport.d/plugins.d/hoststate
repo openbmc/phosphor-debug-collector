@@ -15,3 +15,13 @@ command="busctl get-property \
                     CurrentHostState"
 
 add_cmd_output "$command" "$file_name" "$desc"
+services=$(busctl list | awk '{print $1}' | grep "xyz.openbmc_project.State.Host\([0-9]\)$")
+for service in ${services}; do
+    objpath=$(busctl tree --list $service  | tail -n 1)
+    hostname=$(basename $objpath)
+    desc="${hostname^} State"
+    file_name="${hostname}-state.log"
+    command="busctl get-property ${service} ${objpath} \
+              xyz.openbmc_project.State.Host CurrentHostState"
+    add_cmd_output "$command" "$file_name" "$desc"
+done
