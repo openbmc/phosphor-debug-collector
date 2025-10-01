@@ -6,7 +6,13 @@
 
 . $DREPORT_INCLUDE/functions
 
-desc="OBMC console log"
-file_name="/var/log/obmc-console.log"
-
-add_copy_file "$file_name" "$desc"
+default_desc="OBMC console log"
+for file_name in /var/log/obmc-console*; do
+    desc=${default_desc}
+    if [ "$file_name" != "/var/log/obmc-console.log" ]; then
+      name=${file_name/\/var\/log\/obmc-console-/}
+      name=${name/.log/}
+      desc="OBMC Console $name log"
+    fi
+    add_copy_file "$file_name" "$desc"
+done
