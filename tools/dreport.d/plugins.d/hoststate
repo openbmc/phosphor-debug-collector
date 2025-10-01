@@ -15,3 +15,16 @@ command="busctl get-property \
                     CurrentHostState"
 
 add_cmd_output "$command" "$file_name" "$desc"
+# Discover additional BMC services for multi-host support
+services=$(busctl list | awk '{print $1}' | grep "xyz.openbmc_project.State.Host\([0-9]\)$")
+for service in ${services}; do
+    objpath=$(busctl tree --list $service  | tail -n 1)
+    # Gets hostX name to ensure the filename/description used are associated with a unique
+    # host instance.
+    hostname=$(basename $objpath)
+    desc="${hostname^} State"
+    file_name="${hostname}-state.log"
+    command="busctl get-property ${service} ${objpath} \
+              xyz.openbmc_project.State.Host CurrentHostState"
+    add_cmd_output "$command" "$file_name" "$desc"
+done
