@@ -6,12 +6,19 @@
 
 . $DREPORT_INCLUDE/functions
 
-desc="Host State"
-file_name="host-state.log"
-command="busctl get-property \
-                    xyz.openbmc_project.State.Host \
-                    /xyz/openbmc_project/state/host0 \
-                    xyz.openbmc_project.State.Host \
-                    CurrentHostState"
-
-add_cmd_output "$command" "$file_name" "$desc"
+# Discover all services managing host states
+services=$(busctl list | awk '{print $1}' | grep -E "xyz.openbmc_project.State.Host([0-9]*)?$")
+for service in ${services}; do
+    objpath=$(busctl tree --list $service | tail -n 1)
+    index=$(echo "$service" | grep -o '[0-9]*$')
+    if [ -z "$index" ]; then
+        file_name="host-state.log"
+        desc="Host State"
+    else
+        file_name="host${index}-state.log"
+        desc="Host${index} State"
+    fi
+    command="busctl get-property ${service} ${objpath} \
+              xyz.openbmc_project.State.Host CurrentHostState"
+    add_cmd_output "$command" "$file_name" "$desc"
+done
