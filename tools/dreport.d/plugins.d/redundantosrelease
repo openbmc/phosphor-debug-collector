@@ -27,7 +27,7 @@ array_length=${#read_array[@]}
 
 # If there is only one FW image on the BMC, return then and there
 if [ "$array_length" -lt 5 ]; then
-    return "$SUCCESS"
+    exit 0
 fi
 
 firmware1=$(echo "${read_array[3]}" | xargs)
