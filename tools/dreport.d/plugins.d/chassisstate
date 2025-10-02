@@ -15,3 +15,14 @@ command="busctl get-property \
                     CurrentPowerState"
 
 add_cmd_output "$command" "$file_name" "$desc"
+
+services=$(busctl list | awk '{print $1}' | grep "xyz.openbmc_project.State.Chassis\([0-9]\)$")
+for service in ${services}; do
+    objpath=$(busctl tree --list $service  | tail -n 1)
+    index=$(echo "$service" | grep -o '[0-9]*$')
+    file_name="chassis${index}-state.log"
+    desc="Chassis${index} State"
+    command="busctl get-property ${service} ${objpath} \
+              xyz.openbmc_project.State.Chassis CurrentPowerState"
+    add_cmd_output "$command" "$file_name" "$desc"
+done
