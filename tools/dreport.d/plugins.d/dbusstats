@@ -1,17 +1,16 @@
 #!/bin/bash
 #
 # config: 2 50
-# @brief: Get the internal dbus information.
+# @brief: Get the internal D-bus information.
 #
 
 # shellcheck source=/dev/null
 . "$DREPORT_INCLUDE"/functions
 
-desc="dbus internal stats"
+desc="D-bus internal stats"
 
-command="dbus-send --system --dest=org.freedesktop.DBus \
-            --type=method_call --print-reply \
-            /org/freedesktop/DBus org.freedesktop.DBus.Debug.Stats.GetStats"
+command="busctl call org.freedesktop.DBus /org/freedesktop/DBus \
+        org.freedesktop.DBus.Debug.Stats GetStats \"\" a{sv} --verbose"
 
 file_name="dbusstats.log"
 
