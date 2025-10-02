@@ -9,9 +9,8 @@
 
 desc="dbus internal stats"
 
-command="dbus-send --system --dest=org.freedesktop.DBus \
-            --type=method_call --print-reply \
-            /org/freedesktop/DBus org.freedesktop.DBus.Debug.Stats.GetStats"
+command="busctl call org.freedesktop.DBus \
+        /org/freedesktop/DBus org.freedesktop.DBus.Debug.Stats GetStats"
 
 file_name="dbusstats.log"
 
