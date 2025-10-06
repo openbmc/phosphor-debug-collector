@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5e3925_11fe615d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:29:37Z",
+      "side": 1,
+      "message": "start with dreport:",
+      "revId": "7edb4c1bc14ed97c890c471c210f884f5920483f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feecec2b_f10fe366",
+        "filename": "tools/dreport.d/plugins.d/chassisstate",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:29:37Z",
+      "side": 1,
+      "message": "Nit : add \"# Discover additional chassis services for multi-host support\"",
+      "revId": "7edb4c1bc14ed97c890c471c210f884f5920483f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5bf816_98e78ba3",
+        "filename": "tools/dreport.d/plugins.d/chassisstate",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:29:37Z",
+      "side": 1,
+      "message": "Keep filename and description unique to chassis . This will help to avoid conflicts. Also helps to preserve the file incase of failure in chassis specific state collecftion.\nindex\u003d$(echo \"$service\" | grep -o \u0027[0-9]*$\u0027)\nfile_name\u003d\"chassis${index}-state.log\"\ndesc\u003d\"Chassis${index} State\"",
+      "revId": "7edb4c1bc14ed97c890c471c210f884f5920483f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
