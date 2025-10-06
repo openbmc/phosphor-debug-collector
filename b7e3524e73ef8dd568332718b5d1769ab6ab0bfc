@@ -50,6 +50,24 @@
       "message": "will not work correctly for the default file /var/log/obmc-console.log because it doesn\u0027t have a - suffix",
       "revId": "b7e3524e73ef8dd568332718b5d1769ab6ab0bfc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a01719c2_fbf76b1e",
+        "filename": "tools/dreport.d/plugins.d/obmcconsole",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-06T20:31:27Z",
+      "side": 1,
+      "message": "Oh good catch!",
+      "parentUuid": "b279ccbd_2ce860a0",
+      "revId": "b7e3524e73ef8dd568332718b5d1769ab6ab0bfc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
