@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca0ff60_8e160cac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:33:18Z",
+      "side": 1,
+      "message": "Start with dreport:",
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11926fc3_734ee0e8",
+        "filename": "tools/dreport.d/plugins.d/hoststate",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:33:18Z",
+      "side": 1,
+      "message": "Nit : add comment\"# Discover additional BMC services for multi-host support\"",
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a64944_564b1fca",
+        "filename": "tools/dreport.d/plugins.d/hoststate",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:33:18Z",
+      "side": 1,
+      "message": "Ensure file name and description are uniquely tied to each BMC instance",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
