@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11944b58_0aff5bcf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:07:51Z",
+      "side": 1,
+      "message": "Nit : start with dreport:",
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "966574fe_c6ddcd43",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:07:51Z",
+      "side": 1,
+      "message": "Nit: Change to D-bus",
+      "range": {
+        "startLine": 4,
+        "startChar": 27,
+        "endLine": 4,
+        "endChar": 31
+      },
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef9bc36_7ef42479",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:07:51Z",
+      "side": 1,
+      "message": "Nit : change to D-bus.",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3dcc7f1_4c9ece1f",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:07:51Z",
+      "side": 1,
+      "message": "busctl call org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.Debug.Stats GetStats \"\" a{sv} --verbose will help to print output in structured format.",
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
