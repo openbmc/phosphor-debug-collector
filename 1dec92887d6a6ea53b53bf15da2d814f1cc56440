@@ -79,6 +79,24 @@
       "message": "busctl call org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.Debug.Stats GetStats \"\" a{sv} --verbose will help to print output in structured format.",
       "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c787d4d_84adf20a",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-06T20:47:22Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "d3dcc7f1_4c9ece1f",
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
