@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485e0e85_b6761aa7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-06T07:42:36Z",
+      "side": 1,
+      "message": "Nit: rephrase : dreport: Fix incorrect use of return in main script body.",
+      "revId": "0ac1cf5a625f4b11ea00ba47df6e9f0218ad6504",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
