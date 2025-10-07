@@ -16,6 +16,23 @@
       "message": "remove this dump-extensions/openpower-dumps/.nfs0000000015eaa736000000f6",
       "revId": "f16c1fbb87ecd692aaa5ec8c5adb33b82bb40b63",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9a1bf5_f11fd880",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-07T05:04:15Z",
+      "side": 1,
+      "message": "No activity on this item in the last 5 months. If it\u0027s not being actively looked at, feel free to mark it as WIP.",
+      "revId": "f16c1fbb87ecd692aaa5ec8c5adb33b82bb40b63",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
