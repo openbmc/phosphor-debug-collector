@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c8c9507_dc1ee2db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-10-07T05:04:34Z",
+      "side": 1,
+      "message": "No activity on this item in the last 5 months. If it\u0027s not being actively looked at, feel free to mark it as WIP.",
+      "revId": "da4b69b92dda4d23b0bd7023a7c000a47f5db194",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
