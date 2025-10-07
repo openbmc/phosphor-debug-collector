@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55746a7_0108b14d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:08:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11944b58_0aff5bcf",
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "966574fe_c6ddcd43",
@@ -41,6 +59,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2902266_bb1c9458",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:08:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "966574fe_c6ddcd43",
+      "range": {
+        "startLine": 4,
+        "startChar": 27,
+        "endLine": 4,
+        "endChar": 31
+      },
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ef9bc36_7ef42479",
@@ -54,6 +96,30 @@
       "writtenOn": "2025-10-06T07:07:51Z",
       "side": 1,
       "message": "Nit : change to D-bus.",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da958b0e_d9a87451",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:08:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ef9bc36_7ef42479",
       "range": {
         "startLine": 10,
         "startChar": 6,
@@ -95,6 +161,24 @@
       "side": 1,
       "message": "Thanks!",
       "parentUuid": "d3dcc7f1_4c9ece1f",
+      "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd982c76_946df971",
+        "filename": "tools/dreport.d/plugins.d/dbusstats",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:08:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c787d4d_84adf20a",
       "revId": "1dec92887d6a6ea53b53bf15da2d814f1cc56440",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
