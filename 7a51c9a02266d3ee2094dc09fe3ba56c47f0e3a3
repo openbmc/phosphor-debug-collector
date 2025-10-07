@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e91665e4_b82812c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:05:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dca0ff60_8e160cac",
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b77d681_8714a7cb",
@@ -52,6 +70,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5884e992_5ff8dd0e",
+        "filename": "tools/dreport.d/plugins.d/hoststate",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:05:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11926fc3_734ee0e8",
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62a64944_564b1fca",
@@ -65,6 +101,30 @@
       "writtenOn": "2025-10-06T07:33:18Z",
       "side": 1,
       "message": "Ensure file name and description are uniquely tied to each BMC instance",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 62
+      },
+      "revId": "7a51c9a02266d3ee2094dc09fe3ba56c47f0e3a3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8b2aad_f28d42e4",
+        "filename": "tools/dreport.d/plugins.d/hoststate",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-10-07T23:05:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62a64944_564b1fca",
       "range": {
         "startLine": 22,
         "startChar": 4,
