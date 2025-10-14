@@ -16,6 +16,29 @@
       "message": "Nit: Optimize this logic with single host file name same as previously?\nservices\u003d$(busctl list | awk \u0027{print $1}\u0027 | grep -E \"xyz.openbmc_project.State.Host([0-9]*)?$\")\n\nfor service in ${services}; do\n    objpath\u003d$(busctl tree --list $service | tail -n 1)\n    index\u003d$(echo \"$service\" | grep -o \u0027[0-9]*$\u0027)\n\n    if [ -z \"$index\" ]; then\n        file_name\u003d\"host-state.log\"\n        desc\u003d\"Host State\"\n    else\n        file_name\u003d\"host${index}-state.log\"\n        desc\u003d\"Host${index} State\"\n    fi\n\n    command\u003d\"busctl get-property ${service} ${objpath} \\\n              xyz.openbmc_project.State.Host CurrentHostState\"\n    add_cmd_output \"$command\" \"$file_name\" \"$desc\"\ndone",
       "revId": "f218b7149002945450bcf3df0b53f2ebeb11eee6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49a055b_1b55de9d",
+        "filename": "tools/dreport.d/plugins.d/hoststate",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2025-10-14T13:56:34Z",
+      "side": 1,
+      "message": "Could we make this 1-9 so we don\u0027t repeat the 0 instance we already captured above? Or if we want the file name to be consistent, just delete lines 10-17 and we\u0027ll capture everything in this loop.",
+      "range": {
+        "startLine": 19,
+        "startChar": 83,
+        "endLine": 19,
+        "endChar": 84
+      },
+      "revId": "f218b7149002945450bcf3df0b53f2ebeb11eee6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
