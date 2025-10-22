@@ -16,6 +16,23 @@
       "message": "Error is related to libgpiod...",
       "revId": "e5196f58a0c672497fa87de975b694dbac8d5007",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d17ab0_33863587",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000009
+      },
+      "writtenOn": "2025-10-22T19:47:11Z",
+      "side": 1,
+      "message": "The libgpiod problem was a transient network failure. I re-triggered the build and now it has a genuine failure on formatting",
+      "revId": "e5196f58a0c672497fa87de975b694dbac8d5007",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
