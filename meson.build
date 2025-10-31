@@ -160,7 +160,7 @@ conf_data.set_quoted(
 )
 conf_data.set(
     'BMC_DUMP_ROTATE_CONFIG',
-    get_option('dump_rotate_config').allowed(),
+    get_option('dump-rotate-config').allowed(),
     description: 'Turn on rotate config for bmc dump',
 )
 
