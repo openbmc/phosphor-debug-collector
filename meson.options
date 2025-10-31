@@ -114,7 +114,7 @@ option(
 )
 
 option(
-    'dump_rotate_config',
+    'dump-rotate-config',
     type: 'feature',
     value: 'disabled',
     description: 'Enable rotate config for bmc dump',
