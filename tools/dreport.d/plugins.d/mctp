@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# config: 123 60
+# @brief: Collect list of all MCTP Addresses.
+#
+
+# shellcheck source=/dev/null
+. "$DREPORT_INCLUDE"/functions
+
+# If mctp is not installed, do not try to collect
+if [ ! -x /usr/bin/mctp ]; then
+    exit 0
+fi
+
+add_cmd_output "mctp address show" "mctp-addresses.log" "MCTP Addresses"
+add_cmd_output "mctp link show" "mctp-links.log" "MCTP Links"
+add_cmd_output "mctp neigh show" "mctp-neigh.log" "MCTP Neighbors"
+add_cmd_output "mctp route show" "mctp-route.log" "MCTP Routes"
+add_cmd_output "busctl tree au.com.codeconstruct.MCTP1" "mctp-tree.log" "MCTP DBus objects"
