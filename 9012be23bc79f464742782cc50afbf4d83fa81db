@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9859ee6c_e57e1f55",
+        "filename": "tools/dreport.d/plugins.d/mctp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-11-04T07:01:17Z",
+      "side": 1,
+      "message": "Not valid dump type \nAlso priorty 5 seems not  a good choice , lokk some value above 50.",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "9012be23bc79f464742782cc50afbf4d83fa81db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b5672b9_d62b36df",
+        "filename": "tools/dreport.d/plugins.d/mctp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2025-11-04T07:01:17Z",
+      "side": 1,
+      "message": "The service name (au.com.codeconstruct.MCTP1) is platform-specific or dynamic?",
+      "range": {
+        "startLine": 19,
+        "startChar": 28,
+        "endLine": 19,
+        "endChar": 54
+      },
+      "revId": "9012be23bc79f464742782cc50afbf4d83fa81db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
