@@ -41,8 +41,8 @@ bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
             bus.new_method_call(service.c_str(), policy, property, "Get");
         method.append(enable, "Enabled");
         auto reply = bus.call(method);
-        std::variant<bool> v;
-        reply.read(v);
+        auto v = reply.unpack<std::variant<bool>>();
+
         isEnabled = std::get<bool>(v);
     }
     catch (const sdbusplus::exception::SdBusError& e)
