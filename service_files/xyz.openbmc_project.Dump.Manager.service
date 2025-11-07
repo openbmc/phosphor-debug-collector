@@ -2,7 +2,7 @@
 Description=Phosphor Dump Manager
 
 [Service]
-ExecStartPre=/bin/sh -c 'mkdir -p /var/lib/phosphor-debug-collector/dumps'
+ExecStartPre=/bin/sh -c 'mkdir -p {BMC_DUMP_PATH}'
 ExecStart=/usr/libexec/phosphor-debug-collector/phosphor-dump-manager
 Restart=always
 Type=dbus
