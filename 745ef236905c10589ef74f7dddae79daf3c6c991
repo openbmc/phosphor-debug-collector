@@ -85,6 +85,24 @@
       "parentUuid": "635149ed_030cd19a",
       "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5994d41a_bceb1875",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-12-02T21:40:51Z",
+      "side": 1,
+      "message": "looking at the top level meson.build it looks like it could be a configuration variable.\n\ncan you check and confirm if it\u0027s expanded by meson during the installation into the filesystem?",
+      "parentUuid": "854a716c_595a696f",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
