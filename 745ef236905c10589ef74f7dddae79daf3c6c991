@@ -16,6 +16,23 @@
       "message": "@William - since you did the original work could you have a look?  Perhaps there was a reason to do it this way.",
       "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635149ed_030cd19a",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-12-02T21:05:39Z",
+      "side": 1,
+      "message": "what does variable substitution like this? shell uses  `${VAR}`.\nwhere is the environment variable set? is it global?",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
