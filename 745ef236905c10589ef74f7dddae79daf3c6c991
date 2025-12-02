@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e47dc10_9ef2ad65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001842
+      },
+      "writtenOn": "2025-12-02T21:19:34Z",
+      "side": 1,
+      "message": "This is how it was before. I wish @William would weigh-in here since he broke this when he moved it over.",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "635149ed_030cd19a",
@@ -31,6 +48,24 @@
       "writtenOn": "2025-12-02T21:05:39Z",
       "side": 1,
       "message": "what does variable substitution like this? shell uses  `${VAR}`.\nwhere is the environment variable set? is it global?",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854a716c_595a696f",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1001842
+      },
+      "writtenOn": "2025-12-02T21:19:34Z",
+      "side": 1,
+      "message": "It comes from meson. This is the previous behavior. If I could any engagement from the person who broke this perhaps they could explain why they did.",
+      "parentUuid": "635149ed_030cd19a",
       "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
