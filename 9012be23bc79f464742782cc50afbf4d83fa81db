@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d333782a_42d8607d",
+        "filename": "tools/dreport.d/plugins.d/mctp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-12-08T17:57:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "459dd7f3_fc9db079",
+      "range": {
+        "startLine": 3,
+        "startChar": 10,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "9012be23bc79f464742782cc50afbf4d83fa81db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b5672b9_d62b36df",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Its static. Comes from https://github.com/CodeConstruct/mctp/blob/main/src/mctpd.c#L51",
       "parentUuid": "5b5672b9_d62b36df",
+      "range": {
+        "startLine": 19,
+        "startChar": 28,
+        "endLine": 19,
+        "endChar": 54
+      },
+      "revId": "9012be23bc79f464742782cc50afbf4d83fa81db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c37a12_1465f6e2",
+        "filename": "tools/dreport.d/plugins.d/mctp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-12-08T17:57:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "522c4f4c_7b6c5511",
       "range": {
         "startLine": 19,
         "startChar": 28,
