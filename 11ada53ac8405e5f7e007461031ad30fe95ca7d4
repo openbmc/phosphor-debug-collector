@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf917fd_21b33bb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2026-01-05T16:39:46Z",
+      "side": 1,
+      "message": "I don\u0027t see this plugin. I see the traceevents plugin collects this. Is that what was meant here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "11ada53ac8405e5f7e007461031ad30fe95ca7d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "505a0158_a5f8352b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001621
+      },
+      "writtenOn": "2026-01-05T16:39:46Z",
+      "side": 1,
+      "message": "I agree only one of these should be kept. But their config is different. The lktrace version also collects on core dumps whereas the tracevents one does not.\n\nMaybe the traceevents one should be deleted instead?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "11ada53ac8405e5f7e007461031ad30fe95ca7d4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d420d21b_0ef2a33b",
