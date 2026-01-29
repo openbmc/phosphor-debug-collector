@@ -192,6 +192,19 @@ endif
 
 configure_file(configuration: conf_data, output: 'config.h')
 
+# Dreport configuration file (dreport.conf) generation
+
+dreport_conf = configuration_data()
+dreport_conf.set('DUMP_COMPRESSION', get_option('dump-compression-algorithm'))
+
+configure_file(
+    input: 'tools/dreport.d/dreport.conf.in',
+    output: 'dreport.conf',
+    configuration: dreport_conf,
+    install: true,
+    install_dir: get_option('datadir') / 'dreport.d',
+)
+
 dump_types_yaml_files = []
 
 # Dump types YAML file
