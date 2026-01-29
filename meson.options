@@ -176,3 +176,11 @@ option(
     value: '/xyz/openbmc_project/dump/resource/entry',
     description: 'The resource dump entry D-Bus object path',
 )
+
+option(
+    'dump-compression-algorithm',
+    type: 'combo',
+    choices: ['xz', 'gzip', 'zstd'],
+    value: 'xz',
+    description: 'Compression algorithm for dump archives',
+)

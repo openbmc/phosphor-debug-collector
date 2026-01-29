@@ -1,7 +1,7 @@
 #! /bin/bash
 
 help=$(cat << EOF
-        dreport creates an archive(xz compressed) consisting of the following:
+        dreport creates an archive consisting of the following:
                 * Configuration information
                 * Debug information
                 * A summary report
@@ -165,7 +165,7 @@ function set_elog_pid()
 # @brief Initial version of the summary log
 function init_summary()
 {
-    log_summary "Name:          $name.tar.xz"
+    log_summary "Name:          $name.$ARCHIVE_EXT"
     log_summary "Epochtime:     $EPOCHTIME"
     log_summary "ID:            $dump_id"
     log_summary "Type:          $dump_type"
@@ -231,15 +231,13 @@ function package()
 
     #tar and compress the files.
     if [ -f "$HEADER_EXTENSION" ]; then
-        tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
+        create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
         echo "Adding Dump Header :"$HEADER_EXTENSION
         ("$HEADER_EXTENSION")
-        cat "$name_dir.tar.xz" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
-        mv "/tmp/dumpheader_$EPOCHTIME" "$name_dir.tar.xz"
+        cat "$ARCHIVE_PATH" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
+        mv "/tmp/dumpheader_$EPOCHTIME" "$ARCHIVE_PATH"
     else
-        tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
+        create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
     fi
 
     if [ $? -ne 0 ]; then
@@ -258,15 +256,15 @@ function package()
     fi
 
     #copy the compressed tar file into the destination
-    cp "$name_dir.tar.xz" "$dump_dir"
+    cp "$ARCHIVE_PATH" "$dump_dir"
     if [ $? -ne 0 ]; then
-        echo "Failed to copy the $name_dir.tar.xz to $dump_dir"
-        rm "$name_dir.tar.xz"
+        echo "Failed to copy the $ARCHIVE_PATH to $dump_dir"
+        rm "$ARCHIVE_PATH"
         return $INTERNAL_FAILURE
     fi
 
     #Remove the temporary copy of the file
-    rm "$name_dir.tar.xz"
+    rm "$ARCHIVE_PATH"
 }
 
 # @brief Main function

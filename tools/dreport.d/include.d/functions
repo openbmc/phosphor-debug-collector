@@ -1,5 +1,54 @@
 #!/usr/bin/env bash
 
+# Source dreport configuration
+if [ -f /usr/share/dreport.d/dreport.conf ]; then
+    source /usr/share/dreport.d/dreport.conf
+fi
+
+# Set compression flags based on algorithm
+case "${DUMP_COMPRESSION:-xz}" in
+    xz)
+        TAR_COMPRESS_FLAG="-J"
+        ARCHIVE_EXT="tar.xz"
+        ;;
+    gzip)
+        TAR_COMPRESS_FLAG="-z"
+        ARCHIVE_EXT="tar.gz"
+        ;;
+    zstd)
+        TAR_COMPRESS_FLAG=""
+        ARCHIVE_EXT="tar.zst"
+        ;;
+    *)
+        TAR_COMPRESS_FLAG="-J"
+        ARCHIVE_EXT="tar.xz"
+        ;;
+esac
+
+# @brief Create a compressed tar archive
+# @param $1 Output file path (without extension)
+# @param $2 Source directory (parent dir for -C)
+# @param $3 Base name to archive
+# @return Sets ARCHIVE_PATH to the created archive path
+function create_archive()
+{
+    local output_base="$1"
+    local src_dir="$2"
+    local base_name="$3"
+    local archive_file="${output_base}.${ARCHIVE_EXT}"
+
+    case "${DUMP_COMPRESSION:-xz}" in
+        zstd)
+            tar -cf - -C "$src_dir" "$base_name" | zstd > "$archive_file"
+            ;;
+        *)
+            tar ${TAR_COMPRESS_FLAG} -cf "$archive_file" -C "$src_dir" "$base_name"
+            ;;
+    esac
+
+    ARCHIVE_PATH="$archive_file"
+}
+
 # @brief Execute the command and save the output into the dreport
 #        packaging, if it is in the user allowed dump size limit.
 # @param $1 Command to be executed.
@@ -101,15 +150,14 @@ function check_size()
     if [ $((size + cur_dump_size)) -gt $dump_size ]; then
         #Exceed the allowed limit,
         #tar and compress the files and check the size
-        tar -Jcf "$name_dir.tar.xz" -C \
-            $(dirname "$name_dir") $(basename "$name_dir")
-        size=$(stat -c%s "$name_dir.tar.xz")
+        create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
+        size=$(stat -c%s "$ARCHIVE_PATH")
         if [ $size -gt $dump_size ]; then
             #Remove the the specific data from the name_dir and continue
-            rm "$source" "$name_dir.tar.xz"
+            rm "$source" "$ARCHIVE_PATH"
             return $RESOURCE_UNAVAILABLE
         else
-            rm "$name_dir.tar.xz"
+            rm "$ARCHIVE_PATH"
         fi
     fi
 
