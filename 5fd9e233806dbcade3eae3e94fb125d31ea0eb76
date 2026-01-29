@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0fd0fbb8_6d34ecf0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-01-29T20:50:52Z",
+      "side": 1,
+      "message": "Good catch. I rebuilt with zstd compression and updated the table with the results.",
+      "parentUuid": "8700bba9_9191d557",
+      "revId": "5fd9e233806dbcade3eae3e94fb125d31ea0eb76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "228b64b3_97cb3585",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2026-01-29T18:58:06Z",
       "side": 1,
       "message": "In the bitbake recipe we can add a PACKAGECONFIG and an RDEPEND when zstd is chosen.",
+      "revId": "5fd9e233806dbcade3eae3e94fb125d31ea0eb76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69065b7a_a5eae631",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-01-29T20:50:52Z",
+      "side": 1,
+      "message": "Done. Updated the summary and submmitted a patch to add the PACKAGECONFIG: https://gerrit.openbmc.org/c/openbmc/openbmc/+/87077",
+      "parentUuid": "228b64b3_97cb3585",
       "revId": "5fd9e233806dbcade3eae3e94fb125d31ea0eb76",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
