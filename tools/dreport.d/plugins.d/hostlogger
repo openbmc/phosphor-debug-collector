@@ -16,7 +16,7 @@ if [[ -d ${LOGS_PATH} ]]; then
                awk '/hostlogger@/{print $1}')"
     for SVC in ${INSTANCES}; do
         log_info "Flush ${SVC}..."
-        if ! systemctl kill --signal SIGUSR1 ${SVC}; then
+        if ! systemctl kill --signal SIGUSR1 "${SVC}"; then
             log_warning "Unable to flush ${SVC}"
         fi
     done
