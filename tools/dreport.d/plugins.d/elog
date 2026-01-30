@@ -7,7 +7,7 @@
 # shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
-if [ -z $elog_id ]; then
+if [ -z "$elog_id" ]; then
     log_error "elog does not exist"
     exit
 fi

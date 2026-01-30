@@ -9,7 +9,7 @@
 
 services=$(busctl list | awk '{print $1}' | grep -E "xyz.openbmc_project.State.Chassis([0-9]*)?$")
 for service in ${services}; do
-    objpath=$(busctl tree --list $service  | tail -n 1)
+    objpath=$(busctl tree --list "$service"  | tail -n 1)
     index=$(echo "$service" | grep -o '[0-9]*$')
     if [ -z "$index" ]; then
         file_name="chassis-state.log"
