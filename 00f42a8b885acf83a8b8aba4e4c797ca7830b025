@@ -22,6 +22,30 @@
       },
       "revId": "00f42a8b885acf83a8b8aba4e4c797ca7830b025",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31884885_0e650afa",
+        "filename": "tools/dreport.d/plugins.d/hostlogger",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-01-30T18:21:57Z",
+      "side": 1,
+      "message": "Makes sense! Fixed.",
+      "parentUuid": "13aa9f6d_423eb48f",
+      "range": {
+        "startLine": 19,
+        "startChar": 46,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "00f42a8b885acf83a8b8aba4e4c797ca7830b025",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
