@@ -4,7 +4,7 @@
 # @brief: Collect mount information.
 #
 
-# shellcheck source=/dev/null
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="mount info"

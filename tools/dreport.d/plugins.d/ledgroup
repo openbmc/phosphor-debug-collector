@@ -4,7 +4,7 @@
 # @brief: Collect LED groups details
 #
 
-# shellcheck disable=SC1091
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="led groups"

@@ -4,7 +4,7 @@
 # @brief: Collect network information
 #
 
-# shellcheck disable=SC1091
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 file_name="network.log"
