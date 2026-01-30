@@ -4,6 +4,4 @@ tools/dreport.d/ibm.d/gendumpheader
 tools/dreport.d/ibm.d/plugins.d/vpd_data
 tools/dreport.d/include.d/functions
 tools/dreport.d/openpower.d/plugins.d/obmcconsole1
-tools/dreport.d/plugins.d/elog
-tools/dreport.d/plugins.d/journalpid
 tools/dreport.d/ibm.d/plugins.d/badpel
