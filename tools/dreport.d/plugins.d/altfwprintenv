@@ -3,7 +3,7 @@
 # config: 2 50
 # @brief: Print variables from Alt flash U-Boot environment.
 #
-
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="Alt-Flash: U-Boot environment variables"

@@ -3,7 +3,7 @@
 # config: 2 50
 # @brief: Collect redundant OS information.
 
-# shellcheck disable=SC1091
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE/functions"
 
 desc="Redundant firmware info"

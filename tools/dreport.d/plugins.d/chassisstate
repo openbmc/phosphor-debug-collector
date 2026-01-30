@@ -4,7 +4,8 @@
 # @brief: Collect Chassis state information.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 services=$(busctl list | awk '{print $1}' | grep -E "xyz.openbmc_project.State.Chassis([0-9]*)?$")
 for service in ${services}; do

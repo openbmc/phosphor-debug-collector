@@ -4,7 +4,7 @@
 # @brief: Get the internal D-bus information.
 #
 
-# shellcheck source=/dev/null
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="D-bus internal stats"

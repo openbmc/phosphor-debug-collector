@@ -4,7 +4,7 @@
 # @brief: Collect list of all D-Bus connections.
 #
 
-# shellcheck source=/dev/null
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="dbus list"

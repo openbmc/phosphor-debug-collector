@@ -4,7 +4,7 @@
 # @brief: Save the audit log
 #
 
-# shellcheck disable=SC1091
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 # Multiple audit.log files can exist in the $log_path

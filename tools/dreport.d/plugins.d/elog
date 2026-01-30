@@ -4,7 +4,8 @@
 # @brief: Collect only user initialized elog ID details.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 if [ -z $elog_id ]; then
     log_error "elog does not exist"
