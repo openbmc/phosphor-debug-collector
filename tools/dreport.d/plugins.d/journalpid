@@ -4,7 +4,8 @@
 # @brief: Collect user initialized PID specific journal log information.
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 desc="Journal pid:$pid log"
 

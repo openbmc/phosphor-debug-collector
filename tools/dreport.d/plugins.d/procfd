@@ -4,7 +4,7 @@
 # @brief: List the open file descriptors
 #
 
-# shellcheck disable=SC1091
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 file_name="procfd.log"

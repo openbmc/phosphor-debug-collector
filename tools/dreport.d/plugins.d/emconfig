@@ -4,7 +4,8 @@
 # @brief: Save the entity manager configuration
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 desc="entity-manager configuration"
 file_name="em-system.json"

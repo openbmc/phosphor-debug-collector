@@ -4,7 +4,8 @@
 # @brief: Collect host's logs
 #
 
-. ${DREPORT_INCLUDE}/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 DESCRIPTION="Host logs"
 LOGS_PATH="/var/lib/obmc/hostlogs"

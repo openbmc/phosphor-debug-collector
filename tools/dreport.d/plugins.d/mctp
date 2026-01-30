@@ -4,7 +4,7 @@
 # @brief: Collect list of all MCTP Addresses.
 #
 
-# shellcheck source=/dev/null
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 # If mctp is not installed, do not try to collect

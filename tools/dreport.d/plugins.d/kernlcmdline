@@ -4,7 +4,7 @@
 # @brief: Collect kernal command line  parameter.
 #
 
-# shellcheck source=/dev/null
+# shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
 desc="Kernel command line parameters"

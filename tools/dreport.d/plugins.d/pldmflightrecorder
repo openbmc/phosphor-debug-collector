@@ -4,7 +4,8 @@
 # @brief: Get the pldm flight recorder
 #
 
-. $DREPORT_INCLUDE/functions
+# shellcheck source=tools/dreport.d/include.d/functions
+. "$DREPORT_INCLUDE"/functions
 
 desc="pldm flight recorder"
 
