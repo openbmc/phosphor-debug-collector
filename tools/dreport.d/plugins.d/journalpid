@@ -7,6 +7,9 @@
 # shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
+# pid is set by dreport
+declare pid
+
 desc="Journal pid:$pid log"
 
 if [ "$pid" -eq "$ZERO" ]; then

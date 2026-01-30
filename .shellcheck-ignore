@@ -1,5 +1,3 @@
 ffdc
 tools/dreport.d/dreport
 tools/dreport.d/include.d/functions
-tools/dreport.d/plugins.d/elog
-tools/dreport.d/plugins.d/journalpid

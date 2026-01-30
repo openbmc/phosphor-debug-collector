@@ -7,6 +7,9 @@
 # shellcheck source=tools/dreport.d/include.d/functions
 . "$DREPORT_INCLUDE"/functions
 
+# optional_path is set by dreport
+declare optional_path
+
 if [ -z "$elog_id" ]; then
     log_error "elog does not exist"
     exit
