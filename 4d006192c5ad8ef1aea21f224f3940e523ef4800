@@ -16,6 +16,24 @@
       "message": "please remove ibm.d and openpower.d file . Not available now.",
       "revId": "4d006192c5ad8ef1aea21f224f3940e523ef4800",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eaabedb_b8f9c64f",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-02-02T15:29:05Z",
+      "side": 1,
+      "message": "Addressed in https://gerrit.openbmc.org/c/openbmc/phosphor-debug-collector/+/87109/3",
+      "parentUuid": "3b554aa0_b1e2fad4",
+      "revId": "4d006192c5ad8ef1aea21f224f3940e523ef4800",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
