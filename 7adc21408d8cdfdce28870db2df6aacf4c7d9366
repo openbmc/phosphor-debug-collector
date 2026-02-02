@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1f7853_8302c72d",
+        "filename": ".shellcheck-ignore",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2026-02-02T13:56:34Z",
+      "side": 1,
+      "message": "ibm.d is not avaibale now please remove.",
+      "revId": "7adc21408d8cdfdce28870db2df6aacf4c7d9366",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
