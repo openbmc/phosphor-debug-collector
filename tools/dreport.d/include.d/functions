@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
-# Source dreport configuration
+# Variables declared in dreport, expected to be set before sourcing this file
+declare -x name_dir
+declare -x dump_size
+declare -x dreport_log
+declare -x summary_log
+declare -x quiet
+declare -x verbose
+
+# Source dreport configuration (generated at build time)
 if [ -f /usr/share/dreport.d/dreport.conf ]; then
+    # shellcheck source=/dev/null
     source /usr/share/dreport.d/dreport.conf
 fi
 
@@ -60,8 +69,7 @@ function add_cmd_output()
     file_name="$2"
     desc="$3"
 
-    eval $command >> "$name_dir/$file_name"
-    if [ $? -ne 0 ]; then
+    if ! eval "$command" >> "$name_dir/$file_name"; then
         log_error "Failed to collect $desc"
         rm -f "$name_dir/$file_name"
         return 1
@@ -83,18 +91,18 @@ function add_copy_file()
     file_name="$1"
     desc="$2"
 
-    cp -Lr $file_name $name_dir
-    if [ $? -ne 0 ]; then
+    if ! cp -Lr "$file_name" "$name_dir"; then
         log_error "Failed to copy $desc $file_name"
-        rm -fr "$name_dir/$file_name"
-        return $RESOURCE_UNAVAILABLE
+        # file_name is not empty, otherwise cp would have failed
+        rm -fr "${name_dir:?}/$file_name"
+        return "$RESOURCE_UNAVAILABLE"
     fi
     if check_size "$name_dir/$(basename "$file_name")"; then
         log_info "Copied $desc $file_name"
-        return $SUCCESS
+        return "$SUCCESS"
     else
         log_warning "Skipping copy $desc $file_name"
-        return $RESOURCE_UNAVAILABLE
+        return "$RESOURCE_UNAVAILABLE"
     fi
 }
 # @brief Copy the symbolic link file to the dreport packaging,
@@ -106,18 +114,18 @@ function add_copy_sym_link_file()
     file_name="$1"
     desc="$2"
 
-    cp $file_name $name_dir
-    if [ $? -ne 0 ]; then
+    if ! cp "$file_name" "$name_dir"; then
         log_error "Failed to copy $desc $file_name"
-        rm -fr "$name_dir/$file_name"
-        return $RESOURCE_UNAVAILABLE
+        # file_name is not empty, otherwise cp would have failed
+        rm -fr "${name_dir:?}/$file_name"
+        return "$RESOURCE_UNAVAILABLE"
     fi
     if check_size "$name_dir/$(basename "$file_name")"; then
         log_info "Copied $desc $file_name"
-        return $SUCCESS
+        return "$SUCCESS"
     else
         log_warning "Skipping copy $desc $file_name"
-        return $RESOURCE_UNAVAILABLE
+        return "$RESOURCE_UNAVAILABLE"
     fi
 }
 
@@ -133,45 +141,45 @@ function check_size()
     source=$1
 
     #No size check required in case dump_size is set to unlimited
-    if [ $dump_size = $UNLIMITED ]; then
+    if [ "$dump_size" = "$UNLIMITED" ]; then
         return 0
     fi
 
     #get the file or directory size
     if [[ -d $source ]] && [[ -n $source ]]; then
         tar -cf "$source.tar" -C \
-            $(dirname "$source") $(basename "$source")
+            "$(dirname "$source")" "$(basename "$source")"
         size=$(stat -c%s "$source.tar")
         rm "$source.tar"
     else
         size=$(stat -c%s "$source")
     fi
 
-    if [ $((size + cur_dump_size)) -gt $dump_size ]; then
+    if [ $((size + cur_dump_size)) -gt "$dump_size" ]; then
         #Exceed the allowed limit,
         #tar and compress the files and check the size
         create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
         size=$(stat -c%s "$ARCHIVE_PATH")
-        if [ $size -gt $dump_size ]; then
+        if [ "$size" -gt "$dump_size" ]; then
             #Remove the the specific data from the name_dir and continue
             rm "$source" "$ARCHIVE_PATH"
-            return $RESOURCE_UNAVAILABLE
+            return "$RESOURCE_UNAVAILABLE"
         else
             rm "$ARCHIVE_PATH"
         fi
     fi
 
     cur_dump_size=$((size + cur_dump_size))
-    return $SUCCESS
+    return "$SUCCESS"
 }
 
 # @brief log the error message
 # @param error message
 function log_error()
 {
-    echo $($TIME_STAMP) "ERROR: $*" >> $dreport_log
+    echo "$($TIME_STAMP)" "ERROR: $*" >> "$dreport_log"
     if ((quiet != TRUE)); then
-        echo $($TIME_STAMP) "ERROR: $*" >&2
+        echo "$($TIME_STAMP)" "ERROR: $*" >&2
     fi
 }
 
@@ -180,9 +188,9 @@ function log_error()
 function log_warning()
 {
     if ((verbose == TRUE)); then
-        echo $($TIME_STAMP) "WARNING: $*" >> $dreport_log
+        echo "$($TIME_STAMP)" "WARNING: $*" >> "$dreport_log"
         if ((quiet != TRUE)); then
-            echo $($TIME_STAMP) "WARNING: $*" >&2
+            echo "$($TIME_STAMP)" "WARNING: $*" >&2
         fi
     fi
 }
@@ -192,9 +200,9 @@ function log_warning()
 function log_info()
 {
     if ((verbose == TRUE)); then
-        echo $($TIME_STAMP) "INFO: $*" >> $dreport_log
+        echo "$($TIME_STAMP)" "INFO: $*" >> "$dreport_log"
         if ((quiet != TRUE)); then
-            echo $($TIME_STAMP) "INFO: $*" >&1
+            echo "$($TIME_STAMP)" "INFO: $*" >&1
         fi
     fi
 }
@@ -203,8 +211,8 @@ function log_info()
 # @param message
 function log_summary()
 {
-    echo $($TIME_STAMP) "$*" >> $summary_log
+    echo "$($TIME_STAMP)" "$*" >> "$summary_log"
     if ((quiet != TRUE)); then
-        echo $($TIME_STAMP) "$*" >&1
+        echo "$($TIME_STAMP)" "$*" >&1
     fi
 }
