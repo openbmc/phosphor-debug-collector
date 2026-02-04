@@ -230,8 +230,9 @@ function package()
     fi
 
     #tar and compress the files.
+    create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
+
     if [ -f "$HEADER_EXTENSION" ]; then
-        create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
         echo "Adding Dump Header :"$HEADER_EXTENSION
         ("$HEADER_EXTENSION")
         # shellcheck disable=SC2002
@@ -239,8 +240,6 @@ function package()
         # It is unclear if this code path is still used.
         cat "$ARCHIVE_PATH" | tee -a "/tmp/dumpheader_$EPOCHTIME" > /dev/null
         mv "/tmp/dumpheader_$EPOCHTIME" "$ARCHIVE_PATH"
-    else
-        create_archive "$name_dir" "$(dirname "$name_dir")" "$(basename "$name_dir")"
     fi
 
     # shellcheck disable=SC2181
