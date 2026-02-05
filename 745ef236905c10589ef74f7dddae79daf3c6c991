@@ -103,6 +103,24 @@
       "parentUuid": "854a716c_595a696f",
       "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5874da57_d441fadc",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-02-05T17:32:19Z",
+      "side": 1,
+      "message": "@mdmii@outlook.com @matt.fischer@hpe.com sorry for the late response - I completely missed this discussion.\n\nThe proposed fix works - the variable expands to the correct path (I tested it). However, it is not expanded by meson, but by Yocto using SYSTEMD_SUBSTITUTIONS in the base recipe afaic: https://github.com/openbmc/openbmc/blob/bf402a30368f1c48744c1626b78676843e97b072/meta-phosphor/recipes-phosphor/dump/phosphor-debug-collector_git.bb#L47C1-L48C1\n\nIf you build this using meson directly (not bitbake) and install the service files, the variable won\u0027t be substituted.  The proper fix is to use meson\u0027s configure_file() so the project works standalone without relying on yocto.\n\nI\u0027d be happy to accept this as a temporary fix and follow up with the meson based solution, if @mdmii@outlook.com and/or @ojayanth@gmail.com agree.",
+      "parentUuid": "5994d41a_bceb1875",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
