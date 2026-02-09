@@ -121,6 +121,24 @@
       "parentUuid": "5994d41a_bceb1875",
       "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a61a7333_a65667ea",
+        "filename": "service_files/xyz.openbmc_project.Dump.Manager.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2026-02-09T11:39:19Z",
+      "side": 1,
+      "message": "Looking a cleaner fix . sugested by William . which supports both meson and yocto based builds.",
+      "parentUuid": "5874da57_d441fadc",
+      "revId": "745ef236905c10589ef74f7dddae79daf3c6c991",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
