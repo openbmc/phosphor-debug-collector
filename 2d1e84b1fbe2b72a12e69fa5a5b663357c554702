@@ -51,6 +51,24 @@
       "parentUuid": "9044fd9f_335ab552",
       "revId": "2d1e84b1fbe2b72a12e69fa5a5b663357c554702",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cfeb56d_0c96772d",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-02-10T13:14:36Z",
+      "side": 1,
+      "message": "Seems I just need the approval of this patch.",
+      "parentUuid": "361d6405_4c500835",
+      "revId": "2d1e84b1fbe2b72a12e69fa5a5b663357c554702",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
