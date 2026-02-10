@@ -33,6 +33,24 @@
       "message": "It is bug/typo . Not dest_dir should be dump_dir",
       "revId": "2d1e84b1fbe2b72a12e69fa5a5b663357c554702",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "361d6405_4c500835",
+        "filename": "tools/dreport.d/dreport",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002515
+      },
+      "writtenOn": "2026-02-10T13:13:00Z",
+      "side": 1,
+      "message": "Done.  I\u0027ve fixed it in this commit.  However, I resubmitted this commit and the one on top.  There are no changes in the top one, but I\u0027ll need another approval apparently.",
+      "parentUuid": "9044fd9f_335ab552",
+      "revId": "2d1e84b1fbe2b72a12e69fa5a5b663357c554702",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
