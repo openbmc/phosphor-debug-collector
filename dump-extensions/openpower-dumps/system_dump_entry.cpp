@@ -15,7 +15,7 @@ namespace dump
 namespace system
 {
 // TODO #ibm-openbmc/issues/2859
-// Revisit host transport impelementation
+// Revisit host transport implementation
 // This value is used to identify the dump in the transport layer to host,
 constexpr auto TRANSPORT_DUMP_TYPE_IDENTIFIER = 3;
 using namespace phosphor::logging;

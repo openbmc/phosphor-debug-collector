@@ -114,7 +114,7 @@ void Entry::deserialize(const std::filesystem::path& dumpPath)
         std::filesystem::path dir = dumpPath / PRESERVE;
         if (!std::filesystem::exists(dir))
         {
-            lg2::info("Serialization directory: {SERIAL_DIR} doesnt exist, "
+            lg2::info("Serialization directory: {SERIAL_DIR} doesn't exist, "
                       "skip deserialization",
                       "SERIAL_DIR", dir);
             return;
@@ -160,7 +160,7 @@ void Entry::deserialize(const std::filesystem::path& dumpPath)
         else
         {
             lg2::error("The serialized file version and current class version"
-                       "doesnt match, skip deserialization {VERSION}",
+                       "doesn't match, skip deserialization {VERSION}",
                        "VERSION", version);
         }
     }

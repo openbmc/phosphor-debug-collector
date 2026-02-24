@@ -82,7 +82,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     try
     {
         lg2::info(
-            "Resouce Dump Notify: creating new dump entry dumpId: {DUMP_ID} "
+            "Resource Dump Notify: creating new dump entry dumpId: {DUMP_ID} "
             "Id: {ID} Size: {SIZE}",
             "DUMP_ID", id, "ID", dumpId, "SIZE", size);
         entries.insert(std::make_pair(

@@ -46,7 +46,7 @@ dbus_command="$dbus_property_command $dbus_object $firmware1 $dbus_object_priori
     $dbus_object_priority"
 
 # Get the priority of the image.
-# The one with the highest prirority amongst the two is the backup one
+# The one with the highest priority amongst the two is the backup one
 firmware1_priority=$(eval "$dbus_command" | grep -w "1" | cut -d' ' -f 2)
 
 if [ -n  "$firmware1_priority" ]; then
