@@ -2,6 +2,7 @@
 
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
+#include "op_dump_consts.hpp"
 
 #include <unistd.h>
 
@@ -198,4 +199,54 @@ openpower::dump::DumpParameters extractDumpParameters(
             fid,      originatorId, originatorType};
 }
 
+uint32_t getDumpIdPrefix(OpDumpTypes dumpType)
+{
+    switch (dumpType)
+    {
+        case OpDumpTypes::Hardware:
+            return HARDWARE_DUMP_ID_PREFIX;
+        case OpDumpTypes::Hostboot:
+            return HOSTBOOT_DUMP_ID_PREFIX;
+        case OpDumpTypes::SBE:
+            return SBE_DUMP_ID_PREFIX;
+        case OpDumpTypes::MemoryBufferSBE:
+            return MSBE_DUMP_ID_PREFIX;
+        case OpDumpTypes::System:
+            return SYSTEM_DUMP_ID_PREFIX;
+        case OpDumpTypes::Resource:
+            return RESOURCE_DUMP_ID_PREFIX;
+        default:
+            lg2::error("unsupported {TYPE}", "TYPE", dumpType);
+    }
+    return 0xFF;
+}
+
+OpDumpTypes getDumpTypeFromId(uint32_t id)
+{
+    using namespace phosphor::logging;
+    // Extract the highest byte as the prefix
+    uint32_t prefix = id & DUMP_ID_PREFIX_MASK;
+
+    switch (prefix)
+    {
+        case HARDWARE_DUMP_ID_PREFIX:
+            return OpDumpTypes::Hardware;
+        case HOSTBOOT_DUMP_ID_PREFIX:
+            return OpDumpTypes::Hostboot;
+        case SBE_DUMP_ID_PREFIX:
+            return OpDumpTypes::SBE;
+        case MSBE_DUMP_ID_PREFIX:
+            return OpDumpTypes::MemoryBufferSBE;
+        case SYSTEM_DUMP_ID_PREFIX:
+            return OpDumpTypes::System;
+        case RESOURCE_DUMP_ID_PREFIX:
+            return OpDumpTypes::Resource;
+        default:
+            lg2::error("Unknown dump type");
+    }
+
+    return OpDumpTypes::System;
+}
+
+}
 } // namespace openpower::dump::util

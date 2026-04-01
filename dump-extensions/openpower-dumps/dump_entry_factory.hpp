@@ -136,68 +136,6 @@ class DumpEntryFactory
         const DumpParameters& dumpParams);
 
     /**
-     * @brief Retrieves the dump ID prefix based on the dump type.
-     * @param[in] dumpType Type of the dump (system, resource, etc.).
-     * @return The prefix to be used for the dump ID.
-     */
-    uint32_t getDumpIdPrefix(OpDumpTypes dumpType)
-    {
-        switch (dumpType)
-        {
-            case OpDumpTypes::Hardware:
-                return HARDWARE_DUMP_ID_PREFIX;
-            case OpDumpTypes::Hostboot:
-                return HOSTBOOT_DUMP_ID_PREFIX;
-            case OpDumpTypes::SBE:
-                return SBE_DUMP_ID_PREFIX;
-            case OpDumpTypes::MemoryBufferSBE:
-                return MSBE_DUMP_ID_PREFIX;
-            case OpDumpTypes::System:
-                return SYSTEM_DUMP_ID_PREFIX;
-            case OpDumpTypes::Resource:
-                return RESOURCE_DUMP_ID_PREFIX;
-            default:
-                lg2::error("unsupported {TYPE}", "TYPE", dumpType);
-        }
-        return 0xFF;
-    }
-
-    /**
-     * @brief Determines the dump type based on the ID prefix.
-     *
-     * @param id The dump ID from which to extract the dump type.
-     * @return The dump type as an enumeration value of OpDumpTypes.
-     *         If the prefix does not match any known type,
-     *         it returns OpDumpTypes::System as a default.
-     */
-    OpDumpTypes getDumpTypeFromId(uint32_t id)
-    {
-        using namespace phosphor::logging;
-        // Extract the highest byte as the prefix
-        uint32_t prefix = id & DUMP_ID_PREFIX_MASK;
-
-        switch (prefix)
-        {
-            case HARDWARE_DUMP_ID_PREFIX:
-                return OpDumpTypes::Hardware;
-            case HOSTBOOT_DUMP_ID_PREFIX:
-                return OpDumpTypes::Hostboot;
-            case SBE_DUMP_ID_PREFIX:
-                return OpDumpTypes::SBE;
-            case MSBE_DUMP_ID_PREFIX:
-                return OpDumpTypes::MemoryBufferSBE;
-            case SYSTEM_DUMP_ID_PREFIX:
-                return OpDumpTypes::System;
-            case RESOURCE_DUMP_ID_PREFIX:
-                return OpDumpTypes::Resource;
-            default:
-                lg2::error("Unknown dump type");
-        }
-
-        return OpDumpTypes::System;
-    }
-
-    /**
      * @brief Update or create a new host dump entry.
      *
      * @tparam T The specific type of dump entry, must be derived from

@@ -5,7 +5,6 @@
 #include "dump_entry_factory.hpp"
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
-#include "op_dump_util.hpp"
 #include "system_dump_entry.hpp"
 
 #include <com/ibm/Dump/Create/common.hpp>

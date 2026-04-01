@@ -108,5 +108,21 @@ inline void throwInvalidArgument(const std::string& argumentName,
                           Argument::ARGUMENT_VALUE(errorDetail.c_str()));
 }
 
+/**
+ * @brief Retrieves the dump ID prefix based on the dump type.
+ * @param[in] dumpType Type of the dump (system, resource, etc.).
+ * @return The prefix to be used for the dump ID.
+ */
+uint32_t getDumpIdPrefix(OpDumpTypes dumpType);
+/**
+ * @brief Determines the dump type based on the ID prefix.
+ *
+ * @param id The dump ID from which to extract the dump type.
+ * @return The dump type as an enumeration value of OpDumpTypes.
+ *         If the prefix does not match any known type,
+ *         it returns OpDumpTypes::System as a default.
+ */
+OpDumpTypes getDumpTypeFromId(uint32_t id);
+
 } // namespace util
 } // namespace openpower::dump

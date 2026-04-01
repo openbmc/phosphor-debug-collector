@@ -3,6 +3,7 @@
 #include "dump_manager.hpp"
 #include "dump_utils.hpp"
 #include "op_dump_consts.hpp"
+#include "op_dump_util.hpp"
 #include "watch.hpp"
 
 #include <com/ibm/Dump/Create/common.hpp>
