@@ -75,6 +75,23 @@ class Manager :
                     else if (event == IN_CREATE &&
                              std::filesystem::is_directory(path))
                     {
+                        // Extract directory name
+                        auto idStr = path.filename().string();
+
+                        // Validate it's a hex string (dump ID format)
+                        if (std::all_of(idStr.begin(), idStr.end(), ::isxdigit))
+                        {
+                            // Convert hex string to dump ID
+                            uint32_t dumpId = static_cast<uint32_t>(
+                                std::stoul(idStr, nullptr, 16));
+                            auto prefix = dumpId & DUMP_ID_PREFIX_MASK;
+
+                            if (prefix == RESOURCE_DUMP_ID_PREFIX ||
+                                prefix == SYSTEM_DUMP_ID_PREFIX)
+                            {
+                                continue;
+                            }
+                        }
                         auto recursiveWatch = std::make_unique<Watch>(
                             eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE, EPOLLIN,
                             path, [this](const UserMap& recursiveFileInfo) {
