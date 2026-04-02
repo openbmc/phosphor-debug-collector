@@ -124,5 +124,14 @@ uint32_t getDumpIdPrefix(OpDumpTypes dumpType);
  */
 OpDumpTypes getDumpTypeFromId(uint32_t id);
 
+/**
+ * @brief Get dump type from path.
+ * @param[in] path Filesystem path containing the dump ID as filename.
+ * @return std::optional<OpDumpTypes> Dump type if valid; std::nullopt
+ * otherwise.
+ */
+std::optional<OpDumpTypes> getDumpTypeFromPath(
+    const std::filesystem::path& path);
+
 } // namespace util
 } // namespace openpower::dump
