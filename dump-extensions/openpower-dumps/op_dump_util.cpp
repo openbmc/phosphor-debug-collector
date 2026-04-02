@@ -248,5 +248,35 @@ OpDumpTypes getDumpTypeFromId(uint32_t id)
     return OpDumpTypes::System;
 }
 
+std::optional<OpDumpTypes> getDumpTypeFromPath(
+    const std::filesystem::path& path)
+{
+    // Extract directory name (expected to be dump ID in hex)
+    const auto idStr = path.filename().string();
+
+    // Validate non-empty and hex
+    if (idStr.empty() ||
+        !std::all_of(idStr.begin(), idStr.end(),
+                     [](unsigned char c) { return std::isxdigit(c); }))
+    {
+        return std::nullopt;
+    }
+
+    try
+    {
+        // Convert hex string to uint32_t
+        uint32_t dumpId = static_cast<uint32_t>(std::stoul(idStr, nullptr, 16));
+
+        return getDumpTypeFromId(dumpId);
+    }
+    catch (const std::exception& e)
+    {
+        // Conversion failed
+        lg2::error("Invalid dump ID in path: {PATH}, error: {ERROR}", "PATH",
+                   path.string(), "ERROR", e.what());
+        return std::nullopt;
+    }
+}
+
 }
 } // namespace openpower::dump::util
