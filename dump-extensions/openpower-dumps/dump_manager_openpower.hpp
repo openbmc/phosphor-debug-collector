@@ -76,6 +76,21 @@ class Manager :
                     else if (event == IN_CREATE &&
                              std::filesystem::is_directory(path))
                     {
+                        auto dumpTypeOpt = util::getDumpTypeFromPath(path);
+
+                        if (!dumpTypeOpt)
+                        {
+                            continue;
+                        }
+
+                        auto dumpType = *dumpTypeOpt;
+
+                        if (dumpType == OpDumpTypes::Resource ||
+                            dumpType == OpDumpTypes::System)
+                        {
+                            continue;
+                        }
+
                         auto recursiveWatch = std::make_unique<Watch>(
                             eventLoop, IN_NONBLOCK, IN_CLOSE_WRITE, EPOLLIN,
                             path, [this](const UserMap& recursiveFileInfo) {
