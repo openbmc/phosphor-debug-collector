@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# config: 123 70
+# @brief: Collect performance information
+#
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE"/functions
+
+file_name="perf.log"
+
+add_cmd_output "echo $'\n[ps -l]'" "$file_name" "ps long"
+add_cmd_output "ps -l" "$file_name" "ps long"
+
+add_cmd_output "echo $'\n[free -h]'" "$file_name" "free mem"
+add_cmd_output "free -h" "$file_name" "free mem"
+
+#buddyinfo
+buddy_file="/proc/buddyinfo"
+if [ -f $buddy_file ]; then
+    add_cmd_output "echo $'\n[/proc/buddyinfo]'" "$file_name" "buddyinfo"
+    add_cmd_output "cat $buddy_file" "$file_name" "buddyinfo"
+fi
+
+#pagetype
+pagetype_file="/proc/pagetypeinfo"
+if [ -f $pagetype_file ]; then
+    add_cmd_output "echo $'\n[/proc/pagetypeinfo]'" "$file_name" "pagetype"
+    add_cmd_output "cat $pagetype_file" "$file_name" "pagetype"
+fi
+
+#vmstat
+vmstat_file="/proc/vmstat"
+if [ -f $vmstat_file ]; then
+    add_cmd_output "echo $'\n[/proc/vmstat]'" "$file_name" "vmstat"
+    add_cmd_output "cat $vmstat_file" "$file_name" "vmstat"
+fi
+
+#zoneinfo
+zone_file="/proc/zoneinfo"
+if [ -f $zone_file ]; then
+    add_cmd_output "echo $'\n[/proc/zoneinfo]'" "$file_name" "zoneinfo"
+    add_cmd_output "cat $zone_file" "$file_name" "zoneinfo"
+fi
