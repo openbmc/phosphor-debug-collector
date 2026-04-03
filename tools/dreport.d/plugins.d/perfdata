@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# config: 123 70
+# @brief: Collect performance information
+#
+
+# shellcheck disable=SC1091
+. "$DREPORT_INCLUDE"/functions
+
+file_name="perf.log"
+
+add_cmd_output "echo $'\n[ps -l]'; ps -l" "$file_name" "ps long"
+
+#buddyinfo
+buddy_file="/proc/buddyinfo"
+if [ -f "$buddy_file" ]; then
+    add_cmd_output "echo $'\n[/proc/buddyinfo]' ; cat $buddy_file" "$file_name" "buddyinfo"
+fi
+
+#pagetype
+pagetype_file="/proc/pagetypeinfo"
+if [ -f "$pagetype_file" ]; then
+    add_cmd_output "echo $'\n[/proc/pagetypeinfo]' ; cat $pagetype_file" "$file_name" "pagetype"
+fi
+
+#vmstat
+vmstat_file="/proc/vmstat"
+if [ -f "$vmstat_file" ]; then
+    add_cmd_output "echo $'\n[/proc/vmstat]' ; cat $vmstat_file" "$file_name" "vmstat"
+fi
+
+#zoneinfo
+zone_file="/proc/zoneinfo"
+if [ -f "$zone_file" ]; then
+    add_cmd_output "echo $'\n[/proc/zoneinfo]' ; cat $zone_file" "$file_name" "zoneinfo"
+fi
