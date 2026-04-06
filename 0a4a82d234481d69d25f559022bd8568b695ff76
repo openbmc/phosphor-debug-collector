@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88a615fa_941a84a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2026-04-06T15:19:11Z",
+      "side": 1,
+      "message": "Some of the data collected here appears to overlap with information already gathered by existing dreport plugins. For example:\n\nps -l provides information similar to what is available from the existing top -n 1 -b plugin\nfree -h overlaps conceptually with the data collected by the meminfo plugin\n\nThis overlap does not seem problematic, but it may be worth considering whether these commands add distinct value beyond what is already available. Otherwise, these could potentially be trimmed to reduce redundancy.",
+      "revId": "0a4a82d234481d69d25f559022bd8568b695ff76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a29c19_aeb18236",
+        "filename": "tools/dreport.d/plugins.d/perfdata",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2026-04-06T15:19:11Z",
+      "side": 1,
+      "message": "NIT: Two separate command invocations Slightly more overhead chnage to  add_cmd_output \"echo -e \u0027\\n[ps -l]\u0027; ps -l\" \"$file_name\" \"ps long\"",
+      "revId": "0a4a82d234481d69d25f559022bd8568b695ff76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9880bd44_0f84cde6",
+        "filename": "tools/dreport.d/plugins.d/perfdata",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2026-04-06T15:19:11Z",
+      "side": 1,
+      "message": "Variable expansions in test expressions should be quoted for robustness (e.g. if [ -f \"$buddy_file\" ]; then).",
+      "revId": "0a4a82d234481d69d25f559022bd8568b695ff76",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
