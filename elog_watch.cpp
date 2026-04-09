@@ -59,7 +59,7 @@ void Watch::addCallback(sdbusplus::message_t& msg)
     using QuotaExceeded =
         sdbusplus::xyz::openbmc_project::Dump::Create::Error::QuotaExceeded;
 
-    sdbusplus::message::object_path objectPath;
+    sdbusplus::object_path objectPath;
     PropertyMap propertyMap;
     try
     {
@@ -149,7 +149,7 @@ void Watch::addCallback(sdbusplus::message_t& msg)
 
 void Watch::delCallback(sdbusplus::message_t& msg)
 {
-    sdbusplus::message::object_path objectPath;
+    sdbusplus::object_path objectPath;
     try
     {
         msg.read(objectPath);

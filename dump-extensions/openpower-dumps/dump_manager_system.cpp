@@ -128,7 +128,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     return;
 }
 
-sdbusplus::message::object_path Manager::createDump(
+sdbusplus::object_path Manager::createDump(
     phosphor::dump::DumpCreateParams params)
 {
     constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
