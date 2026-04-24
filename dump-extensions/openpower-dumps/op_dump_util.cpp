@@ -45,7 +45,7 @@ bool isOPDumpsEnabled(sdbusplus::bus_t& bus)
 
         isEnabled = std::get<bool>(v);
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::internal_exception& e)
     {
         lg2::error("Error: {ERROR} in getting dump policy, default is enabled",
                    "ERROR", e);
@@ -68,7 +68,7 @@ BIOSAttrValueType readBIOSAttribute(const std::string& attrName,
         result.read(std::get<0>(attrVal), std::get<1>(attrVal),
                     std::get<2>(attrVal));
     }
-    catch (const sdbusplus::exception::SdBusError& e)
+    catch (const sdbusplus::exception::internal_exception& e)
     {
         lg2::error("Failed to read BIOS Attribute: {ATTRIBUTE_NAME}",
                    "ATTRIBUTE_NAME", attrName);
