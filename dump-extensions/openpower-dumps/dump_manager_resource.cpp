@@ -106,7 +106,7 @@ void Manager::notify(uint32_t dumpId, uint64_t size)
     lastEntryId++;
 }
 
-sdbusplus::message::object_path Manager::createDump(
+sdbusplus::object_path Manager::createDump(
     phosphor::dump::DumpCreateParams params)
 {
     using NotAllowed =
